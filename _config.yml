@@ -1,0 +1,10 @@
+name: kremalicious
+description: Blog of designer &#38; developer Matthias Kretschmann
+permalink: /:title
+relative_permalinks: true
+markdown: redcarpet
+pygments: true
+
+source:      ./_src
+destination: ./_site
+exclude:     ['design', 'node_modules', '_src/assets/less']
