@@ -8,3 +8,4 @@ pygments: true
 source:      ./_src
 destination: ./_site
 exclude:     ['design', 'node_modules', '_src/assets/less']
+keep_files:  ['media']
