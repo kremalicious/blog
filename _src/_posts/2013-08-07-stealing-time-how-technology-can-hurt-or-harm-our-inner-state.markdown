@@ -3,7 +3,7 @@ layout: link
 
 title: 'Stealing Time: How Technology Can Hurt or Harm Our Inner State'
 linkurl: https://www.ezeep.com/blog/stealing-time-how-technology-can-hurt-or-harm-our-quality-of-life/
-author: Matthias Kretschmann Kretschmann
+author: Matthias Kretschmann
 
 date: 2013-08-07 17:05:58+00:00
 wordpress_id: 2472

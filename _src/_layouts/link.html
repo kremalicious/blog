@@ -8,11 +8,6 @@ layout: base
             <a href="{{ page.linkurl }}">{{ page.title }} <i class="icon-forward"></i></a>
         </h1>
 	</header>
-    
-	<aside class="entry-meta">
-		<p class="byline author vcard source-org">by <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
-		<p class="time">{{ page.date | date_to_string }}</p>
-	</aside>
 
     <section class="entry-content">
         {{ content }}
@@ -23,6 +18,12 @@ layout: base
     </section>
     
     <footer class="entry-meta">
-        
+        <p class="category">
+            {% for category in page.categories %}
+                <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
+            {% endfor %}
+        </p>
+		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
+		<p class="time">{{ page.date | date_to_string }} <span class="modtime"></span></p>
     </footer>
 </article>
