@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 ---
 
 <article class="hentry fomrat-post">
@@ -19,7 +19,9 @@ layout: default
     
     <footer class="entry-meta">
         <p>
-            <a rel="category tag" href="" title="{{ page.categories }}">{{ page.categories }}</a>
+            {% for category in page.categories %}
+                <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
+            {% endfor %}
         </p>
     </footer>
 </article>

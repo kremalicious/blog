@@ -1,23 +1,60 @@
 ---
-layout: default
+layout: base
 title: Home
 ---
 
 {% for post in site.posts %}
     
-    <article class="hentry">
-    	<header>
-    		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-    	</header>
+    {% if post.layout == "link" %}
+    
+        <article class="hentry format-link">
+        	<header>
+        		<h1 class="entry-title">
+                    <a href="{{ post.linkurl }}">{{ post.title }} <i class="icon-forward"></i></a>
+                </h1>
+        	</header>
 
-        <section class="entry-content">
+            <section class="entry-content">
+                {{ post.content }}
+        		<p>
+        			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon-forward"></i></a>
+                    <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">&#8734;</a>
+        		</p>
+            </section>
+        </article>
+    
+    {% elsif post.layout == "image" %}
+    
+        <article class="hentry format-image">
+    
+            <a class="photoPost" href="{{ post.url }}">
+            	<figure class="hmedia">
+                    
+            		<img src="/assets/media/{{ post.image }}" />
+            		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
+            		exif
+            	</figure>
+            </a>
+    
+        </article>
+    
+    {% else %}
+    
+        <article class="hentry format-post">
+        	<header>
+        		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        	</header>
+
+            <section class="entry-content">
         
-            <a href="{{ post.url }}">{{ post.image }}</a>
-            {{ post.excerpt }}
+                <a href="{{ post.url }}">{{ post.image }}</a>
+                {{ post.excerpt }}
         
-            <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
+                <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
         
-        </section>
-    </article>
+            </section>
+        </article>
+    
+    {% endif %}
         
 {% endfor %}
