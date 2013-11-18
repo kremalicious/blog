@@ -1,0 +1,8 @@
+<ul id="navmenu">
+	<li<?php if ( is_page('home') ) { echo ' class="current"'; } ?>><a href="/" >Home</a></li>
+	<li<?php if ( is_page('portfolio') ) { echo ' class="current"'; } ?>><a href="/portfolio">Portfolio</a></li>
+	<li<?php if ( is_page('services') ) { echo ' class="current"'; } ?>><a href="/services">Services</a></li>
+  	<li<?php if ( is_home() || is_category() || is_archive() || is_tag() || is_search() || is_single() || is_date() ) { echo ' class="current"'; } ?>><a href="/blog">Blog</a></li>
+  	<li<?php if ( is_page('goodies') ) { echo ' class="current"'; } ?>><a href="/goodies">Goodies</a></li>
+  	<li<?php if ( is_page('about') || is_page('contact') || is_page('privacy') ) { echo ' class="current"'; } ?>><a href="/about">About</a></li>
+</ul>
