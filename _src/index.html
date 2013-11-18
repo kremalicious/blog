@@ -30,7 +30,7 @@ title: Home
             <a class="photoPost" href="{{ post.url }}">
             	<figure class="hmedia">
                     
-            		<img src="/assets/media/{{ post.image }}" />
+            		<img src="/media/{{ post.image }}" />
             		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
             		exif
             	</figure>
@@ -46,8 +46,13 @@ title: Home
         	</header>
 
             <section class="entry-content">
-        
-                <a href="{{ post.url }}">{{ post.image }}</a>
+                
+                {% if post.image %}
+                    <a href="{{ post.url }}">
+                        <img src="/media/{{ post.image }}" />
+                    </a>
+                {% endif %}
+                
                 {{ post.excerpt }}
         
                 <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>

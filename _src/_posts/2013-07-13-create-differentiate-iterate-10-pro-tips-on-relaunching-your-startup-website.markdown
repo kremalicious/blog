@@ -3,7 +3,7 @@ layout: link
 
 title: Create, differentiate, iterate – 10 pro tips on relaunching your startup website
 linkurl: http://venturevillage.eu/10-pro-tips-redesign
-author: Matthias Kretschmann
+author: Matthias Kretschmann Kretschmann
 
 date: 2013-07-13 12:49:39+00:00
 wordpress_id: 2461

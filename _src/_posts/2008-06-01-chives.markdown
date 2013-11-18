@@ -1,0 +1,22 @@
+---
+author: Matthias Kretschmann
+comments: true
+date: 2008-06-01 18:43:40+00:00
+layout: post
+slug: chives
+title: Chives
+wordpress_id: 64
+categories:
+- goodies
+- wallpaper
+---
+
+I have added my first wallpaper to the Goodies section on this website. It's a shot of blooming chives which was altered with Aperture 2.1 and Photoshop CS3.
+
+<!-- more -->
+
+You can get the wallpaper by browsing [my Goodies section](http://www.kremalicious.com/goodies/) and clicking on the download link for the wallpaper. The download package also includes a custom folder icon (512px as .icns, .png, .ico) with the Chives wallpaper on it.
+
+[download_button version=1.0]
+
+Beside that, this image is [available for print on deviantArt in various sizes](http://www.deviantart.com/print/3347544/).

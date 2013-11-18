@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
-author: Matthias Kretschmann
+author: Matthias Kretschmann Kretschmann
 date:   2013-11-17 23:56:48
 categories:
 - jekyll

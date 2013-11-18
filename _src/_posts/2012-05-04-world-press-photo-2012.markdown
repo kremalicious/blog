@@ -1,0 +1,19 @@
+---
+author: Matthias Kretschmann
+comments: true
+date: 2012-05-04 13:12:54+00:00
+layout: post
+slug: world-press-photo-2012
+title: World Press Photo 2012
+wordpress_id: 1997
+categories:
+- photography
+post_format:
+- Link
+tags:
+- photojournalism
+---
+
+The winners of the 2012 contest were announced and the [winner gallery](http://www.worldpressphoto.org/gallery/2012-world-press-photo) is worth checking out. 
+
+This years [winner, dubbed Photo Of The Year 2011](http://www.worldpressphoto.org/photo/world-press-photo-year-2011-0), comes from Spanish photographer [Samuel Aranda](http://www.samuelaranda.net/).

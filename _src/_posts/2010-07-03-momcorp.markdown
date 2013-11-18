@@ -1,0 +1,32 @@
+---
+author: Matthias Kretschmann
+comments: true
+date: 2010-07-03 17:12:53+00:00
+layout: post
+slug: momcorp
+title: MomCorp Wallpaper
+wordpress_id: 1453
+categories:
+- goodies
+- wallpaper
+---
+
+The recent Futurama episode "[Attack of the Killer App](http://en.wikipedia.org/wiki/Attack_of_the_Killer_App)" mocked a phone and a company you probably all have heard of. I've made some wallpapers with the logo of MomCorp presented everywhere in this episode. 
+
+<!-- more -->
+
+The wallpaper comes in four versions with two color variations and two text variations with Mom's favorite tagline. Here's an overview:
+
+![MomCorp-Walls-Overview](/media/MomCorp-Walls-Overview.png)
+
+
+
+
+## Download
+
+
+
+You can grab the full zip-package with versions for Desktop, iPad, iPhone & Android included:
+
+[download_button version=1.0]
+

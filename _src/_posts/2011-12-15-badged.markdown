@@ -1,0 +1,134 @@
+---
+author: Matthias Kretschmann
+comments: true
+date: 2011-12-15 07:56:46+00:00
+layout: post
+slug: badged
+title: Badged - iOS Style Notification Badges for WordPress
+wordpress_id: 1468
+categories:
+- goodies
+---
+
+Made a quick WordPress plugin which transforms the standard WordPress update & comment notification badges into iOS-styled ones.
+
+<!-- more -->
+
+The badges are CSS only (box shadows, gradients, pseudo elements, you name it) and were tested in current versions of Safari, Chrome & Firefox. It should degrade gracefully in older Browsers with some details missing like drop shadows or the highlight shine. If you care for how it's done exactly, you can peek around in the [css file on github](https://github.com/kremalicious/Badged/blob/master/css/badged-menu.css).
+
+The plugin is localized in english & german, which is only important for the settings page.
+
+
+
+## Download & Installation
+
+
+You can just install the plugin via the automatic backend installer under _Plugins > Add New_, activate and enjoy the red badges.
+
+
+
+
+[Plugin Page](http://wordpress.org/extend/plugins/badged) [Github](https://github.com/kremalicious/Badged) [Donate](http://krlc.us/givecoffee)
+
+
+
+
+The plugin is hosted on github and will always be mirrored in the WordPress plugins directory. But in case you want to install the plugin manually:
+
+
+
+	
+  1. Upload the badged plugin folder to the `/wp-content/plugins/` directory
+
+	
+  2. Activate the plugin through the _Plugins_ menu in WordPress
+
+	
+  3. Enjoy
+
+	
+  4. (optional) Adjust options under _Settings > Badged_. Upon activation the plugin sets both options by default: 
+
+
+
+![](/media/badged-settings.png)
+
+If you find any problems you can [open an issue on Github](https://github.com/kremalicious/Badged/issues) or just drop me a line in the comments or on [Twitter](http://twitter.com/kremalicious).
+
+
+
+## Version History
+
+
+**v0.3.6**
+
+
+
+	
+  * tested for WP 3.4
+
+	
+  * settings page: Retina ready icon for high dpi devices, css only submit button
+
+	
+  * updated german translation
+
+
+
+**v0.3.5**
+
+
+
+	
+  * IE 8 improvements: box shadow, light gradient through DXImageTransform filters (but no rounded corners, sorry)
+
+	
+  * current versions of IE & Opera are now among the tested browsers
+
+	
+  * updated settings page links
+
+
+**v0.3.4**
+
+
+
+	
+  * more descriptive readme and settings footer with links to blog post & github page
+
+	
+  * updated translation
+
+
+**v0.3.2**
+
+
+
+	
+  * Make the plugin work if symlinked
+
+
+**v0.3**
+
+
+
+	
+  * initial beta release
+
+
+**v0.2**
+
+
+
+	
+  * added options to control whether the badges show up in admin menu or toolbar (default is both)
+
+
+**v0.1**
+
+
+
+	
+  * initial alpha release
+
+

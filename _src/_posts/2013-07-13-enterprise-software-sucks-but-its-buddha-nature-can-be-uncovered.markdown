@@ -3,7 +3,7 @@ layout: link
 
 title: Enterprise Software Sucks (But Its Buddha Nature Can Be Uncovered)
 linkurl: https://www.ezeep.com/blog/enterprise-software-sucks-but-its-buddha-nature-can-be-unconvered/
-author: Matthias Kretschmann
+author: Matthias Kretschmann Kretschmann
 
 date: 2013-07-13 13:19:44+00:00
 wordpress_id: 2466

@@ -1,0 +1,17 @@
+---
+author: Matthias Kretschmann
+comments: true
+date: 2008-07-23 20:38:57+00:00
+layout: post
+slug: leaf-life
+title: Leaf Life
+wordpress_id: 1908
+categories:
+- photos
+post_format:
+- Image
+---
+
+Having fun with Aperture and Silver Efex Pro.
+
+[Photo on Flickr](http://www.flickr.com/photos/krema/2701886080)

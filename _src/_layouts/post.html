@@ -13,7 +13,10 @@ layout: base
 	</aside>
 
     <section class="entry-content">
-        {{ page.image }}
+        {% if page.image %}
+            <img src="/media/{{ page.image }}" />
+        {% endif %}
+        
         {{ content }}
     </section>
     
