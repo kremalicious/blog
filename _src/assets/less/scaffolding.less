@@ -1,0 +1,136 @@
+html {
+	// remove tap highlight cause we're using the active styles
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+	background: @body-bg;
+}
+
+// Banner
+/////////////////////////////////////
+
+.banner {
+	
+	.row {
+		margin-top: @line-height-computed;
+		margin-bottom: @line-height-computed;
+	}
+	
+	.banner-title { 
+		margin: 0 auto;
+        width: 128px;
+
+		// display toned down logo
+		// by default
+		.logo;
+		
+		@media @highDPI {
+			.logo_2x
+		}
+	}
+	
+	.banner-logo {
+		.ir;
+		
+		// repeat logo
+		// but display hover version
+		.logo;
+		background-position: center bottom;
+		width: 128px;
+		margin-left: auto;
+		margin-right: auto;
+	
+		@media @highDPI {
+			.logo_2x;
+		}
+		
+		// hide by default
+		opacity: 0;
+		// show smooooothly on hover
+		&:hover { opacity: 1 }
+		&:active { top: 0 }
+	}
+
+}
+
+
+// Footer
+/////////////////////////////////////
+
+.footer {
+	text-align: center;
+	background: fade(@brand-dark, 5%);
+	
+    .footer-description {
+        .h5;
+    	color: @text-color-light;
+        line-height: @line-height-computed;
+    }
+    
+	.footer-copyright {
+		.divider-top;
+		padding-top: @line-height-computed;
+		padding-bottom: @line-height-computed;
+		p {
+			margin-bottom: 0;
+			font-size: @font-size-mini;
+		}
+	}
+}
+
+// Subscribe component
+.subscribe {
+	margin: @line-height-computed auto;
+	p {
+		margin: 0;
+		.clearfix;
+		.btn {
+			margin-bottom: 0;
+			padding: .3em 1em;
+			&:first-child {
+				margin-left:0
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			span { 
+				.visuallyhidden;
+			}
+		}
+	}
+	i {
+		display: block;
+		
+		// Icon resets for color animations
+		.transition(color .3s ease-in-out);
+		color: @text-color-light;
+		&:before {
+			color: inherit;
+			margin-right: 0;
+			font-size: 14px;
+			line-height: 14px;
+		}
+	}
+}
+
+.footer:hover .subscribe .rss i,
+.touch .footer .subscribe .rss i {
+	color: #e15a00;
+}
+
+.footer:hover .subscribe .twitter i,
+.touch .footer .subscribe .twitter i {
+	color: #019ad2;
+}
+
+.footer:hover .subscribe .google i,
+.touch .footer .subscribe .google i {
+	color: #c63b1e;
+}
+
+.footer:hover .subscribe .facebook i,
+.touch .footer .subscribe .facebook i {
+	color: #3b5998;
+}

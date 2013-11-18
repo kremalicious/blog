@@ -2,24 +2,28 @@
 layout: default
 ---
 
-<article class="hentry fomrat-post">
-	<header>
-		<h1 class="entry-title">{{ page.title }}</h1>
-	</header>
+<article class="hentry format-image">
+    
+    <div class="photoPost">
+    	<figure class="hmedia">
+        
+    		image               
+    		<figcaption class="entry-title fn">{{ page.title }}</figcaption>
+    		exif
+    	</figure>
+    </div>
     
 	<aside class="entry-meta">
 		<p class="byline author vcard source-org">by <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
 		<p class="time">{{ page.date | date_to_string }}</p>
 	</aside>
-
+    
     <section class="entry-content">
-        {{ page.image }}
         {{ content }}
     </section>
     
     <footer class="entry-meta">
-        <p>
-            <a rel="category tag" href="" title="{{ page.categories }}">{{ page.categories }}</a>
-        </p>
+        
     </footer>
+    
 </article>

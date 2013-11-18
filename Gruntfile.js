@@ -43,7 +43,7 @@ module.exports = function(grunt){
         less: {
             production: {
                 files: {
-                    '<%= config.site %>/<%= config.assets.css %>/kremalicious.min.css' : '<%= config.src %>/<%= config.assets.less %>/kremalicious.less'
+                    '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css' : '<%= config.src %>/<%= config.assets.less %>/kremalicious3.less'
                 },
             },
         },
@@ -52,7 +52,7 @@ module.exports = function(grunt){
         cmq: {
             production: {
                 files: {
-                    '<%= config.site %>/<%= config.assets.css %>/': ['<%= config.site %>/<%= config.assets.css %>/kremalicious.min.css']
+                    '<%= config.site %>/<%= config.assets.css %>/': ['<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css']
                 }
             }
         },
@@ -61,7 +61,7 @@ module.exports = function(grunt){
         cssmin: {
             production: {
                 files: {
-                    '<%= config.site %>/<%= config.assets.css %>/kremalicious.min.css': ['<%= config.site %>/<%= config.assets.css %>/*.css']
+                    '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css': ['<%= config.site %>/<%= config.assets.css %>/*.css']
                 }
             }
         },
@@ -74,7 +74,7 @@ module.exports = function(grunt){
                     mangle: true
                 },
                 files: {
-                    '<%= config.site %>/<%= config.assets.js %>/kremalicious.min.js': [
+                    '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         '<%= config.src %>/<%= config.assets.js %>/script.js'
                     ]
                 }
@@ -133,9 +133,10 @@ module.exports = function(grunt){
                 files: [
                     '<%= config.src %>/*.html', 
                     '<%= config.src %>/_includes/**', 
-                    '<%= config.src %>/_layouts/**'
+                    '<%= config.src %>/_layouts/**',
+                    '<%= config.src %>/_posts/**'
                 ],
-                tasks: ['jekyll', 'less', 'uglify']
+                tasks: ['jekyll', 'less']
             },
         },
         
@@ -177,7 +178,7 @@ module.exports = function(grunt){
         'less',
         'cmq',
         'cssmin',
-        'uglify',
+        //'uglify',
         'connect',
         'watch'
     ]);

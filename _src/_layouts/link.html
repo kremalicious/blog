@@ -2,9 +2,11 @@
 layout: default
 ---
 
-<article class="hentry fomrat-post">
+<article class="hentry format-link">
 	<header>
-		<h1 class="entry-title">{{ page.title }}</h1>
+		<h1 class="entry-title">
+            <a href="{{ page.linkurl }}">{{ page.title }} <i class="icon-external-link"></i></a>
+        </h1>
 	</header>
     
 	<aside class="entry-meta">
@@ -13,13 +15,10 @@ layout: default
 	</aside>
 
     <section class="entry-content">
-        {{ page.image }}
         {{ content }}
     </section>
     
     <footer class="entry-meta">
-        <p>
-            <a rel="category tag" href="" title="{{ page.categories }}">{{ page.categories }}</a>
-        </p>
+        
     </footer>
 </article>

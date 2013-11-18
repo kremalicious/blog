@@ -1,0 +1,65 @@
+/////////////////////////////////////
+// FORMS CSS FOR KREMALICIOUS.COM
+/////////////////////////////////////
+
+// Make all forms have space below them
+form {
+	margin: 0 0 @line-height-computed;
+}
+
+label {
+	display: block;
+	color: rgba(46, 79, 92, .7);
+	margin-bottom: 0;
+	// Indicate that 'label' will shift focus to the associated form element
+	cursor: pointer;
+}
+
+// infield labels
+.js form p { position: relative; }
+.js form p label { position: absolute; top: .6em; left: .6em;}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	font-size: @font-size-base;
+	line-height: @line-height-computed;
+	font-family: @font-family-base;
+	color: @text-color;
+	font-weight: 700;
+	display: inline-block;
+	padding: .5em;
+	background: #fff;
+	background: rgba(255,255,255,.3);
+	border: 0;
+	border-bottom: 1px solid #AFC3CB;
+	.box-shadow( 0 1px 0 #fff);
+	width: 100%;
+	.transition();
+	-webkit-appearance: none;
+	
+	// Focus state
+	&:focus {
+		background: rgba(255,255,255,.7);
+		border-bottom-color: #78868c;		
+		outline: 0;
+		outline: thin dotted \9; /* IE6-9 */
+	}
+	
+	// placeholder
+	.placeholder(rgba(46, 79, 92, .4));
+}
+

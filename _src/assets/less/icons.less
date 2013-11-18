@@ -1,0 +1,118 @@
+//////////////////////
+// ICONS
+//////////////////////
+
+@font-face {
+	font-family: 'entypo';
+	src:url('../fonts/entypo.eot');
+	src:url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/entypo.woff') format('woff'),
+		url('../fonts/entypo.ttf') format('truetype'),
+		url('../fonts/entypo.svg#entypo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"] {
+    
+    &,
+    &:before {
+    	font-family: 'entypo';
+    	speak: none;
+    	font-style: normal;
+    	font-weight: normal;
+    	font-variant: normal;
+    	text-transform: none;
+    	line-height: 1;
+    	-webkit-font-smoothing: antialiased;
+    }
+	
+	&:before {
+		color: @text-color-light;
+		font-size: 20px;
+	}
+	
+	.btn &:before,
+	.more-link &:before {
+		font-size: 16px;
+		margin: 0 .3em;
+	}
+}
+
+.btn.icon-info:before,
+.btn.icon-arrow-down:before,
+.btn.icon-download-alt:before,
+.btn.icon-download:before,
+.btn.icon-github:before,
+.btn.icon-heart:before  {
+	font-size: 16px;
+	margin: 0 .3em.3em;
+	vertical-align: baseline;
+	top: .05em;
+	position: relative
+}
+
+.btn-primary.icon-arrow-down:before,
+.btn-primary.icon-download-alt:before,
+.btn-primary.icon-download:before {
+	color: darken(@link-color, 15%);
+}
+
+.icon-twitter:before {
+	content: "\e000";
+}
+.icon-facebook:before {
+	content: "\e001";
+}
+.icon-googleplus:before {
+	content: "\e002";
+}
+.icon-rss:before {
+	content: "\e008";
+}
+.icon-user:before,
+.icon-personal:before {
+	content: "\e009";
+}
+.icon-leaf:before,
+.icon-design:before {
+	content: "\e00a";
+}
+.icon-link:before {
+	content: "\e00b";
+}
+.icon-pictures:before,
+.icon-photos:before {
+	content: "\e00c";
+}
+.icon-camera:before,
+.icon-photography:before {
+	content: "\e010";
+}
+.icon-arrow-down:before,
+.icon-download:before,
+.icon-download-alt:before {
+	content: "\e00d";
+}
+.icon-arrow-right:before {
+	content: "\e00e";
+}
+.icon-arrow-left:before {
+	content: "\e00f";
+}
+.icon-heart:before {
+	content: "\e012";
+}
+.icon-forward:before {
+	content: "\e013";
+}
+.icon-info:before {
+	content: "\e014";
+}
+.icon-star:before,
+.entry-content li:before {
+	content: "\e003";
+}
+.icon-github:before {
+	content: "\e004";
+}

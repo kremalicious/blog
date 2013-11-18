@@ -1,0 +1,96 @@
+/////////////////////////////////////
+// NAVIGATION
+/////////////////////////////////////
+
+
+// Main Navigation
+/////////////////////////////////////
+
+.nav-main {
+	margin-top: 0;
+    .textcenter;
+    
+    .row { 
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    li { display: inline-block; }
+}
+
+a.nav-main-link {
+	.btn-tag;
+	.h6;
+	color: @text-color-light;
+    padding: @line-height-computed/4 @line-height-computed/2;
+    display: block;
+    float: left;
+    border-radius: @border-radius-base;
+	
+	li:first-child & { margin-left: 0 }
+    
+    // active state
+    .current_page_item & { background: rgba(255,255,255,.7) }
+}
+
+// Pager
+/////////////////////////////////////
+
+.pager {
+	.clearfix;
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+    line-height: @headings-line-height;
+	.h6;
+	p {
+		width: 48%;
+		margin: 0;
+		position: relative;
+		font-size: .95em;
+	}
+	
+	.alignright { text-align: right; }
+	
+	a { display: block; }
+	
+	.alignleft i { margin-right: .5em; }
+	
+	.alignright i { margin-left: .5em; }
+	
+	.single & .alignleft a { margin-left: 1.5em; }
+	
+	.single & .alignright a { margin-right: 1.5em; }
+	
+	.single & i {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	
+	.single & .alignright i {
+		left: auto;
+		right: 0;
+	}
+	
+}
+
+
+// Infinite Loader
+/////////////////////////////////////
+
+.infiniteLoader p {
+	width: 100%
+}
+
+.infiniteLoader .alignright,
+.infiniteLoader i {
+	.hide;
+}
+
+.infiniteLoader a {
+	.btn;
+	.aligncenter;
+	
+	@media @breakpoint1 {
+		max-width: 40%;
+	}
+}

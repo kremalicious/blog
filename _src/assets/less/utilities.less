@@ -1,0 +1,106 @@
+/////////////////////////////////////
+// Utilities
+/////////////////////////////////////
+
+// Clear stuff
+.clearfix {
+	*zoom: 1;
+	clear: both;
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Quick floats
+/////////////////////////////////////
+
+.alignleft { float: left; }
+.alignright { float: right; }
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Text alignment
+/////////////////////////////////////
+
+.textcenter {
+	text-align: center
+}
+
+
+// Placeholder text
+/////////////////////////////////////
+
+.placeholder(@color: @placeholder-text) {
+  &:-moz-placeholder {
+    color: @color;
+    font-weight: @font-weight-base;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+    font-weight: @font-weight-base;
+  }
+  &::-webkit-input-placeholder {
+    color: @color;
+    font-weight: @font-weight-base;
+  }
+}
+
+// Toggling content
+/////////////////////////////////////
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hide {
+	display: none !important;
+	visibility: hidden;
+}
+.show {
+	display: block;
+	visibility: visible;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	// Extends the .visuallyhidden class to allow the
+	// element to be focusable when navigated to via the keyboard: h5bp.com/p
+	&.focusable:active,
+	&.focusable:focus {
+		clip: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		position: static;
+		width: auto;
+	}
+}
+
+// Hide visually and from screenreaders, but maintain layout
+.invisible {
+	visibility: hidden;
+}
+
+// CSS image replacement
+/////////////////////////////////////
+.ir,
+.hide-text {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}

@@ -1,0 +1,74 @@
+/////////////////////////////////////
+// MEDIA CSS FOR KREMALICIOUS.COM
+/////////////////////////////////////
+
+
+// IMAGES
+/////////////////////////////////////
+
+img,
+figure,
+.wp-caption {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img {
+	vertical-align: middle;
+	.box-shadow(0 1px 3px rgba(0,0,0,.3));
+}
+
+a.linkedImage img {
+	border: 2px solid @link-color;
+	.transition(border .2s ease-in-out);
+}
+
+.linkedImage:hover img {
+	border-color: @link-color-hover;
+}
+
+
+// WORDPRESS MEDIA 
+/////////////////////////////////////
+
+img.alignleft,
+img.left, // some old articles markup
+.imgleft, // some old articles markup
+.wp-caption.alignleft,
+img.alignright,
+img.right, // some old articles markup
+.imgright, // some old articles markup
+.wp-caption.alignright,
+img.aligncenter,
+.wp-caption.aligncenter, {
+	float: none;
+	display: block;
+	margin: @line-height-computed auto;
+}
+
+.wp-caption {
+	img { margin-bottom: .5em; }
+	p { margin: 0; }
+}
+
+.wp-caption-text {
+	font-size: .9em;
+	line-height: @line-height-computed;
+	.dimmed
+}
+
+@media @breakpoint2 {
+	img.alignleft,
+	img.left, // some old articles markup
+	.imgleft, // some old articles markup
+	.wp-caption.alignleft { margin: 0 @line-height-computed @line-height-computed 0; float: left; }
+	
+	img.alignright,
+	img.right, // some old articles markup
+	.imgright, // some old articles markup
+	.wp-caption.alignright { margin: 0 0 @line-height-computed @line-height-computed; float: right;	}
+}

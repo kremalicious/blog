@@ -1,0 +1,39 @@
+// CODE
+/////////////////////////////////////
+
+pre, code, kbd, samp {
+	font-family: @font-family-monospace;
+    font-size: 12px;
+	line-height: 18px;
+	color: @text-color;
+	background: #f8f8f8;
+	background: rgba(255,255,255,.4);
+	border-radius: @border-radius-base;
+}
+
+pre {
+	padding: 1em;
+	margin-bottom: 1.5em;
+	display: block;
+	width: auto;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	max-height: 300px;
+	white-space: pre; 
+	white-space: pre-wrap;
+	word-wrap: normal;
+	.transition;
+    
+    &:hover {
+    	background: #fff;
+    	background: rgba(255,255,255,.5);
+    }
+    
+    code {
+        border: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        background: none;
+    }
+}
