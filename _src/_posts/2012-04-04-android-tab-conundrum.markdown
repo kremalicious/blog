@@ -10,7 +10,7 @@ categories:
 - design
 ---
 
-![](/media/tabs_overview-540x103.png)
+![](/media/tabs_overview.png)
 With [Instagram for Android](https://play.google.com/store/apps/details?id=com.instagram.android&hl=en) there's once again an app getting ported to Android from iOS which doesn't follow the platform specific guidelines with a lot of elements. Most obviously in the form of the app's main navigation tabs which Instagram for Android puts at the bottom as opposed to Google's suggested placement of tabs at the top as part of the action bar. Now smart Android designers [chime in and call foul](https://plus.google.com/109726284197282147930/posts/5McKooqNnnd) for this Android Design Guideline violation [as others](http://www.androiduipatterns.com/2011/07/tabs-top-or-bottom.html) and [I have done](http://exquisitedroid.com/cardcloud/) in the past with other apps.
 
 But this time it's a bit complicated, let me explain.

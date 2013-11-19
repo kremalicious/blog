@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2011-01-18 15:40:12+00:00
-layout: post
-slug: historic-flood-levels
+layout: image
+
 title: Historic Flood Levels
+image: Historic-Flood-Levels.jpg
+author: Matthias Kretschmann
+
+date: 2011-01-18 15:40:12+00:00
 wordpress_id: 1864
 categories:
 - photos

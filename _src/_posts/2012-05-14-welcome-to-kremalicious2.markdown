@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2012-05-14 19:33:22+00:00
 layout: post
-slug: welcome-to-kremalicious2
+
 title: Welcome to kremalicious2
+image: kremalicious2-teaser.jpg
+author: Matthias Kretschmann
+
+date: 2012-05-14 19:33:22+00:00
 wordpress_id: 1920
 categories:
 - personal
@@ -12,38 +13,25 @@ categories:
 
 It finally happened. After so many rejected revisions, so many pauses, so much coffee: kremalicious2 is here.
 
-<!-- more -->
-
-
-
 ## Reduction & Addition
-
 
 Instead of a full site with the blog as one part, this is now a simple blog. No weird pages with subpages anymore. Just a blog with some topic archives.
 
 The development process was and is a very agile one, so new features and changes will be incorporated as they happen. If it's in the [master branch](https://github.com/kremalicious/kremalicious2), it's live.
 
-
-
 ## Mobile & Content First, Retinasized
-
 
 The blog theme was designed from the inside out with a [responsive](http://www.alistapart.com/articles/responsive-web-design/), [mobile first](http://www.lukew.com/ff/entry.asp?933) approach. I’ve gone from small screens first to bigger screens and started by designing the article single view before anything else. This is usually the moment where you may resize your browser window if you're a design geek.
 
 To make future maintenance a bit easier, I’m using the simple [HS Responsive](http://kremalicious.github.com/hsresponsive/) HTML/CSS framework I’ve recently created for a university but with some modifications. For instance, iPad users will get two different layouts in portrait and landscape mode easily by kind of misusing the iOS rotation scale bug and using a media query breakpoint of 769px. Yes, I know, this breaks the no-single-device-targeting approach but by now there’re more readers visiting this site from an iPad than with Internet Explorer or Linux so this seemed appropriate.
 
-
 ## Typography
-
 
 ![](/media/kremalicious2-typography.jpg)After much experimentation, all fonts (that is, those for texts) on this blog are now coming from TypeKit. The body text is set in [Rooney Web](http://www.janfromm.de/typefaces/rooney/overview/) from [Jan Fromm](https://twitter.com/janfromm) which looks just gorgeous on Retina screens. All headings & buttons use Adobe's [Cronos Pro](https://typekit.com/fonts/cronos-pro).
 
 Sadly, Typekit [only works in webkit based mobile browsers](http://help.typekit.com/customer/portal/articles/6786) which is a real bummer. Sorry Firefox & Opera users on mobile devices.
 
-
-
 ## Icons
-
 
 ![](/media/kremalicious2-topicicons.jpg)All icons on the site are coming from the awesome icon font [Font Awesome](http://fortawesome.github.com/Font-Awesome/) made by Dave Gandy. But the original font was missing some needed glyphs so I’m using a fork called [Font Awesome More](http://gregoryloucas.github.com/Font-Awesome-More/) from Gregory Loucas ([@gregoryLpaul](https://twitter.com/gregoryLpaul)). This makes things like changing icon colors so much easier but using icon fonts still has the problem of small icons not rendering super crisp, although `font-smoothing: antialiased` helps a bit.
 
@@ -74,16 +62,13 @@ If you want to peek around in the theme files, you can head over to the kremalic
 The blog stream got more content types. Apart from normal posts, links and photos will be added to it.
 
 
-
 ### Link posts
 
 
 Link post means a short comment from me to a valuable or interesting resource where the post title is linked to the original source. I put them in topics just like all the other articles.
 
 
-
 ### Photo posts
-
 
 
 ![](/media/kremalicious2-photoposts.jpg)
@@ -112,11 +97,7 @@ I saw no reason to include a prominent date along with a post title. Besides, I 
 
 I’ve decided to keep this functionality intact but hide the whole comment section under each post by default. This is a compromise between those users seeing comments as interface clutter and those valuing comments in blogs. The whole comment section is even taken completely off the DOM on page load with jQuery's detach(), only clicking/tapping the comment section heading will bring them back.
 
-
 ## Subscriptions
-
-
-
 
 ### RSS Feeds
 

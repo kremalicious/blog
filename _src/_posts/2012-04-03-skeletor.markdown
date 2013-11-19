@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2012-04-03 17:56:49+00:00
-layout: post
-slug: skeletor
+layout: image
+
 title: Skeletor
+image: 6313cc1e7db611e180c9123138016265_7.jpg
+author: Matthias Kretschmann
+
+date: 2012-04-03 17:56:49+00:00
 wordpress_id: 1745
 categories:
 - photos

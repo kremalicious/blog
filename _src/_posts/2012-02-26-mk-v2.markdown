@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2012-02-26 21:29:54+00:00
 layout: post
-slug: mk-v2
+
 title: Personal Site v2
+image: mkv2.jpg
+author: Matthias Kretschmann
+
+date: 2012-02-26 21:29:54+00:00
 wordpress_id: 1506
 categories:
 - personal
@@ -12,11 +13,7 @@ categories:
 
 Today I finally launched v2 of my personal site, still following the concept of a business card web site but with a portfolio added to it. You should totally [have a look](http://matthiaskretschmann.com).
 
-<!-- more -->
-
-
 ## Who needs images anyway
-
 
 One goal was to use as less images as possible. Yes, it would have been easier to just use images instead of like 10 box-shadows on one element but this wouldn't have been any fun. And no matter what retina/high dpi devices come up next all interface elements will look just as sharp without any additional work.
 

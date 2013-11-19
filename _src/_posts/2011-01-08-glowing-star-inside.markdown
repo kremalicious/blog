@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2011-01-08 15:45:26+00:00
-layout: post
-slug: glowing-star-inside
+layout: image
+
 title: Glowing Star Inside
+image: Glowing-Star-Inside.jpg
+author: Matthias Kretschmann
+
+date: 2011-01-08 15:45:26+00:00
 wordpress_id: 1870
 categories:
 - photos

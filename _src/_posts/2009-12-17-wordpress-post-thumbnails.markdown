@@ -23,10 +23,10 @@ tags:
 ![Add WordPress Post Thumbnail Support To Theme](/media/wordpress-thumbnail-1.png)For whatever reason you first have to activate the feature with an entry in your theme's _functions.php_ file in order to get the Post Thumbnail box in the Editor.
 
 So just open up your theme's _functions.php_ file in your favorite editor or create it if there's no such file in your theme folder. Add this little code snippet to this file:
-[php]add_theme_support('post-thumbnails');[/php]
+{% highlight php %}add_theme_support('post-thumbnails');{% endhighlight %}
 For backwards compatibility you should wrap this inside a function check for the new add_theme_support:
-[php]if ( function_exists( 'add_theme_support' ) ) 
-  add_theme_support( 'post-thumbnails' );[/php]
+{% highlight php %}if ( function_exists( 'add_theme_support' ) ) 
+  add_theme_support( 'post-thumbnails' );{% endhighlight %}
 This makes sure WordPress installation prior to 2.9 won't get screwed up when using a theme with this new feature.
 
 
@@ -48,17 +48,17 @@ You can close the media dialogue now and you will see the image in the Post Thum
 
 
 ![Add to theme](/media/wordpress-thumbnail-5.png)Basically all you have to do is to add this new template tag in your theme files where you want to display the post thumbnail, most certainly in your _index.php_ file:
-[php]<?php the_post_thumbnail(); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail(); ?>{% endhighlight %}
 This template tag will display the thumbnail sized post thumbnail by default and is essentially the same as:
 
-[php]<?php the_post_thumbnail('thumbnail'); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail('thumbnail'); ?>{% endhighlight %}
 
 But of course you can grab the other sizes WordPress automatically creates when you upload an image:
 
-[php]<?php 
+{% highlight php %}<?php 
   the_post_thumbnail('medium'); 
   the_post_thumbnail('large'); 
-?>[/php]
+?>{% endhighlight %}
 _(Note: Matt [left a comment on WP Engineer](http://wpengineer.com/the-ultimative-guide-for-the_post_thumbnail-in-wordpress-2-9/#comment-3053) stating he wouldn't recommend using these named arguments but provided no explanation for it yet.)_
 
 The code will output a generic `<img />` tag with a class of wp-post-image. Needless to say this is what you can select with css to style just the post thumbnails further:
@@ -69,19 +69,19 @@ The code will output a generic `<img />` tag with a class of wp-post-image. Need
 
 
 If you want to adjust the generated output of the <img /> tag you can do this by using some array stuff. So let's say you want to have the post thumbnails to be 200x200px big and another class assigned to it, you can extend the template tag like so:
-[php]<?php the_post_thumbnail(array( 200,200 ), array( 'class' => 'alignleft' )); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail(array( 200,200 ), array( 'class' => 'alignleft' )); ?>{% endhighlight %}
 
 If you want to add more than one class you can do this like so:
 
-[php]<?php the_post_thumbnail('medium', array('class' => 'alignleft another_class')); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft another_class')); ?>{% endhighlight %}
 
 And you can add any attributes to the <img /> tag like a title, rel or an alt attribute. For accessibility reasons you should always add at least the alt-attribute:
 
-[php]<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext')); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext')); ?>{% endhighlight %}
 
 As for the title attribute this will be grabbed automatically from the entry you've made in your Media Library during the upload process but you even could override this too:
 
-[php]<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext', 'title' => 'titletext')); ?>[/php]
+{% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext', 'title' => 'titletext')); ?>{% endhighlight %}
 
 
 
@@ -90,21 +90,21 @@ As for the title attribute this will be grabbed automatically from the entry you
 
 Finally if you want to respect the custom sizes you or your users have set under Settings > Media you can first grab those sizes with [get_option function](http://codex.wordpress.org/Function_Reference/get_option) and then put it in the array:
 
-[php]<?php 
+{% highlight php %}<?php 
   $width = get_option('thumbnail_size_w');  // get the width of the thumbnail setting
   $height = get_option('thumbnail_size_h'); // get the height of the thumbnail setting
   the_post_thumbnail(array($width, $height), array('class' => 'alignleft')); 
-?>[/php]
+?>{% endhighlight %}
 
 You can also detect the Media settings for the other sizes and whether the crop setting is active or not:
 
-[php]<?php 
+{% highlight php %}<?php 
   get_option('medium_size_w');  // Width of the medium size
   get_option('medium_size_h');  // Height of the medium size
   get_option('large_size_w');   // Width of the large size
   get_option('large_size_h');   // Height of the large size
   get_option('thumbnail_crop'); // Check for crop, On=1, Off=0 
-?>[/php]
+?>{% endhighlight %}
 
 
 
@@ -115,14 +115,14 @@ With the check in your functions.php at the beginning there's already ensured ol
 
 So it's a pretty good idea to make this backwards compatible with some quick if else voodoo, code shamelessly [adapted from WP-Recipes](http://www.wprecipes.com/wordpress-2-9-display-post-image-with-backward-compatibility):
 
-[php]if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) { 
+{% highlight php %}if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) { 
   the_post_thumbnail(); 
 } else { 
   $postimage = get_post_meta($post->ID, 'post-image', true); 
   if ($postimage) { 
     echo '<img src="'.$postimage.'" alt="" />';
   }
-}[/php]
+}{% endhighlight %}
 
 This first checks if the feature exists and if a post thumbnail was addd with this new feature. If it was, it simply returns the post thumbnail. If not, it falls back to whatever you've used in your theme before, the usual way is to check for and get the value of a special custom field named e.g. post-image and output it. You can add whatever you've used before inside the else statement. Et voilà, it's nicely backwards compatible now, yay!
 

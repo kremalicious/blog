@@ -39,11 +39,11 @@ h1,h2,h3,h4,h5,h6,
 }
 
 h1,
-h2,
-h3 {
+h2 {
   margin-top: @line-height-computed*2;
   margin-bottom: @line-height-computed*2;
 }
+h3,
 h4,
 h5,
 h6 {
@@ -109,6 +109,12 @@ b, strong {
 
 em {
 	font-style: italic;
+}
+
+hr {
+    border: 0;
+    .divider-bottom;
+    margin-bottom: @line-height-computed*2
 }
 
 

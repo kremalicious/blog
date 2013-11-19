@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2012-05-04 13:12:54+00:00
-layout: post
-slug: world-press-photo-2012
+layout: link
+
 title: World Press Photo 2012
+linkurl: http://www.worldpressphoto.org/gallery/2012-world-press-photo
+author: Matthias Kretschmann
+
+date: 2012-05-04 13:12:54+00:00
 wordpress_id: 1997
 categories:
 - photography

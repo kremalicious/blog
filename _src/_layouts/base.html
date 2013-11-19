@@ -38,6 +38,9 @@
         <meta http-equiv="cleartype" content="on">
         
         <link rel="stylesheet" href="/assets/css/kremalicious3.min.css">
+        {% if page.style %}
+            <link rel="stylesheet" href="/assets/css/{{ page.style }}">
+        {% endif %}
         
     	<script data-cfasync="false" src="//use.typekit.com/msu4qap.js"></script>
     	<script data-cfasync="false">try{Typekit.load();}catch(e){}</script>

@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2012-05-15 16:00:44+00:00
 layout: post
-slug: wp-icons-template
+
 title: WordPress Admin Icons Template
+image: kremalicious-Teaser-WP-Icon-Template.png
+author: Matthias Kretschmann
+
+date: 2012-05-15 16:00:44+00:00
 wordpress_id: 2043
 categories:
 - design
@@ -17,45 +18,27 @@ tags:
 
 Here’s a template for designing your own icons for the admin area of WordPress including icons ready for Retina screens and some recommendations for the workflow of implementing these.
 
-<!-- more -->
-
 There are basically two scenarios where you really need custom icons for WordPress’ admin area: when creating custom post types and when creating option pages for a plugin/theme. No matter what case, at least 3 icons are needed if you want to get it right:
 
-
-
-	
   * two 16px icons for the admin menu, one non-colored and one colored icon for the hover state
-
-	
   * one 32px icon for the actual screen
-
 
 And since the admin area gets constantly optimized for devices which happen to have high-dpi screens (like 3rd generation iPad’s Retina screen) it’s a very good idea to include double sized @2x assets for all the icons mentioned above.
 
 So if you value quality and want pixel perfect icons in your admin area you need to create a total of 6 icon sizes.
 
-
 ## The Template
 
-
-![](/media/WordPress-Admin-Icons-Template-Filled-540x405.png)
+![](/media/WordPress-Admin-Icons-Template-Filled.png)
 
 I’ve put the template along with the implementation examples from the next section on [github](https://github.com/kremalicious/wp-icons-template). You can just download the whole package right away:
 
-[Download Template & Code](https://github.com/kremalicious/wp-icons-template/zipball/master)
-
-
-
-
-[GitHub](https://github.com/kremalicious/wp-icons-template)[Donate](http://krlc.us/givecoffee)
-
-
-
-
+<a href="https://github.com/kremalicious/wp-icons-template/zipball/master" class="btn btn-primary icon-download-alt">Download Template &amp; Code</a>
+<a href="https://github.com/kremalicious/wp-icons-template" class="icon-github btn">GitHub</a> 
+<a href="http://krlc.us/givecoffee" class="icon-heart btn">Donate</a>
 
 
 ### Usage
-
 
 The psd file in there has room for all the icon sizes mentioned above. As you can see, I’ve added an umbrella icon to better illustrate the various sizes. Turn on the “Icon Frames - White” layer to see the dimensions for each icon.
 
@@ -65,34 +48,26 @@ And because consistency is key, the default WordPress admin icon sprites are inc
 
 The psd is sliced for multiple sprites. You’re of course encouraged to make only one sprite out of it, this just made it more universal for the following code examples. When you’re finished designing the icons just hide the background layers and use Save for Web in Photoshop to export the sliced areas. Running them through ImageOptim or something like that afterwards is a good idea.
 
-
 ## Implementation, or: Ignore The Codex
-
 
 While `register_post_type()` and `add_menu_page()` let you define a URL for an icon this doesn’t allow for controlling hover or @2x assets. That’s because this will put the icon as an `img` element into the menu as opposed to the icons for the built-in items (they’re css background images from sprites). Furthermore, WordPress will add a default opacity to all img elements in the admin menu, with 100% opacity only on hover.
 
 So when using this template with all those icons, I suggest you use the following snippets in your functions.php instead. Yes, I’m telling you to ignore the codex. But this is the only way to get what we want:
 
-
-
-	
   * hover state consistent to WordPress default menu behavior
-
-	
   * control the display of the various image sizes for high-dpi devices with css media queries
-
 
 So the following code just injects a stylesheet snippet into the `<head>` of all admin pages. This is a modification of [Randy Jensen’s code idea](http://randyjensenonline.com/thoughts/wordpress-custom-post-type-fugue-icons/).
 
-You can always to refer to the inline commented versions of these snippets in the [github repository](https://github.com/kremalicious/wp-icons-template).
-
+You can always refer to the inline commented versions of these snippets in the [github repository](https://github.com/kremalicious/wp-icons-template).
 
 ### Custom Post Type Icons
 
-
 WordPress automatically puts an ID around your new menu item which contains the name of your custom post type (the $post_type parameter in `register_post_type()`). Just change this to your own post type name:
 
-[php gutter="true"]<?php
+{% highlight php %}
+
+<?php
 /**
  * Custom Post Type Icon for Admin Menu & Post Screen
  */
@@ -137,18 +112,16 @@ function custom_post_type_icon() {
     </style>
 <?php } 
 
-?>[/php]
+?>
 
-
+{% endhighlight %}
 
 ### Plugin And Theme Options Icons
 
-
-
 The easiest way is to just use this markup on your option page before the page heading which is the default on all admin pages:
 
-[html]<div id="PLUGINNAME" class="icon32"></div>
-<h2>My cool option page</h2>[/html]
+{% highlight html %}<div id="PLUGINNAME" class="icon32"></div>
+<h2>My cool option page</h2>{% endhighlight %}
 
 This is the markup being addressed in the snippet block for option page icons. The `icon32` class will make sure everything is aligned consistent to all other pages without redefining everything in css.
 
@@ -158,7 +131,9 @@ Putting your plugin or option page in the top level of the admin menu via `add_m
 
 So all this combined leads to this snippet:
 
-[php gutter="true"]<?php
+{% highlight php %}
+
+<?php
 
 /**
  * Option Page Icon for Admin Menu & Option Screen
@@ -215,50 +190,30 @@ function option_page_icon() {
     </style>
 <?php } 
 
-?>[/php]
+?>
+
+{% endhighlight %}
 
 Just replace the bits in the ID selectors with your stuff. If you have problems finding the correct ID selector just inspect element in the admin area.
 
-
-
-
 * * *
-
-
 
 Please note these snippets are just suggestions. I tried to make them as much universal as possible and tested them but depending on your project this could need adjustments. And obviously the css rules for high-dpi assets depend on a browser capable of CSS media queries but I guess all devices with such screens have modern browsers handling this.
 
 But there are a lot of ways to improve on that:
 
-
-
-	
   * add these css rules to your own stylesheet if you’re using a custom admin area css file for your theme or plugin
-
-	
   * enqueue the snippets with `wp_enqueue_style()` and the `admin_enqueue_scripts()` action hook
-
-	
   * better yet, put them in a single stylesheet and enqueue them only on pages where they’re actually needed
 
-
-
-
-
 ## License
-
 
 All code snippets are under the [GPL](http://opensource.org/licenses/gpl-3.0.html). The template psd is public domain, so you’re free to use and bundle this in any personal & commercial project without any requirements.
 
 But if you’re super cool and want to catch some karma you place a link back to this release post ([http://kremalicious.com/wp-icons-template](http://kremalicious.com/wp-icons-template)) somewhere in your project or [buy me some delicious coffee](http://krlc.us/givecoffee).
 
-
-
 ## More Resources
-
-
 
 If you need some inspiration for nicely consistent icons you should check out [these great admin icons from Laura Kalbag](http://laurakalbag.com/wordpress-admin-icons/).
 
 And Julien Chaumond wrote a great piece, in his own words "less about the sizes, more about the style". It's a must-read: [How to design a good native-looking WordPress Admin icon](http://julien-c.fr/2012/07/wordpress-admin-icons/)
-
