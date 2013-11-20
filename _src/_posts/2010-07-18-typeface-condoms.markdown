@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2010-07-18 20:28:33+00:00
-layout: post
-slug: typeface-condoms
+layout: image
+
 title: Typeface condoms
+image: Typeface-condoms.jpg
+author: Matthias Kretschmann
+
+date: 2010-07-18 20:28:33+00:00
 wordpress_id: 1898
 categories:
 - photos

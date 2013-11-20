@@ -1,10 +1,12 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2010-03-27 21:31:35+00:00
-layout: post
-slug: office-desk
+layout: image
+
 title: Office Desk
+image: Office-Desk.jpg
+author: Matthias Kretschmann
+
+date: 2010-03-27 21:31:35+00:00
+
 wordpress_id: 1901
 categories:
 - photos

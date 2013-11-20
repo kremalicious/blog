@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2010-12-29 21:16:55+00:00
-layout: post
-slug: free-monkey-breath-not-soylent-green
+layout: image
+
 title: Free Monkey Breath, Not Soylent Green
+image: Free-Monkey-Breath-Not-Soylent-Green.jpg
+author: Matthias Kretschmann
+
+date: 2010-12-29 21:16:55+00:00
 wordpress_id: 1886
 categories:
 - photos

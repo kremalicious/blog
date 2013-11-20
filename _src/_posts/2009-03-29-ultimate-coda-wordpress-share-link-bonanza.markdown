@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2009-03-29 23:12:15+00:00
 layout: post
-slug: ultimate-coda-wordpress-share-link-bonanza
+
 title: Ultimate Share Link Bonanza For Coda, Wordpress And Everything Else
+author: Matthias Kretschmann
+
+date: 2009-03-29 23:12:15+00:00
 wordpress_id: 576
 categories:
 - design
@@ -13,78 +13,14 @@ tags:
 ---
 
 ![Coda Clips Teaser](/media/codaclips-teaser.png)
-
 Ever wanted to include those sharing links to social or bookmarking sites so users can easily submit your content to these sites in a Wordpress site or any other platform? Then you might have experienced a rather time consuming search odyssey to get those links. But fear no more! In this article I've provided a huge collection of all the links to your favorite social sites compiled in two handy Coda Clip files in a plain and a Wordpress version. And the non-Coda users can download an html file with all the links included.
-
-
 
 Additionally you'll find a huge list within this article with the separated links in two versions for each site. And finally I've put together a quick tutorial for using buttons or icons with these links. This way you can easily add content submit/sharing links to your sites in no time.
 
 
 <!-- more -->
 
-## Quick Navigation
-
-
-
-
-
-
-
-  * 1. Coda Clips Download
-
-
-  * 
-	
-		
-    * 1.1 Bonus: Coda Clips Icon
-
-	
-
-
-
-  * 2. Usage
-
-	
-  * 
-	
-		
-    * 2.1 Share Links
-
-		
-    * 2.2 Share Links (Wordpress Edition)
-
-	
-
-
-
-  * 3. Quick Tutorial For Using Icons With These Links
-
-
-  * 
-	
-		
-    * 3.1 Use The <img /> Tag Element
-
-		
-    * 3.2 Use CSS Background Images
-
-	
-
-
-
-  * 4. HTML File Download And All The Links Separated
-
-
-  * 5. Please Jump Around, Then Spread The Word
-
-
-
-
-
-## 1. Share Links Coda Clips Download
-
-
+## Share Links Coda Clips Download
 
 Also all links are plain html code and therefore the non-JavaScript versions of the various social sites' submit capabilities. While most social/bookmark sites have some kind of tool section where they explain the use of their API near all of them want you to use JavaScript to access their API and submit your content to them through the use of a link on your website.
 
@@ -92,46 +28,34 @@ But I think you don't want to load tons of scripts on your websites if you inclu
 
 To make this a bit more straightforward I provide these links compiled within two Coda Clip files for use with [Panic's Coda](http://panic.com/coda). While the first clip group contains all the plain link snippets the second group includes those snippets for use with Wordpress. Just download and add them to your Coda Clips collection:
 
-[![](/media/codaclips-icon48.png) Download Share Links Coda Clips v1.0 | zip | 448kb](http://www.kremalicious.com/media/share-link-bonanza-coda-clips.zip)
+<a class="btn btn-primary icon-download-alt" href="/media/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
 
 Included are a **total of 40 share links per clip group** for the following social/bookmark sites. This list uses the links provided in the Coda clips so you can test them out here with this article ;-):
 
 _
 [Delicious](http://del.icio.us/post?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [StumbleUpon](http://www.stumbleupon.com/submit?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Facebook](http://www.facebook.com/sharer.php?u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/?t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Twitter](http://twitter.com/home?status=Awesome Coda Clips collection! http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Digg](http://digg.com/submit?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&media=NEWS&thumbnails=1), [Design Float](http://www.designfloat.com/submit.php?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Reddit](http://www.reddit.com/submit?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Technorati](http://www.technorati.com/faves/?add=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Yahoo Buzz](http://buzz.yahoo.com/submit/?submitUrl=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&submitHeadline=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Newsvine](http://www.newsvine.com/_tools/seed&save?u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&h=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Magnolia](http://ma.gnolia.com/bookmarklet/add?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Google Bookmarks](http://www.google.com/bookmarks/mark?op=edit&bkmk=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [FriendFeed](http://friendfeed.com/share?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Blogmarks](http://blogmarks.net/my/new.php?mini=1&url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [MySpace](http://www.myspace.com/Modules/PostTo/Pages/?l=3&u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Script & Style](http://scriptandstyle.com/submit?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Blinklist](http://blinklist.com/index.php?Action=Blink/addblink.php&Url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&Title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Slashdot](http://slashdot.org/bookmark.pl?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [LinkedIn](http://www.linkedin.com/shareArticle?mini=true&url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&source=), [Windows Live](https://favorites.live.com/quickadd.aspx?marklet=1&mkt=en-us&url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&top=1), [Furl](http://furl.net/storeIt.jsp?u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Yahoo Bookmarks](http://bookmarks.yahoo.com/toolbar/savebm?opener=tb&u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Mixx](http://www.mixx.com/submit?page_url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Propeller](http://www.propeller.com/submit/?U=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&T=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Yigg](http://www.yigg.de/neu?exturl=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&exttitle=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Mr Wong](http://www.mister-wong.com/index.php?action=addurl&bm_url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&bm_description=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Diigo](http://secure.diigo.com/post?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [N4G](http://www.n4g.com/tips.aspx?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Current](http://current.com/clipper.htm?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&src=st), [Simpy](http://www.simpy.com/simpy/LinkAdd.do?href=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Oknotizie](http://oknotizie.alice.it/post?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Care2](http://www.care2.com/news/compose?share[link_url]=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&share[title]=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Faves](http://www.faves.com/Authoring.aspx?u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Meneame](http://meneame.net/submit.php?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Fresqui](http://ocio.fresqui.com/post?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else), [Funp](http://funp.com/pages/submit/add.php?title=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&via=tools), [Kirtsy](http://www.kirtsy.com/submit.php?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Dealspl.us](http://dealspl.us/add.php?ibm=1&url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/), [Xanga](http://www.xanga.com/private/editorx.aspx?t=Ultimate%20Share%20Link%20Bonanza%20For%20Coda%2C%20Wordpress%20And%20Everything%20Else&u=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/&s=), [Sphinn](http://sphinn.com/submit.php?url=http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/)_
 
-
-
-## 1.1 Bonus: Coda Clips Icon
-
-
+## Bonus: Coda Clips Icon
 
 ![Coda Clips Icon](/media/codaclips-icon128.png)There's no special icon for Coda Clips included in the recent Coda version (they use the blank one) so I quickly created one based on the other Coda file type icons. And the nice Panic guys allowed me to distribute this icon here. I've just made the 256px icon a bit sharper than the equivalent other coda file type icons.
 
 If you download the above Coda Clip files this icon is already applied on the clip files but here're just the icon files (icns, folder, iContainer, PNGs):
 
-[![](/media/codaclips-icon48.png) Download Coda Clips Icon v1.0 | zip | 834kb](http://www.kremalicious.com/media/coda-clips-icon-files.zip)
-
-
+<a class="btn btn-primary icon-download-alt" href="http://www.kremalicious.com/media/coda-clips-icon-files.zip" title="Download Coda Clips Icon">Download Coda Clips Icon</a>
 
 ## 2. Usage
-
-
 
 ![Coda Clips HUD](/media/codaclips-hud.png)Just download and double click the Coda clip documents and two new clip groups will be created in your Coda Clips HUD with the various clips inside of them. All you have to do in Coda is inserting the clip by double clicking in the Coda Clips HUD and start typing your link text or type your link text first, select it and double click the clip in order to insert it.
 
 That's because both collections have their placeholder selection (the ![Coda Clips Placeholder](/media/codaclips-placeholder.png)) located where the link text would be:
 
-`<a href="" title="">![Coda Clips Placeholder](/media/codaclips-placeholder.png)</a>`
+{% highlight html %}<a href="" title="">![Coda Clips Placeholder](/media/codaclips-placeholder.png)</a>{% endhighlight %}
 
 As you can see I've also included the link title value usually with the name of the specific social site. Also I've already encoded all the entities so there shouldn't be any (X)HTML validation errors when using these links in your projects.
 
 And depending on which collection you use additional steps need to be done:
 
-
-
 ## 2.1 Share Links
-
-
 
 Everything you need to replace for yourself is written in capital letters:
 
@@ -143,41 +67,30 @@ For all social sites this title has to be URL-encoded to work correctly. So be s
 
 Apart from that some sites allow you to add and submit more informations than just the URL and the title and those things are also written in capital letters. Also I've included some usage comments where necessary like in the Digg link.
 
-
-
 ## 2.2 Share Links (Wordpress Edition)
-
-
 
 ![Wordpress logo by kremalicious](/media/wordpress-logo.png)The Wordpress edition of these share link collection includes some Wordpress php bits for dynamically creating the whole submit URL so there's no need to manually edit most of the links. The Wordpress template tags used are:
 
-**<?php the_permalink();?>** to create the URL dynamically depending on the article under which you have included the share and submit links.
+* `<?php the_permalink();?>` to create the URL dynamically depending on the article under which you have included the share and submit links.
 
-**<?php the_title(); ?>** to dynamically create the title which is used when your content gets submitted to one of the sites.
+* `<?php the_title(); ?>` to dynamically create the title which is used when your content gets submitted to one of the sites.
 
-Anyway as I've said above some sites allow more to submit here and you'll find this also in capital letters. You have to adjust them manually too.
-
+Anyway, as I've said above some sites allow more to submit here and you'll find this also in capital letters. You have to adjust them manually too.
 
 
 ## 3. Quick Tutorial For Using Icons With These Links
 
-
-
 ![Tutorial icon by kremalicious](/media/tutorial-icon.png)I've also written a quick tutorial in case you want to use little images as icons beside your links. To achieve this these two solution provided here should fit every need for this. You can do this by using one of these two techniques realized with HTML and CSS:
 
-
-
-## 3.1 Use The <img /> Tag Element
-
-
+## 3.1 Use The &lt;img /&gt; Tag Element
 
 Just include an img element wrapped inside the link tag, like so:
 
-`<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /> Delicious</a>`
+{% highlight html %}<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /> Delicious</a>{% endhighlight %}
 
 And if you want to just use an icon with no text use just an img element without providing any link text:
 
-`<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>`
+{% highlight html %}<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>{% endhighlight %}
 
 
 
@@ -187,41 +100,35 @@ And if you want to just use an icon with no text use just an img element without
 
 To me a more cleaner solution is to use the css background-image property to include the icon images. Just add a class or an id to every share link like so:
 
-`<a class="delicious" href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious">Delicious</a>`
+{% highlight html %}<a class="delicious" href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious">Delicious</a>{% endhighlight %}
 
 And in your CSS select this class and style it with a background image. Assuming you want the site icon to appear left beside the link text you would also have to add some padding so the text won't overlap the icons:
 
 
-    
-    <code class="css">.delicious {
+{% highlight css %}  
+    .delicious {
     	background: url(delicious.png) no-repeat center center;
     	padding-left: 20px;
-    }</code>
-
+    }
+{% endhighlight %}
 
 
 If you want to use just icons and no text you should provide a link text anyway but hide it with css. This is a good practice for accessibility and search engine optimization. Also you would have to provide the dimensions of the icon:
 
-
-    
-    <code class="css">.delicious {
+{% highlight css %}  
+    .delicious {
     	width: 16px;
     	height: 16px;
     	background: url(delicious.png) no-repeat center center;
     	text-indent: -999999px;
-    }</code>
-
-
-
-
+    }
+{% endhighlight %}
 
 ## 4. HTML File Download And All The Links Separated
 
-
-
 Sadly Coda's clips aren't in a portable format ([Panic guys](http://panic.com), consider this is a feature request!) so here's a comprehensive list for the non-Coda users of all the links included in the above Coda Clips with plain and the Wordpress version for every site. This comes as a downloadable stripped-down HTML file (meaning there's no HTML site structure included) and as a long list within in this article. First, here's the HTML file download. Just open this locally in your browser or in your favorite editor:
 
-[![](/media/html-document-icon48.png) Download Share Links HTML File v1.0 | zip | 104kb](http://www.kremalicious.com/media/share-link-bonanza-html.zip)
+<a class="btn btn-primary icon-download-alt" href="http://www.kremalicious.com/media/share-link-bonanza-html.zip" title="Download Share Links HTML File">Download Share Links HTML File</a>
 
 And here's the huge list with all the share links in case you quickly want to grab just one of them. But be warned that this is a huge list so this is hidden by default.
 
@@ -229,14 +136,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 
 ↓ Toggle All Links ↓ 
 
-
-
-
-
-
 ## Delicious
-
-
 
 **Plain**
 `<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"></a>`
@@ -244,7 +144,6 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://del.icio.us/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;notes=YOUR NOTES" title="Save To Delicious"></a>
 `
-
 
 ## StumbleUpon
 
@@ -769,17 +668,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://sphinn.com/submit.php?url=<?php the_permalink();?>" title="Sphinn">Sphinn</a>`
 
-
-
-
-
-
-
 ## 5. Please Jump Around, Then Spread The Word
-
-
-
-
 
 ![Coffee](/media/coffee-cup-icon-kremalicious.png)
 
@@ -788,25 +677,6 @@ If you ever wanted or had to include such sharing links manually in your sites a
 And that's it. If you think there should be another site added feel free to post them in the comments or shoot me a note [via my contact form](http://www.kremalicious.com/about/contact). Also possible errors or any additions are much appreciated. If useful I will add your additions or more site links to the codaclips files and will update the article.
 
 Also I would like to provide these links as [Espresso](http://macrabbit.com/espresso/) snippets probably as part of the HTML-(or PHP?)-Sugar but this seems to be rather complicated at the moment. As soon as this becomes more straightforward I will add these to this article. But if you're already advanced in creating Espresso sugars and would like to help me with this [please contact me!](http://www.kremalicious.com/about/contact)
-
-
-
-
-
-
-
-
-## Article Updates
-
-
-
-
-04/05/2009 added the Coda Clips icon download and applied the icon to the clip files in the first download package
-
-
-
-
-
 
 ![](http://vg06.met.vgwort.de/na/e09d317bbe794a07a434a3abb8110d35)
 

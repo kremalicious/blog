@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2010-12-29 15:47:12+00:00
-layout: post
-slug: basically-the-monolith-is-on-my-desk
+layout: image
+
 title: Basically, The Monolith Is On My Desk
+image: Basically-The-Monolith-Is-On-My-Desk.jpg
+author: Matthias Kretschmann
+
+date: 2010-12-29 15:47:12+00:00
 wordpress_id: 1873
 categories:
 - photos

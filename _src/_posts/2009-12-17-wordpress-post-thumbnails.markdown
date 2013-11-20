@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2009-12-17 04:00:21+00:00
 layout: post
-slug: wordpress-post-thumbnails
+
 title: Using The New Post Thumbnail Feature In WordPress 2.9
+author: Matthias Kretschmann
+
+date: 2009-12-17 04:00:21+00:00
 wordpress_id: 959
 categories:
 - design
@@ -14,21 +14,28 @@ tags:
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)WordPress 2.9 added a new feature which allows you to assign an image to an article to make it the post image like it's often used in magazine style themes. This new feature along with a new template tag makes all the custom field hacks usually used for this functionality in the past obsolete. So here's a quick walkthrough to make use of the new post thumbnail feature and of course how to make it backwards compatible.
 
-<!-- more -->
-
-
 ## 1. Activate The Feature
-
 
 ![Add WordPress Post Thumbnail Support To Theme](/media/wordpress-thumbnail-1.png)For whatever reason you first have to activate the feature with an entry in your theme's _functions.php_ file in order to get the Post Thumbnail box in the Editor.
 
 So just open up your theme's _functions.php_ file in your favorite editor or create it if there's no such file in your theme folder. Add this little code snippet to this file:
-{% highlight php %}add_theme_support('post-thumbnails');{% endhighlight %}
-For backwards compatibility you should wrap this inside a function check for the new add_theme_support:
-{% highlight php %}if ( function_exists( 'add_theme_support' ) ) 
-  add_theme_support( 'post-thumbnails' );{% endhighlight %}
-This makes sure WordPress installation prior to 2.9 won't get screwed up when using a theme with this new feature.
 
+{% highlight php %}
+<?php 
+    add_theme_support('post-thumbnails'); 
+?>
+{% endhighlight %}
+
+For backwards compatibility you should wrap this inside a function check for the new `add_theme_support`:
+
+{% highlight php %}
+<?php
+    if ( function_exists( 'add_theme_support' ) ) 
+      add_theme_support( 'post-thumbnails' );
+?>
+{% endhighlight %}
+
+This makes sure WordPress installation prior to 2.9 won't get screwed up when using a theme with this new feature.
 
 ## 2. Add A Post Thumbnail To Your Post
 
@@ -69,19 +76,22 @@ The code will output a generic `<img />` tag with a class of wp-post-image. Need
 
 
 If you want to adjust the generated output of the <img /> tag you can do this by using some array stuff. So let's say you want to have the post thumbnails to be 200x200px big and another class assigned to it, you can extend the template tag like so:
+
 {% highlight php %}<?php the_post_thumbnail(array( 200,200 ), array( 'class' => 'alignleft' )); ?>{% endhighlight %}
 
 If you want to add more than one class you can do this like so:
 
 {% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft another_class')); ?>{% endhighlight %}
 
-And you can add any attributes to the <img /> tag like a title, rel or an alt attribute. For accessibility reasons you should always add at least the alt-attribute:
+And you can add any attributes to the `<img />` tag like a `title`, `rel` or an `alt` attribute. For accessibility reasons you should always add at least the alt-attribute:
 
 {% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext')); ?>{% endhighlight %}
 
 As for the title attribute this will be grabbed automatically from the entry you've made in your Media Library during the upload process but you even could override this too:
 
-{% highlight php %}<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext', 'title' => 'titletext')); ?>{% endhighlight %}
+{% highlight php %}
+<?php the_post_thumbnail('medium', array('class' => 'alignleft', 'alt' => 'alttext', 'title' => 'titletext')); ?>
+{% endhighlight %}
 
 
 
@@ -93,6 +103,7 @@ Finally if you want to respect the custom sizes you or your users have set under
 {% highlight php %}<?php 
   $width = get_option('thumbnail_size_w');  // get the width of the thumbnail setting
   $height = get_option('thumbnail_size_h'); // get the height of the thumbnail setting
+  
   the_post_thumbnail(array($width, $height), array('class' => 'alignleft')); 
 ?>{% endhighlight %}
 

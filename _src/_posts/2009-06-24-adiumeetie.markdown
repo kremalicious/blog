@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2009-06-24 21:00:38+00:00
 layout: post
-slug: adiumeetie
+
 title: Adiumeetie. Tweetie Style Adium Icon
+image: Teaser-Adiumeetie.jpg
+author: Matthias Kretschmann
+
+date: 2009-06-24 21:00:38+00:00
 wordpress_id: 844
 categories:
 - goodies
@@ -12,8 +13,6 @@ categories:
 ---
 
 Here's a new desktop goodie for your pleasure. It's a replacement dock icon for the popular Mac IM client [Adium](http://adium.im/) following the style of atebit's excellent [Tweetie for Mac](http://www.atebits.com/tweetie-mac/) icon.
-
-<!-- more -->
 
 ![Adiumeetie Teaser](/media/Adiumeetie-Teaser.jpg)
 
@@ -24,20 +23,13 @@ The icon comes in various formats (iContainer, icns, png) in sizes from 512px-16
 ![Adiumeetie States](/media/Adiumeetie-Teaser-AdiumIcon.png)
 
 
-
 ## Download
-
-
 
 Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab this icon while it's hot.
 
-[download_button version=1.0]
-
-
+<a class="btn btn-primary icon-download-alt" href="/media/adiumeetie-by-kremalicious.zip">Download</a>
 
 ## Adium Icon Usage
-
-
 
 ![Adiumeetie Dock Preview](/media/Adiumeetie-Dock-Preview.png)Just double click the Adiumeetie.AdiumIcon file and the dock icon gets installed automatically. Then you can select the icon in Adium's preferences under Appearance > Dock Icon from the drop-down menu. After this the icon should be ready as your new Adium icon both in the Dock and in your Applications folder.
 

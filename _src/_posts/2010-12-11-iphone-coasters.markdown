@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2010-12-11 21:19:29+00:00
-layout: post
-slug: iphone-coasters
+layout: image
+
 title: iPhone Coasters
+image: iPhone-Coasters-1-Version-2.jpg
+author: Matthias Kretschmann
+
+date: 2010-12-11 21:19:29+00:00
 wordpress_id: 1889
 categories:
 - photos
