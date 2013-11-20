@@ -41,35 +41,29 @@ a.nav-main-link {
     font-weight: @headings-font-weight;
     line-height: @headings-line-height;
 	.h6;
-	p {
-		width: 48%;
-		margin: 0;
-		position: relative;
-		font-size: .95em;
-	}
-	
-	.alignright { text-align: right; }
-	
+    
+	p { position: relative;	}
 	a { display: block; }
-	
-	.alignleft i { margin-right: .5em; }
-	
-	.alignright i { margin-left: .5em; }
-	
-	.single & .alignleft a { margin-left: 1.5em; }
-	
-	.single & .alignright a { margin-right: 1.5em; }
-	
-	.single & i {
+    
+	i {
 		position: absolute;
 		left: 0;
 		top: 0;
 	}
+    
+	.alignright { text-align: right; }
 	
-	.single & .alignright i {
+	.alignleft i { margin-right: .5em; }
+	
+	.alignright i { 
+        margin-left: .5em;
 		left: auto;
 		right: 0;
-	}
+    }
+	
+	.alignleft a { margin-left: 1.5em; }
+	.alignright a { margin-right: 1.5em; }
+	
 	
 }
 
