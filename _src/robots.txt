@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /search/
+Disallow: /page/
+
+Sitemap: http://kremalicious.com/sitemap.xml

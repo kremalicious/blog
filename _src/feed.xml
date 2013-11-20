@@ -1,39 +1,47 @@
 ---
-layout: none
+layout: nil
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>{{ site.name }}</title>
-		<description>{{ site.description }}</description>
-		<link>{{ site.url }}</link>
-		<atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	
+	<title type="text" xml:lang="en">{{ site.name }}</title>
+	<link type="application/atom+xml" href="{{ site.url }}/feed/" rel="self"/>
+ 	<link type="text" href="{{ site.url }}" rel="alternate"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>{{ site.url }}</id>
+	<author>
+		<name>{{ site.author }}</name>
+	</author>
+	
+	{% for post in site.posts limit:100 %}
+    	<entry>
+    		<title>{{ post.title }}</title>
 		
-        {% for post in site.posts limit:100 %}
-			<item>
-				<title>{{ post.title }}</title>
-				<description>
-                    {% if post.image %}
-                        &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
-                    {% endif %}
-                    
-                    {{ post.content | xml_escape }}
-                    
-    				{% if post.layout == "link" %}
-                        &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
-                        &lt;a href=&quot;{{ site.url }}/{{ post.url }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
-                    {% endif %}
-                    
-                </description>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-				{% if post.layout == "link" %}
-                    <link>{{ post.linkurl }}</link>
-                {% else %}
-                    <link>{{ site.url }}/{{ post.url }}</link>
+            {% if post.layout == "link" %}
+                <link>{{ post.linkurl }}</link>
+            {% else %}
+                <link>{{ site.url }}/{{ post.url }}</link>
+            {% endif %}
+		    
+            <published>{{ post.date | date_to_xmlschema }}</published>
+            
+            {% if post.moddate %}
+                <updated>{{ post.moddate | date_to_xmlschema }}</updated>
+            {% endif %}
+            
+    		<id>{{ site.url }}/{{ post.url }}</id>
+    		<content type="html">
+                {% if post.image %}
+                    &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
                 {% endif %}
-				<guid isPermaLink="true">{{ site.url }}/{{ post.url }}</guid>
-			</item>
-		{% endfor %}
-        
-	</channel>
-</rss>
+            
+                {{ post.content | xml_escape }}
+            
+    			{% if post.layout == "link" %}
+                    &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
+                    &lt;a href=&quot;{{ site.url }}/{{ post.url }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
+                {% endif %}
+            </content>
+    	</entry>
+	{% endfor %}
+</feed>
