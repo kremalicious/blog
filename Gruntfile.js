@@ -122,6 +122,16 @@ module.exports = function(grunt){
                     }
                 ]
             },
+            media: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= config.site %>/media/',
+                        src: ['**/*.{png,jpg,jpeg,gif}'],
+                        dest: '<%= config.site %>/media/'
+                    }
+                ]
+            },
             touchicons: {
                 files: [
                     {
@@ -166,7 +176,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**'
                 ],
-                tasks: ['jekyll', 'less']
+                tasks: ['jekyll', 'less', 'uglify']
             },
         },
         
@@ -216,6 +226,11 @@ module.exports = function(grunt){
     // Images only tasks
     grunt.registerTask('images', [
         'responsive_images',
+        'imagemin'
+    ]);
+    
+    // Imagemin only task
+    grunt.registerTask('imagemin', [
         'imagemin'
     ]);
     
