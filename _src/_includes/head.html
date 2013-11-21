@@ -1,0 +1,55 @@
+<head>
+    <meta charset="utf-8">
+
+    <title>
+        {% if paginator.next_page != 2 %}
+            Page {{ paginator.page }} &brvbar; {{ page.title }}
+        {% else %}
+            {{ page.title }} &brvbar; {{ site.name }}
+        {% endif %}
+    </title>
+    
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% else %}
+        <meta name="description" content="{{ site.description }}" />
+    {% endif %}
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype" content="on">
+    
+    <link rel="stylesheet" href="/assets/css/kremalicious3.min.css">
+    {% if page.style %}
+        <link rel="stylesheet" href="/assets/css/{{ page.style }}">
+    {% endif %}
+    
+	<script data-cfasync="false" src="//use.typekit.com/msu4qap.js"></script>
+	<script data-cfasync="false">try{Typekit.load();}catch(e){}</script>
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@kremaliciouscom">
+    <meta name="twitter:creator" content="@kremalicious">
+    {% if page.title %}
+        <meta name="twitter:title" content="{{ page.title }}">
+    {% else %}
+        <meta name="twitter:title" content="{{ site.title }}">
+    {% endif %}
+    {% if page.url %}
+        <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    {% endif %}
+    {% if page.description %}
+        <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
+        <meta name="twitter:description" content="{{ site.description }}">
+    {% endif %}
+    {% if page.image %}
+        <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
+    {% else %}
+      <!-- <meta name="twitter:image:src" content="{{ site.url }}/media/logo.png"> -->
+    {% endif %}
+
+</head>
