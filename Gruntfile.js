@@ -77,7 +77,8 @@ module.exports = function(grunt){
                 },
                 files: {
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
-                        '<%= config.src %>/<%= config.assets.js %>/script.js'
+                        '<%= config.src %>/<%= config.assets.js %>/picturefill.js',
+                        '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
             }
@@ -207,7 +208,7 @@ module.exports = function(grunt){
         'less',
         'cmq',
         'cssmin',
-        //'uglify',
+        'uglify',
         'connect',
         'watch'
     ]);
