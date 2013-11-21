@@ -2,11 +2,15 @@
     <meta charset="utf-8">
 
     <title>
-        {% if paginator.next_page != 2 %}
+        
+        {% if paginator.previous_page %}
             Page {{ paginator.page }} &brvbar; {{ page.title }}
-        {% else %}
+        {% elsif page.path contains '_posts' %}
             {{ page.title }} &brvbar; {{ site.name }}
+        {% else %}
+            {{ page.title }} &brvbar; {{ site.description }}
         {% endif %}
+        
     </title>
     
     {% if page.description %}
