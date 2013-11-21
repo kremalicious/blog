@@ -31,7 +31,9 @@ description: 'Blog of designer & developer Matthias Kretschmann'
             <a class="photoPost" href="{{ post.url }}">
             	<figure class="hmedia">
                     
-            		<img src="/media/{{ post.image }}" />
+            		<img 
+                        src="/media/640/{{ post.image }}"
+                        srcset="/media/1280/{{ post.image }} 2x" />
             		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
             		exif
             	</figure>
@@ -50,7 +52,9 @@ description: 'Blog of designer & developer Matthias Kretschmann'
                 
                 {% if post.image %}
                     <a href="{{ post.url }}">
-                        <img class="teaser" src="/media/{{ post.image }}" />
+                        <img class="teaser" 
+                            src="/media/640/{{ post.image }}"
+                            srcset="/media/1280/{{ post.image }} 2x"> />
                     </a>
                 {% endif %}
                 

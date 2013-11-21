@@ -32,7 +32,7 @@ layout: nil
     		<id>{{ site.url }}/{{ post.url }}</id>
     		<content type="html">
                 {% if post.image %}
-                    &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
+                    &lt;img src=&quot;{{ site.url }}/media/640/{{ post.image }}&quot; /&gt;
                 {% endif %}
             
                 {{ post.content | xml_escape }}

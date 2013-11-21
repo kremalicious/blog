@@ -3,7 +3,7 @@ module Jekyll
     class RsyncMediaFolder < Generator
         def generate(site)
             system('mkdir -p _site'); # We may be called before _site exists.
-            system('rsync --archive --delete _src/_media/ _site/media/');
+            system('rsync --archive _src/_media/ _site/media/');
         end
     end
 end
