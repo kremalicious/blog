@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-08-22 14:51:02+00:00
 layout: post
-slug: noise-ninja-finally-available-for-apple-aperture
+
 title: Noise Ninja finally available for Apple Aperture
+author: Matthias Kretschmann
+
+date: 2008-08-22 14:51:02+00:00
 wordpress_id: 120
 categories:
 - photography

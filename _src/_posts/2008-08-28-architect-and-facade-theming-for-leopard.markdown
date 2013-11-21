@@ -1,18 +1,16 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-08-28 09:54:06+00:00
 layout: post
-slug: architect-and-facade-theming-for-leopard
+
 title: 'Architect and Façade: Theming For Leopard'
+author: Matthias Kretschmann
+
+date: 2008-08-28 09:54:06+00:00
 wordpress_id: 156
 categories:
 - design
 ---
 
 ![Architect icon](/media/architect-icon.jpg)There's good news for all you Mac OS X Leopard GUI Themer out there. While there's Panic's [Candybar](http://www.panic.com/candybar) for icon customization in OS X there is no application to alter all the user interface elements of Leopard. In Tiger there was an application called ShapeShifter but since the whole GUI in Leopard changed it stopped working. Architect and Façade to the rescue.
-
-<!-- more -->
 
 [SlightlyPretentious](http://www.slightlypretentious.com/) announced its "Theming made easy"-application Architect is coming as a public beta <strike>next sunday (is it 08/31 or 09/07?)</strike> on Wednesday, September 3rd. Icon Designer Laurent Baumann already posted [a new sweet application icon](http://www.flickr.com/photos/avetenebrae/2669353476/) for this app a while ago and we can expect a nice and good looking solution for theming and customization in Leopard. 
 

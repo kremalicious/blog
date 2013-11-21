@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-10-26 16:05:58+00:00
 layout: post
-slug: the-definite-guide-to-watermarks-in-apple-aperture
+
 title: The Definite Guide To Watermarks In Apple Aperture
+author: Matthias Kretschmann
+
+date: 2008-10-26 16:05:58+00:00
 wordpress_id: 318
 categories:
 - photography
@@ -16,40 +16,16 @@ tags:
 
 I received quite a few mails in the last days from Aperture users asking for the best way to add your copyright information or any other so called watermark to your images in an Aperture 2 workflow. Especially new users to Aperture find it quite confusing why there isn't something like a text brick in the Adjustments panel. So Aperture itself lacks the ability of quickly adding some lines of text to your images but nevertheless it has a watermarking feature.
 
-
-
 In this article I will lay out every way I've found to add watermarks to your images in an Aperture 2 workflow and will discuss the advantages and disadvantages of each solution. The goal of this article is to give you a brief overview about the various ways you can add watermarks to your images so you can easily choose the best one for different needs. In short these are the possibilities:
 
 <!-- more -->
 
 
-
-
-
-  1. The Aperture Way
-
-
-  2. The External Editor Way
-
-
-  3. The Plug-In Way
-
-
-  4. Conclusion
-
-
-
-
-
 ## 1. The Aperture Way
-
-
 
 Aperture has built-in support for watermarking your images on export. But you have to create a watermark image in a bitmap graphic editor like [Photoshop](http://www.adobe.com/products/photoshop/photoshop/), [Pixelmator](http://www.pixelmator.com/) or [Acorn](http://flyingmeat.com/acorn/) before you can start adding watermarks. But I've written a detailed article about how to use this feature of Aperture back in May 2008 named [HowTo: Use high-quality watermarks in your images with Aperture 2.1](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/). In short, you have to create your watermark image first and then define it in a new export preset. In the end all images exported with this preset will have your defined watermark image on them. If you want to watermark your images the Aperture way be sure to [check out my tutorial](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/).
 
 ![Aperture Watermark](/media/watermark_8.png)
-
-
 
 This way is perfect if you want to watermark a lot of images at once or if your copyright info doesn't change often. And this works with Aperture's Web Journal or Web Page feature if you add a watermark image to the export presets for that. Also this works with any other export plug-in in Aperture which utilizes the export presets, like the [FlickrExport](http://connectedflow.com/flickrexport/aperture/) plug-in. You just have to create e.g. a flickr export preset, define your watermark image there and chose it inside of FlickrExport from the export preset dropdown list.
 

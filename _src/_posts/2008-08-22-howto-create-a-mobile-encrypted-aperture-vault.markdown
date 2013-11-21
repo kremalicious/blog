@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-08-22 18:50:31+00:00
 layout: post
-slug: howto-create-a-mobile-encrypted-aperture-vault
+
 title: 'HowTo: Create A Mobile Encrypted Aperture Vault'
+author: Matthias Kretschmann
+
+date: 2008-08-22 18:50:31+00:00
 wordpress_id: 142
 categories:
 - photography
@@ -21,8 +21,6 @@ So in this quick tutorial I will show you how to create an encrypted Aperture Va
 <!-- more -->
 
 ## 1. Create an encrypted disk image
-
-
 
 First you have to create the encrypted disk image where the Aperture Vault will reside. So fire up Disk Utility from the Utilities folder inside your Applications folder or use Spotlight to open it.
 

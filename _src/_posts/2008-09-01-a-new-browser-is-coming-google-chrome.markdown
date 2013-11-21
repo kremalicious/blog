@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-09-01 20:40:38+00:00
 layout: post
-slug: a-new-browser-is-coming-google-chrome
+
 title: 'A New Browser Is Coming: Google Chrome [Update]'
+author: Matthias Kretschmann
+
+date: 2008-09-01 20:40:38+00:00
 wordpress_id: 197
 categories:
 - design
@@ -14,7 +14,9 @@ categories:
 
 Google Chrome has a different UI-Design compared to other browsers especially regarding tabs. Google Chrome tabs will be on top of the address bar so every tab has its own address bar. Beside that every tab will run its own process to improve stability.
 
-<!-- more -->Using WebKit as its rendering engine, Google Chrome will have all the cool WebKit stuff included like [CSS Gradients](http://www.kremalicious.com/2008/04/webkit-team-introduced-css-based-gradients/), [CSS Masks](http://www.kremalicious.com/2008/04/more-awesomeness-from-the-webkit-team-css-masks/) and the CSS3 property text-shadow, which [I've covered earlier in detail](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/).
+<!-- more -->
+
+Using WebKit as its rendering engine, Google Chrome will have all the cool WebKit stuff included like [CSS Gradients](http://www.kremalicious.com/2008/04/webkit-team-introduced-css-based-gradients/), [CSS Masks](http://www.kremalicious.com/2008/04/more-awesomeness-from-the-webkit-team-css-masks/) and the CSS3 property text-shadow, which [I've covered earlier in detail](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/).
 
 Google Chrome will be optimized for use with web applications and, instead of using [WebKit's new core JavaScript engine Squirrelfish](http://webkit.org/blog/189/announcing-squirrelfish/), Google decided to use a new, multi-core processor optimized JavaScript virtual machine developed by the V8-team in Denmark.
 
@@ -28,14 +30,7 @@ Update 3: Google Chrome seems to have problems with some of my transparent PNGs:
 
 [![Chrome UI](/media/chrome-ui-thumb.png)](/media/chrome-ui.png)
 
-
-
 Update 4: There are some nice articles about various aspects of Chrome available in the web: 
-
-
-
-
-
 
   * Matt Cutts tries to prevent paranoia and [explains when Google Chrome talk home](http://www.mattcutts.com/blog/google-chrome-communication/).
 
@@ -50,7 +45,4 @@ Update 4: There are some nice articles about various aspects of Chrome available
 
 
   * And it seems Google [cut out some features of WebKit like text-shadow](http://www.flickr.com/photos/kurafire/2822606444/).
-
-
-
 

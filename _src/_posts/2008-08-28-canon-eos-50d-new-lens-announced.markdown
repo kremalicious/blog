@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-08-28 11:28:33+00:00
 layout: post
-slug: canon-eos-50d-new-lens-announced
+
 title: Canon EOS 50D And New Lens Officially Announced
+author: Matthias Kretschmann
+
+date: 2008-08-28 11:28:33+00:00
 wordpress_id: 168
 categories:
 - photography
@@ -14,7 +14,9 @@ categories:
 
 The EOS 50D comes with an CMOS APS-C sized sensor (crop factor 1.6) with 15.1 megapixels. Being Canons first DSLR with the new DIGIC 4 image processor the EOS 50D can burst 6.3 shots per second with improved image quality. 
 
-<!-- more -->The "EOS Integrated Cleaning Systems" gets a new fluorine layer and now works in three steps to clean the sensor. With 35 metering zones and 9 cross type Autofocus zones the Autofocus specifications are the same as found in the EOS 40D.
+<!-- more -->
+
+The "EOS Integrated Cleaning Systems" gets a new fluorine layer and now works in three steps to clean the sensor. With 35 metering zones and 9 cross type Autofocus zones the Autofocus specifications are the same as found in the EOS 40D.
 
 [![EOS 50D back](/media/eos_50D_back_thumb.png)](/media/eos_50D_back.png)The basic ISO range goes from 100 - 3200 while those values can be "boosted" to ISO 6400 and 12800. The integrated noise reduction can be adjusted in four grades. The LCD display is now 3 inches big with 920,000 pixels (VGA) with a Live View Mode.
 

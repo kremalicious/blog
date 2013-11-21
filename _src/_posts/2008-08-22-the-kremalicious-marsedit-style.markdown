@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-08-22 17:04:19+00:00
 layout: post
-slug: the-kremalicious-marsedit-style
+
 title: The Kremalicious MarsEdit Style
+author: Matthias Kretschmann
+
+date: 2008-08-22 17:04:19+00:00
 wordpress_id: 122
 categories:
 - goodies
@@ -23,56 +23,57 @@ Here's how to apply the style for your blog preview in MarsEdit:
 
 In MarsEdit main window right-click (or ctrl + click) in the sidebar on the blog where you want to have my style applied to and choose Edit Preview Template. The Preview Template editor should open where you can customize the style of the preview with the css instructions in the header.
 
-Just copy and paste the following HTML and CSS into your Preview Template editor. If something goes wrong with the source formatting, I've also provided [a txt file with the code](http://www.kremalicious.com/media/marsedit_kremalicious.txt):
+Just copy and paste the following HTML and CSS into your Preview Template editor. If something goes wrong with the source formatting, I've also provided [a txt file with the code](/media/marsedit_kremalicious.txt):
 
 
-    
-    <code data-language="html"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
+{% highlight html %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-    <title>#weblogName#: #title#</title>
-    <style>
-    body {margin: 0; background-color: #000;}
-    
-    a {color: #778caa; text-decoration: none;}
-    
-    a:hover {background-color: #778caa; color: #000; text-shadow: 0px 1px 1px #ddd;}
-    
-    #title { color: #778caa; background-color: #333; margin: 0; font: normal 2.1em "HelveticaNeue-UltraLight", Helvetica, sans-serif;}
-    
-    #title a {display: block; position: relative; padding: 10px 20px;}
-    
-    #title a:hover {text-shadow: 0px 1px 1px #B3B3B3;}
-    
-    #content {font: 1em "Lucida Grande", Lucida, Verdana, sans-serif; color: #ddd; padding: 10px 20px;}
-    
-    #meta {margin-top: 20px; padding: 5px; background-color: #333; -webkit-border-radius: 5px;}
-    
-    #credit {font: italic 0.8em/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; text-align: center; margin-top:20px;}
-    </style>
+	    <title>#weblogName#: #title#</title>
+	    <style>
+		    body {margin: 0; background-color: #000;}
+
+		    a {color: #778caa; text-decoration: none;}
+
+		    a:hover {background-color: #778caa; color: #000; text-shadow: 0px 1px 1px #ddd;}
+
+		    #title { color: #778caa; background-color: #333; margin: 0; font: normal 2.1em "HelveticaNeue-UltraLight", Helvetica, sans-serif;}
+
+		    #title a {display: block; position: relative; padding: 10px 20px;}
+
+		    #title a:hover {text-shadow: 0px 1px 1px #B3B3B3;}
+
+		    #content {font: 1em "Lucida Grande", Lucida, Verdana, sans-serif; color: #ddd; padding: 10px 20px;}
+
+		    #meta {margin-top: 20px; padding: 5px; background-color: #333; -webkit-border-radius: 5px;}
+
+		    #credit {font: italic 0.8em/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; text-align: center; margin-top:20px;}
+	    </style>
     </head>
     <body>
-    
-    <div id="title">
-    <a href="#url#">#title#</a>
-    </div>
-    
-    <div id="content">
-    #body#
-    #extended#
-    
-    <div id="meta">
-    <b>url</b>  : <a href="#url#">#url#</a><br />
-    <b>tags</b> : #tags#
-    </div>
-    <div id="credit">
-    The Kremalicious MarsEdit Style<br />
-    <a href="http://www.kremalicious.com">www.kremalicious.com</a>
-    </div>
-    </div> <-- end content -->
-    </body>
-    </html></code>
 
+	    <div id="title">
+	    	<a href="#url#">#title#</a>
+	    </div>
+
+	    <div id="content">
+	    	#body#
+	    	#extended#
+
+		    <div id="meta">
+			    <b>url</b>  : <a href="#url#">#url#</a><br />
+			    <b>tags</b> : #tags#
+		    </div>
+		    <div id="credit">
+			    The Kremalicious MarsEdit Style<br />
+			    <a href="http://www.kremalicious.com">www.kremalicious.com</a>
+		    </div>
+	    </div> <-- end content -->
+	
+    </body>
+</html>
+{% endhighlight %}
 
 
 Now click on Save Changes in the lower right corner of the window and there you have it.
