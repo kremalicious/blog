@@ -16,9 +16,9 @@ post_format:
 Couldn't agree more:
 
 > People. 140-character messages. That’s Twitter.
-
-So simple. So powerful. So fragile.
-
-So leave it alone. We’re talking. Don’t interrupt.
+>
+> So simple. So powerful. So fragile.
+>
+> So leave it alone. We’re talking. Don’t interrupt.
 
 But just rebuilding Twitter before it gets more "richer stories" and crammed by ads probably won't help: [We could build an open Twitter, but would anyone use it?](http://gigaom.com/2012/07/04/we-could-build-an-open-twitter-but-would-anyone-use-it/)

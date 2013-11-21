@@ -54,7 +54,13 @@ description: 'Blog of designer & developer Matthias Kretschmann'
                     </a>
                 {% endif %}
                 
-                {{ post.excerpt }}
+                {% capture has_more %}{{ post.content | has_more }}{% endcapture %}
+                
+                {% if has_more == 'true' %}
+                    {{ post.content | post.excerpt | excerpt }}
+                {% else %}
+                    {{ post.excerpt }}
+                {% endif %}
         
                 <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
         
