@@ -1,0 +1,38 @@
+/////////////////////////////////////
+// Featured posts styles
+/////////////////////////////////////
+
+.featured {
+    .divider-bottom;
+    padding-bottom: @line-height-computed;
+    
+    @media @breakpoint2 { 
+        padding-bottom: @line-height-computed*3;
+    }
+}
+
+.featured-link {
+    display: block;
+    margin-bottom: @line-height-computed;
+    
+    @media @breakpoint2 { 
+        margin-bottom: 0;
+        
+        &:hover {
+            .scale(1.03);
+        }
+    }
+}
+
+.featured-title {
+    .h6;
+    font-size: .8em;
+    margin: 0;
+    .visuallyhidden;
+}
+
+.featured-image {
+    display: block;
+    
+    img { margin-bottom: 0; }
+}

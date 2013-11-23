@@ -33,3 +33,10 @@ picture:
         width: "480"
       source_default: 
         width: "320"
+    featured:
+      ppi: [1, 1.5]
+      attr:
+        class: "featured-image"
+        itemprop: "image"
+      source_default: 
+        width: "190"

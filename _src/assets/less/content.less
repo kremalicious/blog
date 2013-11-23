@@ -6,7 +6,9 @@
 		padding: (@line-height-computed * 4) 0;
 	}
 	
-	&:first-child { padding-top: 0;	}
+	&:first-child { 
+        padding-top: @line-height-computed;
+    }
 }
 
 // post title
@@ -25,6 +27,10 @@
 	h1, h2 {
 		.heading-band;
 	}
+    
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -315,4 +321,18 @@ table tbody tr:nth-child(odd) th {
 table tbody tr:hover td,
 table tbody tr:hover th {
   background-color: #f5f5f5;
+}
+
+
+//
+// Old Article Fixes
+//
+
+// text-shadow article
+// fluid examples
+#post-39 .entry-content > div,
+#post-39 .entry-content img {
+	max-width: 100%;
+	height: auto !important;
+	margin-left: 0 !important;
 }

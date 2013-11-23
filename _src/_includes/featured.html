@@ -1,0 +1,13 @@
+
+<aside class="row featured">
+    {% for post in site.posts %}
+        {% if post.featured  %}
+        <article class="col2">
+            <a class="featured-link" href="{{ post.url }}" title="{{ post.title }}">
+                {% picture featured {{ post.image }} %}
+                <h1 class="featured-title">{{ post.title }}</h1>
+            </a>
+        </article>
+        {% endif %}
+    {% endfor %}
+</aside>

@@ -4,6 +4,10 @@ title: kremalicious
 description: 'Blog of designer & developer Matthias Kretschmann'
 ---
 
+{% if paginator.next_page == 2 %}
+    {% include featured.html %}
+{% endif %}
+
 <section role="main" id="main" class="row">
     
     {% for post in paginator.posts %}

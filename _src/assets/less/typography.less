@@ -143,33 +143,13 @@ blockquote {
 // Unordered and Ordered lists
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: @line-height-computed;
-}
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: @line-height-computed;
+    list-style: none;
+    padding-left: 2em;
 }
 
-// List options
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
-
-nav ul, nav ol {
-	.list-unstyled;
-}
-
-.entry-content ul,
-.entry-content ol {
-	list-style: none;
-	padding-left: 2em;
-}
-
-.entry-content li {
+ul li {
 	position: relative;
 	margin-bottom: .5em;
 	
@@ -191,30 +171,47 @@ nav ul, nav ol {
 	}
 }
 
-.entry-content ol li:before {
-	position: absolute;
-	left: -2em;
-	top: 0;
-}
-
-.entry-content ol {
+ol {
 	counter-reset: ol-counter;
+    
+    li {
+        position: relative;
+    }
+    li:before {
+    	position: absolute;
+    	left: -2em;
+    	top: 0;
+    	color: #fff;
+    	content: counter(ol-counter);
+    	counter-increment: ol-counter;
+    	font-style: italic;
+    	background: @text-color-dimmed;
+    	border-radius: 1.2em;
+    	width: 1.2em;
+    	display: block;
+    	height: 1.2em;
+    	text-align: center;
+    	line-height: 1.1em;
+    	top: .2em;
+    	.box-shadow(0 1px 0 rgba(255,255,255,.7));
+    }
 }
 
-.entry-content ol li:before {
-	color: #fff;
-	content: counter(ol-counter);
-	counter-increment: ol-counter;
-	font-style: italic;
-	background: @text-color-dimmed;
-	border-radius: 1.2em;
-	width: 1.2em;
-	display: block;
-	height: 1.2em;
-	text-align: center;
-	line-height: 1.1em;
-	top: .2em;
-	.box-shadow(0 1px 0 rgba(255,255,255,.7));
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+// List options
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+nav ul, nav ol {
+	.list-unstyled;
 }
 
 

@@ -15,7 +15,7 @@
 	background: rgba(255,255,255,.1);
 	border: 1px solid rgba(94,131,162,.3);
 	border-bottom-color: rgba(94,131,162,.4);
-	border-radius: @border-radius-base;
+	.border-radius;
 	.box-shadow(~"0 1px 3px rgba(151,156,159,.1), inset 0 1px 0 rgba(255,255,255,.7)");
 	.transition;
 	
@@ -101,26 +101,6 @@ a.btn-primary:visited {
 
 .btn-block {
 	display: block;
-}
-
-// assign default button styles to all this stuff
-.inline-download,
-.download {
-	.btn;
-}
-
-a[rel*="tag"] {
-	.btn-tag;
-}
-
-// Old Download Button Overwrites
-.inline-download:link {
-	display: block;
-	text-align: center;
-
-	img {
-		display: none;
-	}
 }
 
 

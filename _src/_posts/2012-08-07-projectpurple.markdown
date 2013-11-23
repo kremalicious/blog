@@ -4,6 +4,7 @@ layout: post
 title: Project Purple
 image: Teaser-Project-Purple.png
 author: Matthias Kretschmann
+featured: true
 
 date: 2012-08-07 13:15:44+00:00
 wordpress_id: 2350
