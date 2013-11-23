@@ -35,8 +35,13 @@ module.exports = function(grunt){
         // Jekyll
         jekyll: {
             production : {
-				src: '<%= config.src %>'
+                options: {
+                    lsi: true
+                }
 			},
+            serve: {
+                
+            }
         },
         
         // less
@@ -150,7 +155,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**'
                 ],
-                tasks: ['jekyll', 'less', 'uglify']
+                tasks: ['jekyll:serve', 'less', 'uglify']
             },
         },
         
@@ -188,7 +193,7 @@ module.exports = function(grunt){
     
     // Dev server
     grunt.registerTask('server', [
-        'jekyll',
+        'jekyll:serve',
         'less',
         'cmq',
         'cssmin',
@@ -205,8 +210,7 @@ module.exports = function(grunt){
     // Production build
     grunt.registerTask('build', [
         'clean',
-        'jekyll',
-        'responsive_images',
+        'jekyll:production',
         'imagemin',
         'less',
         'cmq',

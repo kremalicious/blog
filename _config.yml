@@ -8,10 +8,28 @@ relative_permalinks: true
 paginate: 10
 paginate_path: "/page/:num"
 
-markdown: redcarpet
+markdown: redcarpet  
 pygments: true
 
 source:      ./_src
 destination: ./_site
 exclude:     ['design', 'node_modules', '_src/assets/less']
 keep_files:  ['media']
+
+picture:
+  source: "_media"
+  output: "media_gen"
+  markup: "picturefill"
+  presets:
+    default:
+      ppi: [1, 1.5, 2]
+      attr:
+        itemprop: "image"
+      source_medium:
+        media: "(min-width: 35.556em)"
+        width: "640"
+      source_small:
+        media: "(min-width: 26.667em)"
+        width: "480"
+      source_default: 
+        width: "320"

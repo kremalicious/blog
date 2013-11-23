@@ -31,16 +31,7 @@ description: 'Blog of designer & developer Matthias Kretschmann'
             <a class="photoPost" href="{{ post.url }}">
             	<figure class="hmedia">
                     
-                    <span data-picture data-alt="">
-                        <span data-src="/media/320/{{ post.image }}"></span>
-                        <span data-src="/media/640/{{ post.image }}"   data-media="(min-device-pixel-ratio: 1.5)"></span>
-                        <span data-src="/media/640/{{ post.image }}"   data-media="(min-width: 500px)"></span>
-                        <span data-src="/media/1280/{{ post.image }}"  data-media="(min-width: 640px) and (min-device-pixel-ratio: 2.0)"></span>
-
-                        <noscript>
-                            <img src="/media/{{ post.image }}">
-                        </noscript>
-                    </span>
+                    {% picture {{ post.image }} %}
                     
             		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
             		exif
@@ -60,16 +51,7 @@ description: 'Blog of designer & developer Matthias Kretschmann'
                 
                 {% if post.image %}
                     <a href="{{ post.url }}">
-                        <span class="teaser" data-picture data-alt="">
-                            <span data-src="/media/320/{{ post.image }}"></span>
-                            <span data-src="/media/640/{{ post.image }}"   data-media="(min-device-pixel-ratio: 1.5)"></span>
-                            <span data-src="/media/640/{{ post.image }}"   data-media="(min-width: 500px)"></span>
-                            <span data-src="/media/1280/{{ post.image }}"  data-media="(min-width: 640px) and (min-device-pixel-ratio: 2.0)"></span>
-
-                            <noscript>
-                                <img src="/media/{{ post.image }}">
-                            </noscript>
-                        </span>
+                        {% picture {{ post.image }} class="teaser" %}
                     </a>
                 {% endif %}
                 
