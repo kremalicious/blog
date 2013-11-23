@@ -84,32 +84,6 @@ module.exports = function(grunt){
             }
         },
         
-        responsive_images: {
-            production: {
-                options: {
-                    sizes: [{
-                      name: 'small',
-                      width: 320
-                    },{
-                      name: 'medium',
-                      width: 640
-                    },{
-                      name: 'large',
-                      width: 1280
-                    },{
-                      name: 'jumbo',
-                      width: 2560
-                    }]
-                },
-                files: [{
-                    expand: true,
-                    cwd: '_src/_media',
-                    src: ['**.{jpg,jpeg,gif,png}'],
-                    custom_dest: '_site/media/{%= width %}/'
-                }]
-            }
-        },
-        
         // image optimization
         imagemin: {
             assets: {
@@ -222,13 +196,7 @@ module.exports = function(grunt){
         'connect',
         'watch'
     ]);
-    
-    // Images only tasks
-    grunt.registerTask('images', [
-        'responsive_images',
-        'imagemin'
-    ]);
-    
+
     // Imagemin only task
     grunt.registerTask('imagemin', [
         'imagemin'
