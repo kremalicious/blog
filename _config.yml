@@ -1,20 +1,40 @@
+
+# Basics
+# --------------------
+
 name: kremalicious
 description: 'Blog of designer & developer Matthias Kretschmann'
 url: http://kremalicious.com
 author: Matthias Kretschmann
+
+
+# Urls
+# --------------------
 
 permalink: /post/:title
 relative_permalinks: true
 paginate: 10
 paginate_path: "/page/:num"
 
+
+# Content Parsing
+# --------------------
+
 markdown: redcarpet  
 pygments: true
+
+
+# Generator
+# --------------------
 
 source:      ./_src
 destination: ./_site
 exclude:     ['design', 'node_modules', 'less']
 keep_files:  ['media', 'gen']
+
+
+# jekyll-picture-tag
+# --------------------
 
 picture:
   source: "_media"
