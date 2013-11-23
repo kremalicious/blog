@@ -9,16 +9,7 @@ layout: base
 
     <section class="entry-content">
         {% if page.image %}
-            <span class="teaser" data-picture data-alt="">
-                <span data-src="/media/320/{{ post.image }}"></span>
-                <span data-src="/media/640/{{ post.image }}"   data-media="(min-device-pixel-ratio: 1.5)"></span>
-                <span data-src="/media/640/{{ post.image }}"   data-media="(min-width: 500px)"></span>
-                <span data-src="/media/1280/{{ post.image }}"  data-media="(min-width: 640px) and (min-device-pixel-ratio: 2.0)"></span>
-
-                <noscript>
-                    <img src="/media/{{ post.image }}">
-                </noscript>
-            </span>
+            {% picture {{ page.image }} class="teaser" %}
         {% endif %}
         
         {{ content }}

@@ -15,11 +15,11 @@ module.exports = function(grunt){
     
     // banner
     grunt.log.writeln("");
-    grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     grunt.log.writeln("");
-    grunt.log.writeln("       Just what do you think you're doing, Matthias?    ");
+    grunt.log.writeln("    | (o) | Just what do you think you're doing, Matthias?    ");
     grunt.log.writeln("");
-    grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     grunt.log.writeln("");
     
     // Grunt config
@@ -34,13 +34,16 @@ module.exports = function(grunt){
 
         // Jekyll
         jekyll: {
+            options: {
+                
+            },
             production : {
-                options: {
-                    lsi: true
-                }
+                // options: {
+//                     lsi: true
+//                 }
 			},
             serve: {
-                
+                src: '<%= config.src %>/'
             }
         },
         
@@ -159,20 +162,30 @@ module.exports = function(grunt){
             },
         },
         
-        // Deployment
+        // rsync stuff around
         rsync: {
             options: {
-                args: ['--verbose'],
-                recursive: true,
-                syncDest: true,
-                compareMode: 'checksum',
-                ssh: true
+                
+                recursive: true
             },
-            production: {
+            // copy media folder
+            copy_media: {
                 options: {
+                    src: '<%= config.src %>/_media/',
+                    dest: '<%= config.site %>/media/',
+                    args: ["--exclude='gen'"],
+                }
+            },
+            // deployment
+            deploy: {
+                options: {
+                    syncDest: true,
                     src: '<%= config.site %>/',
                     dest: 'domains/kremalicious.com/html/',
-                    host: 'kremalicious'
+                    host: 'kremalicious',
+                    ssh: true,
+                    args: ['--verbose'],
+                    compareMode: 'checksum'
                 }
             }
         }
@@ -193,7 +206,18 @@ module.exports = function(grunt){
     
     // Dev server
     grunt.registerTask('server', [
+        'rsync:copy_media',
         'jekyll:serve',
+        'less',
+        'cmq',
+        'cssmin',
+        'uglify',
+        'connect',
+        'watch'
+    ]);
+    
+    // Dev server - assets only
+    grunt.registerTask('server-assets', [
         'less',
         'cmq',
         'cssmin',
@@ -210,6 +234,7 @@ module.exports = function(grunt){
     // Production build
     grunt.registerTask('build', [
         'clean',
+        'rsync:copy_media',
         'jekyll:production',
         'imagemin',
         'less',
@@ -220,7 +245,7 @@ module.exports = function(grunt){
     
     // Deploy
     grunt.registerTask('deploy', [
-        'rsync'
+        'rsync:deploy'
     ]);
 
 };

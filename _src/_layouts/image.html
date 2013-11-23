@@ -7,16 +7,7 @@ layout: base
     <div class="photoPost">
     	<figure class="hmedia">
             
-            <span data-picture data-alt="{{ page.title }}">
-                <span data-src="/media/320/{{ page.image }}"></span>
-                <span data-src="/media/640/{{ page.image }}"   data-media="(min-device-pixel-ratio: 1.5)"></span>
-                <span data-src="/media/640/{{ page.image }}"   data-media="(min-width: 500px)"></span>
-                <span data-src="/media/1280/{{ page.image }}"  data-media="(min-width: 640px) and (min-device-pixel-ratio: 2.0)"></span>
-
-                <noscript>
-                    <img src="/media/{{ page.image }}">
-                </noscript>
-            </span>
+            {% picture {{ page.image }} %}
             
             <figcaption class="entry-title fn">{{ page.title }}</figcaption>
     		exif
