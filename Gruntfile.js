@@ -201,13 +201,6 @@ module.exports = function(grunt){
     
     // Default Task
     grunt.registerTask('default', [
-        'watch'
-    ]);
-    
-    // Dev server
-    grunt.registerTask('server', [
-        'rsync:copy_media',
-        'jekyll:serve',
         'less',
         'cmq',
         'cssmin',
@@ -216,8 +209,10 @@ module.exports = function(grunt){
         'watch'
     ]);
     
-    // Dev server - assets only
-    grunt.registerTask('server-assets', [
+    // Dev server
+    grunt.registerTask('server', [
+        'rsync:copy_media',
+        'jekyll:serve',
         'less',
         'cmq',
         'cssmin',
