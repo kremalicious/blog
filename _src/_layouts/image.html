@@ -2,30 +2,34 @@
 layout: base
 ---
 
-<article class="hentry format-image">
+<section role="main" id="main" class="row">
     
-    <div class="photoPost">
-    	<figure class="hmedia">
+    <article class="hentry format-image">
+    
+        <div class="photoPost">
+        	<figure class="hmedia">
             
-            {% picture {{ page.image }} %}
+                {% picture {{ page.image }} %}
             
-            <figcaption class="entry-title fn">{{ page.title }}</figcaption>
-    		exif
-    	</figure>
-    </div>
+                <figcaption class="entry-title fn">{{ page.title }}</figcaption>
+        		exif
+        	</figure>
+        </div>
     
-    <section class="entry-content">
-        {{ content }}
-    </section>
+        <section class="entry-content">
+            {{ content }}
+        </section>
     
-    <footer class="entry-meta">
-        <p class="category">
-            {% for category in page.categories %}
-                <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
-            {% endfor %}
-        </p>
-		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
-		<p class="time">{{ page.date | date_to_string }} <span class="modtime"></span></p>
-    </footer>
+        <footer class="entry-meta">
+            <p class="category">
+                {% for category in page.categories %}
+                    <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
+                {% endfor %}
+            </p>
+    		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
+    		<p class="time">{{ page.date | date_to_string }} <span class="modtime"></span></p>
+        </footer>
     
-</article>
+    </article>
+
+</section>

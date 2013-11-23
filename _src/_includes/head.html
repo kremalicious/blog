@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<!--
+	      ___           ___     
+	     /__/\         /__/|    
+	    |  |::\       |  |:|    
+	    |  |:|:\      |  |:|    
+	  __|__|:|\:\   __|  |:|    
+	 /__/::::| \:\ /__/\_|:|____
+	 \  \:\~~\__\/ \  \:\/:::::/
+	  \  \:\        \  \::/~~~~ 
+	   \  \:\        \  \:\     
+	    \  \:\        \  \:\    
+	     \__\/         \__\/ 
+	     
+	 YOU EARNED THE GEEK ACHIEVEMENT 
+	 FOR LOOKING AT MY SOURCE
+	 
+	 But because of all the minimizing and caching 
+	 going on you better check out the code on 
+	 github
+	 _____________________________________________
+	 
+	 https://github.com/kremalicious/kremalicious3
+	 
+	 _____________________________________________
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
     <meta charset="utf-8">
 
@@ -30,10 +57,16 @@
         <link rel="stylesheet" href="/assets/css/{{ page.style }}">
     {% endif %}
     
+    <script src="/assets/js/lib/picturefill.min.js" async></script>
+    
 	<script data-cfasync="false" src="//use.typekit.com/msu4qap.js"></script>
 	<script data-cfasync="false">try{Typekit.load();}catch(e){}</script>
     
-    <script src="/assets/js/kremalicious3.min.js" defer async></script>
+    {% if paginator %}
+	<script>
+		var total = {{ paginator.total_pages }};
+	</script>
+    {% endif %}
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">

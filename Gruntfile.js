@@ -17,7 +17,7 @@ module.exports = function(grunt){
     grunt.log.writeln("");
     grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     grunt.log.writeln("");
-    grunt.log.writeln("    | (o) | Just what do you think you're doing, Matthias?    ");
+    grunt.log.writeln("      (o) Just what do you think you're doing, Matthias?    ");
     grunt.log.writeln("");
     grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     grunt.log.writeln("");
@@ -80,12 +80,16 @@ module.exports = function(grunt){
         uglify: {
             production: {
                 options: {
-                    report: 'min',
-                    mangle: true
+                    report: 'min'
                 },
                 files: {
+                    '<%= config.site %>/<%= config.assets.js %>/lib/picturefill.min.js': [
+                        '<%= config.site %>/<%= config.assets.js %>/lib/picturefill.js'
+                    ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
-                        '<%= config.src %>/<%= config.assets.js %>/picturefill.js',
+                        '<%= config.src %>/<%= config.assets.js %>/lib/infinitescroll/jquery.infinitescroll.js',
+                        '<%= config.src %>/<%= config.assets.js %>/lib/socialite/socialite.js',
+                        '<%= config.src %>/<%= config.assets.js %>/plugins.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
@@ -165,7 +169,6 @@ module.exports = function(grunt){
         // rsync stuff around
         rsync: {
             options: {
-                
                 recursive: true
             },
             // copy media folder
@@ -173,7 +176,7 @@ module.exports = function(grunt){
                 options: {
                     src: '<%= config.src %>/_media/',
                     dest: '<%= config.site %>/media/',
-                    args: ["--exclude='gen'"],
+                    args: ["--exclude='gen'"]
                 }
             },
             // deployment

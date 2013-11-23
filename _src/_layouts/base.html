@@ -1,46 +1,16 @@
-<!DOCTYPE html>
-<!--
-	      ___           ___     
-	     /__/\         /__/|    
-	    |  |::\       |  |:|    
-	    |  |:|:\      |  |:|    
-	  __|__|:|\:\   __|  |:|    
-	 /__/::::| \:\ /__/\_|:|____
-	 \  \:\~~\__\/ \  \:\/:::::/
-	  \  \:\        \  \::/~~~~ 
-	   \  \:\        \  \:\     
-	    \  \:\        \  \:\    
-	     \__\/         \__\/ 
-	     
-	 YOU EARNED THE GEEK ACHIEVEMENT 
-	 FOR LOOKING AT MY SOURCE
-	 
-	 But because of all the minimizing and caching 
-	 going on you better check out the code on 
-	 github
-	 _____________________________________________
-	 
-	 https://github.com/kremalicious/kremalicious3
-	 
-	 _____________________________________________
--->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
     
-    {% include head.html %}
-    
-    <body>
-        
-        {% include header.html %}
-        
-        <section role="document" class="container">
-            <section role="main" id="main" class="row">
-                
-                {{ content }}
-            
-            </section>
-        </section>
-        
-        {% include footer.html %}
+{% include head.html %}
 
-    </body>
-</html>
+<body>
+    
+    {% include header.html %}
+    
+    <section role="document" class="container"> 
+
+        {{ content }}
+
+    </section>
+
+</body>
+    
+{% include footer.html %}

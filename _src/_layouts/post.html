@@ -2,31 +2,35 @@
 layout: base
 ---
 
-<article class="hentry format-post">
-	<header>
-		<h1 class="entry-title">{{ page.title }}</h1>
-	</header>
-
-    <section class="entry-content">
-        {% if page.image %}
-            {% picture {{ page.image }} class="teaser" %}
-        {% endif %}
-        
-        {{ content }}
-    </section>
+<section role="main" id="main" class="row">
     
-    <footer class="entry-meta">
-        <p class="category">
-            {% for category in page.categories %}
-                <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
-            {% endfor %}
-        </p>
-		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
-		<div class="time">
-		    <p>{{ page.date | date_to_string }}</p>
-		    {% if page.moddate %}
-		    <p class="modtime">updated: {{ page.moddate | date_to_string }}</p>
-		    {% endif %}
-		</div>
-    </footer>
-</article>
+    <article class="hentry format-post">
+    	<header>
+    		<h1 class="entry-title">{{ page.title }}</h1>
+    	</header>
+
+        <section class="entry-content">
+            {% if page.image %}
+                {% picture {{ page.image }} class="teaser" %}
+            {% endif %}
+        
+            {{ content }}
+        </section>
+    
+        <footer class="entry-meta">
+            <p class="category">
+                {% for category in page.categories %}
+                    <a rel="category tag" href="" title="{{ category }}">{{ category }}</a>
+                {% endfor %}
+            </p>
+    		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
+    		<div class="time">
+    		    <p>{{ page.date | date_to_string }}</p>
+    		    {% if page.moddate %}
+    		    <p class="modtime">updated: {{ page.moddate | date_to_string }}</p>
+    		    {% endif %}
+    		</div>
+        </footer>
+    </article>
+
+</section>
