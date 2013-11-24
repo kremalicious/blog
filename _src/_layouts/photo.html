@@ -6,15 +6,13 @@ layout: base
     
     <article class="hentry format-image">
     
-        <div class="photoPost">
-        	<figure class="hmedia">
-            
-                {% picture {{ page.image }} %}
-            
-                <figcaption class="entry-title fn">{{ page.title }}</figcaption>
-        		exif
-        	</figure>
-        </div>
+    	<figure class="hmedia">
+        
+            {% picture {{ page.image }} %}
+        
+            <figcaption class="entry-title fn">{{ page.title }}</figcaption>
+    		exif
+    	</figure>
     
         <section class="entry-content">
             {{ content }}

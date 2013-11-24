@@ -58,14 +58,6 @@
 	&:hover:before {
 		color: @link-color
 	}
-	
-	// hide by default, show on hover or touch
-	opacity: 0;
-	
-	.hentry:hover &,
-	.touch .hentry:hover & {
-		opacity: 1;
-	}	
 }
 
 
@@ -113,7 +105,9 @@
     	border: 1px solid rgba(158, 170, 178, .6);
     	border-radius: 2px;
     	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.1));
-    	.transition();
+    	.transition;
+        
+        .page-single & { margin-bottom: @line-height-computed*2; }
     
         @media @breakpoint2 {
     		.box-shadow(~"0 1px 4px rgba(0, 0, 0, 0.1), inset 0 0 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff");
@@ -139,7 +133,7 @@
     }
 }
 
-a.photoPost {
+.photo-link {
     display: block;
     
     &:hover { 
