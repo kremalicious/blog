@@ -40,6 +40,9 @@ module.exports = function(grunt){
             production: {
                 lsi: true,
                 src: '<%= config.src %>/'
+            },
+            serve: {
+                src: '<%= config.src %>/'
             }
         },
         
@@ -95,34 +98,28 @@ module.exports = function(grunt){
         // image optimization
         imagemin: {
             assets: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= config.site %>/<%= config.assets.img %>/',
-                        src: ['**/*.{png,jpg,jpeg,gif}'],
-                        dest: '<%= config.site %>/<%= config.assets.img %>/'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.site %>/<%= config.assets.img %>/',
+                    src: ['**/*.{png,jpg,jpeg,gif}'],
+                    dest: '<%= config.site %>/<%= config.assets.img %>/'
+                }]
             },
             media: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= config.site %>/media/',
-                        src: ['**/*.{png,jpg,jpeg,gif}'],
-                        dest: '<%= config.site %>/media/'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.site %>/media/',
+                    src: ['**/*.{png,gif}'],
+                    dest: '<%= config.site %>/media/'
+                }]
             },
             touchicons: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= config.site %>/',
-                        src: ['*.png'],
-                        dest: '<%= config.site %>/'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.site %>/',
+                    src: ['*.png'],
+                    dest: '<%= config.site %>/'
+                }]
             }
         },
         
@@ -157,7 +154,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**'
                 ],
-                tasks: ['jekyll', 'less', 'uglify']
+                tasks: ['jekyll:serve', 'less', 'uglify']
             },
         },
         
@@ -211,7 +208,7 @@ module.exports = function(grunt){
     // Dev server
     grunt.registerTask('server', [
         'rsync:copy_media',
-        'jekyll',
+        'jekyll:serve',
         'less',
         'cmq',
         'cssmin',
@@ -229,7 +226,7 @@ module.exports = function(grunt){
     grunt.registerTask('build', [
         'clean',
         'rsync:copy_media',
-        'jekyll',
+        'jekyll:production',
         //'imagemin',
         'less',
         'cmq',

@@ -56,6 +56,7 @@
 .infiniteLoader .next {
 	width: 100%;
     float: none;
+    margin-left: 0;
 }
 
 .infiniteLoader .previous,
@@ -67,8 +68,6 @@
 .infiniteLoader .next a {
 	.btn;
 	.aligncenter;
-	
-	@media @breakpoint1 {
-		max-width: 40%;
-	}
+    padding-top: @line-height-computed/1.5;
+    padding-bottom: @line-height-computed/1.5;
 }
