@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Train Station Leipzig
 image: de2ac24c7db911e1b9f1123138140926_7.jpg

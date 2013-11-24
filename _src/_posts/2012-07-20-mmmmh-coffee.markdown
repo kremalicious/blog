@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Mmmmh, Coffee
 image: 66a6e0c0d25a11e1a94522000a1e8aaf_7.jpg

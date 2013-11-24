@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Amazingly early
 image: 2ca7a094e10f11e1868c12313817a130_7.jpg

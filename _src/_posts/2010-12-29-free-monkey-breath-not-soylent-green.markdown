@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Free Monkey Breath, Not Soylent Green
 image: Free-Monkey-Breath-Not-Soylent-Green.jpg

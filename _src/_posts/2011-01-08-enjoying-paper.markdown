@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Enjoying Paper
 image: Enjoying-Paper.jpg

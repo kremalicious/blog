@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: iPhone Coasters
 image: iPhone-Coasters-1-Version-2.jpg

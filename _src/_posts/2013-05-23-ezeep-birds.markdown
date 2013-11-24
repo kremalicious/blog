@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: ezeep birds
 image: 8776417095_43553c88c2_o.jpg

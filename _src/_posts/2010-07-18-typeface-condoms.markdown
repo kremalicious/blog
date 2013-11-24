@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Typeface condoms
 image: Typeface-condoms.jpg

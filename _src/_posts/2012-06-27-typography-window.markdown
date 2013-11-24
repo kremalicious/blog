@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Typography window
 image: 80a136dabff711e188131231381b5c25_7.jpg

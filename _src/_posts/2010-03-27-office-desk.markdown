@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Office Desk
 image: Office-Desk.jpg

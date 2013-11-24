@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Castle Garden
 image: 8372983659_da0e88ca79_o.jpg

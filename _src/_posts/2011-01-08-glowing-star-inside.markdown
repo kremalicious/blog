@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Glowing Star Inside
 image: Glowing-Star-Inside.jpg

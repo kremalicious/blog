@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: A Long Time Ago...
 image: A-Long-Time-Ago.jpg

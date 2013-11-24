@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Blaue Türme
 image: Blaue-Türme-1.jpg

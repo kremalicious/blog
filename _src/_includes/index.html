@@ -1,0 +1,64 @@
+
+{% if post.layout == "link" %}
+
+    <article class="hentry format-link">
+    	<header>
+    		<h1 class="entry-title">
+                <a href="{{ post.linkurl }}" title="Go to source">{{ post.title }} <i class="icon-forward"></i></a>
+            </h1>
+    	</header>
+
+        <section class="entry-content">
+            {{ post.content }}
+    		<p>
+    			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon-forward"></i></a>
+                <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">&#8734;</a>
+    		</p>
+        </section>
+    </article>
+
+{% elsif post.layout == "photo" %}
+
+    <article class="hentry format-image">
+
+        <a class="photoPost" href="{{ post.url }}">
+        	<figure class="hmedia">
+            
+                {% picture {{ post.image }} %}
+            
+        		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
+        		exif
+        	</figure>
+        </a>
+
+    </article>
+
+{% else %}
+
+    <article class="hentry format-post">
+    	<header>
+    		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    	</header>
+
+        <section class="entry-content">
+        
+            {% if post.image %}
+                <a href="{{ post.url }}">
+                    {% picture {{ post.image }} class="teaser" %}
+                </a>
+            {% endif %}
+        
+            {% capture has_more %}{{ post.content | has_more }}{% endcapture %}
+        
+            {% if has_more == 'true' %}
+                {{ post.content | post.excerpt | excerpt }}
+            {% else %}
+                {{ post.excerpt }}
+            {% endif %}
+
+            <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
+
+        </section>
+    </article>
+
+{% endif %}

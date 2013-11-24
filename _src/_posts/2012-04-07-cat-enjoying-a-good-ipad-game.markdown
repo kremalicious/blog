@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Cat enjoying a good iPad game
 image: 7838011c80ce11e19e4a12313813ffc0_7.jpg

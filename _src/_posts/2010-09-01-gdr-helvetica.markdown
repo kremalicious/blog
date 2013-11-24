@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: GDR Helvetica
 image: GDR-Helvetica.jpg

@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Antique Chrome
 image: 5fc688aa953811e180c9123138016265_7.jpg

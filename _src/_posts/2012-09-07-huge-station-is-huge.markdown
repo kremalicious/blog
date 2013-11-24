@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Huge station is huge
 image: 619b3900f92911e1a31922000a1cddf1_7.jpg

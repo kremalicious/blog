@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Relaxing Cat
 image: 7f9397a265d811e1b9f1123138140926_7.jpg

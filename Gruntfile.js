@@ -37,16 +37,8 @@ module.exports = function(grunt){
 
         // Jekyll
         jekyll: {
-            options: {
-                
-            },
-            production : {
-                // options: {
-//                     lsi: true
-//                 }
-                src: '<%= config.src %>/'
-			},
-            serve: {
+            production: {
+                lsi: true,
                 src: '<%= config.src %>/'
             }
         },
@@ -165,7 +157,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**'
                 ],
-                tasks: ['jekyll:serve', 'less', 'uglify']
+                tasks: ['jekyll', 'less', 'uglify']
             },
         },
         
@@ -178,8 +170,9 @@ module.exports = function(grunt){
             copy_media: {
                 options: {
                     src: '<%= config.src %>/_media/',
-                    dest: '<%= config.site %>/media/',
-                    args: ["--exclude='gen'"]
+                    dest: '<%= config.site %>/media',
+                    exclude: ['**/gen'],
+                    syncDestIgnoreExcl: true
                 }
             },
             // deployment
@@ -187,7 +180,7 @@ module.exports = function(grunt){
                 options: {
                     syncDest: true,
                     src: '<%= config.site %>/',
-                    dest: 'domains/kremalicious.com/html/',
+                    dest: 'domains/kremalicious.com/html',
                     host: 'kremalicious',
                     ssh: true,
                     args: ['--verbose'],
@@ -218,7 +211,7 @@ module.exports = function(grunt){
     // Dev server
     grunt.registerTask('server', [
         'rsync:copy_media',
-        'jekyll:serve',
+        'jekyll',
         'less',
         'cmq',
         'cssmin',
@@ -236,7 +229,7 @@ module.exports = function(grunt){
     grunt.registerTask('build', [
         'clean',
         'rsync:copy_media',
-        'jekyll:production',
+        'jekyll',
         //'imagemin',
         'less',
         'cmq',

@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Broken Nexus S Screen
 image: Broken-Nexus-S-Screen.jpg

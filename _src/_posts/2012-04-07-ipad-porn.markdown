@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: iPad Porn
 image: 97a44d6080b711e181bd12313817987b_7.jpg

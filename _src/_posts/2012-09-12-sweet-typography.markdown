@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Sweet typography
 image: 01f8b0b8fcc611e19b5b123138140bce_7.jpg

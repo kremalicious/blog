@@ -1,0 +1,22 @@
+<nav class="row pager pagination">
+    {% if paginator.previous_page %}
+        
+        <p class="previous col2 alignleft">
+            <i class="icon-arrow-left"></i> 
+            {% if paginator.previous_page == 1 %}
+                <a href="/" rel="prev">Previous</a> 
+            {% else %}
+                <a href="/page/{{ paginator.previous_page }}/" rel="prev">Previous</a>
+            {% endif %}
+        </p>
+    {% endif %}
+    <p class="col2 pagenumber textcenter">
+        <span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    </p>
+    {% if paginator.next_page %}
+        <p class="next col2 alignright">
+            <a href="/page/{{ paginator.next_page }}/" rel="next">Next</a> 
+            <i class="icon-arrow-right"></i>
+        </p>
+    {% endif %}
+</nav>

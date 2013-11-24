@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Common kitchen decoration
 image: 2ba6eeba81b111e1989612313815112c_7.jpg

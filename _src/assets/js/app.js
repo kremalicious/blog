@@ -41,7 +41,7 @@ var photoGrid = {
 
 	init: function(){
 		// only fire when photo post present and screen bigger than 480px
-		if ( $('#main .masonry').length > 0 && Modernizr.mq('only screen and (min-width: 480px)') ) {
+		if ( $('#photos').length > 0 ) {
 			this.masonryLayout();
 		}
 	}
@@ -66,7 +66,7 @@ var infiniteScroll = {
 
 	infiniteScrollSetup: function() {
 
-		if ( $('body.archive.category-photos').length > 0 ) {
+		if ( $('#photos').length > 0 ) {
 			var items	= '#main .masonry';
 		} else {
 			var items	= '#main article.hentry';

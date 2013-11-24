@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Basically, The Monolith Is On My Desk
 image: Basically-The-Monolith-Is-On-My-Desk.jpg

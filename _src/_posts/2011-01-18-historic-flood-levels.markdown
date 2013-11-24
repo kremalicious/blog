@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: Historic Flood Levels
 image: Historic-Flood-Levels.jpg

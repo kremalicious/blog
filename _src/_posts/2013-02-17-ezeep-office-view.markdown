@@ -1,5 +1,5 @@
 ---
-layout: image
+layout: photo
 
 title: ezeep office view
 image: 8450618380_83c64006c6_o.jpg

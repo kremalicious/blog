@@ -1,0 +1,28 @@
+---
+layout: base
+title: Photos kremalicious
+---
+
+<section role="main" id="main photos" class="row">
+    <div class="masonry">
+        
+        {% for post in site.categories.photos %}
+        
+            <article class="hentry format-image">
+
+                <a class="photoPost" href="{{ post.url }}">
+                	<figure class="hmedia">
+        
+                        
+        
+                		<figcaption class="entry-title fn">{{ post.title }}</figcaption>
+                		exif
+                	</figure>
+                </a>
+
+            </article>
+        
+        {% endfor %}
+        
+    </div>
+</section>
