@@ -76,8 +76,25 @@
     
 }
 
+.linkurl {
+    display: block;
+    font-family: @font-family-base;
+    font-size: @font-size-mini;
+    color: @text-color-dimmed;
+    padding: @line-height-computed/3 0;
+    margin-left: auto;
+    margin-right: auto;
+    .ellipsis;
+    
+    max-width: 70%;
+    @media @breakpoint2 {
+        max-width: 50%;
+    }
+}
+
 .permalink-link {
 	float: right;
+    font-size: 1.1em
 }
 
 // PHOTO POST
@@ -148,45 +165,25 @@ a.photoPost {
     .clearfix;
     margin-top: @line-height-computed*2;
     font-size: @font-size-small;
-    line-height: 1.3em;
-    text-align: left;
-    
-	.byline,
-	.time,
-	time {
-		font-style: italic;	
-		color: @text-color-light;
-		font-size: @font-size-mini;
-        
-        p { margin-bottom: 0; }
-        
-        @media @breakpoint2 {
-            text-align: right;
-        }
-	}
+    text-align: center;
+}
+
+.byline,
+.time {
+	font-style: italic;
+	color: @text-color-light;
 }
 
 .byline {
 	margin-bottom: 0;
-    
-    
-    @media @breakpoint2 {
-        margin-top: -@line-height-computed*3;
-    }
 	
 	a { font-style: normal; }
+    .by { display: block }
 }
 
-.by { display: block }
-
-.category {
-    .heading-band;
-    
-    a { margin-right: 1em }
-}
-
+.time,
 .modtime {
-    
+    color: @text-color-dimmed
 }
 
 

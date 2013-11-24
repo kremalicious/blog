@@ -4,7 +4,10 @@
     <article class="hentry format-link">
     	<header>
     		<h1 class="entry-title">
-                <a href="{{ post.linkurl }}" title="Go to source">{{ post.title }} <i class="icon-forward"></i></a>
+                <a href="{{ post.linkurl }}" title="Go to source">
+                    {{ post.title }} <i class="icon-forward"></i>
+                    <span class="linkurl">{{ post.linkurl | remove:'http://' | split:'/' | first }}</span>
+                </a>
             </h1>
     	</header>
 
