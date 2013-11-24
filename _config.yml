@@ -42,7 +42,7 @@ picture:
   markup: "picturefill"
   presets:
     default:
-      ppi: [1, 1.5]
+      ppi: [1, 1.5, 2]
       attr:
         itemprop: "image"
       source_medium:
@@ -54,7 +54,7 @@ picture:
       source_default: 
         width: "320"
     featured:
-      ppi: [1, 1.5]
+      ppi: [1, 1.5, 2]
       attr:
         class: "featured-image"
         itemprop: "image"

@@ -29,7 +29,10 @@ module.exports = function(grunt){
         
         // clean everything
         clean: {
-            build: ['<%= config.site %>']
+            build: [
+                '<%= config.site %>/*', 
+                '!<%= config.site %>/media'
+            ]
         },
 
         // Jekyll
@@ -41,6 +44,7 @@ module.exports = function(grunt){
                 // options: {
 //                     lsi: true
 //                 }
+                src: '<%= config.src %>/'
 			},
             serve: {
                 src: '<%= config.src %>/'
@@ -124,11 +128,10 @@ module.exports = function(grunt){
                         expand: true,
                         cwd: '<%= config.site %>/',
                         src: ['*.png'],
-                        dest: '<%= config.site %>/',
-                        ext: '.png'
+                        dest: '<%= config.site %>/'
                     }
                 ]
-            },
+            }
         },
         
         // dev server
@@ -234,7 +237,7 @@ module.exports = function(grunt){
         'clean',
         'rsync:copy_media',
         'jekyll:production',
-        'imagemin',
+        //'imagemin',
         'less',
         'cmq',
         'cssmin',
