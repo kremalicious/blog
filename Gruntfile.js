@@ -221,18 +221,13 @@ module.exports = function(grunt){
         'connect',
         'watch'
     ]);
-
-    // Imagemin only task
-    grunt.registerTask('imagemin', [
-        'imagemin'
-    ]);
     
     // Production build
     grunt.registerTask('build', [
         'clean',
         'rsync:copy_media',
         'jekyll:production',
-        //'imagemin',
+        'imagemin:assets',
         'less',
         'cmq',
         'cssmin',
