@@ -15,49 +15,43 @@
 
 $(ASAP = function(){
 
-	photoGrid.init();
+	//photoGrid.init();
 
 });
 
 $(window).load( AfterLoad = function() {
 
-	siteEffects.init();
+	//siteEffects.init();
 	infiniteScroll.init();
 
 });
 
-var photoGrid = {
-
-	masonryLayout: function() {
-		var $container = $('#main .masonry');
-        
-        $container.imagesLoaded( function(){
-    		$container.masonry({
-    			itemSelector : 'article',
-    			columnWidth  : '.grid-sizer'
-    		});
-    	});
-	},
-
-	init: function(){
-		// only fire when photo post present and screen bigger than 480px
-		if ( $('#photos').length > 0 ) {
-			this.masonryLayout();
-		}
-	}
-
-}
+// var photoGrid = {
+// 
+//     masonryLayout: function() {
+//         var $container = $('#main .masonry');
+//         
+//         $container.imagesLoaded( function(){
+//             $container.masonry({
+//                 itemSelector : 'article',
+//                 columnWidth  : '.grid-sizer'
+//             });
+//         });
+//     },
+// 
+//     init: function(){
+//         // only fire when photo post present and screen bigger than 480px
+//         if ( $('#photos').length > 0 ) {
+//             //this.masonryLayout();
+//         }
+//     }
+// 
+// }
 
 var siteEffects = {
 
-	socialiteButtons: function() {
-		$('#tweetsWrap').one('mouseenter', function() {
-			Socialite.load($(this)[0]);
-		});
-	},
-
 	init: function(){
-		this.socialiteButtons();
+		
 	}
 
 }
@@ -83,7 +77,7 @@ var infiniteScroll = {
             // run picturefill over retrieved items
             picturefill();
 			// run the photogrid over retrieved items
-			photoGrid.init();
+			//photoGrid.init();
 		});
 
 	},

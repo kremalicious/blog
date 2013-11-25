@@ -1,0 +1,27 @@
+{
+  "name": "kremalicious3",
+  "version": "1.0.0",
+  "homepage": "http://mkretschmann.com",
+  "authors": [
+      "Matthias Kretschmann <m@kretschmann.io>"
+  ],
+  "description": "Blog of Matthias Kretschmann",
+  "license": "MIT",
+  "private": true,
+  
+  "dependencies": {
+      "jquery": "~2.0.3",
+      "picturefill": "~1.2.1",
+      "masonry": "~3.1.2",
+      "imagesloaded": "~3.0.4",
+      "infinitescroll": "https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js"
+  },
+    
+  "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "test",
+      "tests"
+  ]
+}

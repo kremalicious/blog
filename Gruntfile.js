@@ -77,18 +77,23 @@ module.exports = function(grunt){
         
         // Concatenate and minify js
         uglify: {
-            production: {
-                options: {
-                    report: 'min'
-                },
+            options: {
+                report: 'min'
+            },
+            jquery: {
                 files: {
-                    '<%= config.site %>/<%= config.assets.js %>/lib/picturefill.min.js': [
-                        '<%= config.site %>/<%= config.assets.js %>/lib/picturefill.js'
+                    '<%= config.site %>/<%= config.assets.js %>/jquery.min.js': 'bower_components/jquery/jquery.js'
+                }
+            },
+            production: {
+                files: {
+                    '<%= config.site %>/<%= config.assets.js %>/picturefill.min.js': [
+                        'bower_components/picturefill/picturefill.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
-                        '<%= config.src %>/<%= config.assets.js %>/lib/infinitescroll/jquery.infinitescroll.js',
-                        '<%= config.src %>/<%= config.assets.js %>/lib/socialite/socialite.js',
-                        '<%= config.src %>/<%= config.assets.js %>/plugins.js',
+                        'bower_components/infinitescroll/index.js',
+                        //'bower_components/masonry/masonry.js',
+                        //'bower_components/imagesloaded/imagesloaded.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
