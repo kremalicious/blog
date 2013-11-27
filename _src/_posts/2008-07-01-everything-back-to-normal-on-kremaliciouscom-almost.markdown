@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-07-01 16:39:02+00:00
 layout: post
-slug: everything-back-to-normal-on-kremaliciouscom-almost
+
 title: Everything Back To Normal On Kremalicious.com (Almost)
+author: Matthias Kretschmann
+
+date: 2008-07-01 16:39:02+00:00
 wordpress_id: 80
 categories:
 - personal
@@ -20,12 +20,14 @@ But more problems appeared. The display of the newest and latest posts and the n
 
 Now it's clear something with my code must be wrong, I thought. For displaying the latest posts in Wordpress I use a pretty standard way which is [described in the Wordpress Codex](http://codex.wordpress.org/Template_Tags/get_posts):
 
-`<?php $postslist = get_posts('numberposts=5&order=DESC&orderby;=post_date');
+{% highlight php %}
+<?php $postslist = get_posts('numberposts=5&order=DESC&orderby;=post_date');
  foreach ($postslist as $post) : setup_postdata($post); ?>
  	<ul>
  		<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><span><?php the_date(); ?></span></li>
  	</ul>
-<?php endforeach; ?>`
+<?php endforeach; ?>
+{% endhighlight %}
 
 This would get all recent posts sorted by their post_date entry in the (wp_posts) database table and style it as an unordered list with my preferred format. This code worked since the launch of kremalicious.com and I first used it to display the recent blog entries on my start page. But since i didn't change anything in the code this couldn't be caused by wrong code or something.
 
@@ -37,7 +39,7 @@ This bug affects all versions of MySQL since 5.0.50 and it seems there is no sta
 
 Thankfully [a commenter](http://wordpress.org/support/topic/185896#post-793417) in the Wordpress forums reminded me of a nice temporary solution to this mess until my host updates MySQL: using wp_get_archives for displaying the recent posts. But this won't let me display the dates anymore:
 
-`<ul><?php wp_get_archives('type=postbypost&limit;=5'); ?></ul>` 
+{% highlight php %}<?php wp_get_archives('type=postbypost&limit;=5'); ?>{% endhighlight %}
 
 Problem temporary solved!
 

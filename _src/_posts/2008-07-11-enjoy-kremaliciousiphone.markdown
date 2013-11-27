@@ -10,9 +10,7 @@ categories:
 - personal
 ---
 
-![](/media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious.iPhone. See those hip brackets?
-
-<!-- more -->
+![](/media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
 
 When the website detects an iPhone or iPod Touch it will automatically switch to another freshly created theme which is absolutely seamless to the user. This detection is done by the wonderful slim iPhone Wordpress plug-in from ContentRobot which was slightly modified by me.
 
@@ -24,7 +22,7 @@ Beside that I've used some special html and css properties which are essential f
 
 While Safari on iPhone will display all websites just fine it can happen that the initial viewport is too big so the text is too small to read. By setting a viewport meta tag you can exactly define the viewable dimensions of your website. Apple has [some nice examples](http://developer.apple.com/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/chapter_4_section_3.html#//apple_ref/doc/uid/TP40006509-SW33) for understanding the importance of setting the Viewport in iPhone optimized websites.
 
-The viewport can be larger or smaller than the visible area but I wanted my content to exactly fit the width of the iPhone and the goal was to make the text legible on first load. So here's what I use for kremalicious.iPhone:
+The viewport can be larger or smaller than the visible area but I wanted my content to exactly fit the width of the iPhone and the goal was to make the text legible on first load. So here's what I use for kremalicious{iPhone}:
 
 {% highlight html %}
 <meta name="Viewport" content="maximum-scale=1.6,width=device-width" >

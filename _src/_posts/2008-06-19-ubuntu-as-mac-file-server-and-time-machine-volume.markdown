@@ -1,10 +1,13 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-19 03:08:11+00:00
 layout: post
+
 slug: ubuntu-as-mac-file-server-and-time-machine-volume
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume [Update6]'
+author: Matthias Kretschmann
+
+date: 2008-06-19 03:08:11+00:00
+moddate: 2009-01-19 03:08:11+00:00
+
 wordpress_id: 75
 categories:
 - design
@@ -457,7 +460,7 @@ update: A solution for the icon problem is here: [Simon Wheatley figured out](ht
 
 ![Oh no!](/media/coffee-cup-empty.png)
 
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/) or [Atom-Feed](http://www.kremalicious.com/feed/atom), discuss this article or buy me my next coffee ;-)
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee ;-)
 
 
 
@@ -469,48 +472,6 @@ The following articles are direct translations of my article but some of them ar
 
 German: [Ubuntu + Apple Fileserver + TimeMachine](http://www.kde4.de/?page_id=389) on [kde4.de](http://www.kde4.de)
 French: [Tuto: Comment créer votre serveur Time Capsule sous Debian](http://blog.delacelle.com/post/2009/01/19/tuto-comment-creer-votre-serveur-timecapsule-sous-debian-ou-ubuntu/) on the [Blog of Pierre de la Celle](http://blog.delacelle.com/)
-
-
-
-
-
-
-
-
-## Article Updates
-
-
-
-
-01/19/2009 added links to some translations of this article
-
-
-
-
-12/07/2008 added a warning regarding the new undocumented AFP commands which maybe will be added by Apple with the Mac OS X 10.5.6 update
-
-
-
-
-09/28/2008 [added a link](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#netatalk1) to the precompiled Netatalk .deb package from Alessandro
-
-
-
-
-07/14/2008 added the Time Machine network volume hack under 6. Configure Time Machine
-
-
-
-
-07/06/2008 added a new part Problems with creating the backup disk image
-
-
-
-
-06/21/2008 added instructions for changing the server icons in Mac OS X
-
-
-
 
 
 

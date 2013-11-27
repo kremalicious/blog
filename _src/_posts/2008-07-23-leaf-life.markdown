@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-07-23 20:38:57+00:00
-layout: post
-slug: leaf-life
+layout: photo
+
 title: Leaf Life
+image: MG_1920.jpg
+author: Matthias Kretschmann
+
+date: 2008-07-23 20:38:57+00:00
 wordpress_id: 1908
 categories:
 - photos

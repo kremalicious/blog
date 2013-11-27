@@ -1,11 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-25 16:41:59+00:00
 layout: post
-slug: new-canon-stuff-xs-eos-1000-430ex-ii
+
 title: 'New Canon stuff: Digital Rebel XS/EOS 1000D/Kiss F And Speedlite 430EX II
   announced'
+author: Matthias Kretschmann
+
+date: 2008-06-25 16:41:59+00:00
 wordpress_id: 78
 categories:
 - photography

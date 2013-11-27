@@ -1,10 +1,12 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-04 11:41:01+00:00
 layout: post
+
 slug: helvetica-typewriter-keys
 title: Helvetica Typewriter Keys
+image: MG_1735-Version-2.jpg
+author: Matthias Kretschmann
+
+date: 2008-06-04 11:41:01+00:00
 wordpress_id: 1976
 categories:
 - photos
