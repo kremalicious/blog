@@ -2,46 +2,50 @@
 layout: base
 ---
 
-<h1 class="page-title"><a class="home" href="/" title="Back to Home">/</a>{{ page.category }}</h1>
-
-{% for post in site.categories[page.category] %}
+<section role="main" id="main" class="row">
     
-    {% if post.categories contains "goodies" %}
+    <h1 class="page-title"><a class="home" href="/" title="Back to Home">/</a>{{ page.category }}</h1>
 
-        <article class="hentry goodie">
-        	<header>
-        		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-        	</header>
+    {% for post in site.categories[page.category] %}
+    
+        {% if post.categories contains "goodies" %}
 
-            <section class="entry-content">
+            <article class="hentry goodie">
+            	<header>
+            		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            	</header>
 
-                {% if post.image %}
-                    <a href="{{ post.url }}">
-                        {% picture {{ post.image }} class="teaser" %}
-                    </a>
-                {% else %}
-                    {{ post.excerpt }}
-                {% endif %}
-        
-                <footer class="goodie-actions">
-            
-                    <p class="info col3">
-                        <a class="btn icon-info" href="{{ post.url }}">Release Post</a>
-                    </p>
-            
-                    {% if post.download %}
-                    <p class="download col3">
-                        <a class="btn icon-arrow-down" href="/media/{{ post.download }}">Download <span>zip</span></a>
-                    </p>
+                <section class="entry-content">
+
+                    {% if post.image %}
+                        <a href="{{ post.url }}">
+                            {% picture {{ post.image }} class="teaser" %}
+                        </a>
+                    {% else %}
+                        {{ post.excerpt }}
                     {% endif %}
+        
+                    <footer class="goodie-actions">
             
-                </footer>
+                        <p class="info col3">
+                            <a class="btn icon-info" href="{{ post.url }}">Release Post</a>
+                        </p>
+            
+                        {% if post.download %}
+                        <p class="download col3">
+                            <a class="btn icon-arrow-down" href="/media/{{ post.download }}">Download <span>zip</span></a>
+                        </p>
+                        {% endif %}
+            
+                    </footer>
 
-            </section>
-        </article>
+                </section>
+            </article>
     
-    {% else %}
-        {% include index.html %}
-    {% endif %}
+        {% else %}
+            {% include index.html %}
+        {% endif %}
 
-{% endfor %}
+    {% endfor %}
+
+</section>

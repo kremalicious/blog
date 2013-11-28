@@ -1,7 +1,9 @@
     
 {% include head.html %}
 
-<body>
+{% capture id %}{{ page.url | replace:'/','-' | replace_first:'-','' | replace:'.html','' | replace:'-index','' }}{% endcapture %}
+
+<body class="page-{{ id }}">
     
     {% include header.html %}
     

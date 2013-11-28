@@ -13,10 +13,11 @@
 	font-style: normal;
 }
 
-[class*="icon-"] {
+#main [class*="icon-"] {
     
-    &,
     &:before {
+		color: @text-color-light;
+		font-size: 20px;
     	font-family: 'entypo';
     	speak: none;
     	font-style: normal;
@@ -26,17 +27,6 @@
     	line-height: 1;
     	-webkit-font-smoothing: antialiased;
     }
-	
-	&:before {
-		color: @text-color-light;
-		font-size: 20px;
-	}
-	
-	.btn &:before,
-	.more-link &:before {
-		font-size: 16px;
-		margin: 0 .3em;
-	}
 }
 
 .btn.icon-info:before,
