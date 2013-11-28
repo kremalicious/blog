@@ -1,3 +1,15 @@
+.page-title {
+    .h2;
+    .heading-band;
+    color: @brand-grey-light;
+    margin-top: @line-height-computed/2;
+    margin-bottom: @line-height-computed/2;
+    
+    .home {
+        color: @link-color;
+    }
+}
+
 .hentry {
 	.divider-bottom;
 	padding: @line-height-computed*2 0;
@@ -217,6 +229,27 @@
     }
 }
 
+
+//
+// Goodies download
+//
+.goodie-actions {
+    .clearfix;
+    
+    p,
+    .btn { margin-bottom: 0 }
+    
+    .btn { display: block; }
+    
+    .download { 
+        margin-top: @line-height-computed/2;
+        
+        @media @breakpoint2 {
+            margin-top: 0; 
+            text-align: right
+        }
+    }
+}
 
 
 

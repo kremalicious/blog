@@ -3,6 +3,7 @@ layout: post
 
 title: Adiumeetie. Tweetie Style Adium Icon
 image: Teaser-Adiumeetie.jpg
+download: adiumeetie-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-06-24 21:00:38+00:00

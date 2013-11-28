@@ -3,6 +3,7 @@ layout: post
 
 title: Project Purple
 image: Teaser-Project-Purple.png
+download: project-purple-kremalicious.zip
 author: Matthias Kretschmann
 featured: true
 

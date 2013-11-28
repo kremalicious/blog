@@ -1,10 +1,12 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-03 14:34:03+00:00
 layout: post
-slug: niepces-camera-obscura-and-the-history-of-the-first-photograph
+
 title: Niépce's Camera Obscura And The History Of The First Photograph
+image: Teaser-Camera-Obscura-Icons.jpg
+download: niepces_camera_obscura_by_kremalicious.zip
+author: Matthias Kretschmann
+
+date: 2008-06-03 14:34:03+00:00
 wordpress_id: 67
 categories:
 - goodies
@@ -14,33 +16,20 @@ categories:
 
 These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography. This first preserved photograph "View from the Window at Le Gras" is the one you can see in the iPhoto icon contained in this package. The third icon is the folder icon I have created for this icon package.
 
-<!-- more -->
-
 ![](/media/cameraobscura11_all-540x262.png)
 
 Either just download the icons or read the exciting story about the First Photograph.
 
-
-
-
-
   1. The story behind these icons: The First Photograph and References in the icons
-
 
   2. Download and enjoy!
 
-
   3. How to use these icons
-
 
   4. Final Words
 
 
-
-
 ## The story behind these icons
-
-
 
 There's a fascinating story behind these icons which is nothing more than the story of the invention of photography. Grab yourself a cup of coffee or tea and sit back while reading this story. Of course, if you're bored already just grab the download package further down this page ;-)
 
@@ -49,9 +38,9 @@ There's a fascinating story behind these icons which is nothing more than the st
 ## Nicéphore Niépce and The First Photograph
 
 
+[![Nicéphore Niépce, ca. 1795](/media/nicephore-niepce-150x150.jpg)](/media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
 
-
-[caption id="attachment_2264" align="alignleft" width="150"][![Nicéphore Niépce, ca. 1795](/media/nicephore-niepce-150x150.jpg)](/media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795[/caption]Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
+Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
 But it was just used either for entertainment or as an aid for drawing and painting. Painters were able to just redraw the projected image of the Camera Obscura.
 
@@ -61,7 +50,7 @@ In 1822 he created a first non-fading negative contact print by utilizing a bitu
 
 After some more tries and combining other elements in his procedure he was able to produce the famous First Photograph "View from the Window at Le Gras" in 1826 or 1827 by utilizing a bitumen of Judea-coated pewter plate and improved lenses from the Paris optician, Charles Chevalier. He called this procedure Heliography and the bitumen-coated pewter plate needed an exposure of eight or more hours!
 
-[caption id="attachment_2262" align="aligncenter" width="540"][![](/media/View-from-the-Window-at-Le-Gras-540x375.png)](/media/View-from-the-Window-at-Le-Gras.png) View from the Window at Le Gras[/caption]
+[![](/media/View-from-the-Window-at-Le-Gras-540x375.png)](/media/View-from-the-Window-at-Le-Gras.png) View from the Window at Le Gras
 
 By the way, in 2002 another Picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", "View from the Window at Le Gras" remains the First "real" photograph.
 
@@ -121,7 +110,7 @@ Brief description of Daguerres role in the invention of photography process by T
 
 This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](http://www.kremalicious.com/goodies/) or directly via this link:
 
-[download_button version=1.1]
+<a class="btn btn-block icon-download-alt" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download </a>
 
 In addition to these icons you can download the [associated wallpapers for your desktop or your iPhone](http://www.kremalicious.com/2008/06/new-goodie-niepces-camera-obscura-wallpaper-pack/).
 
@@ -149,10 +138,6 @@ These desktop icons are free for you personal and non-commercial use. All other 
 
 ## Final Words
 
-
-
-
-
 ![Oh no!](/media/coffee-cup-empty.png)
 
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/) or [Atom-Feed](http://www.kremalicious.com/feed/atom), discuss this article or buy me my next coffee ;-)
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/) or buy me my next coffee ;-)

@@ -12,7 +12,7 @@
     	</header>
 
         <section class="entry-content">
-            {{ post.content }}
+            {{ post.content | markdownify }}
     		<p>
     			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon-forward"></i></a>
                 <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">&#8734;</a>
@@ -53,9 +53,9 @@
             {% capture has_more %}{{ post.content | has_more }}{% endcapture %}
         
             {% if has_more == 'true' %}
-                {{ post.content | post.excerpt | excerpt }}
+                {{ post.content | post.excerpt | excerpt | markdownify }}
             {% else %}
-                {{ post.excerpt }}
+                {{ post.excerpt | markdownify }}
             {% endif %}
 
             <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>

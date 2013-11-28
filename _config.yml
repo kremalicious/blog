@@ -23,6 +23,8 @@ permalink: /post/:title
 relative_permalinks: true
 paginate: 10
 paginate_path: "/page/:num"
+category_dir: "/"
+category_title_prefix: ""
 
 
 # Content Parsing

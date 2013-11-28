@@ -3,6 +3,7 @@ layout: post
 
 title: '"We Are Out Of Whale Oil"'
 image: Teaser-Out-Of-Whale-Oil.jpg
+download: out-of-whale-oil-wall-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-02-17 20:11:55+00:00
