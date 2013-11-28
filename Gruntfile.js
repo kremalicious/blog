@@ -37,12 +37,21 @@ module.exports = function(grunt){
 
         // Jekyll
         jekyll: {
-            production: {
-                lsi: true,
-                src: '<%= config.src %>/'
+            options: {
+                src : '<%= config.src %>/',
+                config: './_config.yml'
             },
-            serve: {
-                src: '<%= config.src %>/'
+            production: {
+                options: {
+                    lsi: true
+                }
+            },
+            development: {
+                options: {
+                    drafts: true,
+                    future: true,
+                    limit_posts: 10
+                }
             }
         },
         
@@ -155,11 +164,13 @@ module.exports = function(grunt){
             jekyll: {
                 files: [
                     '<%= config.src %>/*.html', 
+                    '<%= config.src %>/*.xml', 
                     '<%= config.src %>/_includes/**', 
                     '<%= config.src %>/_layouts/**',
-                    '<%= config.src %>/_posts/**'
+                    '<%= config.src %>/_posts/**',
+                    '<%= config.src %>/_drafts/**'
                 ],
-                tasks: ['jekyll:serve', 'less', 'uglify']
+                tasks: ['jekyll:development', 'less', 'uglify']
             },
         },
         
@@ -185,8 +196,7 @@ module.exports = function(grunt){
                     dest: 'domains/kremalicious.com/html',
                     host: 'kremalicious',
                     ssh: true,
-                    args: ['--verbose'],
-                    compareMode: 'checksum'
+                    args: ['--verbose']
                 }
             }
         }
@@ -213,7 +223,7 @@ module.exports = function(grunt){
     // Dev server
     grunt.registerTask('server', [
         'rsync:copy_media',
-        'jekyll:serve',
+        'jekyll:development',
         'less',
         'cmq',
         'cssmin',
@@ -228,6 +238,7 @@ module.exports = function(grunt){
         'rsync:copy_media',
         'jekyll:production',
         'imagemin:assets',
+        'imagemin:touchicons',
         'less',
         'cmq',
         'cssmin',
