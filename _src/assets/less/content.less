@@ -171,25 +171,40 @@
     .clearfix;
     margin-top: @line-height-computed*2;
     font-size: @font-size-small;
-    text-align: center;
 }
 
 .byline,
 .time {
 	font-style: italic;
 	color: @text-color-light;
+    text-align: center;
+    
+    @media @breakpoint2 {
+        text-align: right;
+        float: right;
+    }
 }
 
 .byline {
 	margin-bottom: 0;
-	
-	a { font-style: normal; }
+    
     .by { display: block }
 }
 
 .time,
 .modtime {
     color: @text-color-dimmed
+}
+
+.time { clear: right; }
+
+.categories {
+    .heading-band;
+    @media @breakpoint2 {
+        float: left;
+    }
+    
+    a { margin-right: 1em }
 }
 
 
