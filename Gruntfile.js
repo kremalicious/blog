@@ -50,7 +50,7 @@ module.exports = function(grunt){
                 options: {
                     drafts: true,
                     future: true,
-                    limit_posts: 10
+                    limit_posts: 50
                 }
             }
         },
