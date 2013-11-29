@@ -101,8 +101,8 @@ module.exports = function(grunt){
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         'bower_components/infinitescroll/index.js',
-                        //'bower_components/masonry/masonry.js',
-                        //'bower_components/imagesloaded/imagesloaded.js',
+                        'bower_components/masonry/index.js',
+                        'bower_components/imagesloaded/imagesloaded.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }

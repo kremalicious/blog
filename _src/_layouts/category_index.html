@@ -8,6 +8,7 @@ layout: base
     
     {% if page.url contains "/photos" %}
         <div class="masonry">
+            <div class="grid-sizer"></div>
     {% endif %}
     
     {% for post in site.categories[page.category] %}
