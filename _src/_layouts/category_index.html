@@ -5,9 +5,13 @@ layout: base
 <section role="main" id="main" class="row">
     
     <h1 class="page-title"><a class="home" href="/" title="Back to Home">/</a>{{ page.category }}</h1>
-
-    {% for post in site.categories[page.category] %}
     
+    {% if page.url contains "/photos" %}
+        <div class="masonry">
+    {% endif %}
+    
+    {% for post in site.categories[page.category] %}
+        
         {% if post.categories contains "goodies" %}
 
             <article class="hentry goodie">
@@ -47,5 +51,9 @@ layout: base
         {% endif %}
 
     {% endfor %}
+    
+    {% if page.url contains "/photos" %}
+        </div>
+    {% endif %}
 
 </section>
