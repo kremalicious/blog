@@ -7,9 +7,9 @@ layout: base
     <article class="hentry format-link">
     	<header>
     		<h1 class="entry-title">
-                <a href="{{ post.linkurl }}" title="Go to source">
+                <a href="{{ post.linkurl }}" title="Go to source: {{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
                     {{ page.title }} <i class="icon-forward"></i>
-                    <span class="linkurl">{{ page.linkurl | remove:'http://' | split:'/' | first }}</span>
+                    <span class="linkurl">{{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
     	</header>
