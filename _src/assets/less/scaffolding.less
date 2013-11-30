@@ -54,10 +54,14 @@ body {
 .footer {
 	text-align: center;
 	background: fade(@brand-dark, 5%);
-	
+    
     .footer-description {
         .h5;
-    	color: @text-color-light;
+    }
+    
+    &,
+    .footer-description {
+        color: @text-color-light;
         line-height: @line-height-computed;
     }
     
@@ -94,35 +98,28 @@ body {
 	}
 	i {
 		display: block;
-		
-		// Icon resets for color animations
-		.transition(color .3s ease-in-out);
 		color: @text-color-light;
 		&:before {
+    		// Icon resets for color animations
+    		.transition(color .3s ease-in-out);
 			color: inherit;
 			margin-right: 0;
-			font-size: 14px;
-			line-height: 14px;
 		}
 	}
 }
 
-.footer:hover .subscribe .rss i,
-.touch .footer .subscribe .rss i {
+.footer:hover .subscribe .rss i:before {
 	color: #e15a00;
 }
 
-.footer:hover .subscribe .twitter i,
-.touch .footer .subscribe .twitter i {
+.footer:hover .subscribe .twitter i:before {
 	color: #019ad2;
 }
 
-.footer:hover .subscribe .google i,
-.touch .footer .subscribe .google i {
+.footer:hover .subscribe .google i:before {
 	color: #c63b1e;
 }
 
-.footer:hover .subscribe .facebook i,
-.touch .footer .subscribe .facebook i {
+.footer:hover .subscribe .facebook i:before {
 	color: #3b5998;
 }

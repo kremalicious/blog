@@ -3,12 +3,16 @@
 
 pre, code, kbd, samp {
 	font-family: @font-family-monospace;
-    font-size: 12px;
-	line-height: 18px;
-	color: @text-color;
+    font-size: @font-size-small;
+    line-height: 1.4em;
+	color: spin(@text-color, 70);
 	background: #f8f8f8;
-	background: rgba(255,255,255,.4);
+	background: rgba(255,255,255,.6);
 	border-radius: @border-radius-base;
+}
+
+code {
+    padding: .3em .6em;
 }
 
 pre {
