@@ -103,6 +103,7 @@ module.exports = function(grunt){
                         'bower_components/infinitescroll/index.js',
                         'bower_components/masonry/index.js',
                         'bower_components/imagesloaded/imagesloaded.js',
+                        'bower_components/simpleJekyllSearch/index.js',
                         '<%= config.src %>/<%= config.assets.js %>/helper.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
@@ -144,7 +145,7 @@ module.exports = function(grunt){
                 options: {
                     port: 1337,
                     hostname: '*',
-                    base: '_site'
+                    base: '<%= config.site %>'
                 }
             }
         },

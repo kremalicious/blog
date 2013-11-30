@@ -12,16 +12,14 @@ body {
 /////////////////////////////////////
 
 .banner {
-	
-	.row {
-		margin-top: @line-height-computed;
-		margin-bottom: @line-height-computed;
-	}
-	
+	float: left;
+    width: 15%;
+    min-width: 160px;
+    
 	.banner-title { 
-		margin: 0 auto;
         width: 128px;
-
+        margin-top: .1em;
+        margin-bottom: 0;
 		// display toned down logo
 		// by default
 		.logo;
@@ -33,10 +31,8 @@ body {
 		// repeat logo
 		// but display hover version
 		.logo;
-		background-position: center bottom;
+		background-position: center -61px;
 		width: 128px;
-		margin-left: auto;
-		margin-right: auto;
 
 		// hide by default
 		opacity: 0;
@@ -44,7 +40,6 @@ body {
 		&:hover { opacity: 1 }
 		&:active { top: 0 }
 	}
-
 }
 
 

@@ -2,24 +2,109 @@
 // NAVIGATION
 /////////////////////////////////////
 
-
-// Main Navigation
-/////////////////////////////////////
-
-.nav-main {
-	margin-top: 0;
-    .textcenter;
-    
-    .row { 
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    li { display: inline-block; }
+//
+// Topbar
+//
+.topbar {
+    .clearfix;
+    background: #f1f4f7;
+    padding: @line-height-computed/3 @line-height-computed;
 }
 
 
+//
+// Main Navigation
+//
+
+.nav-main {
+    position: relative;
+    float: right;
+    width: 5%;
+    
+    li { display: inline-block; }
+    
+    .nav-popover {
+        right: 0;
+        top: 100%;
+    }
+}
+
+.nav-link {
+    display: block;
+    padding: .5em 1em;
+    
+    &:hover {
+        background: rgba(255,255,255,.5);
+    }
+}
+
+.nav-popover {
+    position: absolute;
+    z-index: 5; // so it's always above page content
+    .border-bottom-radius;
+    background: rgba(255,255,255,.85);
+    box-shadow: 0 2px 7px rgba(0,0,0,.05);
+}
+
+.menu-btn,
+.search-btn {
+    line-height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: .6em .7em .5em .7em;
+    margin: 0;
+}
+
+//
+// Site Search
+//
+
+.site-search {
+    position: relative;    
+    clear: both;
+    width: 80%;
+    float: left;
+    
+    @media @breakpoint2 {
+        clear: none;
+        margin-right: 1%;
+        width: 60%;
+    }
+    // loupe icon
+    .search-btn {
+        position: absolute;
+        left: 0;
+        z-index: 2;
+    }
+}
+
+.search-field {
+    padding-left: 40px;
+    position: relative;
+    width: 90%;
+    border: none;
+    .box-shadow(none);
+    background: transparent;
+    
+	.placeholder(rgba(46, 79, 92, .1));
+    
+    &:hover,
+    &:focus {
+        background: rgba(255,255,255,.7) !important;
+        .placeholder(rgba(46, 79, 92, .2));
+    }
+}
+
+.search-results {
+    left: 0;
+    width: 100%;
+}
+
+
+//
 // Pager
-/////////////////////////////////////
+//
 
 .pager {
 	.clearfix;

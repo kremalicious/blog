@@ -9,7 +9,7 @@
 	background-image: data-uri('../img/logo.png');
 	background-repeat: no-repeat;
 	background-position: center top;
-	height: 60px;
+	height: 31px;
     
     @media @highDPI {
     	background-image: url('../img/logo@2x.png');
@@ -101,19 +101,19 @@
 }
 
 // Single side border-radius
-.border-top-radius(@radius) {
+.border-top-radius(@radius: @border-radius-base) {
   border-top-right-radius: @radius;
    border-top-left-radius: @radius;
 }
-.border-right-radius(@radius) {
+.border-right-radius(@radius: @border-radius-base) {
   border-bottom-right-radius: @radius;
      border-top-right-radius: @radius;
 }
-.border-bottom-radius(@radius) {
+.border-bottom-radius(@radius: @border-radius-base) {
   border-bottom-right-radius: @radius;
    border-bottom-left-radius: @radius;
 }
-.border-left-radius(@radius) {
+.border-left-radius(@radius: @border-radius-base) {
   border-bottom-left-radius: @radius;
      border-top-left-radius: @radius;
 }

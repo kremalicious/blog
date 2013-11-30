@@ -16,15 +16,39 @@
 $(ASAP = function(){
 
 	photoGrid.init();
+    siteNavigation.init();
 
 });
 
 $(window).load( AfterLoad = function() {
 
-	//siteEffects.init();
 	infiniteScroll.init();
 
 });
+
+var siteNavigation = {
+    
+    siteSearch: function() {
+        $('.search-field').simpleJekyllSearch({
+            searchResults       : '.search-results',
+            searchResultsTitle  : '',
+            template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
+        });
+    },
+    
+    siteMenu: function() {
+    	$('.menu-btn').click(function(e) {
+    		e.preventDefault();
+    	    $('.nav-main .nav-popover').toggleClass('show').toggleClass('hide');
+    	});
+    },
+    
+	init: function(){
+		this.siteSearch();
+        this.siteMenu();
+	}
+
+}
 
 var photoGrid = {
 
@@ -49,7 +73,7 @@ var photoGrid = {
 }
 
 var siteEffects = {
-
+    
 	init: function(){
 		
 	}
