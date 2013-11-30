@@ -166,6 +166,7 @@ module.exports = function(grunt){
                 files: [
                     '<%= config.src %>/*.html', 
                     '<%= config.src %>/*.xml', 
+                    '<%= config.src %>/*.json', 
                     '<%= config.src %>/_includes/**', 
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**',
