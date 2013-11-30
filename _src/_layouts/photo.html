@@ -23,7 +23,7 @@ layout: base
                 {{ page.categories | category_links }}
             </p>
     		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
-    		<p class="time">{{ page.date | date_to_string }} <span class="modtime"></span></p>
+    		<p class="time">{{ page.date | timeago }} <span class="modtime"></span></p>
         </footer>
     
     </article>

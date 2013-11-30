@@ -23,9 +23,9 @@ layout: base
                 {{ page.categories | category_links }}
             </p>
     		<div class="time">
-    		    <p>{{ page.date | date_to_string }}</p>
+    		    <p>{{ page.date | timeago }}</p>
     		    {% if page.moddate %}
-    		    <p class="modtime">updated: {{ page.moddate | date_to_string }}</p>
+    		    <p class="modtime">updated: {{ page.moddate | timeago }}</p>
     		    {% endif %}
     		</div>
         </footer>
