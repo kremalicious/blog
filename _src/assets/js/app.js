@@ -29,18 +29,88 @@ $(window).load( AfterLoad = function() {
 var siteNavigation = {
     
     siteSearch: function() {
-        $('.search-field').simpleJekyllSearch({
+        
+        var $searchlink    = $('.search-btn'),
+            $searchpop     = $('.search-area'),
+            $searchfield   = $('.search-field'),
+            $searchresults = $('.search-results'),
+            $navpop        = $('.nav-main .nav-popover');
+        
+        // init jekyll search
+        $searchfield.simpleJekyllSearch({
             searchResults       : '.search-results',
             searchResultsTitle  : '',
             template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
         });
+        
+        $searchlink.click(function(e){
+            e.preventDefault();
+            
+            // show search
+            $searchpop.addClass('ready');
+            $searchfield.focus();
+            $searchresults.removeClass('hide');
+            
+            // hide menu too just in case
+            if ( $navpop.is(':visible') ) {
+                $navpop.addClass('hide');
+            }
+            
+            // bind the hide controls
+            $(document).bind('click.hidethepop', function() {
+                $searchpop.removeClass('ready');
+                $searchresults.addClass('hide');
+                
+                // unbind the hide controls
+                $(document).unbind('click.hidethepop');
+            });
+            
+            // dont close thepop when you click on thepop
+            $searchpop.click(function(e) {
+                e.stopPropagation();
+            });
+            
+            // and dont close thepop now 
+            e.stopPropagation();
+        });
+        
+        $('.search-close').click(function(e){
+            e.preventDefault();
+            
+            // hide search area
+            $searchpop.removeClass('ready');
+            $searchresults.addClass('hide');
+            
+            // empty search field
+            $searchfield.val('').blur();
+        });
     },
     
     siteMenu: function() {
-    	$('.menu-btn').click(function(e) {
-    		e.preventDefault();
-    	    $('.nav-main .nav-popover').toggleClass('show').toggleClass('hide');
-    	});
+        var $thelink = $('.menu-btn'),
+            $thepop  = $('.nav-main .nav-popover');
+        
+        $thelink.click(function(e){
+            e.preventDefault();
+            
+            // show menu
+            $thepop.addClass('show').removeClass('hide');
+            
+            // bind the hide controls
+            $(document).bind("click.hidethepop", function() {
+                    $thepop.removeClass('show').addClass('hide');
+                    // unbind the hide controls
+                    $(document).unbind("click.hidethepop");
+            });
+            
+            // dont close thepop when you click on thepop
+            $thepop.click(function(e) {
+                e.stopPropagation();
+            });
+            
+            // and dont close thepop now 
+            e.stopPropagation();
+        });
     },
     
 	init: function(){

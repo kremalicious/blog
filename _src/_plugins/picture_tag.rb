@@ -139,9 +139,9 @@ module Jekyll
       end
 
       # Generate resized images
-      instance.each { |key, source|
-        instance[key][:generated_src] = generate_image(source, site.source, site.dest, settings['source'], settings['output'])
-      }
+      # instance.each { |key, source|
+#         instance[key][:generated_src] = generate_image(source, site.source, site.dest, settings['source'], settings['output'])
+#       }
 
       # Construct and return tag
       if settings['markup'] == 'picturefill'

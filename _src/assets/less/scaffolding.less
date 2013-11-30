@@ -7,16 +7,28 @@ body {
 	background: @body-bg;
 }
 
+//
+// Topbar
+//
+.topbar {
+    .clearfix;
+    background: #f1f4f7;
+    .row { 
+        margin-top: @line-height-computed/2;
+        margin-bottom: @line-height-computed/2;
+        position: relative;
+    }
+}
+
+
+//
 // Banner
-/////////////////////////////////////
+//
 
 .banner {
 	float: left;
-    width: 15%;
-    min-width: 160px;
     
 	.banner-title { 
-        width: 128px;
         margin-top: .1em;
         margin-bottom: 0;
 		// display toned down logo
@@ -30,8 +42,7 @@ body {
 		// repeat logo
 		// but display hover version
 		.logo;
-		background-position: center -61px;
-		width: 128px;
+		background-position: left bottom;
 
 		// hide by default
 		opacity: 0;
@@ -39,6 +50,26 @@ body {
 		&:hover { opacity: 1 }
 		&:active { top: 0 }
 	}
+}
+
+//
+// close button
+//
+
+a.close,
+.close {
+    width: 16px;
+    height: 16px;
+    line-height: 12px;
+    font-size: 16px;
+    padding: 0;
+    .border-radius(16px);
+    text-align: center;
+    display: block;
+    background: @brand-grey-light;
+    color: #fff;
+    
+    &:hover { background: @link-color-hover }
 }
 
 

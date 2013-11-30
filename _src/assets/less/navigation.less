@@ -2,47 +2,13 @@
 // NAVIGATION
 /////////////////////////////////////
 
-//
-// Topbar
-//
-.topbar {
-    .clearfix;
-    background: #f1f4f7;
-    padding: @line-height-computed/3 @line-height-computed;
-}
-
-
-//
-// Main Navigation
-//
-
-.nav-main {
-    position: relative;
-    float: right;
-    width: 5%;
-    
-    li { display: inline-block; }
-    
-    .nav-popover {
-        right: 0;
-        top: 100%;
-    }
-}
-
-.nav-link {
-    display: block;
-    padding: .5em 1em;
-    
-    &:hover {
-        background: rgba(255,255,255,.5);
-    }
-}
 
 .nav-popover {
     position: absolute;
+    top: 100%;
     z-index: 5; // so it's always above page content
     .border-bottom-radius;
-    background: rgba(255,255,255,.85);
+    background: #f1f4f7;
     box-shadow: 0 2px 7px rgba(0,0,0,.05);
 }
 
@@ -56,33 +22,77 @@
     margin: 0;
 }
 
+.nav-main,
+.site-search {
+    float: right;
+}
+
+//
+// Main Navigation
+//
+
+.nav-main {
+    li { display: inline-block; }
+    
+    .nav-popover {
+        top: 105%;
+        right: 0;
+        width: 50%;
+    }
+}
+
+.nav-link {
+    display: block;
+    padding: .5em 1em;
+    
+    &:hover {
+        background: rgba(255,255,255,.5);
+    }
+}
+
+
 //
 // Site Search
 //
 
 .site-search {
-    position: relative;    
-    clear: both;
-    width: 80%;
-    float: left;
+    margin-right: 4%;
     
-    @media @breakpoint2 {
-        clear: none;
-        margin-right: 1%;
-        width: 60%;
-    }
-    // loupe icon
-    .search-btn {
-        position: absolute;
+    .nav-popover {
         left: 0;
-        z-index: 2;
+        width: 100%;
+    }
+}
+
+.search-btn {
+
+}
+
+.search-close {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+.search-area {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -3px;
+    z-index: 3;
+    background: #f1f4f7;
+    
+    // hidden by default
+    .translate(0, -60px);
+    .transition;
+    
+    &.ready {
+        .translate(0, 0);
     }
 }
 
 .search-field {
-    padding-left: 40px;
-    position: relative;
-    width: 90%;
+    width: 97%;
     border: none;
     .box-shadow(none);
     background: transparent;
@@ -96,8 +106,6 @@
 }
 
 .search-results {
-    left: 0;
-    width: 100%;
 }
 
 

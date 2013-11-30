@@ -8,12 +8,21 @@
 	display: block;
 	background-image: data-uri('../img/logo.png');
 	background-repeat: no-repeat;
-	background-position: center top;
+	background-position: left top;
+    width: 47px;
 	height: 31px;
+    
+    @media @breakpoint2 {
+        width: 183px;
+    }
     
     @media @highDPI {
     	background-image: url('../img/logo@2x.png');
-    	background-size: 128px 120px;
+    	background-size: 183px 31px;
+    }
+    @media print, (-webkit-min-device-pixel-ratio: 3), (min-resolution: 300dpi) {
+    	background-image: url('../img/logo@3x.png');
+    	background-size: 183px 31px;
     }
 }
 
