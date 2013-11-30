@@ -18,10 +18,10 @@ layout: base
         </section>
     
         <footer class="entry-meta">
-    		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
             <p class="categories">
                 {{ page.categories | category_links }}
             </p>
+    		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
     		<div class="time">
     		    <p>{{ page.date | timeago }}</p>
     		    {% if page.moddate %}

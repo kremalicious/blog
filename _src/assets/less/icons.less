@@ -13,9 +13,9 @@
 	font-style: normal;
 }
 
-#main [class*="icon-"] {
-    
-    &:before {
+.hentry,
+.footer {
+    [class*="icon-"]:before {
 		color: @text-color-light;
 		font-size: 20px;
     	font-family: 'entypo';
@@ -29,22 +29,16 @@
     }
 }
 
-.btn.icon-info:before,
-.btn.icon-arrow-down:before,
-.btn.icon-download-alt:before,
-.btn.icon-download:before,
-.btn.icon-github:before,
-.btn.icon-heart:before  {
-	font-size: 16px;
-	margin: 0 .3em.3em;
+.btn[class*="icon-"]:before {
+    font-size: 18px;
+	margin-right: .3em;
+    top: .1em;
+    position: relative;
 	vertical-align: baseline;
-	top: .05em;
-	position: relative
+	line-height: inherit;
 }
 
-.btn-primary.icon-arrow-down:before,
-.btn-primary.icon-download-alt:before,
-.btn-primary.icon-download:before {
+.btn-primary[class*="icon-"]:before {
 	color: darken(@link-color, 15%);
 }
 
