@@ -38,7 +38,7 @@ pygments: true
 # --------------------
 
 source:      ./_src
-destination: ./_site
+destination: ./generated
 exclude:     ['design', 'node_modules', 'less']
 keep_files:  ['media', 'gen']
 

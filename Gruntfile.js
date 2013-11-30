@@ -4,7 +4,7 @@ module.exports = function(grunt){
     // config
     var gruntConfig = {
         src: '_src',
-        site: '_site',
+        site: 'generated',
         assets: {
             less:   'assets/less',
             css:    'assets/css',
@@ -156,7 +156,7 @@ module.exports = function(grunt){
             },
             less: {
                 files: ['<%= config.src %>/<%= config.assets.less %>/*.less'],
-                tasks: ['less']
+                tasks: ['less','cmq','cssmin']
             },
             js: {
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],
@@ -171,7 +171,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_posts/**',
                     '<%= config.src %>/_drafts/**'
                 ],
-                tasks: ['jekyll:development', 'less', 'uglify']
+                tasks: ['jekyll:development', 'less', 'cmq', 'cssmin', 'uglify']
             },
         },
         
