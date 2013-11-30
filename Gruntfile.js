@@ -103,6 +103,7 @@ module.exports = function(grunt){
                         'bower_components/infinitescroll/index.js',
                         'bower_components/masonry/index.js',
                         'bower_components/imagesloaded/imagesloaded.js',
+                        '<%= config.src %>/<%= config.assets.js %>/helper.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
