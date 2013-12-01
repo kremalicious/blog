@@ -16,19 +16,9 @@ layout: base
         
             {{ content }}
         </section>
-    
-        <footer class="entry-meta">
-            <p class="categories">
-                {{ page.categories | category_links }}
-            </p>
-    		<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
-    		<div class="time">
-    		    <p>{{ page.date | timeago }}</p>
-    		    {% if page.moddate %}
-    		    <p class="modtime">updated: {{ page.moddate | timeago }}</p>
-    		    {% endif %}
-    		</div>
-        </footer>
+        
+        {% include entry_meta.html %}
+        
     </article>
 
 </section>
