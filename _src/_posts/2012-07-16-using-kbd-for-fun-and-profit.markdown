@@ -5,7 +5,7 @@ title: Using &lt;kbd&gt; for fun and profit
 image: kremalicious-kbdfun-teaser.png
 style: poststyle-2300.min.css
 author: Matthias Kretschmann
-featured: true
+sticky: true
 
 date: 2012-07-16 14:36:58+00:00
 wordpress_id: 2300

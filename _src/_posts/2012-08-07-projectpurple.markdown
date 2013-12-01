@@ -5,7 +5,7 @@ title: Project Purple
 image: Teaser-Project-Purple.png
 download: project-purple-kremalicious.zip
 author: Matthias Kretschmann
-featured: true
+sticky: true
 
 date: 2012-08-07 13:15:44+00:00
 wordpress_id: 2350
