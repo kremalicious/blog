@@ -38,7 +38,7 @@ layout: base
 
                         {% if post.download %}
                         <p class="download col3">
-                            <a class="btn icon-arrow-down" href="/media/{{ post.download }}">Download <span>zip</span></a>
+                            <a class="btn icon-download" href="/media/{{ post.download }}">Download <span>zip</span></a>
                         </p>
                         {% endif %}
             
@@ -58,5 +58,3 @@ layout: base
     {% endif %}
 
 </section>
-
-{% include paginator.html %}
