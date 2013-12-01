@@ -45,6 +45,7 @@
     {% else %}
         <meta name="description" content="{{ site.description }}" />
     {% endif %}
+    <meta name="author" content="{{ site.author }}">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="HandheldFriendly" content="True">
@@ -52,6 +53,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="cleartype" content="on">
     
+    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+    <link rel="canonical" href="{{ canonical }}">
+      
     <link rel="stylesheet" href="/assets/css/kremalicious3.min.css">
     {% if page.style %}
         <link rel="stylesheet" href="/assets/css/{{ page.style }}">
@@ -67,9 +71,7 @@
 		var total = {{ paginator.total_pages }};
 	</script>
     {% endif %}
-    
-    <link rel="canonical" href="{{ page.url }}" />
-    
+        
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@kremaliciouscom">
