@@ -93,8 +93,8 @@ var siteNavigation = {
         $thelink.click(function(e){
             e.preventDefault();
             
-            // show menu
-            $thepop.addClass('show').removeClass('hide');
+            // toggle menu
+            $thepop.toggleClass('show').toggleClass('hide');
             
             // bind the hide controls
             $(document).bind("click.hidethepop", function() {
