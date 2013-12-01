@@ -8,7 +8,7 @@ layout: base
     	<header>
     		<h1 class="entry-title">
                 <a href="{{ post.linkurl }}" title="Go to source: {{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
-                    {{ page.title }} <i class="icon-forward"></i>
+                    {{ page.title | titlecase }} <i class="icon-forward"></i>
                     <span class="linkurl">{{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
