@@ -6,7 +6,7 @@ title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume [Up
 author: Matthias Kretschmann
 
 date: 2008-06-19 03:08:11+00:00
-moddate: 2009-01-19 03:08:11+00:00
+updated: 2009-01-19 03:08:11+00:00
 
 wordpress_id: 75
 categories:

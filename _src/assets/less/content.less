@@ -23,7 +23,7 @@
     }
     
     .page-single  & {
-        padding-bottom: @line-height-computed
+        padding-bottom: @line-height-computed*2
     }
 }
 
@@ -171,17 +171,16 @@
     .clearfix;
     margin-top: @line-height-computed*2;
     font-size: @font-size-small;
-    line-height: 1.4em;
 }
 
 .byline,
-.time,
+time,
 .categories {
     text-align: center;
 }
 
 .byline,
-.time {
+time {
 	font-style: italic;
 	color: @text-color-light;
 }
@@ -192,13 +191,13 @@
     .by { display: block }
 }
 
-.time,
-.modtime {
+time {
+    display: block;
     color: @text-color-dimmed
 }
 
 .categories {
-    
+    margin-top: @line-height-computed;
 }
 
 

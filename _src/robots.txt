@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /search/
 Disallow: /page/
 
-Sitemap: http://kremalicious.com/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

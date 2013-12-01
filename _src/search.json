@@ -5,6 +5,7 @@
         {
           "title"     : "{{ post.title | escape | titlecase }}",
           "category"  : "{{ post.categories }}",
+          "tag"       : "{{ post.tags }}",
           "url"       : "{{ post.url }}",
           "date"      : "{{ post.date }}",
           "content"   : "{{ post.content | strip_html | strip_newlines | escape }}"
