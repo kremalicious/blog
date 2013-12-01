@@ -111,25 +111,6 @@ module Jekyll
 
   end
 
-  # The CategoryFeed class creates an Atom feed for the specified category.
-  class CategoryFeed < CategoryPage
-
-    # Initializes a new CategoryFeed.
-    #
-    #  +site+         is the Jekyll Site instance.
-    #  +base+         is the String path to the <source>.
-    #  +category_dir+ is the String path between <source> and the category folder.
-    #  +category+     is the category currently being processed.
-    def initialize(site, base, category_dir, category)
-      template_path = File.join(base, '_includes', 'custom', 'category_feed.xml')
-      super(template_path, 'atom.xml', site, base, category_dir, category)
-
-      # Set the correct feed URL.
-      self.data['feed_url'] = "#{category_dir}/#{name}" if render?
-    end
-
-  end
-
   # The Site class is a built-in Jekyll class with access to global site config information.
   class Site
 
@@ -145,15 +126,6 @@ module Jekyll
         index.write(self.dest)
         # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
         self.pages << index
-      end
-
-      # Create an Atom-feed for each index.
-      feed = CategoryFeed.new(self, self.source, target_dir, category)
-      if feed.render?
-        feed.render(self.layouts, site_payload)
-        feed.write(self.dest)
-        # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-        self.pages << feed
       end
     end
 
