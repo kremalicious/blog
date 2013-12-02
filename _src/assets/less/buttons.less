@@ -3,9 +3,12 @@
 /////////////////////////////////////
 
 .btn {
-    font-family: @font-family-serif;
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+    font-size: .85em;
 	line-height: 1em;
 	text-align: center;
+    text-transform: uppercase;
     vertical-align: middle;
     cursor: pointer;
 	display: inline-block;
@@ -61,29 +64,6 @@ a.btn-primary:visited {
 	}
 
 }
-
-.btn-tag {
-	line-height: @line-height-base;
-	text-align: center;
-	text-transform: lowercase;
-    vertical-align: middle;
-	
-	color: @text-color-light;
-	
-	&:before {
-		content: "#";
-		color: @text-color-dimmed;
-		font-size: .9em;
-		margin-right: .1em;
-	}
-	
-	&:hover {
-		color: @link-color;
-		
-		&:before { color: @text-color-light; }
-	}
-}
-
 
 .more-link {
 	.btn;
