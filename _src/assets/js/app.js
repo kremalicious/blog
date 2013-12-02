@@ -154,7 +154,7 @@ var infiniteScroll = {
 
 	infiniteScrollSetup: function() {
 
-		if ( $('#photos').length > 0 ) {
+		if ( $('.page-photos').length > 0 ) {
 			var items	= '#main .masonry';
 		} else {
 			var items	= '#main article.hentry';
@@ -171,7 +171,7 @@ var infiniteScroll = {
             // run picturefill over retrieved items
             picturefill();
 			// run the photogrid over retrieved items
-			//photoGrid.init();
+			photoGrid.init();
 		});
 
 	},
