@@ -50,7 +50,7 @@ module.exports = function(grunt){
                 options: {
                     drafts: true,
                     future: true,
-                    limit_posts: 50
+                    //limit_posts: 50
                 }
             }
         },
@@ -164,7 +164,7 @@ module.exports = function(grunt){
             },
             jekyll: {
                 files: [
-                    '<%= config.src %>/*.html', 
+                    '<%= config.src %>/**/*.html', 
                     '<%= config.src %>/*.xml', 
                     '<%= config.src %>/*.json', 
                     '<%= config.src %>/_includes/**', 

@@ -1,0 +1,25 @@
+---
+layout: base
+title: Photos
+description: My photo posts aggregated from various sources. You can find more of my photography on 500px and Flickr.
+category: photos
+---
+
+<section role="main" id="main" class="row">
+    
+    <h1 class="page-title"><a class="home" href="/" title="Back to Home">/</a>{{ page.category }}</h1>
+    
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+    
+            {% for post in paginator.posts %}
+    
+                {% include category_index.html %}
+        
+            {% endfor %}
+    
+        </div>
+
+</section>
+
+{% include paginator.html %}
