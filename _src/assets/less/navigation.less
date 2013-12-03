@@ -151,10 +151,10 @@
 
 
 //
-// Pager
+// Paginator
 //
 
-.pager {
+.paginator {
 	.clearfix;
     
 	p { position: relative;	}
@@ -166,20 +166,25 @@
 		top: 0;
 	}
     
-	.alignright { text-align: right; }
-	
-	.alignleft i { margin-right: .5em; }
-	
-	.alignright i { 
-        margin-left: .5em;
-		left: auto;
-		right: 0;
+	.next { 
+        text-align: right; 
+        float: right;
+        
+        a { margin-right: 1.5em; }
+        
+        i { 
+            margin-left: .5em;
+    		left: auto;
+    		right: 0;
+        }
     }
-	
-	.alignleft a { margin-left: 1.5em; }
-	.alignright a { margin-right: 1.5em; }
-	
-	
+    
+    .previous {
+        float: left;
+        
+        a { margin-left: 1.5em; }
+        i { margin-right: .5em; }
+    }
 }
 
 
@@ -190,17 +195,17 @@
 	width: 100%;
     float: none;
     margin-left: 0;
+    
+    a {
+    	.btn;
+    	.aligncenter;
+        padding-top: @line-height-computed/1.5;
+        padding-bottom: @line-height-computed/1.5;
+    }
 }
 
 .infiniteLoader .previous,
 .infiniteLoader .pagenumber,
 .infiniteLoader i {
 	.hide;
-}
-
-.infiniteLoader .next a {
-	.btn;
-	.aligncenter;
-    padding-top: @line-height-computed/1.5;
-    padding-bottom: @line-height-computed/1.5;
 }
