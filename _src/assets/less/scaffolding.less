@@ -4,15 +4,19 @@ html {
 }
 
 body {
-	background: @body-bg;
+	background-color: @body-bg;
 }
+
 
 //
 // Topbar
 //
 .topbar {
     .clearfix;
-    background: #f1f4f7;
+    background: fade(@brand-dark, 3%);
+    border-bottom: 1px solid rgba(255,255,255,.7);
+    box-shadow: inset 0 1px 4px fade(@brand-dark, 20%), inset 0 -1px 4px fade(@brand-dark, 20%);
+    
     .row { 
         margin-top: @line-height-computed/2;
         margin-bottom: @line-height-computed/2;
@@ -29,7 +33,7 @@ body {
 	float: left;
     
     @media @breakpoint2 {
-        margin-left: -55px
+        margin-left: -54px
     }
     
 	.banner-title { 
@@ -107,6 +111,8 @@ a.close,
 .footer {
 	text-align: center;
 	background: fade(@brand-dark, 5%);
+    border-top: 1px solid rgba(255,255,255,.7);
+    box-shadow: inset 0 1px 4px fade(@brand-dark, 20%);
     
     .footer-description {
         .h5;
@@ -175,4 +181,41 @@ a.close,
 
 .footer:hover .subscribe .facebook i:before {
 	color: #3b5998;
+}
+
+
+//
+// topbar and footer as fixed 
+// site background
+//
+
+@media @breakpoint2 {
+    section[role=document] {
+    	background-color: @body-bg;
+        margin-top: 71px;
+        margin-bottom: 380px;
+        position: relative;
+        z-index: 2;
+        border-top: 1px solid rgba(255,255,255,.7);
+        border-bottom: 1px solid rgba(255,255,255,.7);
+        box-shadow: 0 1px 4px fade(@brand-dark, 20%), 0 -1px 4px fade(@brand-dark, 20%);
+    }
+    .topbar,
+    .footer {
+        position: fixed;
+        z-index: 1;
+        border: none;
+    }
+    .topbar {
+        height: 71px;
+        top: 0;
+        box-shadow: inset 0 1px 4px fade(@brand-dark, 20%);
+        border: none;
+    }
+    
+    .footer {
+        height: 380px;
+        bottom: 0;
+        box-shadow: none;
+    }
 }
