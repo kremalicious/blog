@@ -38,8 +38,8 @@ var siteNavigation = {
             $searchresults.removeClass('hide');
             
             // hide menu too just in case
-            if ( $navpop.is(':visible') ) {
-                $navpop.addClass('hide');
+            if ( $('body').hasClass('menu-open') ) {
+                $('body').removeClass('menu-open');
             }
             
             // bind the hide controls
@@ -80,13 +80,13 @@ var siteNavigation = {
             e.preventDefault();
             
             // toggle menu
-            $thepop.toggleClass('show').toggleClass('hide');
+            $('body').toggleClass('menu-open');
             
             // bind the hide controls
-            $(document).bind("click.hidethepop", function() {
-                    $thepop.removeClass('show').addClass('hide');
+            $(document).bind('click.hidethepop', function() {
+                    $('body').removeClass('menu-open');
                     // unbind the hide controls
-                    $(document).unbind("click.hidethepop");
+                    $(document).unbind('click.hidethepop');
             });
             
             // dont close thepop when you click on thepop

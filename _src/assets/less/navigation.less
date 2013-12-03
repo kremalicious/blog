@@ -2,16 +2,6 @@
 // NAVIGATION
 /////////////////////////////////////
 
-
-.nav-popover {
-    position: absolute;
-    top: 100%;
-    z-index: 5; // so it's always above page content
-    .border-bottom-radius;
-    background: #f1f4f7;
-    box-shadow: 0 2px 7px rgba(0,0,0,.05);
-}
-
 .menu-btn,
 .search-btn {
     line-height: 1em;
@@ -20,17 +10,17 @@
     display: inline-block;
     margin: 0;
     
+    position: absolute;
+    right: 0;
+    top: 0;
+    
     // icons
     &:before { .transition; }
     &:hover:before {
         color: @link-color
     }
 }
-
-.nav-main,
-.site-search {
-    float: right;
-}
+.search-btn { right: 50px }
 
 //
 // Main Navigation
@@ -46,15 +36,15 @@
     li { display: inline-block; }
     
     .nav-popover {
-        top: 130%;
-        right: 0;
+        background: @body-bg;
+        padding: @line-height-computed*1.5 0;
         width: 100%;
         .clearfix;
         
         .nav-link {
             width: 50%;
             @media @breakpoint2 {
-                width: 33%
+                width: 33.3%
             }
             float: left;
             text-align: center;

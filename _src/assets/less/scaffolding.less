@@ -13,7 +13,6 @@ body {
 //
 .topbar {
     .clearfix;
-    background: fade(@brand-dark, 3%);
     border-bottom: 1px solid rgba(255,255,255,.7);
     box-shadow: inset 0 1px 4px fade(@brand-dark, 20%), inset 0 -1px 4px fade(@brand-dark, 20%);
     
@@ -190,15 +189,22 @@ a.close,
 //
 
 @media @breakpoint2 {
+    body {
+        position: relative
+    } 
     section[role=document] {
-    	background-color: @body-bg;
+    	background-color: @page-bg;
         margin-top: 71px;
+        .transition;
+        .menu-open & {
+            margin-top: 300px;
+        }
         margin-bottom: 380px;
         position: relative;
         z-index: 2;
         border-top: 1px solid rgba(255,255,255,.7);
         border-bottom: 1px solid rgba(255,255,255,.7);
-        box-shadow: 0 1px 4px fade(@brand-dark, 20%), 0 -1px 4px fade(@brand-dark, 20%);
+        box-shadow: 0 1px 4px fade(@brand-dark, 10%), 0 -1px 4px fade(@brand-dark, 10%);
     }
     .topbar,
     .footer {
@@ -207,9 +213,9 @@ a.close,
         border: none;
     }
     .topbar {
-        height: 71px;
+        min-height: 71px;
         top: 0;
-        box-shadow: inset 0 1px 4px fade(@brand-dark, 20%);
+        box-shadow: inset 0 1px 4px fade(@brand-dark, 10%);
         border: none;
     }
     
@@ -217,5 +223,7 @@ a.close,
         height: 380px;
         bottom: 0;
         box-shadow: none;
+        
+        .menu-open & { .hide; }
     }
 }
