@@ -7,16 +7,59 @@
    ========================================================================== */
 
 @media print {
-  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; } /* Black prints faster: h5bp.com/s */
-  a, a:visited { text-decoration: underline; }
-  a[href]:after { content: " (" attr(href) ")"; }
+    
+  * { 
+      background: transparent; 
+      color: black !important; 
+      box-shadow:none !important; 
+      text-shadow: none !important; 
+  }
+    
+  .entry-content a[href]:after { 
+      content: " (" attr(href) ")";
+      text-transform: none;
+      font-size: 0.8em;
+  }
+  
+  // hide stuff in article view
+  .related-posts,
+  .footer .row:first-child,
+  .hentry:before {
+      .hide;
+  }
+  .topbar { .visuallyhidden; }
+  
+  .hentry { border: none }
+  
+  .footer {
+      color: #ccc !important;
+      
+      .footer-copyright {
+          border-top: 1px solid #000 !important;
+          
+          &:after { .hide; }
+      }
+  }
+  
   abbr[title]:after { content: " (" attr(title) ")"; }
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } /* Don't show links for images, or javascript/internal links */
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  
+  pre, blockquote { page-break-inside: avoid; }
+  
   thead { display: table-header-group; } /* h5bp.com/t */
+  
   tr, img { page-break-inside: avoid; }
+  
   img { max-width: 100% !important; }
-  @page { margin: 0.5cm; }
+  
+  @page { margin: 5.5cm; }
+  
   p, h2, h3 { orphans: 3; widows: 3; }
+  
+  .hentry {
+      h1 { page-break-before: always; }
+      &:first-child h1 { page-break-before: avoid; }
+  }
+
   h2, h3 { page-break-after: avoid; }
 }
