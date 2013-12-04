@@ -1,19 +1,29 @@
 kremalicious3
 ==================
 
+[kremalicious.com](http://kremalicious.com) based on Jekyll
+
 Requirements
 ------------------
 
-[https://npmjs.org/](NPM), [http://bower.io/](Bower), [http://bundler.io/](Bundler)
+- [NPM](https://npmjs.org/)
+- [Bower](http://bower.io/)
+- [Bundler](http://bundler.io/)
 
 Get up and running
 ------------------
 
 Install dependencies
-`npm install && bower install && bundle install`
+```bash 
+npm install && bower install && bundle install
+```
 
 Local development
-`grunt server`
+```bash
+grunt server
+```
 
 Production build
+```bash
 `grunt build`
+```
