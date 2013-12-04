@@ -33,6 +33,9 @@ category_title_prefix: ""
 markdown: redcarpet  
 pygments: true
 
+redcarpet:
+  extensions: ['autolink', 'smart']
+
 
 # Generator
 # --------------------
