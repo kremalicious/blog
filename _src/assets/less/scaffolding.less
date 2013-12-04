@@ -15,6 +15,7 @@ body {
 //
 .topbar {
     .clearfix;
+    background: @body-bg;
     border-bottom: 1px solid rgba(255,255,255,.7);
     box-shadow: inset 0 1px 4px fade(@brand-dark, 20%), inset 0 -1px 4px fade(@brand-dark, 20%);
     
@@ -220,17 +221,18 @@ a.close,
     }
     .topbar,
     .footer {
-        z-index: 1;
         position: fixed;
         border: none;
     }
     .topbar {
+        z-index: 1;
         top: 0;
         box-shadow: inset 0 1px 4px fade(@brand-dark, 10%);
         border: none;
     }
     
     .footer {
+        z-index: 0;
         height: 380px;
         bottom: 0;
         box-shadow: none;
