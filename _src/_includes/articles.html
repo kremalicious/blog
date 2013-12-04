@@ -55,12 +55,12 @@
             {% if has_more == 'true' %}
                 {{ post.content | post.excerpt | excerpt | markdownify }}            
             {% else %}
-                {% unless post.categories contains "goodies" %}
+                {% unless post.categories contains "goodies" and page.path contains "goodies" %}
                     {{ post.excerpt | markdownify }}
                 {% endunless %}
             {% endif %}
             
-            {% if post.categories contains "goodies" %}
+            {% if post.categories contains "goodies" and page.path contains "goodies" %}
                 <footer class="goodie-actions">
 
                     <p class="info col3">
@@ -74,9 +74,11 @@
                     {% endif %}
 
                 </footer>
-            {% else %}
-                <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
             {% endif %}
+            
+            {% unless page.path contains "goodies" %}
+                <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
+            {% endunless %}
 
         </section>
     </article>
