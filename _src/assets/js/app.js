@@ -17,10 +17,10 @@ var siteNavigation = {
     siteSearch: function() {
         
         var $searchlink    = $('.search-btn'),
-            $searchpop     = $('.search-area'),
+            $searcharea     = $('.search-area'),
             $searchfield   = $('.search-field'),
             $searchresults = $('.search-results'),
-            $navpop        = $('.nav-main .nav-popover');
+            $searchpop        = $('.popover');
         
         // init jekyll search
         $searchfield.simpleJekyllSearch({
@@ -33,9 +33,11 @@ var siteNavigation = {
             e.preventDefault();
             
             // show search
-            $searchpop.addClass('ready');
+            $searcharea.addClass('ready');
             $searchfield.focus();
-            $searchresults.removeClass('hide');
+            if ( $searchfield.val().length ) {
+                $searchpop.removeClass('hide');
+            }
             
             // hide menu too just in case
             if ( $('body').hasClass('menu-open') ) {
@@ -44,8 +46,8 @@ var siteNavigation = {
             
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
-                $searchpop.removeClass('ready');
-                $searchresults.addClass('hide');
+                $searcharea.removeClass('ready');
+                $searchpop.addClass('hide');
                 
                 // unbind the hide controls
                 $(document).unbind('click.hidethepop');
@@ -60,12 +62,18 @@ var siteNavigation = {
             e.stopPropagation();
         });
         
+        // finally show popup upon first keypress
+        $searchfield.on('keyup', function() {
+            $searchpop.removeClass('hide');
+        });
+        
+        // close button
         $('.search-close').click(function(e){
             e.preventDefault();
             
             // hide search area
-            $searchpop.removeClass('ready');
-            $searchresults.addClass('hide');
+            $searcharea.removeClass('ready');
+            $searchpop.addClass('hide');
             
             // empty search field
             $searchfield.val('').blur();

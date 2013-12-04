@@ -7,6 +7,8 @@ body {
 	background-color: @body-bg;
 }
 
+.document { position: relative }
+
 
 //
 // Topbar
@@ -187,33 +189,42 @@ a.close,
 // topbar and footer as fixed 
 // site background
 //
+.topbar {
+    height: 71px;
+    
+    .menu-open & {
+        height: auto
+    }
+}
+.document {
+    background-color: @page-bg;
+}
 
 @media @breakpoint2 {
     body {
         position: relative
     } 
-    section[role=document] {
-    	background-color: @page-bg;
+    .document {
+        z-index: 2;
         margin-top: 71px;
         .transition;
+        
         .menu-open & {
             margin-top: 300px;
         }
         margin-bottom: 380px;
-        position: relative;
-        z-index: 2;
+        
         border-top: 1px solid rgba(255,255,255,.7);
         border-bottom: 1px solid rgba(255,255,255,.7);
         box-shadow: 0 1px 4px fade(@brand-dark, 10%), 0 -1px 4px fade(@brand-dark, 10%);
     }
     .topbar,
     .footer {
-        position: fixed;
         z-index: 1;
+        position: fixed;
         border: none;
     }
     .topbar {
-        min-height: 71px;
         top: 0;
         box-shadow: inset 0 1px 4px fade(@brand-dark, 10%);
         border: none;

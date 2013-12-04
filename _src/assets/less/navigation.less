@@ -36,7 +36,6 @@
     li { display: inline-block; }
     
     .nav-popover {
-        background: @body-bg;
         padding: @line-height-computed*1.5 0;
         width: 100%;
         .clearfix;
@@ -53,14 +52,14 @@
             text-transform: uppercase;
             font-size: .8em;
             
-            // the icon
+            // the icons
             &:before {
                 display: block;
                 width: 100%;
                 text-align: center;
                 font-size: 32px;
                 height: 32px;
-                color: lighten(@text-color-dimmed, 10%);
+                color: lighten(@text-color-dimmed, 5%);
                 .transition;
             }
             
@@ -137,6 +136,34 @@
 }
 
 .search-results {
+    .clearfix;
+    
+    .nav-link {
+        @media @breakpoint2 {
+            width: 50%;
+            float: left;
+        }
+    }
+}
+
+.popover {
+    position: absolute;
+    left: 0;
+    top: 71px;
+    z-index: 6;
+    
+    background: lighten(@page-bg, 3%);
+    border-bottom: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 1px 4px fade(@brand-dark, 10%);
+    
+    @media @breakpoint2 { 
+        top: 0;
+        
+        .row { 
+            margin-top: @line-height-computed;
+            margin-bottom: @line-height-computed
+        }
+    }
 }
 
 
