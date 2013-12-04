@@ -53,8 +53,12 @@ var siteNavigation = {
                 $(document).unbind('click.hidethepop');
             });
             
-            // dont close thepop when you click on thepop
+            // dont close thepop when click on thepop
             $searchpop.click(function(e) {
+                e.stopPropagation();
+            });
+            // dont close thepop when click on search field
+            $searchfield.click(function(e) {
                 e.stopPropagation();
             });
             
