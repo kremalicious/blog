@@ -1,19 +1,19 @@
 
 .comments {
     .clearfix;
-    background: rgba(255,255,255,.35);
+    font-size: @font-size-small;
+    font-style: italic;
     color: @text-color-dimmed;
-    padding: @line-height-computed;
     margin-top: @line-height-computed*2;
     text-align: center;
     .border-radius;
     
-    .btn-wrap {
-        margin-bottom: 0;
-        height: 27px;
+    p,
+    .btn { margin-bottom: 0; }
+    
+    .btn-wrap { 
+        margin-top: @line-height-computed/2;
+        height: 27px
     }
-    .btn { 
-        margin-bottom: 0;
-        left: -20px;
-    }
+    .btn { left: -20px }
 }
