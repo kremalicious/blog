@@ -1,35 +1,4 @@
 #custom filters for Octopress
-require './_src/_plugins/post_filters.rb'
-require './_src/_plugins/raw.rb'
-require 'rubypants'
-
-module OctopressFilters
-  include TemplateWrapper
-  def pre_filter(input)
-    input = input
-  end
-  def post_filter(input)
-    input = unwrap(input)
-    RubyPants.new(input).to_html
-  end
-end
-
-module Jekyll
-  class ContentFilters < PostFilter
-    include OctopressFilters
-    def pre_render(post)
-      if post.ext.match('html|textile|markdown|md|haml|slim|xml')
-        post.content = pre_filter(post.content)
-      end
-    end
-    def post_render(post)
-      if post.ext.match('html|textile|markdown|md|haml|slim|xml')
-        post.content = post_filter(post.content)
-      end
-    end
-  end
-end
-
 
 module OctopressLiquidFilters
 
