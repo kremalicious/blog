@@ -9,6 +9,7 @@ $(ASAP = function(){
 $(window).load( AfterLoad = function() {
 
 	infiniteScroll.init();
+    siteEffects.init();
 
 });
 
@@ -142,8 +143,15 @@ var photoGrid = {
 
 var siteEffects = {
     
+	socialiteButtons: function() {
+        
+		$('.comments').one('mouseenter', function() {
+			Socialite.load($(this)[0]);
+		});
+	},
+    
 	init: function(){
-		
+		this.socialiteButtons();
 	}
 
 }
