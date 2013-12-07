@@ -15,12 +15,12 @@ layout: nil
 	
 	{% for post in site.posts limit:100 %}
     	<entry>
-    		<title>{{ post.title }}</title>
+    		<title>{{ post.title | escape }}</title>
 		
             {% if post.layout == "link" %}
-                <link>{{ post.linkurl }}</link>
+                <link>{{ post.linkurl | escape }}</link>
             {% else %}
-                <link>{{ site.url }}/{{ post.url }}</link>
+                <link>{{ site.url }}/{{ post.url | escape }}</link>
             {% endif %}
 		    
             <published>{{ post.date | date_to_xmlschema }}</published>
@@ -29,7 +29,7 @@ layout: nil
                 <updated>{{ post.updated | date_to_xmlschema }}</updated>
             {% endif %}
             
-    		<id>{{ site.url }}/{{ post.url }}</id>
+    		<id>{{ site.url }}/{{ post.url | escape }}</id>
     		<content type="html">
                 {% if post.image %}
                     &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
@@ -38,8 +38,8 @@ layout: nil
                 {{ post.content | xml_escape }}
             
     			{% if post.layout == "link" %}
-                    &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
-                    &lt;a href=&quot;{{ site.url }}/{{ post.url }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
+                    &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
+                    &lt;a href=&quot;{{ site.url }}/{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
             </content>
     	</entry>
