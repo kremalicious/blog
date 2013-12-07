@@ -656,8 +656,20 @@ FileETag None
     RewriteBase /
     
     # redirect any /post-slug.html to /post-slug
-    RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^\s]+)\.html\s
-    RewriteRule .* %1 [R=301,L]
+    #RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^\s]+)\.html\s
+    #RewriteRule .* %1 [R=301,L]
+    
+    # Redirects /post-slug.html to /post-slug
+    # from http://stackoverflow.com/a/16773980/733677
+    #
+    # is not directory
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # is an existing html file
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    # request URI ends with .html
+    RewriteCond %{REQUEST_URI} ^(.+)\.html$
+    # redirect from file.html to file
+    RewriteRule (.*)\.html$ /$1 [R=301,L]        
     
 </IfModule>
 
@@ -690,4 +702,7 @@ Redirect 301 /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-pho
 Redirect 301 /4-more-icons-niepces-camera-obscura-v11 /niepces-camera-obscura-and-the-history-of-the-first-photograph
 Redirect 301 /canon-eos-50d-officially-announced-and-new-lens /
 Redirect 301 /apple-touch-icon.png /apple-touch-icon-precomposed.png
+
+# feed redirects
 Redirect 301 /home/feed/ /feed
+Redirect 301 /feed /feed.xml
