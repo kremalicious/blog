@@ -33,7 +33,7 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     narray (0.6.0.8)
-    posix-spawn (0.3.6)
+    posix-spawn (0.3.8)
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)

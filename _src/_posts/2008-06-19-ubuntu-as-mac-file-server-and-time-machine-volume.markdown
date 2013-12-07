@@ -78,16 +78,20 @@ First you have to enable the Source Code repositories via System > Administratio
 
 Now fire up your Terminal under Applications > Accessories and execute the following lines (separately). You have to type Y for yes when Terminal asks you if it should continue:
 
-`sudo apt-get build-dep netatalk
+``` bash
+sudo apt-get build-dep netatalk
 sudo apt-get install cracklib2-dev fakeroot libssl-dev
 sudo apt-get source netatalk
-cd netatalk-2*`
+cd netatalk-2*
+````
 
 Now you have downloaded the source code of Netatalk to your home folder, installed some required packages for building Netatalk and changed the directory to the downloaded folder.
 
 Next you have to build the Netatalk package with the encryption option enabled:
 
-`sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot`
+``` bash
+sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot
+```
 
 Depending on your hardware this may take a while but you can enjoy the geeky build output in your Terminal:
 
@@ -98,12 +102,15 @@ Depending on your hardware this may take a while but you can enjoy the geeky bui
 If everything went through without errors (except the signing warnings, can be ignored) you can install the recently created package:
 
 
-
-`sudo dpkg -i ~/netatalk_2*.deb`
+``` bash
+sudo dpkg -i ~/netatalk_2*.deb
+```
 
 To stop Ubuntu from overwriting your custom Netatalk package you should set its state to hold. This will cause the Netatalk package being grayed out in the Software Update dialogue:
 
-`echo "netatalk hold" | sudo dpkg --set-selections`
+``` bash
+echo "netatalk hold" | sudo dpkg --set-selections
+```
 
 Now you have successfully build and installed your custom Netatalk package which now has support for encrypted logins. Now let's configure the whole thing.
 
@@ -115,26 +122,34 @@ Now you have successfully build and installed your custom Netatalk package which
 
 ![Netatalk icon](/media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor gedit for stopping unneeded services:
 
-`sudo gedit /etc/default/netatalk`
+``` bash
+sudo gedit /etc/default/netatalk
+```
 
 gedit should pop up with the defined file loaded as superuser (needed for saving). Find the "#Set which daemons to run" part and replace the default values with these to enable just AFP and disable all unneeded services. Let the cnid_meta daemon run too and if you want to [share your Linux connected printer with your Mac](http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-netatalk-to-share-a-usb-printer/) also enable the pap daemon (set to yes):
 
-`ATALKD_RUN=no
+```
+ATALKD_RUN=no
 PAPD_RUN=no
 CNID_METAD_RUN=yes
 AFPD_RUN=yes
 TIMELORD_RUN=no
-A2BOOT_RUN=no`
+A2BOOT_RUN=no
+```
 
 Here it's very important to run the cnid_meta daemon because this service will handle all the metadata for us (namely the reosurce fork) which would get lost due to the fact that your Linux box isn't formatted as Apple's HFS+. If you're interested what the other services could do: atalkd is the AppleTalk daemon (pre-OSX file sharing, old printing), timelord can make your Linux box a network time server and please don't ask me for what a2boot is good for (If you know it, post it in the comments please / [Kelly suggests it's a netboot server for client Macs](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-7632)).
 
 Press Ctrl + S to save the document or choose File > Save. Next we have to edit the main config file for AFP sharing called afpd.conf:
 
-`sudo gedit /etc/netatalk/afpd.conf`
+``` bash
+sudo gedit /etc/netatalk/afpd.conf
+```
 
 Scroll to the very bottom of the document and add this to the bottom (replace the whole line in case there's already one). This is one line so be sure that there's no line break in your afpd.conf file:
 
-`- -transall -uamlist uams_randnum.so,uams_dhx.so -nosavepassword -advertise_ssh`
+```
+-transall -uamlist uams_randnum.so,uams_dhx.so -nosavepassword -advertise_ssh
+```
 
 Press Ctrl + S to save the document or choose File > Save.
 
@@ -146,19 +161,27 @@ Press Ctrl + S to save the document or choose File > Save.
 
 ![Time Machine Volume icon](/media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in the gedit editor with superuser privileges (required for saving) where we can define our shared volumes:
 
-`sudo gedit /etc/netatalk/AppleVolumes.default`
+``` bash
+sudo gedit /etc/netatalk/AppleVolumes.default
+```
 
 Scroll to the bottom of the document and define your Volume shares. By adding the following line you will share each users home directory with the user name as the Volume name. To make things more secure you can define all users who are allowed to connect to your Ubuntu box via AFP:
 
-`~/ 		"$u" 	allow:username1,username2 		cnidscheme:cdb`
+```
+~/      "$u"        allow:username1,username2       cnidscheme:cdb
+```
 
 Because we want to use the Ubuntu machine as a backup server for Time Machine you should define a second volume just for Time Machine. Create a new folder in your home directory first and name it TimeMachine (or anything you like). Then add the following line to your AppleVolumes.default. This is one line so be sure that there’s no line break in your AppleVolumes.default file:
 
-`/home/username/TimeMachine		TimeMachine 	allow:username1,username2 		cnidscheme:cdb options:usedots,upriv`
+````
+/home/username/TimeMachine		TimeMachine 	allow:username1,username2 		cnidscheme:cdb options:usedots,upriv
+```
 
 Thanks to [tsanga](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-50) for pointing out the usedots and upriv options. The usedots option is required if you want to use invisible files and folders (those starting with a dot in the name). Otherwise afpd would encode them as :2e which is bad if you have to use invisible files (like .htaccess). If you're on Leopard **and have no Tiger installed Macs in your network or mixed OS X versions in your network** you should use the upriv option which adds support for AFP3 unix privileges. If you have Macs with Tiger installed just use options:usedots to avoid unexpected behavior:
 
-`/home/username/TimeMachine		TimeMachine 	allow:username1,username2 		cnidscheme:cdb options:usedots`
+```
+/home/username/TimeMachine      TimeMachine     allow:username1,username2       cnidscheme:cdb options:usedots
+```
 
 Finally if you want more stability and can accept slower file transfers you can use the dbd cnidscheme (cnidscheme:dbd).
 
@@ -166,7 +189,9 @@ Press Ctrl + S to save the document or choose File > Save. Of course you can def
 
 Finally restart Netatalk to activate the changes:
 
-`sudo /etc/init.d/netatalk restart`
+``` bash
+sudo /etc/init.d/netatalk restart
+```
 
 
 Although we now have a fully configured AFP file server it will not show up in the Finder sidebar on Mac OS X Leopard (but it's reachable via Go > Connect to Server... in the Finder). Macs use a service called [Bonjour](http://www.apple.com/macosx/technology/bonjour.html) for the sidebar thing (and for a lot of other cool stuff) and on the Linux side we can have this functionality with the Open Source implementation of Bonjour, called [Avahi](http://avahi.org/).
@@ -175,23 +200,26 @@ Although we now have a fully configured AFP file server it will not show up in t
 
 ## 4. Install Avahi
 
-
-
 ![Bonjour icon](/media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
 
-`sudo apt-get install avahi-daemon
-sudo apt-get install libnss-mdns`
+``` bash
+sudo apt-get install avahi-daemon
+sudo apt-get install libnss-mdns
+```
 
 To make everything work properly you have to edit the nsswitch.conf file:
 
-`sudo gedit /etc/nsswitch.conf`
+``` bash
+sudo gedit /etc/nsswitch.conf
+```
 
 Just add "mdns" at the end of the line that starts with "hosts:". Now the line should look like this:
 
-`hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns`
+```
+hosts:      files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns
+```
 
 Press Ctrl + S to save the document or choose File > Save.
-
 
 
 ## 5. Configure Avahi and advertise services
@@ -200,32 +228,36 @@ Press Ctrl + S to save the document or choose File > Save.
 
 ![Bonjour icon](/media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
 
-`sudo gedit /etc/avahi/services/afpd.service`
+```bash
+sudo gedit /etc/avahi/services/afpd.service
+```
 
 A blank document should open in gedit. Now paste the following into the document and save the file by pressing Ctrl + S or by choosing File > Save:
 
-`
+``` xml
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">%h</name>
-  <service>
-    <type>_afpovertcp._tcp</type>
-    <port>548</port>
-  </service>
-<service>
-<type>_device-info._tcp</type>
-<port>0</port>
-<txt-record>model=Xserve</txt-record>
-</service>
+	<name replace-wildcards="yes">%h</name>
+	<service>
+		<type>_afpovertcp._tcp</type>
+		<port>548</port>
+	</service>
+	<service>
+	    <type>_device-info._tcp</type>
+	    <port>0</port>
+	    <txt-record>model=Xserve</txt-record>
+	</service>
 </service-group>
-`
+```
 
 update: The last part is used to assign a specific (Apple) hardware model to your Linux box. In this example your server will be advertised as an XServe and will be shown with this icon in the Finder sidebar. This will come in handy when you want to use your own icon for it or the one's made by me provided within this article. Thanks to  [Simon Wheatley](http://www.simonwheatley.co.uk/2008/04/06/avahi-finder-icons/trackback/) for figuring this out. Additionally you can use these models in this file: RackMac (same as Xserve), PowerBook, PowerMac, Macmini, iMac, MacBook, MacBookPro, MacBookAir, MacPro, AppleTV1,1, AirPort
 
 Finally restart the avahi daemon to activate all changes:
 
-`sudo /etc/init.d/avahi-daemon restart`
+``` bash
+sudo /etc/init.d/avahi-daemon restart
+```
 
 Now you have configured the Avahi daemon to advertise AFP sharing across your network which will cause your Ubuntu box to show up in Finder's sidebar in Mac OS X Leopard. In Mac OS X 10.4 Tiger your Ubuntu server should now be visible under Network.
 
@@ -249,7 +281,9 @@ update: If you've followed the revised version of this article your Linux box sh
 
 ![Time Machine icon](/media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
 
-`defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1`
+``` bash
+defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
+```
 
 Thanks to [FoolsRun](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-345) and [tsanga](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-394) for pointing this out in the comments
 
@@ -286,9 +320,11 @@ If time Machine says "The backup disk image could not be created" during the fir
 
 In short, you have to create the backup disk image on your Desktop and copy it to your mounted Time Machine volume. But Time Machine creates a unique filename for the disk image and we can find out this name with a little trick:
 
-First open up the Console from your Applications > Utilities folder and open the Time Machine preferences. In Time Machine preferences set your backup volume back to none. After that reselect your mounted Time Machine volume. The counter should start and Time Machine's big button will change to on. When the backup tries to start and fail have a look at your Console (Click All Messages in the sidepane). There should be a line tellung you the name of the disk image:
+First open up the Console from your Applications > Utilities folder and open the Time Machine preferences. In Time Machine preferences set your backup volume back to none. After that reselect your mounted Time Machine volume. The counter should start and Time Machine's big button will change to on. When the backup tries to start and fail have a look at your Console (Click All Messages in the sidepane). There should be a line telling you the name of the disk image:
 
-`Creating disk image /Volumes/TimeMachine/computername_0014e3856bd0.sparsebundle ` 
+``` bash
+Creating disk image /Volumes/TimeMachine/computername_0014e3856bd0.sparsebundle
+```
 
 The computername should be the name you have assigned to your Mac. Now just click on that line and hit command + C to copy the message.
 
@@ -322,11 +358,15 @@ In short you have to allow communications over port 548 and 5353.
 
 If you get one of those errors: 
 
-`"Connection Failed - There was an error connection to the server. Check the server name or IP address and try again"`
+````
+Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
+```
 
 or 
 
-`"There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator."`
+```
+There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
+```
 
 you should first be sure you have either no firewall on your Ubuntu box in use or have it configured to allow AFP communications as suggested in the above paragraph.
 
@@ -334,12 +374,16 @@ Remember that this error can be caused by a myriad of problems and just a lot of
 
 If you still can't connect to your Ubuntu box you can edit your /etc/hosts file as [I've pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-417):
 
-`sudo gedit /etc/hosts`
+``` bash
+sudo gedit /etc/hosts
+```
 
 Add the following two lines at the very top of the file.
 
-`127.0.0.1 localhost
-127.0.1.1 Rockhopper.local Rockhopper`
+```
+127.0.0.1 localhost
+127.0.1.1 Rockhopper.local Rockhopper
+```
 
 My server is named Rockhopper, adjust the name according to your server name. There should be some sort of name already but the important part here is the servername.local which is the AFP way of server names. If there are any other numbers at the beginning in your file leave them as they are.
 
@@ -357,7 +401,9 @@ But for those people still having problems with these error messages: On Mac OS 
 
 Some people have problems when connecting to an AFP share and get a -5014 error. [As J5 pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-5021) you have to delete the hidden .AppleDB folders on your Ubuntu box and restart netatalk afterwards:
 
-`sudo /etc/init.d/netatalk restart`
+``` bash
+sudo /etc/init.d/netatalk restart
+```
 
 
 
@@ -367,11 +413,15 @@ Some people have problems when connecting to an AFP share and get a -5014 error.
 
 In case of a full system restore you would have to boot your Mac from the Mac OS X installation DVD (the one delivered with your Mac) by pressing the c key during boot. Your Mac will start with a minimal UI where you have a Utilities section in the top menu bar. There you'll find "Restore from a Time Machine Backup" but it won't find your network share with your Time Machine backup. Luckily [Dmitry Nedospasov found a way to manage this](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/) by simply mounting your Time Machine network share with the Terminal (which you can find under Utilities in the menu bar too) by utilizing the following syntax (shamelessly copied from [Dmitry](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/)):
 
-`mount -t afp afp://username:password@hostname/ShareName /Volumes/ShareMount`
+``` bash
+mount -t afp afp://username:password@hostname/ShareName /Volumes/ShareMount
+```
 
 Replace everything instead of /Volumes with your matching names. You can test if your network share was properly mounted by doing
 
-`ls /Volumes`
+``` bash
+ls /Volumes
+```
 
 which outputs the content of the Volumes folder and you should see your network share.
 
@@ -432,7 +482,7 @@ Here you can see the icons included in the Server Displays icon pack:
 
 Because I've just modified Apple's standard icons these icons are just available via this blog post and they will not show up in my Goodies section. Just download the whole package directly via this link:
 
-[v1.0 | 4 icons | zip-file | 5.5MB](http://www.kremalicious.com/media/server_displays_by_kremalicious.zip)
+<a class="btn btn-primary icon-download" href="/media/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
 
 
 
@@ -442,7 +492,9 @@ Because I've just modified Apple's standard icons these icons are just available
 
 In the avahi configuration part in this article you have assigned the Xserve device info to your afpd.service file. All you have to do is to replace the generic Xserve icon (or whatever model you have assigned in your afpd.service file) with an icon from this icon package. Just rename the Ubuntu Server.icns to com.apple.xserve.icns and navigate to
 
+```
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
+```
 
 Drag & drop the renamed file into this path and replace the generic icon (making a backup before doing that is a good idea) and after a logout all your avahi advertised Ubuntu servers should be displayed with the new icon (assuming that you assigned a device model in avahi).
 
@@ -450,28 +502,24 @@ If you've used another model in your afpd.service file, browse the Resources of 
 
 As for the Windows Vista server icon: Just rename the Windows Server.icns file to public.generic-pc.icns and navigate to
 
+```
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
+````
 
 Now drag & drop the renamed file into this path and replace the generic icon (making a backup before doing that is a good idea) and after a logout all your Windows servers should be displayed with the new icon.
 
 update: A solution for the icon problem is here: [Simon Wheatley figured out](http://www.simonwheatley.co.uk/2008/04/06/avahi-finder-icons/trackback/) how to assign a different icon to your avahi advertised Linux box. All you have to do is assigning a device info part at the end of the avahi service file for AFP. I've updated this article to include this part. Please head back to the Configure Avahi and advertise services part in this article and edit your afpd.service file again if you've followed the first revision of this article.
 
+<a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
 
-
-![Oh no!](/media/coffee-cup-empty.png)
-
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee ;-)
-
-
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
 
 ## 9. Translations Of This Article
 
-
-
 The following articles are direct translations of my article but some of them are slightly modified or simplified. Remember that the authors/translators are responsible for the content.
 
-German: [Ubuntu + Apple Fileserver + TimeMachine](http://www.kde4.de/?page_id=389) on [kde4.de](http://www.kde4.de)
-French: [Tuto: Comment créer votre serveur Time Capsule sous Debian](http://blog.delacelle.com/post/2009/01/19/tuto-comment-creer-votre-serveur-timecapsule-sous-debian-ou-ubuntu/) on the [Blog of Pierre de la Celle](http://blog.delacelle.com/)
+- German: [Ubuntu + Apple Fileserver + TimeMachine](http://www.kde4.de/?page_id=389) on [kde4.de](http://www.kde4.de)
+- French: [Tuto: Comment créer votre serveur Time Capsule sous Debian](http://blog.delacelle.com/post/2009/01/19/tuto-comment-creer-votre-serveur-timecapsule-sous-debian-ou-ubuntu/) on the [Blog of Pierre de la Celle](http://blog.delacelle.com/)
 
 
 

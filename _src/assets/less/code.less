@@ -3,7 +3,7 @@
 
 pre, code, kbd, samp {
 	font-family: @font-family-monospace;
-    font-size: @font-size-small;
+    font-size: 14px;
     line-height: 1.4em;
 	color: spin(@text-color, 70);
 	background: #f8f8f8;
@@ -40,4 +40,16 @@ pre {
         border-radius: 0;
         background: none;
     }
+}
+
+code.bash {
+    padding-left: 1.5em;
+    display: block;
+    &:before {
+        content: "$";
+        color: @text-color-dimmed;
+        display: inline-block;
+        margin-left: -1.5em;
+        margin-right: .8em;
+    }    
 }
