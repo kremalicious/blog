@@ -18,7 +18,7 @@ layout: base
             {{ content }}
     		<p>
     			<a class="more-link" href="{{ page.linkurl }}">Go to source <i class="icon-forward"></i></a>
-                <a class="permalink-link" href="{{ page.url }}" rel="tooltip" title="Permalink">&#8734;</a>
+                <a class="permalink-link" href="{{ page.url | append: '/' }}" rel="tooltip" title="Permalink">&#8734;</a>
     		</p>
         </section>
         

@@ -15,7 +15,7 @@
             {{ post.content | markdownify }}
     		<p>
     			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon-forward"></i></a>
-                <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">&#8734;</a>
+                <a class="permalink-link" href="{{ post.url | append: '/' }}" rel="tooltip" title="Permalink">&#8734;</a>
     		</p>
         </section>
     </article>
@@ -39,13 +39,13 @@
     
     <article class="hentry format-post">
     	<header>
-    		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title | titlecase }}</a></h1>
+    		<h1 class="entry-title"><a href="{{ post.url | append: '/' }}">{{ post.title | titlecase }}</a></h1>
     	</header>
 
         <section class="entry-content">
     
             {% if post.image %}
-                <a href="{{ post.url }}">
+                <a href="{{ post.url | append: '/' }}">
                     {% picture {{ post.image }} class="teaser" %}
                 </a>
             {% endif %}
@@ -64,7 +64,7 @@
                 <footer class="goodie-actions">
 
                     <p class="info col3">
-                        <a class="btn icon-info" href="{{ post.url }}">Release Post</a>
+                        <a class="btn icon-info" href="{{ post.url | append: '/' }}">Release Post</a>
                     </p>
 
                     {% if post.download %}
@@ -77,7 +77,7 @@
             {% endif %}
             
             {% unless page.path contains "goodies" %}
-                <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon-arrow-right"></i></a>
+                <a class="more-link" href="{{ post.url | append: '/' }}">Continue reading <i class="icon-arrow-right"></i></a>
             {% endunless %}
 
         </section>
