@@ -19,7 +19,7 @@ author: Matthias Kretschmann
 # Urls
 # --------------------
 
-permalink: /post/:title
+permalink: /:title
 relative_permalinks: true
 paginate: 10
 paginate_path: "/page/:num"
