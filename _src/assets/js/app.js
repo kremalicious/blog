@@ -95,9 +95,16 @@ var siteNavigation = {
             // toggle menu
             $('body').toggleClass('menu-open');
             
+            if ( $('body').hasClass('menu-open') ) {
+                $thepop.removeClass('hide');
+            } else {
+                $thepop.addClass('hide');
+            }
+
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
                     $('body').removeClass('menu-open');
+                    $thepop.toggleClass('hide');
                     // unbind the hide controls
                     $(document).unbind('click.hidethepop');
             });

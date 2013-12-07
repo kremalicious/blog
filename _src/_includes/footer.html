@@ -1,15 +1,16 @@
 <footer role="contentinfo" class="footer container">
 	
 	<div class="row">
-        
+        <img class="gravatar photo" src="{{ site.email | to_secure_gravatar }}?s=160" />
         <p class="footer-description">Blog of designer &amp; developer <a href="http://matthiaskretschmann.com">Matthias Kretschmann</a></p>
         		
         <aside class="subscribe">
+            <h1 class="subscribe-title">Subscribe</h1>
             <p>
-                <a class="btn rss" href="http://kremalicious.com/feed"><i class="icon-rss"></i> <span>RSS</span></a> 
-                <a class="btn twitter" href="https://twitter.com/kremaliciouscom"><i class="icon-twitter"></i> <span>Twitter</span></a> 
-                <a class="btn google" href="https://plus.google.com/100015950464424503954" rel="publisher"><i class="icon-googleplus"></i> <span>Google+</span></a> 
-                <a class="btn facebook" href="https://www.facebook.com/pages/kremalicious/154539134564052"><i class="icon-facebook"></i> <span>Facebook</span></a>
+                <a class="btn rss icon-rss" href="http://kremalicious.com/feed"></a> 
+                <a class="btn twitter icon-twitter" href="https://twitter.com/kremaliciouscom"></a> 
+                <a class="btn google icon-googleplus" href="https://plus.google.com/100015950464424503954" rel="publisher"></a> 
+                <a class="btn facebook icon-facebook" href="https://www.facebook.com/pages/kremalicious/154539134564052"></a>
             </p>
         </aside>
 	</div>

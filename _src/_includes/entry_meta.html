@@ -1,5 +1,7 @@
 <footer class="entry-meta">
-	<p class="byline author vcard source-org"><span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a></p>
+	<p class="byline author vcard source-org">
+        <span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a>
+    </p>
 
      <time class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if updated %} data-updated="true"{% endif %}>{{ page.date | timeago }}</time>
 

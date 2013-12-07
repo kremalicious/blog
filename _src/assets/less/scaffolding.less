@@ -116,8 +116,13 @@ a.close,
     border-top: 1px solid rgba(255,255,255,.7);
     box-shadow: inset 0 1px 4px fade(@brand-dark, 20%);
     
+    .gravatar {
+        margin-bottom: @line-height-computed/2;
+    }
+    
     .footer-description {
         .h5;
+        a { display: block; }
     }
     
     &,
@@ -143,45 +148,50 @@ a.close,
 	p {
 		margin: 0;
 		.clearfix;
-		.btn {
-			margin-bottom: 0;
-			padding: .3em 1em;
-			&:first-child {
-				margin-left:0
-			}
-			&:last-child {
-				margin-right: 0;
-			}
-			span { 
-				.visuallyhidden;
-			}
-		}
+        text-align: center;
 	}
-	i {
-		display: block;
+    
+	.btn {
+        width: 48px;
+        height: 40px;
+        line-height: 34px;
+        padding: 0;
+		margin: 0;
+		display: inline-block;
 		color: @text-color-light;
-		&:before {
+        text-align: center;
+        
+		&:first-child { margin-left: 0 }
+		&:last-child  { margin-right: 0 }
+        
+    	&:before {	
     		// Icon resets for color animations
     		.transition(color .3s ease-in-out);
 			color: inherit;
-			margin-right: 0;
-		}
+			margin: 0 !important;
+    	}
 	}
 }
 
-.footer:hover .subscribe .rss i:before {
+.subscribe-title {
+    .h5;
+    color: @text-color-dimmed;
+    margin-bottom: @line-height-computed/2;
+}
+
+.footer:hover .subscribe .rss:before {
 	color: #e15a00;
 }
 
-.footer:hover .subscribe .twitter i:before {
+.footer:hover .subscribe .twitter:before {
 	color: #019ad2;
 }
 
-.footer:hover .subscribe .google i:before {
+.footer:hover .subscribe .google:before {
 	color: #c63b1e;
 }
 
-.footer:hover .subscribe .facebook i:before {
+.footer:hover .subscribe .facebook:before {
 	color: #3b5998;
 }
 
@@ -213,7 +223,7 @@ a.close,
         .menu-open & {
             margin-top: 300px;
         }
-        margin-bottom: 380px;
+        margin-bottom: 580px;
         
         border-top: 1px solid rgba(255,255,255,.7);
         border-bottom: 1px solid rgba(255,255,255,.7);
@@ -233,7 +243,7 @@ a.close,
     
     .footer {
         z-index: 0;
-        height: 380px;
+        height: 580px;
         bottom: 0;
         box-shadow: none;
         
