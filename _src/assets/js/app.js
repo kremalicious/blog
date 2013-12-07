@@ -18,7 +18,7 @@ var siteNavigation = {
     siteSearch: function() {
         
         var $searchlink    = $('.search-btn'),
-            $searcharea     = $('.search-area'),
+            $searcharea     = $('.topbar .search-area'),
             $searchfield   = $('.search-field'),
             $searchresults = $('.search-results'),
             $searchpop        = $('.popover');

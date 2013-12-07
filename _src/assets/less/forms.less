@@ -33,21 +33,20 @@ textarea,
 	background: #fff;
 	background: rgba(255,255,255,.3);
 	border: 0;
-	border-bottom: 1px solid #AFC3CB;
-	.box-shadow( 0 1px 0 #fff);
 	width: 100%;
 	.transition();
 	-webkit-appearance: none;
 	
-	// Focus state
+	&:hover {
+	    background: rgba(255,255,255,.5)
+	}
+    
 	&:focus {
 		background: rgba(255,255,255,.7);
-		border-bottom-color: #78868c;		
 		outline: 0;
 		outline: thin dotted \9; /* IE6-9 */
 	}
 	
 	// placeholder
-	.placeholder(rgba(46, 79, 92, .4));
+	.placeholder(rgba(46, 79, 92, .3));
 }
-
