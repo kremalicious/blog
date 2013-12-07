@@ -673,6 +673,11 @@ FileETag None
     
 </IfModule>
 
+# feed redirects
+Redirect 301 /feed/ /feed.xml
+Redirect 301 /feed /feed.xml
+Redirect 301 /home/feed/ /feed.xml
+
 # Remove date from post permalinks
 RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
 
@@ -702,7 +707,3 @@ Redirect 301 /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-pho
 Redirect 301 /4-more-icons-niepces-camera-obscura-v11 /niepces-camera-obscura-and-the-history-of-the-first-photograph
 Redirect 301 /canon-eos-50d-officially-announced-and-new-lens /
 Redirect 301 /apple-touch-icon.png /apple-touch-icon-precomposed.png
-
-# feed redirects
-Redirect 301 /home/feed/ /feed
-Redirect 301 /feed /feed.xml
