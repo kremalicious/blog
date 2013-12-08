@@ -22,8 +22,10 @@
         padding-top: @line-height-computed;
     }
     
-    .page-single  & {
-        padding-bottom: @line-height-computed*2
+    .page-single & {
+        padding-bottom: @line-height-computed*2;
+        border: none;
+        &:before { .hide; }
     }
 }
 
@@ -200,7 +202,7 @@ time {
     margin-top: @line-height-computed;
 }
 
-.gravatar {
+.avatar {
     width: 80px;
     height: 80px;
     .border-radius(80px);
