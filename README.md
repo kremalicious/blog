@@ -1,7 +1,7 @@
 kremalicious3
 ==================
 
-> [kremalicious.com](http://kremalicious.com) based on Jekyll. Neat.
+> [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
 Requirements
 ------------------

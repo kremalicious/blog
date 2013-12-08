@@ -31,6 +31,7 @@ module.exports = function(grunt){
         clean: {
             build: [
                 '<%= config.site %>/*', 
+                '<%= config.site %>/.htaccess',
                 '!<%= config.site %>/media'
             ]
         },
@@ -50,7 +51,7 @@ module.exports = function(grunt){
                 options: {
                     drafts: true,
                     future: true,
-                    //limit_posts: 50
+                    limit_posts: 50
                 }
             }
         },
@@ -167,8 +168,9 @@ module.exports = function(grunt){
                 files: [
                     '<%= config.src %>/**/*.html', 
                     '<%= config.src %>/*.xml', 
-                    '<%= config.src %>/*.json', 
-                    '<%= config.src %>/_includes/**', 
+                    '<%= config.src %>/*.json',
+                    '<%= config.src %>/.htaccess',
+                    '<%= config.src %>/_includes/**',
                     '<%= config.src %>/_layouts/**',
                     '<%= config.src %>/_posts/**',
                     '<%= config.src %>/_drafts/**'
