@@ -22,7 +22,7 @@ email:                  m@kretschmann.io
 
 permalink:              /:title
 relative_permalinks:    true
-paginate:               10
+paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
 category_title_prefix:  ""
@@ -44,7 +44,7 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./generated
-exclude:                ['node_modules', 'less', 'app.js']
+exclude:                ['less', 'app.js']
 keep_files:             ['media', 'gen']
 
 
