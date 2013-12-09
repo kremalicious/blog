@@ -5,8 +5,16 @@
     margin-top: @line-height-computed/2;
     margin-bottom: @line-height-computed/2;
     
-    .home {
-        color: @link-color;
+    // icons
+    .document &:before {
+        font-size: 32px;
+        color: lighten(@text-color-dimmed, 10%);
+        margin-right: .5em
+    }
+    
+    @media @breakpoint2 {
+        margin-left: -108%;
+        .page-photos & { margin-bottom: @line-height-computed*4; }
     }
 }
 
@@ -359,18 +367,4 @@ table tbody tr:nth-child(odd) th {
 table tbody tr:hover td,
 table tbody tr:hover th {
   background-color: #f5f5f5;
-}
-
-
-//
-// Old Article Fixes
-//
-
-// text-shadow article
-// fluid examples
-#post-39 .entry-content > div,
-#post-39 .entry-content img {
-	max-width: 100%;
-	height: auto !important;
-	margin-left: 0 !important;
 }
