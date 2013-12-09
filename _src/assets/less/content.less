@@ -6,9 +6,9 @@
     margin-bottom: @line-height-computed/2;
     
     // icons
-    .document &:before {
+    &:before {
         font-size: 32px;
-        color: lighten(@text-color-dimmed, 10%);
+        color: fade(@text-color-dimmed, 70%);
         margin-right: .5em
     }
     
@@ -161,6 +161,17 @@
     
     &:hover { 
         figure { background: #c4e4df; }
+    }
+    &:active {
+        background: transparent;
+        
+        figure { 
+            .transition(none);
+            background: @link-color;
+            
+            &,
+            figcaption { color: #fff }
+        }
     }
 }
 

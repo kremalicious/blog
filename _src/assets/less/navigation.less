@@ -15,9 +15,16 @@
     top: 0;
     
     // icons
-    &:before { .transition; }
+    &:before { 
+        color: @link-color;
+        .transition;
+    }
     &:hover:before {
-        color: @link-color
+        color: @link-color-hover
+    }
+    &:active:before {
+        .transition(none);
+        color: #fff
     }
 }
 .search-btn { right: 50px }
@@ -49,7 +56,9 @@
             float: left;
             text-align: center;
             padding: 1em;
-            color: @text-color-light;
+            .h6;
+            color: @link-color;
+            line-height: @line-height-computed;
             text-transform: uppercase;
             font-size: .8em;
             
@@ -60,13 +69,14 @@
                 text-align: center;
                 font-size: 32px;
                 height: 32px;
-                color: lighten(@text-color-dimmed, 5%);
+                color: fade(@text-color-dimmed, 70%);
                 .transition;
             }
             
             &:hover,
             &:hover:before {
-                color: @link-color
+                color: @link-color;
+                border-bottom-color: @link-color
             }
         }
     }
