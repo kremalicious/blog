@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-22 20:01:12+00:00
 layout: post
-slug: showcasing-the-css-parallax-effect-12-creative-usages
+
 title: 'Showcasing the CSS Parallax Effect: 12+1 Creative Usages'
+author: Matthias Kretschmann
+
+date: 2008-05-22 20:01:12+00:00
 wordpress_id: 59
 categories:
 - design
@@ -14,8 +14,6 @@ categories:
 
 Been so in love with the parallax effect that I have to post another article about it. For the non-geeks: I don't mean [measuring distances between objects in space](http://en.wikipedia.org/wiki/Parallax), the [parallax error in photography](http://en.wikipedia.org/wiki/Parallax#Parallax_error_in_photography), any [StarTrek episode](http://www.startrek.com/startrek/view/series/VOY/episode/68824.html), the [movie Parallax View](http://www.imdb.com/title/tt0071970/) and definitely not [DC Comic's Parallax monster](http://scifipedia.scifi.com/index.php/Parallax_(DC)).
 
-
-
 I mean [Parallax Scrolling](http://en.wikipedia.org/wiki/Parallax_scrolling) which is a technique often used in good ol' arcade and video games like [Moon Patrol](http://en.wikipedia.org/wiki/Moon_Patrol) or [Sonic the Hedgehog](http://en.wikipedia.org/wiki/Sonic_the_Hedgehog_%28video_game%29). In such 2D games parallax scrolling was used to create an illusion of three dimensional depth.
 
 Since our operating systems are mainly 2D too we can use this pseudo 3D technique to create the same illusion in our web browsers. Of course this was first done by flash designers and it's a popular effect used in flash based websites or [parts of it](http://a.viary.com/).
@@ -24,39 +22,11 @@ But with the rise of CSS this technique can now be done without the use of flash
 
 So it's time for a first showcase of websites using this effect. At the end of this article you'll find some tutorials for making this effect too. And as you can see there's a parallax effect in the header of this website too so I will not include myself in this showcase list ;-)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- more -->
-
-
-
-
 
 So here are the examples. Just start clicking, resizing and goggling!
 
-
-
-## Examples
-
-
+# Examples
 
 [Clearleft's Silverback Teaser page](http://www.silverbackapp.com/)
 
@@ -116,9 +86,7 @@ A russian site with an awesome making-webdesign-in-jungle parallax (thanks [egot
 
 
 
-## More Scripts and Interaction, please
-
-
+# More Scripts and Interaction, please
 
 All the showcased sites above need to be resized in the browser to see the effect. This fact makes those effects nice easter eggs but they are rather useless for most users. But with some JavaScript we can bypass this limitation.
 
@@ -159,36 +127,20 @@ Same graphics as on Silverback too but this Parallax follows your mouse pointer.
 
 
 
-## How-Tos and Tutorials
-
-
-
-
+# How-Tos and Tutorials
 
   * [How to recreate Silverback's Parallax Effect](http://www.thinkvitamin.com/features/design/how-to-recreate-silverbacks-parallax)
 
-
-
   * [In the Lab: Doing strange things to CSS Backgrounds](http://www.sitepoint.com/blogs/2008/01/18/in-the-lab-doing-strange-things-to-css-backgrounds/)
-
-
 
   * [Starry Night: Incredible 3D Background Effect with Parallax](http://css-tricks.com/3d-parralax-background-effect/)
 
-
-
   * [Your own CSS parallax illusion 3d image](http://www.marcofolio.net/photoshop/your_own_css_parallax_illusion_3d_image.html)
-
-
-
+  
   * [Parallax Backgrounds - a multi–layered javascript experiment](http://inner.geek.nz/javascript/parallax/)
-
-
 
   * [How to Make the Parallax Effect](http://www.dylanbathurst.com/2008/05/27/how-to-make-the-parallax-effect/)
   
-
-
 
 Hope you enjoyed this little showcase. Please share it on your favorite social website or vote for it. Your vote is always highly appreciated! And if you know any other websites using this effect (the non-flash versions) feel free to post them in the comments beneath this article.
 
@@ -215,9 +167,5 @@ A star parallax which follows your mouse pointer. Done with jQuery and with heav
 My personal favorite for now in terms of usability. If you are able to understand spanish, [read his explanation](http://www.csslab.cl/2008/05/29/parallax-en-uso-real/).
 
 [![Parallax con Mootools](/media/parallax_016.jpg)](http://www.csslab.cl/ejemplos/parallax_mootools/)  
-  
-
-
-
 
 ![](http://vg01.met.vgwort.de/na/497f1e421d28414ca0e4e5f1a634d5e5)

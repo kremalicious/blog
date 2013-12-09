@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-08 15:47:48+00:00
 layout: post
-slug: the-iconfactory-presents-beautiful-indiana-jones-desktop-icons
+
 title: The Iconfactory presents beautiful Indiana Jones desktop icons
+author: Matthias Kretschmann
+
+date: 2008-05-08 15:47:48+00:00
 wordpress_id: 51
 categories:
 - design

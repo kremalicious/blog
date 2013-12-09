@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2006-10-22 11:43:00+00:00
-layout: post
-slug: german-chancellery
+layout: photo
+
 title: German Chancellery
+image: bundeskanzleramt_01_HDR_tonemapped_16bit-Version-2.jpg
+author: Matthias Kretschmann
+
+date: 2006-10-22 11:43:00+00:00
 wordpress_id: 1979
 categories:
 - photos

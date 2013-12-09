@@ -1,50 +1,51 @@
 # 
-# Home:             /
-# About Page:       /about/
-# Archive Page:     /archive/
-# Pagination:       /page/N/
-# Post:             /post/post-slug/
-# RSS Feed:         /feed.xml
+# Home:                 /
+# About Page:           /about/
+# Archive Page:         /archive/
+# Pagination:           /page/N/
+# Post:                 /post/post-slug/
+# RSS Feed:             /feed.xml
 # 
 
 # Basics
 # --------------------
 
-name: kremalicious
-description: 'Blog of designer & developer Matthias Kretschmann'
-url: http://kremalicious.com
-author: Matthias Kretschmann
-email: m@kretschmann.io
+name:                   kremalicious
+description:            'Blog of designer & developer Matthias Kretschmann'
+url:                    http://kremalicious.com
+author:                 Matthias Kretschmann
+email:                  m@kretschmann.io
 
 
 # Urls
 # --------------------
 
-permalink: /:title
-relative_permalinks: true
-paginate: 10
-paginate_path: "/page/:num"
-category_dir: "/"
-category_title_prefix: ""
+permalink:              /:title
+relative_permalinks:    true
+paginate:               10
+paginate_path:          "/page/:num"
+category_dir:           "/"
+category_title_prefix:  ""
 
 
 # Content Parsing
 # --------------------
 
-markdown: redcarpet  
-pygments: true
+future:                 false
+markdown:               redcarpet  
+pygments:               true
 
 redcarpet:
-  extensions: ['autolink', 'smart']
+  extensions:           ['autolink', 'smart']
 
 
 # Generator
 # --------------------
 
-source:      ./_src
-destination: ./generated
-exclude:     ['node_modules', 'less', 'app.js']
-keep_files:  ['media', 'gen']
+source:                 ./_src
+destination:            ./generated
+exclude:                ['node_modules', 'less', 'app.js']
+keep_files:             ['media', 'gen']
 
 
 # jekyll-picture-tag

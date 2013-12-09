@@ -21,7 +21,7 @@ categories:
 
 Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab these replacement icons.
 
-<a class="btn btn-primary icon-download-alt" href="/media/delibar-by-kremalicious.zip">Download</a>
+<a class="btn btn-primary icon-download" href="/media/delibar-by-kremalicious.zip">Download</a>
 
 ## Icon Usage
 

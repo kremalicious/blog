@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-25 15:29:22+00:00
 layout: post
-slug: apertureedit-is-edit-for-aperture-now-updated-to-12
+
 title: ApertureEdit is Edit for Aperture now, updated to 1.2
+author: Matthias Kretschmann
+
+date: 2008-06-25 15:29:22+00:00
 wordpress_id: 77
 categories:
 - photography

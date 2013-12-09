@@ -1,18 +1,16 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-04 19:01:09+00:00
 layout: post
-slug: london-police-afraid-of-photographers
+
 title: London police afraid of photographers
+author: Matthias Kretschmann
+
+date: 2008-04-04 19:01:09+00:00
 wordpress_id: 25
 categories:
 - photography
 ---
 
 > Thousands of people take photos every day. What if one of them seems odd? Terrorists use surveillance to help plan attacks, taking photos and making notes about security measures like the location of CCTV cameras. If you see someone doing that, we need to know. Let experienced officers decide what action to take.
-
-
 
 ![London cops](/media/londonpolice.jpg)
 

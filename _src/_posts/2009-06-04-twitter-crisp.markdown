@@ -17,7 +17,7 @@ Here's a quick twitter icon for use on your websites which is kind of a by-produ
 
 This icon comes in various formats (PNG, ICNS, iContainer) and in 4 different sizes (128px, 48px, 32px, 16px) with each icon size redrawn (of course). Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab these icons while they're hot.
 
-<a class="btn btn-primary icon-download-alt" href="/media/twitter-crisp-by-kremalicious.zip">Download</a>
+<a class="btn btn-primary icon-download" href="/media/twitter-crisp-by-kremalicious.zip">Download</a>
 
 Use them on any web project you like and/or [convert them into a send to twitter link](http://kremalicious.com/ultimate-coda-wordpress-share-link-bonanza/). Have fun!
 

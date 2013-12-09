@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-14 10:01:15+00:00
 layout: post
-slug: canon-updates-its-photographic-software-to-work-with-leopard
+
 title: Canon updates photographic software to work with Leopard
+author: Matthias Kretschmann
+
+date: 2008-05-14 10:01:15+00:00
 wordpress_id: 53
 categories:
 - photography

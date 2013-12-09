@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-03-30 19:24:21+00:00
 layout: post
-slug: launch-of-kremaliciouscom
+
 title: Launch of kremalicious.com
+author: Matthias Kretschmann
+
+date: 2008-03-30 19:24:21+00:00
 wordpress_id: 14
 categories:
 - personal

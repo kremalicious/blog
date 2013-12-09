@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-22 05:58:41+00:00
 layout: post
-slug: apple-releases-sdk-for-aperture-21
+
 title: Apple releases plugin-SDK for Aperture 2.1
+author: Matthias Kretschmann
+
+date: 2008-04-22 05:58:41+00:00
 wordpress_id: 42
 categories:
 - photography

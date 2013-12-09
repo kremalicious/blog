@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-08 15:48:14+00:00
 layout: post
-slug: pulitzer-price-winners-2008-announced-various-photographers-awarded
+
 title: Pulitzer Price Winners 2008 announced, various photographers awarded
+author: Matthias Kretschmann
+
+date: 2008-04-08 15:48:14+00:00
 wordpress_id: 31
 categories:
 - photography

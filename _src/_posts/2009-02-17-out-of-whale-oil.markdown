@@ -29,4 +29,4 @@ Seriously, the pink versions are burning my eyes but the pink is a good referenc
 
 The whole wallpaper pack can be downloaded [from the Goodies section on my website](http://www.kremalicious.com/goodies/) or via this button:
 
-<a class="btn btn-primary icon-download-alt" href="/media/out-of-whale-oil-wall-by-kremalicious.zip">Download</a>
+<a class="btn btn-primary icon-download" href="/media/out-of-whale-oil-wall-by-kremalicious.zip">Download</a>

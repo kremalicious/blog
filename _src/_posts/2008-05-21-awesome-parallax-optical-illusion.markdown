@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-21 13:02:00+00:00
 layout: post
-slug: awesome-parallax-optical-illusion
+
 title: 'Awesome parallax optical illusion: Make a horse move'
+author: Matthias Kretschmann
+
+date: 2008-05-21 13:02:00+00:00
 wordpress_id: 58
 categories:
 - design

@@ -26,7 +26,7 @@ So I called the Canon Support two months ago but they could only say sorry and a
 
 
 
-## The solution...
+# The solution...
 
 
 [Canon Asia](http://www.canon-asia.com/) (Canon South & Southeast-Asia to be precise) was the solution! They really offer a universal-driver for the CanoScan LiDE 500f on their site which is from June 2007! You have to follow this link and choose your desired device:

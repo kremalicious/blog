@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2006-07-23 11:36:28+00:00
-layout: post
-slug: electricity
+layout: photo
+
 title: Electricity
+image: MG_5885_2006-7-23.jpg
+author: Matthias Kretschmann
+
+date: 2006-07-23 11:36:28+00:00
 wordpress_id: 1970
 categories:
 - photos

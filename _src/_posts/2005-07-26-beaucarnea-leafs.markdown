@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2005-07-26 11:44:49+00:00
-layout: post
-slug: beaucarnea-leafs
+layout: photo
+
 title: Beaucarnea leafs
+image: img_1820-Version-4.jpg
+author: Matthias Kretschmann
+
+date: 2005-07-26 11:44:49+00:00
 wordpress_id: 1982
 categories:
 - photos

@@ -1,10 +1,11 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-04 16:04:48+00:00
 layout: post
-slug: using-the-canoscan-lide-500f-with-mac-os-x-leopard
+
 title: Using the CanoScan LiDE 500F scanner with Mac OS X Leopard
+author: Matthias Kretschmann
+
+date: 2008-05-04 16:04:48+00:00
+
 wordpress_id: 45
 categories:
 - photography
@@ -18,21 +19,14 @@ But since then Apple released Mac OS X 10.5 Leopard in october 2007 and the Cano
 
 <!-- more -->
 
-
-
-## Finding and downloading the new driver 11.2.5.0X
-
-
+# Finding and downloading the new driver 11.2.5.0X
 
 But there's a new driver available. It was posted on the Canon USA website on 7 December 2007 and on the Canon Asia website on 28 January 2008. The new version number is 11.2.5.0X for Mac OS X and yes the driver remains a universal scanner driver running fine on both PowerPC- and Intel-Macs.
 
 The changelog says:
 
-
 > Newly supports Mac OS X v10.5.
-ScanGear Starter is removed. (Because the operation problem occurs when the destination to save the scan file is changed in Mac OS X v10.5.) 
-
-
+> ScanGear Starter is removed. (Because the operation problem occurs when the destination to save the scan file is changed in Mac OS X v10.5.) 
 
 So this sounds just right. You can download the new universal scanner driver from [Canon USA](http://www.usa.canon.com/consumer/controller?act=ModelInfoAct&tabact=SupportDetailTabAct&fcategoryid=235&modelid=11011#DownloadDetailAct) or [Canon Asia](http://support-asia.canon-asia.com/contents/ASIA/EN/0900321901.html). Following these links takes you right to the driver download page for this scanner.
 
@@ -42,37 +36,24 @@ After the installation is finished you have to restart your Mac (very Mac-unlike
 
 After a restart you should be able to use the scanner as a TWAIN device all over the system.
 
-
-
-## Using the scanner in Mac OS X Leopard
-
-
-
+# Using the scanner in Mac OS X Leopard
 
 
 ## Preview / Image Capture
-
 
 
 [![Scan window Preview](/media/scanwindow_preview.png)](/media/scanwindow_preview.png)Leopard included a new version of Preview, the pdf and image-viewing application by Apple and also a new version of Image Capture. To use it with your scanner just plug in the scanner, open Preview and choose File > Import Image or just open the Image Capture application. A new scan window should open doing an automatic overview scan. In the scan window you have some minor options like resolution, scaling etc. You can even make simple but powerful image corrections down at the bottom (set it to manual).
 
 But the best thing with the new Image Capture is the feature of setting the bit depth of the scanner to 16 bits. This was just possible before through the Canon software ScanGear in Photoshop.
 
-
-
 ## Scanning right into Apple Aperture?
-
-
 
 [![Aperture Scanning](/media/aperturescan.png)](/media/aperturescan.png) Wouldn't that be great? Although the scanner is shown as a source in the import dialogue you can't import images with it directly from Aperture. Maybe someone will code a generic scanning plugin for Aperture like VueScan for Aperture or something like that. But I guess this is something just Canon is able to do that and they won't.
 
 But using Preview/Image Capture and Automator you can bypass this limitation. If you want to know how you can do that have a look at my article [Scan images directly into Apple Aperture](http://www.kremalicious.com/2008/05/scan-images-directly-into-apple-aperture/).
 
 
-
 ## Adobe Photoshop CS3
-
-
 
 [![ScanGear Scan Window](/media/scangearwindow.png)](/media/scangearwindow.png)Just like with Creative Suite 2 you can use Photoshop to import images with your Scanner by using the Canon ScanGear software which indeed is just the scan window in Photoshop. Just chose File > Import > CanoScan LiDE 500F in Photoshop. If you have installed the driver for the first time the scan window in Photoshop defaults to Simple Mode. But if you want it simple you better chose a Preview/Image Capture workflow. So in Photoshop you should head over to Advanced Mode and check the preferences button down at the bottom first.
 

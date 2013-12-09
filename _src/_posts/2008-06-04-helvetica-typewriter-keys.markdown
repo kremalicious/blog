@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: photo
 
 slug: helvetica-typewriter-keys
 title: Helvetica Typewriter Keys

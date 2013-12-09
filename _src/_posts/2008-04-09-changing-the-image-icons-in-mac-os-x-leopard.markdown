@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-09 13:13:42+00:00
 layout: post
-slug: changing-the-image-icons-in-mac-os-x-leopard
+
 title: 'HowTo: Changing the image icons in Mac OS X Leopard'
+author: Matthias Kretschmann
+
+date: 2008-04-09 13:13:42+00:00
 wordpress_id: 32
 categories:
 - design
@@ -12,17 +12,10 @@ tags:
 - tutorial
 ---
 
-[![Aperture File Types](/media/aperturefiletypes.png)](/media/aperturefiletypes.png)After i released my [Aperture File Types icon set](http://www.kremalicious.com/goodies) many of you asked how they can really use these icons for displaying the icons of images on your Mac system. Sadly this isn't as easy as dropping them in [Candybar](http://www.panic.com/candybar) into a well for image icons cause there isn't any well for them. So using other icons as standard file type icons for images is a bit tricky. I discovered two ways of doing it, which involves overwriting resources of Preview.app and Photoshop. So before doing anything I mention in this post, you should make a backup copy of them.<!-- more -->
-
-
-
-
-
+[![Aperture File Types](/media/aperturefiletypes.png)](/media/aperturefiletypes.png)After i released my [Aperture File Types icon set](http://www.kremalicious.com/goodies) many of you asked how they can really use these icons for displaying the icons of images on your Mac system. Sadly this isn't as easy as dropping them in [Candybar](http://www.panic.com/candybar) into a well for image icons cause there isn't any well for them. So using other icons as standard file type icons for images is a bit tricky. I discovered two ways of doing it, which involves overwriting resources of Preview.app and Photoshop. So before doing anything I mention in this post, you should make a backup copy of them.
 
 
 ## Changing Preview.app icons
-
-
 
 [![Open with Preview](/media/openwithpreview.png)](/media/openwithpreview.png)Image icons in Mac OS X doesn't really belong to the system icons. Instead they come from [Preview.app](http://www.apple.com/macosx/features/300.html%23preview) which is the factory default application for viewing images on Mac OS X.
 
@@ -38,11 +31,7 @@ But, as you can see, Preview doesn’t have an unique icon for all RAW file type
 
 The problem is that from now on every RAW-file is represented by this icon, which is ok if you just use one RAW-format. But it's a problem if you use more than one RAW format.
 
-
-
 ## Changing the file type icons of Photoshop
-
-
 
 [![Photoshop CR2](/media/PS_CR2FileIcon.png)](/media/PS_CR2FileIcon.png)A solution to this mess is Photoshop. So this solution just works if you have Photoshop installed. Photoshop does have a unique icon for every RAW-format out there. To confirm that you can choose Adobe Photoshop as Standard Application in the Get Info window and the icon of the file should change instantly.
 

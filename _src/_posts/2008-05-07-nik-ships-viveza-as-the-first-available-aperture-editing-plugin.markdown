@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-05-07 19:21:34+00:00
 layout: post
-slug: nik-ships-viveza-as-the-first-available-aperture-editing-plugin
+
 title: Nik ships Viveza as an Aperture editing plugin
+author: Matthias Kretschmann
+
+date: 2008-05-07 19:21:34+00:00
 wordpress_id: 49
 categories:
 - photography

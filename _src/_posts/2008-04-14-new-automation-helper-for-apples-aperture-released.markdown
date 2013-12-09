@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-14 13:51:39+00:00
 layout: post
-slug: new-automation-helper-for-apples-aperture-released
+
 title: New automation helper for Apple's Aperture released
+author: Matthias Kretschmann
+
+date: 2008-04-14 13:51:39+00:00
 wordpress_id: 37
 categories:
 - photography

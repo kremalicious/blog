@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: photo
 
 title: Stone Head
 image: stonehead.jpg

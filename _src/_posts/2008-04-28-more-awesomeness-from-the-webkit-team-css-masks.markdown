@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-04-28 12:53:18+00:00
 layout: post
-slug: more-awesomeness-from-the-webkit-team-css-masks
+
 title: 'More awesomeness from the WebKit team: CSS Masks'
+author: Matthias Kretschmann
+
+date: 2008-04-28 12:53:18+00:00
 wordpress_id: 44
 categories:
 - design
@@ -14,11 +14,7 @@ categories:
 
 From the Surfin' Safari Blog:
 
-
-
 > WebKit now supports alpha masks in CSS. Masks allow you to overlay the content of a box with a pattern that can be used to knock out portions of that box in the final display. In other words, you can clip to complex shapes based off the alpha of an image.
-
-
 
 It even can be applied to a video-element.
 

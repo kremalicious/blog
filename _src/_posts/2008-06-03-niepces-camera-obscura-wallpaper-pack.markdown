@@ -17,12 +17,11 @@ In addition to my Niépce's Camera Obscura icons for Aperture and iPhoto I have 
 
 All Wallpapers are using a custom designed background which imitates the look of a metal plate like it was used in Niépce's experiments although it wasn't golden ;-) To make it more Mac style I have added a stenciled dots pattern (which is a commonly used reference to the front design of the MacPro).
 
-<a class="btn btn-block icon-download-alt" href="/media/niepces_camera_obscura_wallpaper_pack_by_kremalicious.zip">Download Niépce's Camera Obscura Wallpaper</a>
+<a class="btn btn-block icon-download" href="/media/niepces_camera_obscura_wallpaper_pack_by_kremalicious.zip">Download Niépce's Camera Obscura Wallpaper</a>
 
 Here are the details:
 
   * Aperture and iPhoto styled Camera Obscura as it was used by Nicéphore Niépce.
-
   * Including one desktop version with the Aperture styled Camera Obscura and one with the iPhoto styled. Both come in 1920x1200 for widescreen displays and 1600x1200 for normal displays
-
   * Including 2 different crops for the iPhone (480x320).
+

@@ -1,10 +1,10 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2008-06-02 18:26:37+00:00
 layout: post
-slug: tweet-im-on-twitter-now
+
 title: Tweet! I'm on Twitter now.
+author: Matthias Kretschmann
+
+date: 2008-06-02 18:26:37+00:00
 wordpress_id: 65
 categories:
 - personal
