@@ -656,21 +656,9 @@ FileETag None
 <IfModule mod_rewrite.c>
     RewriteBase /
     
-    # redirect any /post-slug.html to /post-slug
-    #RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^\s]+)\.html\s
-    #RewriteRule .* %1 [R=301,L]
-    
-    # Redirects /post-slug.html to /post-slug
-    # from http://stackoverflow.com/a/16773980/733677
-    #
-    # is not directory
-    RewriteCond %{REQUEST_FILENAME} !-d
-    # is an existing html file
-    RewriteCond %{REQUEST_FILENAME}\.html -f
-    # request URI ends with .html
-    RewriteCond %{REQUEST_URI} ^(.+)\.html$
-    # redirect from file.html to file
-    RewriteRule (.*)\.html$ /$1 [R=301,L]        
+    # redirect all index.html to parent folder
+    RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]
+    RewriteRule . %1 [R=301,NE,L]
     
 </IfModule>
 
