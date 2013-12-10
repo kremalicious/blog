@@ -225,10 +225,20 @@ module.exports = function(grunt){
         'watch'
     ]);
     
-    // Dev server
+    // Full Dev server
     grunt.registerTask('server', [
         'rsync:copy_media',
         'jekyll:development',
+        'less',
+        'cmq',
+        'cssmin',
+        'uglify',
+        'connect',
+        'watch'
+    ]);
+    
+    // Assets only Dev server
+    grunt.registerTask('server-assets', [
         'less',
         'cmq',
         'cssmin',
