@@ -18,11 +18,11 @@ Get up and running
 
 For various reasons the assets build process and Jekyll site generation is managed through Grunt instead of `jekyll` or `rake`.
 
-Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) to first generate the site into the `generated` folder and the following Grunt tasks output into that folder.
+Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) to first generate the site into the `_site` folder and the following Grunt tasks output into that folder.
 
-The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `generated/media` before site generation starts. 
+The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `_site/media` before site generation starts. 
 
-Image size generation for post teaser images and photos is done with [jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag), putting resized images into `generated/media/gen`.
+Image size generation for post teaser images and photos is done with [jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag), putting resized images into `_site/media/gen`.
 
 ### Install dependencies
 

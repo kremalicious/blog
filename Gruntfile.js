@@ -4,7 +4,7 @@ module.exports = function(grunt){
     // config
     var gruntConfig = {
         src: '_src',
-        site: 'generated',
+        site: '_site',
         assets: {
             less:   'assets/less',
             css:    'assets/css',

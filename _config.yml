@@ -43,7 +43,7 @@ redcarpet:
 # --------------------
 
 source:                 ./_src
-destination:            ./generated
+destination:            ./_site
 exclude:                ['less', 'app.js']
 keep_files:             ['media', 'gen']
 
