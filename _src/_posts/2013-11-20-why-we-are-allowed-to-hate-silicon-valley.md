@@ -7,6 +7,9 @@ author: Matthias Kretschmann
 
 categories:
 - links
+tags:
+- 'silicon valley'
+- google
 ---
 
 Don't fully agree with Evgeny Morozov's culture pessimism but he makes some good points in this article:
