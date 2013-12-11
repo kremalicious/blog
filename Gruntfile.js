@@ -5,6 +5,7 @@ module.exports = function(grunt){
     var gruntConfig = {
         src: '_src',
         site: '_site',
+        build: '_build',
         assets: {
             less:   'assets/less',
             css:    'assets/css',
@@ -30,10 +31,14 @@ module.exports = function(grunt){
         
         // clean everything
         clean: {
-            build: [
+            site: [
                 '<%= config.site %>/*', 
                 '<%= config.site %>/.htaccess',
                 '!<%= config.site %>/media'
+            ],
+            build: [
+                '<%= config.build %>/*', 
+                '<%= config.build %>/.htaccess'
             ]
         },
 
@@ -213,11 +218,19 @@ module.exports = function(grunt){
                     syncDestIgnoreExcl: true
                 }
             },
+            // copy build
+            copy_build: {
+                options: {
+                    src: '<%= config.site %>/',
+                    dest: '<%= config.build %>',
+                    syncDest: true
+                }
+            },
             // deployment
             deploy: {
                 options: {
                     syncDest: true,
-                    src: '<%= config.site %>/',
+                    src: '<%= config.build %>/',
                     dest: 'domains/kremalicious.com/html',
                     host: 'kremalicious',
                     ssh: true,
@@ -235,7 +248,7 @@ module.exports = function(grunt){
         grunt.loadNpmTasks(file);
     });
     
-    // Default Task
+    // Default Task, assets only
     grunt.registerTask('default', [
         'less',
         'cmq',
@@ -247,18 +260,9 @@ module.exports = function(grunt){
     
     // Full Dev server
     grunt.registerTask('server', [
+        'clean:site',
         'jekyll:development',
         'rsync:copy_media',
-        'less',
-        'cmq',
-        'cssmin',
-        'uglify',
-        'connect',
-        'watch'
-    ]);
-    
-    // Assets only Dev server
-    grunt.registerTask('server-assets', [
         'less',
         'cmq',
         'cssmin',
@@ -278,7 +282,14 @@ module.exports = function(grunt){
         'uglify',
         'rev',
         'usemin',
-        'imagemin'
+        'imagemin:assets',
+        'imagemin:touchicons',
+        'rsync:copy_build'
+    ]);
+    
+    // Optimze media
+    grunt.registerTask('mediamin', [
+        'imagemin:media'
     ]);
     
     // Deploy
