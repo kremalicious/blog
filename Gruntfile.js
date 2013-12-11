@@ -9,7 +9,8 @@ module.exports = function(grunt){
             less:   'assets/less',
             css:    'assets/css',
             js:     'assets/js',
-            img:    'assets/img'
+            img:    'assets/img',
+            fonts:  'assets/fonts'
         }
     };
     
@@ -179,6 +180,25 @@ module.exports = function(grunt){
             },
         },
         
+        // assets versioning
+        rev: {
+            files: {
+                src: [
+                    '<%= config.site %>/assets/{css,js,img,fonts}/*.*'
+                ]
+            }
+        },
+        
+        // updating assets paths in html/css
+        usemin: {
+            html: ['<%= config.site %>/**/*.html'],
+            css: ['<%= config.site %>/**/*.css'],
+            options: {
+                dirs: ['<%= config.site %>'],
+                basedir: ['<%= config.site %>']
+            }
+        },
+        
         // rsync stuff around
         rsync: {
             options: {
@@ -227,8 +247,8 @@ module.exports = function(grunt){
     
     // Full Dev server
     grunt.registerTask('server', [
-        'rsync:copy_media',
         'jekyll:development',
+        'rsync:copy_media',
         'less',
         'cmq',
         'cssmin',
@@ -250,14 +270,15 @@ module.exports = function(grunt){
     // Production build
     grunt.registerTask('build', [
         'clean',
-        'rsync:copy_media',
         'jekyll:production',
-        'imagemin:assets',
-        'imagemin:touchicons',
+        'rsync:copy_media',
         'less',
         'cmq',
         'cssmin',
-        'uglify'
+        'uglify',
+        'rev',
+        'usemin',
+        'imagemin'
     ]);
     
     // Deploy
