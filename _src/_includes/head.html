@@ -52,19 +52,29 @@
 	<meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="cleartype" content="on">
-    
-    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
-    <link rel="canonical" href="{{ canonical | append: '/' }}">
       
     <link rel="stylesheet" href="/assets/css/kremalicious3.min.css">
     {% if page.style %}
         <link rel="stylesheet" href="/assets/css/{{ page.style }}">
     {% endif %}
     
-    <script src="/assets/js/picturefill.min.js" async></script>
-    
+	<!-- TypeKit -->
 	<script data-cfasync="false" src="//use.typekit.com/msu4qap.js"></script>
 	<script data-cfasync="false">try{Typekit.load();}catch(e){}</script>
+	
+	<!-- Picturefill -->
+	<script src="/assets/js/picturefill.min.js" async></script>
+	
+	
+	<!-- Canonical URL -->
+    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
+    <link rel="canonical" href="{{ canonical }}">
+	
+	<link rel="alternate"  href="{{ site.url }}/feed/" type="application/rss+xml" title="Posts Feed"/>
+	
+  	<!-- Windows 8 Metro Tile Image -->
+  	<meta name="msapplication-TileImage" content="{{ site.url }}/metro-tile.png"/>
+  	<meta name="msapplication-TileColor" content="#015565"/>
     
     {% if paginator %}
 	<script>
@@ -92,7 +102,7 @@
     {% if page.image %}
         <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
     {% else %}
-      <!-- <meta name="twitter:image:src" content="{{ site.url }}/media/logo.png"> -->
+    	<meta name="twitter:image:src" content="{{ site.url }}/kremalicious1024.png">
     {% endif %}
 
 </head>
