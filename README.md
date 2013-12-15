@@ -18,7 +18,7 @@ Get up and running
 
 For various reasons the assets build process and Jekyll site generation is managed through Grunt instead of `jekyll` or `rake`.
 
-Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) to first generate the site into the `_site` folder and the following Grunt tasks output into that folder.
+Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) to first generate the site into the `_site` folder and the following Grunt tasks output into that folder. The build task copies everything over into the `_build`folder.
 
 The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `_site/media` before site generation starts. 
 
@@ -44,7 +44,7 @@ grunt server
 
 ### Production build
 
-Runs almost the same tasks as `grunt server` but cleans the build directory before running Jekyll with some production options and additionally optimizes all image assets.
+Runs almost the same tasks as `grunt server` but puts everything into the `_build` directory, versions all assets and optimizes all image assets.
 
 ```bash
 grunt build
