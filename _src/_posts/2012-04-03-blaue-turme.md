@@ -2,7 +2,7 @@
 layout: photo
 
 title: Blaue Türme
-image: Blaue-Türme-1.jpg
+image: Blaue-Tuerme-1.jpg
 author: Matthias Kretschmann
 
 date: 2012-04-03 12:41:01+00:00
