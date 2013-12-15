@@ -232,6 +232,7 @@ module.exports = function(grunt){
             deploy: {
                 options: {
                     syncDest: true,
+                    compareMode: 'checksum',
                     src: '<%= config.build %>/',
                     dest: 'domains/kremalicious.com/html',
                     host: 'kremalicious',
