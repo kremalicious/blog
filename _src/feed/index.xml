@@ -20,7 +20,7 @@ layout: nil
                 <link>{{ post.linkurl | escape }}</link>
             {% else %}
 				<title>{{ post.title | escape }}</title>
-                <link>{{ site.url }}/{{ post.url | escape }}</link>
+                <link>{{ site.url }}{{ post.url | escape }}</link>
             {% endif %}
 		    
             <published>{{ post.date | date_to_xmlschema }}</published>
@@ -29,7 +29,7 @@ layout: nil
                 <updated>{{ post.updated | date_to_xmlschema }}</updated>
             {% endif %}
             
-    		<id>{{ site.url }}/{{ post.url | escape }}</id>
+    		<id>{{ site.url }}{{ post.url | escape }}</id>
     		<content type="html">
                 {% if post.image %}
                     &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
@@ -39,7 +39,7 @@ layout: nil
             
     			{% if post.layout == "link" %}
                     &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
-                    &lt;a href=&quot;{{ site.url }}/{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
+                    &lt;a href=&quot;{{ site.url }}{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
             </content>
     	</entry>

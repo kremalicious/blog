@@ -663,9 +663,7 @@ FileETag None
 </IfModule>
 
 # feed redirects
-Redirect 301 /feed/ /feed.xml
-Redirect 301 /feed /feed.xml
-Redirect 301 /home/feed/ /feed.xml
+Redirect 301 /home/feed/ /feed/
 
 # Remove date from post permalinks
 RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
