@@ -202,7 +202,7 @@ module.exports = function(grunt){
             options: {
                 dirs: '<%= config.build %>',
                 basedir: '<%= config.build %>',
-                assetsDirs: '<%= config.build %>'
+                assetsDirs: ['<%= config.build %>', '<%= config.build %>/assets/{css,js,img,fonts}']
             }
         },
         
