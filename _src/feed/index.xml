@@ -16,10 +16,10 @@ layout: nil
 	{% for post in site.posts limit:100 %}
     	<entry>
             {% if post.layout == "link" %}
-				<title>{{ post.title | escape }} &#8594;</title>
+				<title>{{ post.title | escape | titlecase }} &#8594;</title>
                 <link>{{ post.linkurl | escape }}</link>
             {% else %}
-				<title>{{ post.title | escape }}</title>
+				<title>{{ post.title | escape | titlecase }}</title>
                 <link>{{ site.url }}{{ post.url | escape }}</link>
             {% endif %}
 		    
