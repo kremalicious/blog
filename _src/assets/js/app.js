@@ -3,14 +3,14 @@ $(ASAP = function(){
 
 	photoGrid.init();
     siteNavigation.init();
-
+    
 });
 
 $(window).load( AfterLoad = function() {
-
-	infiniteScroll.init();
+	
+    infiniteScroll.init();
     siteEffects.init();
-
+    
 });
 
 var siteNavigation = {
@@ -141,7 +141,7 @@ var photoGrid = {
 
     init: function(){
         // only fire when photo page present and screen bigger than 480px
-        if ( $('.page-photos').length > 0 ) {
+        if ( $('.page-photos').length > 0 ) { 
             this.masonryLayout();
         }
     }
@@ -149,6 +149,17 @@ var photoGrid = {
 }
 
 var siteEffects = {
+    
+    adaptiveBackground: function() {
+        var opts = {
+            selector: '.hmedia img',
+            parent:   '.document'
+        }
+        
+        $('.hmedia img').imagesLoaded( function(){
+            $.adaptiveBackground.run(opts)
+        });
+    },
     
 	socialiteButtons: function() {
         
@@ -158,6 +169,9 @@ var siteEffects = {
 	},
     
 	init: function(){
+        if ( $('.page-single').length > 0 ) {
+            this.adaptiveBackground();
+        }
 		this.socialiteButtons();
 	}
 

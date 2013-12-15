@@ -115,64 +115,68 @@
 // PHOTO POST
 /////////////////////////////////////
 
-.hentry.format-image {
+.hentry.format-photo {
 	text-align: center;
     
     figure {
-    	display: inline-block;
-    	margin-left: auto;
-    	margin-right: auto;
-    	position: relative;
-    	padding: .4em;
-    	background: #fcfeff;
-    	border: 1px solid rgba(158, 170, 178, .6);
-    	border-radius: 2px;
-    	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.1));
-    	.transition;
-        
-        .page-single & { margin-bottom: @line-height-computed*2; }
-    
-        @media @breakpoint2 {
-    		.box-shadow(~"0 1px 4px rgba(0, 0, 0, 0.1), inset 0 0 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff");
-        }
-    
-        img {
-        	.box-shadow(none);
-        	border-radius: 2px;
-        	margin-left: auto;
-        	margin-right: auto;
-        	margin-bottom: 1em;
+        position: relative;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+            
+        img,
+        figcaption {
+            margin-bottom: 0;
         }
     
         figcaption {
-        	text-align: center;
-        	margin-bottom: .5em;
-        	color: rgba(46, 79, 92, .7);
+            position: absolute;
+            left: 0;
+            top: 25%;
+            max-width: 55%;
+            min-width: 45%;
+            text-align: right;
         	font-family: @headings-font-family;
         	font-weight: @headings-font-weight;
-        	font-style: normal;
-        	font-size: .9em
+            font-style: normal;
+        	font-size: .9em;
+            padding: @line-height-computed/3;
+            background: @link-color;
+            background: fade(@link-color, 70%);
+            color: #fff;
+            text-shadow: 0 1px 0 #000;
+            
+            opacity: 0;
+            .translate(0,-20px);
+            .transition;
         }
+        
+        &:hover figcaption {
+            opacity: 1;
+            .translate(0,0);
+        }
+    }
+    
+    .page-single & {
+        
+        figcaption {
+            opacity: 1;
+            .translate(0,0);
+            top: auto;
+            bottom: 0;
+            background: #000;
+            background: fade(#000, 40%);
+        }
+        
+        .entry-content,
+        .entry-meta,
+        .comments { .visuallyhidden; }
     }
 }
 
+
 .photo-link {
     display: block;
-    
-    &:hover { 
-        figure { background: #c4e4df; }
-    }
-    &:active {
-        background: transparent;
-        
-        figure { 
-            .transition(none);
-            background: @link-color;
-            
-            &,
-            figcaption { color: #fff }
-        }
-    }
 }
 
 #exif {

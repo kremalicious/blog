@@ -112,6 +112,7 @@ module.exports = function(grunt){
                         'bower_components/imagesloaded/imagesloaded.js',
                         'bower_components/simpleJekyllSearch/index.js',
                         'bower_components/socialite/index.js',
+                        'bower_components/jquery.adaptive-background/index.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
@@ -189,18 +190,18 @@ module.exports = function(grunt){
         rev: {
             files: {
                 src: [
-                    '<%= config.site %>/assets/{css,js,img,fonts}/*.*'
+                    '<%= config.build %>/assets/{css,js,img,fonts}/*.*'
                 ]
             }
         },
         
         // updating assets paths in html/css
         usemin: {
-            html: ['<%= config.site %>/**/*.html'],
-            css: ['<%= config.site %>/**/*.css'],
+            html: ['<%= config.build %>/**/*.html'],
+            css: ['<%= config.build %>/**/*.css'],
             options: {
-                dirs: ['<%= config.site %>'],
-                basedir: ['<%= config.site %>']
+                dirs: ['<%= config.build %>'],
+                basedir: ['<%= config.build %>']
             }
         },
         
@@ -280,11 +281,11 @@ module.exports = function(grunt){
         'cmq',
         'cssmin',
         'uglify',
-        'rev',
-        'usemin',
         'imagemin:assets',
         'imagemin:touchicons',
-        'rsync:copy_build'
+        'rsync:copy_build',
+        'rev',
+        'usemin'
     ]);
     
     // Optimze media
