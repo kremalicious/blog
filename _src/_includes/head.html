@@ -97,7 +97,7 @@
     {% if page.description %}
         <meta name="twitter:description" content="{{ page.description }}">
     {% else %}
-        <meta name="twitter:description" content="{{ site.description }}">
+        <meta name="twitter:description" content="{{ page.excerpt }}">
     {% endif %}
     {% if page.image %}
         <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
