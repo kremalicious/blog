@@ -159,6 +159,14 @@
     
     .page-single & {
         
+        padding-top: @line-height-computed*2;
+        padding-bottom: @line-height-computed*3;
+        
+    	@media @breakpoint2 {
+            padding-top: @line-height-computed*4;
+            padding-bottom: @line-height-computed*6;
+    	}
+        
         figcaption {
             opacity: 1;
             .translate(0,0);

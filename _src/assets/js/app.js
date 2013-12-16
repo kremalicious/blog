@@ -3,13 +3,13 @@ $(ASAP = function(){
 
 	photoGrid.init();
     siteNavigation.init();
+    siteEffects.init();
     
 });
 
 $(window).load( AfterLoad = function() {
 	
     infiniteScroll.init();
-    siteEffects.init();
     
 });
 
@@ -159,6 +159,9 @@ var siteEffects = {
         $('.hmedia img').imagesLoaded( function(){
             $.adaptiveBackground.run(opts)
         });
+        
+        // jump to photo background start
+        $(document).scrollTop($('#main').offset().top);
     },
     
 	socialiteButtons: function() {
@@ -169,7 +172,7 @@ var siteEffects = {
 	},
     
 	init: function(){
-        if ( $('.page-single').length > 0 ) {
+        if ( $('.page-single .format-photo').length > 0 ) {
             this.adaptiveBackground();
         }
 		this.socialiteButtons();
