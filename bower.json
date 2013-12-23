@@ -12,7 +12,7 @@
       "jquery": ">=2.0.3",
       "picturefill": ">=1.2.1",
       "masonry": "http://masonry.desandro.com/masonry.pkgd.min.js",
-      "imagesloaded": ">=3.0.4",
+      "imagesloaded": ">=3.1.0",
       "infinitescroll": "https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js",
       "simpleJekyllSearch": "https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/simpleJekyllSearch.js",
       "socialite": "https://raw.github.com/tmort/Socialite/master/socialite.js",

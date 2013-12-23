@@ -14,7 +14,7 @@ GEM
     gsl (1.15.3)
       narray (>= 0.5.9)
     highline (1.6.20)
-    jekyll (1.4.1)
+    jekyll (1.4.2)
       classifier (~> 1.3)
       colorator (~> 0.1)
       commander (~> 4.1.3)
