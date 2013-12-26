@@ -46,7 +46,7 @@ module Jekyll
   SITEMAP_FILE_NAME = "sitemap.xml"
 
   # Any files to exclude from being included in the sitemap.xml
-  EXCLUDED_FILES = ["feed.xml"]
+  EXCLUDED_FILES = ["index.xml", "robots.txt", "search.json"]
 
   # Any files that include posts, so that when a new post is added, the last
   # modified date of these pages should take that into account
@@ -66,7 +66,7 @@ module Jekyll
     end
 
     def location_on_server
-      "#{site.config['url']}#{url}"
+      "#{site.config['url']}#{url}/"
     end
   end
 
@@ -78,7 +78,7 @@ module Jekyll
     end
 
     def location_on_server
-      location = "#{site.config['url']}#{@dir}#{url}"
+      location = "#{site.config['url']}#{url}"
       location.gsub(/index.html$/, "")
     end
   end

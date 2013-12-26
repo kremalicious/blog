@@ -669,10 +669,15 @@ Redirect 301 /home/feed/ /feed/
 RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
 
 # Old Content Redirects
+Redirect 301 /goodies/icon /goodies
+Redirect 301 /goodies/other /goodies
+Redirect 301 /goodies/wallpaper /goodies
+
 Redirect 301 /lab http://lab.kremalicious.com
 Redirect 301 /csspaperstack /lab/csspaperstack
 Redirect 301 /download /media
 Redirect 301 /about/contact /about
+Redirect 301 /contact /about
 Redirect 301 /portfolio http://matthiaskretschmann.com
 Redirect 301 /blog /
 Redirect 301 /topics/goodies /goodies
