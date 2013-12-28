@@ -1,16 +1,18 @@
 <footer class="entry-meta">
 	<p class="byline author vcard source-org">
-        <span class="by">by</span> <a class="fn" rel="author" href="/about/">{{ page.author }}</a>
+        <span class="by">by</span> <a class="fn" rel="author" href="/about/">
+			{% if page.author %}
+				{{ page.author }}
+			{% else %}
+				{{ site.author }}
+			{% endif %}
+		</a>
     </p>
 
-     <time class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if updated %} data-updated="true"{% endif %}>{{ page.date | timeago }}</time>
+     <time class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | timeago }}</time>
 
     {% if page.updated %}
       <time class="updated" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | timeago }}</time>
     {% endif %}
-    
-    <!-- <p class="categories">
-        {{ page.categories | category_links }}
-    </p> -->
     
 </footer>
