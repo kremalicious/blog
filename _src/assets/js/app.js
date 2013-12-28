@@ -23,15 +23,15 @@ var siteNavigation = {
             $searchresults = $('.search-results'),
             $searchpop        = $('.popover');
         
-        // init jekyll search
-        $searchfield.simpleJekyllSearch({
-            searchResults       : '.search-results',
-            searchResultsTitle  : '',
-            template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
-        });
-        
         $searchlink.click(function(e){
             e.preventDefault();
+            
+            // init jekyll search
+            $searchfield.simpleJekyllSearch({
+                searchResults       : '.search-results',
+                searchResultsTitle  : '',
+                template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
+            });
             
             // show search
             $searcharea.addClass('ready');
