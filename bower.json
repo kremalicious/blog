@@ -16,7 +16,7 @@
       "infinitescroll": "https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js",
       "simpleJekyllSearch": "https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/simpleJekyllSearch.js",
       "socialite": "https://raw.github.com/tmort/Socialite/master/socialite.js",
-      "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-background.js"
+      "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js"
   },
     
   "ignore": [
