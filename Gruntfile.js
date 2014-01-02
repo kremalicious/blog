@@ -217,7 +217,8 @@ module.exports = function(grunt){
                     src: '<%= config.src %>/_media/',
                     dest: '<%= config.site %>/media',
                     exclude: ['**/gen'],
-                    syncDestIgnoreExcl: true
+                    syncDestIgnoreExcl: true,
+                    args: ['--update']
                 }
             },
             // copy build
@@ -232,11 +233,11 @@ module.exports = function(grunt){
             deploy: {
                 options: {
                     syncDest: true,
-                    compareMode: 'checksum',
                     src: '<%= config.build %>/',
                     dest: 'domains/kremalicious.com/html',
                     host: 'kremalicious',
                     ssh: true,
+                    compareMode: 'checksum',
                     args: ['--verbose']
                 }
             }
