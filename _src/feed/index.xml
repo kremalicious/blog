@@ -27,6 +27,8 @@ layout: nil
             
             {% if post.updated %}
                 <updated>{{ post.updated | date_to_xmlschema }}</updated>
+			{% else %}
+				<updated>{{ post.date | date_to_xmlschema }}</updated>
             {% endif %}
             
     		<id>{{ site.url }}{{ post.url | escape }}</id>
@@ -38,9 +40,12 @@ layout: nil
                 {{ post.content | xml_escape }}
             
     			{% if post.layout == "link" %}
-                    &lt;a class=&quot;more-link&quot; href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
+                    &lt;a href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
                     &lt;a href=&quot;{{ site.url }}{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
+				
+				&lt;hr /&gt;
+				You should &lt;a href=&quot;https://twitter.com/kremalicious&quot;&gt;follow me on Twitter.&lt;/a&gt;
             </content>
     	</entry>
 	{% endfor %}
