@@ -664,6 +664,8 @@ FileETag None
 
 # feed redirects
 Redirect 301 /home/feed/ /feed/
+Redirect 301 /feed/atom/ /feed/
+Redirect 301 /comments/feed/ /feed/
 
 # Remove date from post permalinks
 RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
