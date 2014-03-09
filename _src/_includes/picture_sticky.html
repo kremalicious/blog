@@ -1,8 +1,16 @@
 
-<span class="sticky-image" itemprop="image" data-picture data-alt="{{ page.title | titlecase }}">
-    <span data-src="/media/_sticky/{{ page.image }}"></span>
-    <span data-src="/media/_sticky_2x/{{ page.image }}" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
+{% if post %}
+    {% assign image = post.image %}
+    {% assign title = post.title %}
+{% else %}
+    {% assign image = page.image %}
+    {% assign title = page.title %}
+{% endif %}
+
+<span class="sticky-image" itemprop="image" data-picture data-alt="{{ title | titlecase }}">
+    <span data-src="/media/_sticky/{{ image }}"></span>
+    <span data-src="/media/_sticky_2x/{{ image }}" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
     <noscript>
-        <img src="/media/sticky/{{ post.image }}" alt="{{ page.title | titlecase }}">
+        <img src="/media/sticky/{{ image }}" alt="{{ title | titlecase }}">
     </noscript>
 </span>

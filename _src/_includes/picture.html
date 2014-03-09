@@ -1,13 +1,21 @@
 
-<span itemprop="image" class="teaser" data-picture data-alt="{{ page.title | titlecase }}">
-    <span data-src="/media/_tiny/{{ page.image }}"></span>
-    <span data-src="/media/_tiny_2x/{{ page.image }}" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
-    <span data-src="/media/_small/{{ page.image }}" data-media="(min-width: 26.667em)"></span>
-    <span data-src="/media/_small_2x/{{ page.image }}" data-media="(min-width: 26.667em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 26.667em) and (min-resolution: 192dpi)"></span>
-    <span data-src="/media/_medium/{{ page.image }}" data-media="(min-width: 35.556em)"></span>
-    <span data-src="/media/_medium_2x/{{ page.image }}" data-media="(min-width: 35.556em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 35.556em) and (min-resolution: 192dpi)"></span>
+{% if post %}
+    {% assign image = post.image %}
+    {% assign title = post.title %}
+{% else %}
+    {% assign image = page.image %}
+    {% assign title = page.title %}
+{% endif %}
+
+<span itemprop="image" class="teaser" data-picture data-alt="{{ title | titlecase }}">
+    <span data-src="/media/_tiny/{{ image }}"></span>
+    <span data-src="/media/_tiny_2x/{{ image }}" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_small/{{ image }}" data-media="(min-width: 26.667em)"></span>
+    <span data-src="/media/_small_2x/{{ image }}" data-media="(min-width: 26.667em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 26.667em) and (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_medium/{{ image }}" data-media="(min-width: 35.556em)"></span>
+    <span data-src="/media/_medium_2x/{{ image }}" data-media="(min-width: 35.556em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 35.556em) and (min-resolution: 192dpi)"></span>
     
     <noscript>
-        <img src="/media/_small/{{ page.image }}" alt="{{ page.title | titlecase }}">
+        <img src="/media/_small/{{ image }}" alt="{{ title | titlecase }}">
     </noscript>
 </span>
