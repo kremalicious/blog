@@ -22,7 +22,7 @@ Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/da
 
 The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `_site/media` before site generation starts. 
 
-Image size generation for post teaser images and photos is done with [jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag), putting resized images into `_site/media/gen`.
+Image size generation for post teaser images and photos is done with [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images), putting resized images into `_site/media/_[sizename]`.
 
 ### Install dependencies
 
@@ -36,7 +36,6 @@ npm install && bower install && bundle install
 
 This generates the site and assets with some Jekyll development options and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
 
-**[jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag) makes site generation very slow at the moment.** During development, uncommenting [some lines](https://github.com/kremalicious/kremalicious3/blob/master/_src/_plugins/picture_tag.rb#L142-L144) in that plugin's file speeds up regeneration dramatically. Seriously, from like 10 min. to 10 sec. Downside: no teaser images or photos in the development build.
 
 ```bash
 grunt server
