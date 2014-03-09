@@ -128,9 +128,8 @@ module.exports = function(grunt){
 						width: 190,
 						quality: 70
 					},{
-						name: 'sticky',
+						name: 'sticky_2x',
 						width: 380,
-                        suffix: "_x2",
 						quality: 50
 					},{
 						name: 'tiny',
@@ -141,27 +140,24 @@ module.exports = function(grunt){
 						width: 480,
 						quality: 70
 					},{
-						name: 'small',
+						name: 'small_2x',
 						width: 960,
-                        suffix: "_x2",
 						quality: 50
 					},{
 						name: 'medium',
 						width: 640,
 						quality: 70
 					},{
-						name: 'medium',
+						name: 'medium_2x',
 						width: 1280,
-                        suffix: "_x2",
 						quality: 50
 					},{
 						name: 'large',
 						width: 1024,
 						quality: 70
 					},{
-						name: 'large',
+						name: 'large_2x',
 						width: 2048,
-                        suffix: "_x2",
 						quality: 50
 					}]
 				},
