@@ -169,7 +169,7 @@ module.exports = function(grunt){
 					expand: true,
 					cwd: '<%= config.src %>/_media/',
 					src: ['**.{jpg,jpeg,png}'],
-					dest: '<%= config.site %>/media/'
+                    custom_dest: '<%= config.site %>/media/_{%= name %}/'
 				}]
 			}
 		},
