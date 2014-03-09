@@ -18,7 +18,8 @@
     "grunt-jekyll": ">=0.4.0",
     "grunt-rsync": ">=0.2.1",
     "grunt-rev": ">=0.1.0",
-    "grunt-usemin": ">=2.0.2"
+    "grunt-usemin": ">=2.0.2",
+    "grunt-responsive-images": "^0.1.1"
   },
   "repository": {
     "type": "git",
