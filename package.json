@@ -19,7 +19,8 @@
     "grunt-rsync": ">=0.2.1",
     "grunt-rev": ">=0.1.0",
     "grunt-usemin": ">=2.0.2",
-    "grunt-responsive-images": "^0.1.1"
+    "grunt-responsive-images": ">=0.1.1",
+    "grunt-newer": ">=0.6.1"
   },
   "repository": {
     "type": "git",

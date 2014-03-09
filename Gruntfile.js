@@ -267,7 +267,7 @@ module.exports = function(grunt){
                 options: {
                     src: '<%= config.src %>/_media/',
                     dest: '<%= config.site %>/media',
-                    exclude: ['**/gen'],
+                    exclude: ['**/_*'],
                     syncDestIgnoreExcl: true,
                     args: ['--update']
                 }
@@ -318,6 +318,7 @@ module.exports = function(grunt){
         'clean:site',
         'jekyll:development',
         'rsync:copy_media',
+        'newer:responsive_images',
         'less',
         'cmq',
         'cssmin',
@@ -331,6 +332,7 @@ module.exports = function(grunt){
         'clean',
         'jekyll:production',
         'rsync:copy_media',
+        'newer:responsive_images',
         'less',
         'cmq',
         'cssmin',
