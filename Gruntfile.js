@@ -222,6 +222,10 @@ module.exports = function(grunt){
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],
                 tasks: ['uglify']
             },
+            media: {
+                files: ['<%= config.src %>/_media/*.{jpg,jpeg,png}'],
+                tasks: ['newer:responsive_images']
+            },
             jekyll: {
                 files: [
                     '<%= config.src %>/**/*.html', 
