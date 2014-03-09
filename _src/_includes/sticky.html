@@ -4,7 +4,9 @@
         {% if post.sticky %}
         <article class="col2">
             <a class="sticky-link" href="{{ post.url }}" title="{{ post.title }}">
-                {% picture sticky {{ post.image }} %}
+                
+                {% include picture_sticky.html %}
+                
                 <h1 class="sticky-title">{{ post.title | titlecase }}</h1>
             </a>
         </article>
