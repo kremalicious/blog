@@ -119,6 +119,61 @@ module.exports = function(grunt){
             }
         },
         
+		// image generation
+		responsive_images: {
+			teaser: {
+				options: {
+					sizes: [{
+						name: 'sticky',
+						width: 190,
+						quality: 70
+					},{
+						name: 'sticky',
+						width: 380,
+                        suffix: "_x2",
+						quality: 50
+					},{
+						name: 'tiny',
+						width: 320,
+						quality: 70
+					},{
+						name: 'small',
+						width: 480,
+						quality: 70
+					},{
+						name: 'small',
+						width: 960,
+                        suffix: "_x2",
+						quality: 50
+					},{
+						name: 'medium',
+						width: 640,
+						quality: 70
+					},{
+						name: 'medium',
+						width: 1280,
+                        suffix: "_x2",
+						quality: 50
+					},{
+						name: 'large',
+						width: 1024,
+						quality: 70
+					},{
+						name: 'large',
+						width: 2048,
+                        suffix: "_x2",
+						quality: 50
+					}]
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= config.src %>/_media/',
+					src: ['**.{jpg,jpeg,png}'],
+					dest: '<%= config.site %>/media/'
+				}]
+			}
+		},
+        
         // image optimization
         imagemin: {
             assets: {
