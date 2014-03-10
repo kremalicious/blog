@@ -29,6 +29,7 @@
 }
 .search-btn { right: 50px }
 
+
 //
 // Main Navigation
 //
@@ -41,53 +42,57 @@
     }
     
     li { display: inline-block; }
-    
-    .nav-popover {
-        padding: @line-height-computed*1.5 0;
-        width: 100%;
-        background: @body-bg;
-        .clearfix;
-        
-        .nav-link {
-            width: 50%;
-            @media @breakpoint2 {
-                width: 33.3%
-            }
-            float: left;
-            text-align: center;
-            padding: 1em;
-            .h6;
-            color: @link-color;
-            line-height: @line-height-computed;
-            text-transform: uppercase;
-            font-size: .8em;
-            
-            // the icons
-            &:before {
-                display: block;
-                width: 100%;
-                text-align: center;
-                font-size: 32px;
-                height: 32px;
-                color: fade(@text-color-dimmed, 70%);
-                .transition;
-            }
-            
-            &:hover,
-            &:hover:before {
-                color: @link-color;
-                border-bottom-color: @link-color
-            }
-        }
-    }
+}
+
+.nav-popover {
+    padding: @line-height-computed*1.5 0;
+    width: 100%;
+    background: @body-bg;
+    .clearfix;
 }
 
 .nav-link {
+    .h6;
     display: block;
     padding: .5em 1em;
+    width: 50%;
+    @media @breakpoint2 { width: 33.3% }
     
-    &:hover {
-        background: rgba(255,255,255,.5);
+    float: left;
+    text-align: center;
+    padding: 1em;
+    color: @link-color;
+    line-height: @line-height-computed;
+    text-transform: uppercase;
+    font-size: .8em;
+    
+    // the icons
+    &:before {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 32px;
+        height: 32px;
+        color: fade(@text-color-dimmed, 70%);
+        .transition;
+    }
+    
+    &:hover,
+    &:hover:before {
+        color: @link-color;
+        border-bottom-color: @link-color
+    }
+    
+    &:hover { background: rgba(255,255,255,.5); }
+    
+    &:active { 
+        background: @link-color;
+        top: 0;
+    }
+    
+    &:active:before { 
+        color: #fff;
+        .transition(none)
     }
 }
 
