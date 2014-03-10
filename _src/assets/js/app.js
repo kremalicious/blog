@@ -1,7 +1,6 @@
 
 $(ASAP = function(){
 
-	photoGrid.init();
     siteNavigation.init();
     siteEffects.init();
     
@@ -9,6 +8,7 @@ $(ASAP = function(){
 
 $(window).load( AfterLoad = function() {
 	
+    photoGrid.init();
     infiniteScroll.init();
     
 });
