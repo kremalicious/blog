@@ -16,7 +16,17 @@ categories:
 
 These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography. This first preserved photograph "View from the Window at Le Gras" is the one you can see in the iPhoto icon contained in this package. The third icon is the folder icon I have created for this icon package.
 
-{% picture cameraobscura11_all.png %}
+<span itemprop="image" class="teaser" data-picture data-alt="{{ post.title }}">
+    <span data-src="/media/_tiny/cameraobscura11_all.png"></span>
+    <span data-src="/media/_tiny_2x/cameraobscura11_all.png" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_small/cameraobscura11_all.png" data-media="(min-width: 26.667em)"></span>
+    <span data-src="/media/_small_2x/cameraobscura11_all.png" data-media="(min-width: 26.667em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 26.667em) and (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_medium/cameraobscura11_all.png" data-media="(min-width: 35.556em)"></span>
+    <span data-src="/media/_medium_2x/cameraobscura11_all.png" data-media="(min-width: 35.556em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 35.556em) and (min-resolution: 192dpi)"></span>
+    <noscript>
+        <img src="/media/_small/cameraobscura11_all.png" alt="{{ post.title }}">
+    </noscript>
+</span>
 
 Either just download the icons or read the exciting story about the First Photograph.
 
@@ -39,7 +49,17 @@ In 1822 he created a first non-fading negative contact print by utilizing a bitu
 
 After some more tries and combining other elements in his procedure he was able to produce the famous First Photograph "View from the Window at Le Gras" in 1826 or 1827 by utilizing a bitumen of Judea-coated pewter plate and improved lenses from the Paris optician, Charles Chevalier. He called this procedure Heliography and the bitumen-coated pewter plate needed an exposure of eight or more hours!
 
-{% picture View-from-the-Window-at-Le-Gras.png %}
+<span itemprop="image" class="teaser" data-picture data-alt="View from the Window at Le Gras">
+    <span data-src="/media/_tiny/View-from-the-Window-at-Le-Gras.png"></span>
+    <span data-src="/media/_tiny_2x/View-from-the-Window-at-Le-Gras.png" data-media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_small/View-from-the-Window-at-Le-Gras.png" data-media="(min-width: 26.667em)"></span>
+    <span data-src="/media/_small_2x/View-from-the-Window-at-Le-Gras.png" data-media="(min-width: 26.667em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 26.667em) and (min-resolution: 192dpi)"></span>
+    <span data-src="/media/_medium/View-from-the-Window-at-Le-Gras.png" data-media="(min-width: 35.556em)"></span>
+    <span data-src="/media/_medium_2x/View-from-the-Window-at-Le-Gras.png" data-media="(min-width: 35.556em) and (-webkit-min-device-pixel-ratio: 2), (min-width: 35.556em) and (min-resolution: 192dpi)"></span>
+    <noscript>
+        <img src="/media/_small/View-from-the-Window-at-Le-Gras.png" alt="View from the Window at Le Gras">
+    </noscript>
+</span>
 View from the Window at Le Gras
 
 By the way, in 2002 another Picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", "View from the Window at Le Gras" remains the First "real" photograph.

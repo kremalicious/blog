@@ -27,7 +27,7 @@
         <a class="photo-link" href="{{ post.url }}">
         	<figure class="hmedia">
             
-                {% picture {{ post.image }} %}
+                {% include picture.html %}
             
         		<figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
         	</figure>
@@ -46,7 +46,7 @@
     
             {% if post.image %}
                 <a href="{{ post.url | append: '/' }}">
-                    {% picture {{ post.image }} class="teaser" %}
+                    {% include picture.html %}
                 </a>
             {% endif %}
     

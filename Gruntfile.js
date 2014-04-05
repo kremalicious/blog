@@ -119,6 +119,57 @@ module.exports = function(grunt){
             }
         },
         
+		// image generation
+		responsive_images: {
+			teaser: {
+				options: {
+					sizes: [{
+						name: 'sticky',
+						width: 190,
+						quality: 70
+					},{
+						name: 'sticky_2x',
+						width: 380,
+						quality: 50
+					},{
+						name: 'tiny',
+						width: 320,
+						quality: 70
+					},{
+						name: 'small',
+						width: 480,
+						quality: 70
+					},{
+						name: 'small_2x',
+						width: 960,
+						quality: 50
+					},{
+						name: 'medium',
+						width: 640,
+						quality: 70
+					},{
+						name: 'medium_2x',
+						width: 1280,
+						quality: 50
+					},{
+						name: 'large',
+						width: 1024,
+						quality: 70
+					},{
+						name: 'large_2x',
+						width: 2048,
+						quality: 50
+					}]
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= config.src %>/_media/',
+					src: ['**.{jpg,jpeg,png}'],
+                    custom_dest: '<%= config.site %>/media/_{%= name %}/'
+				}]
+			}
+		},
+        
         // image optimization
         imagemin: {
             assets: {
@@ -171,6 +222,10 @@ module.exports = function(grunt){
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],
                 tasks: ['uglify']
             },
+            media: {
+                files: ['<%= config.src %>/_media/*.{jpg,jpeg,png}'],
+                tasks: ['newer:responsive_images']
+            },
             jekyll: {
                 files: [
                     '<%= config.src %>/**/*.html', 
@@ -216,7 +271,7 @@ module.exports = function(grunt){
                 options: {
                     src: '<%= config.src %>/_media/',
                     dest: '<%= config.site %>/media',
-                    exclude: ['**/gen'],
+                    exclude: ['**/_*'],
                     syncDestIgnoreExcl: true,
                     args: ['--update']
                 }
@@ -267,6 +322,7 @@ module.exports = function(grunt){
         'clean:site',
         'jekyll:development',
         'rsync:copy_media',
+        'newer:responsive_images',
         'less',
         'cmq',
         'cssmin',
@@ -280,10 +336,12 @@ module.exports = function(grunt){
         'clean',
         'jekyll:production',
         'rsync:copy_media',
+        'newer:responsive_images',
         'less',
         'cmq',
         'cssmin',
         'uglify',
+        'newer:imagemin:media',
         'imagemin:assets',
         'imagemin:touchicons',
         'rsync:copy_build',
