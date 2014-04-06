@@ -12,6 +12,6 @@ post_format:
 
 Typographic diamond at Hobrechtstraße
 
-[https://www.flickr.com/photos/krema/13229327324/](flickr) | [http://www.eyeem.com/p/32659836](EyeEm)
+[flickr](https://www.flickr.com/photos/krema/13229327324/) | [EyeEm](http://www.eyeem.com/p/32659836)
 
 Processed with VSCOcam with b5 preset
