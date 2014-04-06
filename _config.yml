@@ -57,7 +57,7 @@ picture:
   markup: "picturefill"
   presets:
     default:
-      ppi: [1, 1.5, 2]
+      ppi: [1, 2]
       attr:
         itemprop: "image"
       source_medium:
@@ -69,7 +69,7 @@ picture:
       source_default: 
         width: "320"
     sticky:
-      ppi: [1, 1.5, 2]
+      ppi: [1, 2]
       attr:
         class: "sticky-image"
         itemprop: "image"
