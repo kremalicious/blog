@@ -41,7 +41,7 @@ task :photo do
   	puts "Dude, file exists - skipping create"
   else
     File.open(path, "w") do |file|
-      file.puts YAML.dump({'layout' => 'photo', 'published' => false, 'title' => title, 'image' => 'REPLACEME.jpg', 'author' => 'Matthias Kretschmann'})
+      file.puts YAML.dump({'layout' => 'photo', 'published' => false, 'title' => title, 'image' => 'REPLACEME.jpg', 'author' => 'Matthias Kretschmann', 'category' => 'photos'})
       file.puts "---"
     end
   end
