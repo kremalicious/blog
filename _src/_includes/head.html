@@ -31,15 +31,17 @@
     <title>
         {% if paginator.previous_page %}
             Page {{ paginator.page }} &brvbar; {{ page.title }}
-        {% elsif page.path contains '_posts' %}
+        {% elsif page.title %}
             {{ page.title }} &brvbar; {{ site.name }}
         {% else %}
-            {{ page.title }} &brvbar; {{ site.description }}
+            {{ site.name }} &brvbar; {{ site.description }}
         {% endif %}
     </title>
     
     {% if page.description %}
         <meta name="description" content="{{ page.description }}">
+    {% elsif page.front_page %}
+        <meta name="description" content="{{ site.description }}">
     {% else %}
         <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines }}" />
     {% endif %}
@@ -79,31 +81,14 @@
 		var total = {{ paginator.total_pages }};
 	</script>
     {% endif %}
-        
+    
+    <!-- OpenGraph -->
+    {% include opengraph.html %}
+    
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@kremaliciouscom">
-    <meta name="twitter:creator" content="@kremalicious">
-    {% if page.title %}
-        <meta name="twitter:title" content="{{ page.title }}">
-    {% else %}
-        <meta name="twitter:title" content="{{ site.title }}">
-    {% endif %}
-    {% if page.url %}
-        <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-    {% endif %}
-    {% if page.description %}
-        <meta name="twitter:description" content="{{ page.description }}">
-    {% else %}
-        <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
-    {% endif %}
-    {% if page.image %}
-        <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
-    {% else %}
-    	<meta name="twitter:image:src" content="{{ site.url }}/kremalicious1024.png">
-    {% endif %}
-	
-    <!-- Facebook/Google+ Sharing -->
-    <link rel="image_src" href="{{ site.url }}/kremalicious1024.png" />
-
+    {% include twittercards.html %}
+    
+    <!-- Google Authorship -->
+    <link href="https://plus.google.com/+MatthiasKretschmann" rel="author"/>
+    
 </head>

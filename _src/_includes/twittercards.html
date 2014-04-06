@@ -1,0 +1,22 @@
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@kremaliciouscom">
+<meta name="twitter:creator" content="@kremalicious">
+{% if page.title %}
+    <meta name="twitter:title" content="{{ page.title }}">
+{% else %}
+    <meta name="twitter:title" content="{{ site.title }}">
+{% endif %}
+{% if page.url %}
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+{% endif %}
+{% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+{% else %}
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
+{% endif %}
+{% if page.image %}
+    <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
+{% else %}
+	<meta name="twitter:image:src" content="{{ site.url }}/kremalicious1024.png">
+{% endif %}
