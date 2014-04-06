@@ -98,7 +98,7 @@ module.exports = function(grunt){
             },
             jquery: {
                 files: {
-                    '<%= config.site %>/<%= config.assets.js %>/jquery.min.js': 'bower_components/jquery/jquery.js'
+                    '<%= config.site %>/<%= config.assets.js %>/jquery.min.js': 'bower_components/jquery/dist/jquery.js'
                 }
             },
             production: {
