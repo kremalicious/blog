@@ -17,20 +17,21 @@ var siteNavigation = {
     
     siteSearch: function() {
         
-        var $searchlink    = $('.search-btn'),
+        var $searchlink     = $('.search-btn'),
             $searcharea     = $('.topbar .search-area'),
-            $searchfield   = $('.search-field'),
-            $searchresults = $('.search-results'),
-            $searchpop        = $('.popover');
+            $searchfield    = $('.search-field'),
+            $searchresults  = $('.search-results'),
+            $searchpop      = $('.popover');
         
         $searchlink.click(function(e){
             e.preventDefault();
             
             // init jekyll search
-            $searchfield.simpleJekyllSearch({
-                searchResults       : '.search-results',
+            $searchfield.jekyllSearch({
+                searchResults       : $searchresults,
                 searchResultsTitle  : '',
                 template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
+                fuzzy               : true
             });
             
             // show search
