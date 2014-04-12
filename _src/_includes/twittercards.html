@@ -1,5 +1,9 @@
 
-<meta name="twitter:card" content="summary">
+{% if page.category == "photos" %}
+    <meta name="twitter:card" content="photo">
+{% else %}
+    <meta name="twitter:card" content="summary">
+{% endif %}
 <meta name="twitter:site" content="@kremaliciouscom">
 <meta name="twitter:creator" content="@kremalicious">
 {% if page.title %}
