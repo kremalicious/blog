@@ -1,6 +1,6 @@
 module.exports = function(grunt){
     'use strict';
-    
+
     // config
     var gruntConfig = {
         src: '_src',
@@ -14,7 +14,7 @@ module.exports = function(grunt){
             fonts:  'assets/fonts'
         }
     };
-    
+
     // banner
     grunt.log.writeln("");
     grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -23,21 +23,21 @@ module.exports = function(grunt){
     grunt.log.writeln("");
     grunt.log.writeln("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     grunt.log.writeln("");
-    
+
     // Grunt config
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         config: gruntConfig,
-        
+
         // clean everything
         clean: {
             site: [
-                '<%= config.site %>/*', 
+                '<%= config.site %>/*',
                 '<%= config.site %>/.htaccess',
                 '!<%= config.site %>/media'
             ],
             build: [
-                '<%= config.build %>/*', 
+                '<%= config.build %>/*',
                 '<%= config.build %>/.htaccess'
             ]
         },
@@ -57,11 +57,11 @@ module.exports = function(grunt){
                 options: {
                     drafts: true,
                     future: true,
-                    limit_posts: 5
+                    //limit_posts: 5
                 }
             }
         },
-        
+
         // less
         less: {
             production: {
@@ -71,7 +71,7 @@ module.exports = function(grunt){
                 },
             },
         },
-        
+
         // combine css media queries
         cmq: {
             production: {
@@ -80,7 +80,7 @@ module.exports = function(grunt){
                 }
             }
         },
-        
+
         // minify css
         cssmin: {
             production: {
@@ -90,7 +90,7 @@ module.exports = function(grunt){
                 }
             }
         },
-        
+
         // Concatenate and minify js
         uglify: {
             options: {
@@ -104,7 +104,7 @@ module.exports = function(grunt){
             production: {
                 files: {
                     '<%= config.site %>/<%= config.assets.js %>/picturefill.min.js': [
-                        'bower_components/picturefill/picturefill.js'
+                        'bower_components/picturefill/dist/picturefill.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         'bower_components/infinitescroll/index.js',
@@ -118,7 +118,7 @@ module.exports = function(grunt){
                 }
             }
         },
-        
+
         // image optimization
         imagemin: {
             assets: {
@@ -146,7 +146,7 @@ module.exports = function(grunt){
                 }]
             }
         },
-        
+
         // dev server
         connect: {
             server: {
@@ -157,7 +157,7 @@ module.exports = function(grunt){
                 }
             }
         },
-        
+
         // watch
         watch: {
             options: {
@@ -173,8 +173,8 @@ module.exports = function(grunt){
             },
             jekyll: {
                 files: [
-                    '<%= config.src %>/**/*.html', 
-                    '<%= config.src %>/*.xml', 
+                    '<%= config.src %>/**/*.html',
+                    '<%= config.src %>/*.xml',
                     '<%= config.src %>/*.json',
                     '<%= config.src %>/.htaccess',
                     '<%= config.src %>/_includes/**',
@@ -185,7 +185,7 @@ module.exports = function(grunt){
                 tasks: ['jekyll:development', 'less', 'cmq', 'cssmin', 'uglify']
             },
         },
-        
+
         // assets versioning
         rev: {
             files: {
@@ -194,7 +194,7 @@ module.exports = function(grunt){
                 ]
             }
         },
-        
+
         // updating assets paths in html/css
         usemin: {
             html: ['<%= config.build %>/**/*.html'],
@@ -205,7 +205,7 @@ module.exports = function(grunt){
                 assetsDirs: ['<%= config.build %>', '<%= config.build %>/assets/{css,js,img,fonts}']
             }
         },
-        
+
         // rsync stuff around
         rsync: {
             options: {
@@ -242,16 +242,16 @@ module.exports = function(grunt){
                 }
             }
         }
-            
+
     });
-    
+
     // Load NPM Tasks, smart code stolen from @bluemaex <https://github.com/bluemaex>
     require('fs').readdirSync('node_modules').filter(function (file) {
         return file && file.indexOf('grunt-') > -1;
     }).forEach(function (file) {
         grunt.loadNpmTasks(file);
     });
-    
+
     // Default Task, assets only
     grunt.registerTask('default', [
         'less',
@@ -261,7 +261,7 @@ module.exports = function(grunt){
         'connect',
         'watch'
     ]);
-    
+
     // Full Dev server
     grunt.registerTask('server', [
         'clean:site',
@@ -274,7 +274,7 @@ module.exports = function(grunt){
         'connect',
         'watch'
     ]);
-    
+
     // Production build
     grunt.registerTask('build', [
         'clean',
@@ -290,12 +290,12 @@ module.exports = function(grunt){
         'rev',
         'usemin'
     ]);
-    
+
     // Optimze media
     grunt.registerTask('mediamin', [
         'imagemin:media'
     ]);
-    
+
     // Deploy
     grunt.registerTask('deploy', [
         'rsync:deploy'
