@@ -33,6 +33,7 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
+pygments:               true
 
 redcarpet:
   extensions:           ['autolink', 'smart']
