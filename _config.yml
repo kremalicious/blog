@@ -1,11 +1,11 @@
-# 
+#
 # Home:                 /
 # About Page:           /about/
 # Archive Page:         /archive/
 # Pagination:           /page/N/
 # Post:                 /post/post-slug/
 # RSS Feed:             /feed.xml
-# 
+#
 
 # Basics
 # --------------------
@@ -32,8 +32,7 @@ category_title_prefix:  ""
 # --------------------
 
 future:                 false
-markdown:               redcarpet  
-pygments:               true
+markdown:               redcarpet
 
 redcarpet:
   extensions:           ['autolink', 'smart']
@@ -66,12 +65,12 @@ picture:
       source_small:
         media: "(min-width: 26.667em)"
         width: "480"
-      source_default: 
+      source_default:
         width: "320"
     sticky:
       ppi: [1, 2]
       attr:
         class: "sticky-image"
         itemprop: "image"
-      source_default: 
+      source_default:
         width: "190"
