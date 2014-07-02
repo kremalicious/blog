@@ -3,27 +3,28 @@
   "version": "1.0.0",
   "homepage": "http://kremalicious.com",
   "authors": [
-      "Matthias Kretschmann <m@kretschmann.io>"
+    "Matthias Kretschmann <m@kretschmann.io>"
   ],
   "description": "Blog of Matthias Kretschmann",
   "license": "MIT",
-  
   "dependencies": {
-      "jquery": ">=2.0.3",
-      "picturefill": ">=1.2.1",
-      "masonry": "http://masonry.desandro.com/masonry.pkgd.min.js",
-      "imagesloaded": ">=3.1.0",
-      "infinitescroll": "https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js",
-      "simpleJekyllSearch": "https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/jekyll-search.jquery.js",
-      "socialite": "https://raw.github.com/tmort/Socialite/master/socialite.js",
-      "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js"
+    "normalize-css": ">=3.0.1",
+    "jquery": ">=2.0.3",
+    "picturefill": ">=1.2.1",
+    "masonry": "http://masonry.desandro.com/masonry.pkgd.min.js",
+    "imagesloaded": ">=3.1.0",
+    "infinitescroll": "https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js",
+    "simpleJekyllSearch": "https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/jekyll-search.jquery.js",
+    "socialite": "https://raw.github.com/tmort/Socialite/master/socialite.js",
+    "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js"
   },
-    
   "ignore": [
-      "**/.*",
-      "node_modules",
-      "bower_components",
-      "test",
-      "tests"
-  ]
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  }
 }
