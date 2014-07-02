@@ -5,7 +5,7 @@
 
 // Dimmed Text
 /////////////////////////////////////
-.dimmed() {
+.dimmed {
 	color: @text-color-dimmed;
 	p { color: @text-color-dimmed; }
 	li { color: @text-color-dimmed; }
@@ -14,7 +14,7 @@
 // Text overflow
 /////////////////////////////////////
 
-.ellipsis() {
+.ellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;
 	overflow: hidden
@@ -26,7 +26,7 @@
 .divider-top,
 .divider-bottom {
     position: relative;
-    
+
     &:before {
 		content: "";
 		position: absolute;
@@ -38,7 +38,7 @@
 .divider-top {
 	border-top: 1px dashed #afc3cb;
 	padding-top: 1em;
-    
+
 	&:after {
 		content: "";
 		position: absolute;
@@ -53,7 +53,7 @@
 .divider-bottom {
 	border-bottom: 1px dashed #afc3cb;
 	padding-bottom: 1em;
-    
+
 	&:before {
 		bottom: -2px;
 		width: 100%;
@@ -65,7 +65,7 @@
 // Heading band
 /////////////////////////////////////
 
-.heading-band() {
+.heading-band {
 	display: inline-block;
 	clear: both;
 	background: rgba(255,255,255,.55);

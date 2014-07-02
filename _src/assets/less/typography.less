@@ -7,17 +7,17 @@ body {
 	font-weight: @font-weight-base;
     color: @text-color;
 	word-wrap: break-word;
-	
+
     font-size: @font-size-base;
     line-height: @line-height-base;
-    
+
     @media @breakpoint1 {
         line-height: @line-height-computed;
     }
-    
-	@media @breakpoint3 { 
+
+	@media @breakpoint3 {
 		font-size: 125%;
-		line-height: 1.6em;	
+		line-height: 1.6em;
 	}
 }
 
@@ -101,7 +101,7 @@ p, li {
 	.hyphens(auto);
 }
 
-b, strong, 
+b, strong,
 .bold {
 	font-weight: 700;
 	font-style: normal;
@@ -152,8 +152,8 @@ ol {
 ul li {
 	position: relative;
 	margin-bottom: .5em;
-	
-	&:before { 
+
+	&:before {
 		font-size: 14px;
 		font-family: 'entypo';
 		color: @text-color-light;
@@ -164,7 +164,7 @@ ul li {
 		text-transform: none;
 		line-height: 1;
 		-webkit-font-smoothing: antialiased;
-		
+
 		position: absolute;
 		left: -2em;
 		top: .5em;
@@ -173,10 +173,10 @@ ul li {
 
 ol {
 	counter-reset: ol-counter;
-    
+
     li {
         position: relative;
-        
+
         &:before {
         	position: absolute;
         	left: -2em;
@@ -187,7 +187,7 @@ ol {
         	font-style: italic;
             font-size: 14px;
         	background: @text-color-dimmed;
-        	
+
         	width: 20px;
             height: 20px;
             border-radius: 20px;
@@ -214,7 +214,7 @@ ol ul {
 }
 
 nav ul, nav ol {
-	.list-unstyled;
+    &:extend(.list-unstyled);
 }
 
 

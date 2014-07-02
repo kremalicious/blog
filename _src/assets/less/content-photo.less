@@ -1,0 +1,84 @@
+// PHOTO POST
+/////////////////////////////////////
+
+.hentry.format-photo {
+
+    figure {
+        position: relative;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+
+        img,
+        figcaption {
+            margin-bottom: 0;
+        }
+
+        img { max-height: 540px }
+
+        figcaption {
+            position: absolute;
+            left: 0;
+            top: 25%;
+            max-width: 55%;
+            min-width: 45%;
+            text-align: right;
+        	font-family: @headings-font-family;
+        	font-weight: @headings-font-weight;
+            font-style: normal;
+        	font-size: .9em;
+            padding: @line-height-computed/3;
+            background: @link-color;
+            background: fade(@link-color, 70%);
+            color: #fff;
+            text-shadow: 0 1px 0 #000;
+
+            opacity: 0;
+            .translate(0,-20px);
+            .transition;
+        }
+
+        &:hover figcaption {
+            opacity: 1;
+            .translate(0,0);
+        }
+    }
+
+    .page-single & {
+
+        padding-top: @line-height-computed*2;
+        padding-bottom: @line-height-computed*3;
+
+    	@media @breakpoint2 {
+            padding-top: @line-height-computed*4;
+            padding-bottom: @line-height-computed*6;
+    	}
+
+        figure img { max-height: none }
+
+        figcaption {
+            opacity: 1;
+            .translate(0,0);
+            top: auto;
+            bottom: 0;
+            background: #000;
+            background: fade(#000, 40%);
+        }
+    }
+}
+
+
+.photo-link {
+    display: block;
+}
+
+#exif {
+	font-size: @font-size-small;
+	color: #b9c3c9;
+	text-align: center;
+	margin-bottom: .5em;
+
+	span {
+		margin-right: 1em;
+	}
+}
