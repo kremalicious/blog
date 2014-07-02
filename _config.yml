@@ -53,7 +53,7 @@ keep_files:             ['media', 'gen']
 picture:
   source: "_media"
   output: "media/gen"
-  markup: "picturefill"
+  markup: "picture"
   presets:
     default:
       ppi: [1, 2]
