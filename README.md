@@ -3,6 +3,8 @@ kremalicious3
 
 > [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
+[ ![Codeship Status for kremalicious/kremalicious3](https://www.codeship.io/projects/f6973090-9f04-0131-a2b7-625e8177ce9a/status?branch=master)](https://www.codeship.io/projects/18092)
+
 Requirements
 ------------------
 
@@ -20,7 +22,7 @@ For various reasons the assets build process and Jekyll site generation is manag
 
 Both, `grunt server` and `grunt build`, use [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) to first generate the site into the `_site` folder and the following Grunt tasks output into that folder. The build task copies everything over into the `_build`folder.
 
-The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `_site/media` before site generation starts. 
+The `media` folder holding the source post images is excluded from Jekyll site generation and rsynced around from `_src/_media` to `_site/media` before site generation starts.
 
 Image size generation for post teaser images and photos is done with [jekyll-picture-tag](https://github.com/robwierzbowski/jekyll-picture-tag), putting resized images into `_site/media/gen`.
 
@@ -28,7 +30,7 @@ Image size generation for post teaser images and photos is done with [jekyll-pic
 
 Run the following command from the repository's root folder to install all dependencies.
 
-```bash 
+```bash
 npm install && bower install && bundle install
 ```
 
