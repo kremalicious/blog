@@ -1,19 +1,17 @@
 
 .comments {
-    .clearfix;
+    &:extend(.clearfix all, .textcenter);
     font-size: @font-size-small;
     font-style: italic;
     color: @text-color-dimmed;
     margin-top: @line-height-computed*2;
-    text-align: center;
     .border-radius;
-    
+
     p,
     .btn { margin-bottom: 0; }
-    
-    .btn-wrap { 
+
+    .btn-wrap {
         margin-top: @line-height-computed/2;
         height: 27px
     }
-    .btn { left: -20px }
 }

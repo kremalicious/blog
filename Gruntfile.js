@@ -111,7 +111,6 @@ module.exports = function(grunt){
                         'bower_components/masonry/index.js',
                         'bower_components/imagesloaded/imagesloaded.js',
                         'bower_components/simpleJekyllSearch/index.js',
-                        'bower_components/socialite/index.js',
                         'bower_components/jquery.adaptive-background/index.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]

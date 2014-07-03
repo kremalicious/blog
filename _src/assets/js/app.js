@@ -3,29 +3,29 @@ $(ASAP = function(){
 
     siteNavigation.init();
     siteEffects.init();
-    
+    infiniteScroll.init();
+
 });
 
 $(window).load( AfterLoad = function() {
-	
+
     photoGrid.init();
-    infiniteScroll.init();
-    
+
 });
 
 var siteNavigation = {
-    
+
     siteSearch: function() {
-        
+
         var $searchlink     = $('.search-btn'),
             $searcharea     = $('.topbar .search-area'),
             $searchfield    = $('.search-field'),
             $searchresults  = $('.search-results'),
             $searchpop      = $('.popover');
-        
+
         $searchlink.click(function(e){
             e.preventDefault();
-            
+
             // init jekyll search
             $searchfield.jekyllSearch({
                 searchResults       : $searchresults,
@@ -33,28 +33,28 @@ var siteNavigation = {
                 template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
                 fuzzy               : true
             });
-            
+
             // show search
             $searcharea.addClass('ready');
             $searchfield.focus();
             if ( $searchfield.val().length ) {
                 $searchpop.removeClass('hide');
             }
-            
+
             // hide menu too just in case
             if ( $('body').hasClass('menu-open') ) {
                 $('body').removeClass('menu-open');
             }
-            
+
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
                 $searcharea.removeClass('ready');
                 $searchpop.addClass('hide');
-                
+
                 // unbind the hide controls
                 $(document).unbind('click.hidethepop');
             });
-            
+
             // dont close thepop when click on thepop
             $searchpop.click(function(e) {
                 e.stopPropagation();
@@ -63,39 +63,39 @@ var siteNavigation = {
             $searchfield.click(function(e) {
                 e.stopPropagation();
             });
-            
-            // and dont close thepop now 
+
+            // and dont close thepop now
             e.stopPropagation();
         });
-        
+
         // finally show popup upon first keypress
         $searchfield.on('keyup', function() {
             $searchpop.removeClass('hide');
         });
-        
+
         // close button
         $('.search-close').click(function(e){
             e.preventDefault();
-            
+
             // hide search area
             $searcharea.removeClass('ready');
             $searchpop.addClass('hide');
-            
+
             // empty search field
             $searchfield.val('').blur();
         });
     },
-    
+
     siteMenu: function() {
         var $thelink = $('.menu-btn'),
             $thepop  = $('.nav-main .nav-popover');
-        
+
         $thelink.click(function(e){
             e.preventDefault();
-            
+
             // toggle menu
             $('body').toggleClass('menu-open');
-            
+
             if ( $('body').hasClass('menu-open') ) {
                 $thepop.removeClass('hide');
             } else {
@@ -104,22 +104,22 @@ var siteNavigation = {
 
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
-                    $('body').removeClass('menu-open');
-                    $thepop.toggleClass('hide');
-                    // unbind the hide controls
-                    $(document).unbind('click.hidethepop');
+                $('body').removeClass('menu-open');
+                $thepop.toggleClass('hide');
+                // unbind the hide controls
+                $(document).unbind('click.hidethepop');
             });
-            
+
             // dont close thepop when you click on thepop
             $thepop.click(function(e) {
                 e.stopPropagation();
             });
-            
-            // and dont close thepop now 
+
+            // and dont close thepop now
             e.stopPropagation();
         });
     },
-    
+
 	init: function(){
 		this.siteSearch();
         this.siteMenu();
@@ -131,7 +131,7 @@ var photoGrid = {
 
     masonryLayout: function() {
         var $container = $('#main .masonry');
-        
+
         $container.imagesLoaded( function(){
             $container.masonry({
                 itemSelector : 'article',
@@ -142,7 +142,7 @@ var photoGrid = {
 
     init: function(){
         // only fire when photo page present and screen bigger than 480px
-        if ( $('.page-photos').length > 0 ) { 
+        if ( $('.page-photos').length > 0 ) {
             this.masonryLayout();
         }
     }
@@ -150,33 +150,25 @@ var photoGrid = {
 }
 
 var siteEffects = {
-    
+
     adaptiveBackground: function() {
         var opts = {
             selector: '.hmedia img',
             parent:   '.document'
         }
-        
+
         $('.hmedia img').imagesLoaded( function(){
             $.adaptiveBackground.run(opts)
         });
-        
+
         // jump to photo background start
         $(document).scrollTop($('#main').offset().top);
     },
-    
-	socialiteButtons: function() {
-        
-		$('.comments').one('mouseenter', function() {
-			Socialite.load($(this)[0]);
-		});
-	},
-    
+
 	init: function(){
         if ( $('.page-single .format-photo').length > 0 ) {
             this.adaptiveBackground();
         }
-		this.socialiteButtons();
 	}
 
 }
