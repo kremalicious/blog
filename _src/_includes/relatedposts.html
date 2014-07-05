@@ -1,21 +1,21 @@
 {% if site.related_posts.size > 1 %}
     <aside class="related-posts">
-    
-        <h1 class="related-title">Related</h1>
+
+        <h1 class="related-posts-title">Related</h1>
 
         <div class="row">
-        
-            {% for post in site.posts limit:6 %}
-    
+
+            {% for post in site.related_posts limit:6 %}
+
                 <article class="related-post col2">
-                    <a href="{{ post.url }}">
+                    <a class="post-title-link" href="{{ post.url }}">
                         <h1 class="post-title">{{ post.title }}</h1>
                     </a>
                 </article>
-    
+
             {% endfor %}
 
         </div>
-    
+
     </aside>
 {% endif %}

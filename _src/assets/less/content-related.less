@@ -1,0 +1,37 @@
+// Related Posts
+/////////////////////////////////////
+
+.related-posts {
+    .row { margin-top: 0 }
+}
+
+.related-posts-title {
+    &:extend(.heading-band, .h3);
+    margin-bottom: @line-height-computed;
+}
+
+.related-post {
+
+    .post-title {
+        &:extend(.h6);
+        margin-top: @line-height-computed;
+        margin-bottom: @line-height-computed;
+    }
+
+    .post-title,
+    .post-title-link {
+        color: @brand-grey-light;
+        .transition;
+
+        &:hover,
+        &:focus { color: @link-color }
+
+        &:active {
+            color: #fff;
+            .transition(none);
+        }
+    }
+
+    .post-title-link { display: block }
+
+}
