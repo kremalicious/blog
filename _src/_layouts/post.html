@@ -3,7 +3,7 @@ layout: base
 ---
 
 <section role="main" id="main" class="page-single row">
-    
+
     <article class="hentry format-post">
     	<header>
     		<h1 class="entry-title">{{ page.title | titlecase }}</h1>
@@ -13,14 +13,16 @@ layout: base
             {% if page.image %}
                 {% picture {{ page.image }} class="teaser" %}
             {% endif %}
-        
+
             {{ content }}
         </section>
-        
+
         {% include entry_meta.html %}
-        
+
         {% include comments.html %}
-        
+
+        {% include relatedposts.html %}
+
     </article>
 
 </section>

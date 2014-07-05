@@ -3,7 +3,7 @@ layout: base
 ---
 
 <section role="main" id="main" class="page-single row">
-    
+
     <article class="hentry format-link">
     	<header>
     		<h1 class="entry-title">
@@ -21,11 +21,13 @@ layout: base
                 <a class="permalink-link" href="{{ page.url | append: '/' }}" rel="tooltip" title="Permalink">&#8734;</a>
     		</p>
         </section>
-        
+
         {% include entry_meta.html %}
-        
+
         {% include comments.html %}
-        
+
+        {% include relatedposts.html %}
+
     </article>
 
 </section>
