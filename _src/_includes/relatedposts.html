@@ -5,13 +5,22 @@
 
         <div class="row">
 
-            {% for post in site.related_posts limit:6 %}
+            {% for post in site.related_posts %}
 
-                <article class="related-post col2">
-                    <a class="post-title-link" href="{{ post.url }}">
-                        <h1 class="post-title">{{ post.title }}</h1>
-                    </a>
-                </article>
+                {% assign match = false %}
+                {% for category in post.categories %}
+                    {% if page.categories contains category %}
+                        {% assign match = true %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if match %}
+                    <article class="related-post col2">
+                        <a class="post-title-link" href="{{ post.url }}">
+                            <h1 class="post-title">{{ post.title }}</h1>
+                        </a>
+                    </article>
+                {% endif %}
 
             {% endfor %}
 
