@@ -22,7 +22,14 @@
     .post-title-link {
         color: @brand-grey-light;
         .transition;
-        &:hover { color: @link-color }
+
+        &:hover,
+        &:focus { color: @link-color }
+
+        &:active {
+            color: #fff;
+            .transition(none);
+        }
     }
 
     .post-title-link { display: block }
