@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/tonyarnold/narray
+  revision: eeb06b030320a222727e41f11a2f0be300f9dd52
+  specs:
+    narray (0.6.0.8)
+
+GIT
+  remote: https://github.com/tonyarnold/rb-gsl
+  revision: 659a95fd9b610c02e38035b956feceb5c29e1ecb
+  specs:
+    gsl (1.14.7)
+      narray (>= 0.5.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -55,5 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   fileutils (>= 0.7)
+  gsl!
   jekyll (= 1.5.1)
   mini_magick (>= 3.6.0)
+  narray!
