@@ -20,6 +20,9 @@
     "grunt-rev": ">=0.1.0",
     "grunt-usemin": ">=2.0.2"
   },
+  "engines": {
+    "node": ">=0.10.29"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:kremalicious/kremalicious3.git"
