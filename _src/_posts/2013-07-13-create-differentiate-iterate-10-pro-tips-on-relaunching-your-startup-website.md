@@ -4,12 +4,13 @@ layout: link
 title: Create, differentiate, iterate – 10 pro tips on relaunching your startup website
 linkurl: http://venturevillage.eu/10-pro-tips-redesign
 author: Matthias Kretschmann
-
 date: 2013-07-13 12:49:39+00:00
-wordpress_id: 2461
+
 categories:
 - design
 - personal
+tags:
+- ezeep
 ---
 
 Was one of the people interviewed by Charmaine Li from VentureVillage about relaunching a startup's website where I talk a bit about [ezeep's relaunch](https://www.ezeep.com/blog/hip-hip-have-a-look-at-ezeeps-hot-new-home-page/).

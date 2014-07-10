@@ -5,13 +5,10 @@ title: ezeep office view
 image: 8450618380_83c64006c6_o.jpg
 author: Matthias Kretschmann
 
-date: 2013-02-17 11:55:39+00:00
-
-wordpress_id: 2444
 categories:
 - photos
-post_format:
-- Image
+tags:
+- ezeep
 ---
 
 Can't complain about the new [ezeep](http://ezeep.com) office view
