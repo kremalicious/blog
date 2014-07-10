@@ -46,12 +46,11 @@ module.exports = function(grunt){
         jekyll: {
             options: {
                 src : '<%= config.src %>/',
-                config: './_config.yml',
-                lsi: true
+                config: './_config.yml'
             },
             production: {
                 options: {
-                    //lsi: true
+                    lsi: true
                 }
             },
             development: {
