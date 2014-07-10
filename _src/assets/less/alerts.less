@@ -1,92 +1,41 @@
+/////////////////////////////////////
+// Alerts
+/////////////////////////////////////
+
 .alert {
-	font-size: .95em;
-	line-height: 22px;
-	padding: .5em 35px .5em 1em;
-	margin-bottom: 18px;
+	font-size: @font-size-small;
+	padding: .5em 1em;
 	color: #8a6d3d;
-	background-color: #fcf8e3;
-	#gradient > .vertical(rgba(0,0,0,0); 0%; rgba(0,0,0,.03); 100%);
+	background: #fcf8e3;
 	border: 1px solid #d7cab9;
 	border-radius: 4px;
-	
-	.close {
-		float: right;
-		font-size: 24px;
-		font-weight: bold;
-		line-height: 18px;
-		color: #000000;
-		opacity: .2;
-		position: relative;
-		top: -2px;
-		right: -21px;
-		line-height: 18px;
-		
-		&:hover {
-			color: #000000;
-			text-decoration: none;
-			cursor: pointer;
-			opacity: .4;
-		}
-		
-		i:before {
-			color: inherit;
-		}
-	}
-}
-
-.alert-heading {
-	color: inherit;
 }
 
 .alert-success {
 	color: #468847;
-	background-color: #dff0d8;
+	background: #dff0d8;
 	border-color: #b5c6a8;
 }
 
 .alert-danger,
 .alert-error {
 	color: #b94a48;
-	background-color: #f2dede;
+	background: #f2dede;
 	border-color: #dcc5ca;
 }
 
 .alert-info {
 	color: #3a87ad;
-	background-color: #d9edf7;
+	background: #d9edf7;
 	border-color: #a6ced8;
 }
 
 .alert-block {
 	padding-top: 1em;
 	padding-bottom: 1em;
-}
 
-.alert-block > p,
-.alert-block > ul {
-	margin-bottom: 0;
-}
+    > p,
+    > ul { margin-bottom: 0; }
 
-.alert-block p + p {
-	margin-top: 5px;
-}
-
-#devWarning p,
-#devWarning .rememberCloseButton {
-	padding-left: 3.5em;
-	position: relative;
-}
-
-#devWarning .rememberCloseButton {
-	margin-top: .6em;
-	display: inline-block;
-}
-
-#devWarning i:before {
-	color: rgba(138, 109, 61, .4);
-	font-size: 2em;
-	display: block;
-	position: absolute;
-	left: .2em;
-	top: .2em;
+    p + p { margin-top: 5px; }
 }
