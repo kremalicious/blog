@@ -36,7 +36,7 @@ markdown:               redcarpet
 pygments:               true
 
 redcarpet:
-  extensions:           ['autolink', 'smart']
+  extensions:           ['autolink', 'smart', 'hard_wrap']
 
 
 # Generator
