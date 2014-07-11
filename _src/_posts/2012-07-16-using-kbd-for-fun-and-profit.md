@@ -22,9 +22,7 @@ The above picture might be blurry depending on the device you're using so here's
 
 They are completely styled with CSS3 so they're sharp on all screens no matter how high the dpi. Have a look at the [full demo](http://lab.kremalicious.com/kbdfun/) or grab the project folder with the CSS & LESS files from GitHub. The code is under the MIT license so you're free to use it in any personal or commercial project.
 
-<a class="btn btn-primary" href="http://lab.kremalicious.com/kbdfun/">Demo</a> 
-<a class="btn btn-primary icon-download" href="https://github.com/kremalicious/kbdfun/zipball/master">Download</a> 
-<a class="btn icon-github" href="https://github.com/kremalicious/kbdfun/">Github</a>
+<a class="btn btn-primary" href="http://lab.kremalicious.com/kbdfun/">Demo</a> <a class="btn btn-primary icon-download" href="https://github.com/kremalicious/kbdfun/zipball/master">Download</a> <a class="btn icon-github" href="https://github.com/kremalicious/kbdfun/">Github</a>
 
 ## Usage
 
@@ -44,7 +42,7 @@ You also need to add all the Roboto font files from assets/fonts to your project
 
 ### LESS
 
-There're some variables in the kbdfun.less file you can customize. 
+There're some variables in the kbdfun.less file you can customize.
 
 For the Android style, there's roboto.less as include at the end. But the font files won't load unless you uncomment the .font-roboto line in kbdftw.less. This is to make sure, users won't download all the font files if you don't use the Android style.
 
