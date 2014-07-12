@@ -4,6 +4,19 @@
 // Buttons
 //
 
+// Reset default button element
+button
+    padding: 0
+    cursor: pointer
+    background: transparent
+    border: 0
+    -webkit-appearance: none
+
+    &:active
+        background: $link-color
+        transition: none
+        text-shadow: none
+
 .btn
     @extend .textcenter
     display: inline-block
@@ -147,14 +160,15 @@
     @extend .textcenter
     width: 16px
     height: 16px
-    line-height: 12px
-    font-size: 16px
-    padding: 0
+    line-height: 1
+    font-size: $font-size-small
     border-radius: 16px
     display: block
     background: $brand-grey-light
     color: #fff
 
-    &:hover
+    &:hover,
+    &:focus
         background: $link-color-hover
         color: #fff
+        cursor: pointer
