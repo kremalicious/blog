@@ -1,0 +1,44 @@
+//
+// kremalicious3
+// --------------
+// Animations
+//
+
+// Buttery Smooth(tm)
+////////////////////////////////////
+
+gpuacceleration()
+    -webkit-transform: translate3d(0,0,0)
+    -webkit-backface-visibility: hidden
+    -webkit-perspective: 1000
+
+.gpuacceleration
+    gpuacceleration()
+
+
+// Masonry
+////////////////////////////////////
+
+.masonry
+    transition-property: height, width
+
+    &,
+    .masonry-brick
+        transition-duration: 0.7s
+
+    .masonry-brick
+        transition-property: left, right, top
+
+
+// Loading Thingy
+////////////////////////////////////
+
+.loading
+    @extend .gpuacceleration
+    animation: loadingThingy .2s infinite
+
+@keyframes loadingThingy
+    0%
+        opacity: 1
+    100%
+        opacity: 0

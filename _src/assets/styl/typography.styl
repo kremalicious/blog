@@ -14,19 +14,19 @@ body
     font-size: $font-size-base
     line-height: $line-height-base
     color: $font-color-base
-	word-wrap: break-word
+    word-wrap: break-word
 
     @media $breakpoint1
         line-height: $line-height-computed
 
-	@media $breakpoint3
-		font-size: 125%
-		line-height: 1.6em
+    @media $breakpoint3
+        font-size: 125%
+        line-height: 1.6em
 
 p,
 ul,
 ol
-  	margin: 0 0 $line-height-computed
+    margin: 0 0 $line-height-computed
 
 
 // Headings
@@ -34,14 +34,15 @@ ol
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6
-	font-family: $headings-font-family
-	font-weight: $headings-font-weight
-	color: $headings-color
+    font-family: $headings-font-family
+    font-weight: $headings-font-weight
+    line-height: $headings-line-height
+    color: $headings-color
 
 h1, .h1,
 h2, .h2
-    margin-top: $line-height-computed*2
-    margin-bottom: $line-height-computed*2
+    margin-top: ($line-height-computed*2)
+    margin-bottom: ($line-height-computed*2)
 
 h3, .h3
 h4, .h4,
@@ -49,7 +50,7 @@ h5, .h5,
 h6, .h6
     margin-top: $line-height-computed
     margin-bottom: $line-height-computed
-  
+
 h1, .h1
     font-size: $font-size-h1
 
@@ -74,21 +75,20 @@ h6, .h6
 
 a
     color: $link-color
-	text-decoration: none
+    text-decoration: none
     outline: 0
     transition: color .2s ease-in-out
-    position: relative
-    
-    &:hover
+
+    &:hover,
+    &:focus
         color: $link-color-hover
-    
+
     &:active
         transition: none
-    	top: 1px
         background: $link-color
         color: #fff
         text-shadow: none
-    
+
     h1 &,
     h2 &,
     h3 &
@@ -106,53 +106,50 @@ ol
     padding-left: 2em
 
 ul li
-	position: relative
-	margin-bottom: .5em
+    position: relative
+    margin-bottom: .5em
 
-	&:before
-		font-size: 14px
-		font-family: 'entypo'
-		color: $text-color-light
-		speak: none
-		font-style: normal
-		font-weight: normal
-		font-variant: normal
-		text-transform: none
-		line-height: 1
-		-webkit-font-smoothing: antialiased
+    &:before
+        font-size: 14px
+        font-family: 'entypo'
+        color: $text-color-light
+        speak: none
+        font-style: normal
+        font-weight: normal
+        font-variant: normal
+        text-transform: none
+        line-height: 1
+        -webkit-font-smoothing: antialiased
 
-		position: absolute
-		left: -2em
-		top: .5em
+        position: absolute
+        left: -2em
+        top: .5em
 
 ol
-	counter-reset: ol-counter
+    counter-reset: ol-counter
 
     li
         position: relative
 
         &:before
-        	position: absolute
-        	left: -2em
-        	top: 0
-        	color: #fff
-        	content: counter(ol-counter)
-        	counter-increment: ol-counter
-        	font-style: italic
+            position: absolute
+            left: -2em
+            top: 0
+            color: #fff
+            content: counter(ol-counter)
+            counter-increment: ol-counter
+            font-style: italic
             font-size: 14px
-        	background: $text-color-dimmed
+            background: $text-color-dimmed
 
-        	width: 20px
+            width: 20px
             height: 20px
             border-radius: 20px
             line-height: 20px
-        	display: block
-        	text-align: center
-        	top: .2em
-        	box-shadow: 0 1px 0 rgba(255,255,255,.7))
-        }
-    }
-}
+            display: block
+            text-align: center
+            top: .2em
+            box-shadow: 0 1px 0 rgba(255,255,255,.7)
 
 ul,
 ol
@@ -160,16 +157,19 @@ ol
     ol
         margin-bottom: 0
 
-nav ul, 
-nav ol
-    @extend .list-unstyled
-
 // List options
 // Unstyled keeps list items block level, just removes default browser padding and list-style
-.list-unstyled
+list-unstyled()
     padding-left: 0
     list-style: none
     display: block
+
+.list-unstyled
+    list-unstyled()
+
+nav ul,
+nav ol
+    @extend .list-unstyled
 
 // Inline turns list items into inline-block
 .list-inline
@@ -188,24 +188,24 @@ nav ol
 /////////////////////////////////////
 
 p, li
-	hyphens: auto
+    hyphens: auto
 
-b, 
+b,
 strong,
 .bold
-	font-weight: 700
-	font-style: normal
+    font-weight: 700
+    font-style: normal
 
 em
-	font-style: italic
+    font-style: italic
 
 cite
-	font-style: normal
+    font-style: normal
 
 hr
     @extend .divider-bottom
     border: 0
-    margin-bottom: $line-height-computed*2
+    margin-bottom: ($line-height-computed*2)
 
 
 // Quotes
@@ -213,17 +213,16 @@ hr
 
 blockquote,
 blockquote > p
-	font-style: italic
-	color: $text-color-light
+    font-style: italic
+    color: $text-color-light
 
 blockquote
-    padding: ($line-height-computed / 2) $line-height-computed
+    padding: 0 $line-height-computed
     margin: 0 0 $line-height-computed
-	border-left: 2px solid $text-color-dimmed
-    
+    border-left: 2px solid $text-color-dimmed
+
     p:last-child
         margin-bottom: 0
-
 
 
 // Selection

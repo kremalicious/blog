@@ -9,24 +9,23 @@
 /////////////////////////////////////
 
 figure, img, svg, video, audio, embed, canvas
-	max-width: 100%
-	height: auto
-	margin: 0 auto
-	display: block
+    max-width: 100%
+    height: auto
+    margin: 0 auto
+    display: block
     border-radius: $border-radius-base
-
 
 // Images
 /////////////////////////////////////
 
 img
-	vertical-align: middle;
-	box-shadow: 0 1px 3px rgba(0,0,0,.2)
+    vertical-align: middle;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2)
 
 .teaser,
 .teaser img
-    margin-top: $line-height-computed*1.5
-    margin-bottom: $line-height-computed*1.5
+    margin-top: ($line-height-computed*1.5)
+    margin-bottom: ($line-height-computed*1.5)
 
 
 // Media Positioning
@@ -35,13 +34,12 @@ img
 img.alignleft,
 img.alignright,
 img.aligncenter
-	float: none
-	display: block
-	margin: $line-height-computed auto
+    float: none
+    display: block
+    margin: $line-height-computed auto
 
 @media $breakpoint2
-	img.alignleft
+    img.alignleft
         margin: 0 $line-height-computed $line-height-computed 0
-
-	img.alignright
+    img.alignright
         margin: 0 0 $line-height-computed $line-height-computed

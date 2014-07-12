@@ -9,9 +9,11 @@
 /////////////////////////////////////
 
 clearfix()
+    &:before,
     &:after
-        content: ""
+        content: " "
         display: table
+    &:after
         clear: both
 
 .clearfix
@@ -50,26 +52,32 @@ aligncenter()
 /////////////////////////////////////
 
 textcenter()
-	text-align: center
+    text-align: center
 
 .textcenter
-	textcenter()
+    textcenter()
 
 
 // Toggling content
 /////////////////////////////////////
 
 // Hide from both screenreaders and browsers: h5bp.com/u
-.hide
+hide()
     display: none !important
     visibility: hidden
 
-.show
+show()
     display: block
     visibility: visible
 
+.hide
+    hide()
+
+.show
+    show()
+
 // Hide only visually, but have it available for screenreaders: h5bp.com/v
-.visuallyhidden
+visuallyhidden()
     border: 0
     clip: rect(0 0 0 0)
     height: 1px
@@ -90,6 +98,9 @@ textcenter()
         position: static
         width: auto
 
+.visuallyhidden
+    visuallyhidden()
+
 // Hide visually and from screenreaders, but maintain layout
 .invisible
     visibility: hidden
@@ -100,21 +111,21 @@ textcenter()
 
 .ir,
 .hide-text
-	font: 0/0 a
-	color: transparent
-	text-shadow: none
-	background-color: transparent
-	border: 0
+    font: 0/0 a
+    color: transparent
+    text-shadow: none
+    background-color: transparent
+    border: 0
 
 
 // Dimmed Text
 /////////////////////////////////////
 
 dimmed()
-	color: $text-color-dimmed
-	p
+    color: $text-color-dimmed
+    p
         color: $text-color-dimmed
-	li
+    li
         color: $text-color-dimmed
 
 .dimmed
@@ -124,11 +135,23 @@ dimmed()
 // Text overflow
 /////////////////////////////////////
 
-.ellipsis
+ellipsis()
     text-overflow: ellipsis
+    overflow: hidden
     white-space: nowrap
-	overflow: hidden
 
+.ellipsis
+    ellipsis()
+
+
+// Default transition
+/////////////////////////////////////
+
+transition()
+    transition: all ease-in-out .15s
+
+.transition
+    transition()
 
 // Dashed Dividers
 /////////////////////////////////////
@@ -138,52 +161,49 @@ dimmed()
     position: relative
 
     &:before
-		content: ""
-		position: absolute
-		left: 0
+        content: ""
+        position: absolute
+        left: 0
         height: 1px
 
 .divider-top
-	border-top: 1px dashed #afc3cb
-	padding-top: 1em
+    border-top: 1px dashed #afc3cb
+    padding-top: 1em
 
-	&:after
-		content: ""
-		position: absolute
-		left: 0
+    &:after
+        content: ""
+        position: absolute
+        left: 0
         height: 1px
-		top: 0
-		width: 100%
-		border-top: 1px dashed #fff
+        top: 0
+        width: 100%
+        border-top: 1px dashed #fff
 
 .divider-bottom
-	border-bottom: 1px dashed #afc3cb
-	padding-bottom: 1em
+    border-bottom: 1px dashed #afc3cb
+    padding-bottom: 1em
 
-	&:before
-		bottom: -2px
-		width: 100%
-		border-bottom: 1px dashed #fff
-
+    &:before
+        bottom: -2px
+        width: 100%
+        border-bottom: 1px dashed #fff
 
 // Heading band
 /////////////////////////////////////
 
 .heading-band
-	display: inline-block
-	clear: both
-	background: rgba(255,255,255,.55)
-	padding: $line-height-computed/2 $line-height-computed $line-height-computed/2 100%
-	margin-left: -100%;
-	.border-right-radius($border-radius-base)
-
+    display: inline-block
+    clear: both
+    background: rgba(255,255,255,.55)
+    padding: ($line-height-computed/2) $line-height-computed ($line-height-computed/2) 100%
+    margin-left: -100%
 
 // Lead paragraph
 /////////////////////////////////////
 
 .lead
-    font-size: $font-size-large;
-    line-height: $line-height-computed*1.15
+    font-size: $font-size-large
+    line-height: ($line-height-computed*1.15)
 
 
 // Button sizing

@@ -1,0 +1,44 @@
+//
+// kremalicious3
+// --------------
+// Page - About
+//
+
+.page-about
+    .entry-title
+        @extend .visuallyhidden
+
+    .entry-content
+        @extend .textcenter
+
+    .footer
+        .avatar,
+        .footer-description
+            @extend .hide
+
+        .subscribe-title
+            margin-top: 0
+
+    @media only screen and (min-width: 40.625em) and (min-height: 650px)
+        .document
+            margin-bottom: 350px
+
+        .footer
+            height: 350px
+
+.intro-1,
+.intro-2
+    @extend .divider-bottom
+    @media $breakpoint2
+        max-width: 50%
+        margin-left: auto
+        margin-right: auto
+
+.intro-1
+    font-size: 2em
+    color: $text-color-light
+
+.intro-2
+    font-size: 1.2em
+    letter-spacing: .01em
+    color: $text-color-dimmed

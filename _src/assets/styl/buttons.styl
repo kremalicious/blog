@@ -17,7 +17,7 @@
     transition: all .2s ease-in-out
 
     // Default Button
-    button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base)
+    button-size($padding-base-vertical, $padding-base-horizontal, $font-size-small, $line-height-base, $border-radius-base)
     background-color: rgba(255,255,255,.1)
     border: 1px solid rgba(94,131,162,.3)
     border-bottom-color: rgba(94,131,162,.4)
@@ -25,81 +25,69 @@
     font-weight: $headings-font-weight
     color: $brand-grey
     text-transform: uppercase
-	box-shadow: 0 1px 3px rgba(151,156,159,.1), inset 0 1px 0 rgba(255,255,255,.7)
+    box-shadow: 0 1px 3px rgba(151,156,159,.1), inset 0 1px 0 rgba(255,255,255,.7)
 
-	&:hover,
+    &:hover,
     &:focus
-		background-color: rgba(255,255,255,.5)
+        background-color: rgba(255,255,255,.5)
 
-	&:active
-		background-color: transparent
-		border-top-color: rgba(94,131,162,.5)
-		box-shadow: 0 1px 0 #fff
-		transition: none
+    &:active
+        background-color: transparent
+        border-top-color: rgba(94,131,162,.5)
+        box-shadow: 0 1px 0 #fff
+        transition: none
 
     &:focus
        outline: 0
        border-color: $input-border-focus
 
-   // Disabled State
-   &.disabled,
-   &[disabled],
-   fieldset[disabled] &
-       cursor: not-allowed
-       pointer-events: none // Future-proof disabling of clicks
-       opacity: .6
-       box-shadow: none
+    // Disabled State
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] &
+        cursor: not-allowed
+        pointer-events: none // Future-proof disabling of clicks
+        opacity: .6
+        box-shadow: none
 
 .btn span
-	font-size: .9em
-	color: rgba(19, 56, 50, .6)
-	margin-left: .3em
+    font-size: .9em
+    color: rgba(19, 56, 50, .6)
+    margin-left: .3em
 
 // Primary Button
 .btn-primary
-	color: darken($link-color, 30%)
-	text-shadow: 0 1px 0 rgba(255,255,255,.3)
-	background: lighten(@link-color, 15%)
-	border-color: rgba(40,101,93,.4)
-	border-bottom-color: rgba(40,101,93,.5)
-	box-shadow: 0 1px 3px rgba(151,156,159,.1), inset 0 1px 0 rgba(255,255,255,.4)
+    color: darken($link-color, 50%)
+    text-shadow: 0 1px 0 rgba(255,255,255,.3)
+    background: lighten($link-color, 15%)
+    border-color: $link-color
+    box-shadow: 0 1px 3px $brand-grey-light, inset 0 1px 0 rgba(255,255,255,.4)
 
-	&:hover,
+    &:hover,
     &:focus
-		color: darken($link-color, 30%)
-		background-color: lighten($link-color, 25%)
-		text-shadow: 0 1px 0 rgba(255,255,255,.3)
+        color: darken($link-color, 50%)
+        background-color: lighten($link-color, 25%)
+        text-shadow: 0 1px 0 rgba(255,255,255,.3)
 
-	&:active
-		color: darken(@link-color, 30%)
-		background-color: lighten(@link-color, 15%)
-		border-top-color: rgba(40,101,93,.9)
-		box-shadow: 0 1px 0 #fff, inset 0 0 18px rgba(43,100,92,.3)
-
+    &:active
+        color: darken($link-color, 50%)
+        background-color: lighten($link-color, 15%)
+        box-shadow: 0 1px 0 #fff, inset 0 2px 5px rgba(43,100,92,.5)
 
 .more-link
-    @extend .btn
-	background: none
-	border: none
-	box-shadow: none
-	padding: 0
-	margin: 0
+    font-family: $headings-font-family
+    font-weight: $headings-font-weight
+    font-size: $font-size-small
+    color: $link-color
+    text-transform: uppercase
 
+    // icon
     i:before
         top: .15em
         position: relative
 
-	&:hover,
-    &:focus
-		background: none
-
-    &:active
-        background: $link-color
-        box-shadow: none
-
-
 .btn-block
-	display: block
+    display: block
 
 
 //
@@ -109,34 +97,54 @@
     display: inline-block
     padding: 1px 3px 0 3px
     height: 21px
-	border: 1px solid #ccc
-	border-radius: 3px
-	font: bold 11px/17px Helvetica, Arial, sans-serif
-	text-align: left
-	color: #333
-	text-transform: none
+    border: 1px solid #ccc
+    border-radius: 3px
+    font: bold 11px/17px Helvetica, Arial, sans-serif
+    text-align: left
+    color: #333
+    text-transform: none
     text-decoration: none
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .5)
-	background-color: #f8f8f8
-    background-image: linear-gradient(top, #fff, #dedede);
-	vertical-align: top
-	box-shadow: none
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5)
+    background-color: #f8f8f8
+    background-image: linear-gradient(top, #fff, #dedede)
+    vertical-align: top
+    box-shadow: none
 
     &:hover,
     &:focus,
     &:active
         border-color: #bbb
         background-color: #d9d9d9
-        background-image: linear-gradient(top, #f8f8f8, #d9d9d9);
+        background-image: linear-gradient(top, #f8f8f8, #d9d9d9)
 
     &:active
         top: 0
         background-color: #efefef
-        box-shadow: inset 0 3px 5px rgba(0,0,0,0.1)
+        box-shadow: inset 0 3px 5px rgba(0,0,0, .1)
 
     // icon
-	&:before
-		font-size: 15px
+    &:before
+        font-size: 15px
         margin-right: 2px
         top: 1px
         color: #0089cb
+
+
+// Close button
+/////////////////////////////////////
+
+a.close,
+.close
+    @extend .textcenter
+    width: 16px
+    height: 16px
+    line-height: 12px
+    font-size: 16px
+    padding: 0
+    border-radius: 16px
+    display: block
+    background: $brand-grey-light
+    color: #fff
+
+    &:hover
+        background: $link-color-hover

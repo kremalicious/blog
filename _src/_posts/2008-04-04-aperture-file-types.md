@@ -21,6 +21,6 @@ These icons are free for your personal use and include icons for all file types 
 
 Get them from [the goodies-page](http://www.kremalicious.com/goodies/) and have fun.
 
-<a class="btn btn-block icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
+<a class="btn btn-block icon icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
 
 And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](http://www.kremalicious.com/2008/04/changing-the-image-icons-in-mac-os-x-leopard/).

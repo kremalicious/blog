@@ -66,13 +66,14 @@ module.exports = function(grunt){
         stylus: {
             compile: {
                 options: {
-                    include css: true
-                }
+                    'include css': true,
+                    compress: false
+                },
                 files: {
                     '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css' : '<%= config.src %>/<%= config.assets.stylus %>/kremalicious3.styl',
                     '<%= config.site %>/<%= config.assets.css %>/poststyle-2300.min.css' : '<%= config.src %>/<%= config.assets.stylus %>/poststyle-2300.styl'
-                },
-            },
+                }
+            }
         },
 
         // combine css media queries
@@ -167,7 +168,7 @@ module.exports = function(grunt){
             },
             stylus: {
                 files: ['<%= config.src %>/<%= config.assets.stylus %>/*.styl'],
-                tasks: ['stylus','cmq','cssmin']
+                tasks: ['stylus', 'cmq', 'cssmin']
             },
             js: {
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],

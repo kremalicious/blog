@@ -11,53 +11,56 @@
 .page-title
     @extend .h2, .heading-band
     color: $brand-grey-light
-    margin-top: $line-height-computed/2
-    margin-bottom: $line-height-computed/2
+    margin-top: ($line-height-computed/2)
+    margin-bottom: ($line-height-computed/2)
 
     // icons
     &:before
         font-size: 32px
-        color: fade($text-color-dimmed, 70%)
+        color: rgba($text-color-dimmed, .7)
         margin-right: .5em
 
     @media $breakpoint2
         margin-left: -108%
+
         .page-photos &
-            margin-bottom: $line-height-computed*4
+            margin-bottom: ($line-height-computed*4)
 
 .hentry
     @extend .divider-bottom
-	padding: $line-height-computed*2 0
+    padding: ($line-height-computed*2) 0
 
-	@media $breakpoint2
-		padding: $line-height-computed*4 0
+    @media $breakpoint2
+        padding: ($line-height-computed*4) 0
 
-	&:first-child
+    &:first-child
         padding-top: $line-height-computed
 
     .page-single &
-        padding-bottom: $line-height-computed*2
+        padding-bottom: ($line-height-computed*2)
         border: none
+
         &:before
             @extend .hide
 
 // Post Title
 /////////////////////////////////////
 
-.entry-title {
+.entry-title
     @extend .h1, .textcenter
-	color: $headings-color
-	margin-top: 0
-	margin-bottom: $line-height-computed
+    color: $headings-color
+    margin-top: 0
+    margin-bottom: $line-height-computed
 
-	.format-link &
+    .format-link &
         @extend .h3
+
 
 // Post Content
 /////////////////////////////////////
 
 .entry-content
-	h1,
+    h1,
     h2
         @extend .heading-band
 
@@ -68,30 +71,12 @@
         margin-bottom: 0
 
 
-// post category icons
-/////////////////////////////////////
-
-.posttype
-	@extend .aligncenter
-	width: 20px
-	margin-bottom: $line-height-computed/2
-	margin-top: -$line-height-computed
-
-	// icon adjustments
-	&:before
-		font-size: 20px
-		color: $text-color-light
-
-	&:hover:before
-		color: $link-color
-
-
 // Post meta
 /////////////////////////////////////
 
 .entry-meta
     @extend .clearfix
-    margin-top: $line-height-computed*2
+    margin-top: ($line-height-computed*2)
     font-size: $font-size-small
 
 .byline,
@@ -101,10 +86,10 @@ time,
 
 .byline,
 time
-	font-style: italic
+    font-style: italic
 
 .byline
-	margin-bottom: 0
+    margin-bottom: 0
     color: $text-color-light
 
     .by
@@ -139,7 +124,7 @@ time
         display: block
 
     .download
-        margin-top: $line-height-computed/2
+        margin-top: ($line-height-computed/2)
 
         @media $breakpoint2
             margin-top: 0
@@ -152,28 +137,28 @@ time
     @media $breakpoint2
         width: 125%
         margin-left: -12.5%
-        .clearfix
+        clearfix()
 
     .hentry
         @media $breakpoint1
             width: 49%
-    		float: left
-    		clear: none
-    		padding-top: 0
-    		padding-bottom: 0
-    		margin-bottom: .7em
-    		margin-top: 0
-    		margin-left: 0
-    		margin-right: 1%
-    		border: none
+            float: left
+            clear: none
+            padding-top: 0
+            padding-bottom: 0
+            margin-bottom: .7em
+            margin-top: 0
+            margin-left: 0
+            margin-right: 1%
+            border: none
 
-    		&:before
+            &:before
                 display: none
 
             &:nth-child(2n+1)
                 margin-right: 0
 
-    		&:last-child
+            &:last-child
                 margin-bottom: 3em
 
 .grid-sizer

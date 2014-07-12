@@ -1,0 +1,19 @@
+//
+// kremalicious3
+// --------------
+// Content - Link Post
+//
+
+.linkurl
+    @extend .ellipsis, .aligncenter
+    font-family: $font-family-base
+    font-size: $font-size-mini
+    color: $text-color-dimmed
+    padding: ($line-height-computed/3) 0
+    max-width: 70%
+
+    @media $breakpoint2
+        max-width: 50%
+
+.permalink-link
+    @extend .alignright
