@@ -11,16 +11,14 @@
         left: 0
         width: 100%
 
-.search-btn
-    padding: .65em .85em
-
 .search-close
     position: absolute
-    right: 1em
+    right: 32px
 
     &,
     &:active
-        top: 1em
+        top: 50%
+        margin-top: -8px
 
 .search-area
     @extend .transition
@@ -39,11 +37,25 @@
 .search-results
     @extend .clearfix
 
-    .nav-link
-        @media $breakpoint2
-            width: 50%
-            float: left
-            font-size: $font-size-small
+    p
+        margin-bottom: 0
+
+.search-link
+    @extend .h6
+    padding: .5em 1em
+    display: block
+    margin-top: 0
+    margin-bottom: ($line-height-computed/2)
+
+    &:active
+        color: #fff
+
+    @media $breakpoint2
+        width: 50%
+        float: left
+
+        &:nth-child(odd)
+            clear: both
 
 .popover
     position: absolute

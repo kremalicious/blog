@@ -30,7 +30,7 @@ var siteNavigation = {
             $searchfield.jekyllSearch({
                 searchResults       : $searchresults,
                 searchResultsTitle  : '',
-                template            : '<a class="nav-link" href="{url}" title="{title}">{title}</a>',
+                template            : '<a class="search-link" href="{url}" title="{title}">{title}</a>',
                 fuzzy               : true
             });
 

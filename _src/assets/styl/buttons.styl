@@ -10,6 +10,7 @@
     margin-bottom: 0
     font-weight: normal
     vertical-align: middle
+    touch-action: manipulation
     cursor: pointer
     background-image: none // Reset unusual Firefox-on-Android default style
     white-space: nowrap
@@ -133,7 +134,6 @@
 // Close button
 /////////////////////////////////////
 
-a.close,
 .close
     @extend .textcenter
     width: 16px
@@ -148,3 +148,4 @@ a.close,
 
     &:hover
         background: $link-color-hover
+        color: #fff

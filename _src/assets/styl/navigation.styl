@@ -7,6 +7,7 @@
 .menu-btn,
 .search-btn
     @extend .textcenter
+    text-shadow: 0 1px 0 rgba(#fff, .5)
     line-height: 1em
     vertical-align: middle
     display: inline-block
@@ -15,12 +16,8 @@
     right: 0
     top: 0
 
-    // icons
-    &:before
-        color: $link-color
-
     &:hover:before
-        color: $link-color-hover
+        color: $link-color
 
     &:active:before
         transition: none
@@ -28,6 +25,7 @@
 
 .search-btn
     right: 50px
+    padding: .65em .85em
 
 
 // Main Navigation
@@ -53,13 +51,12 @@
 
 .nav-link
     @extend .h6, .alignleft, .textcenter
+    text-shadow: 0 1px 0 rgba(#fff, .5)
     padding: .5em 1em
     margin-bottom: 0
     width: 50%
     color: $text-color-dimmed
-    line-height: $line-height-computed
     text-transform: uppercase
-    font-size: $font-size-small
 
     @media $breakpoint2
         width: 33.3%
@@ -68,6 +65,7 @@
     &:before
         @extend .textcenter, .transition
         display: block
+        margin-bottom: 5px
         width: 100%
         font-size: 32px
         height: 32px
@@ -84,6 +82,7 @@
     &:active
         background: $link-color
         top: 0
+        color: #fff
 
     &:active:before
         color: #fff
