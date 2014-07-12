@@ -1,0 +1,146 @@
+//
+// kremalicious3
+// --------------
+// Global variables & settings
+//
+
+
+// Settings
+/////////////////////////////////////
+
+vendors                     = official webkit       // Stylus' @keyframes settings
+vendor-prefixes             = webkit moz official   // Nib vendor prefixes
+support-for-ie              = false                 // Nib IE 8 support
+
+
+// Asset Paths
+/////////////////////////////////////
+
+$img-path				 	 = '/assets/images/'
+$font-path					 = '/assets/fonts/'
+
+
+// Colors
+/////////////////////////////////////
+
+$brand-dark                 = #015565
+$brand-light                = #e7eef4
+$brand-cyan                 = #3a9085
+$brand-grey                 = #56666e
+$brand-grey-light           = #96a6ad
+
+
+// Typography
+/////////////////////////////////////
+
+$font-size-base             = 18px
+$font-size-large            = ceil($font-size-base * 1.35)
+$font-size-small            = ceil($font-size-base * 0.8)
+$font-size-mini             = ceil($font-size-base * 0.7)
+
+$font-size-h1               = floor(($font-size-base * 2.75))
+$font-size-h2               = floor(($font-size-base * 2))
+$font-size-h3               = ceil(($font-size-base * 1.75))
+$font-size-h4               = $font-size-large
+$font-size-h5               = $font-size-base
+$font-size-h6               = $font-size-small
+
+$line-height-base           = 1.5
+$line-height-computed       = floor($font-size-base * $line-height-base)
+$line-height-large          = 1.7142857143
+$line-height-small          = 1.1428571429
+
+$font-family-base           = 'ff-tisa-sans-web-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font-weight-base           = 400
+$font-color-base            = $brand-grey
+
+$font-family-monospace      = Menlo, Monaco, Consolas, 'Courier New', monospace
+
+$headings-font-family       = 'brandon-grotesque','Helvetica Neue',Helvetica,Arial,sans-serif
+$headings-font-weight       = 500 // Medium
+$headings-line-height       = 1.2
+$headings-color             = $brand-dark
+
+
+// Text Colors
+/////////////////////////////////////
+
+$text-color                 = lighten($brand-grey, 5%)
+$text-color-light           = darken($brand-grey-light, 5%)
+$text-color-dimmed          = lighten($brand-grey-light, 5%)
+
+
+// Scaffolding
+/////////////////////////////////////
+
+$body-bg                    = #dfe8ef
+$page-bg                    = $brand-light
+
+
+// Links
+/////////////////////////////////////
+
+$link-color                 = lighten($brand-cyan, 5%)
+$link-color-hover           = lighten($link-color, 10%)
+
+
+// Components spacing
+/////////////////////////////////////
+
+$border-radius-base         = 3px
+$border-radius-small        = $border-radius-base
+$border-radius-large        = $border-radius-base
+
+$padding-base-vertical      = 6px
+$padding-base-horizontal    = 12px
+
+$padding-small-vertical     = ($padding-base-vertical / 2)
+$padding-small-horizontal   = ($padding-base-horizontal / 2)
+
+$padding-large-vertical     = ($padding-base-vertical * 2)
+$padding-large-horizontal   = ($padding-base-horizontal * 2)
+
+
+// Forms
+/////////////////////////////////////
+
+$input-bg                   = rgba(255,255,255,.3)
+$input-bg-focus             = rgba(255,255,255,.7)
+$input-bg-disabled          = $brand-grey-light
+
+$input-font-size            = $font-size-base
+$input-font-weight          = 700
+
+$input-color                = $font-color-base
+$input-color-placeholder    = rgba(46, 79, 92, .3)
+
+$input-border               = $brand-grey-light
+$input-border-radius        = $border-radius-base
+$input-border-focus         = $brand-cyan
+
+$input-height-base          = ($line-height-computed + ($padding-base-vertical * 2) + 2)
+$input-height-large         = (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 1)
+$input-height-small         = (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2)
+
+
+// Code
+/////////////////////////////////////
+
+$code-bg                    = rgba(255,255,255,.6)
+$code-color                 = spin($text-color, 70)
+$kbd-bg                     = $code-bg
+$kbd-color                  = $code-color
+
+// Responsive breakpoints
+/////////////////////////////////////
+
+$breakpoint1                = 'only screen and (min-width: 30em)'
+$breakpoint2                = 'only screen and (min-width: 40.625em)'
+$breakpoint3                = 'only screen and (min-width: 87.500em)'
+
+
+// High dpi media query
+/////////////////////////////////////
+
+$highDPI                    = 'print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) '
+$highDPI_3x                 = 'print, (-webkit-min-device-pixel-ratio: 3), (min-resolution: 344dpi) '

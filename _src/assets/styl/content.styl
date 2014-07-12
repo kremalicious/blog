@@ -1,0 +1,183 @@
+//
+// kremalicious3
+// --------------
+// Generic Content
+//
+
+
+// Page Title
+/////////////////////////////////////
+
+.page-title
+    @extend .h2, .heading-band
+    color: $brand-grey-light
+    margin-top: $line-height-computed/2
+    margin-bottom: $line-height-computed/2
+
+    // icons
+    &:before
+        font-size: 32px
+        color: fade($text-color-dimmed, 70%)
+        margin-right: .5em
+
+    @media $breakpoint2
+        margin-left: -108%
+        .page-photos &
+            margin-bottom: $line-height-computed*4
+
+.hentry
+    @extend .divider-bottom
+	padding: $line-height-computed*2 0
+
+	@media $breakpoint2
+		padding: $line-height-computed*4 0
+
+	&:first-child
+        padding-top: $line-height-computed
+
+    .page-single &
+        padding-bottom: $line-height-computed*2
+        border: none
+        &:before
+            @extend .hide
+
+// Post Title
+/////////////////////////////////////
+
+.entry-title {
+    @extend .h1, .textcenter
+	color: $headings-color
+	margin-top: 0
+	margin-bottom: $line-height-computed
+
+	.format-link &
+        @extend .h3
+
+// Post Content
+/////////////////////////////////////
+
+.entry-content
+	h1,
+    h2
+        @extend .heading-band
+
+    h1
+        font-size: ceil($font-size-base * 2.5)
+
+    p:last-child
+        margin-bottom: 0
+
+
+// post category icons
+/////////////////////////////////////
+
+.posttype
+	@extend .aligncenter
+	width: 20px
+	margin-bottom: $line-height-computed/2
+	margin-top: -$line-height-computed
+
+	// icon adjustments
+	&:before
+		font-size: 20px
+		color: $text-color-light
+
+	&:hover:before
+		color: $link-color
+
+
+// Post meta
+/////////////////////////////////////
+
+.entry-meta
+    @extend .clearfix
+    margin-top: $line-height-computed*2
+    font-size: $font-size-small
+
+.byline,
+time,
+.categories
+    @extend .textcenter
+
+.byline,
+time
+	font-style: italic
+
+.byline
+	margin-bottom: 0
+    color: $text-color-light
+
+    .by
+        display: block
+
+time
+    display: block
+    color: $text-color-dimmed
+
+.categories
+    margin-top: $line-height-computed
+
+.avatar
+    width: 80px
+    height: 80px
+    border-radius: 80px
+    border: 2px solid #fff
+
+
+// Goodies download
+/////////////////////////////////////
+
+.goodie-actions
+    @extend .clearfix, .aligncenter
+    max-width: 640px
+
+    p,
+    .btn
+        margin-bottom: 0
+
+    .btn
+        display: block
+
+    .download
+        margin-top: $line-height-computed/2
+
+        @media $breakpoint2
+            margin-top: 0
+            text-align: right
+
+// Masonry
+/////////////////////////////////////
+
+.masonry
+    @media $breakpoint2
+        width: 125%
+        margin-left: -12.5%
+        .clearfix
+
+    .hentry
+        @media $breakpoint1
+            width: 49%
+    		float: left
+    		clear: none
+    		padding-top: 0
+    		padding-bottom: 0
+    		margin-bottom: .7em
+    		margin-top: 0
+    		margin-left: 0
+    		margin-right: 1%
+    		border: none
+
+    		&:before
+                display: none
+
+            &:nth-child(2n+1)
+                margin-right: 0
+
+    		&:last-child
+                margin-bottom: 3em
+
+.grid-sizer
+    width: 100%
+
+    @media screen and (min-width: 480px)
+        width: 50%

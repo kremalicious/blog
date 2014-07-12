@@ -1,0 +1,237 @@
+//
+// kremalicious3
+// --------------
+// Scaffolding
+//
+
+
+// Body reset
+/////////////////////////////////////
+
+html
+    font-size: 62.5%
+    -webkit-tap-highlight-color: fade($link-color, 20%);
+
+body
+    background: $body-bg
+
+
+.document
+    position: relative
+
+
+// Topbar
+/////////////////////////////////////
+
+.topbar
+    @extend .clearfix
+    background: $body-bg
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: inset 0 1px 4px fade($brand-dark, 20%), inset 0 -1px 4px fade($brand-dark, 20%)
+    
+    .row
+        margin-top: $line-height-computed/2
+        margin-bottom: $line-height-computed/2
+        position: relative
+
+
+// Banner
+/////////////////////////////////////
+
+.banner
+    @extend .alignleft
+    
+    @media $breakpoint2
+        margin-left: -54px
+    
+	.banner-title
+        margin-top: .1em
+        margin-bottom: 0
+		// display toned down logo
+		// by default
+        @extend .logo
+	
+	.banner-logo
+		.ir
+		
+		// repeat logo
+		// but display hover version
+		@extend .logo
+		background-position: left bottom
+
+		// hide by default
+		opacity: 0
+		// show smooooothly on hover
+		&:hover { opacity: 1 }
+		&:active { top: 0 }
+
+
+// Logo
+/////////////////////////////////////
+
+.logo
+	display: block
+	background-image: data-uri('../img/logo.png')
+	background-repeat: no-repeat
+	background-position: left top
+    width: 47px
+	height: 31px
+    
+    @media $breakpoint2
+        width: 183px
+
+    @media $highDPI
+    	background-image: url('../img/logo@2x.png')
+    	background-size: 183px 62px
+
+    @media $highDPI_3x
+    	background-image: url('../img/logo@3x.png')
+    	background-size: 183px 62px
+
+
+// close button
+/////////////////////////////////////
+
+a.close,
+.close
+    @extend .textcenter
+    width: 16px
+    height: 16px
+    line-height: 12px
+    font-size: 16px
+    padding: 0
+    border-radius: 16px
+    display: block
+    background: $brand-grey-light
+    color: #fff
+    
+    &:hover
+        background: $link-color-hover
+
+
+// Footer
+/////////////////////////////////////
+
+.footer
+	@extend .textcenter
+	background: fade($brand-dark, 5%)
+    border-top: 1px solid rgba(255,255,255,.7)
+    box-shadow: inset 0 1px 4px fade($brand-dark, 20%)
+    
+    .gravatar
+        margin-bottom: $line-height-computed/2
+    
+    .footer-description
+        @extend .h5
+        a
+            display: block
+    
+    &,
+    .footer-description
+        color: $text-color-light
+        line-height: $line-height-computed
+    
+	.footer-copyright
+        @extend .divider-top
+		padding-top: $line-height-computed
+		padding-bottom: $line-height-computed
+        
+		p
+			margin-bottom: 0
+			font-size: $font-size-mini
+
+// Subscribe component
+.subscribe
+	margin: $line-height-computed auto
+	p
+        @extend .clearfix .textcenter
+		margin: 0
+    
+	.btn
+        @extend .textcenter
+        width: 48px
+        height: 40px
+        line-height: 34px
+        padding: 0
+		margin: 0
+		display: inline-block
+		color: $text-color-light
+        
+		&:first-child
+            margin-left: 0
+		&:last-child
+            margin-right: 0
+        
+    	&:before
+    		// Icon resets for color animations
+    		transition: color .3s ease-in-out)
+			color: inherit
+			margin: 0 !important
+
+.subscribe-title
+    @extend .h5
+    color: $text-color-dimmed
+    margin-bottom: $line-height-computed/2
+    
+.footer:hover .subscribe .rss:before
+	color: #e15a00
+
+.footer:hover .subscribe .twitter:before
+	color: #019ad2
+
+.footer:hover .subscribe .google:before
+	color: #c63b1e
+
+.footer:hover .subscribe .facebook:before
+	color: #3b5998
+
+
+// topbar and footer as fixed 
+// site background
+/////////////////////////////////////
+
+.topbar
+    height: 71px
+    
+    .menu-open &
+        height: auto
+
+.document
+    background-color: $page-bg
+
+@media only screen and (min-width: 40.625em) and (min-height: 650px)
+    body
+        position: relative
+        
+    .document
+        z-index: 2
+        margin-top: 71px
+        .transition
+        
+        .menu-open &
+            margin-top: 300px
+
+        margin-bottom: 580px;
+        border-top: 1px solid rgba(255,255,255,.7)
+        border-bottom: 1px solid rgba(255,255,255,.7)
+        box-shadow: 0 1px 4px fade($brand-dark, 10%), 0 -1px 4px fade($brand-dark, 10%)
+
+    .topbar,
+    .footer
+        position: fixed
+        border: none
+
+    .topbar
+        z-index: 1
+        top: 0
+        box-shadow: inset 0 1px 4px fade($brand-dark, 10%)
+        border: none
+    
+    .footer
+        z-index: 0
+        height: 580px
+        bottom: 0
+        box-shadow: none
+        
+        .menu-open &
+            @extend .hide
