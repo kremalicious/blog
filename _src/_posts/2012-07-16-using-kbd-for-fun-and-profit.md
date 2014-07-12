@@ -22,7 +22,11 @@ The above picture might be blurry depending on the device you're using so here's
 
 They are completely styled with CSS3 so they're sharp on all screens no matter how high the dpi. Have a look at the [full demo](http://lab.kremalicious.com/kbdfun/) or grab the project folder with the CSS & LESS files from GitHub. The code is under the MIT license so you're free to use it in any personal or commercial project.
 
-<a class="btn btn-primary" href="http://lab.kremalicious.com/kbdfun/">Demo</a> <a class="btn btn-primary icon icon-download" href="https://github.com/kremalicious/kbdfun/zipball/master">Download</a> <a class="btn icon icon-github" href="https://github.com/kremalicious/kbdfun/">Github</a>
+<p class="clearfix">
+	<a class="btn btn-primary col2" href="http://lab.kremalicious.com/kbdfun/">Demo</a>
+	<a class="btn btn-primary col2 icon icon-download" href="https://github.com/kremalicious/kbdfun/zipball/master">Download</a>
+	<a class="btn col2 icon icon-github" href="https://github.com/kremalicious/kbdfun/">Github</a>
+</p>
 
 ## Usage
 
