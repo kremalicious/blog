@@ -30,39 +30,15 @@ Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 
-
-
-
-
   1. Modify and install Netatalk (Open Source AFP implementation)
-
-
   2. Configure Netatalk
-
-
   3. Configure shared volumes (and Time Machine volume)
-
-
   4. Install Avahi (Open Source Bonjour implementation)
-
-
   5. Configure Avahi and advertise services
-
-
   6. Configure TimeMachine
-
-
   7. Conclusion, Problems and more informations
-
-
   8. Downloading and using the Server Display Icons
-
-
   9. Translations Of This Article
-
-
-
-
 
 # 1. Modify and install Netatalk
 
