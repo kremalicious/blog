@@ -15,12 +15,13 @@
 .related-post
 
     .post-title
-        @extend .h6
+        @extend .h5
         margin-top: $line-height-computed
         margin-bottom: $line-height-computed
 
     .post-title,
     .post-title-link
+        @extend .transition
         color: $brand-grey-light
 
         &:hover,
