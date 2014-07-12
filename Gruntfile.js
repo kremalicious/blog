@@ -7,7 +7,7 @@ module.exports = function(grunt){
         site: '_site',
         build: '_build',
         assets: {
-            less:   'assets/less',
+            stylus: 'assets/styl',
             css:    'assets/css',
             js:     'assets/js',
             img:    'assets/img',
@@ -62,12 +62,15 @@ module.exports = function(grunt){
             }
         },
 
-        // less
-        less: {
-            production: {
+        // Stylus
+        stylus: {
+            compile: {
+                options: {
+                    include css: true
+                }
                 files: {
-                    '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css' : '<%= config.src %>/<%= config.assets.less %>/kremalicious3.less',
-                    '<%= config.site %>/<%= config.assets.css %>/poststyle-2300.min.css' : '<%= config.src %>/<%= config.assets.less %>/poststyle-2300.less'
+                    '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css' : '<%= config.src %>/<%= config.assets.stylus %>/kremalicious3.styl',
+                    '<%= config.site %>/<%= config.assets.css %>/poststyle-2300.min.css' : '<%= config.src %>/<%= config.assets.stylus %>/poststyle-2300.styl'
                 },
             },
         },
@@ -162,9 +165,9 @@ module.exports = function(grunt){
             options: {
                 livereload: true
             },
-            less: {
-                files: ['<%= config.src %>/<%= config.assets.less %>/*.less'],
-                tasks: ['less','cmq','cssmin']
+            stylus: {
+                files: ['<%= config.src %>/<%= config.assets.stylus %>/*.styl'],
+                tasks: ['stylus','cmq','cssmin']
             },
             js: {
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],
@@ -181,7 +184,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_posts/**',
                     '<%= config.src %>/_drafts/**'
                 ],
-                tasks: ['jekyll:development', 'less', 'cmq', 'cssmin', 'uglify']
+                tasks: ['jekyll:development', 'stylus', 'cmq', 'cssmin', 'uglify']
             },
         },
 
@@ -253,7 +256,7 @@ module.exports = function(grunt){
 
     // Default Task, assets only
     grunt.registerTask('default', [
-        'less',
+        'stylus',
         'cmq',
         'cssmin',
         'uglify',
@@ -266,7 +269,7 @@ module.exports = function(grunt){
         'clean:site',
         'jekyll:development',
         'rsync:copy_media',
-        'less',
+        'stylus',
         'cmq',
         'cssmin',
         'uglify',
@@ -279,7 +282,7 @@ module.exports = function(grunt){
         'clean',
         'jekyll:production',
         'rsync:copy_media',
-        'less',
+        'stylus',
         'cmq',
         'cssmin',
         'uglify',
