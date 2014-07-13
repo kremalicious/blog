@@ -655,11 +655,11 @@ FileETag None
 # Rewrite post urls
 <IfModule mod_rewrite.c>
     RewriteBase /
-    
+
     # redirect all index.html to parent folder
     RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]
     RewriteRule . %1 [R=301,NE,L]
-    
+
 </IfModule>
 
 # feed redirects
@@ -701,3 +701,6 @@ Redirect 301 /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-pho
 Redirect 301 /4-more-icons-niepces-camera-obscura-v11 /niepces-camera-obscura-and-the-history-of-the-first-photograph
 Redirect 301 /canon-eos-50d-officially-announced-and-new-lens /
 Redirect 301 /apple-touch-icon.png /apple-touch-icon-precomposed.png
+
+Redirect 301 /most-popular-stuff-on-kremaliciouscom-in-2008/ /
+Redirect 301 /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/ /ubuntu-as-mac-file-server-and-time-machine-volume
