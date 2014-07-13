@@ -9,8 +9,8 @@ class String
       word
     end
     # capitalize first and last words
-    #x.first.to_s.smart_capitalize!
-    #x.last.to_s.smart_capitalize!
+    x.first.to_s.smart_capitalize!
+    x.last.to_s.smart_capitalize!
     # small words are capitalized after colon, period, exclamation mark, question mark
     x.join(" ").gsub(/(:|\.|!|\?)\s?(\W*#{small_words.join("|")}\W*)\s/) { "#{$1} #{$2.smart_capitalize} " }
   end
