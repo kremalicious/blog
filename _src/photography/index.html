@@ -5,13 +5,13 @@ category: photography
 ---
 
 <section role="main" id="main" class="row">
-    
-    <h1 class="page-title icon-{{ page.category }}">{{ page.category }}</h1>
-    
+
+    <h1 class="page-title icon icon-{{ page.category }}">{{ page.category }}</h1>
+
     {% for post in paginator.posts %}
-    
+
         {% include articles.html %}
-        
+
     {% endfor %}
 
 </section>

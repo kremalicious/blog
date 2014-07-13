@@ -6,18 +6,18 @@ category: photos
 ---
 
 <section role="main" id="main" class="row">
-    
-    <h1 class="page-title icon-photos">photos</h1>
-    
+
+    <h1 class="page-title icon icon-photos">photos</h1>
+
         <div class="masonry">
             <div class="grid-sizer"></div>
-    
+
             {% for post in paginator.posts %}
-    
+
                 {% include articles.html %}
-        
+
             {% endfor %}
-    
+
         </div>
 
 </section>
