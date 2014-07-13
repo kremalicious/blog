@@ -42,3 +42,48 @@ gpuacceleration()
         opacity: 1
     100%
         opacity: 0
+
+//
+// Bounce
+//
+// taken and adapted from
+// http://daneden.github.io/animate.css/
+////////////////////////////////////
+
+// Down
+@keyframes bounceInDown
+    0%, 60%, 75%, 90%, 100%
+        // http://cubic-bezier.com/#.06,.85,.54,1.39
+        transition-timing-function: cubic-bezier(.06,.85,.54,1)
+
+    0%
+        transform: translate3d(0, -100px, 0)
+
+    60%
+        transform: translate3d(0, 20px, 0)
+
+    75%
+        transform: translate3d(0, -10px, 0)
+
+    90%
+        transform: translate3d(0, 5px, 0)
+
+    100%
+        transform: none
+
+.bounceInDown
+    animation: bounceInDown .4s both
+
+// Up
+@keyframes bounceOutUp
+    20%
+        transform: translate3d(0, -10px, 0)
+
+    40%, 45%
+        transform: translate3d(0, 20px, 0)
+
+    100%
+        transform: translate3d(0, -100px, 0)
+
+.bounceOutUp
+    animation: bounceOutUp .5s both
