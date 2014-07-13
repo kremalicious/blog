@@ -30,39 +30,15 @@ Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 
-
-
-
-
   1. Modify and install Netatalk (Open Source AFP implementation)
-
-
   2. Configure Netatalk
-
-
   3. Configure shared volumes (and Time Machine volume)
-
-
   4. Install Avahi (Open Source Bonjour implementation)
-
-
   5. Configure Avahi and advertise services
-
-
   6. Configure TimeMachine
-
-
   7. Conclusion, Problems and more informations
-
-
   8. Downloading and using the Server Display Icons
-
-
   9. Translations Of This Article
-
-
-
-
 
 # 1. Modify and install Netatalk
 
@@ -316,13 +292,13 @@ In short you have to allow communications over port 548 and 5353.
 
 ## "Connection Failed"
 
-If you get one of those errors: 
+If you get one of those errors:
 
 ````
 Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
 ```
 
-or 
+or
 
 ```
 There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
@@ -419,7 +395,7 @@ Here you can see the icons included in the Server Displays icon pack:
 
 Because I've just modified Apple's standard icons these icons are just available via this blog post and they will not show up in my Goodies section. Just download the whole package directly via this link:
 
-<a class="btn btn-primary icon-download" href="/media/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
+<a class="btn btn-primary icon icon-download" href="/media/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
 
 # How to use the icons
 

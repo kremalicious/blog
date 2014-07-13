@@ -29,7 +29,7 @@ But I think you don't want to load tons of scripts on your websites if you inclu
 
 To make this a bit more straightforward I provide these links compiled within two Coda Clip files for use with [Panic's Coda](http://panic.com/coda). While the first clip group contains all the plain link snippets the second group includes those snippets for use with Wordpress. Just download and add them to your Coda Clips collection:
 
-<a class="btn btn-primary icon-download" href="/media/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
+<a class="btn btn-primary icon icon-download" href="/media/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
 
 Included are a **total of 40 share links per clip group** for the following social/bookmark sites. This list uses the links provided in the Coda clips so you can test them out here with this article ;-):
 
@@ -42,7 +42,7 @@ _
 
 If you download the above Coda Clip files this icon is already applied on the clip files but here're just the icon files (icns, folder, iContainer, PNGs):
 
-<a class="btn btn-primary icon-download" href="http://www.kremalicious.com/media/coda-clips-icon-files.zip" title="Download Coda Clips Icon">Download Coda Clips Icon</a>
+<a class="btn btn-primary icon icon-download" href="http://www.kremalicious.com/media/coda-clips-icon-files.zip" title="Download Coda Clips Icon">Download Coda Clips Icon</a>
 
 ## 2. Usage
 
@@ -106,7 +106,7 @@ To me a more cleaner solution is to use the css background-image property to inc
 And in your CSS select this class and style it with a background image. Assuming you want the site icon to appear left beside the link text you would also have to add some padding so the text won't overlap the icons:
 
 
-{% highlight css %}  
+{% highlight css %}
     .delicious {
     	background: url(delicious.png) no-repeat center center;
     	padding-left: 20px;
@@ -116,7 +116,7 @@ And in your CSS select this class and style it with a background image. Assuming
 
 If you want to use just icons and no text you should provide a link text anyway but hide it with css. This is a good practice for accessibility and search engine optimization. Also you would have to provide the dimensions of the icon:
 
-{% highlight css %}  
+{% highlight css %}
     .delicious {
     	width: 16px;
     	height: 16px;
@@ -129,13 +129,13 @@ If you want to use just icons and no text you should provide a link text anyway 
 
 Sadly Coda's clips aren't in a portable format ([Panic guys](http://panic.com), consider this is a feature request!) so here's a comprehensive list for the non-Coda users of all the links included in the above Coda Clips with plain and the Wordpress version for every site. This comes as a downloadable stripped-down HTML file (meaning there's no HTML site structure included) and as a long list within in this article. First, here's the HTML file download. Just open this locally in your browser or in your favorite editor:
 
-<a class="btn btn-primary icon-download" href="http://www.kremalicious.com/media/share-link-bonanza-html.zip" title="Download Share Links HTML File">Download Share Links HTML File</a>
+<a class="btn btn-primary icon icon-download" href="http://www.kremalicious.com/media/share-link-bonanza-html.zip" title="Download Share Links HTML File">Download Share Links HTML File</a>
 
 And here's the huge list with all the share links in case you quickly want to grab just one of them. But be warned that this is a huge list so this is hidden by default.
 
 Just click the Toggle All Links button to reveal them and click it again to hide the whole list again. If you want to import one of these links into Coda you can just use the [Coda Clips bookmarklet created by kyle](http://www.rayogram.com/coda-clips-bookmarklet), as he points out [in the comments](http://www.kremalicious.com/2009/03/ultimate-coda-wordpress-share-link-bonanza/#comment-42084).
 
-↓ Toggle All Links ↓ 
+↓ Toggle All Links ↓
 
 ## Delicious
 
@@ -188,13 +188,13 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 
 **Plain**
 
-    
-    <code class="html"><!-- Digg This Link 
-    
+
+    <code class="html"><!-- Digg This Link
+
     	Usage:
     	--------------------------------------------------
-    	url		: URL-encode all strings as appropriate. 
-    			  For example: 
+    	url		: URL-encode all strings as appropriate.
+    			  For example:
     			  http%3A%2F%2Fyourwebsite%2Fyourstoryurl.html
     			  Maximum length is 255 characters
     	title	: Also URL-encode the story title

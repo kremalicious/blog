@@ -1,0 +1,34 @@
+//
+// kremalicious3
+// --------------
+// Alerts
+//
+
+.alert
+    padding: $padding-base-vertical $padding-base-horizontal
+    margin-bottom: $line-height-computed
+    border-radius: $border-radius-base
+    font-size: $font-size-small
+    border: 1px solid transparent
+
+    > p,
+    > ul
+        margin-bottom: 0
+    > p + p
+        margin-top: 5px
+
+.alert-success
+    color: #468847
+    background: #dff0d8
+    border-color: darken(#dff0d8, 5%)
+
+.alert-danger,
+.alert-error
+    color: #b94a48
+    background: #f2dede
+    border-color: darken(#f2dede, 5%)
+
+.alert-info
+    color: #3a87ad
+    background: #d9edf7
+    border-color: darken(#d9edf7, 5%)

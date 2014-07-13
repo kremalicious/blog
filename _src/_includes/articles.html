@@ -5,7 +5,7 @@
     	<header>
     		<h1 class="entry-title">
                 <a href="{{ post.linkurl }}" title="Go to source: {{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
-                    {{ post.title | titlecase }} <i class="icon-forward"></i>
+                    {{ post.title | titlecase }} <i class="icon icon-forward"></i>
                     <span class="linkurl">{{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
@@ -14,7 +14,7 @@
         <section class="entry-content">
             {{ post.content | markdownify }}
     		<p>
-    			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon-forward"></i></a>
+    			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon icon-forward"></i></a>
                 <a class="permalink-link" href="{{ post.url | append: '/' }}" rel="tooltip" title="Permalink">&#8734;</a>
     		</p>
         </section>
@@ -26,58 +26,58 @@
 
         <a class="photo-link" href="{{ post.url }}">
         	<figure class="hmedia">
-            
+
                 {% picture {{ post.image }} %}
-            
+
         		<figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
         	</figure>
         </a>
 
     </article>
 
-{% else %}                
-    
+{% else %}
+
     <article class="hentry format-post">
     	<header>
     		<h1 class="entry-title"><a href="{{ post.url | append: '/' }}">{{ post.title | titlecase }}</a></h1>
     	</header>
 
         <section class="entry-content">
-    
+
             {% if post.image %}
                 <a href="{{ post.url | append: '/' }}">
                     {% picture {{ post.image }} class="teaser" %}
                 </a>
             {% endif %}
-    
+
             {% capture has_more %}{{ post.content | has_more }}{% endcapture %}
-    
+
             {% if has_more == 'true' %}
-                {{ post.content | post.excerpt | excerpt | markdownify }}            
+                {{ post.content | post.excerpt | excerpt | markdownify }}
             {% else %}
                 {% unless post.categories contains "goodies" and page.path contains "goodies" %}
                     {{ post.excerpt | markdownify }}
                 {% endunless %}
             {% endif %}
-            
+
             {% if post.categories contains "goodies" and page.path contains "goodies" %}
                 <footer class="goodie-actions">
 
                     <p class="info col3">
-                        <a class="btn icon-info" href="{{ post.url | append: '/' }}">Release Post</a>
+                        <a class="btn icon icon-info" href="{{ post.url | append: '/' }}">Release Post</a>
                     </p>
 
                     {% if post.download %}
                     <p class="download col3">
-                        <a class="btn icon-download" href="/media/{{ post.download }}">Download <span>zip</span></a>
+                        <a class="btn icon icon-download" href="/media/{{ post.download }}">Download <span>zip</span></a>
                     </p>
                     {% endif %}
 
                 </footer>
             {% endif %}
-            
+
             {% unless page.path contains "goodies" %}
-                <a class="more-link" href="{{ post.url | append: '/' }}">Continue reading <i class="icon-arrow-right"></i></a>
+                <a class="more-link" href="{{ post.url | append: '/' }}">Continue reading <i class="icon icon-arrow-right"></i></a>
             {% endunless %}
 
         </section>

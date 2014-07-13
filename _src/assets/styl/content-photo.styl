@@ -1,0 +1,73 @@
+//
+// kremalicious3
+// --------------
+// Content - Photo Post
+//
+
+.hentry.format-photo
+    @extend .textcenter
+
+    figure
+        @extend .aligncenter
+        position: relative
+        display: inline-block
+
+        img,
+        figcaption
+            margin-bottom: 0
+
+        img
+            max-height: 540px
+
+        figcaption
+            @extend .transition
+            position: absolute
+            left: 0
+            top: 25%
+            max-width: 55%
+            min-width: 45%
+            text-align: right
+            font-family: $headings-font-family
+            font-weight: $headings-font-weight
+            font-style: normal
+            font-size: $font-size-small
+            padding: ($line-height-computed/3)
+            background: $link-color
+            background: rgba($link-color, .7)
+            color: #fff
+            text-shadow: 0 1px 0 #000
+
+            opacity: 0
+            transform: translate(0, -20px)
+
+        &:hover figcaption
+            opacity: 1
+            transform: translate(0, 0)
+
+    .entry-content
+        text-align: left
+
+    .page-single &
+        padding-top: ($line-height-computed*2)
+        padding-bottom: ($line-height-computed*3)
+
+        @media $breakpoint2
+            padding-top: ($line-height-computed*4)
+            padding-bottom: ($line-height-computed*6)
+
+        figure img
+            max-height: none
+
+        figcaption
+            opacity: 1
+            transform: translate(0,0)
+            top: auto
+            bottom: 0
+            background: #000
+            background: rgba(#000, .4)
+
+.photo-link
+    display: block
+
+    &:active
+        background: none

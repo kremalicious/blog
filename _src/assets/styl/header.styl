@@ -1,0 +1,75 @@
+//
+// kremalicious3
+// --------------
+// Header
+//
+
+// Topbar
+/////////////////////////////////////
+
+.topbar
+    @extend .clearfix
+    background: $body-bg
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: inset 0 1px 4px rgba($brand-dark, .2), inset 0 -1px 4px rgba($brand-dark, .2)
+
+    .row
+        margin-top: ($line-height-computed/2)
+        margin-bottom: ($line-height-computed/2)
+        position: relative
+
+
+// Logo
+/////////////////////////////////////
+
+.logo
+    display: block
+    background-image: url('../img/logo.png')
+    background-repeat: no-repeat
+    background-position: left top
+    width: 47px
+    height: 31px
+
+    @media $breakpoint2
+        width: 183px
+
+    @media $highDPI
+        background-image: url('../img/logo@2x.png')
+        background-size: 183px 62px
+
+    @media $highDPI_3x
+        background-image: url('../img/logo@3x.png')
+        background-size: 183px 62px
+
+
+// Banner
+/////////////////////////////////////
+
+.banner
+    @extend .alignleft
+
+    @media $breakpoint2
+        margin-left: -54px
+
+    .banner-title
+        margin-top: .1em
+        margin-bottom: 0
+        // display toned down logo
+        // by default
+        @extend .logo
+
+    .banner-logo
+        @extend .ir
+        // repeat logo
+        // but display hover version
+        @extend .logo
+        background-position: left bottom
+
+        // hide by default
+        opacity: 0
+        // show smooooothly on hover
+        &:hover
+            opacity: 1
+
+        &:active
+            top: 0

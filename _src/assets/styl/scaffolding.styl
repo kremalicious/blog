@@ -1,0 +1,79 @@
+//
+// kremalicious3
+// --------------
+// Scaffolding
+//
+
+
+// Body reset
+/////////////////////////////////////
+
+html
+    font-size: 62.5%
+    -webkit-tap-highlight-color: rgba($link-color, .2)
+
+body
+    background: $body-bg
+
+
+// Reset fonts for relevant elements
+/////////////////////////////////////
+
+input,
+button,
+select,
+textarea
+    font-family: inherit
+    font-size: inherit
+    line-height: inherit
+
+
+// topbar and footer as fixed
+// site background
+/////////////////////////////////////
+
+.topbar
+    height: 71px
+
+    .menu-open &
+        height: auto
+
+.document
+    background-color: $page-bg
+
+@media only screen and (min-width: 40.625em) and (min-height: 650px)
+    body
+        position: relative
+
+    .document
+        transition()
+        position: relative
+        z-index: 2
+        margin-top: 71px
+        margin-bottom: 580px;
+        border-top: 1px solid rgba(255,255,255,.7)
+        border-bottom: 1px solid rgba(255,255,255,.7)
+        box-shadow: 0 1px 4px rgba($brand-dark, .1), 0 -1px 4px rgba($brand-dark, .1)
+
+        .menu-open &
+            margin-top: 300px
+
+    .topbar,
+    .footer
+        position: fixed
+        border: none
+
+    .topbar
+        z-index: 1
+        top: 0
+        box-shadow: inset 0 1px 4px rgba($brand-dark, .1)
+        border: none
+
+    .footer
+        z-index: 0
+        height: 580px
+        bottom: 0
+        box-shadow: none
+
+        .menu-open &
+            hide()

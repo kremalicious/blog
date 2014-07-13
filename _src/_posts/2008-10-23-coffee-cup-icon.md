@@ -14,7 +14,7 @@ categories:
 ---
 
 I’ve just released my own coffee cup icon, enjoy:
-	
+
   * Desktop icons showing the fuel of most designers. Originally I've made the coffee cup for the donations button on my website earlier this year and now decided to release it as an icon.
   * Mac + Win + Linux + iContainer
   * Leopard ready (512x512)
@@ -23,4 +23,4 @@ I’ve just released my own coffee cup icon, enjoy:
 
 ## Download
 
-<a class="btn btn-primary icon-download" href="/media/coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>
+<a class="btn btn-primary icon icon-download" href="/media/coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>

@@ -88,7 +88,7 @@ Brief description of Daguerres role in the invention of photography process by T
 
 This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](http://www.kremalicious.com/goodies/) or directly via this link:
 
-<a class="btn btn-block icon-download" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download </a>
+<a class="btn btn-block icon icon-download" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download </a>
 
 In addition to these icons you can download the [associated wallpapers for your desktop or your iPhone](http://www.kremalicious.com/2008/06/new-goodie-niepces-camera-obscura-wallpaper-pack/).
 

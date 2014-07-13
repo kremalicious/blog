@@ -1,0 +1,78 @@
+//
+// kremalicious3
+// --------------
+// Search
+//
+
+.search-btn
+    right: 50px
+    padding: .65em .85em
+
+.site-search
+    margin-right: 4%
+
+    .nav-popover
+        left: 0
+        width: 100%
+
+.search-close
+    position: absolute
+    right: 32px
+
+    &,
+    &:active
+        top: 50%
+        margin-top: -8px
+
+.search-area
+    @extend .transition
+    position: absolute
+    width: 100%
+    left: 0
+    top: -3px
+    z-index: 3
+
+    // hidden by default
+    transform: translate(0, -70px)
+
+    &.ready
+        transform: translate(0, 0)
+
+.search-results
+    @extend .clearfix
+
+    p
+        margin-bottom: 0
+
+.search-link
+    @extend .h6
+    padding: .5em 1em
+    display: block
+    margin-top: 0
+    margin-bottom: ($line-height-computed/2)
+
+    &:active
+        color: #fff
+
+    @media $breakpoint2
+        width: 50%
+        float: left
+
+        &:nth-child(odd)
+            clear: both
+
+.popover
+    position: absolute
+    left: 0
+    top: 71px
+    z-index: 6
+    background: lighten($page-bg, 3%)
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: 0 1px 4px rgba($brand-dark, .1)
+
+    @media $breakpoint2
+        top: 0
+
+        .row
+            margin-top: $line-height-computed
+            margin-bottom: $line-height-computed
