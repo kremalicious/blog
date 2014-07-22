@@ -185,6 +185,9 @@ var infiniteScroll = {
 		var	$scrollContent 	= $('#main');
 
 		$scrollContent.infinitescroll({
+            loading: {
+                img: ''
+            },
 			itemSelector	: items,
 			nextSelector	: '.next a',
 			navSelector		: '.paginator',
