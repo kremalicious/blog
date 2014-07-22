@@ -100,17 +100,13 @@ module.exports = function(grunt){
             options: {
                 report: 'min'
             },
-            jquery: {
-                files: {
-                    '<%= config.site %>/<%= config.assets.js %>/jquery.min.js': 'bower_components/jquery/dist/jquery.js'
-                }
-            },
             production: {
                 files: {
                     '<%= config.site %>/<%= config.assets.js %>/picturefill.min.js': [
                         'bower_components/picturefill/dist/picturefill.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
+                        'bower_components/jquery/dist/jquery.js',
                         'bower_components/infinitescroll/index.js',
                         'bower_components/masonry/index.js',
                         'bower_components/imagesloaded/imagesloaded.js',
