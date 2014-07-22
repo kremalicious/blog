@@ -287,8 +287,7 @@ module.exports = function(grunt){
         'cmq',
         'cssmin',
         'uglify',
-        'imagemin:assets',
-        'imagemin:touchicons',
+        'imagemin',
         'rsync:copy_build',
         'rev',
         'usemin'
