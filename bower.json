@@ -9,6 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "normalize-css": ">=3.0.1",
+    "normalize-opentype.css": ">=0.1.2",
     "jquery": ">=2.0.3",
     "picturefill": ">=1.2.1",
     "masonry": "http://masonry.desandro.com/masonry.pkgd.min.js",
