@@ -2,7 +2,7 @@
 layout: post
 
 slug: ubuntu-as-mac-file-server-and-time-machine-volume
-title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume [Update6]'
+title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
 author: Matthias Kretschmann
 
 date: 2008-06-19 03:08:11+00:00
@@ -25,7 +25,6 @@ Although this Tutorial involves using the Terminal in Ubuntu and looks a bit gee
 
 Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version (32bit on one machine, 64bit on the other) and Mac OS X Leopard (10.5.3 and later) to connect to them. On my Ubuntu boxes there's no other file sharing protocol like samba (Windows sharing) or NFS activated.
 
-**Update 12/07/2008:**
 [Rumors are](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931) Apple will add some undocumented AFP commands with the Mac OS X 10.5.6 update which therefor won't be supported by the current Netatalk package (and maybe never will). So be sure to check the latest comments on this article when the 10.5.6 update is out to see if this rumor is true and if there are problems caused by that.
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
@@ -48,7 +47,7 @@ First you have to enable the Source Code repositories via System > Administratio
 
 ![Source Code Repositories](/media/ubuntuserver1.png)
 
-**Update 09/28/2008:** Alessandro has built [a nice .deb package for i386 machines](http://dl.getdropbox.com/u/187424/netatalk_2.0.3-brando0_i386.deb). Although written in italian you can follow the necessary code snippets for installing this package [in his blog post.](http://gpz500.wordpress.com/2008/09/27/lairone-al-servizio-del-leopardo/) If the install package works for you just skip the following self compiling process and head over to the [Configure Netatalk section.](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#netatalk2)
+Alessandro has built [a nice .deb package for i386 machines](http://dl.getdropbox.com/u/187424/netatalk_2.0.3-brando0_i386.deb). Although written in italian you can follow the necessary code snippets for installing this package [in his blog post.](http://gpz500.wordpress.com/2008/09/27/lairone-al-servizio-del-leopardo/) If the install package works for you just skip the following self compiling process and head over to the [Configure Netatalk section.](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#netatalk2)
 
 Now fire up your Terminal under Applications > Accessories and execute the following lines (separately). You have to type Y for yes when Terminal asks you if it should continue:
 
@@ -276,7 +275,7 @@ The computername should be the name you have assigned to your Mac. Now just clic
 
 Now Open Disk Utility from your Applications > Utilities folder and click on New Image in the toolbar. Now just hit Command + V in the Save As field and remove everything before the name of the sparsebundle.
 
-Update: The secret number Time Machine adds to your computer name is nothing more than the MAC address of the network device that your Mac uses to talk to your server, as [Simulacrum](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-4337) and [Todd](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-20613) found out in the comments. As he points out you can open up Network Utility and under the info tab you'll find a field called "Hardware Address". Just remove the colons and you have the number Time Machine adds to the disk image name.
+The secret number Time Machine adds to your computer name is nothing more than the MAC address of the network device that your Mac uses to talk to your server, as [Simulacrum](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-4337) and [Todd](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-20613) found out in the comments. As he points out you can open up Network Utility and under the info tab you'll find a field called "Hardware Address". Just remove the colons and you have the number Time Machine adds to the disk image name.
 
 In the field volume name write Backup of computername. Now FIRST chose sparse bundle disk image as the image format and THEN adjust the volume size to the size of your internal harddrive (minimum, choose more if you like) afterwards. Remember that Disk Utility won't let you make a bigger image file as you have physical hard drive space available if you don't chose sparse bundle disk image as the image format first. For reference have a look at this screenshot:
 
@@ -355,8 +354,6 @@ which outputs the content of the Volumes folder and you should see your network 
 
 Now you can close the Terminal and select "Restore from Time Machine Backup" from the Utilities entry in the menu bar and select your mounted Time Machine backup and thats it. Oh, needless to say: a gigabit ethernet connection will speed things up dramatically even compared to (draft)n-WLAN.
 
-**update 12/07/2008:**
-
 ## Netatalk backup disk reaching maximum capacity
 
 As [Seron](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-15122) pointed out in the comments, there is some discussion on the net regarding problems with Netatalk and TimeMachine when the backup disk reaches maximum capacity. This is due to missing support for the AFP commands FPSyncDir aka commands 78 and 78 in Netatalk. [As a commenter in an ArsTechnica forum says](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931): "As soon as your backup volume will reach max capacity, it will self destruct because of it."
@@ -366,22 +363,11 @@ In the forum you'll also find some links to various patches to avoid problems wi
 ## More Articles
 
   * In case you want to connect your iPhone via AFP: [An AFP Server on your iPhone](http://www.eecs.berkeley.edu/~job/afpd/AFP_File_Server_on_your_iPhone.html). This uses the Netatalk package too
-
   * [Netatalk 2.0 manual](http://netatalk.sourceforge.net/2.0/htmldocs/)
-
-
   * [All possible AppleVolumes.default options (part of the Netatalk manual)](http://netatalk.sourceforge.net/2.0/htmldocs/AppleVolumes.default.5.html)
-
-
   * [Overview and templates about services Avahi can advertise](http://holyarmy.org/2008/01/27/advertising-linux-services-via-avahibonjour)
-
-
   * [In-depth article about Sparse Bundle disk images](http://db.tidbits.com/article/9673)
-
-
   * [How-to: Get files off a Time Machine backup without using your Mac](http://carsonbaker.org/2008/06/23/time-machine-restore/): In case you have to access Time Machine backups from Ubuntu or any other Linux system
-
-
   * [Using NetBSD, with guest account](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143): [Johannes](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143) laid down the steps to use NetBSD instead of Ubuntu.
 
 
