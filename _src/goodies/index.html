@@ -9,10 +9,8 @@ category: goodies
 
     <h1 class="page-title icon icon-{{ page.category }}">{{ page.category }}</h1>
 
-    {% for post in paginator.posts %}
-
+    {% for post in site.categories.goodies %}
         {% include articles.html %}
-
     {% endfor %}
 
 </section>

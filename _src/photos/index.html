@@ -12,10 +12,8 @@ category: photos
         <div class="masonry">
             <div class="grid-sizer"></div>
 
-            {% for post in paginator.posts %}
-
+            {% for post in site.categories.photos %}
                 {% include articles.html %}
-
             {% endfor %}
 
         </div>
