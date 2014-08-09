@@ -35,7 +35,7 @@ var siteNavigation = {
             });
 
             // show search
-            $searcharea.removeClass('ready bounceOutUp').addClass('ready bounceInDown');
+            $searcharea.removeClass('ready bounceOutUp').addClass('ready slideDown');
             $searchfield.focus();
             if ( $searchfield.val().length ) {
                 $searchpop.removeClass('hide');
@@ -48,7 +48,7 @@ var siteNavigation = {
 
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
-                $searcharea.removeClass('bounceInDown');
+                $searcharea.removeClass('slideDown');
                 $searchpop.addClass('hide');
 
                 // unbind the hide controls
@@ -78,7 +78,7 @@ var siteNavigation = {
             e.preventDefault();
 
             // hide search area
-            $searcharea.removeClass('bounceInDown').addClass('bounceOutUp');
+            $searcharea.removeClass('slideDown').addClass('bounceOutUp');
             $searchpop.addClass('hide');
 
             // empty search field

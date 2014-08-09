@@ -51,7 +51,7 @@ gpuacceleration()
 ////////////////////////////////////
 
 // Down
-@keyframes bounceInDown
+@keyframes slideDown
     0%, 60%, 75%, 90%, 100%
         // http://cubic-bezier.com/#.06,.85,.54,1.39
         transition-timing-function: cubic-bezier(.06,.85,.54,1)
@@ -59,20 +59,11 @@ gpuacceleration()
     0%
         transform: translate3d(0, -100px, 0)
 
-    60%
-        transform: translate3d(0, 20px, 0)
-
-    75%
-        transform: translate3d(0, -10px, 0)
-
-    90%
-        transform: translate3d(0, 5px, 0)
-
     100%
         transform: none
 
-.bounceInDown
-    animation: bounceInDown .4s both
+.slideDown
+    animation: slideDown .25s both
 
 // Up
 @keyframes bounceOutUp

@@ -21,7 +21,6 @@ email:                  m@kretschmann.io
 # --------------------
 
 permalink:              /:title
-relative_permalinks:    true
 paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
