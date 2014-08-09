@@ -35,7 +35,9 @@ They are completely styled with CSS3 so they're sharp on all screens no matter h
 
 Just drop in the kbdftw.css in your `head`:
 
-{% highlight html %}<link rel="stylesheet" href="kbdfun.css">{% endhighlight %}
+```html
+<link rel="stylesheet" href="kbdfun.css">
+```
 
 If you want to use the Android key style, include roboto.css before:
 
