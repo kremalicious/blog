@@ -33,7 +33,6 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
-pygments:               true
 
 redcarpet:
   extensions:           ['autolink', 'smart', 'hard_wrap']
@@ -46,6 +45,13 @@ source:                 ./_src
 destination:            ./_site
 exclude:                ['styl', 'app.js']
 keep_files:             ['media', 'gen']
+
+
+# Plugins
+# --------------------
+
+gems:
+    - jekyll-sitemap
 
 
 # jekyll-picture-tag
