@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gem 'jekyll'
 gem 'jekyll-sitemap'
 gem 'jekyll-timeago'
+gem 'rouge'
 gem 'mini_magick'
 gem 'fileutils'
 

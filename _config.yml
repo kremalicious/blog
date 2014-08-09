@@ -33,6 +33,7 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
+highlighter:            rouge
 
 redcarpet:
     extensions:         ['autolink', 'smart', 'hard_wrap']
@@ -43,7 +44,7 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./_site
-exclude:                ['styl', 'app.js']
+exclude:                ['assets/styl', 'app.js']
 keep_files:             ['media', 'gen']
 
 
