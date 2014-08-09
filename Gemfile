@@ -4,6 +4,7 @@ source "https://rubygems.org"
 # gem "rails"
 gem 'jekyll'
 gem 'jekyll-sitemap'
+gem 'jekyll-timeago'
 gem 'mini_magick'
 gem 'fileutils'
 

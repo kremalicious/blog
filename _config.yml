@@ -35,7 +35,7 @@ future:                 false
 markdown:               redcarpet
 
 redcarpet:
-  extensions:           ['autolink', 'smart', 'hard_wrap']
+    extensions:         ['autolink', 'smart', 'hard_wrap']
 
 
 # Generator
@@ -52,6 +52,7 @@ keep_files:             ['media', 'gen']
 
 gems:
     - jekyll-sitemap
+    - jekyll-timeago
 
 
 # jekyll-picture-tag
