@@ -21,7 +21,6 @@ email:                  m@kretschmann.io
 # --------------------
 
 permalink:              /:title
-relative_permalinks:    true
 paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
@@ -33,10 +32,10 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
-pygments:               true
+highlighter:            rouge
 
 redcarpet:
-  extensions:           ['autolink', 'smart', 'hard_wrap']
+    extensions:         ['autolink', 'smart', 'hard_wrap']
 
 
 # Generator
@@ -44,8 +43,16 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./_site
-exclude:                ['styl', 'app.js']
+exclude:                ['assets/styl', 'app.js']
 keep_files:             ['media', 'gen']
+
+
+# Plugins
+# --------------------
+
+gems:
+    - jekyll-sitemap
+    - jekyll-timeago
 
 
 # jekyll-picture-tag

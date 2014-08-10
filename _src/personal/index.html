@@ -8,10 +8,8 @@ category: personal
 
     <h1 class="page-title icon icon-{{ page.category }}">{{ page.category }}</h1>
 
-    {% for post in paginator.posts %}
-
+    {% for post in site.categories.personal %}
         {% include articles.html %}
-
     {% endfor %}
 
 </section>

@@ -202,7 +202,8 @@ strong,
     font-weight: 700
     font-style: normal
 
-em
+em,
+.italic
     font-style: italic
 
 cite
@@ -219,13 +220,23 @@ hr
 
 blockquote,
 blockquote > p
-    font-style: italic
+    @extend .italic
     color: $text-color-light
 
 blockquote
     padding: 0 $line-height-computed
     margin: 0 0 $line-height-computed
-    border-left: 2px solid $text-color-dimmed
+    position: relative
+
+    // quotation marks
+    &:before
+        content: "“"
+        font-size: 400%
+        font-family: "Hoefler Text", "Times New Roman", serif
+        color: rgba($text-color-dimmed, 40%)
+        position: absolute
+        left: -($line-height-computed/2)
+        top: -($line-height-computed/2)
 
     p:last-child
         margin-bottom: 0

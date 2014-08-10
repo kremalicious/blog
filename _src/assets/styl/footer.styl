@@ -12,24 +12,29 @@
     .gravatar
         margin-bottom: ($line-height-computed/2)
 
-    .footer-description
-        @extend .h5
-        a
-            display: block
-
     &,
     .footer-description
         color: $text-color-light
         line-height: $line-height-computed
 
-    .footer-copyright
-        @extend .divider-top
-        padding-top: $line-height-computed
-        padding-bottom: $line-height-computed
+.footer-description
+    @extend .h5
+    a
+        display: block
 
-        p
-            margin-bottom: 0
-            font-size: $font-size-mini
+.footer-copyright
+    @extend .divider-top
+    padding-top: $line-height-computed
+    padding-bottom: $line-height-computed
+
+    p
+        margin-bottom: 0
+        font-size: $font-size-mini
+
+    .icon:before
+        font-size: inherit
+        margin-right: .2em
+        line-height: inherit
 
 // Subscribe component
 .subscribe
