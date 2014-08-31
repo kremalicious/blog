@@ -12,7 +12,7 @@
     <meta name="twitter:title" content="{{ site.title }}">
 {% endif %}
 {% if page.url %}
-    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta name="twitter:url" content="{{ site.url}}{{ page.url | replace:'index.html','' }}">
 {% endif %}
 {% if page.description %}
     <meta name="twitter:description" content="{{ page.description }}">

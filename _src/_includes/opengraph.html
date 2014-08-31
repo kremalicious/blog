@@ -19,8 +19,7 @@
     <meta content="{{ page.excerpt | strip_html | strip_newlines }}" property="og:description">
 {% endif %}
 {% if page.url %}
-    {% capture canonical %}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
-    <meta content="{{ site.url }}{{ canonical }}" property="og:url"> 
+    <meta content="{{ site.url}}{{ page.url | replace:'index.html','' }}" property="og:url"> 
 {% endif %}
 {% if page.date %}
     <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">

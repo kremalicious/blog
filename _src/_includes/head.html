@@ -59,16 +59,15 @@
     {% endif %}
     
 	<!-- TypeKit -->
-	<script data-cfasync="false" src="//use.typekit.com/msu4qap.js"></script>
-	<script data-cfasync="false">try{Typekit.load();}catch(e){}</script>
+	<script src="//use.typekit.com/msu4qap.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 	
 	<!-- Picturefill  -->
 	<script src="/assets/js/picturefill.min.js" defer></script>
 	
 	
 	<!-- Canonical URL -->
-    {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
-    <link rel="canonical" href="{{ canonical }}">
+    <link rel="canonical" href="{{ site.url}}{{ page.url | replace:'index.html','' }}">
 	
 	<link rel="alternate"  href="{{ site.url }}/feed/" type="application/rss+xml" title="Posts Feed"/>
     

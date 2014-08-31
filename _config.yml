@@ -20,7 +20,7 @@ email:                  m@kretschmann.io
 # Urls
 # --------------------
 
-permalink:              /:title
+permalink:              /:title/
 paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
