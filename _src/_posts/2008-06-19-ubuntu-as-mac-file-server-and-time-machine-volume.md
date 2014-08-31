@@ -13,6 +13,9 @@ categories:
 - design
 tags:
 - tutorial
+
+redirect_from:
+	- /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
 ---
 
 ![Ubuntu Mac File Server Connectivity](/media/ubuntu_mac_feature_thumb.jpg)For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.

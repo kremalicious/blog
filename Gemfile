@@ -6,6 +6,7 @@ group :development do
   gem 'jekyll'
   gem 'jekyll-sitemap'
   gem 'jekyll-timeago'
+  gem 'jekyll-redirect-from'
   gem 'rouge'
   gem 'mini_magick'
   gem 'fileutils'

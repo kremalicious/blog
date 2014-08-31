@@ -11,6 +11,9 @@ wordpress_id: 66
 categories:
 - goodies
 - wallpaper
+
+redirect_from:
+  - /new-goodie-niepces-camera-obscura-wallpaper-pack/
 ---
 
 In addition to my Niépce's Camera Obscura icons for Aperture and iPhoto I have made some Wallpapers containing both icons.

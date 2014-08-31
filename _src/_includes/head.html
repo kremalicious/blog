@@ -67,9 +67,9 @@
 	
 	
 	<!-- Canonical URL -->
-    <link rel="canonical" href="{{ site.url}}{{ page.url | replace:'index.html','' }}">
+    <link rel="canonical" href="{{ site.baseurl}}{{ page.url | replace:'index.html','' }}">
 	
-	<link rel="alternate"  href="{{ site.url }}/feed/" type="application/rss+xml" title="Posts Feed"/>
+	<link rel="alternate"  href="{{ site.baseurl }}/feed/" type="application/rss+xml" title="Posts Feed"/>
     
     <!-- Apple  -->
     <meta name="apple-mobile-web-app-title" content="kremalicious">
@@ -87,7 +87,7 @@
     <link rel="icon" href="/favicon.ico" sizes="16x16">
 	
   	<!-- Windows 8 Metro Tile Image -->
-  	<meta name="msapplication-TileImage" content="{{ site.url }}/metro-tile.png"/>
+  	<meta name="msapplication-TileImage" content="{{ site.baseurl }}/metro-tile.png"/>
   	<meta name="msapplication-TileColor" content="#015565"/>
     
     {% if paginator %}

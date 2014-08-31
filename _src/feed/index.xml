@@ -1,13 +1,17 @@
 ---
+redirect_from:
+  - /home/feed/
+  - /feed/atom/
+  - /comments/feed/
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	
 	<title type="text" xml:lang="en">{{ site.name }}</title>
-	<link type="application/atom+xml" href="{{ site.url }}/feed/" rel="self"/>
- 	<link type="text" href="{{ site.url }}" rel="alternate"/>
+	<link type="application/atom+xml" href="{{ site.baseurl }}/feed/" rel="self"/>
+ 	<link type="text" href="{{ site.baseurl }}" rel="alternate"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>{{ site.url }}</id>
+	<id>{{ site.baseurl }}</id>
 	<author>
 		<name>{{ site.author }}</name>
 	</author>
@@ -19,7 +23,7 @@
                 <link>{{ post.linkurl | escape }}</link>
             {% else %}
 				<title>{{ post.title | escape | titlecase }}</title>
-                <link>{{ site.url }}{{ post.url | escape }}</link>
+                <link>{{ site.baseurl }}{{ post.url | escape }}</link>
             {% endif %}
 		    
             <published>{{ post.date | date_to_xmlschema }}</published>
@@ -30,17 +34,17 @@
 				<updated>{{ post.date | date_to_xmlschema }}</updated>
             {% endif %}
             
-    		<id>{{ site.url }}{{ post.url | escape }}</id>
+    		<id>{{ site.baseurl }}{{ post.url | escape }}</id>
     		<content type="html">
                 {% if post.image %}
-                    &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
+                    &lt;img src=&quot;{{ site.baseurl }}/media/{{ post.image }}&quot; /&gt;
                 {% endif %}
             
                 {{ post.content | xml_escape }}
             
     			{% if post.layout == "link" %}
                     &lt;a href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
-                    &lt;a href=&quot;{{ site.url }}{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
+                    &lt;a href=&quot;{{ site.baseurl }}{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
 				
 				&lt;hr /&gt;

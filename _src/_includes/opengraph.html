@@ -7,7 +7,7 @@
 {% endif %}
 {% if page.title %}
     <meta content="article" property="og:type">
-    <meta content="{{ site.url }}/about/" property="article:author">
+    <meta content="{{ site.baseurl }}/about/" property="article:author">
 {% else %}
     <meta content="website" property="og:type">
 {% endif %}
@@ -19,15 +19,15 @@
     <meta content="{{ page.excerpt | strip_html | strip_newlines }}" property="og:description">
 {% endif %}
 {% if page.url %}
-    <meta content="{{ site.url}}{{ page.url | replace:'index.html','' }}" property="og:url"> 
+    <meta content="{{ site.baseurl}}{{ page.url | replace:'index.html','' }}" property="og:url"> 
 {% endif %}
 {% if page.date %}
     <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
 {% endif %}
 {% if page.image %}
-    <meta content="{{ site.url }}/media/{{ page.image }}" property="og:image">
+    <meta content="{{ site.baseurl }}/media/{{ page.image }}" property="og:image">
 {% else %}
-    <meta content="{{ site.url }}/kremalicious1024.png" property="og:image">
+    <meta content="{{ site.baseurl }}/kremalicious1024.png" property="og:image">
 {% endif %}
 {% if page.categories %}
     {% for category in page.categories limit:1 %}

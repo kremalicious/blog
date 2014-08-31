@@ -10,6 +10,9 @@ wordpress_id: 146
 categories:
 - goodies
 - icon
+
+redirect_from:
+  - /new-goodie-icy-box-icons/
 ---
 
 A friend of mine asked me to craft an icon for his external hard drive case and I would like to share those with you too. These desktop icons show the the silver and black Icy Box external aluminium case with USB interface and are intended as a replacement for the generic external hard disk icon in Mac OS X Leopard.

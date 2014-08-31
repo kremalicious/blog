@@ -12,7 +12,7 @@
     <meta name="twitter:title" content="{{ site.title }}">
 {% endif %}
 {% if page.url %}
-    <meta name="twitter:url" content="{{ site.url}}{{ page.url | replace:'index.html','' }}">
+    <meta name="twitter:url" content="{{ site.baseurl}}{{ page.url | replace:'index.html','' }}">
 {% endif %}
 {% if page.description %}
     <meta name="twitter:description" content="{{ page.description }}">
@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
 {% endif %}
 {% if page.image %}
-    <meta name="twitter:image:src" content="{{ site.url }}/media/{{ page.image }}">
+    <meta name="twitter:image:src" content="{{ site.baseurl }}/media/{{ page.image }}">
 {% else %}
-	<meta name="twitter:image:src" content="{{ site.url }}/kremalicious1024.png">
+	<meta name="twitter:image:src" content="{{ site.baseurl }}/kremalicious1024.png">
 {% endif %}

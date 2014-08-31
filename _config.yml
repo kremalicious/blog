@@ -12,7 +12,7 @@
 
 name:                   kremalicious
 description:            'Blog of designer & developer Matthias Kretschmann'
-url:                    http://kremalicious.com
+baseurl:                http://kremalicious.com
 author:                 Matthias Kretschmann
 email:                  m@kretschmann.io
 
@@ -53,7 +53,7 @@ keep_files:             ['media', 'gen']
 gems:
     - jekyll-sitemap
     - jekyll-timeago
-
+    - jekyll-redirect-from
 
 # jekyll-picture-tag
 # --------------------

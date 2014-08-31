@@ -662,45 +662,12 @@ FileETag None
 
 </IfModule>
 
-# feed redirects
-Redirect 301 /home/feed/ /feed/
-Redirect 301 /feed/atom/ /feed/
-Redirect 301 /comments/feed/ /feed/
-
 # Remove date from post permalinks
 RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
 
 # Old Content Redirects
-Redirect 301 /goodies/icon /goodies
-Redirect 301 /goodies/other /goodies
-Redirect 301 /goodies/wallpaper /goodies
 
 Redirect 301 /lab http://lab.kremalicious.com
 Redirect 301 /csspaperstack /lab/csspaperstack
 Redirect 301 /download /media
-Redirect 301 /about/contact /about
-Redirect 301 /contact /about
 Redirect 301 /portfolio http://matthiaskretschmann.com
-Redirect 301 /blog /
-Redirect 301 /topics/goodies /goodies
-Redirect 301 /topics/design-articles /design
-Redirect 301 /topics/howto-and-tutorial /
-Redirect 301 /topics/news-and-links /links
-Redirect 301 /design-articles /design
-Redirect 301 /howto-and-tutorial /
-Redirect 301 /news-and-links /links
-
-Redirect 301 /new-goodies-aperture-file-types-icons /aperture-file-types
-Redirect 301 /goodie-updated-aperture-file-types-v11 /aperture-file-types
-Redirect 301 /aperture-file-types-v12-released /aperture-file-types
-Redirect 301 /new-goodie-niepces-camera-obscura-wallpaper-pack /niepces-camera-obscura-wallpaper-pack
-Redirect 301 /new-goodie-icy-box-icons /icy-box-icons
-Redirect 301 /new-goodie-futurama-mars-university-wallpaper /futurama-mars-university-wallpaper
-Redirect 301 /first-wallpaper-chives /chives
-Redirect 301 /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-photograph /niepces-camera-obscura-and-the-history-of-the-first-photograph
-Redirect 301 /4-more-icons-niepces-camera-obscura-v11 /niepces-camera-obscura-and-the-history-of-the-first-photograph
-Redirect 301 /canon-eos-50d-officially-announced-and-new-lens /
-Redirect 301 /apple-touch-icon.png /apple-touch-icon-precomposed.png
-
-Redirect 301 /most-popular-stuff-on-kremaliciouscom-in-2008/ /
-Redirect 301 /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/ /ubuntu-as-mac-file-server-and-time-machine-volume
