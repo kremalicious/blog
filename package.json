@@ -4,6 +4,9 @@
   "description": "Blog of Matthias Kretschmann",
   "version": "3.0.0",
   "main": "Gruntfile.js",
+  "scripts": {
+    "postinstall": "bower install && bundle install"
+  },
   "dependencies": {},
   "devDependencies": {
     "stylus": ">=0.45.0",

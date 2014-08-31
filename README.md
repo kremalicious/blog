@@ -32,7 +32,7 @@ Image size generation for post teaser images and photos is done with [jekyll-pic
 Run the following command from the repository's root folder to install all dependencies.
 
 ```bash
-npm install && bower install && bundle install
+npm install
 ```
 
 ### Development build
