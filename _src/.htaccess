@@ -659,6 +659,11 @@ FileETag None
     # redirect all index.html to parent folder
     RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]
     RewriteRule . %1 [R=301,NE,L]
+    
+    # redirect to leading trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !(.*)/$
+    RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
 
 </IfModule>
 
