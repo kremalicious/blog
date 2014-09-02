@@ -6,4 +6,4 @@ Disallow: /search/
 Disallow: /page/
 Disallow: /*/page/
 
-Sitemap: {{ site.baseurl }}/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml

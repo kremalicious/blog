@@ -12,7 +12,7 @@
 
 name:                   kremalicious
 description:            'Blog of designer & developer Matthias Kretschmann'
-baseurl:                http://kremalicious.com
+url:                    http://kremalicious.com
 author:                 Matthias Kretschmann
 email:                  m@kretschmann.io
 
