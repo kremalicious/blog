@@ -230,7 +230,11 @@ module Jekyll
       end
 
       # Return path relative to the site root for html
-      Pathname.new(File.join(cdnurl, baseurl, image_dest, image_dir, gen_name)).cleanpath
+      if context.registers[:site].config['production']
+        Pathname.new(File.join(cdnurl, baseurl, image_dest, image_dir, gen_name)).cleanpath
+      else
+        Pathname.new(File.join(baseurl, image_dest, image_dir, gen_name)).cleanpath
+      end
     end
   end
 end
