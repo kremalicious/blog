@@ -50,7 +50,8 @@ module.exports = function(grunt){
             },
             production: {
                 options: {
-                    lsi: true
+                    lsi: true,
+                    raw: 'production: true\n'
                 }
             },
             development: {
