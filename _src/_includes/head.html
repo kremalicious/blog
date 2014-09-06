@@ -63,8 +63,7 @@
 	<script>try{Typekit.load();}catch(e){}</script>
 	
 	<!-- Picturefill  -->
-	<script src="/assets/js/picturefill.min.js" defer></script>
-	
+	<script src="{% if site.enable_cdnurl == true %}{{ site.cdnurl }}{% endif %}/assets/js/picturefill.min.js" defer></script>
 	
 	<!-- Canonical URL -->
     <link rel="canonical" href="{{ site.url}}{{ page.url | replace:'index.html','' }}">
