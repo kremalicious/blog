@@ -230,11 +230,12 @@ module Jekyll
       end
 
       # Return path relative to the site root for html
-      if enable_cdnurl == 'true'
+      if enable_cdnurl == true
         Pathname.new(File.join(cdnurl, baseurl, image_dest, image_dir, gen_name)).cleanpath
       else
         Pathname.new(File.join(baseurl, image_dest, image_dir, gen_name)).cleanpath
       end
+      
     end
   end
 end
