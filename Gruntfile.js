@@ -51,7 +51,7 @@ module.exports = function(grunt){
             production: {
                 options: {
                     lsi: true,
-                    raw: 'production: true\n'
+                    raw: 'enable_cdnurl: true\n'
                 }
             },
             development: {

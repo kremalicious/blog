@@ -16,8 +16,8 @@ url:                    https://kremalicious.com
 author:                 Matthias Kretschmann
 email:                  m@kretschmann.io
 cdnurl:                 https://d2jlreog722xe2.cloudfront.net
-production:             false
-#cdnurl:                https://cdn.kremalicious.com
+enable_cdnurl:          false
+
 
 # Urls
 # --------------------
