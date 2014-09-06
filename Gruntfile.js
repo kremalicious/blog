@@ -205,6 +205,19 @@ module.exports = function(grunt){
                 assetsDirs: ['<%= config.build %>', '<%= config.build %>/assets/{css,js,img,fonts}']
             }
         },
+        
+        // CDN some assets
+        cdn: {
+            options: {
+                cdn: 'https://d2jlreog722xe2.cloudfront.net/assets/',
+                flatten: true
+            },
+            dist: {
+                src: [
+                    '<%= config.build %>/assets/**/*.css' // CDN all assets called from css files
+                ]
+            }
+        },
 
         // rsync stuff around
         rsync: {
@@ -288,7 +301,8 @@ module.exports = function(grunt){
         'imagemin:touchicons',
         'rsync:copy_build',
         'rev',
-        'usemin'
+        'usemin',
+        'cdn'
     ]);
 
     // Optimze media
