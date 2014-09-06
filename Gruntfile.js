@@ -11,7 +11,8 @@ module.exports = function(grunt){
             css:    'assets/css',
             js:     'assets/js',
             img:    'assets/img',
-            fonts:  'assets/fonts'
+            fonts:  'assets/fonts',
+            cdnurl: 'https://d2jlreog722xe2.cloudfront.net/assets/'
         }
     };
 
@@ -209,7 +210,7 @@ module.exports = function(grunt){
         // CDN some assets
         cdn: {
             options: {
-                cdn: 'https://d2jlreog722xe2.cloudfront.net/assets/',
+                cdn: '<%= config.cdnurl %>',
                 flatten: true
             },
             dist: {
