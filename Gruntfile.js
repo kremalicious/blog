@@ -11,7 +11,8 @@ module.exports = function(grunt){
             css:    'assets/css',
             js:     'assets/js',
             img:    'assets/img',
-            fonts:  'assets/fonts'
+            fonts:  'assets/fonts',
+            cdnurl: 'https://d2jlreog722xe2.cloudfront.net/assets/'
         }
     };
 
@@ -50,7 +51,8 @@ module.exports = function(grunt){
             },
             production: {
                 options: {
-                    lsi: true
+                    lsi: true,
+                    raw: 'enable_cdnurl: true\n'
                 }
             },
             development: {
@@ -204,6 +206,19 @@ module.exports = function(grunt){
                 assetsDirs: ['<%= config.build %>', '<%= config.build %>/assets/{css,js,img,fonts}']
             }
         },
+        
+        // CDN some assets
+        cdn: {
+            options: {
+                cdn: '<%= config.cdnurl %>',
+                flatten: true
+            },
+            dist: {
+                src: [
+                    '<%= config.build %>/assets/**/*.css' // CDN all assets called from css files
+                ]
+            }
+        },
 
         // rsync stuff around
         rsync: {
@@ -287,7 +302,8 @@ module.exports = function(grunt){
         'imagemin:touchicons',
         'rsync:copy_build',
         'rev',
-        'usemin'
+        'usemin',
+        'cdn'
     ]);
 
     // Optimze media

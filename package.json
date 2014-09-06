@@ -23,7 +23,8 @@
     "grunt-jekyll": ">=0.4.0",
     "grunt-rsync": ">=0.2.1",
     "grunt-rev": ">=0.1.0",
-    "grunt-usemin": ">=2.0.2"
+    "grunt-usemin": ">=2.0.2",
+    "grunt-cdn": ">=0.5.6"
   },
   "engines": {
     "node": ">=0.10.29"

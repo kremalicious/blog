@@ -15,6 +15,8 @@ description:            'Blog of designer & developer Matthias Kretschmann'
 url:                    https://kremalicious.com
 author:                 Matthias Kretschmann
 email:                  m@kretschmann.io
+cdnurl:                 https://d2jlreog722xe2.cloudfront.net
+enable_cdnurl:          false
 
 
 # Urls
