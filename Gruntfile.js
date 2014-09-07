@@ -6,13 +6,13 @@ module.exports = function(grunt){
         src: '_src',
         site: '_site',
         build: '_build',
+        cdnurl: 'https://d2jlreog722xe2.cloudfront.net',
         assets: {
             stylus: 'assets/styl',
             css:    'assets/css',
             js:     'assets/js',
             img:    'assets/img',
-            fonts:  'assets/fonts',
-            cdnurl: 'https://d2jlreog722xe2.cloudfront.net/assets/'
+            fonts:  'assets/fonts'
         }
     };
 
@@ -51,8 +51,7 @@ module.exports = function(grunt){
             },
             production: {
                 options: {
-                    lsi: true,
-                    raw: 'enable_cdnurl: true\n'
+                    lsi: true
                 }
             },
             development: {
@@ -206,16 +205,31 @@ module.exports = function(grunt){
                 assetsDirs: ['<%= config.build %>', '<%= config.build %>/assets/{css,js,img,fonts}']
             }
         },
-        
-        // CDN some assets
-        cdn: {
-            options: {
-                cdn: '<%= config.assets.cdnurl %>',
-                flatten: true
+
+        // insert CDN url by replacing text strings
+        replace: {
+            html: {
+                src: ['<%= config.build %>/**/*.html'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: '/assets/js/',
+                        to: '<%= config.cdnurl %>/assets/js/'
+                    },
+                    {
+                        from: '/media/',
+                        to: '<%= config.cdnurl %>/media/'
+                    }
+                ]
             },
-            dist: {
-                src: [
-                    '<%= config.build %>/assets/**/*.css' // CDN all assets called from css files
+            css: {
+                src: ['<%= config.build %>/<%= config.assets.css %>/*.css'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: '../',
+                        to: '<%= config.cdnurl %>/assets/'
+                    }
                 ]
             }
         },
@@ -303,7 +317,7 @@ module.exports = function(grunt){
         'rsync:copy_build',
         'rev',
         'usemin',
-        'cdn'
+        'replace'
     ]);
 
     // Optimze media
