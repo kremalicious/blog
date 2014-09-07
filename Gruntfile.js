@@ -217,6 +217,10 @@ module.exports = function(grunt){
                         to: '<%= config.cdnurl %>/assets/js/'
                     },
                     {
+                        from: '/assets/img/',
+                        to: '<%= config.cdnurl %>/assets/img/'
+                    },
+                    {
                         from: '/media/',
                         to: '<%= config.cdnurl %>/media/'
                     }
