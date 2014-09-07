@@ -210,7 +210,7 @@ module.exports = function(grunt){
         // CDN some assets
         cdn: {
             options: {
-                cdn: '<%= config.cdnurl %>',
+                cdn: '<%= config.assets.cdnurl %>',
                 flatten: true
             },
             dist: {
