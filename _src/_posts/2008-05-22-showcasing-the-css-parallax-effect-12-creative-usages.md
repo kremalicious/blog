@@ -166,6 +166,4 @@ A star parallax which follows your mouse pointer. Done with jQuery and with heav
 
 My personal favorite for now in terms of usability. If you are able to understand spanish, [read his explanation](http://www.csslab.cl/2008/05/29/parallax-en-uso-real/).
 
-[![Parallax con Mootools](/media/parallax_016.jpg)](http://www.csslab.cl/ejemplos/parallax_mootools/)  
-
-![](http://vg01.met.vgwort.de/na/497f1e421d28414ca0e4e5f1a634d5e5)
+[![Parallax con Mootools](/media/parallax_016.jpg)](http://www.csslab.cl/ejemplos/parallax_mootools/)

@@ -418,7 +418,3 @@ The following articles are direct translations of my article but some of them ar
 
 - German: [Ubuntu + Apple Fileserver + TimeMachine](http://www.kde4.de/?page_id=389) on [kde4.de](http://www.kde4.de)
 - French: [Tuto: Comment créer votre serveur Time Capsule sous Debian](http://blog.delacelle.com/post/2009/01/19/tuto-comment-creer-votre-serveur-timecapsule-sous-debian-ou-ubuntu/) on the [Blog of Pierre de la Celle](http://blog.delacelle.com/)
-
-
-
-![](http://vg01.met.vgwort.de/na/2194afba25cd408cbb1c25feda4650c8)

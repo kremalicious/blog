@@ -154,5 +154,3 @@ And that's it. Hope this article helped you mastering the watermark feature of A
 
 
 Update: If you're curious about more ways to add watermarks to your images in an Aperture workflow be sure to check out my article [The Definite Guide To Watermarks In Apple Aperture](http://www.kremalicious.com/2008/10/the-definite-guide-to-watermarks-in-apple-aperture/) which gives you a brief overview about the various ways you can add watermarks to your images so you can easily choose the best one for your needs.
-
-![](http://vg02.met.vgwort.de/na/048197b066b24f37831c47514e9875f8)

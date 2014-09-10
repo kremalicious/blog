@@ -347,7 +347,3 @@ Blog entry on islayer.com about different text-shadow rendering across different
 
   * [CSS3 preview on css3.info](http://www.css3.info/preview/)
 "Everything you need to know about CSS3" - get excited before CSS3 becomes final
-
-
-
-![](http://vg05.met.vgwort.de/na/da4f92d2888b4f64af025579ff810a4e)

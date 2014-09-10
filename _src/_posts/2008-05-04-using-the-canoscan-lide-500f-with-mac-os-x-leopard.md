@@ -68,5 +68,3 @@ Now you can set your scanning preferences and start scanning into Photoshop. Don
 ![Color Mode](/media/scangear48bit.png)
 
 The advantage of this last workflow with Photoshop and ScanGear is more control over the scanner and therefore more control of the way your images will look right after the scan. If you want simplicity do it the OSX way by using Preview/Image Capture and simply automate it with Automator to serve your scanned images to your preferred application.
-
-![](http://vg02.met.vgwort.de/na/230ceda4b62b45afb239e5b738cb00b7)

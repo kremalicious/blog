@@ -48,5 +48,3 @@ The only problem that remains is that Photoshop really uses 50% of my CPU-Power 
 
 **UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
 [Using the CanoScan LiDE 500F scanner with Mac OS X Leopard](/using-the-canoscan-lide-500f-with-mac-os-x-leopard/)**
-
-![](http://vg05.met.vgwort.de/na/6a8deadc36bf444d8f7638b492837b16)

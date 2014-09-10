@@ -16,19 +16,18 @@ tags:
 Since my update to Wordpress 2.7 I'm pretty much into all the new comments stuff. As [I've written before](http://www.kremalicious.com/2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/), the comment functionality changed dramatically with Wordpress 2.7. This makes writing a comments template much easier but if you used Worpress prior to 2.7 you have to change some things to work again. Beside other things this includes [Gravatar styling](http://www.kremalicious.com/2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/) and also adding different styling to comments from the author of an article. In this article I will show you how to realize the latter with Wordpress 2.7 and above.
 
 Let's start by looking at the code to achieve styling of author comments prior to Wordpress 2.7. On kremalicious.com I've used this code:
-    
-    
-    {% highlight php %}
-	<li class="
-		<?php 
-			if ($comment->comment_author_url == "http://www.kremalicious.com") 
-				echo 'author'; 
-			else echo $oddcomment; 
-		?> 
-		item" id="comment-<?php comment_ID() ?>">
-    		<em>other comments code</em>
-    	</li>
-	{% endhighlight %}
+
+{% highlight php %}
+<li class="
+	<?php 
+		if ($comment->comment_author_url == "http://www.kremalicious.com") 
+			echo 'author'; 
+		else echo $oddcomment; 
+	?> 
+	item" id="comment-<?php comment_ID() ?>">
+		<em>other comments code</em>
+	</li>
+{% endhighlight %}
     
 So with some php stuff we were able to check for the author name or, as I did it, for the URL of the comment author. If one of these were detected Wordpress added a new class 'author' to the `<li>` tag which we were able to style by adding a li.author to our css file:
     
@@ -44,14 +43,8 @@ And that's it for adding a different style to comments from the article author. 
 
 ## Even more
 
-
-
 Wordpress also has a special class for registered users of your site so you're able to style their comments as well. For this just use the class 'byuser':
 
-    {% highlight css %}li.byuser { css comes in here }{% endhighlight %}
+{% highlight css %}li.byuser { css comes in here }{% endhighlight %}
 
 All the various classes Wordpress adds to comments are listed [in the Codex page for enhanced comments display](http://codex.wordpress.org/Migrating_Plugins_and_Themes_to_2.7/Enhanced_Comment_Display#CSS_Styling). And [here's a very nice grahical overview about everything Wordpress 2.7 adds to comments](http://www.wp-fun.co.uk/2008/12/10/27-comment-classes/).
-
-
-
-![](http://vg06.met.vgwort.de/na/20b9a4cf85274c83bccbac5e386f9575)

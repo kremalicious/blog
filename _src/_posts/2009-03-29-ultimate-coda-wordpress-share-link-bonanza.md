@@ -678,6 +678,3 @@ If you ever wanted or had to include such sharing links manually in your sites a
 And that's it. If you think there should be another site added feel free to post them in the comments or shoot me a note [via my contact form](http://www.kremalicious.com/about/contact). Also possible errors or any additions are much appreciated. If useful I will add your additions or more site links to the codaclips files and will update the article.
 
 Also I would like to provide these links as [Espresso](http://macrabbit.com/espresso/) snippets probably as part of the HTML-(or PHP?)-Sugar but this seems to be rather complicated at the moment. As soon as this becomes more straightforward I will add these to this article. But if you're already advanced in creating Espresso sugars and would like to help me with this [please contact me!](http://www.kremalicious.com/about/contact)
-
-![](http://vg06.met.vgwort.de/na/e09d317bbe794a07a434a3abb8110d35)
-

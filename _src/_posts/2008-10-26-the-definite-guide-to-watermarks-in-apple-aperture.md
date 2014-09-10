@@ -112,27 +112,16 @@ The functionality of this plug-in is rather rudimentary but it's indeed the quic
 
 As with every Edit Plug-In every time you fire up an image with this plug-in Aperture will create a psd file and after hitting save in the plug-in your changes will be rendered destructively on this psd file. So there's no way to go back here without creating a new psd file and starting again.
 
-
-
 ## 3.3 Impression For Aperture Plug-In
-
-
 
 [Impression](http://www.bluecrowbar.com/software/impressionaperture/) is an Aperture Edit Plug-In from [Blue Crowbar Software](http://www.bluecrowbar.com) released in Sept. 2009. The developer claims it's mainly targeted for those people who want to have a copy of their watermarked image within Aperture. Also there's a nice blog post by the developer lining out [why he thinks this plug-in beats Aperture's builtin watermarks.](http://www.bluecrowbar.com/blog/posts/impression-for-aperture.html)
 
 [![Impression Watermark Plug-In](/media/aperture-impression-thumb.png)](/media/aperture-impression.png)
 
-
-
 This plug-in is pretty powerful and probably the best choice for watermarking your images in Aperture through an Edit Plug-In workflow. Watermarking multiple photos at once is also possible and you can use existing PSD or PNG images as a watermark image as well as from a RTF text file. Apart from the functionality it also has a quite beautiful UI with the controls laying over your image.
 
 
-
-
-
 ## 4. Conclusion
-
-
 
 So you see there are quite a few possibilities for adding watermarks in your Aperture workflow although the most comfortable solution, a brick in the adjustment panel for adding text or watermark images non-destructively isn't there (yet?).
 
@@ -143,7 +132,3 @@ So to stay within a non-destructive workflow and to avoid unnecessary big file s
 But if you want e.g. different text on just a few images and want to have your watermarked image within Aperture you should try using the Edit plug-ins or your external editor. Also if you don't care about big file sizes for rather minor changes you can use the Edit plug-ins for watermarking although you'll slightly leave Aperture's non-destructive workflow design  with this. This by the way is the case with all the Edit plug-ins. But that's another story...
 
 And that's it folks. I hope this article helps you finding the right method for watermarking your images in an Aperture workflow. Feel free to post in the comments about your experiences or any additions you have. Also don't forget to spread the word about this article on your favorite social bookmarking site.
-
-
-
-![](http://vg01.met.vgwort.de/na/768d7564079144d180130b8051ef4b9a)

@@ -232,6 +232,3 @@ Not an icon tutorial but Fabio Sasso achieves some awesome light effects combine
 
 
 Did you made or found another incredible coffee icon I've not mentioned here? Feel free to post them in the comments. Also don't forget to spread the word about this article on [digg](http://digg.com/design/The_Finest_Coffee_Most_Incredible_Coffee_Icons_On_The_Web), [StumbleUpon](http://www.stumbleupon.com/url/www.kremalicious.com/2008/10/the-finest-coffee-cups-most-incredible-coffee-icons-on-the-web/) or in any other form you like.
-
-
-![](http://vg09.met.vgwort.de/na/11749249cfd84ec2959c7aef1ae26bfa)

@@ -17,32 +17,32 @@ Sure enough I've upgraded immediately when [Wordpress 2.7 was released](http://w
 
 Before Wordpress 2.7 I achieved a custom gravatar image on kremalicious.com with this code placed in the comments.php template file:
 
-    {% highlight php %}
-	<?php 
-		if(function_exists('get_avatar')) {
-            echo get_avatar( 
-					$comment, 
-					$size = '70', 
-					$default = '<?php bloginfo('template_directory'); ?>/images/gravatar.png' 
-				);
-    	} 
-	?>
-	{% endhighlight %}
+{% highlight php %}
+<?php 
+	if(function_exists('get_avatar')) {
+        echo get_avatar( 
+				$comment, 
+				$size = '70', 
+				$default = '<?php bloginfo('template_directory'); ?>/images/gravatar.png' 
+			);
+	} 
+?>
+{% endhighlight %}
 
 So we were able to set a path to our image we wanted to use as the default gravatar image. But with Wordpress 2.7 we have the new function [`<?php wp_list_comments(); ?>`](http://codex.wordpress.org/Template_Tags/wp_list_comments) which pretty much simplifies writing comment template code. Although it has a parameter for the avatar size it doesn't have one for setting a custom image like before.
 
 But we can use the functions.php file in your template directory and add some lines to it: (If you don't have a functions.php file just create one.)
 
-    {% highlight php %}
-	<?php  
-		function my_own_gravatar( $avatar_defaults ) {  
-		    $myavatar = get_bloginfo('template_directory') . '/images/gravatar.png';  
-		    $avatar_defaults[$myavatar] = 'GRAVATAR NAME DISPLAYED IN WORDPRESS';  
-		    return $avatar_defaults;  
-		}  
-		add_filter( 'avatar_defaults', 'my_own_gravatar' );   
-    ?>
-	{% endhighlight %}
+{% highlight php %}
+<?php  
+	function my_own_gravatar( $avatar_defaults ) {  
+	    $myavatar = get_bloginfo('template_directory') . '/images/gravatar.png';  
+	    $avatar_defaults[$myavatar] = 'GRAVATAR NAME DISPLAYED IN WORDPRESS';  
+	    return $avatar_defaults;  
+	}  
+	add_filter( 'avatar_defaults', 'my_own_gravatar' );   
+?>
+{% endhighlight %}
 
 
 
@@ -60,7 +60,3 @@ And you can adjust the displayed size of the gravatar image by adding a paramete
 
 
 And that's it. As you would guess I pretty much prefer this way to adjust the gravatar image. But you're free to [write your custom comment callback function](http://clarktech.no-ip.com/wordpress/wordpress-27-comment-callback-function) to exactly define the output of the comments. But it's definitely too much if you just want to change the gravatar stuff.
-
-
-
-![](http://vg07.met.vgwort.de/na/c4983205db884c82ab9c6d2093947d00)
