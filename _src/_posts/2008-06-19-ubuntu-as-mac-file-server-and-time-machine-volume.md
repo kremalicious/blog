@@ -15,7 +15,7 @@ tags:
 - tutorial
 
 redirect_from:
-	- /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
+    - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
 ---
 
 ![Ubuntu Mac File Server Connectivity](/media/ubuntu_mac_feature_thumb.jpg)For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
@@ -140,7 +140,7 @@ Scroll to the bottom of the document and define your Volume shares. By adding th
 Because we want to use the Ubuntu machine as a backup server for Time Machine you should define a second volume just for Time Machine. Create a new folder in your home directory first and name it TimeMachine (or anything you like). Then add the following line to your AppleVolumes.default. This is one line so be sure that there’s no line break in your AppleVolumes.default file:
 
 ````
-/home/username/TimeMachine		TimeMachine 	allow:username1,username2 		cnidscheme:cdb options:usedots,upriv
+/home/username/TimeMachine      TimeMachine     allow:username1,username2       cnidscheme:cdb options:usedots,upriv
 ```
 
 Thanks to [tsanga](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-50) for pointing out the usedots and upriv options. The usedots option is required if you want to use invisible files and folders (those starting with a dot in the name). Otherwise afpd would encode them as :2e which is bad if you have to use invisible files (like .htaccess). If you're on Leopard **and have no Tiger installed Macs in your network or mixed OS X versions in your network** you should use the upriv option which adds support for AFP3 unix privileges. If you have Macs with Tiger installed just use options:usedots to avoid unexpected behavior:
@@ -199,16 +199,16 @@ A blank document should open in gedit. Now paste the following into the document
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-	<name replace-wildcards="yes">%h</name>
-	<service>
-		<type>_afpovertcp._tcp</type>
-		<port>548</port>
-	</service>
-	<service>
-	    <type>_device-info._tcp</type>
-	    <port>0</port>
-	    <txt-record>model=Xserve</txt-record>
-	</service>
+    <name replace-wildcards="yes">%h</name>
+    <service>
+        <type>_afpovertcp._tcp</type>
+        <port>548</port>
+    </service>
+    <service>
+        <type>_device-info._tcp</type>
+        <port>0</port>
+        <txt-record>model=Xserve</txt-record>
+    </service>
 </service-group>
 ```
 
