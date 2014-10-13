@@ -223,6 +223,10 @@ module.exports = function(grunt){
                     {
                         from: '/media/',
                         to: '<%= config.cdnurl %>/media/'
+                    },
+                    {
+                        from: 'https://kremalicious.com<%= config.cdnurl %>/media/',
+                        to: 'https://kremalicious.com/media/'
                     }
                 ]
             },
