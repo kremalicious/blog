@@ -880,24 +880,24 @@ FileETag None
 <IfModule mod_rewrite.c>
     RewriteBase /
 
-    RewriteCond %{HTTPS} !=on
-    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-    RewriteRule ^ http://%1%{REQUEST_URI} [R]
+    # throw everything onto https
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://www.kremalicious.com/$1 [R,L]
+
+    # and remove wwww
+    RewriteCond %{HTTP_HOST} ^www\.kremalicious\.com [NC]
+    RewriteRule ^(.*)$ https://kremalicious.com/$1 [L,R=301]
 
     # redirect all index.html to parent folder
     RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]
     RewriteRule . %1 [R=301,NE,L]
 
-    # RewriteCond %{HTTPS} !=on
-#     RewriteRule ^(.*)$ https://kremalicious.com/$1 [R=301,L]
+    # Remove date from post permalinks
+    RewriteRule ^([0-9]+)/([0-9]+)/(.*)$ /$3 [R=301,NC,L]
 
 </IfModule>
 
-# Remove date from post permalinks
-RedirectMatch 301 ^/([0-9]+)/([0-9]+)/(.*)$ /$3
-
 # Old Content Redirects
-
 Redirect 301 /lab http://lab.kremalicious.com
 Redirect 301 /csspaperstack /lab/csspaperstack
 Redirect 301 /download /media
