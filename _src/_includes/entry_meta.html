@@ -9,10 +9,10 @@
 		</a>
     </p>
 
-     <time class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | date_to_string }}</time>
+     <time is="time-ago" class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | date_to_string }}</time>
 
     {% if page.updated %}
-      <time class="updated" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | date_to_string }}</time>
+      <time is="time-ago" class="updated" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | date_to_string }}</time>
     {% endif %}
 
 </footer>

@@ -16,7 +16,9 @@
     "imagesloaded": ">=3.1.0",
     "jquery-infinite-scroll": ">=2.0.2",
     "simple-jekyll-search": ">=1.0.2",
-    "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js"
+    "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js",
+    "time-elements": ">=0.4.0",
+    "webcomponentsjs": ">=0.6.1"
   },
   "ignore": [
     "**/.*",

@@ -106,6 +106,9 @@ module.exports = function(grunt){
                     '<%= config.site %>/<%= config.assets.js %>/picturefill.min.js': [
                         'bower_components/picturefill/dist/picturefill.js'
                     ],
+                    '<%= config.site %>/<%= config.assets.js %>/CustomElements.min.js': [
+                        'bower_components/webcomponentsjs/CustomElements.js'
+                    ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/jquery-infinite-scroll/jquery.infinitescroll.js',
@@ -113,6 +116,7 @@ module.exports = function(grunt){
                         'bower_components/imagesloaded/imagesloaded.js',
                         'bower_components/simple-jekyll-search/dest/jekyll-search.js',
                         'bower_components/jquery.adaptive-background/index.js',
+                        'bower_components/time-elements/time-elements.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
                 }
