@@ -5,7 +5,6 @@ group :development do
 
   gem 'jekyll'
   gem 'jekyll-sitemap'
-  gem 'jekyll-timeago'
   gem 'jekyll-redirect-from'
   gem 'jekyll-picture-tag'
   gem 'rouge'

@@ -52,7 +52,6 @@ keep_files:             ['media', 'gen']
 
 gems:
     - jekyll-sitemap
-    - jekyll-timeago
     - jekyll-redirect-from
     - jekyll-picture-tag
 
