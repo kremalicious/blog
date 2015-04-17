@@ -6,6 +6,4 @@ author: Matthias Kretschmann
 category: photos
 ---
 
-Obligatory it's summer in Berlin photo
-
 [Instagram](https://instagram.com/p/1ikG3qtSkG/)

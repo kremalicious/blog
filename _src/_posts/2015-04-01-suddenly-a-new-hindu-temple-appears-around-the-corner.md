@@ -6,6 +6,4 @@ author: Matthias Kretschmann
 category: photos
 ---
 
-Suddenly... a new Hindu temple appears around the corner
-
 [Instagram](https://instagram.com/p/08ngIbtSvs/)

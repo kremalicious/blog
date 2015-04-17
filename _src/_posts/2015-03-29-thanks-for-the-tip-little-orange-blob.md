@@ -6,6 +6,4 @@ author: Matthias Kretschmann
 category: photos
 ---
 
-Thanks for the tip little orange blob
-
 [Instagram](https://instagram.com/p/00qW1wNSm6/)
