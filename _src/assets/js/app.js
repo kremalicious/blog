@@ -26,13 +26,21 @@ var siteNavigation = {
         $searchlink.click(function(e){
             e.preventDefault();
 
+            SimpleJekyllSearch.init({
+                searchInput:            $searchfield,
+                resultsContainer:       $searchresults,
+                dataSource:             '/search.json',
+                searchResultTemplate:   '<a class="search-link" href="{url}" title="{title}">{title}</a>',
+                fuzzy:                  true
+            })
+
             // init jekyll search
-            $searchfield.jekyllSearch({
-                searchResults       : $searchresults,
-                searchResultsTitle  : '',
-                template            : '<a class="search-link" href="{url}" title="{title}">{title}</a>',
-                fuzzy               : true
-            });
+            // $searchfield.jekyllSearch({
+//                 searchResults       : $searchresults,
+//                 searchResultsTitle  : '',
+//                 template            : '<a class="search-link" href="{url}" title="{title}">{title}</a>',
+//                 fuzzy               : true
+//             });
 
             // show search
             $searcharea.removeClass('ready bounceOutUp').addClass('ready slideDown');

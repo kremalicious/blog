@@ -15,7 +15,7 @@
     "masonry": ">=3.1.5",
     "imagesloaded": ">=3.1.0",
     "jquery-infinite-scroll": ">=2.0.2",
-    "simpleJekyllSearch": "https://raw.github.com/christian-fei/Simple-Jekyll-Search/master/jekyll-search.jquery.js",
+    "simple-jekyll-search": ">=1.0.2",
     "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js"
   },
   "ignore": [
@@ -24,7 +24,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "devDependencies": {
-  }
+  ]
 }

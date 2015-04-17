@@ -111,7 +111,7 @@ module.exports = function(grunt){
                         'bower_components/jquery-infinite-scroll/jquery.infinitescroll.js',
                         'bower_components/masonry/dist/masonry.pkgd.js',
                         'bower_components/imagesloaded/imagesloaded.js',
-                        'bower_components/simpleJekyllSearch/index.js',
+                        'bower_components/simple-jekyll-search/dest/jekyll-search.js',
                         'bower_components/jquery.adaptive-background/index.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
