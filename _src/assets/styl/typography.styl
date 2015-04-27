@@ -228,6 +228,9 @@ blockquote
     margin: 0 0 $line-height-computed
     position: relative
 
+    @media $breakpoint3
+        padding: 0 ($line-height-computed*1.75)
+
     // quotation marks
     &:before
         content: "“"
@@ -236,7 +239,10 @@ blockquote
         color: rgba($text-color-dimmed, 40%)
         position: absolute
         left: -($line-height-computed/2)
-        top: -($line-height-computed/2)
+        top: -($line-height-computed/1.75)
+
+        @media $breakpoint3
+            top: -($line-height-computed/1.35)
 
     p:last-child
         margin-bottom: 0
