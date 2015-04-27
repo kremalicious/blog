@@ -6,49 +6,47 @@ redirect_from:
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	
+
 	<title type="text" xml:lang="en">{{ site.name }}</title>
-	<link type="application/atom+xml" href="{{ site.url }}/feed/" rel="self"/>
- 	<link type="text" href="{{ site.url }}" rel="alternate"/>
+    <link type="application/atom+xml" href="{{ site.url }}/feed/" rel="self"/>
+    <link href="{{ site.url }}/"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
 	<id>{{ site.url }}</id>
 	<author>
 		<name>{{ site.author }}</name>
+        <email>{{ site.email }}</email>
 	</author>
-	
+
 	{% for post in site.posts limit:100 %}
     	<entry>
             {% if post.layout == "link" %}
 				<title>{{ post.title | escape | titlecase }} &#8594;</title>
-                <link>{{ post.linkurl | escape }}</link>
+                <link rel="alternate" type="text/html" href="{{ post.linkurl | escape }}" />
             {% else %}
 				<title>{{ post.title | escape | titlecase }}</title>
-                <link>{{ site.url }}{{ post.url | escape }}</link>
+                <link rel="alternate" type="text/html" href="{{ site.url }}{{ post.url | escape }}" />
             {% endif %}
-		    
+
             <published>{{ post.date | date_to_xmlschema }}</published>
-            
+
             {% if post.updated %}
                 <updated>{{ post.updated | date_to_xmlschema }}</updated>
 			{% else %}
 				<updated>{{ post.date | date_to_xmlschema }}</updated>
             {% endif %}
-            
+
     		<id>{{ site.url }}{{ post.url | escape }}</id>
     		<content type="html">
                 {% if post.image %}
                     &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
                 {% endif %}
-            
+
                 {{ post.content | xml_escape }}
-            
+
     			{% if post.layout == "link" %}
                     &lt;a href=&quot;{{ post.linkurl | escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
                     &lt;a href=&quot;{{ site.url }}{{ post.url | escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
-				
-				&lt;hr /&gt;
-				You should &lt;a href=&quot;https://twitter.com/kremalicious&quot;&gt;follow me on Twitter.&lt;/a&gt;
             </content>
     	</entry>
 	{% endfor %}
