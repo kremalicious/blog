@@ -1,5 +1,4 @@
-
-$(ASAP = function(){
+$(ASAP = function() {
 
     siteNavigation.init();
     siteEffects.init();
@@ -7,7 +6,7 @@ $(ASAP = function(){
 
 });
 
-$(window).load( AfterLoad = function() {
+$(window).load(AfterLoad = function() {
 
     photoGrid.init();
 
@@ -17,40 +16,33 @@ var siteNavigation = {
 
     siteSearch: function() {
 
-        var $searchlink     = $('.search-btn'),
-            $searcharea     = $('.topbar .search-area'),
-            $searchfield    = $('.search-field'),
-            $searchresults  = $('.search-results'),
-            $searchpop      = $('.popover');
+        var $searchlink = $('.search-btn'),
+            $searcharea = $('.topbar .search-area'),
+            $searchfield = $('.search-field'),
+            $searchresults = $('.search-results'),
+            $searchpop = $('.popover');
 
-        $searchlink.click(function(e){
+        $searchlink.click(function(e) {
             e.preventDefault();
 
-            SimpleJekyllSearch.init({
-                searchInput:            $searchfield,
-                resultsContainer:       $searchresults,
-                dataSource:             '/search.json',
-                searchResultTemplate:   '<a class="search-link" href="{url}" title="{title}">{title}</a>',
-                fuzzy:                  true
-            })
-
             // init jekyll search
-            // $searchfield.jekyllSearch({
-//                 searchResults       : $searchresults,
-//                 searchResultsTitle  : '',
-//                 template            : '<a class="search-link" href="{url}" title="{title}">{title}</a>',
-//                 fuzzy               : true
-//             });
+            SimpleJekyllSearch({
+                searchInput: $searchfield,
+                resultsContainer: $searchresults,
+                json: '/search.json',
+                searchResultTemplate: '<a class="search-link" href="{url}" title="{title}">{title}</a>',
+                fuzzy: true
+            })
 
             // show search
             $searcharea.removeClass('ready bounceOutUp').addClass('ready slideDown');
             $searchfield.focus();
-            if ( $searchfield.val().length ) {
+            if ($searchfield.val().length) {
                 $searchpop.removeClass('hide');
             }
 
             // hide menu too just in case
-            if ( $('body').hasClass('menu-open') ) {
+            if ($('body').hasClass('menu-open')) {
                 $('body').removeClass('menu-open');
             }
 
@@ -82,7 +74,7 @@ var siteNavigation = {
         });
 
         // close button
-        $('.search-close').click(function(e){
+        $('.search-close').click(function(e) {
             e.preventDefault();
 
             // hide search area
@@ -96,15 +88,15 @@ var siteNavigation = {
 
     siteMenu: function() {
         var $thelink = $('.menu-btn'),
-            $thepop  = $('.nav-main .nav-popover');
+            $thepop = $('.nav-main .nav-popover');
 
-        $thelink.click(function(e){
+        $thelink.click(function(e) {
             e.preventDefault();
 
             // toggle menu
             $('body').toggleClass('menu-open');
 
-            if ( $('body').hasClass('menu-open') ) {
+            if ($('body').hasClass('menu-open')) {
                 $thepop.removeClass('hide');
             } else {
                 $thepop.addClass('hide');
@@ -128,10 +120,10 @@ var siteNavigation = {
         });
     },
 
-	init: function(){
-		this.siteSearch();
+    init: function() {
+        this.siteSearch();
         this.siteMenu();
-	}
+    }
 
 }
 
@@ -140,17 +132,17 @@ var photoGrid = {
     masonryLayout: function() {
         var $container = $('#main .masonry');
 
-        $container.imagesLoaded( function(){
+        $container.imagesLoaded(function() {
             $container.masonry({
-                itemSelector : 'article',
-                columnWidth  : '.grid-sizer'
+                itemSelector: 'article',
+                columnWidth: '.grid-sizer'
             });
         });
     },
 
-    init: function(){
+    init: function() {
         // only fire when photo page present and screen bigger than 480px
-        if ( $('.page-photos').length > 0 ) {
+        if ($('.page-photos').length > 0) {
             this.masonryLayout();
         }
     }
@@ -162,10 +154,10 @@ var siteEffects = {
     adaptiveBackground: function() {
         var opts = {
             selector: '.hmedia img',
-            parent:   '.document'
+            parent: '.document'
         }
 
-        $('.hmedia img').imagesLoaded( function(){
+        $('.hmedia img').imagesLoaded(function() {
             $.adaptiveBackground.run(opts)
         });
 
@@ -173,46 +165,46 @@ var siteEffects = {
         $(document).scrollTop($('#main').offset().top);
     },
 
-	init: function(){
-        if ( $('.page-single .format-photo').length > 0 ) {
+    init: function() {
+        if ($('.page-single .format-photo').length > 0) {
             this.adaptiveBackground();
         }
-	}
+    }
 
 }
 
 var infiniteScroll = {
 
-	infiniteScrollSetup: function() {
+    infiniteScrollSetup: function() {
 
-		if ( $('.page-photos').length > 0 ) {
-			var items	= '#main .masonry';
-		} else {
-			var items	= '#main article.hentry';
-		}
-		var	$scrollContent 	= $('#main');
+        if ($('.page-photos').length > 0) {
+            var items = '#main .masonry';
+        } else {
+            var items = '#main article.hentry';
+        }
+        var $scrollContent = $('#main');
 
-		$scrollContent.infinitescroll({
+        $scrollContent.infinitescroll({
             loading: {
                 img: ''
             },
-			itemSelector	: items,
-			nextSelector	: '.next a',
-			navSelector		: '.paginator',
-			binder			: $scrollContent,
-			behavior 		: 'krlc3',
-		}, function($scrollContent) {
+            itemSelector: items,
+            nextSelector: '.next a',
+            navSelector: '.paginator',
+            binder: $scrollContent,
+            behavior: 'krlc3',
+        }, function($scrollContent) {
             // run picturefill over retrieved items
             picturefill();
-			// run the photogrid over retrieved items
-			photoGrid.init();
-		});
+            // run the photogrid over retrieved items
+            photoGrid.init();
+        });
 
-	},
+    },
 
-	init: function(){
-		this.infiniteScrollSetup();
-	}
+    init: function() {
+        this.infiniteScrollSetup();
+    }
 
 }
 
@@ -224,37 +216,37 @@ var infiniteScroll = {
 	Usage: behavior: 'krlc3'
 	--------------------------------
 */
-$.extend($.infinitescroll.prototype,{
+$.extend($.infinitescroll.prototype, {
 
-	_setup_krlc3: function infscr_setup_krlc3 () {
-		var opts = this.options,
-			instance = this,
-			loader = $('<span class="loading"> ...</span>');
+    _setup_krlc3: function infscr_setup_krlc3() {
+        var opts = this.options,
+            instance = this,
+            loader = $('<span class="loading"> ...</span>');
 
-		$(opts.nextSelector).parent().parent().addClass('infiniteLoader');
+        $(opts.nextSelector).parent().parent().addClass('infiniteLoader');
 
-		// Bind nextSelector link to retrieve
-		$(opts.nextSelector).click(function(e) {
-			if (e.which == 1 && !e.metaKey && !e.shiftKey) {
-				e.preventDefault();
-				instance.retrieve();
-			}
-		});
+        // Bind nextSelector link to retrieve
+        $(opts.nextSelector).click(function(e) {
+            if (e.which == 1 && !e.metaKey && !e.shiftKey) {
+                e.preventDefault();
+                instance.retrieve();
+            }
+        });
 
-		// custom start
-		instance.options.loading.start = function (opts) {
-			loader
-				.appendTo(opts.nextSelector)
-				.show(opts.loading.speed, function () {
-                	instance.beginAjax(opts);
-            });
-		}
+        // custom start
+        instance.options.loading.start = function(opts) {
+            loader
+                .appendTo(opts.nextSelector)
+                .show(opts.loading.speed, function() {
+                    instance.beginAjax(opts);
+                });
+        }
 
-		// custom finish
-		instance.options.loading.finished = function(opts) {
-			loader.detach();
-		};
+        // custom finish
+        instance.options.loading.finished = function(opts) {
+            loader.detach();
+        };
 
-	}
+    }
 
 });
