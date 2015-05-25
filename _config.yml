@@ -3,8 +3,8 @@
 # About Page:           /about/
 # Archive Page:         /archive/
 # Pagination:           /page/N/
-# Post:                 /post/post-slug/
-# RSS Feed:             /feed.xml
+# Post:                 /post-slug/
+# RSS Feed:             /feed/
 #
 
 # Basics
@@ -13,8 +13,10 @@
 name:                   kremalicious
 description:            'Blog of designer & developer Matthias Kretschmann'
 url:                    https://kremalicious.com
-author:                 Matthias Kretschmann
-email:                  m@kretschmann.io
+author:
+    name:               Matthias Kretschmann
+    email:              m@kretschmann.io
+    uri:                http://kretschmann.io
 
 
 # Urls

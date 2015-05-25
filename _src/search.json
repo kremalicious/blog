@@ -1,11 +1,10 @@
 ---
-layout: none
 ---
 [
     {% for post in site.posts %}
         {
-          "title"     : "{{ post.title | escape | titlecase }}",
-          "category"  : "{{ post.categories }}",
+          "title"     : "{{ post.title | strip_html | strip_newlines | escape | titlecase }}",
+          "category"  : "{{ post.categories | join: ', ' }}",
           "tag"       : "{{ post.tags | join: ', ' }}",
           "url"       : "{{ site.url }}{{ post.url }}",
           "date"      : "{{ post.date }}",
