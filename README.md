@@ -16,6 +16,18 @@ You need to have the following tools installed on your development machine befor
 - [Ruby](https://www.ruby-lang.org) (for sanity, install with [rvm](https://rvm.io/)) and [Bundler](http://bundler.io/)
 
 
+Content Creation
+------------------
+
+Some handy rake tasks creating the correct front matter for each content type:
+
+New Content | Command
+----------- | -----------
+Post        | `rake post -- Title`
+Photo       | `rake photo -- Title`
+Link        | `rake link -- Title`
+
+
 Get up and running
 ------------------
 
