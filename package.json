@@ -7,7 +7,14 @@
   "scripts": {
     "postinstall": "bower install && bundle install"
   },
-  "dependencies": {},
+  "dependencies": {
+    "imagesloaded": ">=3.1.8",
+    "jquery": ">=2.1.4",
+    "masonry-layout": ">=3.3.0",
+    "normalize-css": ">=2.3.1",
+    "normalize-opentype.css": ">=0.2.4",
+    "picturefill": ">=2.3.1"
+  },
   "devDependencies": {
     "grunt": ">=0.4.5",
     "grunt-combine-media-queries": ">=1.0.8",
