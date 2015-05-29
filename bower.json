@@ -10,7 +10,6 @@
   "dependencies": {
     "jquery-infinite-scroll": ">=2.0.2",
     "simple-jekyll-search": ">=2.0.0",
-    "jquery.adaptive-background": "https://raw.github.com/briangonzalez/jquery.adaptive-backgrounds.js/master/src/jquery.adaptive-backgrounds.js",
     "time-elements": ">=0.4.0",
     "webcomponentsjs": ">=0.6.1"
   },

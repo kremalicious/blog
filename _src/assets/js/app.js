@@ -23,7 +23,7 @@ var siteNavigation = {
             $searchpop = $('.popover');
 
         $searchlink.click(function(e) {
-            e.preventDefault();
+            e.preventDefault()
 
             // init jekyll search
             SimpleJekyllSearch({
@@ -151,24 +151,8 @@ var photoGrid = {
 
 var siteEffects = {
 
-    adaptiveBackground: function() {
-        var opts = {
-            selector: '.hmedia img',
-            parent: '.document'
-        }
-
-        $('.hmedia img').imagesLoaded(function() {
-            $.adaptiveBackground.run(opts)
-        });
-
-        // jump to photo background start
-        $(document).scrollTop($('#main').offset().top);
-    },
-
     init: function() {
-        if ($('.page-single .format-photo').length > 0) {
-            this.adaptiveBackground();
-        }
+
     }
 
 }

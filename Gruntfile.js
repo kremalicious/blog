@@ -115,7 +115,6 @@ module.exports = function(grunt){
                         'node_modules/masonry-layout/dist/masonry.pkgd.js',
                         'node_modules/imagesloaded/imagesloaded.js',
                         'bower_components/simple-jekyll-search/dest/jekyll-search.js',
-                        'bower_components/jquery.adaptive-background/index.js',
                         'bower_components/time-elements/time-elements.js',
                         '<%= config.src %>/<%= config.assets.js %>/app.js'
                     ]
