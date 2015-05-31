@@ -23,7 +23,7 @@ author:
 # --------------------
 
 permalink:              /:title/
-paginate:               10
+paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
 category_title_prefix:  ""
