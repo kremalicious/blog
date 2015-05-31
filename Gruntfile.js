@@ -105,7 +105,7 @@ module.exports = function(grunt){
                         'node_modules/picturefill/dist/picturefill.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/CustomElements.min.js': [
-                        'bower_components/webcomponentsjs/CustomElements.js'
+                        'node_modules/webcomponentsjs/CustomElements.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         'node_modules/jquery/dist/jquery.js',
