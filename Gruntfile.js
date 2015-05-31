@@ -77,22 +77,20 @@ module.exports = function(grunt){
             }
         },
 
-        // combine css media queries
-        cmq: {
-            production: {
-                files: {
-                    '<%= config.site %>/<%= config.assets.css %>/': ['<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css']
-                }
-            }
-        },
-
-        // minify css
-        cssmin: {
-            production: {
-                files: {
-                    '<%= config.site %>/<%= config.assets.css %>/kremalicious3.min.css': ['<%= config.site %>/<%= config.assets.css %>/*.css'],
-                    '<%= config.site %>/<%= config.assets.css %>/poststyle-2300.min.css': ['<%= config.site %>/<%= config.assets.css %>/poststyle-2300.min.css']
-                }
+        // Post process css
+        postcss: {
+            options: {
+                processors: [
+                    // autoprefixer
+                    require('autoprefixer-core')({browsers: 'last 2 versions'}),
+                    // combine media queries
+                    require('css-mqpacker'),
+                    // css minification
+                    require('csswring')
+                ]
+            },
+            dist: {
+                src: '<%= config.site %>/<%= config.assets.css %>/*.css'
             }
         },
 
@@ -168,7 +166,7 @@ module.exports = function(grunt){
             },
             stylus: {
                 files: ['<%= config.src %>/<%= config.assets.stylus %>/*.styl'],
-                tasks: ['stylus', 'cmq', 'cssmin']
+                tasks: ['stylus', 'postcss']
             },
             js: {
                 files: ['<%= config.src %>/<%= config.assets.js %>/*.js'],
@@ -185,7 +183,7 @@ module.exports = function(grunt){
                     '<%= config.src %>/_posts/**',
                     '<%= config.src %>/_drafts/**'
                 ],
-                tasks: ['jekyll:development', 'stylus', 'cmq', 'cssmin', 'uglify']
+                tasks: ['jekyll:development', 'stylus', 'postcss', 'uglify']
             },
         },
 
@@ -294,8 +292,7 @@ module.exports = function(grunt){
     // Default Task, assets only
     grunt.registerTask('default', [
         'stylus',
-        'cmq',
-        'cssmin',
+        'postcss',
         'uglify',
         'connect',
         'watch'
@@ -307,8 +304,7 @@ module.exports = function(grunt){
         'jekyll:development',
         'rsync:copy_media',
         'stylus',
-        'cmq',
-        'cssmin',
+        'postcss',
         'uglify',
         'connect',
         'watch'
@@ -320,8 +316,7 @@ module.exports = function(grunt){
         'jekyll:production',
         'rsync:copy_media',
         'stylus',
-        'cmq',
-        'cssmin',
+        'postcss',
         'uglify',
         'imagemin:assets',
         'imagemin:touchicons',
