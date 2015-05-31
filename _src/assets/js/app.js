@@ -2,7 +2,6 @@ $(ASAP = function() {
 
     siteNavigation.init();
     siteEffects.init();
-    infiniteScroll.init();
 
 });
 
@@ -156,81 +155,3 @@ var siteEffects = {
     }
 
 }
-
-var infiniteScroll = {
-
-    infiniteScrollSetup: function() {
-
-        if ($('.page-photos').length > 0) {
-            var items = '#main .masonry';
-        } else {
-            var items = '#main article.hentry';
-        }
-        var $scrollContent = $('#main');
-
-        $scrollContent.infinitescroll({
-            loading: {
-                img: ''
-            },
-            itemSelector: items,
-            nextSelector: '.next a',
-            navSelector: '.paginator',
-            binder: $scrollContent,
-            behavior: 'krlc3',
-        }, function($scrollContent) {
-            // run picturefill over retrieved items
-            picturefill();
-            // run the photogrid over retrieved items
-            photoGrid.init();
-        });
-
-    },
-
-    init: function() {
-        this.infiniteScrollSetup();
-    }
-
-}
-
-/*
-	--------------------------------
-	Infinite Scroll Behavior
-	Manual mode with minimal loader
-
-	Usage: behavior: 'krlc3'
-	--------------------------------
-*/
-$.extend($.infinitescroll.prototype, {
-
-    _setup_krlc3: function infscr_setup_krlc3() {
-        var opts = this.options,
-            instance = this,
-            loader = $('<span class="loading"> ...</span>');
-
-        $(opts.nextSelector).parent().parent().addClass('infiniteLoader');
-
-        // Bind nextSelector link to retrieve
-        $(opts.nextSelector).click(function(e) {
-            if (e.which == 1 && !e.metaKey && !e.shiftKey) {
-                e.preventDefault();
-                instance.retrieve();
-            }
-        });
-
-        // custom start
-        instance.options.loading.start = function(opts) {
-            loader
-                .appendTo(opts.nextSelector)
-                .show(opts.loading.speed, function() {
-                    instance.beginAjax(opts);
-                });
-        }
-
-        // custom finish
-        instance.options.loading.finished = function(opts) {
-            loader.detach();
-        };
-
-    }
-
-});

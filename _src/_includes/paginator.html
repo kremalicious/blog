@@ -1,51 +1,46 @@
 {% if paginator.total_pages > 1 %}
 
     <nav class="row paginator">
-    
-        {% if paginator.previous_page %}
-            <p class="previous col2">
-                <i class="icon-arrow-left"></i> 
-                
+
+        <p class="paginator-previous col2">
+            {% if paginator.previous_page %}
+            <a
                 {% if page.category %}
-                
                     {% if paginator.previous_page == 1 %}
-                        <a href="/{{ page.category }}/" rel="prev">Previous</a>
+                        href="/{{ page.category }}/"
                     {% else %}
-                        <a href="/{{ page.category }}/page/{{ paginator.previous_page }}/" rel="prev">Previous</a>
+                        href="/{{ page.category }}/page/{{ paginator.previous_page }}/"
                     {% endif %}
-                    
                 {% else %}
-                    
                     {% if paginator.previous_page == 1 %}
-                        <a href="/" rel="prev">Previous</a>
+                        href="/"
                     {% else %}
-                        <a href="/page/{{ paginator.previous_page }}/" rel="prev">Previous</a>
+                        href="/page/{{ paginator.previous_page }}/"
                     {% endif %}
-                    
                 {% endif %}
-                
-            </p>
-        {% endif %}
-    
-        <p class="col2 pagenumber textcenter">
-            <span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                rel="prev"><i class="icon icon-arrow-left"></i> Previous
+            </a>
+            {% endif %}
         </p>
-    
-        {% if paginator.next_page %}
-            <p class="next col2">
+
+
+        <p class="col2 pagenumber textcenter">
+            <span class="paginator-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        </p>
+
+        <p class="paginator-next col2">
+            {% if paginator.next_page %}
+            <a
                 {% if page.category %}
-                    <a href="/{{ page.category }}/page/{{ paginator.next_page }}/" rel="next">Next</a> 
+                    href="/{{ page.category }}/page/{{ paginator.next_page }}/"
                 {% else %}
-                    <a href="/page/{{ paginator.next_page }}/" rel="next">Next</a> 
+                    href="/page/{{ paginator.next_page }}/"
                 {% endif %}
-                <i class="icon-arrow-right"></i>
-            </p>
-        {% else %}
-            <p class="next col2">
-                The End
-            </p>
-        {% endif %}
-    
+                rel="next">Next <i class="icon icon-arrow-right"></i>
+            </a>
+            {% endif %}
+        </p>
+
     </nav>
 
 {% endif %}

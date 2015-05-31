@@ -91,35 +91,24 @@
 .paginator
     @extend .clearfix
 
-    p
-        position: relative
-    a
-        display: block
+    .icon
+        vertical-align: middle
 
-    i
-        position: absolute
-        left: 0
-        top: 0
+.paginator-next
+    @extend .alignright
+    text-align: right
 
-    .next
-        @extend .alignright
-        text-align: right
+.paginator-previous
+    @extend .alignleft
 
-        a
-            margin-right: 1.5em
+.paginator-number
+    font-size: $font-size-small
+    color: $brand-grey-light
 
-        i
-            margin-left: .5em
-            left: auto
-            right: 0
-
-    .previous
-        @extend .alignleft
-
-        a
-            margin-left: 1.5em
-        i
-            margin-right: .5em
+.paginator-title
+    @extend .h3, .heading-band
+    color: $brand-grey-light
+    margin-bottom: 0
 
 
 // Infinite Loader

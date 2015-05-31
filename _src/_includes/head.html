@@ -30,7 +30,7 @@
 
     <title>
         {% if paginator.previous_page %}
-            Page {{ paginator.page }} &brvbar; {{ page.title }}
+            Page {{ paginator.page }} &brvbar; {{ site.name }}
         {% elsif page.title %}
             {{ page.title }} &brvbar; {{ site.name }}
         {% else %}

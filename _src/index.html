@@ -15,6 +15,10 @@ redirect_from:
 
 <section role="main" id="main" class="row">
 
+    {% if paginator.previous_page %}
+        <h1 class="paginator-title">Page {{ paginator.page }}</h1>
+    {% endif %}
+
     {% for post in paginator.posts %}
 
         {% include articles.html %}

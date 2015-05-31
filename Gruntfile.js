@@ -105,11 +105,10 @@ module.exports = function(grunt){
                         'node_modules/picturefill/dist/picturefill.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/CustomElements.min.js': [
-                        'node_modules/webcomponentsjs/CustomElements.js'
+                        'node_modules/webcomponents.js/CustomElements.js'
                     ],
                     '<%= config.site %>/<%= config.assets.js %>/kremalicious3.min.js': [
                         'node_modules/jquery/dist/jquery.js',
-                        'bower_components/jquery-infinite-scroll/jquery.infinitescroll.js',
                         'node_modules/masonry-layout/dist/masonry.pkgd.js',
                         'node_modules/imagesloaded/imagesloaded.js',
                         'bower_components/simple-jekyll-search/dest/jekyll-search.js',

@@ -8,7 +8,6 @@
   "description": "Blog of Matthias Kretschmann",
   "license": "MIT",
   "dependencies": {
-    "jquery-infinite-scroll": ">=2.0.2",
     "simple-jekyll-search": ">=1.0.6",
     "time-elements": ">=0.4.0"
   },
