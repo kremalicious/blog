@@ -23,7 +23,7 @@ var src = '_src',
 var banner = [
     '/**',
     ' ** <%= pkg.name %> - <%= pkg.description %>',
-    ' ** <%= package.repository.url %>'
+    ' ** <%= package.repository.url %>',
     ' ** @author <%= pkg.author %>',
     ' ** @version v<%= pkg.version %>',
     ' **/',

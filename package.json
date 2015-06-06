@@ -3,7 +3,8 @@
   "author": "Matthias Kretschmann <m@kretschmann.io>",
   "description": "Blog of Matthias Kretschmann",
   "version": "3.0.0",
-  "main": "Gruntfile.js",
+  "license": "MIT",
+  "main": "gulpfile.js",
   "scripts": {
     "postinstall": "bower install && bundle install"
   },
