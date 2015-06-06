@@ -45,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:kremalicious/kremalicious3.git"
+    "url": "https://github.com/kremalicious/kremalicious3.git"
   }
 }
