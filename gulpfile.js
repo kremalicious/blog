@@ -75,7 +75,7 @@ gulp.task('css', function() {
         // }))
         .pipe($.cssmin())
         .pipe($.rename({suffix: '.min'}))
-        .pipe(header(banner, {pkg: pkg}))
+        .pipe($.header(banner, {pkg: pkg}))
         .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.connect.reload());
 });
@@ -107,7 +107,7 @@ gulp.task('js-project', function() {
     ])
     .pipe($.uglify())
     .pipe($.concat('kremalicious3.min.js'))
-    .pipe(header(banner, {pkg: pkg}))
+    .pipe($.header(banner, {pkg: pkg}))
     .pipe(gulp.dest(dist + '/assets/js/'))
     .pipe($.connect.reload());
 });
@@ -236,7 +236,7 @@ gulp.task('build', function(cb) {
         ['css', 'js', 'images', 'fonts', 'media'],
         'revision',
         'revision-replace',
-        //'imagemin',
+        'imagemin',
         cb
     );
 });
