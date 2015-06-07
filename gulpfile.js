@@ -18,14 +18,17 @@ var runSequence = require('run-sequence');
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 var src = '_src',
-    dist = '_site';
+    dist = '_site',
+    cdn = 'https://d2jlreog722xe2.cloudfront.net';
 
 var banner = [
     '/**',
-    ' ** <%= pkg.name %> - <%= pkg.description %>',
+    ' ** <%= pkg.name %> v<%= pkg.version %>',
+    ' ** <%= pkg.description %>',
+    ' ** <%= pkg.homepage %>\n' +
+    ' **\n' +
     ' ** <%= pkg.repository.url %>',
-    ' ** @author <%= pkg.author %>',
-    ' ** @version v<%= pkg.version %>',
+    ' ** <%= pkg.author.name %> <<%= pkg.author.email %>>',
     ' **/',
     ''
 ].join('\n');
@@ -50,7 +53,16 @@ gulp.task('clean', function(cb) {
 //
 gulp.task('jekyll', function (cb){
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build'], {stdio: 'inherit'});
+    var jekyll = spawn('jekyll', ['build', '--drafts', '--future'], {stdio: 'inherit'});
+
+    jekyll.on('exit', function(code) {
+        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
+    });
+});
+
+gulp.task('jekyll:production', function (cb){
+    var spawn = require('child_process').spawn;
+    var jekyll = spawn('jekyll', ['build', '--lsi'], {stdio: 'inherit'});
 
     jekyll.on('exit', function(code) {
         cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
@@ -92,6 +104,7 @@ gulp.task('js-libraries', function() {
         CustomElements = gulp.src('node_modules/webcomponents.js/CustomElements.js')
 
     return merge(jquery, picturefill, CustomElements)
+        .pipe($.uglify())
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(dist + '/assets/js/'))
 });
@@ -151,13 +164,13 @@ gulp.task('media', function() {
 //
 gulp.task('imagemin', function () {
     return gulp.src(dist + '/**/*.{png,jpg,jpeg,gif,svg}')
-        .pipe($.imagemin({
-            optimizationLevel: 5, // png
+        .pipe($.cache($.imagemin({
+            optimizationLevel: 4, // png
             progressive: true,    // jpg
             interlaced: true,     // gif
             multipass: true,      // svg
             svgoPlugins: [{removeViewBox: false}]
-        }))
+        })))
         .pipe(gulp.dest(dist));
 });
 
@@ -186,6 +199,26 @@ gulp.task('revision-replace', function() {
         .pipe($.revReplace({manifest: manifest}))
         .pipe(gulp.dest(dist));
 });
+
+
+//
+// CDN url injection
+//
+gulp.task('cdn',function(){
+    // html
+    return gulp.src([dist + '/**/*.html'])
+        .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
+        .pipe($.replace('/assets/img/', cdn + '/assets/img/'))
+        .pipe($.replace('/media/', cdn + '/media/'))
+        .pipe($.replace('https://kremalicious.com' + cdn + '/media/', 'https://kremalicious.com/media/'))
+        .pipe(gulp.dest(dist));
+
+    // css
+    return gulp.src([dist + '/assets/css/*.css'])
+        .pipe($.replace('../', cdn + '/assets/'))
+        .pipe(gulp.dest(dist));
+});
+
 
 //
 // Dev Server
@@ -226,16 +259,18 @@ gulp.task('server', function(cb) {
     );
 });
 
+
 //
 // Production build
 //
 gulp.task('build', function(cb) {
     runSequence(
         'clean',
-        'jekyll',
+        'jekyll:production',
         ['css', 'js', 'images', 'fonts', 'media'],
         'revision',
         'revision-replace',
+        'cdn',
         'imagemin',
         cb
     );
