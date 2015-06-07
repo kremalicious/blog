@@ -6,10 +6,12 @@ author: Matthias Kretschmann
 
 date: 2008-12-11 22:59:06+00:00
 wordpress_id: 344
+
 categories:
-- design
+	- design
 tags:
-- tutorial
+	- tutorial
+	- wordpress
 ---
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)
@@ -18,14 +20,14 @@ Sure enough I've upgraded immediately when [Wordpress 2.7 was released](http://w
 Before Wordpress 2.7 I achieved a custom gravatar image on kremalicious.com with this code placed in the comments.php template file:
 
 {% highlight php %}
-<?php 
+<?php
 	if(function_exists('get_avatar')) {
-        echo get_avatar( 
-				$comment, 
-				$size = '70', 
-				$default = '<?php bloginfo('template_directory'); ?>/images/gravatar.png' 
+        echo get_avatar(
+				$comment,
+				$size = '70',
+				$default = '<?php bloginfo('template_directory'); ?>/images/gravatar.png'
 			);
-	} 
+	}
 ?>
 {% endhighlight %}
 
@@ -40,7 +42,7 @@ But we can use the functions.php file in your template directory and add some li
 	    $avatar_defaults[$myavatar] = 'GRAVATAR NAME DISPLAYED IN WORDPRESS';  
 	    return $avatar_defaults;  
 	}  
-	add_filter( 'avatar_defaults', 'my_own_gravatar' );   
+	add_filter( 'avatar_defaults', 'my_own_gravatar' );
 ?>
 {% endhighlight %}
 

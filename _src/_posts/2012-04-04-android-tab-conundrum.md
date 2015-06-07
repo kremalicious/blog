@@ -6,8 +6,11 @@ layout: post
 slug: android-tab-conundrum
 title: The Android Tab Bar Conundrum. Again.
 wordpress_id: 1556
+
 categories:
-- design
+    - design
+tags:
+    - android
 ---
 
 ![](/media/tabs_overview.png)

@@ -6,10 +6,12 @@ author: Matthias Kretschmann
 
 date: 2008-12-13 16:47:43+00:00
 wordpress_id: 360
+
 categories:
-- design
+	- design
 tags:
-- tutorial
+	- tutorial
+	- wordpress
 ---
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)
@@ -19,23 +21,23 @@ Let's start by looking at the code to achieve styling of author comments prior t
 
 {% highlight php %}
 <li class="
-	<?php 
-		if ($comment->comment_author_url == "http://www.kremalicious.com") 
-			echo 'author'; 
-		else echo $oddcomment; 
-	?> 
+	<?php
+		if ($comment->comment_author_url == "http://www.kremalicious.com")
+			echo 'author';
+		else echo $oddcomment;
+	?>
 	item" id="comment-<?php comment_ID() ?>">
 		<em>other comments code</em>
 	</li>
 {% endhighlight %}
-    
+
 So with some php stuff we were able to check for the author name or, as I did it, for the URL of the comment author. If one of these were detected Wordpress added a new class 'author' to the `<li>` tag which we were able to style by adding a li.author to our css file:
-    
+
     {% highlight css %}li.author { css comes in here }{% endhighlight %}
 
 But with Wordpress 2.7 these steps are needless because of the [new function `<?php wp_list_comments(); ?>`](http://codex.wordpress.org/Template_Tags/wp_list_comments) which adds a class on author comments for itself!
 
-If a comment from the author of an article is posted under this article, **Wordpress automatically adds the class 'bypostauthor' to the surrounding `<li>` tag.** So all you have to do is adding a css style of `li.bypostauthor` to your css file or just renaming your old `li.author` class or whatever you used for this: 
+If a comment from the author of an article is posted under this article, **Wordpress automatically adds the class 'bypostauthor' to the surrounding `<li>` tag.** So all you have to do is adding a css style of `li.bypostauthor` to your css file or just renaming your old `li.author` class or whatever you used for this:
 
     {% highlight css %}li.bypostauthor { css comes in here }{% endhighlight %}
 
