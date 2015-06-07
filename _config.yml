@@ -45,7 +45,6 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./_site
-exclude:                ['assets/styl', 'app.js']
 keep_files:             ['media', 'gen']
 
 
