@@ -55,6 +55,7 @@ gems:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-picture-tag
+    - jekyll-archives
 
 # jekyll-picture-tag
 # --------------------
