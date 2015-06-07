@@ -81,7 +81,7 @@
 
 .byline,
 time,
-.categories
+.tags
     @extend .textcenter
 
 .byline,
@@ -99,8 +99,18 @@ time
     display: block
     color: $text-color-dimmed
 
-.categories
+.tags
     margin-top: $line-height-computed
+
+.tag
+    color: $text-color-dimmed
+    margin-right: 5px
+
+    &:before
+        content: '#'
+        color: darken($page-bg, 15%)
+        margin-right: 2px
+
 
 .avatar
     width: 80px

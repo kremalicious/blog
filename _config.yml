@@ -55,6 +55,21 @@ gems:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-picture-tag
+    - jekyll-archives
+
+
+# jekyll-archives
+# --------------------
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: 'archive'
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/:name/'
+
 
 # jekyll-picture-tag
 # --------------------

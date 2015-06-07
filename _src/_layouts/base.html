@@ -1,24 +1,24 @@
-    
+
 {% include head.html %}
 
 {% capture id %}{{ page.url | replace:'/','-' | replace_first:'-','' | replace:'.html','' | replace:'-index','' }}{% endcapture %}
 
-<body class="page-{{ id }}">
-    
+<body class="page-{{ id | remove:'-' }}">
+
     {% include header.html %}
-    
-    <section role="document" class="document container"> 
+
+    <section role="document" class="document container">
 
         {{ content }}
 
     </section>
-    
+
     <div class="popover container hide">
         <div class="row">
             <div class="search-results"></div>
         </div>
     </div>
-    
+
 </body>
-    
+
 {% include footer.html %}

@@ -7,13 +7,14 @@ author: Matthias Kretschmann
 
 date: 2012-05-15 16:00:44+00:00
 wordpress_id: 2043
+
 categories:
-- design
-- goodies
+    - design
+    - goodies
 tags:
-- boilerplate
-- tutorial
-- wordpress
+    - boilerplate
+    - tutorial
+    - wordpress
 ---
 
 Here’s a template for designing your own icons for the admin area of WordPress including icons ready for Retina screens and some recommendations for the workflow of implementing these.

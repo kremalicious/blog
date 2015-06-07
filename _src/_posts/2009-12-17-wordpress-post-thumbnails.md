@@ -6,10 +6,12 @@ author: Matthias Kretschmann
 
 date: 2009-12-17 04:00:21+00:00
 wordpress_id: 959
+
 categories:
-- design
+    - design
 tags:
-- tutorial
+    - tutorial
+    - wordpress
 ---
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)WordPress 2.9 added a new feature which allows you to assign an image to an article to make it the post image like it's often used in magazine style themes. This new feature along with a new template tag makes all the custom field hacks usually used for this functionality in the past obsolete. So here's a quick walkthrough to make use of the new post thumbnail feature and of course how to make it backwards compatible.
@@ -21,8 +23,8 @@ tags:
 So just open up your theme's _functions.php_ file in your favorite editor or create it if there's no such file in your theme folder. Add this little code snippet to this file:
 
 {% highlight php %}
-<?php 
-    add_theme_support('post-thumbnails'); 
+<?php
+    add_theme_support('post-thumbnails');
 ?>
 {% endhighlight %}
 
@@ -30,7 +32,7 @@ For backwards compatibility you should wrap this inside a function check for the
 
 {% highlight php %}
 <?php
-    if ( function_exists( 'add_theme_support' ) ) 
+    if ( function_exists( 'add_theme_support' ) )
       add_theme_support( 'post-thumbnails' );
 ?>
 {% endhighlight %}
@@ -62,9 +64,9 @@ This template tag will display the thumbnail sized post thumbnail by default and
 
 But of course you can grab the other sizes WordPress automatically creates when you upload an image:
 
-{% highlight php %}<?php 
-  the_post_thumbnail('medium'); 
-  the_post_thumbnail('large'); 
+{% highlight php %}<?php
+  the_post_thumbnail('medium');
+  the_post_thumbnail('large');
 ?>{% endhighlight %}
 _(Note: Matt [left a comment on WP Engineer](http://wpengineer.com/the-ultimative-guide-for-the_post_thumbnail-in-wordpress-2-9/#comment-3053) stating he wouldn't recommend using these named arguments but provided no explanation for it yet.)_
 
@@ -100,21 +102,21 @@ As for the title attribute this will be grabbed automatically from the entry you
 
 Finally if you want to respect the custom sizes you or your users have set under Settings > Media you can first grab those sizes with [get_option function](http://codex.wordpress.org/Function_Reference/get_option) and then put it in the array:
 
-{% highlight php %}<?php 
+{% highlight php %}<?php
   $width = get_option('thumbnail_size_w');  // get the width of the thumbnail setting
   $height = get_option('thumbnail_size_h'); // get the height of the thumbnail setting
-  
-  the_post_thumbnail(array($width, $height), array('class' => 'alignleft')); 
+
+  the_post_thumbnail(array($width, $height), array('class' => 'alignleft'));
 ?>{% endhighlight %}
 
 You can also detect the Media settings for the other sizes and whether the crop setting is active or not:
 
-{% highlight php %}<?php 
+{% highlight php %}<?php
   get_option('medium_size_w');  // Width of the medium size
   get_option('medium_size_h');  // Height of the medium size
   get_option('large_size_w');   // Width of the large size
   get_option('large_size_h');   // Height of the large size
-  get_option('thumbnail_crop'); // Check for crop, On=1, Off=0 
+  get_option('thumbnail_crop'); // Check for crop, On=1, Off=0
 ?>{% endhighlight %}
 
 
@@ -126,11 +128,11 @@ With the check in your functions.php at the beginning there's already ensured ol
 
 So it's a pretty good idea to make this backwards compatible with some quick if else voodoo, code shamelessly [adapted from WP-Recipes](http://www.wprecipes.com/wordpress-2-9-display-post-image-with-backward-compatibility):
 
-{% highlight php %}if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) { 
-  the_post_thumbnail(); 
-} else { 
-  $postimage = get_post_meta($post->ID, 'post-image', true); 
-  if ($postimage) { 
+{% highlight php %}if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
+  the_post_thumbnail();
+} else {
+  $postimage = get_post_meta($post->ID, 'post-image', true);
+  if ($postimage) {
     echo '<img src="'.$postimage.'" alt="" />';
   }
 }{% endhighlight %}
@@ -144,22 +146,22 @@ This first checks if the feature exists and if a post thumbnail was addd with th
 
 
 
-	
+
   * WP Engineer: [About WordPress Post Thumbnail](http://wpengineer.com/about-wordpress-post-thumbnail/)
 
-	
+
   * WP Engineer: [The Ultimative Guide For the_post_thumbnail In WordPress 2.9](http://wpengineer.com/the-ultimative-guide-for-the_post_thumbnail-in-wordpress-2-9/)
 
-	
+
   * WP Recipes: [WordPress 2.9 : Display post image with backward compatibility](http://www.wprecipes.com/wordpress-2-9-display-post-image-with-backward-compatibility)
 
-	
+
   * Justin Tadlock: [Everything you need to know about WordPress 2.9’s post image feature](http://justintadlock.com/archives/2009/11/16/everything-you-need-to-know-about-wordpress-2-9s-post-image-feature)
 
-	
+
   * Chris Harrison: [Post Thumbnails in RSS Feeds](http://cdharrison.com/2009/12/the_post_thumbnail-for-rss-feeds/)
 
-	
+
   * Technosailor: [10 Things You Need to Know About WordPress 2.9](http://technosailor.com/2009/11/11/10-things-you-need-to-know-about-wordpress-2-9/)
 
 
@@ -182,5 +184,3 @@ As always: before making your next coffee you should share this article on your 
 12/20/2009 function check for add_theme_support at the beginning
 12/20/2009 corrected the size array code under Custom Output
 12/17/2009 Added some code examples to respect the media settings
-
-

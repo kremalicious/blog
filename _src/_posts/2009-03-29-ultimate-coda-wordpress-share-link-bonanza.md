@@ -7,10 +7,12 @@ author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
 wordpress_id: 576
+
 categories:
-- design
+    - design
 tags:
-- tutorial
+    - tutorial
+    - wordpress
 ---
 
 ![Coda Clips Teaser](/media/codaclips-teaser.png)
