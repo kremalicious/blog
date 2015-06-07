@@ -8,10 +8,10 @@ date: 2008-12-11 22:59:06+00:00
 wordpress_id: 344
 
 categories:
-	- design
+- design
 tags:
-	- tutorial
-	- wordpress
+- tutorial
+- wordpress
 ---
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)
