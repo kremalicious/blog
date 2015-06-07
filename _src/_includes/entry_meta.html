@@ -15,4 +15,10 @@
       <time is="time-ago" class="updated" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | date_to_string }}</time>
     {% endif %}
 
+	<p class="tags">
+		{% for tag in page.tags %}
+			<a class="tag" href="/tag/{{ tag }}">{{ tag }}</a> 
+		{% endfor %}
+	</p>
+
 </footer>
