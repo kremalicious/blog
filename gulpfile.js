@@ -165,12 +165,13 @@ gulp.task('media', function() {
 gulp.task('imagemin', function () {
     return gulp.src([
             dist + '/**/*.{png,jpg,jpeg,gif,svg}',
-            '!'dist + '/media/**/*'
+            '!' + dist + '/media/**/*'
         ])
         .pipe($.cache($.imagemin({
-            optimizationLevel: 3, // png
+            optimizationLevel: 5, // png
             progressive: true,    // jpg
             interlaced: true,     // gif
+            multipass: true,      // svg
             svgoPlugins: [{removeViewBox: false}]
         })))
         .pipe(gulp.dest(dist));
