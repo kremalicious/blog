@@ -14,6 +14,18 @@ var gulp = require('gulp'),
 var runSequence = require('run-sequence');
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Terminal Banner
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+console.log("");
+console.log("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log("");
+console.log("      (o) Just what do you think you're doing, Matthias?    ");
+console.log("");
+console.log("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log("");
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Config
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -43,6 +55,7 @@ var banner = [
 gulp.task('clean', function(cb) {
     return del([
         dist + '/**/*',
+        dist + '/.*', // delete all hidden files
         '!' + dist + '/media/**'
     ], cb);
 });
@@ -182,13 +195,14 @@ gulp.task('imagemin', function () {
 // Revision static assets
 //
 gulp.task('revision', function () {
-    return gulp.src(dist + '/assets/**/*.{css,js}')
+    return gulp.src(dist + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
         .pipe($.rev())
         .pipe(gulp.dest(dist + '/assets/'))
         // output rev manifest for next replace task
         .pipe($.rev.manifest())
         .pipe(gulp.dest(dist + '/assets/'));
 });
+
 
 //
 // Replace all links to assets in files
@@ -198,7 +212,7 @@ gulp.task('revision-replace', function() {
 
     var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
-    return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js}')
+    return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
         .pipe($.revReplace({manifest: manifest}))
         .pipe(gulp.dest(dist));
 });
@@ -208,16 +222,12 @@ gulp.task('revision-replace', function() {
 // CDN url injection
 //
 gulp.task('cdn',function(){
-    // html
-    return gulp.src([dist + '/**/*.html'])
+    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], {base: dist})
+        .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
         .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
         .pipe($.replace('/assets/img/', cdn + '/assets/img/'))
         .pipe($.replace('/media/', cdn + '/media/'))
         .pipe($.replace('https://kremalicious.com' + cdn + '/media/', 'https://kremalicious.com/media/'))
-        .pipe(gulp.dest(dist));
-
-    // css
-    return gulp.src([dist + '/assets/css/*.css'])
         .pipe($.replace('../', cdn + '/assets/'))
         .pipe(gulp.dest(dist));
 });
