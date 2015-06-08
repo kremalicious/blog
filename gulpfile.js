@@ -37,10 +37,18 @@ var banner = [
     '/**',
     ' ** <%= pkg.name %> v<%= pkg.version %>',
     ' ** <%= pkg.description %>',
-    ' ** <%= pkg.homepage %>\n' +
-    ' **\n' +
-    ' ** <%= pkg.repository.url %>',
+    ' ** <%= pkg.homepage %>',
+    ' **',
     ' ** <%= pkg.author.name %> <<%= pkg.author.email %>>',
+    ' **',
+    ' ** YOU EARNED THE GEEK ACHIEVEMENT ',
+    ' ** FOR LOOKING AT MY SOURCE ',
+    ' **',
+    ' ** But because of all the minimizing and caching ',
+    ' ** going on you better check out the code on ',
+    ' ** github ',
+    ' ** ',
+    ' ** <%= pkg.repository.url %> ',
     ' **/',
     ''
 ].join('\n');
@@ -251,27 +259,33 @@ gulp.task('watch', function() {
     gulp.watch([src + '/_assets/styl/**/*.styl'], ['css']);
     gulp.watch([src + '/_assets/js/*.js'], ['js-project']);
     gulp.watch([src + '/_assets/img/**/*'], ['images']);
-    gulp.watch([src + '/**/*.{html,xml,json,txt}'], ['jekyll']);
+    gulp.watch([src + '/_media/**/*'], ['media']);
+    gulp.watch([src + '/**/*.{html,xml,json,txt}'], ['jekyll-build']);
 });
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Task sequences
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+gulp.task('jekyll-build', function(cb) {
+    runSequence(
+        'jekyll',
+        ['css', 'js', 'images', 'fonts', 'media'],
+        cb
+    );
+});
+
 //
 // Dev Server
 //
 gulp.task('server', function(cb) {
     runSequence(
-        'clean',
-        'jekyll',
-        ['css', 'js', 'images', 'fonts', 'media'],
+        'jekyll-build',
         'watch',
         'connect',
         cb
     );
 });
-
 
 //
 // Production build

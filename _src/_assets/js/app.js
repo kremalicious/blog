@@ -1,7 +1,7 @@
 $(ASAP = function() {
 
     siteNavigation.init();
-    siteEffects.init();
+    //siteEffects.init();
 
 });
 
