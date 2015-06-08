@@ -40,7 +40,7 @@ var icons = {
         dist: dist + '/assets/img/',
         prefix: 'entypo-',
         icons: [
-            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'user', 'leaf', 'link', 'image', 'camera', 'arrow-with-circle-down', 'forward.svg', 'heart', 'info', 'github', 'star', 'tools', 'chevron-right', 'chevron-left', 'gift'
+            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'star', 'chevron-right', 'chevron-left'
         ]
     }
 }
@@ -51,8 +51,7 @@ spriteConfig = {
     mode: {
         symbol: {
             dest: './',
-            sprite: 'sprite.svg',
-            inline: true
+            sprite: 'sprite.svg'
         }
     }
 }
@@ -198,9 +197,7 @@ gulp.task('js', ['js-libraries', 'js-project']);
 //
 // Icons
 //
-gulp.task('icons', ['icons-entypo']);
-
-gulp.task('icons-entypo', function() {
+gulp.task('icons', function() {
     var iconset = icons.entypo
 
     // Iterate through the icon set array
@@ -209,9 +206,7 @@ gulp.task('icons-entypo', function() {
     });
 
     return gulp.src(iconset.icons)
-        .pipe($.rename({
-            prefix: iconset.prefix
-        }))
+        .pipe($.rename({ prefix: iconset.prefix }))
         .pipe(gulp.dest(iconset.dist))
         .pipe($.filter('**/*.svg'))
         .pipe($.svgSprite(spriteConfig))
@@ -235,7 +230,6 @@ gulp.task('svg-fallbacks', function() {
 gulp.task('images', function() {
     return gulp.src([src + '/_assets/img/**/*', '!' + src + '/_assets/img/entypo/**/*'])
         .pipe(gulp.dest(dist + '/assets/img/'))
-        .pipe($.connect.reload());
 });
 
 
@@ -245,7 +239,6 @@ gulp.task('images', function() {
 gulp.task('fonts', function() {
     return gulp.src(src + '/_assets/fonts/**/*')
         .pipe(gulp.dest(dist + '/assets/fonts/'))
-        .pipe($.connect.reload());
 });
 
 
@@ -255,7 +248,6 @@ gulp.task('fonts', function() {
 gulp.task('media', function() {
     return gulp.src(src + '/_media/**/*')
         .pipe(gulp.dest(dist + '/media/'))
-        .pipe($.connect.reload());
 });
 
 
@@ -272,9 +264,7 @@ gulp.task('imagemin', function() {
             progressive: true, // jpg
             interlaced: true, // gif
             multipass: true, // svg
-            svgoPlugins: [{
-                removeViewBox: false
-            }]
+            svgoPlugins: [{ removeViewBox: false }]
         })))
         .pipe(gulp.dest(dist));
 });
@@ -302,9 +292,7 @@ gulp.task('revision-replace', function() {
     var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
     return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.revReplace({
-            manifest: manifest
-        }))
+        .pipe($.revReplace({ manifest: manifest }))
         .pipe(gulp.dest(dist));
 });
 
@@ -313,9 +301,7 @@ gulp.task('revision-replace', function() {
 // CDN url injection
 //
 gulp.task('cdn', function() {
-    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], {
-            base: dist
-        })
+    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], { base: dist })
         .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
         .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
         .pipe($.replace('/assets/img/', cdn + '/assets/img/'))
@@ -353,13 +339,11 @@ gulp.task('watch', function() {
 // Task sequences
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-// All assets tasks
-gulp.task('assets', ['css', 'js', 'icons', 'images', 'fonts', 'media']);
-
 gulp.task('jekyll-build', function(cb) {
     runSequence(
         'jekyll',
-        'assets',
+        ['css', 'js', 'images', 'fonts', 'media'],
+        'icons',
         cb
     );
 });

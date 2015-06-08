@@ -5,7 +5,10 @@
     	<header>
     		<h1 class="entry-title">
                 <a href="{{ post.linkurl }}" title="Go to source: {{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
-                    {{ post.title | titlecase }} <i class="icon icon-forward"></i>
+                    {{ post.title | titlecase }}
+                    <svg class="icon icon-entypo icon-entypo-forward">
+                        <use xlink:href="/assets/img/sprite.svg#entypo-forward"></use>
+                    </svg>
                     <span class="linkurl">{{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
@@ -14,8 +17,16 @@
         <section class="entry-content">
             {{ post.content | markdownify }}
     		<p>
-    			<a class="more-link" href="{{ post.linkurl }}">Go to source <i class="icon icon-forward"></i></a>
-                <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">&#8734;</a>
+    			<a class="more-link" href="{{ post.linkurl }}">Go to source
+                    <svg class="icon icon-entypo icon-entypo-forward">
+                        <use xlink:href="/assets/img/sprite.svg#entypo-forward"></use>
+                    </svg>
+                </a>
+                <a class="permalink-link" href="{{ post.url }}" rel="tooltip" title="Permalink">
+                    <svg class="icon icon-entypo icon-entypo-infinity">
+                        <use xlink:href="/assets/img/sprite.svg#entypo-infinity"></use>
+                    </svg>
+                </a>
     		</p>
         </section>
     </article>
@@ -64,12 +75,22 @@
                 <footer class="goodie-actions">
 
                     <p class="info col3">
-                        <a class="btn icon icon-info" href="{{ post.url }}">Release Post</a>
+                        <a class="btn icon icon-info" href="{{ post.url }}">
+                            <svg class="icon icon-entypo icon-entypo-info-with-circle">
+                                <use xlink:href="/assets/img/sprite.svg#entypo-info-with-circle"></use>
+                            </svg>
+                            Release Post
+                        </a>
                     </p>
 
                     {% if post.download %}
                     <p class="download col3">
-                        <a class="btn icon icon-download" href="/media/{{ post.download }}">Download <span>zip</span></a>
+                        <a class="btn" href="/media/{{ post.download }}">
+                            <svg class="icon icon-entypo icon-entypo-arrow-with-circle-down">
+                                <use xlink:href="/assets/img/sprite.svg#entypo-arrow-with-circle-down"></use>
+                            </svg>
+                            Download <span>zip</span>
+                        </a>
                     </p>
                     {% endif %}
 
@@ -77,7 +98,12 @@
             {% endif %}
 
             {% unless page.path contains "goodies" %}
-                <a class="more-link" href="{{ post.url }}">Continue reading <i class="icon icon-arrow-right"></i></a>
+                <a class="more-link" href="{{ post.url }}">
+                    Continue reading
+                    <svg class="icon icon-entypo icon-entypo-chevron-right">
+                        <use xlink:href="/assets/img/sprite.svg#entypo-chevron-right"></use>
+                    </svg>
+                </a>
             {% endunless %}
 
         </section>

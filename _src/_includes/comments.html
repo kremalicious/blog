@@ -2,6 +2,13 @@
 <aside class="comments">
 
     <p>You should tweet this post</p>
-    <p class="btn-wrap"><a class="btn twitter-share icon icon-twitter" target="_blank" href="https://twitter.com/intent/tweet?url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&text={{ page.title | cgi_escape }}&via=kremalicious&related=kremaliciouscom,ezeep">Tweet</a></p>
+    <p class="btn-wrap">
+        <a class="btn twitter-share" target="_blank" href="https://twitter.com/intent/tweet?url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&text={{ page.title | cgi_escape }}&via=kremalicious&related=kremaliciouscom">
+            <svg class="icon icon-entypo icon-entypo-twitter">
+                <use xlink:href="/assets/img/sprite.svg#entypo-twitter"></use>
+            </svg>
+            Tweet
+        </a>
+    </p>
 
 </aside>
