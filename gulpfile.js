@@ -36,7 +36,7 @@ var src = '_src',
 // icons
 var icons = {
     entypo: {
-        src: src + '/_assets/img/entypo/',
+        src: src + '/_assets/icons/entypo/',
         dist: dist + '/assets/img/',
         prefix: 'entypo-',
         icons: [
