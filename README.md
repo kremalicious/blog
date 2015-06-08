@@ -45,7 +45,7 @@ npm install
 This generates the site and assets and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
 
 ```bash
-gulp server
+gulp
 ```
 
 ### Production build
