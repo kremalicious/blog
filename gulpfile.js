@@ -39,7 +39,9 @@ var icons = {
         src: src + '/_assets/img/entypo/',
         dist: dist + '/assets/img/',
         prefix: 'entypo-',
-        icons: ['twitter', 'facebook', 'google+', 'magnifying-glass', 'menu']
+        icons: [
+            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'user', 'leaf', 'link', 'image', 'camera', 'arrow-with-circle-down', 'forward.svg', 'heart', 'info', 'github', 'star', 'tools', 'chevron-right', 'chevron-left', 'gift'
+        ]
     }
 }
 
