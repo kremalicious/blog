@@ -16,11 +16,11 @@
                 </svg>
             </button>
             <div class="nav-popover hide">
-                <a class="nav-link goodies" href="/goodies/">goodies</a>
-                <a class="nav-link photos" href="/photos/">photos</a>
-                <a class="nav-link personal" href="/personal/">personal</a>
-                <a class="nav-link design" href="/design/">design</a>
-                <a class="nav-link photography" href="/photography/">photography</a>
+                {% for category in site.categories %}
+                    <a class="nav-link" href="/{{ category | first }}/">
+                        {{ category | first }}
+                    </a>
+                {% endfor %}
             </div>
         </nav>
 
