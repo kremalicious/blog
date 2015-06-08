@@ -47,7 +47,7 @@ var icons = {
 
 // SVG sprite
 spriteConfig = {
-    'dest': dist + '/assets/img/',
+    dest: dist + '/assets/img/',
     mode: {
         symbol: {
             dest: './',
@@ -373,8 +373,8 @@ gulp.task('build', function(cb) {
         'svg-fallbacks',
         'revision',
         'revision-replace',
-        //'cdn',
-        //'imagemin',
+        'cdn',
+        'imagemin',
         cb
     );
 });
