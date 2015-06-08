@@ -18,7 +18,11 @@
                         href="/page/{{ paginator.previous_page }}/"
                     {% endif %}
                 {% endif %}
-                rel="prev"><i class="icon icon-arrow-left"></i> Previous
+                rel="prev">
+                <svg class="icon icon-entypo icon-entypo-chevron-left">
+                    <use xlink:href="/assets/img/sprite.svg#entypo-chevron-left"></use>
+                </svg>
+                 Previous
             </a>
             {% endif %}
         </p>
@@ -36,7 +40,10 @@
                 {% else %}
                     href="/page/{{ paginator.next_page }}/"
                 {% endif %}
-                rel="next">Next <i class="icon icon-arrow-right"></i>
+                rel="next">Next
+                <svg class="icon icon-entypo icon-entypo-chevron-right">
+                    <use xlink:href="/assets/img/sprite.svg#entypo-chevron-right"></use>
+                </svg>
             </a>
             {% endif %}
         </p>

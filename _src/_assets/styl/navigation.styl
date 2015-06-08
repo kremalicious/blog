@@ -7,7 +7,6 @@
 .menu-btn,
 .search-btn
     @extend .textcenter
-    text-shadow: 0 1px 0 rgba(#fff, .5)
     line-height: 1em
     vertical-align: middle
     display: inline-block
@@ -19,13 +18,17 @@
     &:focus
         outline: 0
 
-    &:hover:before
-        color: $link-color
+    .icon
+        &.icon-entypo-menu
+            width: 24px
+            height: 24px
 
-    &:active:before
-        transition: none
-        color: #fff
+    &:hover .icon,
+    &:focus .icon
+        fill: $link-color
 
+    &:active .icon
+        fill: #fff
 
 // Main Navigation
 /////////////////////////////////////
@@ -60,32 +63,16 @@
     @media $breakpoint2
         width: 33.3%
 
-    // the icons
-    &:before
-        @extend .textcenter, .transition
-        display: block
-        margin-bottom: 5px
-        width: 100%
-        font-size: 32px
-        height: 32px
-        color: rgba($text-color-dimmed, .7)
-
     &:hover,
-    &:hover:before
+    &:focus
         color: $link-color
         border-bottom-color: $link-color
-
-    &:hover
         background: rgba(255,255,255,.5)
 
     &:active
         background: $link-color
         top: 0
         color: #fff
-
-    &:active:before
-        color: #fff
-        transition: none
 
 
 // Paginator
@@ -95,7 +82,7 @@
     @extend .clearfix
 
     .icon
-        vertical-align: middle
+        margin-bottom: -3px
 
 .paginator-next
     @extend .alignright
@@ -112,24 +99,3 @@
     @extend .h3, .heading-band
     color: $brand-grey-light
     margin-bottom: 0
-
-
-// Infinite Loader
-/////////////////////////////////////
-
-.infiniteLoader
-    .next
-        width: 100%
-        float: none
-        margin-left: 0
-
-        a
-            @extend .btn, .btn-block, .aligncenter
-            color: $link-color
-            padding-top: ($line-height-computed/1.5)
-            padding-bottom: ($line-height-computed/1.5)
-
-    .previous,
-    .pagenumber,
-    i
-        @extend .hide

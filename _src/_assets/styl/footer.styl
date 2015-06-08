@@ -31,10 +31,11 @@
         margin-bottom: 0
         font-size: $font-size-mini
 
-    .icon:before
-        font-size: inherit
+    .icon
+        width: 15px
+        height: 15px
         margin-right: .2em
-        line-height: inherit
+        margin-bottom: -2px
 
 // Subscribe component
 .subscribe
@@ -57,22 +58,21 @@
         &:last-child
             margin-right: 0
 
-        &:before
-            // Icon resets for color animations
+        .icon
             transition: color .3s ease-in-out
-            color: inherit
-            margin: 0 !important
+            display: block
+            margin: 0 auto
+
+    .rss:hover .icon
+        fill: #e15a00
+    .twitter:hover .icon
+        fill: #019ad2
+    .google:hover .icon
+        fill: #c63b1e
+    .facebook:hover .icon
+        fill: #3b5998
 
 .subscribe-title
     @extend .h5
     color: $text-color-dimmed
     margin-bottom: ($line-height-computed/2)
-
-.footer:hover .subscribe .rss:before
-    color: #e15a00
-.footer:hover .subscribe .twitter:before
-    color: #019ad2
-.footer:hover .subscribe .google:before
-    color: #c63b1e
-.footer:hover .subscribe .facebook:before
-    color: #3b5998

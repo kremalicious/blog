@@ -1,4 +1,3 @@
-
 // load plugins
 var $ = require('gulp-load-plugins')();
 
@@ -29,10 +28,35 @@ console.log("");
 // Config
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+// paths
 var src = '_src',
     dist = '_site',
     cdn = 'https://d2jlreog722xe2.cloudfront.net';
 
+// icons
+var icons = {
+    entypo: {
+        src: src + '/_assets/icons/entypo/',
+        dist: dist + '/assets/img/',
+        prefix: 'entypo-',
+        icons: [
+            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'star', 'chevron-right', 'chevron-left'
+        ]
+    }
+}
+
+// SVG sprite
+spriteConfig = {
+    dest: dist + '/assets/img/',
+    mode: {
+        symbol: {
+            dest: './',
+            sprite: 'sprite.svg'
+        }
+    }
+}
+
+// code banner
 var banner = [
     '/**',
     ' ** <%= pkg.name %> v<%= pkg.version %>',
@@ -72,21 +96,25 @@ gulp.task('clean', function(cb) {
 //
 // Jekyll
 //
-gulp.task('jekyll', function (cb){
+gulp.task('jekyll', function(cb) {
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build', '--drafts', '--future'], {stdio: 'inherit'});
+    var jekyll = spawn('jekyll', ['build', '--drafts', '--future'], {
+        stdio: 'inherit'
+    });
 
     jekyll.on('exit', function(code) {
-        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
+        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
     });
 });
 
-gulp.task('jekyll:production', function (cb){
+gulp.task('jekyll:production', function(cb) {
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build', '--lsi'], {stdio: 'inherit'});
+    var jekyll = spawn('jekyll', ['build', '--lsi'], {
+        stdio: 'inherit'
+    });
 
     jekyll.on('exit', function(code) {
-        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
+        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
     });
 });
 
@@ -99,16 +127,27 @@ gulp.task('css', function() {
             src + '/_assets/styl/kremalicious3.styl',
             src + '/_assets/styl/poststyle-2300.styl'
         ])
-        .pipe($.stylus({ use: [nib()], 'include css': true }))
-        .pipe($.autoprefixer({ browsers: 'last 2 versions' }))
-        .pipe($.combineMq({ beautify: false }))
+        .pipe($.stylus({
+            use: [nib()],
+            'include css': true
+        }))
+        .pipe($.autoprefixer({
+            browsers: 'last 2 versions'
+        }))
+        .pipe($.combineMq({
+            beautify: false
+        }))
         // .pipe($.uncss({
         //     html: [dist + '/**/*.html'],
         //     ignore: ['.in', '.collapsing']
         // }))
         .pipe($.cssmin())
-        .pipe($.rename({suffix: '.min'}))
-        .pipe($.header(banner, {pkg: pkg}))
+        .pipe($.rename({
+            suffix: '.min'
+        }))
+        .pipe($.header(banner, {
+            pkg: pkg
+        }))
         .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.connect.reload());
 });
@@ -121,29 +160,34 @@ gulp.task('css', function() {
 // Libraries
 gulp.task('js-libraries', function() {
     var jquery = gulp.src('node_modules/jquery/dist/jquery.js'),
-        picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js'),
-        CustomElements = gulp.src('node_modules/webcomponents.js/CustomElements.js')
+        picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js');
 
-    return merge(jquery, picturefill, CustomElements)
+    return merge(jquery, picturefill)
         .pipe($.uglify())
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest(dist + '/assets/js/'))
 });
 
 // Project js
 gulp.task('js-project', function() {
     return gulp.src([
-        'node_modules/masonry-layout/dist/masonry.pkgd.js',
-        'node_modules/imagesloaded/imagesloaded.js',
-        'bower_components/simple-jekyll-search/dest/jekyll-search.js',
-        'bower_components/time-elements/time-elements.js',
-        src + '/_assets/js/*.js'
-    ])
-    .pipe($.uglify())
-    .pipe($.concat('kremalicious3.min.js'))
-    .pipe($.header(banner, {pkg: pkg}))
-    .pipe(gulp.dest(dist + '/assets/js/'))
-    .pipe($.connect.reload());
+            'node_modules/webcomponents.js/CustomElements.js',
+            'node_modules/svg4everybody/svg4everybody.js',
+            'node_modules/masonry-layout/dist/masonry.pkgd.js',
+            'node_modules/imagesloaded/imagesloaded.js',
+            'bower_components/simple-jekyll-search/dest/jekyll-search.js',
+            'bower_components/time-elements/time-elements.js',
+            src + '/_assets/js/*.js'
+        ])
+        .pipe($.uglify())
+        .pipe($.concat('kremalicious3.min.js'))
+        .pipe($.header(banner, {
+            pkg: pkg
+        }))
+        .pipe(gulp.dest(dist + '/assets/js/'))
+        .pipe($.connect.reload());
 });
 
 // Collect all script tasks
@@ -151,12 +195,41 @@ gulp.task('js', ['js-libraries', 'js-project']);
 
 
 //
+// Icons
+//
+gulp.task('icons', function() {
+    var iconset = icons.entypo
+
+    // Iterate through the icon set array
+    icons.entypo.icons.forEach(function(icon, i, icons) {
+        icons[i] = iconset.src + icon + '.svg';
+    });
+
+    return gulp.src(iconset.icons)
+        .pipe($.rename({ prefix: iconset.prefix }))
+        .pipe(gulp.dest(iconset.dist))
+        .pipe($.filter('**/*.svg'))
+        .pipe($.svgSprite(spriteConfig))
+        .pipe(gulp.dest(iconset.dist))
+});
+
+
+//
+// Generate SVG fallbacks
+//
+gulp.task('svg-fallbacks', function() {
+    return gulp.src(dist + '/assets/img/*.svg')
+        .pipe($.svg2png())
+        .pipe(gulp.dest(dist + '/assets/img/png/'))
+});
+
+
+//
 // Copy images
 //
 gulp.task('images', function() {
-  return gulp.src(src + '/_assets/img/**/*')
-      .pipe(gulp.dest(dist + '/assets/img/'))
-      .pipe($.connect.reload());
+    return gulp.src([src + '/_assets/img/**/*', '!' + src + '/_assets/img/entypo/**/*'])
+        .pipe(gulp.dest(dist + '/assets/img/'))
 });
 
 
@@ -164,9 +237,8 @@ gulp.task('images', function() {
 // Copy fonts
 //
 gulp.task('fonts', function() {
-  return gulp.src(src + '/_assets/fonts/**/*')
-      .pipe(gulp.dest(dist + '/assets/fonts/'))
-      .pipe($.connect.reload());
+    return gulp.src(src + '/_assets/fonts/**/*')
+        .pipe(gulp.dest(dist + '/assets/fonts/'))
 });
 
 
@@ -174,26 +246,25 @@ gulp.task('fonts', function() {
 // Copy media
 //
 gulp.task('media', function() {
-  return gulp.src(src + '/_media/**/*')
-      .pipe(gulp.dest(dist + '/media/'))
-      .pipe($.connect.reload());
+    return gulp.src(src + '/_media/**/*')
+        .pipe(gulp.dest(dist + '/media/'))
 });
 
 
 //
 // Image optimization
 //
-gulp.task('imagemin', function () {
+gulp.task('imagemin', function() {
     return gulp.src([
             dist + '/**/*.{png,jpg,jpeg,gif,svg}',
             '!' + dist + '/media/**/*'
         ])
         .pipe($.cache($.imagemin({
             optimizationLevel: 5, // png
-            progressive: true,    // jpg
-            interlaced: true,     // gif
-            multipass: true,      // svg
-            svgoPlugins: [{removeViewBox: false}]
+            progressive: true, // jpg
+            interlaced: true, // gif
+            multipass: true, // svg
+            svgoPlugins: [{ removeViewBox: false }]
         })))
         .pipe(gulp.dest(dist));
 });
@@ -202,7 +273,7 @@ gulp.task('imagemin', function () {
 //
 // Revision static assets
 //
-gulp.task('revision', function () {
+gulp.task('revision', function() {
     return gulp.src(dist + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
         .pipe($.rev())
         .pipe(gulp.dest(dist + '/assets/'))
@@ -221,7 +292,7 @@ gulp.task('revision-replace', function() {
     var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
     return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.revReplace({manifest: manifest}))
+        .pipe($.revReplace({ manifest: manifest }))
         .pipe(gulp.dest(dist));
 });
 
@@ -229,8 +300,8 @@ gulp.task('revision-replace', function() {
 //
 // CDN url injection
 //
-gulp.task('cdn',function(){
-    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], {base: dist})
+gulp.task('cdn', function() {
+    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], { base: dist })
         .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
         .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
         .pipe($.replace('/assets/img/', cdn + '/assets/img/'))
@@ -258,7 +329,8 @@ gulp.task('connect', function() {
 gulp.task('watch', function() {
     gulp.watch([src + '/_assets/styl/**/*.styl'], ['css']);
     gulp.watch([src + '/_assets/js/*.js'], ['js-project']);
-    gulp.watch([src + '/_assets/img/**/*'], ['images']);
+    gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images']);
+    gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons']);
     gulp.watch([src + '/_media/**/*'], ['media']);
     gulp.watch([src + '/**/*.{html,xml,json,txt}'], ['jekyll-build']);
 });
@@ -271,6 +343,7 @@ gulp.task('jekyll-build', function(cb) {
     runSequence(
         'jekyll',
         ['css', 'js', 'images', 'fonts', 'media'],
+        'icons',
         cb
     );
 });
@@ -278,8 +351,9 @@ gulp.task('jekyll-build', function(cb) {
 //
 // Dev Server
 //
-gulp.task('server', function(cb) {
+gulp.task('default', function(cb) {
     runSequence(
+        'clean',
         'jekyll-build',
         'watch',
         'connect',
@@ -295,6 +369,8 @@ gulp.task('build', function(cb) {
         'clean',
         'jekyll:production',
         ['css', 'js', 'images', 'fonts', 'media'],
+        'icons',
+        'svg-fallbacks',
         'revision',
         'revision-replace',
         'cdn',
