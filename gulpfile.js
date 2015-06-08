@@ -368,12 +368,13 @@ gulp.task('build', function(cb) {
     runSequence(
         'clean',
         'jekyll:production',
-        'assets',
+        ['css', 'js', 'images', 'fonts', 'media'],
+        'icons',
         'svg-fallbacks',
         'revision',
         'revision-replace',
-        'cdn',
-        'imagemin',
+        //'cdn',
+        //'imagemin',
         cb
     );
 });
