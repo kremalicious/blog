@@ -10,12 +10,13 @@ date: 2008-04-04 01:55:54+00:00
 wordpress_id: 21
 categories:
 - goodies
+tags:
 - icon
 
 redirect_from:
-  - /new-goodies-aperture-file-types-icons/
-  - /goodie-updated-aperture-file-types-v11/
-  - /aperture-file-types-v12-released/
+- /new-goodies-aperture-file-types-icons/
+- /goodie-updated-aperture-file-types-v11/
+- /aperture-file-types-v12-released/
 ---
 
 These icons are free for your personal use and include icons for all file types Apple’s Aperture 2.0 can handle (.jpeg, .gif, .tiff, .png, .pdf, .psd, .arw, .cr2, .crw, .mos, .nef, .raf, .raw, .srw, .tif, .oly, .fff, .3fr, .dng, .mrw, .pef, .srf, .orf).

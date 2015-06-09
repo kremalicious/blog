@@ -8,7 +8,6 @@ date: 2008-08-22 17:04:19+00:00
 wordpress_id: 122
 categories:
 - goodies
-- other
 ---
 
 ![The Kremalicious MarsEdit Style](/media/marsedit_kremalicious.png)Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.
@@ -70,7 +69,7 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
 			    <a href="http://www.kremalicious.com">www.kremalicious.com</a>
 		    </div>
 	    </div> <-- end content -->
-	
+
     </body>
 </html>
 {% endhighlight %}

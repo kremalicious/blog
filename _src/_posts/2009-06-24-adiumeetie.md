@@ -10,6 +10,7 @@ date: 2009-06-24 21:00:38+00:00
 wordpress_id: 844
 categories:
 - goodies
+tags:
 - icon
 ---
 
@@ -37,4 +38,3 @@ Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or cli
 The icon is free for your personal use and I hope you'll enjoy it. If you do, don't forget to [spread the word via Twitter](http://twitter.com/home?status=Adiumeetie%3A%20Tweetie%20Style%20Adium%20Dock%20Icon%20from%20%40kremalicious%20http://kremalicious.com/adiumeetie/) and all your other favorite social media sites.
 
 Oh, and for best look and karma you should [buy a license for Tweetie](http://www.atebits.com/tweetie-mac/buy/) right away ;-)
-

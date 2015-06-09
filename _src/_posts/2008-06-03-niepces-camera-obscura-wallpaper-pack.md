@@ -10,6 +10,7 @@ date: 2008-06-03 13:32:24+00:00
 wordpress_id: 66
 categories:
 - goodies
+tags:
 - wallpaper
 
 redirect_from:
@@ -27,4 +28,3 @@ Here are the details:
   * Aperture and iPhoto styled Camera Obscura as it was used by Nicéphore Niépce.
   * Including one desktop version with the Aperture styled Camera Obscura and one with the iPhoto styled. Both come in 1920x1200 for widescreen displays and 1600x1200 for normal displays
   * Including 2 different crops for the iPhone (480x320).
-

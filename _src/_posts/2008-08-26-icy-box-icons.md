@@ -9,6 +9,7 @@ date: 2008-08-26 19:16:38+00:00
 wordpress_id: 146
 categories:
 - goodies
+tags:
 - icon
 
 redirect_from:

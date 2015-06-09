@@ -10,6 +10,7 @@ date: 2009-06-04 00:16:40+00:00
 wordpress_id: 794
 categories:
 - goodies
+tags:
 - icon
 ---
 
