@@ -209,6 +209,7 @@ gulp.task('icons', function() {
         .pipe($.rename({ prefix: iconset.prefix }))
         .pipe(gulp.dest(iconset.dist))
         .pipe($.filter('**/*.svg'))
+        .pipe($.imagemin({ svgoPlugins: [{ removeViewBox: false }] }))
         .pipe($.svgSprite(spriteConfig))
         .pipe(gulp.dest(iconset.dist))
 });
@@ -374,7 +375,7 @@ gulp.task('build', function(cb) {
         'revision',
         'revision-replace',
         'cdn',
-        //'imagemin',
+        'imagemin',
         cb
     );
 });
