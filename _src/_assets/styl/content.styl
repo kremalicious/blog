@@ -74,12 +74,13 @@
     font-size: $font-size-small
 
 .byline,
-time,
-.tags
+.time,
+.tags,
+.categories
     @extend .textcenter
 
 .byline,
-time
+.time
     font-style: italic
 
 .byline
@@ -89,12 +90,17 @@ time
     .by
         display: block
 
-time
-    display: block
+.time
     color: $text-color-dimmed
 
-.tags
-    margin-top: $line-height-computed
+//
+// Categories & Tags
+//
+.categories
+    margin-bottom: 0
+
+.category
+    text-transform: capitalize
 
 .tag
     color: $text-color-dimmed
