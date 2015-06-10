@@ -334,7 +334,7 @@ gulp.task('cdn', function() {
     return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], { base: dist })
         .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
         .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
-        .pipe($.replace('/assets/img/', cdn + '/assets/img/'))
+        //.pipe($.replace('/assets/img/', cdn + '/assets/img/'))
         .pipe($.replace('/media/', cdn + '/media/'))
         .pipe($.replace('https://kremalicious.com' + cdn + '/media/', 'https://kremalicious.com/media/'))
         .pipe($.replace('../', cdn + '/assets/'))

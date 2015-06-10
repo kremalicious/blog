@@ -10,7 +10,10 @@
 
         <nav role="navigation" class="nav-main">
             <button type="button" class="menu-btn">
-                <svg class="icon icon-entypo icon-entypo-menu" viewBox="0 0 20 20"><path d="M16.4 9H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1zm0 4H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1zM3.6 7h12.8c.552 0 .6-.447.6-1 0-.553-.048-1-.6-1H3.6c-.552 0-.6.447-.6 1 0 .553.048 1 .6 1z"/></svg>
+                <svg class="icon icon-entypo icon-entypo-menu" role="img" aria-labelledby="title">
+                    <title id="title">Menu</title>
+                    <use xlink:href="/assets/img/sprite.svg#entypo-menu"></use>
+                </svg>
             </button>
             <div class="nav-popover hide">
                 {% for category in site.categories %}
@@ -23,7 +26,10 @@
 
         <section class="site-search">
             <button type="button" class="search-btn">
-                <svg class="icon icon-entypo icon-entypo-search" viewBox="0 0 20 20"><path d="M17.545 15.467l-3.78-3.78c.57-.934.9-2.034.9-3.21 0-3.416-2.962-6.376-6.38-6.376C4.87 2.1 2.1 4.87 2.1 8.29c0 3.416 2.96 6.377 6.377 6.377 1.137 0 2.2-.31 3.115-.844l3.8 3.8c.37.373.974.373 1.345 0l.943-.94c.37-.37.236-.84-.135-1.21zm-13.54-7.18c0-2.366 1.916-4.283 4.28-4.283 2.367 0 4.475 2.107 4.475 4.474 0 2.365-1.918 4.283-4.283 4.283-2.366 0-4.473-2.107-4.473-4.472z"/></svg>
+                <svg class="icon icon-entypo icon-entypo-search" role="img" aria-labelledby="title">
+                    <title id="title">Search</title>
+                    <use xlink:href="/assets/img/sprite.svg#entypo-magnifying-glass"></use>
+                </svg>
             </button>
             <div class="search-area">
                 <input type="search" class="form-control input-search search-field" placeholder="Search everything">
