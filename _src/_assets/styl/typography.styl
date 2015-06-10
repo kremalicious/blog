@@ -111,51 +111,29 @@ ul,
 ol
     margin-top: 0
     margin-bottom: $line-height-computed
-    list-style: none
-    padding-left: 2em
+    padding-left: $line-height-computed*2
 
     > li
-        margin-bottom: .5em
+        margin-bottom: ($line-height-computed/2)
         position: relative
-
-ul li
-    &:before
-        font-size: 14px
-        font-family: 'entypo'
-        color: $text-color-light
-        speak: none
-        font-style: normal
-        font-weight: normal
-        font-variant: normal
-        text-transform: none
-        line-height: 1
-        -webkit-font-smoothing: antialiased
-
-        position: absolute
-        left: -2em
-        top: .5em
 
 ol
     counter-reset: ol-counter
+    list-style: none
 
     li
         &:before
             @extend .textcenter
             position: absolute
-            left: -2.5em
-            top: .4em
-            color: #fff
-            content: counter(ol-counter)
+            left: -($line-height-computed*2)
+            top: -1px
+            content: counter(ol-counter)'.'
             counter-increment: ol-counter
+            color: $text-color-light
             font-style: italic
-            font-size: 14px
-            background: $text-color-dimmed
-            width: 20px
-            height: 20px
-            border-radius: 20px
-            line-height: 20px
+            width: $font-size-base
             display: block
-            box-shadow: 0 1px 0 rgba(255,255,255,.7)
+            user-select: none
 
 ul,
 ol
