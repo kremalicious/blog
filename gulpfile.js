@@ -253,11 +253,40 @@ gulp.task('media', function() {
 
 
 //
-// Image optimization
+// Gzip all the things
 //
-gulp.task('imagemin', function() {
+gulp.task('optimize:gzip', function() {
+  return gulp.src(dist + '/**/*.{html,xml,json,css,js}')
+    .pipe($.gzip())
+    .pipe(gulp.dest(dist))
+});
+
+
+//
+// Optimize HTML
+//
+gulp.task('optimize:html', function() {
+  return gulp.src(dist + '/**/*.html')
+    .pipe($.htmlmin({
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        removeComments: true,
+        useShortDoctype: true,
+        collapseBooleanAttributes: true,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        removeEmptyAttributes: true
+    }))
+    .pipe(gulp.dest(dist));
+});
+
+
+//
+// Optimize images
+//
+gulp.task('optimize:images', function() {
     return gulp.src([
-            dist + '/**/*.{png,jpg,jpeg,gif,svg}',
+            dist + '/**/*.{png,jpg,jpeg,gif,svg,webp}',
             '!' + dist + '/media/**/*'
         ])
         .pipe($.cache($.imagemin({
@@ -375,7 +404,9 @@ gulp.task('build', function(cb) {
         'revision',
         'revision-replace',
         'cdn',
-        'imagemin',
+        'optimize:html',
+        'optimize:gzip',
+        'optimize:images',
         cb
     );
 });
