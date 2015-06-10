@@ -16,7 +16,7 @@ support-for-ie              = false                 // Nib IE 8 support
 // Asset Paths
 /////////////////////////////////////
 
-$img-path                    = '/assets/images/'
+$img-path                    = '/assets/img/'
 $font-path                   = '/assets/fonts/'
 
 
@@ -27,7 +27,15 @@ $brand-dark                 = #015565
 $brand-light                = #e7eef4
 $brand-cyan                 = #3a9085
 $brand-grey                 = #56666e
-$brand-grey-light           = #96a6ad
+$brand-grey-light           = lighten($brand-grey, 10%)
+
+
+// Text Colors
+/////////////////////////////////////
+
+$text-color                 = $brand-grey-light
+$text-color-light           = lighten($brand-grey-light, 30%)
+$text-color-dimmed          = lighten($brand-grey-light, 40%)
 
 
 // Typography
@@ -52,6 +60,11 @@ $font-size-h4-large         = ceil(($font-size-large * 1.25))
 $font-size-h5-large         = $font-size-large
 $font-size-h6-large         = $font-size-base
 
+$font-size-h1-small         = floor(($font-size-small * 2.75))
+$font-size-h2-small         = floor(($font-size-small * 2))
+$font-size-h3-small         = ceil(($font-size-small * 1.75))
+$font-size-h4-small         = ceil(($font-size-small * 1.25))
+
 $line-height-base           = 1.4444444444  // 26px/18px
 $line-height-computed       = floor($font-size-base * $line-height-base)
 $line-height-large          = 1.5           // 36px/24px
@@ -59,7 +72,7 @@ $line-height-small          = 1.1428571429
 
 $font-family-base           = 'ff-tisa-sans-web-pro', 'Helvetica Neue', Helvetica, Arial, sans-serif
 $font-weight-base           = 400
-$font-color-base            = $brand-grey
+$font-color-base            = $text-color
 
 $font-family-monospace      = Menlo, Monaco, Consolas, 'Courier New', monospace
 
@@ -67,14 +80,6 @@ $headings-font-family       = 'brandon-grotesque','Helvetica Neue',Helvetica,Ari
 $headings-font-weight       = 500 // Medium
 $headings-line-height       = 1.1
 $headings-color             = $brand-dark
-
-
-// Text Colors
-/////////////////////////////////////
-
-$text-color                 = lighten($brand-grey, 5%)
-$text-color-light           = darken($brand-grey-light, 5%)
-$text-color-dimmed          = lighten($brand-grey-light, 5%)
 
 
 // Scaffolding
