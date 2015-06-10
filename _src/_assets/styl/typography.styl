@@ -207,7 +207,7 @@ hr
 blockquote,
 blockquote > p
     @extend .italic
-    color: $text-color-light
+    color: lighten($text-color, 15%)
 
 blockquote
     padding: 0 $line-height-computed
@@ -222,7 +222,7 @@ blockquote
         content: "“"
         font-size: 400%
         font-family: "Hoefler Text", "Times New Roman", serif
-        color: rgba($text-color-dimmed, 40%)
+        color: $text-color-dimmed
         position: absolute
         left: -($line-height-computed/2)
         top: -($line-height-computed/1.75)
