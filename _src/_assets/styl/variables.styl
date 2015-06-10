@@ -27,7 +27,7 @@ $brand-dark                 = #015565
 $brand-light                = #e7eef4
 $brand-cyan                 = #3a9085
 $brand-grey                 = #56666e
-$brand-grey-light           = lighten($brand-grey, 10%)
+$brand-grey-light           = lighten($brand-grey, 15%)
 
 
 // Text Colors
@@ -65,7 +65,7 @@ $font-size-h2-small         = floor(($font-size-small * 2))
 $font-size-h3-small         = ceil(($font-size-small * 1.75))
 $font-size-h4-small         = ceil(($font-size-small * 1.25))
 
-$line-height-base           = 1.4444444444  // 26px/18px
+$line-height-base           = 1.5555555556  // 28px/18px
 $line-height-computed       = floor($font-size-base * $line-height-base)
 $line-height-large          = 1.5           // 36px/24px
 $line-height-small          = 1.1428571429
@@ -138,8 +138,8 @@ $input-height-small         = (floor($font-size-small * $line-height-small) + ($
 // Code
 /////////////////////////////////////
 
-$code-bg                    = rgba(255,255,255,.6)
-$code-color                 = spin($text-color, 70)
+$code-bg                    = rgba(255,255,255,.8)
+$code-color                 = $text-color
 $kbd-bg                     = $code-bg
 $kbd-color                  = $code-color
 
