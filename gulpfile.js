@@ -159,10 +159,9 @@ gulp.task('css', function() {
 
 // Libraries
 gulp.task('js-libraries', function() {
-    var jquery = gulp.src('node_modules/jquery/dist/jquery.js'),
-        picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js');
+    var picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js');
 
-    return merge(jquery, picturefill)
+    return merge(picturefill)
         .pipe($.uglify())
         .pipe($.rename({
             suffix: '.min'
@@ -175,6 +174,7 @@ gulp.task('js-project', function() {
     return gulp.src([
             'node_modules/webcomponents.js/CustomElements.js',
             'node_modules/svg4everybody/svg4everybody.js',
+            'node_modules/jquery/dist/jquery.js',
             'node_modules/masonry-layout/dist/masonry.pkgd.js',
             'node_modules/imagesloaded/imagesloaded.js',
             'bower_components/simple-jekyll-search/dest/jekyll-search.js',
