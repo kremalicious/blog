@@ -287,7 +287,8 @@ gulp.task('optimize:html', function() {
 gulp.task('optimize:images', function() {
     return gulp.src([
             dist + '/**/*.{png,jpg,jpeg,gif,svg,webp}',
-            '!' + dist + '/media/**/*'
+            '!' + dist + '/media/**/*',
+            '!' + dist + '/assets/img/sprite*'
         ])
         .pipe($.cache($.imagemin({
             optimizationLevel: 5, // png
