@@ -739,7 +739,7 @@ ServerSignature Off
     #
     # https://httpd.apache.org/docs/current/mod/mod_filter.html#addoutputfilterbytype
 
-    <IfModule mod_filter.c>
+    #<IfModule mod_filter.c>
         AddOutputFilterByType DEFLATE "application/atom+xml" \
                                       "application/javascript" \
                                       "application/json" \
@@ -773,7 +773,7 @@ ServerSignature Off
                                       "text/x-cross-domain-policy" \
                                       "text/xml"
 
-    </IfModule>
+    #</IfModule>
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

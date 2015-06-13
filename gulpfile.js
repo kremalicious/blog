@@ -253,16 +253,6 @@ gulp.task('media', function() {
 
 
 //
-// Gzip all the things
-//
-gulp.task('optimize:gzip', function() {
-  return gulp.src(dist + '/**/*.{html,xml,json,css,js}')
-    .pipe($.gzip())
-    .pipe(gulp.dest(dist))
-});
-
-
-//
 // Optimize HTML
 //
 gulp.task('optimize:html', function() {
@@ -406,7 +396,6 @@ gulp.task('build', function(cb) {
         'revision-replace',
         'cdn',
         'optimize:html',
-        'optimize:gzip',
         'optimize:images',
         cb
     );
