@@ -3,25 +3,27 @@ layout: base
 ---
 
 <section role="main" id="main" class="page-single row">
-    
+
     <article class="hentry format-photo">
-    
+
     	<figure class="hmedia">
-        
+
             {% picture {{ page.image }} %}
-        
+
             <figcaption class="entry-title fn">{{ page.title | titlecase }}</figcaption>
-            
+
     	</figure>
-    
+
         <section class="entry-content">
             {{ content }}
         </section>
-        
+
         {% include entry_meta.html %}
-        
+
         {% include comments.html %}
-    
+
+        {% include relatedphotos.html %}
+
     </article>
 
 </section>

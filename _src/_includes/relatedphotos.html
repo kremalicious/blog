@@ -1,0 +1,17 @@
+<aside class="related-photos">
+
+    <div class="row">
+
+        {% for post in site.categories['photos'] limit:6 %}
+
+            <article class="related-photo col2">
+                <a class="photo-link" href="{{ post.url }}">
+                    {% picture photothumb {{ post.image }} %}
+                </a>
+            </article>
+
+        {% endfor %}
+
+    </div>
+
+</aside>
