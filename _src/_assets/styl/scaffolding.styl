@@ -40,6 +40,9 @@ textarea
 
 .document
     background-color: $page-bg
+    border-top: 1px solid rgba(255,255,255,.7)
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: 0 1px 4px rgba($brand-dark, .1), 0 -1px 4px rgba($brand-dark, .2)
 
 @media only screen and (min-width: 40.625em) and (min-height: 650px)
     body
@@ -51,9 +54,6 @@ textarea
         z-index: 2
         margin-top: 71px
         margin-bottom: 580px
-        border-top: 1px solid rgba(255,255,255,.7)
-        border-bottom: 1px solid rgba(255,255,255,.7)
-        box-shadow: 0 1px 4px rgba($brand-dark, .1), 0 -1px 4px rgba($brand-dark, .1)
 
         .menu-open &
             margin-top: 220px
@@ -66,7 +66,6 @@ textarea
     .topbar
         z-index: 1
         top: 0
-        box-shadow: inset 0 1px 4px rgba($brand-dark, .1)
         border: none
 
     .footer
