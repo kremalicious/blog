@@ -38,27 +38,31 @@
         margin-right: -.5em
         padding: .5em .7em
 
-        // icon
-        &:before
-            font-size: 26px
-
     li
         display: inline-block
 
 .nav-popover
-    @extend .clearfix
-    padding: ($line-height-computed*1.5) 0
+    @extend .clearfix, .divider-top
+    clear: both
+    padding: $line-height-computed 0
+    margin-top: 60px
     width: 100%
     background: $body-bg
 
 .nav-link
-    @extend .h6, .alignleft, .textcenter
+    @extend .h6, .textcenter
     text-shadow: 0 1px 0 rgba(#fff, .5)
-    padding: .5em 1em
+    padding: $padding-base-vertical $padding-base-horizontal
     margin-bottom: 0
-    width: 50%
-    color: $text-color-dimmed
+    margin-top: 0
+    display: block
+    color: $brand-grey-light
     text-transform: uppercase
+    border-radius: $border-radius-base
+
+    @media $breakpoint1
+        width: 50%
+        float: left
 
     @media $breakpoint2
         width: 33.3%
