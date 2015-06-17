@@ -24,7 +24,7 @@
 
 	 _____________________________________________
 -->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html lang="en">
 <head>
     <meta charset="utf-8">
 
@@ -101,12 +101,6 @@
   	<!-- Windows 8 Metro Tile Image -->
   	<meta name="msapplication-TileImage" content="{{ site.url }}/metro-tile.png"/>
   	<meta name="msapplication-TileColor" content="#015565"/>
-
-    {% if paginator %}
-	<script>
-		var total = {{ paginator.total_pages }};
-	</script>
-    {% endif %}
 
     <!-- OpenGraph -->
     {% include opengraph.html %}
