@@ -34,6 +34,7 @@
 /////////////////////////////////////
 
 .nav-main
+    @extend .clearfix
     .menu-btn
         margin-right: -.5em
         padding: .5em .7em
@@ -88,16 +89,24 @@
     .icon
         margin-bottom: -3px
 
+.paginator-next,
+.paginator-previous,
+.paginator-pages
+    width: 32.7%
+    display: inline-block
+    clear: none
+
 .paginator-next
-    @extend .alignright
     text-align: right
 
-.paginator-previous
-    @extend .alignleft
+.paginator-pages
+    @extend .textcenter, .dimmed
+    font-size: $font-size-small
 
 .paginator-number
-    font-size: $font-size-small
-    color: $brand-grey-light
+    font-size: $font-size-base
+    color: $text-color-light
+    padding: 0 2px
 
 .paginator-title
     @extend .h3, .heading-band

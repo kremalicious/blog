@@ -40,7 +40,7 @@ var icons = {
         dist: dist + '/assets/img/',
         prefix: 'entypo-',
         icons: [
-            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'chevron-right', 'chevron-left'
+            'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'chevron-right', 'chevron-left', 'eye'
         ]
     }
 }
@@ -134,20 +134,14 @@ gulp.task('css', function() {
         .pipe($.autoprefixer({
             browsers: 'last 2 versions'
         }))
-        .pipe($.combineMq({
-            beautify: false
-        }))
+        .pipe($.combineMq({ beautify: false }))
         // .pipe($.uncss({
         //     html: [dist + '/**/*.html'],
         //     ignore: ['.in', '.collapsing']
         // }))
         .pipe($.cssmin())
-        .pipe($.rename({
-            suffix: '.min'
-        }))
-        .pipe($.header(banner, {
-            pkg: pkg
-        }))
+        .pipe($.rename({ suffix: '.min' }))
+        .pipe($.header(banner, { pkg: pkg }))
         .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.connect.reload());
 });
@@ -353,7 +347,7 @@ gulp.task('watch', function() {
     gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images']);
     gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons']);
     gulp.watch([src + '/_media/**/*'], ['media']);
-    gulp.watch([src + '/**/*.{html,xml,json,txt}'], ['jekyll-build']);
+    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['jekyll-build']);
 });
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

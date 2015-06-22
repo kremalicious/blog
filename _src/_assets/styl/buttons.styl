@@ -17,7 +17,7 @@ button
         transition: none
         text-shadow: none
 
-.btn
+.btn,
 a.btn
     @extend .textcenter
     display: inline-block
@@ -179,3 +179,44 @@ a.btn-primary
         color: #fff
         cursor: pointer
         outline: 0
+
+
+// some helper classes for old content
+/////////////////////////////////////
+
+.content-download
+    @extend .clearfix
+
+    a
+        @extend .btn
+        padding-left: 15px
+        padding-right: 15px
+        display: block
+
+        span
+            font-size: $font-size-mini
+            color: $text-color-light
+
+    .icon-download,
+    .icon-heart,
+    .icon-wordpress,
+    .icon-github,
+    .icon-eye
+        &:before
+            content: ""
+            width: 18px
+            height: 18px
+            display: inline-block
+            margin-right: 5px
+            margin-bottom: -3px
+            opacity: .35
+            background: url('/assets/img/entypo-arrow-with-circle-down.svg') no-repeat left center
+
+    .icon-heart:before
+        background-image: url('/assets/img/entypo-heart.svg')
+
+    .icon-github:before
+        background-image: url('/assets/img/entypo-github.svg')
+
+    .icon-eye:before
+        background-image: url('/assets/img/entypo-eye.svg')

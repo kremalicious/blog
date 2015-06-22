@@ -2,7 +2,7 @@
 
     <nav class="row paginator">
 
-        <p class="paginator-previous col2">
+        <p class="paginator-previous">
             {% if paginator.previous_page %}
             <a
                 {% if page.category %}
@@ -27,12 +27,11 @@
             {% endif %}
         </p>
 
-
-        <p class="col2 pagenumber textcenter">
-            <span class="paginator-number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        <p class="paginator-pages">
+            <span class="paginator-number">{{ paginator.page }}</span> of <span class="paginator-number">{{ paginator.total_pages }}</span>
         </p>
 
-        <p class="paginator-next col2">
+        <p class="paginator-next">
             {% if paginator.next_page %}
             <a
                 {% if page.category %}

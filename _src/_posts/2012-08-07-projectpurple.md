@@ -33,7 +33,9 @@ The full size I designed the wallpaper in is 3200x2048px. I don't know why Apple
 
 Download the whole package with all the sizes included or grab the individual ones from the list, all linked to the image files:
 
-<a class="btn btn-block icon icon-download" href="/media/project-purple-kremalicious.zip">Download <span> zip</span></a>
+<p class="content-download">
+    <a class="icon-download" href="/media/project-purple-kremalicious.zip">Download <span> zip</span></a>
+</p>
 
   * [Desktop/rMBP/iPad 3 (3200x2048)](/media/project-purple-kremalicious.png)
   * [Laptop/Nexus 7/Galaxy Nexus (1280x800)](/media/project-purple-nexus-kremalicious.png)

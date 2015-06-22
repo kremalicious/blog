@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 
 date: 2008-04-04 01:55:54+00:00
 wordpress_id: 21
-categories:
-- goodies
+
+category: goodies
 tags:
 - icon
 
@@ -27,6 +27,8 @@ These icons are free for your personal use and include icons for all file types 
 
 Get them from [the goodies-page](http://www.kremalicious.com/goodies/) and have fun.
 
-<a class="btn btn-block icon icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
+<p class="content-download">
+    <a class="icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
+</p>
 
 And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](http://www.kremalicious.com/2008/04/changing-the-image-icons-in-mac-os-x-leopard/).

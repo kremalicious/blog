@@ -94,7 +94,9 @@ Brief description of Daguerres role in the invention of photography process by T
 
 This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](http://www.kremalicious.com/goodies/) or directly via this link:
 
-<a class="btn btn-block icon icon-download" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download </a>
+<p class="content-download">
+    <a class="btn icon-download" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download</a>
+</p>
 
 In addition to these icons you can download the [associated wallpapers for your desktop or your iPhone](http://www.kremalicious.com/2008/06/new-goodie-niepces-camera-obscura-wallpaper-pack/).
 
@@ -114,4 +116,4 @@ These desktop icons are free for you personal and non-commercial use. All other 
 
 <a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
 
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](http://www.kremalicious.com/feed/) or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](https://kremalicious.com/feed/) or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.

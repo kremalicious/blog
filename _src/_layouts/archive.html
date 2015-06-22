@@ -6,6 +6,8 @@ layout: base
 
     {% if page.type == 'category' %}
     <h1 class="page-title">{{ page.title }}</h1>
+    {% elsif page.type == 'tag' %}
+    <h1 class="page-title"><span class="hash">#</span>{{ page.title }}</h1>
     {% else %}
     <h1 class="page-title">{{ page.type }} archive for {{ page.title }}</h1>
     {% endif %}

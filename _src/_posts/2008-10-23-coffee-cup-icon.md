@@ -24,4 +24,6 @@ I’ve just released my own coffee cup icon, enjoy:
 
 ## Download
 
-<a class="btn btn-primary icon icon-download" href="/media/coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>
+<p class="content-download">
+    <a class="icon-download" href="/media/coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>
+</p>
