@@ -11,6 +11,25 @@
     .entry-content
         @extend .textcenter
 
+        img
+            @extend .avatar
+
+        p:first-child,
+        p:first-child + p
+            @extend .divider-bottom
+            color: $text-color-light
+
+            @media $breakpoint2
+                max-width: 60%
+                margin-left: auto
+                margin-right: auto
+
+        p:first-child
+            @extend .h3
+
+            + p
+                font-size: $font-size-large
+
     .footer
         .avatar,
         .footer-description
@@ -25,19 +44,3 @@
 
         .footer
             height: 350px
-
-.intro-1,
-.intro-2
-    @extend .divider-bottom
-    color: $text-color-light
-
-    @media $breakpoint2
-        max-width: 60%
-        margin-left: auto
-        margin-right: auto
-
-.intro-1
-    @extend .h3
-
-.intro-2
-    font-size: $font-size-large
