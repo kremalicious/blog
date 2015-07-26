@@ -13,5 +13,5 @@ group :development do
     gem 'rouge'
     gem 'mini_magick'
     gem 'fileutils'
-    gem 'rb-gsl'
+    gem 'gsl'
 end
