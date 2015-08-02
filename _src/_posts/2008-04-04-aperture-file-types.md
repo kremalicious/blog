@@ -11,7 +11,7 @@ wordpress_id: 21
 
 category: goodies
 tags:
-- icon
+    - icon
 
 redirect_from:
 - /new-goodies-aperture-file-types-icons/

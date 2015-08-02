@@ -7,10 +7,10 @@ author: Matthias Kretschmann
 date: 2008-05-04 16:04:48+00:00
 
 wordpress_id: 45
-categories:
-- photography
+category: photography
 tags:
-- tutorial
+    - tutorial
+    - osx
 ---
 
 ![Canon CanoScan LiDE 500F](/media/canoscanlide500f.jpg)A while ago I [wrote about my problems](http://www.kremalicious.com/2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/) finding a universal scanner driver from Canon for my CanoScan LiDE 500F to use it under Mac OS X. The solution was the Canon Asia website where a universal driver version was available.
@@ -26,7 +26,7 @@ But there's a new driver available. It was posted on the Canon USA website on 7 
 The changelog says:
 
 > Newly supports Mac OS X v10.5.
-> ScanGear Starter is removed. (Because the operation problem occurs when the destination to save the scan file is changed in Mac OS X v10.5.) 
+> ScanGear Starter is removed. (Because the operation problem occurs when the destination to save the scan file is changed in Mac OS X v10.5.)
 
 So this sounds just right. You can download the new universal scanner driver from [Canon USA](http://www.usa.canon.com/consumer/controller?act=ModelInfoAct&tabact=SupportDetailTabAct&fcategoryid=235&modelid=11011#DownloadDetailAct) or [Canon Asia](http://support-asia.canon-asia.com/contents/ASIA/EN/0900321901.html). Following these links takes you right to the driver download page for this scanner.
 

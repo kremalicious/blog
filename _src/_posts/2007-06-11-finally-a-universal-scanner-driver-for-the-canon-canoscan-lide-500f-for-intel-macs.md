@@ -7,10 +7,10 @@ author: Matthias Kretschmann
 
 date: 2007-06-11 18:44:28+00:00
 wordpress_id: 1563
-categories:
-- photography
+category: photography
 tags:
-- tutorial
+    - tutorial
+    - osx
 ---
 
 **UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
@@ -41,7 +41,7 @@ And after installing (and rebooting the system) you can use the scanner with Pho
 ![image](/media/canon2.png)
 
 ![image](/media/canon3.png)And don't forget to take a look in the preferences-dialog in the scan-window to set your color-management under the tab "Color Settings"  
-  
+
 ![image](/media/canon4.png)Another important setting is enabling 16bit per channel scanning under the tab "Scan".
 
 The only problem that remains is that Photoshop really uses 50% of my CPU-Power (2GHz Intel Core2Duo) just when the scan-window is open. But now after six months of waiting i can finally scan my analog photography in acceptable quality. Thanks to Canon for nothing!

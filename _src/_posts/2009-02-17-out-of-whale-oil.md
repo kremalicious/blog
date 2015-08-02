@@ -8,10 +8,10 @@ author: Matthias Kretschmann
 
 date: 2009-02-17 20:11:55+00:00
 wordpress_id: 533
-categories:
-- goodies
+category: goodies
 tags:
-- wallpaper
+    - wallpaper
+    - futurama
 ---
 
 Simple, high-resolution Futurama tribute wallpaper pack inspired by the latest Futurama movie Into The Wild Green Yonder. This pack includes 4 versions of the Planet Express ship whale oil indicator in 2 different sizes for desktop and iPhone use. Vivid pink Feminista versions included too ;-)

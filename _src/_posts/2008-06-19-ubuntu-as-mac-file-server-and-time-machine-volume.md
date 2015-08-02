@@ -9,10 +9,11 @@ date: 2008-06-19 03:08:11+00:00
 updated: 2009-01-19 03:08:11+00:00
 
 wordpress_id: 75
-categories:
-- design
+category: design
 tags:
-- tutorial
+    - tutorial
+    - osx
+    - ubuntu
 
 redirect_from:
     - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/

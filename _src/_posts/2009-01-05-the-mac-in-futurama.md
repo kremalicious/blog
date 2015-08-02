@@ -1,13 +1,17 @@
 ---
-author: Matthias Kretschmann
-comments: true
-date: 2009-01-05 03:14:45+00:00
 layout: post
-slug: the-mac-in-futurama
+
 title: The Mac in Futurama
+author: Matthias Kretschmann
+date: 2009-01-05 03:14:45+00:00
+
+category: design
+tags:
+    - futurama
+    - mac
+
+slug: the-mac-in-futurama
 wordpress_id: 440
-categories:
-- design
 ---
 
 ![The Mac in Futurama](/media/futurama-mac-teaser.png)
@@ -204,7 +208,7 @@ The audience in the violet dwarf star blowup or Encyclopod (or so) birth scene c
 
 
 
-![Futurama Vol. 1-6 by Gedeon Maheux](/media/futurama_gedeon.png)[[Futurama Vol. 1-6](http://iconfactory.com/freeware/preview/fut1) 
+![Futurama Vol. 1-6 by Gedeon Maheux](/media/futurama_gedeon.png)[[Futurama Vol. 1-6](http://iconfactory.com/freeware/preview/fut1)
 Amazing icons made by Iconfactory's [Gedeon Maheux](http://gedblog.com/). The recent [Volume 6 release](http://iconfactory.com/freeware/preview/fut6) also comes with some nice wallpapers showing silhouettes of the Planet Express crew members. [Vol.2](http://iconfactory.com/freeware/preview/fut2), [Vol.3](http://iconfactory.com/freeware/preview/fut3), [Vol.4](http://iconfactory.com/freeware/preview/fut4), [Vol.5](http://iconfactory.com/freeware/preview/fut5), [Vol.6](http://iconfactory.com/freeware/preview/fut6)
 Also [a search for Futurama in the freeware section on Iconfactory.com](http://iconfactory.com/search/freeware/futurama) is always a good idea...
 
@@ -226,21 +230,21 @@ A nice icon showing a big bucket of Fishy Joe's Popplers. Made by [Mark Hawkins]
 
 
 
-![Futurama Random Quote Generator by rawpixels](/media/futurama_rawpixels.png)[Futurama Random Quote Generator](http://www.apple.com/medias/dashboard/movie_tv/futuramarandomquotegenerator.html) 
+![Futurama Random Quote Generator by rawpixels](/media/futurama_rawpixels.png)[Futurama Random Quote Generator](http://www.apple.com/medias/dashboard/movie_tv/futuramarandomquotegenerator.html)
 A Dashboard widget for Mac OS X giving you random quotes from Futurama. Made by [rawpixels](http://www.rawpixels.com/).
 
 
 
 
 
-![Futurama Mars University Wallpaper by Matthias Kretschmann/kremalicious.com](/media/futurama_kremalicious.png)[Futurama Mars University Wallpaper](http://www.kremalicious.com/2008/09/new-goodie-futurama-mars-university-wallpaper/) 
+![Futurama Mars University Wallpaper by Matthias Kretschmann/kremalicious.com](/media/futurama_kremalicious.png)[Futurama Mars University Wallpaper](http://www.kremalicious.com/2008/09/new-goodie-futurama-mars-university-wallpaper/)
 And there's my Futurama Mars University Wallpaper for Desktop and iPhone available in the [Goodies section](http://www.kremalicious.com/goodies) on this website.
 
 
 
 
 
-![Futurama: Out Of Whale Oil Wallpaper Pack by Matthias Kretschmann/kremalicious.com](/media/out_of_whale_oil_detail.png)[Futurama: Out Of Whale Oil Wallpaper Pack](http://www.kremalicious.com/2009/02/out-of-whale-oil/) 
+![Futurama: Out Of Whale Oil Wallpaper Pack by Matthias Kretschmann/kremalicious.com](/media/out_of_whale_oil_detail.png)[Futurama: Out Of Whale Oil Wallpaper Pack](http://www.kremalicious.com/2009/02/out-of-whale-oil/)
 And finally there's my Futurama: Out Of Whale Oil Wallpaper pack for Desktop and iPhone also available in the [Goodies section](http://www.kremalicious.com/goodies) on this website. Vivid green and pink Feminista versions included.
 
 
@@ -250,12 +254,3 @@ And finally there's my Futurama: Out Of Whale Oil Wallpaper pack for Desktop and
 And that's it folks. Hope you enjoyed this fun article. If you know of more Mac or Apple references in Futurama or links to nice Futurama icons, wallpapers or application resources feel free to post them in the comments.
 
 As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee ;-)
-
-
-
-
-
-
-
-
-

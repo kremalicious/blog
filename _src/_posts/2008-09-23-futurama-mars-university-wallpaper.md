@@ -7,10 +7,10 @@ author: Matthias Kretschmann
 
 date: 2008-09-23 23:22:16+00:00
 wordpress_id: 256
-categories:
-- goodies
+category: goodies
 tags:
-- wallpaper
+    - wallpaper
+    - futurama
 
 redirect_from:
 - /new-goodie-futurama-mars-university-wallpaper/

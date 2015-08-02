@@ -7,10 +7,9 @@ author: Matthias Kretschmann
 
 date: 2008-04-04 10:47:23+00:00
 wordpress_id: 22
-categories:
-- design
-post_format:
-- Link
+category: design
+tags:
+    - osx
 ---
 
 Nice article on Smashing Magazine by Kate England. It's the Human Interface Guidelines for icons in a nutshell: [Mac OS X Leopard: Designer’s Guide to Icons](http://www.smashingmagazine.com/2008/04/04/mac-os-x-leopard-designers-guide-to-icons):

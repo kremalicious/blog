@@ -6,10 +6,9 @@ author: Matthias Kretschmann
 
 date: 2008-04-17 01:32:13+00:00
 wordpress_id: 39
-categories:
-- design
+category: design
 tags:
-- tutorial
+    - tutorial
 ---
 
 ![CSS](/media/css.png)The aim of this article is to give you a quick introduction of a css property named text-shadow which was first included in CSS2 (but it's not implemented in all browsers yet). Nevertheless you can make some cool effects with it, which could only be done before by photoshopping text and rendering it as an image.
@@ -21,13 +20,13 @@ This article describes how text-shadow works, what you can do with it and which 
 <!-- more -->
 
 Here's an overview of the headlines in this article. As you can see it's rather complex and long. Be sure to get a delicious fresh cup of coffee or tea before reading on:
-	
+
   1. What text-shadow is good for
   2. Which browsers support it
   3. Cross-browser compatibility
   4. How does it work and how to use it
   5. Examples with code & demos
-  6. Hack: Safari Text Rendering	
+  6. Hack: Safari Text Rendering
   7. More articles and resources
 
 
@@ -46,7 +45,7 @@ Utilizing text-shadow to simulate engraved or stenciled text is widely used on w
 
 
 ## 2. Which browsers support it?
-In fact, text-shadow is not a new property since it was first defined with [CSS2 in 1998](http://www.w3.org/TR/REC-CSS2/text.html#text-shadow-props) but it was just implemented by the KHTML/WebKit-folks. But it's available in [Safari](http://www.apple.com/safari/) since version 1.1 (2003), in [Konqueror](http://www.konqueror.org/features/browser.php) since version 3.4 (I believe, not sure) and [Opera](http://www.opera.com/) 9.5. Furthermore it's also supported by [Firefox](http://www.mozilla.com/en-US/firefox/firefox.html) 3.1/3.5 and finally [Google Chrome](http://www.google.com/chrome) 2 adds full support for the text-shadow property after they had stripped this from the first version of Chrome. 
+In fact, text-shadow is not a new property since it was first defined with [CSS2 in 1998](http://www.w3.org/TR/REC-CSS2/text.html#text-shadow-props) but it was just implemented by the KHTML/WebKit-folks. But it's available in [Safari](http://www.apple.com/safari/) since version 1.1 (2003), in [Konqueror](http://www.konqueror.org/features/browser.php) since version 3.4 (I believe, not sure) and [Opera](http://www.opera.com/) 9.5. Furthermore it's also supported by [Firefox](http://www.mozilla.com/en-US/firefox/firefox.html) 3.1/3.5 and finally [Google Chrome](http://www.google.com/chrome) 2 adds full support for the text-shadow property after they had stripped this from the first version of Chrome.
 
 On the Mac platform WebKit is also used in various other programs with a browser included like [Coda](http://www.panic.com/coda/) from Panic, [CSSedit](http://www.macrabbit.com/cssedit/) from MacRabbit or [NetNewsWire](http://www.newsgator.com/NetNewsWire.aspx) from NewsGator. Also every browser which is powered by the WebKit engine is able to render the text-shadow property, like [Shiira](http://shiira.jp/en.php), [OmniWeb](http://www.omnigroup.com/applications/omniweb/) or [Epiphany](http://www.gnome.org/projects/epiphany/) which are either for Mac or Linux.
 
@@ -298,7 +297,7 @@ text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px 
 
 [![sub-pixel rendering](/media/text-shadow-15.png)](/media/text-shadow-hack.png)
 
-More than a hack than an effect but it addresses the poor light-on-dark text rendering in Safari. This is caused by the [sub-pixel rendering](http://en.wikipedia.org/wiki/Subpixel_rendering) of OS X's Quartz 2D layer as a part of the Core Graphics framework. Also Safari 3.1 on Windows uses sub pixel rendering instead of plain anti-aliasing. 
+More than a hack than an effect but it addresses the poor light-on-dark text rendering in Safari. This is caused by the [sub-pixel rendering](http://en.wikipedia.org/wiki/Subpixel_rendering) of OS X's Quartz 2D layer as a part of the Core Graphics framework. Also Safari 3.1 on Windows uses sub pixel rendering instead of plain anti-aliasing.
 
 [![anti-alias rendering through text-shadow](/media/text-shadow-14.png)](/media/text-shadow-hack.png)
 

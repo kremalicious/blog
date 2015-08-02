@@ -6,10 +6,10 @@ author: Matthias Kretschmann
 
 date: 2008-02-26 23:24:17+00:00
 wordpress_id: 12
-categories:
-    - design
+category: design
 tags:
     - tutorial
+    - osx
 ---
 
 As you may know you can easily password protect your website or parts of it using an htaccess file with special instructions on an [Apache](http://www.apache.org/)-based server. For using this method you just have to put a file named `.htaccess` (which includes the instructions for the webserver) and a file named `.htpasswd` (which includes the login-accounts) in the directory you want to have password protected. But you have to encrypt the passwords of the login data for yourself, which is a quick task on a Mac.
