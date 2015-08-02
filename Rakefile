@@ -3,7 +3,7 @@ require 'optparse'
 require 'yaml'
 
 #
-# Create New Post 
+# Create New Post
 # rake post -- Title
 #
 task :post do
@@ -12,12 +12,19 @@ task :post do
   title = ARGV.join(' ')
 
   path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
-  
+
   if File.exist?(path)
-  	puts "Dude, file exists - skipping create"
+      puts "Dude, file exists - skipping create"
   else
     File.open(path, "w") do |file|
-      file.puts YAML.dump({'layout' => 'post', 'published' => false, 'title' => title, 'author' => 'Matthias Kretschmann'})
+      file.puts YAML.dump({
+          'layout' => 'post',
+          'published' => false,
+          'title' => title,
+          'image' => 'REPLACEME.jpg',
+          'author' => 'Matthias Kretschmann',
+          'date' => Time.now
+      })
       file.puts "---"
     end
   end
@@ -27,7 +34,7 @@ task :post do
 end
 
 #
-# Create New Photo Post 
+# Create New Photo Post
 # rake photo -- Title
 #
 task :photo do
@@ -36,12 +43,20 @@ task :photo do
   title = ARGV.join(' ')
 
   path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
-  
+
   if File.exist?(path)
-  	puts "Dude, file exists - skipping create"
+      puts "Dude, file exists - skipping create"
   else
     File.open(path, "w") do |file|
-      file.puts YAML.dump({'layout' => 'photo', 'published' => false, 'title' => title, 'image' => 'REPLACEME.jpg', 'author' => 'Matthias Kretschmann', 'category' => 'photos'})
+      file.puts YAML.dump({
+          'layout' => 'photo',
+          'published' => false,
+          'title' => title,
+          'image' => 'REPLACEME.jpg',
+          'author' => 'Matthias Kretschmann',
+          'date' => Time.now,
+          'category' => 'photos'
+      })
       file.puts "---"
     end
   end
@@ -51,7 +66,7 @@ task :photo do
 end
 
 #
-# Create New Link Post 
+# Create New Link Post
 # rake link -- Title
 #
 task :photo do
@@ -60,12 +75,18 @@ task :photo do
   title = ARGV.join(' ')
 
   path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
-  
+
   if File.exist?(path)
-  	puts "Dude, file exists - skipping create"
+      puts "Dude, file exists - skipping create"
   else
     File.open(path, "w") do |file|
-      file.puts YAML.dump({'layout' => 'link', 'published' => false, 'title' => title, 'author' => 'Matthias Kretschmann'})
+      file.puts YAML.dump({
+          'layout' => 'link',
+          'published' => false,
+          'title' => title,
+          'author' => 'Matthias Kretschmann',
+          'date' => Time.now
+      })
       file.puts "---"
     end
   end
