@@ -15,6 +15,12 @@ body
     line-height: $line-height-base
     color: $font-color-base
     word-wrap: break-word
+    text-rendering: optimizeLegibility;
+    // Controversial! But prevents text flickering in
+    // Safari/Firefox when animations are running
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
 
     @media $breakpoint3
         font-size: $font-size-large
@@ -102,9 +108,7 @@ a
 
     &:active
         transition: none
-        background: $link-color
-        color: #fff
-        text-shadow: none
+        color: darken($link-color, 20%)
 
     h1 &,
     h2 &,
