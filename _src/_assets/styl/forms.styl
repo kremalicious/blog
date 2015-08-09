@@ -80,7 +80,7 @@ select[size]
     -webkit-appearance: none // screw you, iOS default inset box-shadow
 
     // Placeholder
-    placeholder(color $input-color-placeholder, font-size $font-size-base, line-height $line-height-base)
+    placeholder($input-color-placeholder)
 
     &:hover
         lighten($input-bg, 30%)
@@ -89,7 +89,7 @@ select[size]
         background-color: $input-bg-focus
         border-color: $input-border-focus
         outline: 0
-        placeholder(color lighten($input-color-placeholder, 25%),)
+        placeholder(lighten($input-color-placeholder, 25%))
 
     // Disabled and read-only inputs
     //

@@ -238,3 +238,16 @@ input-size(input-height, padding-vertical, padding-horizontal, font-size, line-h
     textarea&,
     select[multiple]&
         height: auto
+
+
+// Placeholder text
+/////////////////////////////////////
+
+placeholder($color = $input-color-placeholder)
+    &::-moz-placeholder // Firefox
+        color $color
+        opacity 1 // Override Firefox's unusual default opacity; See https//github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder // Internet Explorer 10+
+        color $color
+    &::-webkit-input-placeholder // Safari and Chrome
+        color $color

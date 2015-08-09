@@ -4,13 +4,19 @@ var $ = require('gulp-load-plugins')();
 // manually require modules that won"t get picked up by gulp-load-plugins
 var gulp = require('gulp'),
     del = require('del'),
-    nib = require('nib'),
+    chalk = require('chalk'),
     merge = require('merge-stream'),
     pkg = require('./package.json');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
+
+// handle errors
+var onError = function(error) {
+    console.log(chalk.red('You fucked up:', error.message, 'on line' , error.lineNumber));
+}
+
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Terminal Banner
@@ -128,12 +134,12 @@ gulp.task('css', function() {
             src + '/_assets/styl/poststyle-2300.styl'
         ])
         .pipe($.stylus({
-            use: [nib()],
             'include css': true
-        }))
+        })).on('error', onError)
+        .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.autoprefixer({
             browsers: 'last 2 versions'
-        }))
+        })).on('error', onError)
         .pipe($.combineMq({ beautify: false }))
         // .pipe($.uncss({
         //     html: [dist + '/**/*.html'],
@@ -156,7 +162,7 @@ gulp.task('js-libraries', function() {
     var picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js');
 
     return merge(picturefill)
-        .pipe($.uglify())
+        .pipe($.uglify()).on('error', onError)
         .pipe($.rename({
             suffix: '.min'
         }))
@@ -175,7 +181,7 @@ gulp.task('js-project', function() {
             'bower_components/time-elements/time-elements.js',
             src + '/_assets/js/*.js'
         ])
-        .pipe($.uglify())
+        .pipe($.uglify()).on('error', onError)
         .pipe($.concat('kremalicious3.min.js'))
         .pipe($.header(banner, {
             pkg: pkg
@@ -192,7 +198,7 @@ gulp.task('js', ['js-libraries', 'js-project']);
 // Icons
 //
 gulp.task('icons', function() {
-    var iconset = icons.entypo
+    var iconset = icons.entypo;
 
     // Iterate through the icon set array
     icons.entypo.icons.forEach(function(icon, i, icons) {
@@ -357,8 +363,7 @@ gulp.task('watch', function() {
 gulp.task('jekyll-build', function(cb) {
     runSequence(
         'jekyll',
-        ['css', 'js', 'images', 'fonts', 'media'],
-        'icons',
+        ['css', 'js', 'images', 'fonts', 'media', 'icons'],
         cb
     );
 });
