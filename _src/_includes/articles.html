@@ -1,9 +1,9 @@
 
 {% if post.layout == "link" %}
 
-    <article class="hentry format-link">
-    	<header>
-    		<h1 class="entry-title">
+    <article class="hentry format-link col6">
+        <header>
+            <h1 class="entry-title">
                 <a href="{{ post.linkurl }}" title="Go to source: {{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
                     {{ post.title | titlecase }}
                     <svg class="icon icon-entypo icon-entypo-forward">
@@ -12,12 +12,12 @@
                     <span class="linkurl">{{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
-    	</header>
+        </header>
 
         <section class="entry-content">
             {{ post.content | markdownify }}
-    		<p>
-    			<a class="more-link" href="{{ post.linkurl }}">Go to source
+            <p>
+                <a class="more-link" href="{{ post.linkurl }}">Go to source
                     <svg class="icon icon-entypo icon-entypo-forward">
                         <use xlink:href="/assets/img/sprite.svg#entypo-forward"></use>
                     </svg>
@@ -27,31 +27,31 @@
                         <use xlink:href="/assets/img/sprite.svg#entypo-infinity"></use>
                     </svg>
                 </a>
-    		</p>
+            </p>
         </section>
     </article>
 
 {% elsif post.layout == "photo" %}
 
-    <article class="hentry format-photo">
+    <article class="hentry format-photo col6">
 
         <a class="photo-link" href="{{ post.url }}">
-        	<figure class="hmedia">
+            <figure class="hmedia">
 
                 {% picture {{ post.image }} %}
 
-        		<figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
-        	</figure>
+                <figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
+            </figure>
         </a>
 
     </article>
 
 {% else %}
 
-    <article class="hentry format-post">
-    	<header>
-    		<h1 class="entry-title"><a href="{{ post.url }}">{{ post.title | titlecase }}</a></h1>
-    	</header>
+    <article class="hentry format-post col6">
+        <header>
+            <h1 class="entry-title"><a href="{{ post.url }}">{{ post.title | titlecase }}</a></h1>
+        </header>
 
         <section class="entry-content">
 

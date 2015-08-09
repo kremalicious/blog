@@ -1,27 +1,20 @@
 
 <div class="topbar container">
-    <div class="row">
+    <div class="grid">
 
-        <header role="banner" class="banner">
+        <header role="banner" class="banner col3-xs">
             <h1 class="banner-title">
                 <a class="banner-logo" href="/">kremalicious</a>
             </h1>
         </header>
 
-        <nav role="navigation" class="nav-main">
+        <nav role="navigation" class="nav-main col3-xs">
             <button type="button" class="menu-btn">
                 <svg class="icon icon-entypo icon-entypo-menu" role="img" aria-labelledby="title">
                     <title id="title">Menu</title>
                     <use xlink:href="/assets/img/sprite.svg#entypo-menu"></use>
                 </svg>
             </button>
-            <div class="nav-popover hide">
-                {% for category in site.categories %}
-                    <a class="nav-link" href="/{{ category | first }}/">
-                        {{ category | first }}
-                    </a>
-                {% endfor %}
-            </div>
         </nav>
 
         <section class="site-search">
@@ -38,8 +31,19 @@
         </section>
 
     </div>
+
+    <ul class="nav-popover grid hide">
+        {% for category in site.categories %}
+            <li class="col3-xs col2">
+                <a class="nav-link" href="/{{ category | first }}/">
+                    {{ category | first }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
 </div>
 
 <div id="search-popover" class="search-popover container hide">
-    <ul id="search-results" class="search-results row"></ul>
+    <ul id="search-results" class="search-results grid"></ul>
 </div>

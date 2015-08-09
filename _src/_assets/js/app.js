@@ -36,7 +36,7 @@ var siteNavigation = {
                 searchInput: document.getElementById('search-input'),
                 resultsContainer: document.getElementById('search-results'),
                 json: '/search.json',
-                searchResultTemplate: '<li><a class="search-link" href="{url}">{title}</a></li>',
+                searchResultTemplate: '<li class="col3"><a class="search-link" href="{url}">{title}</a></li>',
                 fuzzy: false
             })
 
@@ -96,7 +96,7 @@ var siteNavigation = {
 
     siteMenu: function() {
         var $thelink = $('.menu-btn'),
-            $thepop = $('.nav-main .nav-popover');
+            $thepop = $('.nav-popover');
 
         $thelink.click(function(e) {
             e.preventDefault();

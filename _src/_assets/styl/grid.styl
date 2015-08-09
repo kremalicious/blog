@@ -9,71 +9,70 @@
 *
     box-sizing: border-box
 
-// 320px and up
 .container
-    padding: 0 7%
+    padding-left: 7%
+    padding-right: 7%
     width: 100%
 
-.row
-    margin-top: $line-height-computed
-    margin-bottom: $line-height-computed
+    @media $breakpoint2
+        padding-left: 15%
+        padding-right: 15%
 
-.col1,
-.col2,
-.col3,
-.col4,
-.col5,
-.col6
-    width: 100%
-    margin-left: 0
-    // ensures empty columns won't collapse
-    min-height: 1px
+.grid
+    margin: auto
+    padding: 0
+    display: flex
+    flex-wrap: wrap
 
-// clear
-.container,
-.row
-    @extend .clearfix
-
-@media $breakpoint2
-    .container
-        padding: 0 15%
-
-    .row
+    @media $breakpoint2
         max-width: 35em
-        margin: ($line-height-computed*2) auto
+
+    > .col1,
+    > .col2,
+    > .col3,
+    > .col4,
+    > .col5,
+    > .col6
+        flex: 1
+        flex: 0 0 100%
+        padding: 1em 0 0 1em
+
+    > .col6
         padding-left: 0
-        padding-right: 0
 
-    .col1,
-    .col2,
-    .col3,
-    .col4,
-    .col5,
-    .col6
-        float: left
-        margin-left: 4%
+    > .col1-xs,
+    > .col2-xs,
+    > .col3-xs,
+    > .col4-xs,
+    > .col5-xs,
+    > .col6-xs
+        flex: 1
+        padding: 1em 0 0 1em
 
-    .col1:first-child,
-    .col2:first-child,
-    .col3:first-child,
-    .col4:first-child,
-    .col5:first-child,
-    .col6,
-    .col3:nth-child(2n+3),
-    .col2:nth-child(3n+4),
-    .col1:nth-child(6n+7)
-        margin-left: 0
-        clear: both
+    > .col1-xs
+        flex: 0 0 16.666666667%
+    > .col2-xs
+        flex: 0 0 33.333333333%
+    > .col3-xs
+        flex: 0 0 50%
+    > .col4-xs
+        flex: 0 0 66.666666666%
+    > .col5-xs
+        flex: 0 0 83.333333333%
+    > .col6-xs
+        flex: 0 0 100%
+        padding-left: 0
 
-    .col1
-        width: 13%
-    .col2
-        width: 30.6%
-    .col3
-        width: 48%
-    .col4
-        width: 65%
-    .col5
-        width: 82%
-    .col6
-        width: 100%
+    @media $breakpoint2
+        > .col1
+            flex: 0 0 16.5%
+        > .col2
+            flex: 0 0 33%
+        > .col3
+            flex: 0 0 50%
+        > .col4
+            flex: 0 0 66%
+        > .col5
+            flex: 0 0 82.5%
+        > .col6
+            flex: 0 0 100%

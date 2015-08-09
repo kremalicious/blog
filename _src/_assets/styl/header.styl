@@ -8,13 +8,20 @@
 /////////////////////////////////////
 
 .topbar
-    @extend .clearfix
     background: $body-bg
+    margin-top: ($line-height-computed/2)
+    margin-bottom: ($line-height-computed/2)
 
-    .row
-        margin-top: ($line-height-computed/2)
-        margin-bottom: ($line-height-computed/2)
+    @media $breakpoint2
+        margin-top: $line-height-computed
+        margin-bottom: $line-height-computed
+
+    .grid
         position: relative
+
+        > .banner,
+        > .nav-main
+            padding-top: 0
 
 
 // Logo
@@ -44,14 +51,10 @@
 /////////////////////////////////////
 
 .banner
-    @extend .alignleft
-
-    @media $breakpoint2
-        margin-left: -54px
+    padding-top: 0
 
     .banner-title
-        margin-top: .1em
-        margin-bottom: 0
+        margin: 0
         // display toned down logo
         // by default
         @extend .logo

@@ -5,7 +5,7 @@
 //
 
 .related-posts
-    .row
+    .grid
         margin-top: 0
 
 .related-posts-title
@@ -16,7 +16,7 @@
 
     .post-title
         @extend .h5
-        margin-top: $line-height-computed
+        margin: 0
         margin-bottom: $line-height-computed
 
     .post-title,
@@ -40,11 +40,10 @@
 //
 .related-photos
     @extend .divider-top
-    margin-top: $line-height-computed*2
+    margin-top: $line-height-computed
 
     .photo-link
         display: block
-        margin-bottom: 15%
         border: 2px solid transparent
 
         &:hover,

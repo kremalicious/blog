@@ -32,20 +32,11 @@ textarea
 // site background
 /////////////////////////////////////
 
-.topbar
-    height: 71px
-
-    .menu-open &
-        height: auto
-
 .document
     background-color: $page-bg
     border-top: 1px solid rgba(255,255,255,.7)
     border-bottom: 1px solid rgba(255,255,255,.7)
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
-
-.content.row
-    margin-top: 0
 
 @media only screen and (min-width: 40.625em) and (min-height: 650px)
     body
@@ -55,8 +46,8 @@ textarea
         @extend .transition
         position: relative
         z-index: 2
-        margin-top: 71px
-        margin-bottom: 580px
+        margin-top: 80px
+        margin-bottom: 500px
 
         .menu-open &
             margin-top: 220px
@@ -73,7 +64,6 @@ textarea
 
     .footer
         z-index: 0
-        height: 580px
         bottom: 0
         box-shadow: none
 

@@ -13,7 +13,7 @@
     margin: 0
     position: absolute
     right: 0
-    top: 0
+    top: -($line-height-computed/4)
 
     &:focus
         outline: 0
@@ -30,23 +30,19 @@
     &:active .icon
         fill: #fff
 
+.menu-btn
+    margin-right: -.5em
+    padding: .5em .7em
+
+
 // Main Navigation
 /////////////////////////////////////
 
-.nav-main
-    @extend .clearfix
-    .menu-btn
-        margin-right: -.5em
-        padding: .5em .7em
-
-    li
-        display: inline-block
-
 .nav-popover
-    @extend .clearfix, .divider-top
-    clear: both
+    @extend .divider-top, .list-unstyled
     padding: $line-height-computed 0
     margin-top: 60px
+    margin-bottom: 0
     width: 100%
     background: $body-bg
 
@@ -60,13 +56,6 @@
     color: $brand-grey-light
     text-transform: uppercase
     border-radius: $border-radius-base
-
-    @media $breakpoint1
-        width: 50%
-        float: left
-
-    @media $breakpoint2
-        width: 33.3%
 
     &:hover,
     &:focus
@@ -84,17 +73,8 @@
 /////////////////////////////////////
 
 .paginator
-    @extend .clearfix
-
     .icon
         margin-bottom: -3px
-
-.paginator-next,
-.paginator-previous,
-.paginator-pages
-    width: 32.7%
-    display: inline-block
-    clear: none
 
 .paginator-next
     text-align: right

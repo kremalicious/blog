@@ -214,9 +214,12 @@ blockquote > p
     color: lighten($text-color, 15%)
 
 blockquote
-    padding-left: 40px
+    padding-left: 25px
     margin: 0 0 $line-height-computed
     position: relative
+
+    @media $breakpoint2
+        padding-left: 40px
 
     @media $breakpoint3
         padding: 0 ($line-height-computed*1.75)
@@ -224,7 +227,7 @@ blockquote
     // quotation marks
     &:before
         content: "“"
-        font-size: 400%
+        font-size: 250%
         font-family: "Hoefler Text", "Times New Roman", serif
         color: $text-color-dimmed
         position: absolute
