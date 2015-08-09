@@ -15,9 +15,9 @@ var siteNavigation = {
 
     siteSearch: function() {
 
-        var $content = $('.content'),
+        var $content = $('.site__content'),
             $searchlink = $('.search-btn'),
-            $searcharea = $('.topbar .search-area'),
+            $searcharea = $('.search-area'),
             $searchfield = $('#search-input'),
             $searchresults = $('#search-results'),
             $searchpop = $('#search-popover');
@@ -36,7 +36,7 @@ var siteNavigation = {
                 searchInput: document.getElementById('search-input'),
                 resultsContainer: document.getElementById('search-results'),
                 json: '/search.json',
-                searchResultTemplate: '<li class="col3"><a class="search-link" href="{url}">{title}</a></li>',
+                searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
                 fuzzy: false
             })
 

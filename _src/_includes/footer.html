@@ -1,13 +1,13 @@
-<footer role="contentinfo" class="footer container">
+<footer role="contentinfo" class="footer__content">
 
-    <div class="grid">
+    <div class="container">
 
-        <div class="vcard author col6">
+        <div class="vcard author">
             <img class="avatar photo" src="/assets/img/avatar.jpeg" />
             <p class="footer-description">Blog of designer &amp; developer <a class="fn" rel="author" href="/about/">{{ site.author.name }}</a>
         </div>
 
-        <aside class="subscribe col6">
+        <aside class="subscribe">
             <h1 class="subscribe-title">Subscribe</h1>
             <p>
                 <a class="btn rss" href="http://kremalicious.com/feed">
@@ -33,10 +33,7 @@
             </p>
         </aside>
 
-    </div>
-
-    <section class="footer-copyright" class="grid">
-        <div class="col6">
+        <section class="footer-copyright">
             <p>© 2007 &ndash; {{ site.time | date: "%Y" }} <a href="http://matthiaskretschmann.com" rel="me">Matthias Kretschmann</a></p>
 
             <p>
@@ -47,8 +44,9 @@
                     View source
                 </a>
             </p>
-        </div>
-    </section>
+        </section>
+
+    </div>
 
 </footer>
 
