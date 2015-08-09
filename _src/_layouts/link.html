@@ -2,11 +2,11 @@
 layout: base
 ---
 
-<section role="main" id="main" class="page-single row">
+<section role="main" id="main" class="page-single">
 
     <article class="hentry format-link">
-    	<header>
-    		<h1 class="entry-title">
+        <header>
+            <h1 class="entry-title">
                 <a href="{{ page.linkurl }}" title="Go to source: {{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
                     {{ page.title | titlecase }}
                     <svg class="icon icon-entypo icon-entypo-forward">
@@ -15,12 +15,12 @@ layout: base
                     <span class="linkurl">{{ page.linkurl | remove:'http://' | remove:'https://' | remove:'www.' | split:'/' | first }}</span>
                 </a>
             </h1>
-    	</header>
+        </header>
 
         <section class="entry-content">
             {{ content }}
-    		<p>
-    			<a class="more-link" href="{{ page.linkurl }}">Go to source
+            <p>
+                <a class="more-link" href="{{ page.linkurl }}">Go to source
                     <svg class="icon icon-entypo icon-entypo-forward">
                         <use xlink:href="/assets/img/sprite.svg#entypo-forward"></use>
                     </svg>
@@ -30,7 +30,7 @@ layout: base
                         <use xlink:href="/assets/img/sprite.svg#entypo-infinity"></use>
                     </svg>
                 </a>
-    		</p>
+            </p>
         </section>
 
         {% include entry_meta.html %}

@@ -3,9 +3,9 @@
     <div class="row">
 
         <header role="banner" class="banner">
-        	<h1 class="banner-title">
-        	    <a class="banner-logo" href="/">kremalicious</a>
-        	</h1>
+            <h1 class="banner-title">
+                <a class="banner-logo" href="/">kremalicious</a>
+            </h1>
         </header>
 
         <nav role="navigation" class="nav-main">
@@ -32,10 +32,14 @@
                 </svg>
             </button>
             <div class="search-area">
-                <input type="search" class="form-control input-search search-field" placeholder="Search everything">
+                <input type="search" id="search-input" class="form-control input-search search-field" placeholder="Search everything">
                 <button class="close search-close">&times;</button>
             </div>
         </section>
 
     </div>
+</div>
+
+<div id="search-popover" class="search-popover container hide">
+    <ul id="search-results" class="search-results row"></ul>
 </div>

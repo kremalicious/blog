@@ -15,27 +15,39 @@ var siteNavigation = {
 
     siteSearch: function() {
 
-        var $searchlink = $('.search-btn'),
+        var $content = $('.content'),
+            $searchlink = $('.search-btn'),
             $searcharea = $('.topbar .search-area'),
-            $searchfield = $('.search-field'),
-            $searchresults = $('.search-results'),
-            $searchpop = $('.popover');
+            $searchfield = $('#search-input'),
+            $searchresults = $('#search-results'),
+            $searchpop = $('#search-popover');
+
+        // revert all search elements
+        function hideSearch() {
+            $searcharea.removeClass('slideDown').addClass('bounceOutUp');
+            $searchpop.addClass('hide');
+            $content.removeClass('search-open-blur');
+        }
 
         $searchlink.click(function(e) {
             e.preventDefault()
 
-            // init jekyll search
             SimpleJekyllSearch({
-                searchInput: $searchfield,
-                resultsContainer: $searchresults,
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('search-results'),
                 json: '/search.json',
-                searchResultTemplate: '<a class="search-link" href="{url}" title="{title}">{title}</a>',
-                fuzzy: true
+                searchResultTemplate: '<li><a class="search-link" href="{url}">{title}</a></li>',
+                fuzzy: false
             })
 
-            // show search
+            // show search field
             $searcharea.removeClass('ready bounceOutUp').addClass('ready slideDown');
             $searchfield.focus();
+
+            // blur the content
+            $content.addClass('search-open-blur');
+
+            // show search results upon typing
             if ($searchfield.val().length) {
                 $searchpop.removeClass('hide');
             }
@@ -47,8 +59,7 @@ var siteNavigation = {
 
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
-                $searcharea.removeClass('slideDown');
-                $searchpop.addClass('hide');
+                hideSearch();
 
                 // unbind the hide controls
                 $(document).unbind('click.hidethepop');
@@ -76,9 +87,7 @@ var siteNavigation = {
         $('.search-close').click(function(e) {
             e.preventDefault();
 
-            // hide search area
-            $searcharea.removeClass('slideDown').addClass('bounceOutUp');
-            $searchpop.addClass('hide');
+            hideSearch();
 
             // empty search field
             $searchfield.val('').blur();

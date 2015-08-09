@@ -4,16 +4,16 @@
 // Search
 //
 
+&.search-open-blur
+    @extend .transition
+    filter: blur(10px)
+
 .search-btn
     right: 50px
     padding: .65em .85em
 
 .site-search
     margin-right: 4%
-
-    .nav-popover
-        left: 0
-        width: 100%
 
 .search-close
     position: absolute
@@ -39,40 +39,48 @@
         display: block
 
 .search-results
-    @extend .clearfix
+    @extend .list-unstyled, .textcenter
 
-    p
-        margin-bottom: 0
+    @media $breakpoint2
+        display: flex
+        flex-wrap: wrap
+        margin-top: ($line-height-computed/2)
+        margin-bottom: ($line-height-computed/2)
+
+    > li
+        padding: 0
+        margin: 0
+
+        @media $breakpoint2
+            flex: 0 0 49%
+            display: flex
+            align-items: center
+            align-content: stretch
+
 
 .search-link
     @extend .h6
-    padding: .5em 1em
+    margin: 0
+    padding: 15px
     display: block
-    margin-top: 0
-    margin-bottom: ($line-height-computed/2)
+    width: 100%
 
-    &:active
-        color: #fff
+    .search-results > li:nth-child(9) &,
+    .search-results > li:last-child &
+        border: none
+        &:before
+            display: none
 
-    @media $breakpoint2
-        width: 50%
-        float: left
-
-        &:nth-child(odd)
-            clear: both
-
-.popover
+.search-popover
     position: absolute
     left: 0
     top: 71px
     z-index: 6
+    width: 100%
+    padding-top: ($line-height-computed/2)
     background: lighten($page-bg, 3%)
     border-bottom: 1px solid rgba(255,255,255,.7)
-    box-shadow: 0 1px 4px rgba($brand-dark, .1)
+    box-shadow: 0 1px 4px alpha($brand-dark, .1)
 
     @media $breakpoint2
         top: 0
-
-        .row
-            margin-top: $line-height-computed
-            margin-bottom: $line-height-computed

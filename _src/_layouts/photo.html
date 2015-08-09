@@ -2,17 +2,17 @@
 layout: base
 ---
 
-<section role="main" id="main" class="page-single row">
+<section role="main" id="main" class="page-single">
 
     <article class="hentry format-photo">
 
-    	<figure class="hmedia">
+        <figure class="hmedia">
 
             {% picture {{ page.image }} %}
 
             <figcaption class="entry-title fn">{{ page.title | titlecase }}</figcaption>
 
-    	</figure>
+        </figure>
 
         <section class="entry-content">
             {{ content }}

@@ -2,21 +2,21 @@
 layout: base
 ---
 
-<section role="main" id="main" class="page-single row">
-    
+<section role="main" id="main" class="page-single">
+
     <article class="hentry format-page">
-    	<header>
-    		<h1 class="entry-title">{{ page.title | titlecase }}</h1>
-    	</header>
+        <header>
+            <h1 class="entry-title">{{ page.title | titlecase }}</h1>
+        </header>
 
         <section class="entry-content">
             {% if page.image %}
                 {% picture {{ page.image }} class="teaser" %}
             {% endif %}
-        
+
             {{ content | condense_spaces }}
         </section>
-        
+
     </article>
 
 </section>
