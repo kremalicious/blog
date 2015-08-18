@@ -5,8 +5,9 @@
 //
 
 &.search-open-blur
-    @extend .transition
     filter: blur(10px)
+    user-select: none
+    pointer-events: none
 
 .search-btn
     right: 50px
@@ -17,12 +18,12 @@
 
 .search-close
     position: absolute
-    right: 32px
+    right: 16px
 
     &,
     &:active
         top: 50%
-        margin-top: -8px
+        margin-top: -7px
 
 .search-area
     @extend .transition
@@ -38,9 +39,28 @@
     &.ready
         display: block
 
+
+.search-popover
+    position: absolute
+    left: 0
+    top: 71px
+    z-index: 6
+    width: 100%
+    padding-top: ($line-height-computed/2)
+    background: lighten($page-bg, 3%)
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: 0 1px 4px alpha($brand-dark, .1)
+
+    @media $breakpoint2
+        top: 0
+
+
 .search-results
-    @extend .list-unstyled, .textcenter
+    @extend .list-unstyled
     display: flex
+
+    .grid__col
+        padding-top: 0
 
     @media $breakpoint2
         margin-top: ($line-height-computed/2)
@@ -63,17 +83,3 @@
         border: none
         &:before
             display: none
-
-.search-popover
-    position: absolute
-    left: 0
-    top: 71px
-    z-index: 6
-    width: 100%
-    padding-top: ($line-height-computed/2)
-    background: lighten($page-bg, 3%)
-    border-bottom: 1px solid rgba(255,255,255,.7)
-    box-shadow: 0 1px 4px alpha($brand-dark, .1)
-
-    @media $breakpoint2
-        top: 0

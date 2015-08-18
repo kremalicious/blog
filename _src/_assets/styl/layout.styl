@@ -1,0 +1,62 @@
+//
+// kremalicious3
+// --------------
+// Layout
+//
+
+.site__content,
+.header__content
+.footer__content
+    padding: 0 7%
+    width: 100%
+
+    @media $breakpoint2
+        padding: 0 15%
+
+.container
+    max-width: 35em
+    margin: 0 auto
+
+
+// topbar and footer as fixed
+// site background
+/////////////////////////////////////
+
+.site__document
+    background-color: $page-bg
+    border-top: 1px solid rgba(255,255,255,.7)
+    border-bottom: 1px solid rgba(255,255,255,.7)
+    box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
+
+@media only screen and (min-width: 40.625em) and (min-height: 650px)
+    .site
+        position: relative
+
+    .site__document
+        @extend .transition
+        position: relative
+        z-index: 2
+        margin-top: 80px
+        margin-bottom: 420px
+
+        .menu-open &
+            margin-top: 220px
+
+    .site__header,
+    .site__footer
+        position: fixed
+        border: none
+        width: 100%
+
+    .site__header
+        z-index: 1
+        top: 0
+        border: none
+
+    .site__footer
+        z-index: 0
+        bottom: 0
+        box-shadow: none
+
+        .menu-open &
+            hide()

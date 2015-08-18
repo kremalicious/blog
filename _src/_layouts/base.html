@@ -3,13 +3,15 @@
 
 {% capture id %}{{ page.url | replace:'/','-' | replace_first:'-','' | replace:'.html','' | replace:'-index','' }}{% endcapture %}
 
-<body class="page-{{ id | remove:'-' }}">
+<body class="page-{{ id | remove:'-' }} site">
 
     {% include header.html %}
 
-    <section role="document" class="document container">
-        <div class="content">
-            {{ content }}
+    <section role="document" class="site__document">
+        <div class="site__content">
+            <div class="container">
+                {{ content }}
+            </div>
         </div>
     </section>
 

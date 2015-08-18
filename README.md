@@ -3,7 +3,8 @@ kremalicious3
 
 > [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
-[ ![Codeship Status for kremalicious/kremalicious3](https://www.codeship.io/projects/f6973090-9f04-0131-a2b7-625e8177ce9a/status?branch=master)](https://www.codeship.io/projects/18092) [![Dependency Status](https://gemnasium.com/kremalicious/kremalicious3.svg)](https://gemnasium.com/kremalicious/kremalicious3)
+[ ![Codeship Status for kremalicious/kremalicious3](https://www.codeship.io/projects/f6973090-9f04-0131-a2b7-625e8177ce9a/status?branch=master)](https://www.codeship.io/projects/18092)
+[![Dependency Status](https://gemnasium.com/kremalicious/kremalicious3.svg)](https://gemnasium.com/kremalicious/kremalicious3)
 
 
 Requirements
@@ -37,7 +38,7 @@ Get up and running
 Run the following command from the repository's root folder to install all dependencies.
 
 ```bash
-npm install
+npm install && bower install && bundle install
 ```
 
 ### Development build

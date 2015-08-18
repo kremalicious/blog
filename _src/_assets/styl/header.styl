@@ -4,10 +4,8 @@
 // Header
 //
 
-// Topbar
-/////////////////////////////////////
-
-.topbar
+.site__header
+    width: 100%
     background: $body-bg
     margin-top: ($line-height-computed/2)
     margin-bottom: ($line-height-computed/2)
@@ -46,31 +44,24 @@
         background-image: url('../img/logo@3x.png')
         background-size: 183px 62px
 
+.header__title
+    margin: 0
+    // display toned down logo
+    // by default
+    @extend .logo
 
-// Banner
-/////////////////////////////////////
+.header__logo
+    @extend .ir
+    // repeat logo
+    // but display hover version
+    @extend .logo
+    background-position: left bottom
 
-.banner
-    padding-top: 0
+    // hide by default
+    opacity: 0
+    // show smooooothly on hover
+    &:hover
+        opacity: 1
 
-    .banner-title
-        margin: 0
-        // display toned down logo
-        // by default
-        @extend .logo
-
-    .banner-logo
-        @extend .ir
-        // repeat logo
-        // but display hover version
-        @extend .logo
-        background-position: left bottom
-
-        // hide by default
-        opacity: 0
-        // show smooooothly on hover
-        &:hover
-            opacity: 1
-
-        &:active
-            top: 0
+    &:active
+        top: 0

@@ -1,49 +1,56 @@
 
-<div class="topbar container">
-    <div class="grid">
+<header role="banner" class="site__header">
+    <div class="header__content">
+        <div class="container">
 
-        <header role="banner" class="banner col3-xs">
-            <h1 class="banner-title">
-                <a class="banner-logo" href="/">kremalicious</a>
-            </h1>
-        </header>
+            <div class="grid grid--half">
 
-        <nav role="navigation" class="nav-main col3-xs">
-            <button type="button" class="menu-btn">
-                <svg class="icon icon-entypo icon-entypo-menu" role="img" aria-labelledby="title">
-                    <title id="title">Menu</title>
-                    <use xlink:href="/assets/img/sprite.svg#entypo-menu"></use>
-                </svg>
-            </button>
-        </nav>
+                <div class="grid__col">
+                    <h1 class="header__title">
+                        <a class="header__logo" href="/">kremalicious</a>
+                    </h1>
+                </div>
 
-        <section class="site-search">
-            <button type="button" class="search-btn">
-                <svg class="icon icon-entypo icon-entypo-search" role="img" aria-labelledby="title">
-                    <title id="title">Search</title>
-                    <use xlink:href="/assets/img/sprite.svg#entypo-magnifying-glass"></use>
-                </svg>
-            </button>
-            <div class="search-area">
-                <input type="search" id="search-input" class="form-control input-search search-field" placeholder="Search everything">
-                <button class="close search-close">&times;</button>
+                <nav role="navigation" class="nav-main grid__col">
+                    <button type="button" class="menu-btn">
+                        <svg class="icon icon-entypo icon-entypo-menu" role="img" aria-labelledby="title">
+                            <title id="title">Menu</title>
+                            <use xlink:href="/assets/img/sprite.svg#entypo-menu"></use>
+                        </svg>
+                    </button>
+                </nav>
+
+                <section class="site-search">
+                    <button type="button" class="search-btn">
+                        <svg class="icon icon-entypo icon-entypo-search" role="img" aria-labelledby="title">
+                            <title id="title">Search</title>
+                            <use xlink:href="/assets/img/sprite.svg#entypo-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                    <div class="search-area">
+                        <input type="search" id="search-input" class="form-control input-search search-field" placeholder="Search everything">
+                        <button class="close search-close">&times;</button>
+                    </div>
+                </section>
+
             </div>
-        </section>
 
+            <ul class="nav-popover grid grid--gutters grid--half grid-medium--third hide">
+                {% for category in site.categories %}
+                    <li class="grid__col">
+                        <a class="nav-link" href="/{{ category | first }}/">
+                            {{ category | first }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
     </div>
+</header>
 
-    <ul class="nav-popover grid hide">
-        {% for category in site.categories %}
-            <li class="col3-xs col2">
-                <a class="nav-link" href="/{{ category | first }}/">
-                    {{ category | first }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-
-</div>
-
-<div id="search-popover" class="search-popover container hide">
-    <ul id="search-results" class="search-results grid"></ul>
+<div id="search-popover" class="search-popover hide">
+    <div class="container">
+        <ul id="search-results" class="search-results grid grid--gutters grid-medium--half"></ul>
+    </div>
 </div>

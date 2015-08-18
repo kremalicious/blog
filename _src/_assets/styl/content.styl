@@ -25,18 +25,18 @@
         color: darken($page-bg, 15%)
         margin-right: 2px
 
-.hentry,
-.grid > .hentry
+.hentry
     @extend .divider-bottom
     padding-top: ($line-height-computed*2)
     padding-bottom: ($line-height-computed*2)
+    width: 100%
 
     @media $breakpoint2
         padding-top: ($line-height-computed*4)
         padding-bottom: ($line-height-computed*4)
 
-    .page-index &:first-child
-        padding-top: ($line-height-computed*2)
+        .page-index &:first-child
+            padding-top: ($line-height-computed*3)
 
     .page-single &
         padding-bottom: ($line-height-computed*2)
@@ -153,8 +153,7 @@
 
 .masonry
     @media $breakpoint2
-        width: 125%
-        margin-left: -12.5%
+        width: 100%
         clearfix()
 
     .hentry
