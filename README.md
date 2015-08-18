@@ -4,7 +4,6 @@ kremalicious3
 > [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
 [ ![Codeship Status for kremalicious/kremalicious3](https://www.codeship.io/projects/f6973090-9f04-0131-a2b7-625e8177ce9a/status?branch=master)](https://www.codeship.io/projects/18092)
-[![Build Status](https://travis-ci.org/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.org/kremalicious/kremalicious3)
 [![Dependency Status](https://gemnasium.com/kremalicious/kremalicious3.svg)](https://gemnasium.com/kremalicious/kremalicious3)
 
 
