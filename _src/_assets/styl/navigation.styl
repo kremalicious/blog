@@ -41,36 +41,24 @@
 .nav-popover
     @extend .divider-top, .list-unstyled
     padding: $line-height-computed 0
-    margin-top: 30px
+    margin-top: $line-height-computed
     margin-bottom: 0
     width: 100%
     background: $body-bg
-    display: flex
+    display: flex   // .nav-popver overwrite
+    margin-left: 0  // .grid overwrite
 
     .grid__col
         padding-top: 0
 
 .nav-link
-    @extend .h6, .textcenter
+    @extend .category
     text-shadow: 0 1px 0 rgba(#fff, .5)
     padding: $padding-base-vertical $padding-base-horizontal
     margin-bottom: 0
     margin-top: 0
     display: block
-    color: $brand-grey-light
-    text-transform: uppercase
-    border-radius: $border-radius-base
-
-    &:hover,
-    &:focus
-        color: $link-color
-        border-bottom-color: $link-color
-        background: rgba(255,255,255,.5)
-
-    &:active
-        background: $link-color
-        top: 0
-        color: #fff
+    border: none
 
 
 // Paginator

@@ -95,25 +95,19 @@ var siteNavigation = {
     },
 
     siteMenu: function() {
-        var $thelink = $('.menu-btn'),
+        var $thesite = $('.site'),
+            $thelink = $('.menu-btn'),
             $thepop = $('.nav-popover');
 
         $thelink.click(function(e) {
             e.preventDefault();
 
             // toggle menu
-            $('body').toggleClass('menu-open');
-
-            if ($('body').hasClass('menu-open')) {
-                $thepop.removeClass('hide');
-            } else {
-                $thepop.addClass('hide');
-            }
+            $thesite.toggleClass('menu-open');
 
             // bind the hide controls
             $(document).bind('click.hidethepop', function() {
-                $('body').removeClass('menu-open');
-                $thepop.toggleClass('hide');
+                $thesite.removeClass('menu-open');
                 // unbind the hide controls
                 $(document).unbind('click.hidethepop');
             });

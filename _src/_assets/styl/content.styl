@@ -40,6 +40,7 @@
 
     .page-single &
         border: none
+        padding-top: ($line-height-computed*2)
 
         &:before
             @extend .hide
@@ -100,15 +101,37 @@
     .by
         display: block
 
+.time
+    margin-bottom: ($line-height-computed*2)
 
 // Categories & Tags
 /////////////////////////////////////
 
 .categories
-    margin-bottom: 0
+    margin-bottom: ($line-height-computed/2)
 
 .category
-    text-transform: capitalize
+    @extend .h6, .textcenter
+    font-size: $font-size-mini
+    line-height: 1
+    color: $brand-grey-light
+    text-transform: uppercase
+    border: 1px solid $text-color-dimmed
+    border-radius: $border-radius-base
+    padding: 4px 8px
+    margin: 0
+    display: inline-block
+
+    &:hover,
+    &:focus
+        color: $link-color
+        border-color: $link-color
+        background: rgba(255,255,255,.3)
+
+    &:active
+        background: $link-color
+        top: 0
+        color: #fff
 
 .tag
     color: $text-color
