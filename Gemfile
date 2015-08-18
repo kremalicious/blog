@@ -14,4 +14,5 @@ group :development do
     gem 'mini_magick'
     gem 'fileutils'
     gem 'gsl'
+    gem 'narray'
 end
