@@ -35,7 +35,7 @@ So if you value quality and want pixel perfect icons in your admin area you need
 I’ve put the template along with the implementation examples from the next section on [github](https://github.com/kremalicious/wp-icons-template). You can just download the whole package right away:
 
 <p class="content-download">
-    <a href="https://github.com/kremalicious/wp-icons-template/zipball/master" class="btn-primary icon-download col2">Download</a> <a href="https://github.com/kremalicious/wp-icons-template" class="icon-github col2">GitHub</a> <a href="http://krlc.us/givecoffee" class="icon-heart col2">Donate</a>
+    <a href="https://github.com/kremalicious/wp-icons-template/zipball/master" class="btn-primary icon-download">Download</a> <a href="https://github.com/kremalicious/wp-icons-template" class="icon-github">GitHub</a> <a href="http://krlc.us/givecoffee" class="icon-heart">Donate</a>
 </p>
 
 ### Usage
@@ -80,12 +80,12 @@ function custom_post_type_icon() {
         #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
             background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
         }
-		#menu-posts-YOUR_POSTTYPE_NAME:hover .wp-menu-image, #menu-posts-YOUR_POSTTYPE_NAME.wp-has-current-submenu .wp-menu-image {
+        #menu-posts-YOUR_POSTTYPE_NAME:hover .wp-menu-image, #menu-posts-YOUR_POSTTYPE_NAME.wp-has-current-submenu .wp-menu-image {
             background-position: 6px -26px !important;
         }
         /* Post Screen - 32px */
         .icon32-posts-YOUR_POSTTYPE_NAME {
-        	background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
+            background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
         }
         @media
         only screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -94,20 +94,20 @@ function custom_post_type_icon() {
         only screen and (        min-device-pixel-ratio: 1.5),
         only screen and (                min-resolution: 1.5dppx) {
 
-        	/* Admin Menu - 16px @2x */
-        	#menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
-        		background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
-        		-webkit-background-size: 16px 48px;
-        		-moz-background-size: 16px 48px;
-        		background-size: 16px 48px;
-        	}
-        	/* Post Screen - 32px @2x */
-        	.icon32-posts-YOUR_POSTTYPE_NAME {
-        		background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
-        		-webkit-background-size: 32px 32px;
-        		-moz-background-size: 32px 32px;
-        		background-size: 32px 32px;
-        	}
+            /* Admin Menu - 16px @2x */
+            #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
+                background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+                -webkit-background-size: 16px 48px;
+                -moz-background-size: 16px 48px;
+                background-size: 16px 48px;
+            }
+            /* Post Screen - 32px @2x */
+            .icon32-posts-YOUR_POSTTYPE_NAME {
+                background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+                -webkit-background-size: 32px 32px;
+                -moz-background-size: 32px 32px;
+                background-size: 32px 32px;
+            }
         }
     </style>
 <?php }
@@ -148,11 +148,11 @@ function option_page_icon() {
            Use only if you put your plugin or option page in the top level via add_menu_page()
         */
         #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
-        	background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
+            background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
         }
         /* We need to hide the generic.png img element inserted by default */
         #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image img {
-        	display: none;
+            display: none;
         }
         #toplevel_page_PLUGINNAME-FILENAME:hover .wp-menu-image, #toplevel_page_PLUGINNAME-FILENAME.wp-has-current-submenu .wp-menu-image {
             background-position: 6px -26px !important;
@@ -160,7 +160,7 @@ function option_page_icon() {
 
         /* Option Screen - 32px */
         #PLUGINNAME.icon32 {
-        	background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
+            background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
         }
 
         @media
@@ -169,23 +169,23 @@ function option_page_icon() {
         only screen and (     -o-min-device-pixel-ratio: 3/2),
         only screen and (        min-device-pixel-ratio: 1.5),
         only screen and (                min-resolution: 1.5dppx) {
-        	/* Admin Menu - 16px @2x
-        	   Use only if you put your plugin or option page in the top level via add_menu_page()
-        	*/
-       		#toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
-       			background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
-       			-webkit-background-size: 16px 48px;
-       			-moz-background-size: 16px 48px;
-       			background-size: 16px 48px;
-       		}
+            /* Admin Menu - 16px @2x
+               Use only if you put your plugin or option page in the top level via add_menu_page()
+            */
+               #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
+                   background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+                   -webkit-background-size: 16px 48px;
+                   -moz-background-size: 16px 48px;
+                   background-size: 16px 48px;
+               }
 
-       		/* Option Screen - 32px @2x */
-       		#PLUGINNAME.icon32 {
-       			background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
-       			-webkit-background-size: 32px 32px;
-       			-moz-background-size: 32px 32px;
-       			background-size: 32px 32px;
-       		}
+               /* Option Screen - 32px @2x */
+               #PLUGINNAME.icon32 {
+                   background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+                   -webkit-background-size: 32px 32px;
+                   -moz-background-size: 32px 32px;
+                   background-size: 32px 32px;
+               }
         }
     </style>
 <?php }

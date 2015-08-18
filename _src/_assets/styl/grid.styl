@@ -63,9 +63,13 @@
 //
 // Columns
 //
-.grid
+.grid--fit
     > .grid__col
         flex: 1
+
+.grid--full
+    > .grid__col
+        flex: 0 0 100%
 
 .grid--1of6
     > .grid__col
@@ -91,6 +95,14 @@
 
 
 @media $breakpoint1
+    .grid-small--fit
+        > .grid__col
+            flex: 1
+
+    .grid-small--full
+        > .grid__col
+            flex: 0 0 100%
+
     .grid-small--1of6
         > .grid__col
             flex: 0 0 16.5%
@@ -115,6 +127,14 @@
 
 
 @media $breakpoint2
+    .grid-medium--fit
+        > .grid__col
+            flex: 1
+
+    .grid-medium--full
+        > .grid__col
+            flex: 0 0 100%
+
     .grid-medium--1of6
         > .grid__col
             flex: 0 0 16.5%
@@ -138,6 +158,14 @@
             flex: 0 0 82.5%
 
 @media $breakpoint3
+    .grid-large--fit
+        > .grid__col
+            flex: 1
+
+    .grid-large--full
+        > .grid__col
+            flex: 0 0 100%
+
     .grid-large--1of6
         > .grid__col
             flex: 0 0 16.5%
