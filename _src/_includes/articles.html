@@ -72,9 +72,9 @@
             {% endif %}
 
             {% if post.categories contains "goodies" and page.path contains "goodies" %}
-                <footer class="goodie-actions">
+                <footer class="goodie-actions grid grid--gutters grid--full grid-small--fit">
 
-                    <p class="info col3">
+                    <p class="info grid__col">
                         <a class="btn icon icon-info" href="{{ post.url }}">
                             <svg class="icon icon-entypo icon-entypo-info-with-circle">
                                 <use xlink:href="/assets/img/sprite.svg#entypo-info-with-circle"></use>
@@ -84,7 +84,7 @@
                     </p>
 
                     {% if post.download %}
-                    <p class="download col3">
+                    <p class="download grid__col">
                         <a class="btn" href="/media/{{ post.download }}">
                             <svg class="icon icon-entypo icon-entypo-arrow-with-circle-down">
                                 <use xlink:href="/assets/img/sprite.svg#entypo-arrow-with-circle-down"></use>
