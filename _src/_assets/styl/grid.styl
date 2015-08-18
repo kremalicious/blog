@@ -71,7 +71,8 @@
     > .grid__col
         flex: 0 0 16.5%
 
-.grid--2of6
+.grid--2of6,
+.grid--third
     > .grid__col
         flex: 0 0 33%
 
@@ -88,12 +89,38 @@
     > .grid__col
         flex: 0 0 82.5%
 
+
+@media $breakpoint1
+    .grid-small--1of6
+        > .grid__col
+            flex: 0 0 16.5%
+
+    .grid-small--2of6,
+    .grid-small--third
+        > .grid__col
+            flex: 0 0 33%
+
+    .grid-small--3of6,
+    .grid-small--half
+        > .grid__col
+            flex: 0 0 50%
+
+    .grid-small--4of6
+        > .grid__col
+            flex: 0 0 66%
+
+    .grid-small--5of6
+        > .grid__col
+            flex: 0 0 82.5%
+
+
 @media $breakpoint2
     .grid-medium--1of6
         > .grid__col
             flex: 0 0 16.5%
 
-    .grid-medium--2of6
+    .grid-medium--2of6,
+    .grid-medium--third
         > .grid__col
             flex: 0 0 33%
 
@@ -115,7 +142,8 @@
         > .grid__col
             flex: 0 0 16.5%
 
-    .grid-large--2of6
+    .grid-large--2of6,
+    .grid-large--third
         > .grid__col
             flex: 0 0 33%
 

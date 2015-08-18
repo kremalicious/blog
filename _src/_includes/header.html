@@ -1,5 +1,5 @@
 
-<header role="banner" class="header">
+<header role="banner" class="site__header">
     <div class="header__content">
         <div class="container">
 
@@ -31,16 +31,13 @@
                         <input type="search" id="search-input" class="form-control input-search search-field" placeholder="Search everything">
                         <button class="close search-close">&times;</button>
                     </div>
-                    <div id="search-popover" class="search-popover hide">
-                        <ul id="search-results" class="search-results grid"></ul>
-                    </div>
                 </section>
 
             </div>
 
-            <ul class="nav-popover grid hide">
+            <ul class="nav-popover grid grid--gutters grid--half grid-medium--third hide">
                 {% for category in site.categories %}
-                    <li class="grid__col grid--gutters grid-medium--half">
+                    <li class="grid__col">
                         <a class="nav-link" href="/{{ category | first }}/">
                             {{ category | first }}
                         </a>
@@ -51,3 +48,9 @@
         </div>
     </div>
 </header>
+
+<div id="search-popover" class="search-popover hide">
+    <div class="container">
+        <ul id="search-results" class="search-results grid grid--gutters grid-medium--half"></ul>
+    </div>
+</div>

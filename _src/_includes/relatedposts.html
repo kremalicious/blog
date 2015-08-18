@@ -3,11 +3,11 @@
 
         <h1 class="related-posts-title">Related</h1>
 
-        <div class="grid">
+        <div class="grid grid--gutters grid-small--half grid-medium--third">
 
             {% for post in site.related_posts limit:6 %}
 
-                <article class="related-post col2">
+                <article class="related-post grid__col">
                     <a class="post-title-link" href="{{ post.url }}">
                         <h1 class="post-title">{{ post.title }}</h1>
                     </a>

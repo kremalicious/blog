@@ -29,7 +29,7 @@
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
 @media only screen and (min-width: 40.625em) and (min-height: 650px)
-    body
+    .site
         position: relative
 
     .site__document
@@ -42,17 +42,17 @@
         .menu-open &
             margin-top: 220px
 
-    .header,
-    .footer
+    .site__header,
+    .site__footer
         position: fixed
         border: none
 
-    .header
+    .site__header
         z-index: 1
         top: 0
         border: none
 
-    .footer
+    .site__footer
         z-index: 0
         bottom: 0
         box-shadow: none

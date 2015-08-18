@@ -154,24 +154,25 @@ a.btn-primary
     .icon
         width: 15px
         height: 15px
-        margin: 1px 0 0 0
+        margin: 1px 3px 0 0
         fill: #0089cb
+        float: left
 
 
 // Close button
 /////////////////////////////////////
 
 .close
-    @extend .textcenter
-    width: 16px
-    height: 16px
-    line-height: 12px
-    font-size: $font-size-small
+    @extend .textcenter, .transition
+    width: 14px
+    height: 14px
     padding: 0
-    border-radius: 16px
+    border-radius: 50%
     display: block
-    background: $brand-grey-light
+    background: lighten($brand-grey-light, 50%)
     color: #fff
+    line-height: 1
+    font-size: $font-size-mini
 
     &:hover,
     &:focus
@@ -185,12 +186,18 @@ a.btn-primary
 /////////////////////////////////////
 
 .content-download
-    @extend .clearfix
+    @extend .grid, .grid--gutters
+
+    display: block
+    margin-top: 0
+
+    @media $breakpoint1
+        display: flex
+        margin-top: -($gutter-space)
 
     a
-        @extend .btn
-        padding-left: 15px
-        padding-right: 15px
+        @extend .btn, .grid__col
+        margin: $gutter-space 0 0 $gutter-space
         display: block
 
         span

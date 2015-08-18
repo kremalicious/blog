@@ -1,10 +1,10 @@
 <aside class="related-photos">
 
-    <div class="grid">
+    <div class="grid grid--gutters grid-small--half grid-medium--third">
 
         {% for post in site.categories['photos'] limit:6 %}
 
-            <article class="related-photo col3-xs col2">
+            <article class="related-photo grid__col">
                 <a class="photo-link" href="{{ post.url }}">
                     {% picture photothumb {{ post.image }} %}
                 </a>

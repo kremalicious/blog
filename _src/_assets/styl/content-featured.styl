@@ -6,7 +6,8 @@
 
 .featured
     @extend .divider-bottom
-    padding-top: $line-height-computed
+    padding-top: ($line-height-computed*2)
+    padding-bottom: ($line-height-computed*2)
 
     @media $breakpoint2
         padding-top: ($line-height-computed*3)
@@ -17,10 +18,8 @@
 
 .featured-link
     display: block
-    margin-bottom: $line-height-computed
 
     @media $breakpoint2
-        margin-bottom: 0
 
         &:hover
             transform: scale(1.03)
