@@ -69,6 +69,9 @@
     h1
         font-size: ceil($font-size-base * 2.5)
 
+    img:not(.teaser)
+        margin-bottom: ($line-height-computed/2)
+
     .teaser
         box-shadow: 0 1px 3px rgba(0,0,0,.2)
 
@@ -80,7 +83,6 @@
 /////////////////////////////////////
 
 .entry-meta
-    @extend .clearfix
     margin-top: ($line-height-computed*2)
     font-size: $font-size-small
 
@@ -153,7 +155,7 @@
 /////////////////////////////////////
 
 .goodie-actions
-    @extend .clearfix, .aligncenter
+    @extend .aligncenter
     max-width: 640px
 
     p,
@@ -163,12 +165,6 @@
     .btn
         display: block
 
-    .download
-        margin-top: ($line-height-computed/2)
-
-        @media $breakpoint2
-            margin-top: 0
-            text-align: right
 
 // Masonry
 /////////////////////////////////////
