@@ -108,7 +108,7 @@ a
 
     &:active
         transition: none
-        color: darken($link-color, 20%)
+        color: darken($link-color, 30%)
 
     h1 &,
     h2 &,
@@ -222,25 +222,28 @@ blockquote
     padding-left: 25px
     margin: 0 0 $line-height-computed
     position: relative
+    padding-left: 20px
 
-    @media $breakpoint2
+    @media $breakpoint1
         padding-left: 40px
 
     @media $breakpoint3
-        padding: 0 ($line-height-computed*1.75)
+        padding-left: 60px
 
     // quotation marks
     &:before
         content: "“"
-        font-size: 250%
-        font-family: "Hoefler Text", "Times New Roman", serif
-        color: $text-color-dimmed
+        font-size: 300%
+        color: lighten($text-color, 40%)
         position: absolute
-        left: 0
+        left: -10px
         top: -20px
 
+        @media $breakpoint1
+            left: 0
+
         @media $breakpoint3
-            top: -($line-height-computed/1.35)
+            top: -30px
 
     p:last-child
         margin-bottom: 0

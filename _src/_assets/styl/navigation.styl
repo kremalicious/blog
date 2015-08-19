@@ -19,6 +19,7 @@
         outline: 0
 
     .icon
+        filter: drop-shadow( 0 1px 0 rgba(#fff, .5) )
         &.icon-entypo-menu
             width: 24px
             height: 24px
@@ -27,8 +28,12 @@
     &:focus .icon
         fill: $link-color
 
-    &:active .icon
-        fill: #fff
+    &:active
+        background: transparent
+        transition: none
+
+        .icon
+            fill: darken($link-color, 30%)
 
 .menu-btn
     margin-right: -.5em
@@ -91,6 +96,4 @@
     padding: 0 2px
 
 .paginator-title
-    @extend .h3, .heading-band
-    color: $brand-grey-light
-    margin-bottom: 0
+    @extend .page-title

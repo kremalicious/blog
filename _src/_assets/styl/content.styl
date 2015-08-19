@@ -11,7 +11,7 @@
 .page-title
     @extend .h2, .heading-band
     color: $brand-grey-light
-    margin-top: ($line-height-computed/2)
+    margin-top: ($line-height-computed*2)
     margin-bottom: ($line-height-computed/2)
 
     @media $breakpoint2
@@ -37,6 +37,10 @@
 
         .page-index &:first-child
             padding-top: ($line-height-computed*3)
+
+        .page-title + &,
+        .paginator-title + &
+            padding-top: ($line-height-computed*2)
 
     .page-single &
         border: none
@@ -128,7 +132,6 @@
     &:focus
         color: $link-color
         border-color: $link-color
-        background: rgba(255,255,255,.3)
 
     &:active
         background: $link-color
@@ -141,8 +144,8 @@
 
     &:before
         content: '#'
-        color: darken($page-bg, 15%)
-        margin-right: 2px
+        color: $text-color-dimmed
+        margin-right: 1px
 
 .avatar
     width: 80px
