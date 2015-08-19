@@ -36,17 +36,20 @@
 .grid--center
     align-items: center
 
+.grid--justifycenter
+    justify-content: center
+
 
 //
 // Alignment per cell
 //
-.grid_col--top
+.grid__col--top
     align-self: flex-start
 
-.grid_col--bottom
+.grid__col--bottom
     align-self: flex-end
 
-.grid_col--center
+.grid__col--center
     align-self: center
 
 
@@ -58,6 +61,27 @@
 
     > .grid__col
         padding: $gutter-space 0 0 $gutter-space
+
+@media $breakpoint1
+    .grid-small--gutters
+        margin: -($gutter-space) 0 $gutter-space (-($gutter-space))
+
+        > .grid__col
+            padding: $gutter-space 0 0 $gutter-space
+
+@media $breakpoint2
+    .grid-medium--gutters
+        margin: -($gutter-space) 0 $gutter-space (-($gutter-space))
+
+        > .grid__col
+            padding: $gutter-space 0 0 $gutter-space
+
+@media $breakpoint3
+    .grid-large--gutters
+        margin: -($gutter-space) 0 $gutter-space (-($gutter-space))
+
+        > .grid__col
+            padding: $gutter-space 0 0 $gutter-space
 
 
 //
