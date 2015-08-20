@@ -16,15 +16,9 @@
         figcaption
             margin-bottom: 0
 
-        img
-            max-height: 540px
-            width: auto
-            box-shadow: 0 1px 3px rgba(0,0,0,.2)
-
         figcaption
             @extend .transition
             position: absolute
-            left: 0
             top: 25%
             min-width: 45%
             text-align: right
@@ -37,6 +31,11 @@
             background: alpha($link-color, .7)
             color: #fff
             text-shadow: 0 1px 0 #000
+
+            left: -8%
+
+            @media $breakpoint2
+                left: -16%
 
             opacity: 0
             transform: translate(0, -20px)

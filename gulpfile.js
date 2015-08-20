@@ -133,18 +133,10 @@ gulp.task('css', function() {
             src + '/_assets/styl/kremalicious3.styl',
             src + '/_assets/styl/poststyle-2300.styl'
         ])
-        .pipe($.stylus({
-            'include css': true
-        })).on('error', onError)
+        .pipe($.stylus({ 'include css': true })).on('error', onError)
         .pipe(gulp.dest(dist + '/assets/css/'))
-        .pipe($.autoprefixer({
-            browsers: 'last 2 versions'
-        })).on('error', onError)
+        .pipe($.autoprefixer({ browsers: 'last 2 versions' })).on('error', onError)
         .pipe($.combineMq({ beautify: false }))
-        // .pipe($.uncss({
-        //     html: [dist + '/**/*.html'],
-        //     ignore: ['.in', '.collapsing']
-        // }))
         .pipe($.cssmin())
         .pipe($.rename({ suffix: '.min' }))
         .pipe($.header(banner, { pkg: pkg }))
@@ -163,10 +155,8 @@ gulp.task('js-libraries', function() {
 
     return merge(picturefill)
         .pipe($.uglify()).on('error', onError)
-        .pipe($.rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest(dist + '/assets/js/'))
+        .pipe($.rename({ suffix: '.min'}))
+        .pipe(gulp.dest(dist + '/assets/js/'));
 });
 
 // Project js
@@ -181,11 +171,11 @@ gulp.task('js-project', function() {
             'bower_components/time-elements/time-elements.js',
             src + '/_assets/js/*.js'
         ])
+        .pipe($.concat('kremalicious3.js'))
+        .pipe(gulp.dest(dist + '/assets/js/'))
         .pipe($.uglify()).on('error', onError)
-        .pipe($.concat('kremalicious3.min.js'))
-        .pipe($.header(banner, {
-            pkg: pkg
-        }))
+        .pipe($.rename({ suffix: '.min'}))
+        .pipe($.header(banner, { pkg: pkg }))
         .pipe(gulp.dest(dist + '/assets/js/'))
         .pipe($.connect.reload());
 });
@@ -221,7 +211,7 @@ gulp.task('icons', function() {
 gulp.task('svg-fallbacks', function() {
     return gulp.src(dist + '/assets/img/*.svg')
         .pipe($.svg2png())
-        .pipe(gulp.dest(dist + '/assets/img/png/'))
+        .pipe(gulp.dest(dist + '/assets/img/'))
 });
 
 

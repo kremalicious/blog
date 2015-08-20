@@ -17,6 +17,12 @@
     max-width: 35em
     margin: 0 auto
 
+.site__document
+    padding-top: ($line-height-computed*2)
+
+    @media $breakpoint2
+        padding-top: ($line-height-computed*4)
+
 
 // topbar and footer as fixed
 // site background
@@ -29,6 +35,9 @@
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
     transform: translate3d(0,-200px,0)
+
+    @media $breakpoint1
+        transform: translate3d(0,-160px,0)
 
     .menu-open &
         transform: translate3d(0,0,0)

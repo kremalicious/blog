@@ -38,7 +38,7 @@
         <a class="photo-link" href="{{ post.url }}">
             <figure class="hmedia">
 
-                {% picture {{ post.image }} %}
+                {% picture phototeaser {{ post.image }} class="teaser-photo" %}
 
                 <figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
             </figure>

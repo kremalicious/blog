@@ -6,21 +6,22 @@
 
 .featured
     @extend .divider-bottom
-    padding-top: ($line-height-computed*2)
     padding-bottom: ($line-height-computed*2)
 
     @media $breakpoint2
-        padding-top: ($line-height-computed*3)
         padding-bottom: ($line-height-computed*3)
 
     .grid
         margin-bottom: 0
 
+    @media $breakpoint2
+        .grid__col
+            padding-top: 0
+
 .featured-link
     display: block
 
     @media $breakpoint2
-
         &:hover
             transform: scale(1.03)
 

@@ -84,23 +84,47 @@ picture:
   presets:
     default:
       ppi: [1, 2]
-      attr:
-        itemprop: "image"
+      source_large:
+        media: "(min-width: 87.500em)"
+        width: "1000"
       source_medium:
-        media: "(min-width: 35.556em)"
-        width: "640"
+        media: "(min-width: 40.625em)"
+        width: "800"
       source_small:
-        media: "(min-width: 26.667em)"
-        width: "480"
+        media: "(min-width: 30em)"
+        width: "600"
       source_default:
-        width: "320"
+        width: "400"
+    phototeaser:
+      ppi: [1, 2]
+      source_large:
+        media: "(min-width: 87.500em)"
+        width: "1000"
+        height: "600"
+      source_medium:
+        media: "(min-width: 40.625em)"
+        width: "800"
+        height: "500"
+      source_small:
+        media: "(min-width: 30em)"
+        width: "600"
+        height: "400"
+      source_default:
+        width: "400"
+        height: "200"
     featured:
       ppi: [1, 2]
       attr:
         class: "featured-image"
         itemprop: "image"
+      source_medium:
+        media: "(min-width: 40.625em)"
+        width: "275"
+      source_small:
+        media: "(min-width: 30em)"
+        width: "160"
       source_default:
-        width: "190"
+        width: "480"
     photothumb:
       ppi: [1, 2]
       attr:
