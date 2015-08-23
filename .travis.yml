@@ -1,16 +1,19 @@
 sudo: false
 language: ruby
 rvm:
-    - 2.2.2
-    - 1.9.3
+- 2.2.2
+- 1.9.3
 cache: bundler
 addons:
-    apt:
-        packages:
-            - libgsl0-dev
+  apt:
+    packages:
+    - libgsl0-dev
 before_script:
-    - npm install gulp bower -g
-    - npm install
-    - bower install
-    - bundle install
+- npm install gulp bower -g
+- npm install
+- bower install
+- bundle install
 script: gulp build
+notifications:
+  slack:
+    secure: Ki6tFSrxaUnAugBFnmM2ydI/38/Ahyoaf9lhohoOCNnPk/QIYrI8MBlBXNVI04v2GOhFTvVljY5yJPlzrAUjH3eu34f6ObBe6rh3LjfvtE9eA94pBoSLJE/eSqB6FUBr324kxXpsWHRv93gyQ9I6Hk2CURv58de2z9Ytkwu2Epo=
