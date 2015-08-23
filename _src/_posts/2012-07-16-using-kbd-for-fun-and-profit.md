@@ -3,7 +3,7 @@ layout: post
 
 title: Using &lt;kbd&gt; for fun and profit
 image: kremalicious-kbdfun-teaser.png
-style: poststyle-2300.min.css
+style: post-kbd.min.css
 author: Matthias Kretschmann
 featured: true
 
@@ -32,7 +32,7 @@ They are completely styled with CSS3 so they're sharp on all screens no matter h
 
 ### CSS
 
-Just drop in the kbdftw.css in your `head`:
+Just drop in the `kbdftw.css` in your `head`:
 
 ```html
 <link rel="stylesheet" href="kbdfun.css">
@@ -47,9 +47,9 @@ You also need to add all the Roboto font files from assets/fonts to your project
 
 ### LESS
 
-There're some variables in the kbdfun.less file you can customize.
+There're some variables in the `kbdfun.less` file you can customize.
 
-For the Android style, there's roboto.less as include at the end. But the font files won't load unless you uncomment the .font-roboto line in kbdftw.less. This is to make sure, users won't download all the font files if you don't use the Android style.
+For the Android style, there's `roboto.less` as include at the end. But the font files won't load unless you uncomment the `.font-roboto` line in kbdftw.less. This is to make sure, users won't download all the font files if you don't use the Android style.
 
 ### Markup
 

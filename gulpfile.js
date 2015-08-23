@@ -135,7 +135,7 @@ gulp.task('jekyll:production', function(cb) {
 gulp.task('css', function() {
     return gulp.src([
             src + '/_assets/styl/kremalicious3.styl',
-            src + '/_assets/styl/poststyle-2300.styl'
+            src + '/_assets/styl/post-*.styl'
         ])
         .pipe($.stylus({ 'include css': true })).on('error', onError)
         .pipe($.autoprefixer({ browsers: 'last 2 versions' })).on('error', onError)
