@@ -11,7 +11,7 @@ redirect_from:
     <link href="{{ site.url }}/feed/" type="application/atom+xml" rel="self" />
     <link href="{{ site.url }}/" rel="alternate" type="text/html" />
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}</id>
+    <id>{{ site.url }}/</id>
 
     {% if site.name %}
         <title>{{ site.name | xml_escape }}</title>
@@ -37,13 +37,13 @@ redirect_from:
         </author>
     {% endif %}
 
-	{% for post in site.posts limit:100 %}
-    	<entry>
+    {% for post in site.posts limit:100 %}
+        <entry>
             {% if post.layout == "link" %}
-				<title>{{ post.title | markdownify | strip_html | strip_newlines | xml_escape | titlecase }} &#8594;</title>
+                <title type="html">{{ post.title | markdownify | strip_html | strip_newlines | xml_escape | titlecase }} &#8594;</title>
                 <link href="{{ post.linkurl | escape }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
             {% else %}
-				<title>{{ post.title | markdownify | strip_html | strip_newlines | xml_escape | titlecase }}</title>
+                <title type="html">{{ post.title | markdownify | strip_html | strip_newlines | xml_escape | titlecase }}</title>
                 <link href="{{ site.url }}{{ post.url | escape }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
             {% endif %}
 
@@ -51,21 +51,21 @@ redirect_from:
 
             {% if post.updated %}
                 <updated>{{ post.updated | date_to_xmlschema }}</updated>
-			{% else %}
-				<updated>{{ post.date | date_to_xmlschema }}</updated>
+            {% else %}
+                <updated>{{ post.date | date_to_xmlschema }}</updated>
             {% endif %}
 
             <id>{{ post.id | prepend: site.url | xml_escape }}</id>
-    		<content type="html" xml:base="{{ post.url | xml_escape }}">
+            <content type="html" xml:base="{{ post.url | xml_escape }}">
                 {% if post.image %}
                     &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
                 {% endif %}
 
                 {{ post.content | markdownify | xml_escape }}
 
-    			{% if post.layout == "link" %}
-                    &lt;a href=&quot;{{ post.linkurl }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
-                    &lt;a href=&quot;{{ site.url }}{{ post.url }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
+                {% if post.layout == "link" %}
+                    &lt;a href=&quot;{{ post.linkurl | xml_escape }}&quot;&gt;Go to source &amp;#187;&lt;/a&gt; &lt;br /&gt;
+                    &lt;a href=&quot;{{ site.url }}{{ post.url | xml_escape }}&quot; title=&quot;Permalink for this post&quot;&gt;&amp;#8734;&lt;/a&gt;
                 {% endif %}
             </content>
 
@@ -94,9 +94,9 @@ redirect_from:
             {% endfor %}
 
             {% if post.excerpt %}
-                <summary>{{ post.excerpt | markdownify | strip_html | strip_newlines | xml_escape }}</summary>
+                <summary type="html">{{ post.excerpt | markdownify | strip_html | strip_newlines | xml_escape }}</summary>
             {% endif %}
 
-    	</entry>
-	{% endfor %}
+        </entry>
+    {% endfor %}
 </feed>
