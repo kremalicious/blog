@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     del = require('del'),
     chalk = require('chalk'),
     merge = require('merge-stream'),
-    pkg = require('./package.json');
+    pkg = require('./package.json'),
+    parallelize = require('concurrent-transform');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -37,7 +38,10 @@ console.log("");
 // paths
 var src = '_src',
     dist = '_site',
-    cdn = 'https://cdn.kremalicious.com'; // CNAME for d2jlreog722xe2.cloudfront.net
+    cdn = 'https://d2jlreog722xe2.cloudfront.net',
+    s3bucket  = 'kremalicious.com',
+    s3path    = '/',
+    s3region  = 'eu-central-1';
 
 // icons
 var icons = {
@@ -333,6 +337,41 @@ gulp.task('cdn', function() {
 
 
 //
+// Assets uploading to S3
+//
+gulp.task('s3', function() {
+    var publisher = $.awspublish.create({
+        params: {
+            'Bucket': s3bucket
+        },
+        'accessKeyId': process.env.AWS_ACCESS_KEY_ID,
+        'secretAccessKey': process.env.AWS_SECRET_ACCESS_KEY,
+        'region': s3region
+    });
+
+    // define custom headers
+    var headers = {
+        'Cache-Control': 'max-age=315360000, no-transform, public',
+        'x-amz-acl': 'public-read'
+    };
+
+    var assets = gulp.src(dist + '/assets/**/*', { base: dist + '/' }),
+        media  = gulp.src(dist + '/media/**/*', { base: dist + '/' });
+
+    return merge(assets, media)
+        .pipe($.rename(function (path) {
+            // This is weird, but is needed to make the file use the relative path...
+        }))
+        .pipe($.awspublish.gzip({ ext: '' })) // gzip all the things
+        .pipe(parallelize(publisher.publish(headers), 10))
+        //.pipe(publisher.sync()) // delete files in bucket that are not in local folder
+        .pipe($.awspublish.reporter({
+            states: ['create', 'update', 'delete']
+        }));
+});
+
+
+//
 // Dev Server
 //
 gulp.task('connect', function() {
@@ -393,7 +432,9 @@ gulp.task('build', function(cb) {
         'svg:fallbacks',
         'revision',
         'revision:replace',
+        'cdn',
         ['optimize:html', 'optimize:images', 'optimize:css', 'optimize:js'],
+        's3',
         cb
     );
 });
