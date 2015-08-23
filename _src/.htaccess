@@ -994,12 +994,12 @@ FileETag None
     RewriteBase /
 
     # throw everything onto https
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://www.kremalicious.com/$1 [R,L]
+    # RewriteCond %{SERVER_PORT} 80
+    # RewriteRule ^(.*)$ https://www.kremalicious.com/$1 [R,L]
 
     # and remove wwww
-    RewriteCond %{HTTP_HOST} ^www\.kremalicious\.com [NC]
-    RewriteRule ^(.*)$ https://kremalicious.com/$1 [L,R=301]
+    # RewriteCond %{HTTP_HOST} ^www\.kremalicious\.com [NC]
+    # RewriteRule ^(.*)$ https://kremalicious.com/$1 [L,R=301]
 
     # redirect all index.html to parent folder
     RewriteCond %{REQUEST_URI} ^(.*/)index\.html$ [NC]

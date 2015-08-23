@@ -37,7 +37,7 @@ console.log("");
 // paths
 var src = '_src',
     dist = '_site',
-    cdn = 'https://d2jlreog722xe2.cloudfront.net';
+    cdn = 'https://cdn.kremalicious.com'; // CNAME for d2jlreog722xe2.cloudfront.net
 
 // icons
 var icons = {
@@ -52,7 +52,7 @@ var icons = {
 }
 
 // SVG sprite
-spriteConfig = {
+var spriteConfig = {
     dest: dist + '/assets/img/',
     mode: {
         symbol: {
@@ -95,7 +95,7 @@ gulp.task('clean', function(cb) {
         dist + '/**/*',
         dist + '/.*', // delete all hidden files
         '!' + dist + '/media/**'
-    ], cb);
+    ], cb)
 });
 
 
@@ -134,14 +134,10 @@ gulp.task('css', function() {
             src + '/_assets/styl/poststyle-2300.styl'
         ])
         .pipe($.stylus({ 'include css': true })).on('error', onError)
-        .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.autoprefixer({ browsers: 'last 2 versions' })).on('error', onError)
-        .pipe($.combineMq({ beautify: false }))
-        .pipe($.cssmin())
         .pipe($.rename({ suffix: '.min' }))
-        .pipe($.header(banner, { pkg: pkg }))
         .pipe(gulp.dest(dist + '/assets/css/'))
-        .pipe($.connect.reload());
+        .pipe($.connect.reload())
 });
 
 
@@ -150,38 +146,25 @@ gulp.task('css', function() {
 //
 
 // Libraries
-gulp.task('js-libraries', function() {
-    var picturefill = gulp.src('node_modules/picturefill/dist/picturefill.js');
-
-    return merge(picturefill)
-        .pipe($.uglify()).on('error', onError)
-        .pipe($.rename({ suffix: '.min'}))
-        .pipe(gulp.dest(dist + '/assets/js/'));
+gulp.task('js:libraries', function() {
+    return gulp.src([
+        'node_modules/picturefill/dist/picturefill.js'
+    ])
+    .pipe($.rename({ suffix: '.min'}))
+    .pipe(gulp.dest(dist + '/assets/js/'))
 });
 
 // Project js
-gulp.task('js-project', function() {
-    return gulp.src([
-            'node_modules/webcomponents.js/CustomElements.js',
-            'node_modules/svg4everybody/svg4everybody.js',
-            'node_modules/jquery/dist/jquery.js',
-            'node_modules/masonry-layout/dist/masonry.pkgd.js',
-            'node_modules/imagesloaded/imagesloaded.js',
-            'bower_components/simple-jekyll-search/dest/jekyll-search.js',
-            'bower_components/time-elements/time-elements.js',
-            src + '/_assets/js/*.js'
-        ])
-        .pipe($.concat('kremalicious3.js'))
+gulp.task('js:project', function() {
+    return gulp.src(src + '/_assets/js/*.js')
+        .pipe($.include()).on('error', onError)
+        .pipe($.concat('kremalicious3.min.js'))
         .pipe(gulp.dest(dist + '/assets/js/'))
-        .pipe($.uglify()).on('error', onError)
-        .pipe($.rename({ suffix: '.min'}))
-        .pipe($.header(banner, { pkg: pkg }))
-        .pipe(gulp.dest(dist + '/assets/js/'))
-        .pipe($.connect.reload());
+        .pipe($.connect.reload())
 });
 
 // Collect all script tasks
-gulp.task('js', ['js-libraries', 'js-project']);
+gulp.task('js', ['js:libraries', 'js:project'])
 
 
 //
@@ -208,9 +191,9 @@ gulp.task('icons', function() {
 //
 // Generate SVG fallbacks
 //
-gulp.task('svg-fallbacks', function() {
+gulp.task('svg:fallbacks', function() {
     return gulp.src(dist + '/assets/img/*.svg')
-        .pipe($.svg2png())
+        .pipe($.svg2png()).on('error', onError)
         .pipe(gulp.dest(dist + '/assets/img/'))
 });
 
@@ -219,8 +202,11 @@ gulp.task('svg-fallbacks', function() {
 // Copy images
 //
 gulp.task('images', function() {
-    return gulp.src([src + '/_assets/img/**/*', '!' + src + '/_assets/img/entypo/**/*'])
-        .pipe(gulp.dest(dist + '/assets/img/'))
+    return gulp.src([
+        src + '/_assets/img/**/*',
+        '!' + src + '/_assets/img/entypo/**/*'
+    ])
+    .pipe(gulp.dest(dist + '/assets/img/'))
 });
 
 
@@ -243,6 +229,29 @@ gulp.task('media', function() {
 
 
 //
+// Optimize css
+//
+gulp.task('optimize:css', function() {
+    return gulp.src(dist + '/assets/css/*.css')
+        .pipe($.combineMq({ beautify: false }))
+        .pipe($.cssmin())
+        .pipe($.header(banner, { pkg: pkg }))
+        .pipe(gulp.dest(dist + '/assets/css/'))
+});
+
+
+//
+// Optimize js
+//
+gulp.task('optimize:js', function() {
+    return gulp.src(dist + '/assets/js/*.js')
+        .pipe($.uglify()).on('error', onError)
+        .pipe($.header(banner, { pkg: pkg }))
+        .pipe(gulp.dest(dist + '/assets/js/'))
+});
+
+
+//
 // Optimize HTML
 //
 gulp.task('optimize:html', function() {
@@ -257,7 +266,7 @@ gulp.task('optimize:html', function() {
         removeEmptyAttributes: true,
         removeEmptyAttributes: true
     }))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
 });
 
 
@@ -277,7 +286,7 @@ gulp.task('optimize:images', function() {
             multipass: true, // svg
             svgoPlugins: [{ removeViewBox: false }]
         })))
-        .pipe(gulp.dest(dist));
+        .pipe(gulp.dest(dist))
 });
 
 
@@ -290,7 +299,7 @@ gulp.task('revision', function() {
         .pipe(gulp.dest(dist + '/assets/'))
         // output rev manifest for next replace task
         .pipe($.rev.manifest())
-        .pipe(gulp.dest(dist + '/assets/'));
+        .pipe(gulp.dest(dist + '/assets/'))
 });
 
 
@@ -298,13 +307,13 @@ gulp.task('revision', function() {
 // Replace all links to assets in files
 // from a manifest file
 //
-gulp.task('revision-replace', function() {
+gulp.task('revision:replace', function() {
 
     var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
     return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
         .pipe($.revReplace({ manifest: manifest }))
-        .pipe(gulp.dest(dist));
+        .pipe(gulp.dest(dist))
 });
 
 
@@ -319,7 +328,7 @@ gulp.task('cdn', function() {
         .pipe($.replace('/media/', cdn + '/media/'))
         .pipe($.replace('https://kremalicious.com' + cdn + '/media/', 'https://kremalicious.com/media/'))
         .pipe($.replace('../', cdn + '/assets/'))
-        .pipe(gulp.dest(dist));
+        .pipe(gulp.dest(dist))
 });
 
 
@@ -331,19 +340,19 @@ gulp.task('connect', function() {
         root: [dist],
         livereload: true,
         port: 1337
-    });
+    })
 });
 
 //
 // Watch task
 //
 gulp.task('watch', function() {
-    gulp.watch([src + '/_assets/styl/**/*.styl'], ['css']);
-    gulp.watch([src + '/_assets/js/*.js'], ['js-project']);
-    gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images']);
-    gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons']);
-    gulp.watch([src + '/_media/**/*'], ['media']);
-    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['jekyll-build']);
+    gulp.watch([src + '/_assets/styl/**/*.styl'], ['css'])
+    gulp.watch([src + '/_assets/js/*.js'], ['js:project'])
+    gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images'])
+    gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons'])
+    gulp.watch([src + '/_media/**/*'], ['media'])
+    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['jekyll-build'])
 });
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -353,7 +362,8 @@ gulp.task('watch', function() {
 gulp.task('jekyll-build', function(cb) {
     runSequence(
         'jekyll',
-        ['css', 'js', 'images', 'fonts', 'media', 'icons'],
+        ['css', 'js', 'images', 'fonts', 'media'],
+        'icons',
         cb
     );
 });
@@ -380,12 +390,10 @@ gulp.task('build', function(cb) {
         'jekyll:production',
         ['css', 'js', 'images', 'fonts', 'media'],
         'icons',
-        'svg-fallbacks',
+        'svg:fallbacks',
         'revision',
-        'revision-replace',
-        'cdn',
-        'optimize:html',
-        'optimize:images',
+        'revision:replace',
+        ['optimize:html', 'optimize:images', 'optimize:css', 'optimize:js'],
         cb
     );
 });

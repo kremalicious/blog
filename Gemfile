@@ -10,9 +10,11 @@ group :jekyll do
 end
 
 group :development do
-    gem 'rouge'
+    gem 'classifier-reborn', :git => 'https://github.com/jekyll/classifier-reborn.git'
+    gem 'rouge', '~> 1.8', '!= 1.9.1'
     gem 'mini_magick'
     gem 'fileutils'
     gem 'gsl'
+    gem 'rb-gsl'
     gem 'narray'
 end
