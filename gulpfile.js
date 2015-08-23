@@ -393,7 +393,6 @@ gulp.task('build', function(cb) {
         'svg:fallbacks',
         'revision',
         'revision:replace',
-        'cdn',
         ['optimize:html', 'optimize:images', 'optimize:css', 'optimize:js'],
         cb
     );
