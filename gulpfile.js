@@ -38,7 +38,7 @@ console.log("");
 // paths
 var src = '_src',
     dist = '_site',
-    cdn = 'https://d2jlreog722xe2.cloudfront.net',
+    cdn = 'https://cdn.kremalicious.com',
     s3bucket  = 'kremalicious.com',
     s3path    = '/',
     s3region  = 'eu-central-1';
@@ -325,7 +325,10 @@ gulp.task('revision:replace', function() {
 // CDN url injection
 //
 gulp.task('cdn', function() {
-    return gulp.src([dist + '/**/*.html', dist + '/assets/css/*.css'], { base: dist })
+    return gulp.src([
+            dist + '/**/*.html',
+            dist + '/assets/css/*.css'
+        ], { base: dist })
         .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
         .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
         //.pipe($.replace('/assets/img/', cdn + '/assets/img/'))
@@ -339,7 +342,7 @@ gulp.task('cdn', function() {
 //
 // Assets uploading to S3
 //
-gulp.task('s3', function() {
+gulp.task('s3:assets', function() {
     var publisher = $.awspublish.create({
         params: {
             'Bucket': s3bucket
@@ -434,7 +437,7 @@ gulp.task('build', function(cb) {
         'revision:replace',
         'cdn',
         ['optimize:html', 'optimize:images', 'optimize:css', 'optimize:js'],
-        's3',
+        's3:assets',
         cb
     );
 });
