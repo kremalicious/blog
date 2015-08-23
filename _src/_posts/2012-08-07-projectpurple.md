@@ -44,4 +44,4 @@ Download the whole package with all the sizes included or grab the individual on
 
 ## License
 
-![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/de/88x31.png)Project Purple by [Matthias Kretschmann](http://kremalicious.com) is licensed under a [Creative Commons Attribution-Noncommercial 3.0 Germany License](http://creativecommons.org/licenses/by-nc/3.0/de/).
+![Creative Commons License](https://i.creativecommons.org/l/by-nc/3.0/de/88x31.png)Project Purple by [Matthias Kretschmann](http://kremalicious.com) is licensed under a [Creative Commons Attribution-Noncommercial 3.0 Germany License](http://creativecommons.org/licenses/by-nc/3.0/de/).
