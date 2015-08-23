@@ -37,7 +37,7 @@ console.log("");
 // paths
 var src = '_src',
     dist = '_site',
-    cdn = 'https://d2jlreog722xe2.cloudfront.net';
+    cdn = 'https://cdn.kremalicious.com'; // CNAME for d2jlreog722xe2.cloudfront.net
 
 // icons
 var icons = {
