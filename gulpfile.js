@@ -16,6 +16,7 @@ var runSequence = require('run-sequence');
 // handle errors
 var onError = function(error) {
     console.log(chalk.red('You fucked up:', error.message, 'on line' , error.lineNumber));
+    this.emit('end');
 }
 
 
@@ -24,11 +25,11 @@ var onError = function(error) {
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 console.log("");
-console.log("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
-console.log("      (o) Just what do you think you're doing, Matthias?    ");
+console.log(chalk.cyan("      (o) Just what do you think you're doing, Matthias?    "));
 console.log("");
-console.log("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
