@@ -109,9 +109,7 @@ gulp.task('clean', function(cb) {
 //
 gulp.task('jekyll', function(cb) {
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build', '--drafts', '--future'], {
-        stdio: 'inherit'
-    });
+    var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--future'], { stdio: 'inherit' });
 
     jekyll.on('exit', function(code) {
         cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
@@ -120,9 +118,7 @@ gulp.task('jekyll', function(cb) {
 
 gulp.task('jekyll:production', function(cb) {
     var spawn = require('child_process').spawn;
-    var jekyll = spawn('jekyll', ['build', '--lsi'], {
-        stdio: 'inherit'
-    });
+    var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' });
 
     jekyll.on('exit', function(code) {
         cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
