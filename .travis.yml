@@ -8,6 +8,7 @@ cache:
     directories:
         - node_modules
         - bower_components
+        - _site/media/gen
 addons:
     apt:
         packages:
