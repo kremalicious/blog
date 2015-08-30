@@ -7,8 +7,7 @@ var gulp = require('gulp'),
     chalk = require('chalk'),
     merge = require('merge-stream'),
     pkg = require('./package.json'),
-    parallelize = require('concurrent-transform'),
-    revAll = require('gulp-rev-all');
+    parallelize = require('concurrent-transform');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -41,14 +40,12 @@ console.log("");
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // paths
-var src = '_src',
-    dist = '_site',
-    cdn = 'https://cdn.kremalicious.com',
+var src       = '_src',
+    dist      = '_site',
+    cdn       = 'https://cdn.kremalicious.com',
     s3bucket  = 'kremalicious.com',
     s3path    = '/',
     s3region  = 'eu-central-1';
-
-var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
 // icons
 var icons = {
@@ -133,7 +130,6 @@ gulp.task('jekyll', function(cb) {
 //
 gulp.task('html', function() {
     return gulp.src(dist + '/**/*.html')
-        .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.if(isProduction, $.htmlmin({
             collapseWhitespace: true,
             conservativeCollapse: true,
@@ -144,7 +140,6 @@ gulp.task('html', function() {
             removeEmptyAttributes: true,
             removeEmptyAttributes: true
         })))
-        //.pipe($.if(isProduction, revAll()))
         .pipe(gulp.dest(dist))
 });
 
@@ -163,7 +158,6 @@ gulp.task('css', function() {
         .pipe($.if(isProduction, $.cssmin()))
         .pipe($.if(isProduction, $.header(banner, { pkg: pkg })))
         .pipe($.rename({ suffix: '.min' }))
-        //.pipe($.if(isProduction, revAll()))
         .pipe(gulp.dest(dist + '/assets/css/'))
         .pipe($.connect.reload())
 });
@@ -176,12 +170,11 @@ gulp.task('css', function() {
 // Libraries
 gulp.task('js:libraries', function() {
     return gulp.src([
-        'node_modules/picturefill/dist/picturefill.js'
-    ])
-    .pipe($.if(isProduction, $.uglify())).on('error', onError)
-    .pipe($.rename({ suffix: '.min'}))
-    //.pipe($.if(isProduction, revAll()))
-    .pipe(gulp.dest(dist + '/assets/js/'))
+            'node_modules/picturefill/dist/picturefill.js'
+        ])
+        .pipe($.if(isProduction, $.uglify())).on('error', onError)
+        .pipe($.rename({ suffix: '.min'}))
+        .pipe(gulp.dest(dist + '/assets/js/'))
 });
 
 // Project js
@@ -191,7 +184,6 @@ gulp.task('js:project', function() {
         .pipe($.concat('kremalicious3.min.js'))
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.if(isProduction, $.header(banner, { pkg: pkg })))
-        //.pipe($.if(isProduction, revAll()))
         .pipe(gulp.dest(dist + '/assets/js/'))
         .pipe($.connect.reload())
 });
@@ -217,7 +209,6 @@ gulp.task('icons', function() {
         .pipe($.filter('**/*.svg'))
         .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
         .pipe($.svgSprite(spriteConfig))
-        //.pipe($.if(isProduction, revAll()))
         .pipe(gulp.dest(iconset.dist))
 });
 
@@ -237,7 +228,6 @@ gulp.task('images', function() {
         multipass: true, // svg
         svgoPlugins: [{ removeViewBox: false }]
     })))
-    //.pipe($.if(isProduction, revAll()))
     .pipe(gulp.dest(dist + '/assets/img/'))
 });
 
@@ -247,7 +237,6 @@ gulp.task('images', function() {
 //
 gulp.task('fonts', function() {
     return gulp.src(src + '/_assets/fonts/**/*')
-        //.pipe($.if(isProduction, revAll()))
         .pipe(gulp.dest(dist + '/assets/fonts/'))
 });
 
@@ -266,10 +255,10 @@ gulp.task('media', function() {
 //
 gulp.task('rev', function() {
     return gulp.src(dist + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.rev())
+        .pipe($.if(isProduction, $.rev()))
         .pipe(gulp.dest(dist + '/assets/'))
         // output rev manifest for next replace task
-        .pipe($.rev.manifest())
+        .pipe($.if(isProduction, $.rev.manifest()))
         .pipe(gulp.dest(dist + '/assets/'))
 });
 
@@ -283,7 +272,7 @@ gulp.task('rev:replace', function() {
     var manifest = gulp.src(dist + '/assets/rev-manifest.json');
 
     return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.revReplace({ manifest: manifest }))
+        .pipe($.if(isProduction, $.revReplace({ manifest: manifest })))
         .pipe(gulp.dest(dist))
 });
 
@@ -391,7 +380,9 @@ gulp.task('build', function(cb) {
     runSequence(
         'clean',
         'jekyll',
-        ['css', 'js', 'images', 'icons', 'fonts', 'media', 'html'],
+        ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
+        'rev',
+        'rev:replace',
         cb
     );
 });

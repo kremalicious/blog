@@ -44,15 +44,13 @@ npm install && bower install && bundle install
 
 ### Development server
 
-This generates the site and assets and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
+This generates the site with the dev build task `gulp build` and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
 
 ```bash
 gulp
 ```
 
 ### Production build
-
-Runs almost the same tasks as `gulp server` but additionally versions all assets and optimizes all image assets.
 
 ```bash
 gulp build --production
