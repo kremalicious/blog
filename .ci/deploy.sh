@@ -21,6 +21,9 @@ echo "         Starting rsync deployment "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
+# prevent interactive prompt
+ssh-keyscan -H ftp.kremalicious.com >> ~/.ssh/known_hosts
+
 rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $TRAVIS_BUILD_DIR/_site/ kremalicious.com@ftp.kremalicious.com:/nfs/c08/h04/mnt/126308/domains/kremalicious.com/html/
 
 echo "$(tput setaf 64)" # green
