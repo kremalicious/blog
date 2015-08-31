@@ -16,6 +16,7 @@ addons:
 before_script: .ci/setup.sh
 script: .ci/build.sh
 deploy:
+    skip_cleanup: true
     provider: script
     script: .ci/deploy.sh
     on:
