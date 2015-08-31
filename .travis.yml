@@ -1,19 +1,25 @@
 sudo: false
 language: ruby
 rvm:
-- 2.2.2
-- 1.9.3
-cache: bundler
+    - 2.2.2
+    - 1.9.3
+cache:
+    bundler: true
+    directories:
+        - node_modules
+        - bower_components
+        - _site/media/gen
 addons:
-  apt:
-    packages:
-    - libgsl0-dev
-before_script:
-- npm install gulp bower -g
-- npm install
-- bower install
-- bundle install
-script: gulp build
+    apt:
+        packages:
+            - libgsl0-dev
+before_script: .ci/setup.sh
+script: .ci/build.sh
+deploy:
+    provider: script
+    script: .ci/deploy.sh
+    on:
+        branch: master
 notifications:
-  slack:
-    secure: Ki6tFSrxaUnAugBFnmM2ydI/38/Ahyoaf9lhohoOCNnPk/QIYrI8MBlBXNVI04v2GOhFTvVljY5yJPlzrAUjH3eu34f6ObBe6rh3LjfvtE9eA94pBoSLJE/eSqB6FUBr324kxXpsWHRv93gyQ9I6Hk2CURv58de2z9Ytkwu2Epo=
+    slack:
+        secure: Ki6tFSrxaUnAugBFnmM2ydI/38/Ahyoaf9lhohoOCNnPk/QIYrI8MBlBXNVI04v2GOhFTvVljY5yJPlzrAUjH3eu34f6ObBe6rh3LjfvtE9eA94pBoSLJE/eSqB6FUBr324kxXpsWHRv93gyQ9I6Hk2CURv58de2z9Ytkwu2Epo=

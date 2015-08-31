@@ -3,7 +3,7 @@ kremalicious3
 
 > [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
-[ ![Codeship Status for kremalicious/kremalicious3](https://www.codeship.io/projects/f6973090-9f04-0131-a2b7-625e8177ce9a/status?branch=master)](https://www.codeship.io/projects/18092)
+[![Build Status](https://travis-ci.org/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.org/kremalicious/kremalicious3)
 [![Dependency Status](https://gemnasium.com/kremalicious/kremalicious3.svg)](https://gemnasium.com/kremalicious/kremalicious3)
 
 
@@ -41,9 +41,9 @@ Run the following command from the repository's root folder to install all depen
 npm install && bower install && bundle install
 ```
 
-### Development build
+### Development server
 
-This generates the site and assets and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
+This generates the site with the dev build task `gulp build` and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
 
 ```bash
 gulp
@@ -51,10 +51,8 @@ gulp
 
 ### Production build
 
-Runs almost the same tasks as `gulp server` but additionally versions all assets and optimizes all image assets.
-
 ```bash
-gulp build
+gulp build --production
 ```
 
 
