@@ -22,9 +22,9 @@ echo "============================================="
 echo "$(tput sgr0)" # reset
 
 # prevent interactive prompt
-ssh-keyscan -H ftp.kremalicious.com >> ~/.ssh/known_hosts
+ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
 
-rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $TRAVIS_BUILD_DIR/_site/ kremalicious.com@ftp.kremalicious.com:/nfs/c08/h04/mnt/126308/domains/kremalicious.com/html/
+rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $TRAVIS_BUILD_DIR/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"
