@@ -21,10 +21,7 @@ echo "         Starting rsync deployment "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
-# prevent interactive prompt
-ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
-
-rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $TRAVIS_BUILD_DIR/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $CI_BUILD_URL/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"

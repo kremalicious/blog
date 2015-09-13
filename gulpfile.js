@@ -137,7 +137,6 @@ gulp.task('html', function() {
             useShortDoctype: true,
             collapseBooleanAttributes: true,
             removeRedundantAttributes: true,
-            removeEmptyAttributes: true,
             removeEmptyAttributes: true
         })))
         .pipe(gulp.dest(dist))
