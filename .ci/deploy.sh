@@ -21,7 +21,7 @@ echo "         Starting rsync deployment "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
-rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $CI_BUILD_URL/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" ~/src/github.com/kremalicious/kremalicious3/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"
