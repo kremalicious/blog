@@ -31,7 +31,7 @@ So let's make them all visually unified, infinitely scalable, with pure text for
 # Styling
 
 <style>
-    @import 'https://cdn.rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css';
+    @import 'https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css';
 </style>
 
 Let’s be honest, Google, Amazon & Microsoft created just slight variations of the badge style established by Apple’s App Store badge. So it’s only natural to unify all badges by leaning more to Apple’s style in terms of typography. Apple uses Myriad Pro in their original badge which isn’t available for free web usage.
@@ -121,7 +121,7 @@ bower install appstorebadges --save
 Or just directly link to the css file in the [GitHub repo](https://github.com/kremalicious/appstorebadges):
 
 ```html
-<link rel="stylesheet" href="https://cdn.rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css">
+<link rel="stylesheet" href="https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css">
 ```
 
 ## HTML Markup
