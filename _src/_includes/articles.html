@@ -61,7 +61,7 @@
                 </a>
             {% endif %}
 
-            {% capture has_more %}{{ post.content | has_more }}{% endcapture %}
+            {% capture has_more %}{{ post.content | has_excerpt }}{% endcapture %}
 
             {% if has_more == 'true' %}
                 {{ post.content | post.excerpt | excerpt | markdownify }}
