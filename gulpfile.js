@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     chalk = require('chalk'),
     merge = require('merge-stream'),
     pkg = require('./package.json'),
-    parallelize = require('concurrent-transform');
+    parallelize = require('concurrent-transform'),
+    combineMq = require('gulp-combine-mq');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -152,8 +153,8 @@ gulp.task('css', function() {
             src + '/_assets/styl/post-*.styl'
         ])
         .pipe($.stylus({ 'include css': true })).on('error', onError)
-        .pipe($.autoprefixer({ browsers: 'last 2 versions' })).on('error', onError)
-        .pipe($.if(isProduction, $.combineMq({ beautify: false })))
+        .pipe($.autoprefixer({ browsers: 'last 2 versions' }))
+        .pipe($.if(isProduction, combineMq({ beautify: false }))).on('error', onError)
         .pipe($.if(isProduction, $.cssmin()))
         .pipe($.if(isProduction, $.header(banner, { pkg: pkg })))
         .pipe($.rename({ suffix: '.min' }))
@@ -379,7 +380,8 @@ gulp.task('build', function(cb) {
     runSequence(
         'clean',
         'jekyll',
-        ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
+        //'html',
+        ['css', 'js', 'images', 'icons', 'fonts', 'media'],
         'rev',
         'rev:replace',
         cb

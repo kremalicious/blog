@@ -5,7 +5,7 @@ title: CSS App Store Badges
 image: teaser-appstorebadges.png
 
 author: Matthias Kretschmann
-date: 2015-09-13 15:55:18.418548000 +02:00
+date: 2015-09-13 18:55:18.418548000 +02:00
 
 category: goodies
 tags:
