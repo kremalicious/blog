@@ -349,7 +349,7 @@ gulp.task('watch', function() {
     gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images'])
     gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons'])
     gulp.watch([src + '/_media/**/*'], ['media'])
-    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['jekyll'])
+    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['build'])
 });
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -11,7 +11,7 @@ task :post do
   ARGV.shift
   title = ARGV.join(' ')
 
-  path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
+  path = "_src/_drafts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
 
   if File.exist?(path)
       puts "Dude, file exists - skipping create"
@@ -19,7 +19,6 @@ task :post do
     File.open(path, "w") do |file|
       file.puts YAML.dump({
           'layout' => 'post',
-          'published' => false,
           'title' => title,
           'image' => 'REPLACEME.jpg',
           'author' => 'Matthias Kretschmann',
@@ -28,7 +27,7 @@ task :post do
       file.puts "---"
     end
   end
-  `mate #{path}`
+  `atom #{path}`
 
   exit 1
 end
@@ -42,7 +41,7 @@ task :photo do
   ARGV.shift
   title = ARGV.join(' ')
 
-  path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
+  path = "_src/_drafts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
 
   if File.exist?(path)
       puts "Dude, file exists - skipping create"
@@ -50,7 +49,6 @@ task :photo do
     File.open(path, "w") do |file|
       file.puts YAML.dump({
           'layout' => 'photo',
-          'published' => false,
           'title' => title,
           'image' => 'REPLACEME.jpg',
           'author' => 'Matthias Kretschmann',
@@ -60,7 +58,7 @@ task :photo do
       file.puts "---"
     end
   end
-  `mate #{path}`
+  `atom #{path}`
 
   exit 1
 end
@@ -74,7 +72,7 @@ task :photo do
   ARGV.shift
   title = ARGV.join(' ')
 
-  path = "_src/_posts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
+  path = "_src/_drafts/#{Date.today}-#{title.downcase.gsub(/[^[:alnum:]]+/, '-')}.md"
 
   if File.exist?(path)
       puts "Dude, file exists - skipping create"
@@ -82,7 +80,6 @@ task :photo do
     File.open(path, "w") do |file|
       file.puts YAML.dump({
           'layout' => 'link',
-          'published' => false,
           'title' => title,
           'author' => 'Matthias Kretschmann',
           'date' => Time.now
@@ -90,7 +87,7 @@ task :photo do
       file.puts "---"
     end
   end
-  `mate #{path}`
+  `atom #{path}`
 
   exit 1
 end
