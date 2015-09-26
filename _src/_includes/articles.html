@@ -63,13 +63,13 @@
 
             {% capture has_more %}{{ post.content | has_excerpt }}{% endcapture %}
 
-            {% if has_more == 'true' %}
-                {{ post.content | post.excerpt | excerpt | markdownify }}
-            {% else %}
-                {% unless post.categories contains "goodies" and page.path contains "goodies" %}
+            {% unless post.categories contains "goodies" and page.path contains "goodies" %}
+                {% if has_more == 'true' %}
+                    {{ post.content | post.excerpt | excerpt | markdownify }}
+                {% else %}
                     {{ post.excerpt | markdownify }}
-                {% endunless %}
-            {% endif %}
+                {% endif %}
+            {% endunless %}
 
             {% if post.categories contains "goodies" and page.path contains "goodies" %}
                 <footer class="goodie-actions grid grid--gutters grid--full grid-small--fit">

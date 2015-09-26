@@ -8,10 +8,9 @@ author: Matthias Kretschmann
 featured: true
 
 date: 2012-07-16 14:36:58+00:00
-wordpress_id: 2300
 categories:
-- design
-- goodies
+    - design
+    - goodies
 ---
 
 There's this HTML element meant for marking up keyboard keys named `<kbd>`. Obviously it can be styled with CSS so why not use it to make those elements look a bit more like hardware or the iOS and Android software keys.
