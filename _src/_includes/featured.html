@@ -4,7 +4,7 @@
         {% for post in site.posts %}
             {% if post.featured %}
             <article class="grid__col">
-                <a class="featured-link" href="{{ post.url }}" title="{{ post.title }}">
+                <a class="hentry__teaser featured-link" href="{{ post.url }}" title="{{ post.title }}">
                     {% picture featured {{ post.image }} %}
                     <h1 class="featured-title">{{ post.title | titlecase }}</h1>
                 </a>

@@ -60,30 +60,29 @@
 // Post/photo teaser
 /////////////////////////////////////
 
-.hentry picture:not(.related-photo picture):not(.masonry picture),
-.featured picture
-    display: block
-    margin-left: -8%
-    margin-right: -8%
+.hentry__teaser
+    picture
+        display: block
+        margin: ($line-height-computed*1.5) -8%
 
-    @media $breakpoint2
-        margin-left: -16%
-        margin-right: -16%
+        @media $breakpoint2
+            margin-left: -16%
+            margin-right: -16%
 
+    .featured &
+        picture
+            @media $breakpoint1
+                margin-left: 0
+                margin-right: 0
+
+
+.hentry__teaser
     img
         box-shadow: 0 1px 3px rgba(0,0,0,.2)
         border-radius: 0
 
         @media $breakpoint2
             border-radius: $border-radius-base
-
-.featured picture
-    @media $breakpoint1
-        margin-left: 0
-        margin-right: 0
-    @media $breakpoint2
-        margin-left: 0
-        margin-right: 0
 
 
 // Post Content
@@ -97,11 +96,8 @@
     h1
         font-size: ceil($font-size-base * 2.5)
 
-    img:not(.teaser)
+    img:not(.hentry__teaser img)
         margin-bottom: ($line-height-computed/2)
-
-    .teaser
-        box-shadow: 0 1px 3px rgba(0,0,0,.2)
 
     p:last-child
         margin-bottom: 0

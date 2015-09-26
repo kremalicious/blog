@@ -36,9 +36,9 @@
     <article class="hentry format-photo">
 
         <a class="photo-link" href="{{ post.url }}">
-            <figure class="hmedia">
+            <figure class="hentry__teaser hmedia">
 
-                {% picture phototeaser {{ post.image }} class="teaser-photo" %}
+                {% picture phototeaser {{ post.image }} %}
 
                 <figcaption class="entry-title fn">{{ post.title | titlecase }}</figcaption>
             </figure>
@@ -56,8 +56,8 @@
         <section class="entry-content">
 
             {% if post.image %}
-                <a href="{{ post.url }}">
-                    {% picture {{ post.image }} class="teaser" %}
+                <a class="hentry__teaser" href="{{ post.url }}">
+                    {% picture {{ post.image }} %}
                 </a>
             {% endif %}
 

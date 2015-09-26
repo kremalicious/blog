@@ -11,7 +11,9 @@ layout: base
 
         <section class="entry-content">
             {% if page.image %}
-                {% picture {{ page.image }} class="teaser" %}
+                <figure class="hentry__teaser">
+                    {% picture {{ page.image }} %}
+                </figure>
             {% endif %}
 
             {{ content }}
