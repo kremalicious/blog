@@ -31,7 +31,7 @@ var isProduction = ($.util.env.production === true ? true : false);
 console.log("");
 console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
-console.log(chalk.cyan("      (o) Just what do you think you're doing, Matthias?    "));
+console.log(chalk.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "));
 console.log("");
 console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
@@ -375,7 +375,9 @@ gulp.task('default', function(cb) {
 //
 gulp.task('build', function(cb) {
 
-    console.log(chalk.green('Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
+    console.log(chalk.gray("         ------------------------------------------"));
+    console.log(chalk.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
+    console.log(chalk.gray("         ------------------------------------------"));
 
     runSequence(
         'clean',
