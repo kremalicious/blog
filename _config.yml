@@ -37,7 +37,6 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
-highlighter:            rouge
 
 redcarpet:
     extensions:         ['autolink', 'smart', 'hard_wrap']
