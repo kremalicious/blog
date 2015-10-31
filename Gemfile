@@ -5,8 +5,8 @@ group :jekyll do
     gem 'jekyll'
     gem 'jekyll-sitemap'
     gem 'jekyll-redirect-from'
-    gem 'jekyll-picture-tag', :git => 'git://github.com/kremalicious/jekyll-picture-tag.git', :branch => 'jekyll3'
-    #gem 'jekyll-archives'
+    gem 'jekyll-picture-tag'
+    gem 'jekyll-archives'
     gem 'jekyll-paginate'
 end
 
