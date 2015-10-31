@@ -37,7 +37,6 @@ category_title_prefix:  ""
 
 future:                 false
 markdown:               redcarpet
-highlighter:            rouge
 
 redcarpet:
     extensions:         ['autolink', 'smart', 'hard_wrap']
@@ -58,6 +57,7 @@ gems:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-picture-tag
+    - jekyll-paginate
     - jekyll-archives
 
 
@@ -65,13 +65,13 @@ gems:
 # --------------------
 
 jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout: 'archive'
-  permalinks:
-    tag: '/tag/:name/'
-    category: '/:name/'
+    enabled:
+        - categories
+        - tags
+    layout: 'archive'
+    permalinks:
+        tag: '/tag/:name/'
+        category: '/:name/'
 
 
 # jekyll-picture-tag

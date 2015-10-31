@@ -117,7 +117,7 @@ gulp.task('jekyll', function(cb) {
     if (isProduction) {
         var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' });
     } else {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--future'], { stdio: 'inherit' });
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--future', '--incremental'], { stdio: 'inherit' });
     }
 
     jekyll.on('exit', function(code) {

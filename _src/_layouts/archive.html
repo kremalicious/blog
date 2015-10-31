@@ -3,7 +3,7 @@ layout: base
 ---
 
 <section role="main" id="main" class="grid">
-    
+
     {% if page.type == 'category' %}
     <h1 class="page-title">{{ page.title }}</h1>
     {% elsif page.type == 'tag' %}
@@ -12,19 +12,9 @@ layout: base
     <h1 class="page-title">{{ page.type }} archive for {{ page.title }}</h1>
     {% endif %}
 
-    {% if page.title == 'photos' %}
-    <div class="masonry">
-        <div class="grid-sizer"></div>
-    {% endif %}
-
     {% for post in page.posts %}
         {% include articles.html %}
     {% endfor %}
-
-    {% if page.title == 'photos' %}
-    </div>
-    {% endif %}
-
 
 </section>
 

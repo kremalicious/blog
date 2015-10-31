@@ -7,14 +7,17 @@ group :jekyll do
     gem 'jekyll-redirect-from'
     gem 'jekyll-picture-tag'
     gem 'jekyll-archives'
+    gem 'jekyll-paginate'
 end
 
 group :development do
-    gem 'classifier-reborn', :git => 'https://github.com/jekyll/classifier-reborn.git'
-    gem 'rouge', '1.9.0'
+    gem 'redcarpet'
     gem 'mini_magick'
-    gem 'fileutils'
+end
+
+group :lsi do
     gem 'gsl'
     gem 'rb-gsl'
     gem 'narray'
+    gem 'classifier-reborn'
 end
