@@ -15,12 +15,6 @@ $(ASAP = function() {
 
 });
 
-$(window).load(AfterLoad = function() {
-
-    photoGrid.init();
-
-});
-
 var siteNavigation = {
 
     siteSearch: function() {
@@ -135,36 +129,6 @@ var siteNavigation = {
     init: function() {
         this.siteSearch();
         this.siteMenu();
-    }
-
-}
-
-var photoGrid = {
-
-    masonryLayout: function() {
-        var $container = $('#main .masonry');
-
-        $container.imagesLoaded(function() {
-            $container.masonry({
-                itemSelector: 'article',
-                columnWidth: '.grid-sizer'
-            });
-        });
-    },
-
-    init: function() {
-        // only fire when photo page present and screen bigger than 480px
-        if ($('.page-photos').length > 0) {
-            this.masonryLayout();
-        }
-    }
-
-}
-
-var siteEffects = {
-
-    init: function() {
-
     }
 
 }
