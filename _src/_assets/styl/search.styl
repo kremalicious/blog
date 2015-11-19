@@ -4,11 +4,14 @@
 // Search
 //
 
-&.search-open-blur
-    transition: .2s ease-out
-    filter: blur(10px)
-    user-select: none
-    pointer-events: none
+.search-open
+    overflow: hidden
+
+    .site__content
+        transition: .2s ease-out
+        filter: blur(10px)
+        user-select: none
+        pointer-events: none
 
 .search-btn
     right: 50px
@@ -19,12 +22,11 @@
 
 .search-close
     position: absolute
-    right: 16px
+    right: 14px
 
     &,
     &:active
-        top: 50%
-        margin-top: -7px
+        top: 8%
 
 .search-area
     @extend .transition
@@ -59,6 +61,8 @@
 .search-results
     @extend .list-unstyled
     display: flex
+    align-items: center
+
 
     .grid__col
         padding-top: 0
@@ -73,14 +77,19 @@
 
 
 .search-link
-    @extend .h6
+    @extend .h6, .divider-bottom
+    line-height: $line-height-small
     margin: 0
-    padding: 15px
+    padding: 10px 15px
+    min-height: 55px
     display: block
-    width: 100%
+    display: flex
+    align-items: center
 
-    .search-results > li:nth-child(9) &,
-    .search-results > li:last-child &
-        border: none
-        &:before
-            display: none
+.search-results > li
+    &:nth-child(9)
+    &:nth-child(10)
+        .search-link
+            border-bottom: none
+            &:before
+                display: none

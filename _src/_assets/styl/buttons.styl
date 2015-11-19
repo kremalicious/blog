@@ -74,11 +74,10 @@ a.btn
 
         @media $breakpoint2
             margin-bottom: 0
-
-.btn span
-    font-size: .9em
-    color: rgba(19, 56, 50, .6)
-    margin-left: .3em
+    span
+        font-size: .9em
+        color: rgba(19, 56, 50, .6)
+        margin-left: .3em
 
 // Primary Button
 .btn-primary,
@@ -123,22 +122,28 @@ a.btn-primary
 
 .close
     @extend .textcenter, .transition
-    width: 14px
-    height: 14px
-    padding: 0
-    border-radius: 50%
     display: block
-    background: lighten($brand-grey-light, 50%)
-    color: #fff
+    color: lighten($brand-grey-light, 50%)
     line-height: 1
-    font-size: $font-size-mini
+    font-size: $font-size-large
+    padding: 3px
+
+    button.&
+        cursor: pointer
+        background: transparent
+        border: 0
+        -webkit-appearance: none
 
     &:hover,
     &:focus
-        background: $link-color-hover
-        color: #fff
+        color: lighten($brand-grey-light, 20%)
         cursor: pointer
         outline: 0
+
+    &:active
+        background: none
+        color: $brand-grey-light
+        transition: none
 
 
 // some helper classes for old content

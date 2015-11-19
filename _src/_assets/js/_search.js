@@ -27,7 +27,7 @@ var Search = (function(w, d) {
                     .removeClass('ready bounceOutUp')
                     .addClass('ready slideDown')
                     .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                        content.addClass('search-open-blur');
+                        $('body').addClass('search-open');
                     });
                 searchfield.focus();
 
@@ -85,7 +85,7 @@ var Search = (function(w, d) {
                 .removeClass('slideDown')
                 .addClass('bounceOutUp')
                 .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                    content.removeClass('search-open-blur');
+                    $('body').removeClass('search-open');
                 });
             searchpop.addClass('hide');
         }
