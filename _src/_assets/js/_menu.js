@@ -1,4 +1,4 @@
-var Menu = {
+var s, Menu = {
 
     settings: {
         thesite: $('.site'),
@@ -7,11 +7,12 @@ var Menu = {
     },
 
     init: function() {
-        s = this.settings;
         this.menuShow();
     },
 
     menuShow: function() {
+        var s = this.settings;
+        
         s.thelink.on('click', function(e) {
             e.preventDefault();
 

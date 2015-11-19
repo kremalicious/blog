@@ -13,7 +13,7 @@
 //=include _menu.js
 //=include _search.js
 
-jQuery(function($) {
+(function() {
 
     //
     // init modules
@@ -25,4 +25,4 @@ jQuery(function($) {
         nosvg: false
     });
 
-});
+}());
