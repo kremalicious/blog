@@ -1,4 +1,4 @@
-var Search = {
+var s, Search = {
 
     settings: {
         content:       $('.site__content'),
