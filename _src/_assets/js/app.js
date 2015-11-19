@@ -1,6 +1,6 @@
 
 //=require ../../../node_modules/webcomponents.js/CustomElements.js
-//=require ../../../node_modules/svg4everybody/svg4everybody.js
+//=require ../../../node_modules/svg4everybody/dist/svg4everybody.js
 //=require ../../../node_modules/jquery/dist/jquery.js
 //=require ../../../node_modules/masonry-layout/dist/masonry.pkgd.js
 //=require ../../../node_modules/imagesloaded/imagesloaded.js
@@ -20,5 +20,9 @@ jQuery(function($) {
     //
     Menu.init();
     Search.init();
+
+    svg4everybody({
+        nosvg: false
+    });
 
 });
