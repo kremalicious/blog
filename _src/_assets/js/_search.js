@@ -32,7 +32,9 @@ var Search = {
             s.searchfield.focus();
 
             // blur the content
-            s.content.addClass('search-open-blur');
+            s.searcharea.on('animationend webkitAnimationEnd oAnimationEnd', function(){
+                s.content.addClass('search-open-blur');
+            });
 
             // hide menu too just in case
             if ($('body').hasClass('menu-open')) {
@@ -86,6 +88,9 @@ var Search = {
         // revert all search elements
         s.searcharea.removeClass('slideDown').addClass('bounceOutUp');
         s.searchpop.addClass('hide');
-        s.content.removeClass('search-open-blur');
+
+        s.searcharea.on('animationend webkitAnimationEnd oAnimationEnd', function(){
+            s.content.removeClass('search-open-blur');
+        });
     }
-}
+};

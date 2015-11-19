@@ -34,4 +34,4 @@ var Menu = {
             e.stopPropagation();
         });
     }
-}
+};
