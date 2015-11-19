@@ -11,7 +11,7 @@
 //=include _menu.js
 //=include _search.js
 
-(function() {
+(function($) {
 
     //
     // init modules
@@ -23,4 +23,4 @@
         nosvg: false
     });
 
-}());
+}(jQuery));

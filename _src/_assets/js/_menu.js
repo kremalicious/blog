@@ -1,38 +1,43 @@
-var s, Menu = {
+var Menu = (function(w, d) {
 
-    settings: {
-        thesite: $('.site'),
-        thelink: $('.menu-btn'),
-        thepop:  $('.nav-popover')
-    },
+    var thesite = $('.site'),
+        thelink = $('.menu-btn'),
+        thepop  = $('.nav-popover');
 
-    init: function() {
-        this.menuShow();
-    },
+    var app, _private;
 
-    menuShow: function() {
-        var s = this.settings;
-        
-        s.thelink.on('click', function(e) {
-            e.preventDefault();
+    _private = {
+        menuShow: function() {
+            thelink.on('click', function(e) {
+                e.preventDefault();
 
-            // toggle menu
-            s.thesite.toggleClass('menu-open');
+                // toggle menu
+                thesite.toggleClass('menu-open');
 
-            // bind the hide controls
-            $(document).bind('click.hidethepop', function() {
-                s.thesite.removeClass('menu-open');
-                // unbind the hide controls
-                $(document).unbind('click.hidethepop');
-            });
+                // bind the hide controls
+                $(document).bind('click.hidethepop', function() {
+                    thesite.removeClass('menu-open');
+                    // unbind the hide controls
+                    $(document).unbind('click.hidethepop');
+                });
 
-            // dont close thepop when you click on thepop
-            s.thepop.on('click', function(e) {
+                // dont close thepop when you click on thepop
+                thepop.on('click', function(e) {
+                    e.stopPropagation();
+                });
+
+                // and dont close thepop now
                 e.stopPropagation();
             });
+        }
+    };
 
-            // and dont close thepop now
-            e.stopPropagation();
-        });
-    }
-};
+    app = {
+        init: function() {
+            _private.menuShow();
+        }
+    };
+
+    return app;
+
+})(window, document);

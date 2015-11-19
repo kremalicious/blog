@@ -1,96 +1,103 @@
-var s, Search = {
+var Search = (function(w, d) {
 
-    settings: {
-        content:       $('.site__content'),
-        searchlink:    $('.search-btn'),
-        searcharea:    $('.search-area'),
-        searchfield:   $('#search-input'),
-        searchresults: $('#search-results'),
-        searchpop:     $('#search-popover')
-    },
+    var content       = $('.site__content'),
+        searchlink    = $('.search-btn'),
+        searcharea    = $('.search-area'),
+        searchfield   = $('#search-input'),
+        searchresults = $('#search-results'),
+        searchpop     = $('#search-popover');
 
-    init: function() {
-        s = this.settings;
-        this.searchShow();
-        this.searchHide();
-    },
+    var app, _private;
 
-    searchShow: function() {
-        s.searchlink.on('click', function(e) {
-            e.preventDefault()
+    _private = {
+        searchShow: function() {
+            searchlink.on('click', function(e) {
+                e.preventDefault();
 
-            SimpleJekyllSearch({
-                searchInput: document.getElementById('search-input'),
-                resultsContainer: document.getElementById('search-results'),
-                json: '/search.json',
-                searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
-                fuzzy: false
-            })
+                SimpleJekyllSearch({
+                    searchInput: document.getElementById('search-input'),
+                    resultsContainer: document.getElementById('search-results'),
+                    json: '/search.json',
+                    searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
+                    fuzzy: false
+                });
 
-            // show search field
-            s.searcharea.removeClass('ready bounceOutUp').addClass('ready slideDown');
-            s.searchfield.focus();
+                // show search field
+                searcharea
+                    .removeClass('ready bounceOutUp')
+                    .addClass('ready slideDown')
+                    .on('animationend webkitAnimationEnd oAnimationEnd', function(){
+                        content.addClass('search-open-blur');
+                    });
+                searchfield.focus();
 
-            // blur the content
-            s.searcharea.on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                s.content.addClass('search-open-blur');
-            });
+                // hide menu too just in case
+                if ($('body').hasClass('menu-open')) {
+                    $('body').removeClass('menu-open');
+                }
 
-            // hide menu too just in case
-            if ($('body').hasClass('menu-open')) {
-                $('body').removeClass('menu-open');
-            }
+                // show search results upon typing
+                if (searchfield.val().length) {
+                    searchpop.removeClass('hide');
+                }
 
-            // show search results upon typing
-            if (s.searchfield.val().length) {
-                s.searchpop.removeClass('hide');
-            }
+                // bind the hide controls
+                $(document).bind('click.hidethepop', function() {
+                    _private.searchReset();
 
-            // bind the hide controls
-            $(document).bind('click.hidethepop', function() {
-                Search.searchReset();
+                    // unbind the hide controls
+                    $(document).unbind('click.hidethepop');
+                });
 
-                // unbind the hide controls
-                $(document).unbind('click.hidethepop');
-            });
+                // dont close thepop when click on thepop
+                searchpop.on('click', function(e) {
+                    e.stopPropagation();
+                });
+                // dont close thepop when click on search field
+                searchfield.on('click', function(e) {
+                    e.stopPropagation();
+                });
 
-            // dont close thepop when click on thepop
-            s.searchpop.on('click', function(e) {
+                // and dont close thepop now
                 e.stopPropagation();
             });
-            // dont close thepop when click on search field
-            s.searchfield.on('click', function(e) {
-                e.stopPropagation();
+
+            // finally show popup upon first keypress
+            searchfield.on('keyup', function() {
+                searchpop.removeClass('hide');
             });
+        },
 
-            // and dont close thepop now
-            e.stopPropagation();
-        });
+        searchHide: function() {
+            $('.search-close').on('click', function(e) {
+                e.preventDefault();
 
-        // finally show popup upon first keypress
-        s.searchfield.on('keyup', function() {
-            s.searchpop.removeClass('hide');
-        });
-    },
+                _private.searchReset();
 
-    searchHide: function() {
-        $('.search-close').on('click', function(e) {
-            e.preventDefault();
+                // empty search field
+                searchfield.val('').blur();
+            });
+        },
 
-            Search.searchReset();
+        searchReset: function() {
+            // revert all search elements
+            searcharea
+                .removeClass('slideDown')
+                .addClass('bounceOutUp')
+                .on('animationend webkitAnimationEnd oAnimationEnd', function(){
+                    content.removeClass('search-open-blur');
+                });
+            searchpop.addClass('hide');
+        }
+    };
 
-            // empty search field
-            s.searchfield.val('').blur();
-        });
-    },
+    app = {
+        init: function() {
+            _private.searchShow();
+            _private.searchHide();
+        }
+    };
 
-    searchReset: function() {
-        // revert all search elements
-        s.searcharea.removeClass('slideDown').addClass('bounceOutUp');
-        s.searchpop.addClass('hide');
+    return app;
 
-        s.searcharea.on('animationend webkitAnimationEnd oAnimationEnd', function(){
-            s.content.removeClass('search-open-blur');
-        });
-    }
-};
+})(document, window);
