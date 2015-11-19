@@ -179,7 +179,7 @@ gulp.task('js:libraries', function() {
 
 // Project js
 gulp.task('js:project', function() {
-    return gulp.src(src + '/_assets/js/*.js')
+    return gulp.src(src + '/_assets/js/app.js')
         .pipe($.include()).on('error', onError)
         .pipe($.concat('kremalicious3.min.js'))
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
