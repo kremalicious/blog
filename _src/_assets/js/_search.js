@@ -11,34 +11,27 @@ var Search = (function(w, d) {
 
     _private = {
         searchShow: function() {
+
+            var body = $('body');
+
             searchlink.on('click', function(e) {
                 e.preventDefault();
-
-                SimpleJekyllSearch({
-                    searchInput: document.getElementById('search-input'),
-                    resultsContainer: document.getElementById('search-results'),
-                    json: '/search.json',
-                    searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
-                    fuzzy: false
-                });
 
                 // show search field
                 searcharea
                     .removeClass('ready bounceOutUp')
                     .addClass('ready slideDown')
                     .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                        $('body').addClass('search-open');
+                        body.addClass('search-open');
                     });
+
                 searchfield.focus();
 
-                // hide menu too just in case
-                if ($('body').hasClass('menu-open')) {
-                    $('body').removeClass('menu-open');
-                }
+                _private.searchSimpleJekyllSearch();
 
-                // show search results upon typing
-                if (searchfield.val().length) {
-                    searchpop.removeClass('hide');
+                // hide menu too just in case
+                if (body.hasClass('menu-open')) {
+                    body.removeClass('menu-open');
                 }
 
                 // bind the hide controls
@@ -61,10 +54,22 @@ var Search = (function(w, d) {
                 // and dont close thepop now
                 e.stopPropagation();
             });
+        },
 
-            // finally show popup upon first keypress
+        searchResultsShow: function() {
+            // show popup upon first keypress
             searchfield.on('keyup', function() {
                 searchpop.removeClass('hide');
+            });
+        },
+
+        searchSimpleJekyllSearch: function() {
+            SimpleJekyllSearch({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('search-results'),
+                json: '/search.json',
+                searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
+                fuzzy: false
             });
         },
 
@@ -94,6 +99,7 @@ var Search = (function(w, d) {
     app = {
         init: function() {
             _private.searchShow();
+            _private.searchResultsShow();
             _private.searchHide();
         }
     };
