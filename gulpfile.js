@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     merge = require('merge-stream'),
     pkg = require('./package.json'),
     parallelize = require('concurrent-transform'),
-    combineMq = require('gulp-combine-mq');
+    browser = require('browser-sync');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -40,19 +40,25 @@ console.log("");
 // Config
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+// Port to use for the development server.
+var PORT = 1337;
+
+// Browsers to target when prefixing CSS.
+var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+
 // paths
-var src       = '_src',
-    dist      = '_site',
-    cdn       = 'https://cdn.kremalicious.com',
-    s3bucket  = 'kremalicious.com',
-    s3path    = '/',
-    s3region  = 'eu-central-1';
+var SRC       = '_src',
+    DIST      = '_site',
+    CDN       = 'https://cdn.kremalicious.com',
+    S3BUCKET  = 'kremalicious.com',
+    S3PATH    = '/',
+    S3REGION  = 'eu-central-1';
 
 // icons
-var icons = {
+var ICONS = {
     entypo: {
-        src: src + '/_assets/icons/entypo/',
-        dist: dist + '/assets/img/',
+        src: SRC + '/_assets/icons/entypo/',
+        dist: DIST + '/assets/img/',
         prefix: 'entypo-',
         icons: [
             'twitter', 'facebook', 'google+', 'magnifying-glass', 'menu', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'chevron-right', 'chevron-left', 'eye'
@@ -60,9 +66,16 @@ var icons = {
     }
 }
 
+var iconset = ICONS.entypo;
+
+// Iterate through the icon set array
+iconset.icons.forEach(function(icon, i, icons) {
+    icons[i] = iconset.src + icon + '.svg';
+});
+
 // SVG sprite
-var spriteConfig = {
-    dest: dist + '/assets/img/',
+var SPRITE = {
+    dest: DIST + '/assets/img/',
     mode: {
         symbol: {
             dest: './',
@@ -72,7 +85,7 @@ var spriteConfig = {
 }
 
 // code banner
-var banner = [
+var BANNER = [
     '/**',
     ' ** <%= pkg.name %> v<%= pkg.version %>',
     ' ** <%= pkg.description %>',
@@ -99,12 +112,12 @@ var banner = [
 //
 // Delete build artifacts
 //
-gulp.task('clean', function(cb) {
+gulp.task('clean', function(done) {
     return del([
-        dist + '/**/*',
-        dist + '/.*', // delete all hidden files
-        '!' + dist + '/media/**'
-    ], cb)
+        DIST + '/**/*',
+        DIST + '/.*', // delete all hidden files
+        '!' + DIST + '/media/**'
+    ], done)
 });
 
 
@@ -115,9 +128,9 @@ gulp.task('jekyll', function(cb) {
     var spawn = require('child_process').spawn;
 
     if (isProduction) {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' });
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi', 'JEKYLL_ENV=production'], { stdio: 'inherit' });
     } else {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--drafts', '--future', '--incremental'], { stdio: 'inherit' });
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config.dev.yml', '--drafts', '--future', '--incremental'], { stdio: 'inherit' });
     }
 
     jekyll.on('exit', function(code) {
@@ -130,7 +143,7 @@ gulp.task('jekyll', function(cb) {
 // HTML
 //
 gulp.task('html', function() {
-    return gulp.src(dist + '/**/*.html')
+    return gulp.src(DIST + '/**/*.html')
         .pipe($.if(isProduction, $.htmlmin({
             collapseWhitespace: true,
             conservativeCollapse: true,
@@ -140,7 +153,7 @@ gulp.task('html', function() {
             removeRedundantAttributes: true,
             removeEmptyAttributes: true
         })))
-        .pipe(gulp.dest(dist))
+        .pipe(gulp.dest(DIST))
 });
 
 
@@ -149,17 +162,17 @@ gulp.task('html', function() {
 //
 gulp.task('css', function() {
     return gulp.src([
-            src + '/_assets/styl/kremalicious3.styl',
-            src + '/_assets/styl/post-*.styl'
+            SRC + '/_assets/styl/kremalicious3.styl',
+            SRC + '/_assets/styl/post-*.styl'
         ])
+        .pipe($.sourcemaps.init())
         .pipe($.stylus({ 'include css': true })).on('error', onError)
-        .pipe($.autoprefixer({ browsers: 'last 2 versions' }))
-        .pipe($.if(isProduction, combineMq({ beautify: false }))).on('error', onError)
+        .pipe($.autoprefixer({ browsers: COMPATIBILITY }))
         .pipe($.if(isProduction, $.cssmin()))
-        .pipe($.if(isProduction, $.header(banner, { pkg: pkg })))
+        .pipe($.if(!isProduction, $.sourcemaps.write()))
+        .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
         .pipe($.rename({ suffix: '.min' }))
-        .pipe(gulp.dest(dist + '/assets/css/'))
-        .pipe($.connect.reload())
+        .pipe(gulp.dest(DIST + '/assets/css/'))
 });
 
 
@@ -170,22 +183,23 @@ gulp.task('css', function() {
 // Libraries
 gulp.task('js:libraries', function() {
     return gulp.src([
-            'node_modules/picturefill/dist/picturefill.js'
+            'node_modules/picturefill/DIST/picturefill.js'
         ])
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.rename({ suffix: '.min'}))
-        .pipe(gulp.dest(dist + '/assets/js/'))
+        .pipe(gulp.dest(DIST + '/assets/js/'))
 });
 
 // Project js
 gulp.task('js:project', function() {
-    return gulp.src(src + '/_assets/js/app.js')
+    return gulp.src(SRC + '/_assets/js/app.js')
         .pipe($.include()).on('error', onError)
+        .pipe($.sourcemaps.init())
         .pipe($.concat('kremalicious3.min.js'))
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
-        .pipe($.if(isProduction, $.header(banner, { pkg: pkg })))
-        .pipe(gulp.dest(dist + '/assets/js/'))
-        .pipe($.connect.reload())
+        .pipe($.if(!isProduction, $.sourcemaps.write()))
+        .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
+        .pipe(gulp.dest(DIST + '/assets/js/'))
 });
 
 // Collect all script tasks
@@ -196,19 +210,12 @@ gulp.task('js', ['js:libraries', 'js:project'])
 // Icons
 //
 gulp.task('icons', function() {
-    var iconset = icons.entypo;
-
-    // Iterate through the icon set array
-    icons.entypo.icons.forEach(function(icon, i, icons) {
-        icons[i] = iconset.src + icon + '.svg';
-    });
-
     return gulp.src(iconset.icons)
         .pipe($.rename({ prefix: iconset.prefix }))
         .pipe(gulp.dest(iconset.dist))
         .pipe($.filter('**/*.svg'))
         .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
-        .pipe($.svgSprite(spriteConfig))
+        .pipe($.svgSprite(SPRITE))
         .pipe(gulp.dest(iconset.dist))
 });
 
@@ -218,8 +225,8 @@ gulp.task('icons', function() {
 //
 gulp.task('images', function() {
     return gulp.src([
-        src + '/_assets/img/**/*',
-        '!' + src + '/_assets/img/entypo/**/*'
+        SRC + '/_assets/img/**/*',
+        '!' + SRC + '/_assets/img/entypo/**/*'
     ])
     .pipe($.if(isProduction, $.imagemin({
         optimizationLevel: 5, // png
@@ -228,7 +235,7 @@ gulp.task('images', function() {
         multipass: true, // svg
         svgoPlugins: [{ removeViewBox: false }]
     })))
-    .pipe(gulp.dest(dist + '/assets/img/'))
+    .pipe(gulp.dest(DIST + '/assets/img/'))
 });
 
 
@@ -236,8 +243,8 @@ gulp.task('images', function() {
 // Copy fonts
 //
 gulp.task('fonts', function() {
-    return gulp.src(src + '/_assets/fonts/**/*')
-        .pipe(gulp.dest(dist + '/assets/fonts/'))
+    return gulp.src(SRC + '/_assets/fonts/**/*')
+        .pipe(gulp.dest(DIST + '/assets/fonts/'))
 });
 
 
@@ -245,8 +252,8 @@ gulp.task('fonts', function() {
 // Copy media
 //
 gulp.task('media', function() {
-    return gulp.src(src + '/_media/**/*')
-        .pipe(gulp.dest(dist + '/media/'))
+    return gulp.src(SRC + '/_media/**/*')
+        .pipe(gulp.dest(DIST + '/media/'))
 });
 
 
@@ -254,12 +261,15 @@ gulp.task('media', function() {
 // Revision static assets
 //
 gulp.task('rev', function() {
-    return gulp.src(dist + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.if(isProduction, $.rev()))
-        .pipe(gulp.dest(dist + '/assets/'))
-        // output rev manifest for next replace task
-        .pipe($.if(isProduction, $.rev.manifest()))
-        .pipe(gulp.dest(dist + '/assets/'))
+    // globbing is slow so do everything conditionally for faster dev build
+    if (isProduction) {
+        return gulp.src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
+            .pipe($.if(isProduction, $.rev()))
+            .pipe(gulp.dest(DIST + '/assets/'))
+            // output rev manifest for next replace task
+            .pipe($.if(isProduction, $.rev.manifest()))
+            .pipe(gulp.dest(DIST + '/assets/'))
+    }
 });
 
 
@@ -268,12 +278,13 @@ gulp.task('rev', function() {
 // from a manifest file
 //
 gulp.task('rev:replace', function() {
-
-    var manifest = gulp.src(dist + '/assets/rev-manifest.json');
-
-    return gulp.src(dist + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
-        .pipe($.if(isProduction, $.revReplace({ manifest: manifest })))
-        .pipe(gulp.dest(dist))
+    // globbing is slow so do everything conditionally for faster dev build
+    if (isProduction) {
+        var manifest = gulp.src(DIST + '/assets/rev-manifest.json');
+        return gulp.src(DIST + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
+            .pipe($.if(isProduction, $.revReplace({ manifest: manifest })))
+            .pipe(gulp.dest(DIST))
+    }
 });
 
 
@@ -282,16 +293,17 @@ gulp.task('rev:replace', function() {
 //
 gulp.task('cdn', function() {
     return gulp.src([
-            dist + '/**/*.html',
-            dist + '/assets/css/*.css'
-        ], { base: dist })
-        .pipe($.replace('/assets/css/', cdn + '/assets/css/'))
-        .pipe($.replace('/assets/js/', cdn + '/assets/js/'))
-        //.pipe($.replace('/assets/img/', cdn + '/assets/img/'))
-        .pipe($.replace('/media/', cdn + '/media/'))
-        .pipe($.replace('https://kremalicious.com' + cdn + '/media/', 'https://kremalicious.com/media/'))
-        .pipe($.replace('../', cdn + '/assets/'))
-        .pipe(gulp.dest(dist))
+            DIST + '/**/*.html',
+            DIST + '/assets/css/*.css'
+        ], { base: DIST })
+        .pipe($.replace('/assets/css/', CDN + '/assets/css/'))
+        .pipe($.replace('/assets/js/', CDN + '/assets/js/'))
+        //.pipe($.replace('/assets/img/', CDN + '/assets/img/'))
+        .pipe($.replace('/media/', CDN + '/media/'))
+        .pipe($.replace('https://kremalicious.com/media/', CDN + '/media/'))
+        .pipe($.replace('https://kremalicious.com' + CDN + '/media/', CDN + '/media/'))
+        .pipe($.replace('../', CDN + '/assets/'))
+        .pipe(gulp.dest(DIST))
 });
 
 
@@ -301,11 +313,11 @@ gulp.task('cdn', function() {
 gulp.task('s3:assets', function() {
     var publisher = $.awspublish.create({
         params: {
-            'Bucket': s3bucket
+            'Bucket': S3BUCKET
         },
         'accessKeyId': process.env.AWS_ACCESS_KEY_ID,
         'secretAccessKey': process.env.AWS_SECRET_ACCESS_KEY,
-        'region': s3region
+        'region': S3REGION
     });
 
     // define custom headers
@@ -314,8 +326,8 @@ gulp.task('s3:assets', function() {
         'x-amz-acl': 'public-read'
     };
 
-    var assets = gulp.src(dist + '/assets/**/*', { base: dist + '/' }),
-        media  = gulp.src(dist + '/media/**/*', { base: dist + '/' });
+    var assets = gulp.src(DIST + '/assets/**/*', { base: DIST + '/' }),
+        media  = gulp.src(DIST + '/media/**/*', { base: DIST + '/' });
 
     return merge(assets, media)
         .pipe($.rename(function (path) {
@@ -333,25 +345,13 @@ gulp.task('s3:assets', function() {
 //
 // Dev Server
 //
-gulp.task('connect', function() {
-    return $.connect.server({
-        root: [dist],
-        livereload: true,
-        port: 1337
-    })
+gulp.task('server', function() {
+    browser.init({
+        server: DIST,
+        port: PORT
+    });
 });
 
-//
-// Watch task
-//
-gulp.task('watch', function() {
-    gulp.watch([src + '/_assets/styl/**/*.styl'], ['css'])
-    gulp.watch([src + '/_assets/js/*.js'], ['js'])
-    gulp.watch([src + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images'])
-    gulp.watch([src + '/_assets/img/**/*.{svg}'], ['icons'])
-    gulp.watch([src + '/_media/**/*'], ['media'])
-    gulp.watch([src + '/**/*.{html,xml,json,txt,md}'], ['build'])
-});
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Task sequences
@@ -359,21 +359,22 @@ gulp.task('watch', function() {
 
 
 //
-// Dev Server
+// Build site, run server, and watch for file changes
 //
-gulp.task('default', function(cb) {
-    runSequence(
-        'build',
-        ['watch', 'connect'],
-        cb
-    );
+gulp.task('default', ['build', 'server'], function() {
+    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css', browser.reload]);
+    gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload]);
+    gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload]);
+    gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload]);
+    gulp.watch([SRC + '/_media/**/*'], ['media', browser.reload]);
+    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md}', './*.yml'], ['build', browser.reload]);
 });
 
 
 //
 // Full build
 //
-gulp.task('build', function(cb) {
+gulp.task('build', function(done) {
 
     console.log(chalk.gray("         ------------------------------------------"));
     console.log(chalk.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
@@ -382,10 +383,9 @@ gulp.task('build', function(cb) {
     runSequence(
         'clean',
         'jekyll',
-        //'html',
-        ['css', 'js', 'images', 'icons', 'fonts', 'media'],
+        ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
         'rev',
         'rev:replace',
-        cb
+        done
     );
 });

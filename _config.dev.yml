@@ -1,0 +1,3 @@
+
+# fix for jekyll-picture-tag always prepending site.url
+url: http://localhost:1337
