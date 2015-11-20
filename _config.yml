@@ -100,18 +100,18 @@ picture:
       source_large:
         media: "(min-width: 87.500em)"
         width: "1000"
-        height: "600"
+        height: "650"
       source_medium:
         media: "(min-width: 40.625em)"
         width: "800"
-        height: "500"
+        height: "550"
       source_small:
         media: "(min-width: 30em)"
         width: "600"
-        height: "400"
+        height: "450"
       source_default:
         width: "400"
-        height: "200"
+        height: "250"
     featured:
       ppi: [1, 2]
       attr:
@@ -120,11 +120,10 @@ picture:
       source_medium:
         media: "(min-width: 40.625em)"
         width: "275"
-      source_small:
-        media: "(min-width: 30em)"
-        width: "160"
+        height: "120"
       source_default:
-        width: "480"
+        width: "190"
+        height: "100"
     photothumb:
       ppi: [1, 2]
       attr:

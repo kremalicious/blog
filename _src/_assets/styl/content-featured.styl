@@ -8,27 +8,65 @@
     @extend .divider-bottom
     padding-bottom: ($line-height-computed*2)
 
-    @media $breakpoint2
-        padding-bottom: ($line-height-computed*3)
-
     .grid
         margin-bottom: 0
 
+    .grid__col
+        &:first-child
+            margin-left: -8%
+        &:last-child
+            margin-right: -8%
+
     @media $breakpoint2
+        padding-bottom: ($line-height-computed*3)
         .grid__col
             padding-top: 0
+            &:first-child
+                margin-left: -16%
+            &:last-child
+                margin-right: -16%
+
+    .hentry__teaser
+        picture
+            margin: 0
+
+            @media $breakpoint1
+                margin-left: 0
+                margin-right: 0
 
 .featured-link
     display: block
+    position: relative
 
     @media $breakpoint2
         &:hover
             transform: scale(1.03)
 
 .featured-title
-    @extend .visuallyhidden
+    @extend .transition
+    margin: 0
+    position: absolute
+    top: 25%
+    min-width: 45%
+    text-align: right
+    font-family: $headings-font-family
+    font-weight: $headings-font-weight
+    font-style: normal
+    font-size: $font-size-small
+    padding: ($line-height-computed/3)
+    background: $link-color
+    background: alpha($link-color, .7)
+    color: #fff
+    text-shadow: 0 1px 0 #000
+    left: 0
 
-.featured-image
+    opacity: 0
+    transform: translate(0, -20px)
+
+    .featured-link:hover &
+        opacity: 1
+        transform: translate(0, 0)
+
+img.featured-image
     display: block
     margin-bottom: 0
-    box-shadow: 0 1px 3px rgba(0,0,0,.2)

@@ -345,7 +345,7 @@ gulp.task('s3:assets', function() {
 //
 // Dev Server
 //
-gulp.task('server', function() {
+gulp.task('server', ['build'], function() {
     browser.init({
         server: DIST,
         port: PORT

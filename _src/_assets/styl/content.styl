@@ -26,11 +26,8 @@
     width: 100%
 
     @media $breakpoint2
-        padding-top: ($line-height-computed*4)
-        padding-bottom: ($line-height-computed*4)
-
-        .page-index &:first-child
-            padding-top: ($line-height-computed*3)
+        padding-top: ($line-height-computed*3)
+        padding-bottom: ($line-height-computed*3)
 
     .page-single &
         border: none
@@ -57,6 +54,7 @@
 
 .hentry__teaser
     picture
+        max-width: none
         display: block
         margin: ($line-height-computed*1.5) -8%
 
@@ -64,14 +62,6 @@
             margin-left: -16%
             margin-right: -16%
 
-    .featured &
-        picture
-            @media $breakpoint1
-                margin-left: 0
-                margin-right: 0
-
-
-.hentry__teaser
     img
         box-shadow: 0 1px 3px rgba(0,0,0,.2)
         border-radius: 0

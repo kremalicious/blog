@@ -5,6 +5,7 @@ title: The Mac in Futurama
 author: Matthias Kretschmann
 date: 2009-01-05 03:14:45+00:00
 
+image: futurama-mac-teaser.png
 category: design
 tags:
     - futurama
@@ -14,7 +15,6 @@ slug: the-mac-in-futurama
 wordpress_id: 440
 ---
 
-![The Mac in Futurama](/media/futurama-mac-teaser.png)
 Time for some Mac Futurama crossover geekiness! In a fun watching process I've compiled a list of all the references to Apple's Macintosh and other Apple products. In Futurama we mainly see references to the old, classic Macs running [System 6](http://en.wikipedia.org/wiki/Apple_System_Software_6), [System 7](http://en.wikipedia.org/wiki/System_7) or [OS 9](http://en.wikipedia.org/wiki/Mac_OS_9) ending with the colorful iMac G3. This is likely caused by the timeframe in which Matt Groening and David X. Cohen developed the first season of Futurama (1997-1999).
 
 So the following screens from Futurama refer all to Macs available in or before 1999. Also you'll find some nice links to downloadable Futurama stuff for your Mac at the end of this article. And may the lawyers of Twentieth Century Fox now please stop reading.
