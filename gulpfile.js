@@ -105,6 +105,7 @@ var BANNER = [
     ''
 ].join('\n');
 
+
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Tasks
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -154,7 +155,9 @@ gulp.task('html', function() {
             useShortDoctype: true,
             collapseBooleanAttributes: true,
             removeRedundantAttributes: true,
-            removeEmptyAttributes: true
+            removeEmptyAttributes: true,
+            minifyJS: true,
+            minifyCSS: true
         })))
         .pipe(gulp.dest(DIST))
 });
