@@ -19,26 +19,39 @@
 <script>
     (function(window) {
 
-      // Google Analytics async snippet
-      // http://goo.gl/3FPNDx
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
-      ga.l=+new Date;
+        // Google Analytics async snippet
+        // http://goo.gl/3FPNDx
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+        ga.l=+new Date;
 
-      // Create the GA tracker
-      ga('create', 'UA-1441794-2', 'auto', {siteSpeedSampleRate: 10});
+        // Create the GA tracker
+        ga('create', 'UA-1441794-2', 'auto', {siteSpeedSampleRate: 10});
 
-      // Send initial pageview
-      ga('send', 'pageview');
+        {% if jekyll.environment != 'production' %}
+            // In non-production mode, simply log GA hits to the console.
+            // Note, tasks must be set before sending the first hit
+            ga(function(tracker) {
+                tracker.set('sendHitTask', function() {
+                    // Throw to stop subsequent tasks.
+                    throw 'Abort tracking in non-production environments.'
+                });
+            });
+        {% endif %}
 
-      // Track uncaught errors
-      window.onerror = function(message, url, line, col) {
-          var desc = message + ' (line: ' + line + ', url: ' + url + ', col: '
+        // Send initial pageview
+        ga('send', 'pageview');
+
+        // Track uncaught errors
+        window.onerror = function(message, url, line, col) {
+            var desc = message + ' (line: ' + line + ', url: ' + url + ', col: '
             + col + ')';
-        ga('send', 'exception', {
-            exDescription: 'window.onerror: ' + desc,
-            exFatal: false
-        });
-      };
+
+            ga('send', 'exception', {
+                exDescription: 'window.onerror: ' + desc,
+                exFatal: false
+            });
+        };
+
     }(window));
 </script>
 
