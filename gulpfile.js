@@ -125,10 +125,13 @@ gulp.task('clean', function(done) {
 // Jekyll
 //
 gulp.task('jekyll', function(cb) {
+    browser.notify('Compiling Jekyll');
+
     var spawn = require('child_process').spawn;
 
     if (isProduction) {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi', 'JEKYLL_ENV=production'], { stdio: 'inherit' });
+        process.env.JEKYLL_ENV = 'production';
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' });
     } else {
         var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config.dev.yml', '--drafts', '--future', '--incremental'], { stdio: 'inherit' });
     }
