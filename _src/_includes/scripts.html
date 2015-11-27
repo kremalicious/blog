@@ -17,29 +17,31 @@
 {% endif %}
 
 <script>
-    (function(window) {
+    (function(window, dnt) {
 
-        // Google Analytics async snippet
-        // http://goo.gl/3FPNDx
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
-        ga.l=+new Date;
+        if (dnt !== "yes" && dnt !== "1") {
+            // Google Analytics async snippet
+            // http://goo.gl/3FPNDx
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+            ga.l=+new Date;
 
-        // Create the GA tracker
-        ga('create', 'UA-1441794-2', 'auto', {siteSpeedSampleRate: 10});
+            // Create the GA tracker
+            ga('create', 'UA-1441794-2', 'auto', {siteSpeedSampleRate: 10});
 
-        {% if jekyll.environment != 'production' %}
-            // In non-production mode, simply log GA hits to the console.
-            // Note, tasks must be set before sending the first hit
-            ga(function(tracker) {
-                tracker.set('sendHitTask', function() {
-                    // Throw to stop subsequent tasks.
-                    throw 'Abort tracking in non-production environments.'
+            {% if jekyll.environment != 'production' %}
+                // In non-production mode, simply log GA hits to the console.
+                // Note, tasks must be set before sending the first hit
+                ga(function(tracker) {
+                    tracker.set('sendHitTask', function() {
+                        // Throw to stop subsequent tasks.
+                        throw 'Abort tracking in non-production environments.'
+                    });
                 });
-            });
-        {% endif %}
+            {% endif %}
 
-        // Send initial pageview
-        ga('send', 'pageview');
+            // Send initial pageview
+            ga('send', 'pageview');
+        }
 
         // Track uncaught errors
         window.onerror = function(message, url, line, col) {
@@ -52,7 +54,7 @@
             });
         };
 
-    }(window));
+    }(window, navigator.doNotTrack || navigator.msDoNotTrack || null));
 </script>
 
 {% if jekyll.environment == "production" %}
