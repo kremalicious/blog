@@ -12,11 +12,11 @@ var Menu = (function(w, d) {
                 e.preventDefault();
 
                 // toggle menu
-                thesite.toggleClass('menu-open');
+                thesite.toggleClass('has-menu-open');
 
                 // bind the hide controls
                 $(document).bind('click.hidethepop', function() {
-                    thesite.removeClass('menu-open');
+                    thesite.removeClass('has-menu-open');
                     // unbind the hide controls
                     $(document).unbind('click.hidethepop');
                 });

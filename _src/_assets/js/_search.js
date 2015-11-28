@@ -19,10 +19,10 @@ var Search = (function(w, d) {
 
                 // show search field
                 searcharea
-                    .removeClass('ready bounceOutUp')
-                    .addClass('ready slideDown')
+                    .removeClass('is-ready animation-bounceOutUp')
+                    .addClass('is-ready animation-slideDown')
                     .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                        body.addClass('search-open');
+                        body.addClass('has-search-open');
                     });
 
                 searchfield.focus();
@@ -30,8 +30,8 @@ var Search = (function(w, d) {
                 _private.searchSimpleJekyllSearch();
 
                 // hide menu too just in case
-                if (body.hasClass('menu-open')) {
-                    body.removeClass('menu-open');
+                if (body.hasClass('has-menu-open')) {
+                    body.removeClass('has-menu-open');
                 }
 
                 // bind the hide controls
@@ -87,10 +87,10 @@ var Search = (function(w, d) {
         searchReset: function() {
             // revert all search elements
             searcharea
-                .removeClass('slideDown')
-                .addClass('bounceOutUp')
+                .removeClass('animation-slideDown')
+                .addClass('animation-bounceOutUp')
                 .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                    $('body').removeClass('search-open');
+                    $('body').removeClass('has-search-open');
                 });
             searchpop.addClass('hide');
         }
