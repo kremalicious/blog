@@ -3,38 +3,39 @@
 
 var Search = (function(w, d) {
 
-    var content       = $('.site__content'),
-        searchlink    = $('.search-btn'),
-        searcharea    = $('.search-area'),
-        searchfield   = $('#search-input'),
-        searchresults = $('#search-results'),
-        searchpop     = $('#search-popover');
+    var app, _private, _config;
 
-    var app, _private;
+    _config = {
+        content       : $('.site__content'),
+        searchlink    : $('.search-btn'),
+        searcharea    : $('.search-area'),
+        searchfield   : $('#search-input'),
+        searchresults : $('#search-results'),
+        searchpop     : $('#search-popover'),
+        body          : $('body')
+    };
 
     _private = {
         searchShow: function() {
 
-            var body = $('body');
-
-            searchlink.on('click', function(e) {
+            _config.searchlink.on('click', function(e) {
                 e.preventDefault();
 
                 // show search field
-                searcharea
+                _config.searcharea
                     .removeClass('is-ready animation-bounceOutUp')
                     .addClass('is-ready animation-slideDown')
                     .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                        body.addClass('has-search-open');
+                        _config.body.addClass('has-search-open');
                     });
 
-                searchfield.focus();
+                _config.searchfield.focus();
 
                 _private.searchSimpleJekyllSearch();
 
                 // hide menu too just in case
-                if (body.hasClass('has-menu-open')) {
-                    body.removeClass('has-menu-open');
+                if (_config.body.hasClass('has-menu-open')) {
+                    _config.body.removeClass('has-menu-open');
                 }
 
                 // bind the hide controls
@@ -46,11 +47,11 @@ var Search = (function(w, d) {
                 });
 
                 // dont close thepop when click on thepop
-                searchpop.on('click', function(e) {
+                _config.searchpop.on('click', function(e) {
                     e.stopPropagation();
                 });
                 // dont close thepop when click on search field
-                searchfield.on('click', function(e) {
+                _config.searchfield.on('click', function(e) {
                     e.stopPropagation();
                 });
 
@@ -61,8 +62,8 @@ var Search = (function(w, d) {
 
         searchResultsShow: function() {
             // show popup upon first keypress
-            searchfield.on('keyup', function() {
-                searchpop.removeClass('hide');
+            _config.searchfield.on('keyup', function() {
+                _config.searchpop.removeClass('hide');
             });
         },
 
@@ -83,19 +84,19 @@ var Search = (function(w, d) {
                 _private.searchReset();
 
                 // empty search field
-                searchfield.val('').blur();
+                _config.searchfield.val('').blur();
             });
         },
 
         searchReset: function() {
             // revert all search elements
-            searcharea
+            _config.searcharea
                 .removeClass('animation-slideDown')
                 .addClass('animation-bounceOutUp')
                 .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                    $('body').removeClass('has-search-open');
+                    _config.body.removeClass('has-search-open');
                 });
-            searchpop.addClass('hide');
+            _config.searchpop.addClass('hide');
         }
     };
 

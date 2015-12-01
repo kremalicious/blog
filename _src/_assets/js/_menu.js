@@ -1,28 +1,30 @@
 var Menu = (function(w, d) {
 
-    var thesite = $('.site'),
-        thelink = $('.menu-btn'),
-        thepop  = $('.nav-popover');
+    var app, _private, _config;
 
-    var app, _private;
+    _config = {
+        thesite : $('.site'),
+        thelink : $('.menu-btn'),
+        thepop  : $('.nav-popover')
+    };
 
     _private = {
         menuShow: function() {
-            thelink.on('click', function(e) {
+            _config.thelink.on('click', function(e) {
                 e.preventDefault();
 
                 // toggle menu
-                thesite.toggleClass('has-menu-open');
+                _config.thesite.toggleClass('has-menu-open');
 
                 // bind the hide controls
                 $(document).bind('click.hidethepop', function() {
-                    thesite.removeClass('has-menu-open');
+                    _config.thesite.removeClass('has-menu-open');
                     // unbind the hide controls
                     $(document).unbind('click.hidethepop');
                 });
 
                 // dont close thepop when you click on thepop
-                thepop.on('click', function(e) {
+                _config.thepop.on('click', function(e) {
                     e.stopPropagation();
                 });
 
