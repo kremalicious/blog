@@ -1,3 +1,6 @@
+
+//=require ../../../bower_components/simple-jekyll-search/dest/jekyll-search.js
+
 var Search = (function(w, d) {
 
     var content       = $('.site__content'),

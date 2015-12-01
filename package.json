@@ -22,6 +22,7 @@
     "webcomponents.js": ">=0.7.1"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.6",
     "browser-sync": ">=2.10.0",
     "chalk": ">=1.0.0",
     "concurrent-transform": ">=1.0.0",
