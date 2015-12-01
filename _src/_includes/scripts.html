@@ -1,17 +1,24 @@
+
 <script src="/assets/js/kremalicious3.min.js" async></script>
+
+{% if page.js %}
+    <script src="/assets/js/{{ page.js }}"></script>
+{% endif %}
 
 {% if jekyll.environment == "production" %}
     <script>
         var _paq = _paq || [];
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="//analytics.kremalicious.com/";
-            _paq.push(['setTrackerUrl', u+'piwik.php']);
-            _paq.push(['setSiteId', 1]);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-        })();
+        (function(dnt) {
+            if (dnt !== "yes" && dnt !== "1") {
+                var u="//analytics.kremalicious.com/";
+                _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setSiteId', 1]);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            }
+        }(navigator.doNotTrack || navigator.msDoNotTrack || null));
     </script>
     <noscript><p><img src="//analytics.kremalicious.com/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 {% endif %}
@@ -52,7 +59,7 @@
                     exFatal: false
                 });
             };
-        }        
+        }
 
     }(window, navigator.doNotTrack || navigator.msDoNotTrack || null));
 </script>
