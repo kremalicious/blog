@@ -186,7 +186,7 @@ gulp.task('uncss', function () {
         return gulp.src(DIST + '/assets/css/kremalicious3.min.css')
             .pipe($.uncss({
                 html: [DIST + '/**/*.html'],
-                ignore: [/\.has\S+\W+\S+/, /is-ready/, /animation-slideDown/, /animation-bounceOutUp/, /transition/, /gpuacceleration/, /hide/, /show/, /search-popover/, /search-results/, /search-link/]
+                ignore: [/\.has\S+\W+\S+/, /is-ready/, /animation-slideDown/, /animation-bounceOutUp/, /transition/, /gpuacceleration/, /hide/, /show/, /search-popover/, /search-results/, /search-link/, /tooltip/]
             }))
             .pipe(gulp.dest(DIST + '/assets/css'));
     }
