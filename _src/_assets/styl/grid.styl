@@ -10,6 +10,7 @@
 *:after
     box-sizing: border-box
 
+
 //
 // Base
 //
@@ -22,6 +23,9 @@
 
 .grid__col
     flex: 1
+    // Firefox grid fix for whatever reason
+    min-height: 0
+    min-width: 0
 
 
 //

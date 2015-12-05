@@ -18,6 +18,7 @@
 
         figcaption
             @extend .transition
+            transition-property: transform, opacity
             position: absolute
             top: 25%
             min-width: 45%
@@ -38,11 +39,11 @@
                 left: -16%
 
             opacity: 0
-            transform: translate(0, -20px)
+            transform: translate3d(0, -20px, 0)
 
         &:hover figcaption
             opacity: 1
-            transform: translate(0, 0)
+            transform: translate3d(0, 0, 0)
 
     .entry-content
         text-align: left

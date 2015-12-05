@@ -38,12 +38,9 @@
     display: block
     position: relative
 
-    @media $breakpoint2
-        &:hover
-            transform: scale(1.03)
-
 .featured-title
     @extend .transition
+    transition-property: transform, opacity
     margin: 0
     position: absolute
     top: 25%
@@ -61,11 +58,11 @@
     left: 0
 
     opacity: 0
-    transform: translate(0, -20px)
+    transform: translate3d(0, -20px, 0)
 
     .featured-link:hover &
         opacity: 1
-        transform: translate(0, 0)
+        transform: translate3d(0, 0, 0)
 
 img.featured-image
     display: block
