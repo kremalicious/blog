@@ -45,6 +45,15 @@
     .has-menu-open &
         transform: translate3d(0,0,0)
 
+.site__footer
+    margin-top: -200px;
+
+    @media $breakpoint2
+        margin-top: -160px;
+
+    .has-menu-open &
+        margin-top: 0
+
 @media only screen and (min-width: 40.625em) and (min-height: 650px)
     .site
         position: relative
