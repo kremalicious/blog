@@ -22,9 +22,15 @@ body
     -moz-osx-font-smoothing: grayscale;
     -moz-font-feature-settings: 'liga', 'kern';
 
+    letter-spacing: -0.01em
+
+    .wf-active &
+        letter-spacing: normal
+
     @media $breakpoint3
         font-size: $font-size-large
         line-height: $line-height-large
+
 
 p,
 ul,
@@ -38,9 +44,14 @@ ol
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6
     font-family: $headings-font-family
-    font-weight: $headings-font-weight
     line-height: $headings-line-height
     color: $headings-color
+    font-weight: 500
+    letter-spacing: -.09em
+
+    .wf-active &
+        font-weight: $headings-font-weight
+        letter-spacing: normal
 
 h1, .h1,
 h2, .h2
