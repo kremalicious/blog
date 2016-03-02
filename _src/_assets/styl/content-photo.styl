@@ -7,6 +7,11 @@
 .hentry.format-photo
     @extend .textcenter
 
+    .hentry__teaser
+        picture
+            margin-top: 0
+            margin-bottom: 0
+
     figure
         @extend .aligncenter
         position: relative
@@ -20,7 +25,6 @@
             @extend .transition
             transition-property: transform, opacity
             position: absolute
-            top: 25%
             min-width: 45%
             text-align: right
             font-family: $headings-font-family
@@ -34,6 +38,7 @@
             text-shadow: 0 1px 0 #000
 
             left: -8%
+            top: $line-height-computed
 
             @media $breakpoint2
                 left: -16%
@@ -50,11 +55,11 @@
         margin-top: $line-height-computed
 
     .page-single &
-        padding-top: ($line-height-computed*2)
+        padding-top: 0
         padding-bottom: ($line-height-computed*3)
 
         @media $breakpoint2
-            padding-top: ($line-height-computed*4)
+            padding-top: 0
             padding-bottom: ($line-height-computed*6)
 
         figure img
@@ -63,8 +68,6 @@
         figcaption
             opacity: 1
             transform: translate(0,0)
-            top: auto
-            bottom: 0
             background: #000
             background: rgba(#000, .4)
 
