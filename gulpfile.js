@@ -49,7 +49,8 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 // paths
 var SRC       = '_src',
     DIST      = '_site',
-    CDN       = 'https://cdn.kremalicious.com',
+    //CDN       = 'https://cdn.kremalicious.com',
+    CDN       = 'https://d2jlreog722xe2.cloudfront.net',
     S3BUCKET  = 'kremalicious.com',
     S3PATH    = '/',
     S3REGION  = 'eu-central-1';
@@ -188,6 +189,7 @@ gulp.task('uncss', function () {
                 html: [DIST + '/**/*.html'],
                 ignore: [/\.has\S+\W+\S+/, /is-ready/, /animation-slideDown/, /animation-bounceOutUp/, /transition/, /gpuacceleration/, /hide/, /show/, /search-popover/, /search-results/, /search-link/, /tooltip/]
             }))
+            .pipe($.cssmin())
             .pipe(gulp.dest(DIST + '/assets/css'));
     }
 });
@@ -401,7 +403,7 @@ gulp.task('build', function(done) {
         'clean',
         'jekyll',
         ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
-        'uncss',
+        //'uncss',
         'rev',
         'rev:replace',
         done
