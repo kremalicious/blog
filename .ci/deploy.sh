@@ -3,25 +3,11 @@
 set -e;
 
 echo "$(tput setaf 136)"
-echo "           Starting assets CDN "
+echo "         Starting S3 deployment "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
-gulp s3:assets
-gulp cdn
-
-echo "$(tput setaf 64)" # green
-echo "---------------------------------------------"
-echo "           ✓ done assets CDN"
-echo "$(tput sgr0)" # reset
-
-
-echo "$(tput setaf 136)"
-echo "         Starting rsync deployment "
-echo "============================================="
-echo "$(tput sgr0)" # reset
-
-rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" ~/src/github.com/kremalicious/kremalicious3/_site/ $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+gulp deploy
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"

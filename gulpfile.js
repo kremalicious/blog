@@ -49,8 +49,6 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 // paths
 var SRC       = '_src',
     DIST      = '_site',
-    //CDN       = 'https://cdn.kremalicious.com',
-    CDN       = 'https://d2jlreog722xe2.cloudfront.net',
     S3BUCKET  = 'kremalicious.com',
     S3PATH    = '/',
     S3REGION  = 'eu-central-1';
@@ -308,60 +306,6 @@ gulp.task('rev:replace', function() {
 
 
 //
-// CDN url injection
-//
-gulp.task('cdn', function() {
-    return gulp.src([
-            DIST + '/**/*.html',
-            DIST + '/assets/css/*.css'
-        ], { base: DIST })
-        .pipe($.replace('/assets/css/', CDN + '/assets/css/'))
-        .pipe($.replace('/assets/js/', CDN + '/assets/js/'))
-        //.pipe($.replace('/assets/img/', CDN + '/assets/img/'))
-        .pipe($.replace('/media/', CDN + '/media/'))
-        .pipe($.replace('https://kremalicious.com/media/', CDN + '/media/'))
-        .pipe($.replace('https://kremalicious.com' + CDN + '/media/', CDN + '/media/'))
-        .pipe($.replace('../', CDN + '/assets/'))
-        .pipe(gulp.dest(DIST))
-});
-
-
-//
-// Assets uploading to S3
-//
-gulp.task('s3:assets', function() {
-    var publisher = $.awspublish.create({
-        params: {
-            'Bucket': S3BUCKET
-        },
-        'accessKeyId': process.env.AWS_ACCESS_KEY_ID,
-        'secretAccessKey': process.env.AWS_SECRET_ACCESS_KEY,
-        'region': S3REGION
-    });
-
-    // define custom headers
-    var headers = {
-        'Cache-Control': 'max-age=315360000, no-transform, public',
-        'x-amz-acl': 'public-read'
-    };
-
-    var assets = gulp.src(DIST + '/assets/**/*', { base: DIST + '/' }),
-        media  = gulp.src(DIST + '/media/**/*', { base: DIST + '/' });
-
-    return merge(assets, media)
-        .pipe($.rename(function (path) {
-            // This is weird, but is needed to make the file use the relative path...
-        }))
-        .pipe($.awspublish.gzip({ ext: '' })) // gzip all the things
-        .pipe(parallelize(publisher.publish(headers), 10))
-        //.pipe(publisher.sync()) // delete files in bucket that are not in local folder
-        .pipe($.awspublish.reporter({
-            states: ['create', 'update', 'delete']
-        }));
-});
-
-
-//
 // Dev Server
 //
 gulp.task('server', ['build'], function() {
@@ -408,4 +352,55 @@ gulp.task('build', function(done) {
         'rev:replace',
         done
     );
+});
+
+
+//
+// Deploy to S3
+//
+gulp.task('deploy', function() {
+
+    // create publisher, define config
+    var publisher = $.awspublish.create({
+        params: {
+            "Bucket": S3BUCKET
+        },
+        "accessKeyId": process.env.AWS_ACCESS_KEY,
+        "secretAccessKey": process.env.AWS_SECRET_KEY,
+        "region": S3REGION
+    });
+
+    return gulp.src(DIST + '**/*')
+        .pipe($.awspublishRouter({
+            cache: {
+                // cache for 5 minutes by default
+                cacheTime: 300
+            },
+            routes: {
+                // all static assets, cached & gzipped
+                '^assets/(?:.+)\\.(?:js|css|png|jpg|jpeg|gif|ico|svg|ttf)$': {
+                    cacheTime: 2592000, // cache for 1 month
+                    gzip: true
+                },
+
+                // every other asset, cached
+                '^assets/.+$': {
+                    cacheTime: 2592000  // cache for 1 month
+                },
+
+                // all html files, not cached & gzipped
+                '^.+\\.html': {
+                    cacheTime: 0,
+                    gzip: true
+                },
+
+                // pass-through for anything that wasn't matched by routes above, to be uploaded with default options
+                "^.+$": "$&"
+            }
+        }))
+        .pipe(parallelize(publisher.publish({}, 'force'), 10))
+        .pipe(publisher.sync()) // delete files in bucket that are not in local folder
+        .pipe($.awspublish.reporter({
+            states: ['create', 'update', 'delete']
+        }));
 });

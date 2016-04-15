@@ -30,6 +30,7 @@
     "gulp": ">=3.8.0",
     "gulp-autoprefixer": ">=2.3.0",
     "gulp-awspublish": ">=2.0.2",
+    "gulp-awspublish-router": "^0.1.1",
     "gulp-concat": ">=2.5.2",
     "gulp-cssmin": ">=0.1.7",
     "gulp-filter": ">=2.0.2",
