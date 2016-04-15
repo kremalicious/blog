@@ -370,7 +370,7 @@ gulp.task('deploy', function() {
         "region": S3REGION
     });
 
-    return gulp.src(DIST + '**/*')
+    return gulp.src(DIST + '/**/*')
         .pipe($.awspublishRouter({
             cache: {
                 // cache for 5 minutes by default
@@ -397,6 +397,10 @@ gulp.task('deploy', function() {
                 // pass-through for anything that wasn't matched by routes above, to be uploaded with default options
                 "^.+$": "$&"
             }
+        }))
+        // make sure everything goes to the root '/'
+        .pipe($.rename(function (path) {
+            path.dirname = S3PATH + path.dirname;
         }))
         .pipe(parallelize(publisher.publish({}, 'force'), 10))
         .pipe(publisher.sync()) // delete files in bucket that are not in local folder
