@@ -7,7 +7,11 @@ author: Matthias Kretschmann
 date: 2008-05-22 20:01:12+00:00
 wordpress_id: 59
 categories:
-- design
+    - design
+    - css
+
+redirect_from:
+    - /2008/05/showcasing-the-css-parallax-effect-12-creative-usages/
 ---
 
 [![The kremalicious Parallax](/media/parallax-visualization.png)](/media/parallax-visualization_big.png)
@@ -136,11 +140,11 @@ Same graphics as on Silverback too but this Parallax follows your mouse pointer.
   * [Starry Night: Incredible 3D Background Effect with Parallax](http://css-tricks.com/3d-parralax-background-effect/)
 
   * [Your own CSS parallax illusion 3d image](http://www.marcofolio.net/photoshop/your_own_css_parallax_illusion_3d_image.html)
-  
+
   * [Parallax Backgrounds - a multi–layered javascript experiment](http://inner.geek.nz/javascript/parallax/)
 
   * [How to Make the Parallax Effect](http://www.dylanbathurst.com/2008/05/27/how-to-make-the-parallax-effect/)
-  
+
 
 Hope you enjoyed this little showcase. Please share it on your favorite social website or vote for it. Your vote is always highly appreciated! And if you know any other websites using this effect (the non-flash versions) feel free to post them in the comments beneath this article.
 

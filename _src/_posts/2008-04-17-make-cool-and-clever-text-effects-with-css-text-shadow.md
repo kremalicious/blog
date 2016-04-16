@@ -8,7 +8,11 @@ date: 2008-04-17 01:32:13+00:00
 wordpress_id: 39
 category: design
 tags:
+    - css
     - tutorial
+
+redirect_from:
+    - /2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/
 ---
 
 ![CSS](/media/css.png)The aim of this article is to give you a quick introduction of a css property named text-shadow which was first included in CSS2 (but it's not implemented in all browsers yet). Nevertheless you can make some cool effects with it, which could only be done before by photoshopping text and rendering it as an image.

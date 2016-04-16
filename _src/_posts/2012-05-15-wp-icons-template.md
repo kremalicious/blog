@@ -15,6 +15,9 @@ tags:
     - boilerplate
     - tutorial
     - wordpress
+
+redirect_from:
+    - /2012/05/wp-icons-template/
 ---
 
 Here’s a template for designing your own icons for the admin area of WordPress including icons ready for Retina screens and some recommendations for the workflow of implementing these.
