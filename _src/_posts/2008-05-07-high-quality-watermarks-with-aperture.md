@@ -11,6 +11,9 @@ categories:
 tags:
 - aperture
 - tutorial
+
+redirect_from
+  - /2008/05/high-quality-watermarks-with-aperture/
 ---
 
 ![Aperture Watermark example](/media/watermark_aperture_thumb.jpg)Since version 1.0 Aperture is able to render images on export with a graphic overlay on top of them called watermark. This feature of Apple's Aperture can give you a chance to make stealing your web-published pictures a bit harder.
