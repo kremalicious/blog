@@ -65,7 +65,6 @@ select[size]
 .form-control
     display: block
     width: 100%
-    height: $input-height-base
     padding: $padding-base-vertical $padding-base-horizontal
     font-size: $input-font-size
     font-weight: $input-font-weight
@@ -176,11 +175,11 @@ input[type="checkbox"],
 /////////////////////////////////////
 
 input-small()
-    input-size($input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small)
+    input-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small)
     placeholder(font-size $font-size-small, line-height $line-height-small)
 
 input-large()
-    input-size($input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+    input-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
     placeholder(font-size $font-size-large, line-height $line-height-large)
 
 .input-small
