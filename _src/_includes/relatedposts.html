@@ -9,7 +9,9 @@
 
                 <article class="related-post grid__col">
                     <a class="post-title-link" href="{{ post.url }}">
-                        {% picture featured {{ post.image }} %}
+                        {% if post.image %}
+                            {% picture featured {{ post.image }} %}
+                        {% endif %}
                         <h1 class="post-title">{{ post.title | titlecase }}</h1>
                     </a>
                 </article>
