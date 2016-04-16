@@ -12,7 +12,7 @@ tags:
 - aperture
 - tutorial
 
-redirect_from
+redirect_from:
   - /2008/05/high-quality-watermarks-with-aperture/
 ---
 
