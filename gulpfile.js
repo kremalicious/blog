@@ -200,7 +200,7 @@ gulp.task('uncss', function () {
 // Libraries
 gulp.task('js:libraries', function() {
     return gulp.src([
-            'node_modules/picturefill/DIST/picturefill.js'
+            'node_modules/picturefill/dist/picturefill.js'
         ])
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.rename({ suffix: '.min'}))
