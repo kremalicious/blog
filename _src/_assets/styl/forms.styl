@@ -18,7 +18,7 @@ legend
     display: block
     width: 100%
     padding: 0
-    margin-bottom: $line-height-computed
+    margin-bottom: $spacer
     font-size: ($font-size-base * 1.5)
     line-height: inherit
     border: 0
@@ -69,7 +69,7 @@ select[size]
     padding: $padding-base-vertical $padding-base-horizontal
     font-size: $input-font-size
     font-weight: $input-font-weight
-    line-height: $line-height-base
+    line-height: $line-height
     color: $input-color
     background-color: $input-bg
     background-image: none // Reset unusual Firefox-on-Android default style
@@ -108,7 +108,7 @@ select[size]
 /////////////////////////////////////
 
 .form-group
-    margin-bottom: $line-height-computed
+    margin-bottom: $spacer
 
 
 // Search inputs
@@ -124,7 +124,7 @@ input[type="search"]
 .radio,
 .checkbox
     display: block
-    min-height: $line-height-computed // clear the floating input if there is no label text
+    min-height: $spacer // clear the floating input if there is no label text
     margin-top: 10px
     margin-bottom: 10px
 

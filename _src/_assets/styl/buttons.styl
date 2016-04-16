@@ -32,7 +32,7 @@ a.btn
     transition: all .2s ease-in-out
 
     // Default Button
-    button-size($padding-base-vertical, $padding-base-horizontal, $font-size-small, $line-height-base, $border-radius-base)
+    button-size($padding-base-vertical, $padding-base-horizontal, $font-size-small, $line-height, $border-radius-base)
     background-color: rgba(255,255,255,.1)
     border: 1px solid rgba(94,131,162,.3)
     border-bottom-color: rgba(94,131,162,.4)
@@ -40,7 +40,7 @@ a.btn
     font-weight: $headings-font-weight
     color: $brand-grey
     text-transform: uppercase
-    box-shadow: 0 1px 3px alpha($brand-grey-light, .2), inset 0 1px 0 rgba(255,255,255,.7)
+    box-shadow: 0 1px 3px alpha($brand-grey-light, .1), inset 0 1px 0 rgba(255,255,255,.7)
 
     &:hover,
     &:focus
@@ -70,7 +70,7 @@ a.btn
     // grid buttons
     &.col2,
     &.col3
-        margin-bottom: ($line-height-computed/2)
+        margin-bottom: ($spacer/2)
 
         @media $breakpoint2
             margin-bottom: 0
@@ -86,7 +86,7 @@ a.btn-primary
     text-shadow: 0 1px 0 rgba(255,255,255,.3)
     background: lighten($link-color, 15%)
     border-color: $link-color
-    box-shadow: 0 1px 3px $brand-grey-light, inset 0 1px 0 rgba(255,255,255,.4)
+    box-shadow: 0 1px 3px alpha($brand-grey-light, .4), inset 0 1px 0 rgba(255,255,255,.4)
 
     &:hover,
     &:focus

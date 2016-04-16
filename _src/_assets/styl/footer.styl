@@ -6,15 +6,15 @@
 
 .site__footer
     @extend .textcenter
-    padding-top: ($line-height-computed*2)
+    padding-top: ($spacer*2)
 
     .gravatar
-        margin-bottom: ($line-height-computed/2)
+        margin-bottom: ($spacer/2)
 
     &,
     .footer-description
         color: $text-color-light
-        line-height: $line-height-computed
+        line-height: $spacer
 
 .footer-description
     @extend .h5
@@ -23,8 +23,8 @@
 
 .footer-copyright
     @extend .divider-top
-    padding-top: $line-height-computed
-    padding-bottom: $line-height-computed
+    padding-top: $spacer
+    padding-bottom: $spacer
 
     p
         margin-bottom: 0
@@ -38,7 +38,7 @@
 
 // Subscribe component
 .subscribe
-    margin: $line-height-computed auto
+    margin: $spacer auto
     p
         @extend .textcenter
         margin: 0
@@ -74,4 +74,4 @@
 .subscribe-title
     @extend .h5
     color: $text-color-dimmed
-    margin-bottom: ($line-height-computed/2)
+    margin-bottom: ($spacer/2)

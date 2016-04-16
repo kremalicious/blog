@@ -11,8 +11,8 @@
 .page-title
     @extend .h2, .heading-band
     color: $brand-grey-light
-    margin-top: $line-height-computed
-    margin-bottom: $line-height-computed
+    margin-top: $spacer
+    margin-bottom: $spacer
 
     .hash
         @extend .h3
@@ -21,13 +21,13 @@
 
 .hentry
     @extend .divider-bottom
-    padding-top: ($line-height-computed*2)
-    padding-bottom: ($line-height-computed*2)
+    padding-top: ($spacer*2)
+    padding-bottom: ($spacer*2)
     width: 100%
 
     @media $breakpoint2
-        padding-top: ($line-height-computed*3)
-        padding-bottom: ($line-height-computed*3)
+        padding-top: ($spacer*3)
+        padding-bottom: ($spacer*3)
 
     .page-single &
         border: none
@@ -43,7 +43,7 @@
     @extend .h1, .textcenter
     color: $headings-color
     margin-top: 0
-    margin-bottom: $line-height-computed
+    margin-bottom: $spacer
 
     .format-link &
         @extend .h3
@@ -56,7 +56,7 @@
     picture
         max-width: none
         display: block
-        margin: ($line-height-computed*1.5) -8%
+        margin: ($spacer*1.5) -8%
 
         @media $breakpoint2
             margin-left: -16%
@@ -79,10 +79,14 @@
         @extend .heading-band
 
     h1
-        font-size: ceil($font-size-base * 2.5)
+        @extend .h2
+    h2
+        @extend .h3
+    h3
+        @extend .h4
 
     img:not(.hentry__teaser img)
-        margin-bottom: ($line-height-computed/2)
+        margin-bottom: ($spacer/2)
 
     p:last-child
         margin-bottom: 0
@@ -92,7 +96,7 @@
 /////////////////////////////////////
 
 .entry-meta
-    margin-top: ($line-height-computed*2)
+    margin-top: ($spacer*2)
     font-size: $font-size-small
 
 .byline,
@@ -113,13 +117,13 @@
         display: block
 
 .time
-    margin-bottom: ($line-height-computed*2)
+    margin-bottom: ($spacer*2)
 
 // Categories & Tags
 /////////////////////////////////////
 
 .categories
-    margin-bottom: ($line-height-computed/2)
+    margin-bottom: ($spacer/2)
 
 .category
     @extend .h6, .textcenter

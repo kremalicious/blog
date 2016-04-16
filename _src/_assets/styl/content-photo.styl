@@ -31,14 +31,14 @@
             font-weight: $headings-font-weight
             font-style: normal
             font-size: $font-size-small
-            padding: ($line-height-computed/3)
+            padding: ($spacer/3)
             background: $link-color
             background: alpha($link-color, .7)
             color: #fff
             text-shadow: 0 1px 0 #000
 
             left: -8%
-            top: $line-height-computed
+            top: $spacer
 
             @media $breakpoint2
                 left: -16%
@@ -52,15 +52,15 @@
 
     .entry-content
         text-align: left
-        margin-top: $line-height-computed
+        margin-top: $spacer
 
     .page-single &
         padding-top: 0
-        padding-bottom: ($line-height-computed*3)
+        padding-bottom: ($spacer*3)
 
         @media $breakpoint2
             padding-top: 0
-            padding-bottom: ($line-height-computed*6)
+            padding-bottom: ($spacer*6)
 
         figure img
             max-height: none

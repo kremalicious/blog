@@ -6,7 +6,7 @@
 
 .featured
     @extend .divider-bottom
-    padding-bottom: ($line-height-computed*2)
+    padding-bottom: ($spacer*2)
 
     .grid
         margin-bottom: 0
@@ -18,7 +18,7 @@
             margin-right: -8%
 
     @media $breakpoint2
-        padding-bottom: ($line-height-computed*3)
+        padding-bottom: ($spacer*3)
         .grid__col
             padding-top: 0
             &:first-child
@@ -50,7 +50,7 @@
     font-weight: $headings-font-weight
     font-style: normal
     font-size: $font-size-small
-    padding: ($line-height-computed/3)
+    padding: ($spacer/3)
     background: $link-color
     background: alpha($link-color, .7)
     color: #fff

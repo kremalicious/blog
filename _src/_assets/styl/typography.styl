@@ -8,34 +8,54 @@
 // Base
 /////////////////////////////////////
 
+// Body reset
+html
+    font-size: $font-size-root
+
+    @media $breakpoint3
+        font-size: $font-size-root-lg
+
 body
     font-family: $font-family-base
     font-weight: $font-weight-base
     font-size: $font-size-base
-    line-height: $line-height-base
+    line-height: $line-height
     color: $font-color-base
+    background: $body-bg
+
+    // handling long text, like URLs
+    overflow-wrap: break-word
     word-wrap: break-word
-    text-rendering: optimizeLegibility;
+    word-break: break-word
+
+    text-rendering: optimizeLegibility
     // Controversial! But prevents text flickering in
     // Safari/Firefox when animations are running
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: 'liga', 'kern';
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    -moz-font-feature-settings: 'liga', 'kern'
 
     letter-spacing: -0.01em
 
     .wf-active &
         letter-spacing: normal
 
-    @media $breakpoint3
-        font-size: $font-size-large
-        line-height: $line-height-large
-
-
 p,
 ul,
 ol
-    margin: 0 0 $line-height-computed
+    margin: 0 0 $spacer
+
+
+// Reset fonts for relevant elements
+/////////////////////////////////////
+
+input,
+button,
+select,
+textarea
+    font-family: inherit
+    font-size: inherit
+    line-height: inherit
 
 
 // Headings
@@ -55,53 +75,43 @@ h1, h2, h3, h4, h5, h6,
 
 h1, .h1,
 h2, .h2
-    margin-top: ($line-height-computed*2)
-    margin-bottom: ($line-height-computed*2)
+    margin-top: ($spacer*2)
+    margin-bottom: ($spacer*2)
 
 h3, .h3
 h4, .h4,
 h5, .h5,
 h6, .h6
-    margin-top: $line-height-computed
-    margin-bottom: $line-height-computed
+    margin-top: $spacer
+    margin-bottom: $spacer
 
 h1, .h1
-    font-size: $font-size-h1-small
+    font-size: $font-size-h2
     @media $breakpoint1
         font-size: $font-size-h1
-    @media $breakpoint3
-        font-size: $font-size-h1-large
 
 h2, .h2
-    font-size: $font-size-h2-small
+    font-size: $font-size-h3
     @media $breakpoint1
         font-size: $font-size-h2
-    @media $breakpoint3
-        font-size: $font-size-h2-large
 
 h3, .h3
-    font-size: $font-size-h3-small
+    font-size: $font-size-h4
     @media $breakpoint1
         font-size: $font-size-h3
-    @media $breakpoint3
-        font-size: $font-size-h3-large
 
 h4, .h4
-    font-size: $font-size-h4-small
+    font-size: $font-size-h5
     @media $breakpoint1
         font-size: $font-size-h4
-    @media $breakpoint3
-        font-size: $font-size-h4-large
 
 h5, .h5
-    font-size: $font-size-h5
-    @media $breakpoint3
-        font-size: $font-size-h5-large
+    font-size: $font-size-h6
+    @media $breakpoint1
+        font-size: $font-size-h5
 
 h6, .h6
     font-size: $font-size-h6
-    @media $breakpoint3
-        font-size: $font-size-h6-large
 
 
 // Links
@@ -133,30 +143,34 @@ a
 ul,
 ol
     margin-top: 0
-    margin-bottom: $line-height-computed
-    padding-left: $line-height-computed*2
-
-    > li
-        margin-bottom: ($line-height-computed/2)
-        position: relative
-
-ol
-    counter-reset: ol-counter
+    margin-bottom: $spacer
+    padding-left: ($spacer * 1.5)
     list-style: none
 
     li
+        position: relative
         &:before
-            @extend .textcenter
             position: absolute
-            left: -($line-height-computed*2)
+            left: -($spacer * 1.5)
             top: -1px
+            color: $text-color-light
+            user-select: none
+
+ul
+    li
+        &:before
+            content: " \2015" // horizontal bar: ― &#8213;
+
+ol
+    counter-reset: ol-counter
+
+    li
+        &:before
             content: counter(ol-counter)'.'
             counter-increment: ol-counter
-            color: $text-color-light
-            font-style: italic
-            width: $font-size-base
-            display: block
-            user-select: none
+
+    ul li:before
+        display: none
 
 ul,
 ol
@@ -170,6 +184,9 @@ list-unstyled()
     padding-left: 0
     list-style: none
     display: block
+
+    li:before
+        display: none
 
 .list-unstyled
     list-unstyled()
@@ -213,7 +230,7 @@ cite
 hr
     @extend .divider-bottom
     border: 0
-    margin-bottom: ($line-height-computed*2)
+    margin-bottom: ($spacer*2)
 
 .small
     font-size: $font-size-small
@@ -231,7 +248,7 @@ blockquote > p
 
 blockquote
     padding-left: 25px
-    margin: 0 0 $line-height-computed
+    margin: 0 0 $spacer
     position: relative
     padding-left: 20px
 
