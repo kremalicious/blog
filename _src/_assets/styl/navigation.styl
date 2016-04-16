@@ -18,14 +18,12 @@
     &:focus
         outline: 0
 
-    .icon
-        &.icon-entypo-menu
-            width: 24px
-            height: 24px
-
-    &:hover .icon,
-    &:focus .icon
-        fill: $link-color
+    &:hover,
+    &:focus
+        .icon
+            fill: $link-color
+        .hamburger span
+            background: $link-color
 
     &:active
         background: transparent
@@ -33,6 +31,8 @@
 
         .icon
             fill: darken($link-color, 30%)
+        .hamburger span
+            background: darken($link-color, 30%)
 
 .menu-btn
     margin-right: -.5em

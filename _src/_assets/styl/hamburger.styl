@@ -1,0 +1,47 @@
+.hamburger
+    @extend .transition
+    width: 18px
+    height: 18px
+    position: relative
+    transform: rotate(0deg)
+    cursor: pointer
+    margin-top: 6px
+
+    span
+        @extend .transition
+        display: block
+        position: absolute
+        height: 3px
+        width: 100%
+        background: $text-color-light
+        border-radius: 20px
+        opacity: 1
+        left: 0
+        transform: rotate(0deg)
+
+        &:nth-child(1)
+            top: 0px
+            transform-origin: left center
+
+        &:nth-child(2)
+            top: 5px
+            transform-origin: left center
+
+        &:nth-child(3)
+            top: 10px
+            transform-origin: left center
+
+
+        // open state
+        .has-menu-open &
+            &:nth-child(1)
+                transform: rotate(45deg)
+                top: -1px
+
+            &:nth-child(2)
+                width: 0%
+                opacity: 0
+
+            &:nth-child(3)
+                transform: rotate(-45deg)
+                top: 12px
