@@ -7,11 +7,11 @@
 .site__content,
 .header__content
 .footer__content
-    padding: 0 7%
+    padding: 0 $spacer
     width: 100%
 
     @media $breakpoint2
-        padding: 0 15%
+        padding: 0 ($spacer * 2)
 
 .container
     max-width: 35em
@@ -34,7 +34,7 @@
     border-bottom: 1px solid rgba(255,255,255,.7)
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
-    transform: translate3d(0,-($spacer*6),0)
+    transform: translate3d(0,-($spacer*7),0)
 
     @media $breakpoint2
         transform: translate3d(0,-($spacer*5),0)

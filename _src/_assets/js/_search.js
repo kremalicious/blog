@@ -7,7 +7,7 @@ var Search = (function(w, d) {
 
     _config = {
         content       : $('.site__content'),
-        searchlink    : $('.search-btn'),
+        searchlink    : $('.search-btn, .js-search-init'),
         searcharea    : $('.search-area'),
         searchfield   : $('#search-input'),
         searchresults : $('#search-results'),
@@ -20,6 +20,8 @@ var Search = (function(w, d) {
 
             _config.searchlink.on('click', function(e) {
                 e.preventDefault();
+
+                $('[data-toggle="tooltip"]').tooltip('hide');
 
                 // show search field
                 _config.searcharea
@@ -72,7 +74,7 @@ var Search = (function(w, d) {
                 searchInput: document.getElementById('search-input'),
                 resultsContainer: document.getElementById('search-results'),
                 json: '/search.json',
-                searchResultTemplate: '<li class="grid__col"><a class="search-link" href="{url}">{title}</a></li>',
+                searchResultTemplate: '<a class="search-link" href="{url}">{title}</a>',
                 fuzzy: false
             });
         },

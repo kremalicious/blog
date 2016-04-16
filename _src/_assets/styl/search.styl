@@ -8,8 +8,8 @@
     overflow: hidden
 
     .site__content
-        transition: .2s ease-out
-        filter: blur(10px)
+        @extend .transition
+        filter: blur(10px) opacity(0.3)
         user-select: none
         pointer-events: none
 
@@ -46,50 +46,30 @@
 .search-popover
     position: absolute
     left: 0
-    top: 80px
+    top: ($spacer*2.4)
+    bottom: 0
     z-index: 6
     width: 100%
-    padding-top: ($spacer/2)
-    background: lighten($page-bg, 3%)
-    border-bottom: 1px solid rgba(255,255,255,.7)
-    box-shadow: 0 1px 4px alpha($brand-dark, .1)
-
-    @media only screen and (min-width: 40.625em) and (min-height: 650px)
-        top: 0
-
-
-.search-results
-    @extend .list-unstyled
-    display: flex
-    align-items: center
-
-
-    .grid__col
-        padding-top: 0
+    max-height: 90vh
+    padding: ($spacer / 2) 0
+    overflow: auto
+    -webkit-overflow-scrolling: touch
 
     @media $breakpoint2
-        margin-top: ($spacer/2)
-        margin-bottom: ($spacer/2)
+        top: ($spacer * 3)
 
-    > li
-        padding: 0
-        margin: 0
-
+.search-results
+    padding-bottom: $spacer
 
 .search-link
-    @extend .h6, .divider-bottom
+    @extend .h4
     line-height: $line-height-small
     margin: 0
-    padding: 10px 15px
-    min-height: 55px
+    padding: ($spacer / 2)
     display: block
-    display: flex
-    align-items: center
+    border-bottom: 1px solid alpha($brand-grey-light, .2)
+    box-shadow: 0 1px 0 alpha(#fff,.2)
 
-.search-results > li
-    &:nth-child(9)
-    &:nth-child(10)
-        .search-link
-            border-bottom: none
-            &:before
-                display: none
+    &:hover
+        background: $link-color
+        color: #fff

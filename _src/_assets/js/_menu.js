@@ -13,6 +13,8 @@ var Menu = (function(w, d) {
             _config.thelink.on('click', function(e) {
                 e.preventDefault();
 
+                $('[data-toggle="tooltip"]').tooltip('hide');
+
                 // toggle menu
                 _config.thesite.toggleClass('has-menu-open');
 
