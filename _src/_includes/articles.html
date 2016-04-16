@@ -56,7 +56,7 @@
         <section class="entry-content">
 
             {% if post.image %}
-                <a class="hentry__teaser" href="{{ post.url }}">
+                <a class="hentry__teaser hentry__teaser--link" href="{{ post.url }}">
                     {% picture {{ post.image }} %}
                 </a>
             {% endif %}

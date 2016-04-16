@@ -13,26 +13,33 @@
     margin-bottom: $spacer
 
 .related-post
+    picture
+        img
+            @extend .media-frame
 
     .post-title
-        @extend .h5
-        margin: 0
+        @extend .h5, .transition
+        margin-top: ($spacer / 3)
+        margin-bottom: 0
+        padding: 0 2px
 
-    .post-title,
     .post-title-link
         @extend .transition
-        color: $brand-grey-light
+        display: block
 
         &:hover,
         &:focus
-            color: $link-color
+            .post-title
+                color: $link-color
+            picture
+                img
+                    border-color: $link-color-hover
 
         &:active
-            color: #fff
-            transition: none
+            .post-title
+                color: #fff
+                transition: none
 
-    .post-title-link
-        display: block
 
 //
 // Related Photos
@@ -44,9 +51,11 @@
 
     .photo-link
         display: block
-        border: 2px solid transparent
+        img
+            @extend .media-frame
 
         &:hover,
         &:focus
-            border-color: $link-color-hover
-            border-radius: $border-radius-base
+            img
+                border-color: $link-color-hover
+                border-radius: $border-radius-base

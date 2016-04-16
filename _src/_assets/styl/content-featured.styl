@@ -38,6 +38,11 @@
     display: block
     position: relative
 
+    &:hover,
+    &:focus
+        img
+            border-color: $link-color
+
 .featured-title
     @extend .transition
     transition-property: transform, opacity
@@ -52,7 +57,7 @@
     font-size: $font-size-small
     padding: ($spacer/3)
     background: $link-color
-    background: alpha($link-color, .7)
+    background: alpha($link-color, .85)
     color: #fff
     text-shadow: 0 1px 0 #000
     left: 0

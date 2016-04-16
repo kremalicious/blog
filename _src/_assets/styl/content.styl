@@ -63,12 +63,17 @@
             margin-right: -16%
 
     img
-        box-shadow: 0 1px 3px rgba(0,0,0,.2)
+        @extend .media-frame
         border-radius: 0
 
         @media $breakpoint2
             border-radius: $border-radius-base
 
+.hentry__teaser--link
+    &:hover,
+    &:focus
+        img
+            border-color: $link-color
 
 // Post Content
 /////////////////////////////////////
