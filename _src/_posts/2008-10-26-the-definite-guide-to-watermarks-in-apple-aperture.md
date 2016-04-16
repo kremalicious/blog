@@ -10,6 +10,9 @@ categories:
 - photography
 tags:
 - aperture
+
+redirect_from:
+  - /2008/10/the-definite-guide-to-watermarks-in-apple-aperture/
 ---
 
 ![Aperture Watermark example](/media/watermark_aperture_thumb.jpg)
