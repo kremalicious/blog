@@ -12,6 +12,9 @@ categories:
 tags:
     - tutorial
     - wordpress
+
+redirect_from:
+    - /2009/12/wordpress-post-thumbnails/
 ---
 
 ![Wordpress Logo by kremalicious](/media/wordpress-logo.png)WordPress 2.9 added a new feature which allows you to assign an image to an article to make it the post image like it's often used in magazine style themes. This new feature along with a new template tag makes all the custom field hacks usually used for this functionality in the past obsolete. So here's a quick walkthrough to make use of the new post thumbnail feature and of course how to make it backwards compatible.
