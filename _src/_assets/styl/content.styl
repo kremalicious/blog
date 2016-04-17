@@ -56,11 +56,17 @@
     picture
         max-width: none
         display: block
-        margin: ($spacer*1.5) -8%
+        margin: ($spacer*1.5)
+        margin-left: -($spacer)
+        margin-right: -($spacer)
 
         @media $breakpoint2
-            margin-left: -16%
-            margin-right: -16%
+            margin-left: -($spacer * 2)
+            margin-right: -($spacer * 2)
+
+        @media $breakpoint3
+            margin-left: -($spacer * 4)
+            margin-right: -($spacer * 4)
 
     img
         @extend .media-frame

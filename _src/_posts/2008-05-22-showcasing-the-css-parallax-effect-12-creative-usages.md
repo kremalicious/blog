@@ -8,6 +8,8 @@ date: 2008-05-22 20:01:12+00:00
 wordpress_id: 59
 categories:
     - design
+
+tags:
     - css
 
 redirect_from:

@@ -52,7 +52,8 @@
     "gulp-uncss": "^1.0.4",
     "gulp-util": ">=3.0.6",
     "merge-stream": ">=0.1.7",
-    "run-sequence": ">=1.1.0"
+    "run-sequence": ">=1.1.0",
+    "vex-js": "^2.3.4"
   },
   "engines": {
     "node": ">=0.10.29"

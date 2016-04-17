@@ -1,0 +1,47 @@
+.actions
+    @extend .divider-top, .divider-bottom, .small
+    margin-top: ($spacer * 2)
+    padding: $spacer 0
+
+    .grid
+        margin-bottom: 0
+
+.action
+    padding-left: 32px
+
+    .icon
+        margin-right: 8px
+        margin-left: -32px
+        margin-bottom: -3px
+
+.action__title
+    font-size: $font-size-base
+    line-height: $line-height
+    margin-top: 0
+    color: $text-color
+    margin-bottom: 0
+    display: inline-block
+
+.action__text
+    display: block
+    margin-bottom: 0
+
+.donate
+    .btc
+        @extend .mini
+        display: inline-block
+        width: 80px
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+.vex-bitcoin
+    @extend .textcenter
+
+    img
+        margin-bottom: $spacer
+        width: 156px
+
+    pre
+        @extend .small
+        display: inline-block

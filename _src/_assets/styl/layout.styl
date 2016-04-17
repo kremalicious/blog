@@ -34,7 +34,7 @@
     border-bottom: 1px solid rgba(255,255,255,.7)
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
-    transform: translate3d(0,-($spacer*7),0)
+    transform: translate3d(0,-($spacer*6.5),0)
 
     @media $breakpoint2
         transform: translate3d(0,-($spacer*5),0)
@@ -43,10 +43,10 @@
         transform: translate3d(0,0,0)
 
 .site__footer
-    margin-top: -200px
+    margin-top: -($spacer*6.5)
 
     @media $breakpoint2
-        margin-top: -160px
+        margin-top: 0
 
     .has-menu-open &
         margin-top: 0
@@ -59,7 +59,7 @@
         @extend .transition
         position: relative
         z-index: 2
-        margin-bottom: 420px
+        margin-bottom: 30rem
         transform: translate3d(0,($spacer*3),0)
 
         .has-menu-open &
