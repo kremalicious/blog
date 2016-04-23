@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+
+language: ruby
+rvm:
+    - "2.2.3"
+node_js:
+    - "5.1"
+
+cache:
+  bundler: true
+  directories:
+  - node_modules
+  - bower_components
+  - _site/media/gen
+
+addons:
+  apt:
+    packages:
+    - libgsl0ldbl
+    - libgsl0-dev
+
+before_script: "_ci/setup.sh"
+script: "_ci/build.sh"
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "_ci/deploy.sh"
+  on:
+    branch: master

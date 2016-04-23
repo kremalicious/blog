@@ -16,7 +16,7 @@ group :development do
 end
 
 group :lsi do
-    gem 'gsl'
     gem 'narray'
+    gem 'gsl'
     gem 'classifier-reborn'
 end

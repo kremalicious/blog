@@ -402,7 +402,7 @@ gulp.task('deploy', function() {
         .pipe($.rename(function (path) {
             path.dirname = S3PATH + path.dirname;
         }))
-        .pipe(parallelize(publisher.publish({}, 'force'), 10))
+        .pipe(parallelize(publisher.publish(), 50))
         .pipe(publisher.sync()) // delete files in bucket that are not in local folder
         .pipe($.awspublish.reporter({
             states: ['create', 'update', 'delete']
