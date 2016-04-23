@@ -17,7 +17,6 @@ end
 
 group :lsi do
     gem 'gsl'
-    gem 'rb-gsl'
     gem 'narray'
     gem 'classifier-reborn'
 end
