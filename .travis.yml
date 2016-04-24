@@ -13,11 +13,13 @@ cache:
   - _site/media/gen
 
 addons:
+    artifacts:
+        paths:
+        - $HOME/build/kremalicious/kremalicious3/_site/media/gen
     apt:
         packages:
         - libgsl0ldbl
         - libgsl0-dev
-    artifacts: true
 
 before_install:
     - nvm install 5
@@ -34,4 +36,5 @@ deploy:
 
 
 notifications:
+    email: false
     slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
