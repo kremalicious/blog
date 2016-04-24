@@ -13,13 +13,14 @@ cache:
   - _site/media/gen
 
 addons:
-  apt:
-    packages:
-    - libgsl0ldbl
-    - libgsl0-dev
+    apt:
+        packages:
+        - libgsl0ldbl
+        - libgsl0-dev
+    artifacts: true
 
 before_install:
-    - nvm install 5.1
+    - nvm install 5
 
 before_script: "_ci/setup.sh"
 script: "_ci/build.sh"
