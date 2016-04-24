@@ -19,9 +19,10 @@
     "normalize-css": ">=2.3.1",
     "normalize-opentype.css": ">=0.2.4",
     "picturefill": ">=2.3.1",
-    "simple-jekyll-search": "^1.1.4",
+    "simple-jekyll-search": ">=1.1.4",
     "svg4everybody": ">=0.0.2",
-    "webcomponents.js": ">=0.7.1"
+    "webcomponents.js": ">=0.7.1",
+    "vex-js": ">=2.3.4"
   },
   "devDependencies": {
     "browser-sync": ">=2.10.0",
@@ -31,7 +32,7 @@
     "gulp": ">=3.8.0",
     "gulp-autoprefixer": ">=2.3.0",
     "gulp-awspublish": ">=2.0.2",
-    "gulp-awspublish-router": "^0.1.1",
+    "gulp-awspublish-router": ">=0.1.1",
     "gulp-concat": ">=2.5.2",
     "gulp-cssmin": ">=0.1.7",
     "gulp-filter": ">=2.0.2",
@@ -51,8 +52,7 @@
     "gulp-uglify": ">=1.2.0",
     "gulp-util": ">=3.0.6",
     "merge-stream": ">=0.1.7",
-    "run-sequence": ">=1.1.0",
-    "vex-js": "^2.3.4"
+    "run-sequence": ">=1.1.0"
   },
   "engines": {
     "node": ">=0.10.29"

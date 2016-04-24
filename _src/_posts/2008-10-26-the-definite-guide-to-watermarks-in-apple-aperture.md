@@ -3,6 +3,7 @@ layout: post
 
 title: The Definite Guide To Watermarks In Apple Aperture
 author: Matthias Kretschmann
+image: watermark_aperture.jpg
 
 date: 2008-10-26 16:05:58+00:00
 wordpress_id: 318
@@ -14,8 +15,6 @@ tags:
 redirect_from:
   - /2008/10/the-definite-guide-to-watermarks-in-apple-aperture/
 ---
-
-![Aperture Watermark example](/media/watermark_aperture_thumb.jpg)
 
 I received quite a few mails in the last days from Aperture users asking for the best way to add your copyright information or any other so called watermark to your images in an Aperture 2 workflow. Especially new users to Aperture find it quite confusing why there isn't something like a text brick in the Adjustments panel. So Aperture itself lacks the ability of quickly adding some lines of text to your images but nevertheless it has a watermarking feature.
 
@@ -36,7 +35,7 @@ This way is perfect if you want to watermark a lot of images at once or if your 
 
 Update 10/31/2008: Another advantage is the system wide integration of this feature. E.g. you can use Aperture's built-in watermark feature in combination with an [Automator](http://support.apple.com/kb/HT2488?locale=de_DE) workflow. Just create your export preset with a watermark enabled in Aperture. In Automator you can drag the Export Versions action from the Photo section to your workflow and chose the export preset you've created.
 
-But adding some lines of text to just one image or different text to different images can be rather complex cause you have to create lots of different watermark images and export presets. 
+But adding some lines of text to just one image or different text to different images can be rather complex cause you have to create lots of different watermark images and export presets.
 
 
 
@@ -58,7 +57,7 @@ Because of Aperture's workflow design you're always free to open up your image i
 
 Now you can just right click or ctrl + click on every image to open the context menu and choose Edit With whereas the first entry will be your external editor set in the preferences. Aperture will automatically render your image creating a new file and opens that up. Just add a new text layer in your external editor, type in your preferred text and save the file from there. Aperture will update with the changes accordingly.
 
-[![Aperture Watermark example 5](/media/watermark_5_thumb.png)](/media/watermark_5.png)
+![Aperture Watermark example 5](/media/watermark_5.png)
 
 
 
@@ -84,7 +83,7 @@ But since Aperture always creates a psd or tiff file for that you will end up wi
 
 But it has some powerful features in terms of watermarking: It can read out some IPTC fields to use the text as your copyright text, it is capable of saving presets and you can open several images at once in the plug-in window. So it works similar to Aperture's built-in watermarking feature but gives you full control over the watermark look without leaving Aperture.
 
-[![Aperture BorderFX](/media/aperture_borderfx_thumb.png)](/media/aperture_borderfx.png)
+![Aperture BorderFX](/media/aperture_borderfx.png)
 
 
 
@@ -102,16 +101,16 @@ But you can't see your changes made in the plug-in on the images in your library
 
 With the release of Aperture 2.1 and its Edit Plug-In architecture Apple also released some sample plug-ins which aren't included in Aperture (just the Dodge & Burn plug-in is). But you can easily [download it from Apple’s Developer Connection website without registration](http://developer.apple.com/samplecode/BordersAndTitles/index.html) for free.
 
-[![Borders & Titles](/media/aperture_bt_thumb.png)](/media/aperture_bt.png)
+![Borders & Titles](/media/aperture_bt.png)
 
 
 
-This is also something I've covered earlier in my blog with a short article: 
+This is also something I've covered earlier in my blog with a short article:
 [Quick Tip: Borders & Titles Plug-In for Aperture](http://www.kremalicious.com/2008/06/quick-tip-borders-titles-plug-in-for-aperture/).
 
 
 
-The functionality of this plug-in is rather rudimentary but it's indeed the quickest way if you just want to add some lines of text to one particular image. But adding the same text on several images can be very frustrating since you can't open more than one image at a time inside the plug-in window. 
+The functionality of this plug-in is rather rudimentary but it's indeed the quickest way if you just want to add some lines of text to one particular image. But adding the same text on several images can be very frustrating since you can't open more than one image at a time inside the plug-in window.
 
 As with every Edit Plug-In every time you fire up an image with this plug-in Aperture will create a psd file and after hitting save in the plug-in your changes will be rendered destructively on this psd file. So there's no way to go back here without creating a new psd file and starting again.
 
@@ -119,7 +118,7 @@ As with every Edit Plug-In every time you fire up an image with this plug-in Ape
 
 [Impression](http://www.bluecrowbar.com/software/impressionaperture/) is an Aperture Edit Plug-In from [Blue Crowbar Software](http://www.bluecrowbar.com) released in Sept. 2009. The developer claims it's mainly targeted for those people who want to have a copy of their watermarked image within Aperture. Also there's a nice blog post by the developer lining out [why he thinks this plug-in beats Aperture's builtin watermarks.](http://www.bluecrowbar.com/blog/posts/impression-for-aperture.html)
 
-[![Impression Watermark Plug-In](/media/aperture-impression-thumb.png)](/media/aperture-impression.png)
+![Impression Watermark Plug-In](/media/aperture-impression.png)
 
 This plug-in is pretty powerful and probably the best choice for watermarking your images in Aperture through an Edit Plug-In workflow. Watermarking multiple photos at once is also possible and you can use existing PSD or PNG images as a watermark image as well as from a RTF text file. Apart from the functionality it also has a quite beautiful UI with the controls laying over your image.
 
@@ -130,7 +129,7 @@ So you see there are quite a few possibilities for adding watermarks in your Ape
 
 And, except for the export plug-ins, you will leave a non-destructive workflow since all your changes to the image are rendered in a psd or tiff file and any further adjustments in Aperture will also affect your watermark. Also there's no way of going back with these solutions without creating a new psd file.
 
-So to stay within a non-destructive workflow and to avoid unnecessary big file sizes you should try to use either [Aperture's built-in watermarking feature](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) or [Reinhard's BorderFX plug-in](http://web.mac.com/reinharduebel/BorderFX/) in your workflow. 
+So to stay within a non-destructive workflow and to avoid unnecessary big file sizes you should try to use either [Aperture's built-in watermarking feature](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) or [Reinhard's BorderFX plug-in](http://web.mac.com/reinharduebel/BorderFX/) in your workflow.
 
 But if you want e.g. different text on just a few images and want to have your watermarked image within Aperture you should try using the Edit plug-ins or your external editor. Also if you don't care about big file sizes for rather minor changes you can use the Edit plug-ins for watermarking although you'll slightly leave Aperture's non-destructive workflow design  with this. This by the way is the case with all the Edit plug-ins. But that's another story...
 
