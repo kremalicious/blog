@@ -11,5 +11,5 @@ gulp deploy
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"
-echo "         ✓ done rsync deployment "
+echo "         ✓ done S3 deployment "
 echo "$(tput sgr0)" # reset

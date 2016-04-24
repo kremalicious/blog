@@ -8,14 +8,14 @@ rvm:
 cache:
   bundler: true
   directories:
-  - node_modules
-  - bower_components
-  - _site/media/gen
+  - $TRAVIS_BUILD_DIR/node_modules
+  - $TRAVIS_BUILD_DIR/bower_components
+  - $TRAVIS_BUILD_DIR/_site/media/gen
 
 addons:
     artifacts:
         paths:
-        - $HOME/build/kremalicious/kremalicious3/_site/media/gen
+        - $TRAVIS_BUILD_DIR/_site/media/gen
     apt:
         packages:
         - libgsl0ldbl

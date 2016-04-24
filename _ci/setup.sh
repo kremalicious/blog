@@ -10,7 +10,9 @@ echo "$(tput sgr0)" # reset
 npm install gulp bower -g
 npm install
 bower install
-bundle install
+
+# Travis does that automatically after selecting ruby
+#bundle install
 
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"
