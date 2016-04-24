@@ -3,9 +3,7 @@ dist: trusty
 
 language: ruby
 rvm:
-    - "2.2.3"
-node_js:
-    - "5.1"
+    - 2.2.3
 
 cache:
   bundler: true
@@ -20,6 +18,9 @@ addons:
     - libgsl0ldbl
     - libgsl0-dev
 
+before_install:
+    - nvm install 5.1
+
 before_script: "_ci/setup.sh"
 script: "_ci/build.sh"
 
@@ -29,3 +30,7 @@ deploy:
   script: "_ci/deploy.sh"
   on:
     branch: master
+
+
+notifications:
+    slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
