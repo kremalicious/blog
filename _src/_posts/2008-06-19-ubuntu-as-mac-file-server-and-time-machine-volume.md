@@ -4,6 +4,7 @@ layout: post
 slug: ubuntu-as-mac-file-server-and-time-machine-volume
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
 author: Matthias Kretschmann
+image: ubuntu_mac_feature.jpg
 
 date: 2008-06-19 03:08:11+00:00
 updated: 2009-01-19 03:08:11+00:00
@@ -20,7 +21,7 @@ redirect_from:
     - 2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
 ---
 
-![Ubuntu Mac File Server Connectivity](/media/ubuntu_mac_feature_thumb.jpg)For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
+For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
 
 So here's my little Tutorial for connecting Mac OS X Leopard with Ubuntu and using your Ubuntu machine as a backup volume for Time Machine but all steps can be reproduced on every Linux box and they work with Mac OS X 10.4 Tiger too. At the end of this tutorial you will have a server which shows up in the Finder sidebar and behaves just like a Mac server when accessing it from your Macs. To be perfectly integrated with Mac OS X we're going to use [Apple's Filing Protocol (AFP)](http://en.wikipedia.org/wiki/Apple_Filing_Protocol) for network and file sharing.
 
@@ -73,7 +74,7 @@ sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot
 
 Depending on your hardware this may take a while but you can enjoy the geeky build output in your Terminal:
 
-[![Building Netatalk](/media/ubuntuserver2.png)](/media/ubuntuserver2.png)
+![Building Netatalk](/media/ubuntuserver2.png)
 
 If everything went through without errors (except the signing warnings, can be ignored) you can install the recently created package:
 

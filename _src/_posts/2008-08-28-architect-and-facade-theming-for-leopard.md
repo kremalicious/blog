@@ -17,7 +17,7 @@ tags:
 
 Head over to [the Screencast](http://www.slightlypretentious.com/) and see Architect and its UI in action.
 
-[![Architect UI](/media/architect-ui_thumb.png)](/media/architect-ui.png)
+![Architect UI](/media/architect-ui.png)
 
 While Architect will help you customizing Leopards UI and building themes out of your modifications, Façade ([Laurent's icon of it](http://www.flickr.com/photos/avetenebrae/2665823420/in/photostream/)) will help you switch (and manage?) the themes. But currently there's no word on the [SlightlyPretentious](http://www.slightlypretentious.com/) website about this application.
 

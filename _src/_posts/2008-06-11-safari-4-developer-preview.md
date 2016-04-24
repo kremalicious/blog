@@ -1,8 +1,7 @@
 ---
 layout: post
 
-title: Safari 4 Developer Preview - Better Performance, Overhauled Web Inspector,
-  New CSS
+title: 'Safari 4 Developer Preview - Better Performance, Overhauled Web Inspector, New CSS'
 author: Matthias Kretschmann
 
 date: 2008-06-11 10:37:07+00:00
@@ -22,7 +21,7 @@ The Navigation inside the Web Inspector is now moved from left to the top and th
 
 The "Resources" section got a slight overhaul too. With it you can see in which time the elements on your website were loaded with a nice graphical timeline.
 
-[![Web Inspector](/media/webinspector_2_thumb.png)](/media/webinspector_2.png)
+![Web Inspector](/media/webinspector_2.png)
 
 Among the visible new features in the Safari 4 Developer Preview is the ability to save websites as desktop applications or site-specific browsers (SSB) called Web Applications (File > Save as Web Application) and some more options for new windows or tabs in the General Preferences:
 
@@ -30,7 +29,7 @@ Among the visible new features in the Safari 4 Developer Preview is the ability 
 
 In terms of web standards and performance the Safari 4 Developer Preview passes the [Acid3 performance test](http://acid3.acidtests.org/) with 100/100 and is way more faster at rendering web pages.
 
-Finally there seem to be a new css version implemented since Safari 4 now renders [this complicated text-shadow property described in a recent blog article (5.5 Multiple Shadows)](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) correct. Beside that the text-rendering is a lot different causing the [light on dark text-shadow hack](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) not to work on my website in Safari 4. Guess this is because all anti-alias rendering of text was replaced by sub-pixel rendering.
+Finally there seem to be a new css version implemented since Safari 4 now renders [this complicated text-shadow property described in a recent blog article (5.5 Multiple Shadows)](/make-cool-and-clever-text-effects-with-css-text-shadow/) correct. Beside that the text-rendering is a lot different causing the [light on dark text-shadow hack](/make-cool-and-clever-text-effects-with-css-text-shadow/) not to work on my website in Safari 4. Guess this is because all anti-alias rendering of text was replaced by sub-pixel rendering.
 
 **update 06/11/2008:**Beside some more CSS3 stuff Safari 4 now includes all the cool recently announced WebKit features like [CSS gradients](http://webkit.org/blog/175/introducing-css-gradients/), [CSS masks](http://webkit.org/blog/181/css-masks/), [CSS reflection](http://webkit.org/blog/182/css-reflections/), [CSS transform](http://webkit.org/blog/130/css-transforms/) and [CSS animation](http://webkit.org/blog/138/css-animation/) too. (Did I miss something?)
 

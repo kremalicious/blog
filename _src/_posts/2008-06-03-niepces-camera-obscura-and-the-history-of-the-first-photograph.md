@@ -35,7 +35,7 @@ There's a fascinating story behind these icons which is nothing more than the st
 ## Nicéphore Niépce and The First Photograph
 
 
-[![Nicéphore Niépce, ca. 1795](/media/nicephore-niepce.jpg)](/media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
+![Nicéphore Niépce, ca. 1795](/media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
 
 Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
@@ -94,7 +94,7 @@ Brief description of Daguerres role in the invention of photography process by T
 
 # Download and enjoy
 
-This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](http://www.kremalicious.com/goodies/) or directly via this link:
+This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](/goodies/) or directly via this link:
 
 <p class="content-download">
     <a class="btn icon-download" href="/media/niepces_camera_obscura_by_kremalicious.zip">Download</a>
@@ -112,7 +112,7 @@ To replace the icon of either an application, file or folder on Mac OS X simply 
 
 # Legal
 
-These desktop icons are free for you personal and non-commercial use. All other usage of this copyrighted material [require my written permission](http://www.kremalicious.com/about/contact/).
+These desktop icons are free for you personal and non-commercial use. All other usage of this copyrighted material [require my written permission](/about/).
 
 # Final Words
 
