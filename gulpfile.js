@@ -170,7 +170,7 @@ gulp.task('css', function() {
             SRC + '/_assets/styl/kremalicious3.styl',
             SRC + '/_assets/styl/post-*.styl'
         ])
-        .pipe($.sourcemaps.init())
+        .pipe($.if(!isProduction, $.sourcemaps.init()))
         .pipe($.stylus({ 'include css': true })).on('error', onError)
         .pipe($.autoprefixer({ browsers: COMPATIBILITY }))
         .pipe($.if(isProduction, $.cssmin()))
@@ -335,7 +335,6 @@ gulp.task('build', function(done) {
         'clean',
         'jekyll',
         ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
-        //'uncss',
         'rev',
         'rev:replace',
         done
