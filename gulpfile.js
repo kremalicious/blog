@@ -178,6 +178,7 @@ gulp.task('css', function() {
         .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
         .pipe($.rename({ suffix: '.min' }))
         .pipe(gulp.dest(DIST + '/assets/css/'))
+        .pipe(browser.stream())
 });
 
 
@@ -313,7 +314,7 @@ gulp.task('server', ['build'], function() {
 // Build site, run server, and watch for file changes
 //
 gulp.task('default', ['build', 'server'], function() {
-    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css', browser.reload]);
+    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css']);
     gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload]);
     gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload]);
     gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload]);

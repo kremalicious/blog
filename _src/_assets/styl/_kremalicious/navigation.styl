@@ -75,25 +75,30 @@
 /////////////////////////////////////
 
 .paginator
+    @extend .textcenter
     padding-top: ($spacer*2)
     padding-bottom: ($spacer*2)
 
     .icon
-        margin-bottom: -3px
-    p
-        margin-bottom: 0;
+        margin-bottom: -5px
 
-.paginator-next
-    text-align: right
+.paginator__link
+    width: 2rem
+    height: 2rem
+    line-height: 1.7
+    display: inline-block
+    border-radius: 50%
 
-.paginator-pages
-    @extend .textcenter, .dimmed
-    font-size: $font-size-small
+    &:hover,
+    &:focus
+        background: rgba(255,255,255,.3)
 
-.paginator-number
-    font-size: $font-size-base
-    color: $text-color-light
-    padding: 0 2px
+    &.active
+        color: $text-color-dimmed
+        cursor: default
+        pointer-events: none
+        background: rgba(255,255,255,.3)
 
 .paginator-title
     @extend .page-title
+    margin-top: -($spacer*2)

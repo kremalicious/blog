@@ -1,52 +1,43 @@
+
 {% if paginator.total_pages > 1 %}
 
-    <nav class="paginator grid">
-
-        <p class="paginator-previous grid__col">
-            {% if paginator.previous_page %}
-            <a
-                {% if page.category %}
-                    {% if paginator.previous_page == 1 %}
-                        href="/{{ page.category }}/"
-                    {% else %}
-                        href="/{{ page.category }}/page/{{ paginator.previous_page }}/"
-                    {% endif %}
+    <nav class="paginator">
+        {% if paginator.previous_page %}
+            <a class="paginator__link"
+                {% if paginator.previous_page == 1 %}
+                    href="/">
                 {% else %}
-                    {% if paginator.previous_page == 1 %}
-                        href="/"
-                    {% else %}
-                        href="/page/{{ paginator.previous_page }}/"
-                    {% endif %}
+                    href="/page/{{paginator.previous_page}}">
                 {% endif %}
-                rel="prev">
                 <svg class="icon icon-entypo icon-entypo-chevron-left">
                     <use xlink:href="/assets/img/sprite.svg#entypo-chevron-left"></use>
                 </svg>
-                 Previous
             </a>
+        {% endif %}
+
+        <a
+            {% if paginator.page == 1 %}
+                href="#" class="paginator__link active"
+            {% else %}
+                href="/" class="paginator__link"
             {% endif %}
-        </p>
+            >1</a>
 
-        <p class="paginator-pages grid__col">
-            <span class="paginator-number">{{ paginator.page }}</span> of <span class="paginator-number">{{ paginator.total_pages }}</span>
-        </p>
+        {% for count in (2..paginator.total_pages) %}
+          {% if count == paginator.page %}
+              <a href="#" class="paginator__link active">{{count}}</a>
+          {% else %}
+              <a class="paginator__link" href="/page/{{count}}">{{count}}</a>
+          {% endif %}
+        {% endfor %}
 
-        <p class="paginator-next grid__col">
-            {% if paginator.next_page %}
-            <a
-                {% if page.category %}
-                    href="/{{ page.category }}/page/{{ paginator.next_page }}/"
-                {% else %}
-                    href="/page/{{ paginator.next_page }}/"
-                {% endif %}
-                rel="next">Next
+        {% if paginator.next_page %}
+            <a class="paginator__link" href="/page/{{paginator.next_page}}">
                 <svg class="icon icon-entypo icon-entypo-chevron-right">
                     <use xlink:href="/assets/img/sprite.svg#entypo-chevron-right"></use>
                 </svg>
             </a>
-            {% endif %}
-        </p>
-
+        {% endif %}
     </nav>
 
 {% endif %}
