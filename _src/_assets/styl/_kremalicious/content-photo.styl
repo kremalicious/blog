@@ -22,26 +22,25 @@
             margin-bottom: 0
 
         figcaption
-            @extend .transition
+            @extend .transition, .h4
             transition-property: transform, opacity
             position: absolute
             min-width: 45%
             text-align: right
-            font-family: $headings-font-family
-            font-weight: $headings-font-weight
-            font-style: normal
-            font-size: $font-size-small
             padding: ($spacer/3)
             background: $link-color
             background: alpha($link-color, .7)
             color: #fff
             text-shadow: 0 1px 0 #000
 
-            left: -8%
+            left: -($spacer)
             top: $spacer
 
             @media $breakpoint2
-                left: -16%
+                left: -($spacer * 2)
+
+            @media $breakpoint3
+                left: -($spacer * 4)
 
             opacity: 0
             transform: translate3d(0, -20px, 0)
