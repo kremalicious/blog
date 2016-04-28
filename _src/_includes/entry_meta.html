@@ -1,5 +1,5 @@
 <footer class="entry-meta">
-	
+
 	<p class="byline author vcard source-org">
         <span class="by">by</span> <a class="fn" rel="author" href="/about/">
 			{% if page.author %}
@@ -11,9 +11,9 @@
     </p>
 
 	<p class="time">
-		<time is="time-ago" class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | date_to_string }}</time>
+		<time-ago class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | date_to_string }}</time-ago>
 	    {% if page.updated %}
-		<br>updated <time is="time-ago" class="updated" datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date_to_string }}</time>
+		<br>updated <time-ago class="updated" datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date_to_string }}</time-ago>
 	    {% endif %}
 	</p>
 
