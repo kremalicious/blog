@@ -1,0 +1,10 @@
+---
+layout: null
+---
+[
+    {
+        "name"         : "{{ site.name }}",
+        "description"  : "{{ site.description | xml_escape }}",
+        "url"          : "{{ site.url }}"
+    }
+]

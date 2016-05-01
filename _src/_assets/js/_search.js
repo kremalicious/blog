@@ -73,7 +73,7 @@ var Search = (function(w, d) {
             SimpleJekyllSearch({
                 searchInput: document.getElementById('search-input'),
                 resultsContainer: document.getElementById('search-results'),
-                json: '/search.json',
+                json: '/api/search.json',
                 searchResultTemplate: '<a class="search-link" href="{url}">{title}</a>',
                 fuzzy: false
             });

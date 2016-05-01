@@ -5,11 +5,13 @@ layout: null
     {% for post in site.posts %}
         {
           "title"     : "{{ post.title | strip_html | strip_newlines | titlecase }}",
+          "excerpt"   : "{{ post.excerpt | strip_html | strip_newlines }}",
           "category"  : "{{ post.categories | join: ', ' }}",
           "tag"       : "{{ post.tags | join: ', ' }}",
           "url"       : "{{ site.url }}{{ post.url }}",
           "date"      : "{{ post.date }}",
-          "content"   : "{{ post.content | strip_html | strip_newlines | escape }}"
+          "image"     : "{{ post.image }}",
+          "content"   : "{{ post.content | strip_html | strip_newlines | xml_escape }}"
         } {% unless forloop.last %},{% endunless %}
     {% endfor %}
 ]
