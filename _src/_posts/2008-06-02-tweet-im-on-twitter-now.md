@@ -8,6 +8,8 @@ date: 2008-06-02 18:26:37+00:00
 wordpress_id: 65
 categories:
 - personal
+tags:
+- twitter
 ---
 
 ![Twitter](/media/twitter.png)In a heavy venturesome step of unreasonable Web 2.0 love I've decided to get me on Twitter and [opened up an account](https://twitter.com/kremalicious).

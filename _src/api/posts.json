@@ -16,7 +16,8 @@ layout: null
           "layout"    : "{{ post.layout }}",
           "id"        : "{{ post.id }}",
           "path"      : "{{ post.path }}",
-          "download"  : "{{ post.download }}"
+          "download"  : "{{ post.download }}",
+          "linkurl"   : "{{ post.linkurl }}"
         } {% unless forloop.last %},{% endunless %}
     {% endfor %}
 ]

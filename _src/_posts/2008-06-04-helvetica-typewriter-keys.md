@@ -10,8 +10,7 @@ date: 2008-06-04 11:41:01+00:00
 wordpress_id: 1976
 categories:
 - photos
-post_format:
-- Image
+tags: typography
 ---
 
 [Photo on 500px](http://500px.com/photo/5630073) [Photo on flickr](http://www.flickr.com/photos/krema/6965165687)

@@ -7,6 +7,8 @@ author: Matthias Kretschmann
 date: 2008-05-08 15:47:48+00:00
 wordpress_id: 51
 category: design
+tags:
+- icon
 ---
 
 [![Indiana Jones Iconset by Iconfactory](/media/indianajones_first.png)](http://iconfactory.com/indianajones/)If you enjoyed the Indiana Jones movies than this first of four desktop icon sets is a must have for you. Icon Designer [Anthony Piraino](http://onebuttonmouse.com/) crafted some beautiful items from Indiana Jones and The Raiders of the Lost Ark movie.

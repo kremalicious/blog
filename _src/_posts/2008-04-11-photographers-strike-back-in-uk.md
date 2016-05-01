@@ -9,8 +9,6 @@ date: 2008-04-11 14:16:51+00:00
 wordpress_id: 36
 categories:
 - photography
-post_format:
-- Link
 ---
 
 [![London police afraid of photographers](/media/londonpolice.jpg)](/media/londonpolice.jpg)Remember [the campaign of the London police](http://www.kremalicious.com/2008/04/london-police-afraid-of-photographers/) calling all people to regard photographers as potential terrorists?
