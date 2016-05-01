@@ -9,8 +9,6 @@ date: 2008-04-04 18:43:05+00:00
 wordpress_id: 24
 categories:
 - design
-post_format:
-- Link
 ---
 
 An awesome creative idea for a blog post about Web-Design from Joshua Clanton:

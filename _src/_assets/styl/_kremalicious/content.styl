@@ -11,7 +11,7 @@
 .page-title
     @extend .h2, .heading-band
     color: $brand-grey-light
-    margin-top: $spacer
+    margin-top: -($spacer*2)
     margin-bottom: $spacer
 
     .hash
@@ -25,13 +25,15 @@
     padding-bottom: ($spacer*2)
     width: 100%
 
+    &:first-child
+        padding-top: 0
+
     @media $breakpoint2
         padding-top: ($spacer*3)
         padding-bottom: ($spacer*3)
 
     .page-single &
         border: none
-        padding-top: 0
 
         &:before
             @extend .hide

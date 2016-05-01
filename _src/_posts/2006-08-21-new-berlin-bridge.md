@@ -9,8 +9,6 @@ date: 2006-08-21 11:22:34+00:00
 wordpress_id: 1958
 categories:
 - photos
-post_format:
-- Image
 ---
 
 ... in Halle (Saale)

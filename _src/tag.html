@@ -1,0 +1,24 @@
+---
+layout: base
+
+title: tags
+---
+
+<section role="main" id="main" class="page-single">
+
+    <article class="hentry">
+        <h1 class="page-title">Tags</h1>
+
+        <section class="tagcloud">
+            {% for tag in site.tags %}
+                <span style="font-size: {{ tag | last | size | times: 500 | divided_by: site.tags.size | plus: 70 }}%">
+                    <a class="tagcloud__tag" href="/{{ tag | first | slugize }}/">
+                        {{ tag | first }}
+                    </a>
+                </span>
+            {% endfor %}
+        </section>
+
+    </article>
+
+</section>

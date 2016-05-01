@@ -9,8 +9,6 @@ date: 2006-07-23 11:32:14+00:00
 wordpress_id: 1964
 categories:
 - photos
-post_format:
-- Image
 ---
 
 Combining of a lot of techniques: a long exposured HDR (3 bracketed shots) processed in Photomatix and finally polished in Photoshop.
