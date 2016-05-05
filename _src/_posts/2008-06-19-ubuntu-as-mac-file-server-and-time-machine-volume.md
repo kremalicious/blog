@@ -57,7 +57,7 @@ Alessandro has built [a nice .deb package for i386 machines](http://dl.getdropbo
 
 Now fire up your Terminal under Applications > Accessories and execute the following lines (separately). You have to type Y for yes when Terminal asks you if it should continue:
 
-``` bash
+```shell
 sudo apt-get build-dep netatalk
 sudo apt-get install cracklib2-dev fakeroot libssl-dev
 sudo apt-get source netatalk
@@ -68,7 +68,7 @@ Now you have downloaded the source code of Netatalk to your home folder, install
 
 Next you have to build the Netatalk package with the encryption option enabled:
 
-``` bash
+```shell
 sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot
 ```
 
@@ -79,13 +79,13 @@ Depending on your hardware this may take a while but you can enjoy the geeky bui
 If everything went through without errors (except the signing warnings, can be ignored) you can install the recently created package:
 
 
-``` bash
+```shell
 sudo dpkg -i ~/netatalk_2*.deb
 ```
 
 To stop Ubuntu from overwriting your custom Netatalk package you should set its state to hold. This will cause the Netatalk package being grayed out in the Software Update dialogue:
 
-``` bash
+```shell
 echo "netatalk hold" | sudo dpkg --set-selections
 ```
 
@@ -93,13 +93,13 @@ Now you have successfully build and installed your custom Netatalk package which
 
 # 2. Configure Netatalk
 
-![Netatalk icon](/media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor gedit for stopping unneeded services:
+![Netatalk icon](/media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor vi for stopping unneeded services:
 
-``` bash
-sudo gedit /etc/default/netatalk
+```shell
+sudo vi /etc/default/netatalk
 ```
 
-gedit should pop up with the defined file loaded as superuser (needed for saving). Find the "#Set which daemons to run" part and replace the default values with these to enable just AFP and disable all unneeded services. Let the cnid_meta daemon run too and if you want to [share your Linux connected printer with your Mac](http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-netatalk-to-share-a-usb-printer/) also enable the pap daemon (set to yes):
+vim should pop up with the defined file loaded as superuser (needed for saving). Find the "#Set which daemons to run" part and replace the default values with these to enable just AFP and disable all unneeded services. Let the cnid_meta daemon run too and if you want to [share your Linux connected printer with your Mac](http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-netatalk-to-share-a-usb-printer/) also enable the pap daemon (set to yes):
 
 ```
 ATALKD_RUN=no
@@ -114,8 +114,8 @@ Here it's very important to run the cnid_meta daemon because this service will h
 
 Press Ctrl + S to save the document or choose File > Save. Next we have to edit the main config file for AFP sharing called afpd.conf:
 
-``` bash
-sudo gedit /etc/netatalk/afpd.conf
+```shell
+sudo vi /etc/netatalk/afpd.conf
 ```
 
 Scroll to the very bottom of the document and add this to the bottom (replace the whole line in case there's already one). This is one line so be sure that there's no line break in your afpd.conf file:
@@ -128,10 +128,10 @@ Press Ctrl + S to save the document or choose File > Save.
 
 # 3. Configure shared Volumes
 
-![Time Machine Volume icon](/media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in the gedit editor with superuser privileges (required for saving) where we can define our shared volumes:
+![Time Machine Volume icon](/media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in vim with superuser privileges (required for saving) where we can define our shared volumes:
 
-``` bash
-sudo gedit /etc/netatalk/AppleVolumes.default
+```shell
+sudo vi /etc/netatalk/AppleVolumes.default
 ```
 
 Scroll to the bottom of the document and define your Volume shares. By adding the following line you will share each users home directory with the user name as the Volume name. To make things more secure you can define all users who are allowed to connect to your Ubuntu box via AFP:
@@ -158,7 +158,7 @@ Press Ctrl + S to save the document or choose File > Save. Of course you can def
 
 Finally restart Netatalk to activate the changes:
 
-``` bash
+```shell
 sudo /etc/init.d/netatalk restart
 ```
 
@@ -169,15 +169,15 @@ Although we now have a fully configured AFP file server it will not show up in t
 
 ![Bonjour icon](/media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
 
-``` bash
+```shell
 sudo apt-get install avahi-daemon
 sudo apt-get install libnss-mdns
 ```
 
 To make everything work properly you have to edit the nsswitch.conf file:
 
-``` bash
-sudo gedit /etc/nsswitch.conf
+```shell
+sudo vi /etc/nsswitch.conf
 ```
 
 Just add "mdns" at the end of the line that starts with "hosts:". Now the line should look like this:
@@ -192,13 +192,13 @@ Press Ctrl + S to save the document or choose File > Save.
 
 ![Bonjour icon](/media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
 
-```bash
-sudo gedit /etc/avahi/services/afpd.service
+```shell
+sudo vi /etc/avahi/services/afpd.service
 ```
 
-A blank document should open in gedit. Now paste the following into the document and save the file by pressing Ctrl + S or by choosing File > Save:
+A blank document should open in vim. Now paste the following into the document and save the file by pressing Ctrl + S or by choosing File > Save:
 
-``` xml
+```xml
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
@@ -219,7 +219,7 @@ update: The last part is used to assign a specific (Apple) hardware model to you
 
 Finally restart the avahi daemon to activate all changes:
 
-``` bash
+```shell
 sudo /etc/init.d/avahi-daemon restart
 ```
 
@@ -241,7 +241,7 @@ update: If you've followed the revised version of this article your Linux box sh
 
 ![Time Machine icon](/media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
 
-``` bash
+```shell
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
 ```
 
@@ -267,13 +267,13 @@ Finally the only problem remaining is that your Ubuntu or Linux box isn't format
 
 ## Problems with creating the backup disk image
 
-If time Machine says "The backup disk image could not be created" during the first backup attempt you can do the following to avoid this problem and some others (backup fail due to permissions):
+If Time Machine says "The backup disk image could not be created" during the first backup attempt you can do the following to avoid this problem and some others (backup fail due to permissions):
 
 In short, you have to create the backup disk image on your Desktop and copy it to your mounted Time Machine volume. But Time Machine creates a unique filename for the disk image and we can find out this name with a little trick:
 
 First open up the Console from your Applications > Utilities folder and open the Time Machine preferences. In Time Machine preferences set your backup volume back to none. After that reselect your mounted Time Machine volume. The counter should start and Time Machine's big button will change to on. When the backup tries to start and fail have a look at your Console (Click All Messages in the sidepane). There should be a line telling you the name of the disk image:
 
-``` bash
+```shell
 Creating disk image /Volumes/TimeMachine/computername_0014e3856bd0.sparsebundle
 ```
 
@@ -315,8 +315,8 @@ Remember that this error can be caused by a myriad of problems and just a lot of
 
 If you still can't connect to your Ubuntu box you can edit your /etc/hosts file as [I've pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-417):
 
-``` bash
-sudo gedit /etc/hosts
+```shell
+sudo vi /etc/hosts
 ```
 
 Add the following two lines at the very top of the file.
@@ -338,7 +338,7 @@ But for those people still having problems with these error messages: On Mac OS 
 
 Some people have problems when connecting to an AFP share and get a -5014 error. [As J5 pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-5021) you have to delete the hidden .AppleDB folders on your Ubuntu box and restart netatalk afterwards:
 
-``` bash
+```shell
 sudo /etc/init.d/netatalk restart
 ```
 
@@ -346,13 +346,13 @@ sudo /etc/init.d/netatalk restart
 
 In case of a full system restore you would have to boot your Mac from the Mac OS X installation DVD (the one delivered with your Mac) by pressing the c key during boot. Your Mac will start with a minimal UI where you have a Utilities section in the top menu bar. There you'll find "Restore from a Time Machine Backup" but it won't find your network share with your Time Machine backup. Luckily [Dmitry Nedospasov found a way to manage this](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/) by simply mounting your Time Machine network share with the Terminal (which you can find under Utilities in the menu bar too) by utilizing the following syntax (shamelessly copied from [Dmitry](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/)):
 
-``` bash
+```shell
 mount -t afp afp://username:password@hostname/ShareName /Volumes/ShareMount
 ```
 
 Replace everything instead of /Volumes with your matching names. You can test if your network share was properly mounted by doing
 
-``` bash
+```shell
 ls /Volumes
 ```
 

@@ -191,9 +191,10 @@ list-unstyled()
 .list-unstyled
     list-unstyled()
 
-nav ul,
-nav ol
-    @extend .list-unstyled
+nav
+    ul,
+    ol
+        @extend .list-unstyled
 
 // Inline turns list items into inline-block
 .list-inline
@@ -224,12 +225,11 @@ em,
 .italic
     font-style: italic
 
-cite
-    font-style: normal
-
 hr
     @extend .divider-bottom
-    border: 0
+    border-top: 0
+    border-left: 0
+    border-right: 0
     margin-bottom: ($spacer*2)
 
 .small
@@ -238,8 +238,31 @@ hr
 .mini
     font-size: $font-size-mini
 
+abbr[title],
+dfn
+    text-transform: none
+    font-style: normal
+    font-size: inherit
+    border-bottom: 1px dashed $text-color-dimmed
+    cursor: help
+    font-feature-settings: inherit
+
+mark
+    background: #FFFAAB
+    color: $text-color
+
+sup
+    @extend .small
+
 // Quotes
 /////////////////////////////////////
+
+q
+    @extend .italic
+
+cite
+    font-style: normal
+    text-transform: uppercase
 
 blockquote,
 blockquote > p
@@ -275,6 +298,7 @@ blockquote
 
     p:last-child
         margin-bottom: 0
+
 
 
 // Selection

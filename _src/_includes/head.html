@@ -58,6 +58,11 @@
         <link rel="stylesheet" href="/assets/css/{{ page.style }}">
     {% endif %}
 
+    <!-- Prevent search indexing for some pages -->
+    {% if page.sitemap == false %}
+    <meta name="robots" content="noindex,nofollow">
+    {% endif %}
+
     <!--
         TypeKit
         Improved snippet from https://blog.5apps.com/2014/02/21/using-typekit-the-right-way-with-an-improved-loading-script.html

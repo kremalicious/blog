@@ -40,7 +40,7 @@ future:                 false
 markdown:               redcarpet
 
 redcarpet:
-    extensions:         ['autolink', 'smart', 'hard_wrap']
+    extensions:         ['autolink', 'tables', 'smart', 'hard_wrap', 'fenced_code_blocks', 'strikethrough', 'highlight', 'quote', 'footnotes', 'with_toc_data', 'space_after_headers', 'superscript']
 
 
 # Generator
@@ -60,7 +60,7 @@ gems:
     - jekyll-picture-tag
     - jekyll-paginate
     - jekyll-archives
-    
+
 
 # jekyll-archives
 # --------------------

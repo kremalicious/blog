@@ -31,13 +31,13 @@ Contrary to the weirdly outdated [install instructions on Tor's website](https:/
 
 In your Terminal execute:
 
-```bash
+```shell
 brew install tor
 ```
 
 Then you can start it up by running:
 
-```bash
+```shell
 tor
 ```
 
@@ -91,7 +91,7 @@ sudo networksetup -setsocksfirewallproxystate $INTERFACE off
 
 Save this script under something like `tor.sh` in one of your sourced `bin` folders and use it as a replacement for the general `tor` command. So you can just run
 
-```bash
+```shell
 tor.sh
 ```
 
