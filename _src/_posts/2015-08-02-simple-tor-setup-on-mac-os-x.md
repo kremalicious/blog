@@ -5,6 +5,7 @@ title: Simple Tor setup on Mac OS X
 image: teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
+updated: 2016-05-15 18:26:46+02:00
 
 category:
 tags:
@@ -43,7 +44,7 @@ tor
 
 Congratulations, you now have Tor running on your system. But none of your network traffic is routed through it yet.
 
-In order for all your system traffic being routed through Tor you need to adjust your system's network proxy settings whih you can either do visually in the System Preferences or programmatically via OS X's builtin `networksetup`.
+In order for all your system traffic being routed through Tor you need to adjust your system's network proxy settings which you can either do visually in the System Preferences or programmatically via OS X's builtin `networksetup`.
 
 ## Set network proxy settings via System Preferences
 
@@ -82,14 +83,30 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# trap ctrl-c and call disable_proxy()
+function disable_proxy() {
+    sudo networksetup -setsocksfirewallproxystate $INTERFACE off
+    echo "$(tput setaf 64)" #green
+    echo "SOCKS proxy disabled."
+    echo "$(tput sgr0)" # color reset
+}
+trap disable_proxy INT
+
 # Let's roll
 sudo networksetup -setsocksfirewallproxy $INTERFACE 127.0.0.1 9050 off
 sudo networksetup -setsocksfirewallproxystate $INTERFACE on
+
+echo "$(tput setaf 64)" # green
+echo "SOCKS proxy 127.0.0.1:9050 enabled."
+echo "$(tput setaf 136)" # orange
+echo "Starting Tor..."
+echo "$(tput sgr0)" # color reset
+
 tor
-sudo networksetup -setsocksfirewallproxystate $INTERFACE off
+
 ```
 
-Save this script under something like `tor.sh` in one of your sourced `bin` folders and use it as a replacement for the general `tor` command. So you can just run
+Save this script under something like `tor.sh` in one of your sourced `bin` folders, make it executable with `chmod + x` and use it as a replacement for the general `tor` command. So you can just run
 
 ```shell
 tor.sh
