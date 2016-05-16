@@ -254,6 +254,10 @@ mark
 sup
     @extend .small
 
+.text-dimmed
+    color: $text-color-light
+
+
 // Quotes
 /////////////////////////////////////
 
@@ -266,8 +270,7 @@ cite
 
 blockquote,
 blockquote > p
-    @extend .italic
-    color: lighten($text-color, 15%)
+    @extend .italic, .text-dimmed
 
 blockquote
     padding-left: 25px

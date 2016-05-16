@@ -7,6 +7,26 @@ sitemap: false
 
 The main page title of this guide is an `h1` element.
 
+## Colors
+
+<div class="colors grid grid--gutters grid--full grid-small--third">
+    {% for color in site.data.colors %}
+    <div class="color grid__col">
+        <div class="color__swatch {{ color.name }}"></div>
+        <span class="color__name">${{ color.name }}</span>
+        <span class="color__hex">#{{ color.hex }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+## Typography
+
+<div class="fonts">
+    <p class="font__name font__name--brandon">Brandon Grotesque</p>
+    <p class="font__name font__name--fftisa">FF Tisa Sans Pro</p>
+</div>
+
+
 ## Sections
 
 The secondary header above is an `h2` element, which may be used for any form of important page-level header. Consider using an `h2` unless you need a header level of less importance, or as a sub-header to an existing `h2` element.
@@ -33,6 +53,14 @@ The header above is an `h6` element, which may be used for any form of page-leve
 ### Paragraphs
 
 All paragraphs are wrapped in `p` tags. Additionally, `p` elements can be wrapped with a `blockquote` element if the `p` element is indeed a quote.
+
+The British Isles is an archipelago consisting of the two large islands of Great Britain and Ireland, and many smaller surrounding islands.
+
+<p class="text-dimmed">Great Britain is the largest island of the archipelago. Ireland is the second largest island of the archipelago and lies directly to the west of Great Britain.</p>
+
+```html
+<p class="text-dimmed">...</p>
+```
 
 ### Blockquotes
 
