@@ -109,8 +109,8 @@
 /////////////////////////////////////
 
 .entry-meta
+    @extend .small
     margin-top: ($spacer*2)
-    font-size: $font-size-small
 
 .byline,
 .time,
@@ -120,8 +120,7 @@
 
 .byline,
 .time
-    font-style: italic
-    color: $text-color-dimmed
+    @extend .text-dimmed, .italic
 
 .byline
     margin-bottom: 0
@@ -139,12 +138,11 @@
     margin-bottom: ($spacer/2)
 
 .category
-    @extend .h6, .textcenter
-    font-size: $font-size-mini
+    @extend .h6, .textcenter, .mini
+    color: $text-color
     line-height: 1
-    color: $brand-grey-light
     text-transform: uppercase
-    border: 1px solid $text-color-dimmed
+    border: 1px solid $text-color
     border-radius: $border-radius-base
     padding: 4px 8px
     margin: 0
@@ -165,8 +163,8 @@
     margin-right: 5px
 
     &:before
+        @extend .text-dimmed
         content: '#'
-        color: $text-color-dimmed
         margin-right: 1px
 
 .avatar
