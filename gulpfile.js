@@ -2,13 +2,13 @@
 var $ = require('gulp-load-plugins')();
 
 // manually require modules that won"t get picked up by gulp-load-plugins
-var gulp = require('gulp'),
-    del = require('del'),
-    chalk = require('chalk'),
-    merge = require('merge-stream'),
-    pkg = require('./package.json'),
-    parallelize = require('concurrent-transform'),
-    browser = require('browser-sync');
+var gulp            = require('gulp'),
+    del             = require('del'),
+    pkg             = require('./package.json'),
+    parallelize     = require('concurrent-transform'),
+    browser         = require('browser-sync'),
+    autoprefixer    = require('autoprefixer'),
+    cssnano         = require('cssnano');
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -16,7 +16,9 @@ var runSequence = require('run-sequence');
 
 // handle errors
 var onError = function(error) {
-    console.log(chalk.red('You fucked up:', error.message, 'on line' , error.lineNumber));
+    $.util.log('');
+    $.util.log($.util.colors.red('You fucked up:', error.message, 'on line' , error.lineNumber));
+    $.util.log('');
     this.emit('end');
 }
 
@@ -29,11 +31,11 @@ var isProduction = ($.util.env.production === true ? true : false);
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 console.log("");
-console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
+console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
-console.log(chalk.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "));
+console.log($.util.colors.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "));
 console.log("");
-console.log(chalk.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
+console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 console.log("");
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,14 +168,19 @@ gulp.task('html', function() {
 // Styles
 //
 gulp.task('css', function() {
+
+    var processors = [
+        autoprefixer({ browsers: COMPATIBILITY }),
+        cssnano()
+    ];
+
     return gulp.src([
             SRC + '/_assets/styl/kremalicious3.styl',
             SRC + '/_assets/styl/post-*.styl'
         ])
         .pipe($.if(!isProduction, $.sourcemaps.init()))
         .pipe($.stylus({ 'include css': true })).on('error', onError)
-        .pipe($.autoprefixer({ browsers: COMPATIBILITY }))
-        .pipe($.if(isProduction, $.cssmin()))
+        .pipe($.postcss(processors)).on('error', onError)
         .pipe($.if(!isProduction, $.sourcemaps.write()))
         .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
         .pipe($.rename({ suffix: '.min' }))
@@ -198,13 +205,13 @@ gulp.task('js:libraries', function() {
 
 // Project js
 gulp.task('js:project', function() {
-    return gulp.src(SRC + '/_assets/js/app.js')
-        .pipe($.include()).on('error', onError)
+    return gulp.src(SRC + '/_assets/js/kremalicious3.js')
         .pipe($.sourcemaps.init())
-        .pipe($.concat('kremalicious3.min.js'))
+        .pipe($.include()).on('error', onError)
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.if(!isProduction, $.sourcemaps.write()))
         .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
+        .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(DIST + '/assets/js/'))
 });
 
@@ -300,7 +307,8 @@ gulp.task('rev:replace', function() {
 gulp.task('server', ['build'], function() {
     browser.init({
         server: DIST,
-        port: PORT
+        port: PORT,
+        reloadDebounce: 2000
     });
 });
 
@@ -319,7 +327,7 @@ gulp.task('default', ['build', 'server'], function() {
     gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload]);
     gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload]);
     gulp.watch([SRC + '/_media/**/*'], ['media', browser.reload]);
-    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md}', './*.yml'], ['build', browser.reload]);
+    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml'], ['build', browser.reload]);
 });
 
 
@@ -328,9 +336,9 @@ gulp.task('default', ['build', 'server'], function() {
 //
 gulp.task('build', function(done) {
 
-    console.log(chalk.gray("         ------------------------------------------"));
-    console.log(chalk.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
-    console.log(chalk.gray("         ------------------------------------------"));
+    console.log($.util.colors.gray("         ------------------------------------------"));
+    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
+    console.log($.util.colors.gray("         ------------------------------------------"));
 
     runSequence(
         'clean',
@@ -390,7 +398,7 @@ gulp.task('deploy', function() {
         .pipe($.rename(function (path) {
             path.dirname = S3PATH + path.dirname;
         }))
-        .pipe(parallelize(publisher.publish(), 50))
+        .pipe(parallelize(publisher.publish(), 100))
         .pipe(publisher.sync()) // delete files in bucket that are not in local folder
         .pipe($.awspublish.reporter({
             states: ['create', 'update', 'delete']
