@@ -215,8 +215,19 @@ gulp.task('js:project', function() {
         .pipe(gulp.dest(DIST + '/assets/js/'))
 });
 
+// Service Worker js
+gulp.task('js:sw', function() {
+    return gulp.src(DIST + '/service-worker.js')
+        .pipe($.if(isProduction, $.uglify({
+            compress: {
+                drop_console: true
+            }
+        }))).on('error', onError)
+        .pipe(gulp.dest(DIST + '/'))
+});
+
 // Collect all script tasks
-gulp.task('js', ['js:libraries', 'js:project'])
+gulp.task('js', ['js:libraries', 'js:project', 'js:sw'])
 
 
 //
