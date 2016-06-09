@@ -5,38 +5,20 @@
 //
 
 .featured
+    @extend .breakoutviewport
     padding-bottom: ($spacer*2)
 
     .grid
         margin-bottom: 0
 
-    .grid__col
-        &:first-child
-            margin-left: -($spacer)
-        &:last-child
-            margin-right: -($spacer)
-
-    @media $breakpoint2
+    @media $screen-sm
         padding-bottom: ($spacer*3)
-        .grid__col
-            padding-top: 0
-            &:first-child
-                margin-left: -($spacer * 2)
-            &:last-child
-                margin-right: -($spacer * 2)
-
-    @media $breakpoint3
-        .grid__col
-            &:first-child
-                margin-left: -($spacer * 4)
-            &:last-child
-                margin-right: -($spacer * 4)
 
     .hentry__teaser
         picture
             margin: 0
 
-            @media $breakpoint1
+            @media $screen-xs
                 margin-left: 0
                 margin-right: 0
 

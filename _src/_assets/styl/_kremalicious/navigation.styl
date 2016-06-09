@@ -12,8 +12,11 @@
     display: inline-block
     margin: 0
     position: absolute
-    right: 0
+    right: $spacer
     top: -($spacer/4)
+
+    @media $screen-md
+        right: 0
 
     &:focus
         outline: 0
@@ -47,7 +50,6 @@
     padding: $spacer 0
     margin-top: $spacer
     margin-bottom: 0
-    width: 100%
     background: $body-bg
     display: flex   // .nav-popver overwrite
     margin-left: 0  // .grid overwrite
@@ -64,7 +66,7 @@
     @extend .category
     font-size: $font-size-small
     text-shadow: 0 1px 0 rgba(#fff, .5)
-    padding: $padding-base-vertical $padding-base-horizontal
+    padding: $padding-base-horizontal
     margin-bottom: 0
     margin-top: 0
     display: block

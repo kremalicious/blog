@@ -16,19 +16,20 @@ gpuacceleration()
     gpuacceleration()
 
 
-// Loading Thingy
+// Slide Up
 ////////////////////////////////////
 
-.loading
-    @extend .gpuacceleration
-    animation: loadingThingy .2s infinite
-
-@keyframes loadingThingy
+@keyframes slideUp
     0%
-        opacity: 1
-    100%
+        transform: translate3d(0, 100px, 0)
         opacity: 0
 
+    100%
+        transform: translate3d(0, 0, 0)
+        opacity: 1
+
+.animation-slideup
+    animation: slideUp .2s cubic-bezier(.06,.85,.54,1)
 
 //
 // Bounce
@@ -39,18 +40,14 @@ gpuacceleration()
 
 // Down
 @keyframes slideDown
-    0%, 60%, 75%, 90%, 100%
-        // http://cubic-bezier.com/#.06,.85,.54,1.39
-        transition-timing-function: cubic-bezier(.06,.85,.54,1)
-
     0%
         transform: translate3d(0, -100px, 0)
 
     100%
         transform: none
 
-.animation-slideDown
-    animation: slideDown .2s both
+.animation-slidedown
+    animation: slideDown .2s cubic-bezier(.06,.85,.54,1)
 
 // Up
 @keyframes bounceOutUp

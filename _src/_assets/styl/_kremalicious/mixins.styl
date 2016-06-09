@@ -184,6 +184,7 @@ transition()
     padding: ($spacer/2) $spacer ($spacer/2) 100%
     margin-left: -100%
 
+
 // Lead paragraph
 /////////////////////////////////////
 
@@ -191,6 +192,33 @@ transition()
     font-size: $font-size-large
     line-height: ($spacer*1.15)
 
+
+// Layout breakout
+/////////////////////////////////////
+
+breakoutviewport()
+    margin-left: calc(-50vw + 50%)
+    margin-right: calc(-50vw + 50%)
+
+    @media $screen-md
+        breakoutviewport--base()
+
+breakoutviewport--base()
+    margin-left: -($gutter-space * 4)
+    margin-right: -($gutter-space * 4)
+
+breakoutviewport--full()
+    margin-left: calc(-50vw + 50%)
+    margin-right: calc(-50vw + 50%)
+
+.breakoutviewport
+    breakoutviewport()
+
+.breakoutviewport--base
+    breakoutviewport--base()
+
+.breakoutviewport--full
+    breakoutviewport--full()
 
 // Button sizing
 /////////////////////////////////////

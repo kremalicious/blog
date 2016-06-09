@@ -26,7 +26,7 @@ var Search = (function(w, d) {
                 // show search field
                 _config.searcharea
                     .removeClass('is-ready animation-bounceOutUp')
-                    .addClass('is-ready animation-slideDown')
+                    .addClass('is-ready animation-slidedown')
                     .on('animationend webkitAnimationEnd oAnimationEnd', function(){
                         _config.body.addClass('has-search-open');
                     });
@@ -93,7 +93,7 @@ var Search = (function(w, d) {
         searchReset: function() {
             // revert all search elements
             _config.searcharea
-                .removeClass('animation-slideDown')
+                .removeClass('animation-slidedown')
                 .addClass('animation-bounceOutUp')
                 .on('animationend webkitAnimationEnd oAnimationEnd', function(){
                     _config.body.removeClass('has-search-open');

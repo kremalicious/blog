@@ -7,11 +7,6 @@
 .hentry.format-photo
     @extend .textcenter
 
-    .hentry__teaser
-        picture
-            margin-top: 0
-            margin-bottom: 0
-
     figure
         @extend .aligncenter
         position: relative
@@ -36,10 +31,10 @@
             left: -($spacer)
             top: $spacer
 
-            @media $breakpoint2
+            @media $screen-sm
                 left: -($spacer * 2)
 
-            @media $breakpoint3
+            @media $screen-lg
                 left: -($spacer * 4)
 
             opacity: 0
@@ -57,7 +52,7 @@
         padding-top: 0
         padding-bottom: ($spacer*3)
 
-        @media $breakpoint2
+        @media $screen-sm
             padding-top: 0
             padding-bottom: ($spacer*6)
 

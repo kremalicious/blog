@@ -28,7 +28,7 @@
     &:first-child
         padding-top: 0
 
-    @media $breakpoint2
+    @media $screen-sm
         padding-top: ($spacer*3)
         padding-bottom: ($spacer*3)
 
@@ -56,25 +56,17 @@
 
 .hentry__teaser
     picture
+        @extend .breakoutviewport
         max-width: none
         display: block
-        margin: ($spacer*1.5)
-        margin-left: -($spacer)
-        margin-right: -($spacer)
-
-        @media $breakpoint2
-            margin-left: -($spacer * 2)
-            margin-right: -($spacer * 2)
-
-        @media $breakpoint3
-            margin-left: -($spacer * 4)
-            margin-right: -($spacer * 4)
+        margin-top: ($spacer*1.5)
+        margin-bottom: ($spacer*1.5)
 
     img
         @extend .media-frame
         border-radius: 0
 
-        @media $breakpoint2
+        @media $screen-sm
             border-radius: $border-radius-base
 
 .hentry__teaser--link
@@ -130,6 +122,7 @@
 
 .time
     margin-bottom: ($spacer*2)
+
 
 // Categories & Tags
 /////////////////////////////////////

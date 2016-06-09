@@ -30,28 +30,31 @@ kbd
     box-shadow: inset 0 1px 0 rgba(#fff, .4)
 
 pre
+    @extend .breakoutviewport
     display: block
     padding: 0
-    margin: 0 0 $spacer
+    margin-bottom: $spacer
     line-height: $line-height
     color: $code-color
     background-color: $code-bg
-    border-radius: $border-radius-base
 
     // make 'em scrollable
     overflow: scroll
     -webkit-overflow-scrolling: touch
     max-height: 300px
 
-    @media $breakpoint2
+    @media $screen-sm
         max-height: 500px
+
+    @media $screen-md
+        border-radius: $border-radius-base
 
     // Account for some code outputs that place code tags in pre tags
     code
         white-space: pre
         overflow: auto
         display: block
-        padding: ($spacer/2) 12px
+        padding: ($spacer/2) $spacer
         font-size: inherit
         color: inherit
         background-color: transparent

@@ -12,7 +12,7 @@
 html
     font-size: $font-size-root
 
-    @media $breakpoint3
+    @media $screen-lg
         font-size: $font-size-root-lg
 
 body
@@ -35,7 +35,7 @@ body
     -moz-osx-font-smoothing: grayscale
     -moz-font-feature-settings: 'liga', 'kern'
 
-    letter-spacing: -0.01em
+    letter-spacing: -.01em
 
     .wf-active &
         letter-spacing: normal
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6,
     line-height: $headings-line-height
     color: $headings-color
     font-weight: 500
-    letter-spacing: -.09em
+    letter-spacing: -.04em
 
     .wf-active &
         font-weight: $headings-font-weight
@@ -87,27 +87,27 @@ h6, .h6
 
 h1, .h1
     font-size: $font-size-h2
-    @media $breakpoint1
+    @media $screen-xs
         font-size: $font-size-h1
 
 h2, .h2
     font-size: $font-size-h3
-    @media $breakpoint1
+    @media $screen-xs
         font-size: $font-size-h2
 
 h3, .h3
     font-size: $font-size-h4
-    @media $breakpoint1
+    @media $screen-xs
         font-size: $font-size-h3
 
 h4, .h4
     font-size: $font-size-h5
-    @media $breakpoint1
+    @media $screen-xs
         font-size: $font-size-h4
 
 h5, .h5
     font-size: $font-size-h6
-    @media $breakpoint1
+    @media $screen-xs
         font-size: $font-size-h5
 
 h6, .h6
@@ -278,10 +278,10 @@ blockquote
     position: relative
     padding-left: 20px
 
-    @media $breakpoint1
+    @media $screen-xs
         padding-left: 40px
 
-    @media $breakpoint3
+    @media $screen-lg
         padding-left: 60px
 
     // quotation marks
@@ -293,10 +293,10 @@ blockquote
         left: -10px
         top: -20px
 
-        @media $breakpoint1
+        @media $screen-xs
             left: 0
 
-        @media $breakpoint3
+        @media $screen-lg
             top: -30px
 
     p:last-child

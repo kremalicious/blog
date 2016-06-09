@@ -14,11 +14,11 @@
         pointer-events: none
 
 .search-btn
-    right: 50px
+    right: 70px
     padding: .65em .85em
 
-.site-search
-    margin-right: 4%
+    @media $screen-md
+        right: 50px
 
 .search-close
     position: absolute
@@ -31,16 +31,26 @@
 .search-area
     @extend .transition
     position: absolute
-    width: 100%
     left: 0
     top: -7px
     z-index: 3
+    margin-left: ($spacer / 2)
+    margin-right: ($spacer / 2)
+    width: "calc(100% - %s)" % $spacer
 
     // hidden by default
     display: none
 
+    @media $screen-sm
+        margin-left: 0
+        margin-right: 0
+        width: 100%
+
     &.is-ready
         display: block
+
+    .form-control
+        background: #fff
 
 
 .search-popover
@@ -55,7 +65,7 @@
     overflow: auto
     -webkit-overflow-scrolling: touch
 
-    @media $breakpoint2
+    @media $screen-sm
         top: ($spacer * 3)
 
 .search-results

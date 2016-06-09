@@ -10,17 +10,18 @@
     padding: 0 $spacer
     width: 100%
 
-    @media $breakpoint2
+    @media $screen-sm
         padding: 0 ($spacer * 2)
 
 .container
     max-width: 35em
-    margin: 0 auto
+    margin-left: auto
+    margin-right: auto
 
 .site__document
     padding-top: ($spacer*2)
 
-    @media $breakpoint2
+    @media $screen-sm
         padding-top: ($spacer*4)
 
 
@@ -34,9 +35,9 @@
     border-bottom: 1px solid rgba(255,255,255,.7)
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
-    transform: translate3d(0,-($spacer*6.5),0)
+    transform: translate3d(0,-($spacer*7.2),0)
 
-    @media $breakpoint2
+    @media $screen-sm
         transform: translate3d(0,-($spacer*5),0)
 
     .has-menu-open &
@@ -45,13 +46,13 @@
 .site__footer
     margin-top: -($spacer*6.5)
 
-    @media $breakpoint2
+    @media $screen-sm
         margin-top: 0
 
     .has-menu-open &
         margin-top: 0
 
-@media $breakpoint2 and (min-height: 650px)
+@media $screen-sm and (min-height: 650px)
     .site
         position: relative
 

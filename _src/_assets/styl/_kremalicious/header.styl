@@ -5,21 +5,28 @@
 //
 
 .site__header
-    width: 100%
     background: $body-bg
     margin-top: ($spacer/2)
     margin-bottom: ($spacer/2)
 
-    @media $breakpoint2
+    @media $screen-sm
         margin-top: $spacer
         margin-bottom: $spacer
 
     .grid
+        @extend .breakoutviewport
+        padding-left: $spacer
+        padding-right: $spacer
         position: relative
+
+        @media $screen-md
+            padding-left: 0
+            padding-right: 0
 
         > .banner,
         > .nav-main
             padding-top: 0
+
 
 
 // Logo
@@ -33,7 +40,7 @@
     width: 47px
     height: 31px
 
-    @media $breakpoint2
+    @media $screen-sm
         width: 183px
 
     @media $highDPI
