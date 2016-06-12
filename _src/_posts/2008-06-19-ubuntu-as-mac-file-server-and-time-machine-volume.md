@@ -7,7 +7,7 @@ author: Matthias Kretschmann
 image: ubuntu_mac_feature.jpg
 
 date: 2008-06-19 03:08:11+00:00
-updated: 2009-01-19 03:08:11+00:00
+updated: 2016-06-12 14:29:11+00:00
 
 wordpress_id: 75
 category: design
@@ -23,11 +23,16 @@ redirect_from:
 
 For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
 
+<!-- more -->
+
+<div class="alert alert-info">
+    <p>This article is very old and has been rendered obsolete for OS X 10.9 Mavericks and above. Apple uses v2 of the Samba protocol, dubbed SMB2 for file sharing by default now, which includes many technical advantages over AFP. On Ubuntu, the Samba package can be <a href="https://www.andyibanez.com/making-linux-file-server-interacts-os-x-mavericks/">easily installed and configured</a> to provide connectivity between Ubuntu und Mac OS X out of the box.</p>
+    <p>You should follow the steps in the following article only if you want to setup a Mac with an OS X version below 10.9. or you are absolutely sure you want to use AFP for file sharing.</p>
+</div>
+
 So here's my little Tutorial for connecting Mac OS X Leopard with Ubuntu and using your Ubuntu machine as a backup volume for Time Machine but all steps can be reproduced on every Linux box and they work with Mac OS X 10.4 Tiger too. At the end of this tutorial you will have a server which shows up in the Finder sidebar and behaves just like a Mac server when accessing it from your Macs. To be perfectly integrated with Mac OS X we're going to use [Apple's Filing Protocol (AFP)](http://en.wikipedia.org/wiki/Apple_Filing_Protocol) for network and file sharing.
 
 Although this Tutorial involves using the Terminal in Ubuntu and looks a bit geeky it's very easy even for beginners. I have tried to explain all steps and Terminal commands so you may learn a bit about the Terminal too. At the end of the article you can download my Server Displays icon pack quickly made by me with custom icons for a Mac, Ubuntu and Windows server.
-
-<!-- more -->
 
 Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version (32bit on one machine, 64bit on the other) and Mac OS X Leopard (10.5.3 and later) to connect to them. On my Ubuntu boxes there's no other file sharing protocol like samba (Windows sharing) or NFS activated.
 
