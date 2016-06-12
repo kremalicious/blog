@@ -20,7 +20,6 @@
     //
     Menu.init();
     Search.init();
-    Tooltips.init();
     GoogleAnalytics.init();
 
     svg4everybody({

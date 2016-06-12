@@ -41,7 +41,7 @@
     // hidden by default
     display: none
 
-    @media $screen-sm
+    @media $screen-md
         margin-left: 0
         margin-right: 0
         width: 100%
@@ -69,6 +69,7 @@
         top: ($spacer * 3)
 
 .search-results
+    @extend .breakoutviewport
     padding-bottom: $spacer
 
 .search-link
