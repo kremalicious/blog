@@ -733,6 +733,23 @@ Forms can be used when you wish to collect data from users. The `fieldset` eleme
 
 Design and mark-up patterns unique to this site.
 
+### Alerts
+
+<div class="alert alert-info">
+    <p>I'm sure those windmills will keep them cool. Interesting. No, wait, the other thing: tedious. But, like most politicians, he promised <a href="#">more than he could</a> deliver. Why not indeed! We're rescuing ya.</p>
+    <p>Isn't it true that you have been paid for your testimony? Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Oh right. I forgot about the battle. Who are those horrible orange men?</p>
+</div>
+
+<div class="alert alert-success">
+    <p>I'm sure those windmills will keep them cool. Interesting. No, wait, the other thing: tedious. But, like most politicians, he promised <a href="#">more than he could</a> deliver. Why not indeed! We're rescuing ya.</p>
+    <p>Isn't it true that you have been paid for your testimony? Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Oh right. I forgot about the battle. Who are those horrible orange men?</p>
+</div>
+
+<div class="alert alert-error">
+    <p>I'm sure those windmills will keep them cool. Interesting. No, wait, the other thing: tedious. But, like most politicians, he promised <a href="#">more than he could</a> deliver. Why not indeed! We're rescuing ya.</p>
+    <p>Isn't it true that you have been paid for your testimony? Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Oh right. I forgot about the battle. Who are those horrible orange men?</p>
+</div>
+
 ### Pagination
 
 <nav class="paginator">
