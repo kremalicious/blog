@@ -17,9 +17,6 @@ tags:
 
 So in this quick tutorial I will show you how to create an encrypted Aperture Vault by using Sparse Bundle Disk Images and by utilizing tools built into Mac OS X. All this can be done in two simple steps.
 
-
-<!-- more -->
-
 ## 1. Create an encrypted disk image
 
 First you have to create the encrypted disk image where the Aperture Vault will reside. So fire up Disk Utility from the Utilities folder inside your Applications folder or use Spotlight to open it.

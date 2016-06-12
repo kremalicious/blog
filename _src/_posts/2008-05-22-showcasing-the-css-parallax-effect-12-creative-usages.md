@@ -3,6 +3,7 @@ layout: post
 
 title: 'Showcasing the CSS Parallax Effect: 12+1 Creative Usages'
 author: Matthias Kretschmann
+image: parallax-visualization_big.png
 
 date: 2008-05-22 20:01:12+00:00
 wordpress_id: 59
@@ -16,19 +17,15 @@ redirect_from:
     - /2008/05/showcasing-the-css-parallax-effect-12-creative-usages/
 ---
 
-[![The kremalicious Parallax](/media/parallax-visualization.png)](/media/parallax-visualization_big.png)
+Been so in love with the parallax effect that I have to post another article about it. It's time for a first showcase of websites using this effect. At the end of this article you'll find some tutorials for making this effect too.
 
-Been so in love with the parallax effect that I have to post another article about it. For the non-geeks: I don't mean [measuring distances between objects in space](http://en.wikipedia.org/wiki/Parallax), the [parallax error in photography](http://en.wikipedia.org/wiki/Parallax#Parallax_error_in_photography), any [StarTrek episode](http://www.startrek.com/startrek/view/series/VOY/episode/68824.html), the [movie Parallax View](http://www.imdb.com/title/tt0071970/) and definitely not [DC Comic's Parallax monster](http://scifipedia.scifi.com/index.php/Parallax_(DC)).
+For the non-geeks: I don't mean [measuring distances between objects in space](http://en.wikipedia.org/wiki/Parallax), the [parallax error in photography](http://en.wikipedia.org/wiki/Parallax#Parallax_error_in_photography), any [StarTrek episode](http://www.startrek.com/startrek/view/series/VOY/episode/68824.html), the [movie Parallax View](http://www.imdb.com/title/tt0071970/) and definitely not [DC Comic's Parallax monster](http://scifipedia.scifi.com/index.php/Parallax_(DC)).
 
 I mean [Parallax Scrolling](http://en.wikipedia.org/wiki/Parallax_scrolling) which is a technique often used in good ol' arcade and video games like [Moon Patrol](http://en.wikipedia.org/wiki/Moon_Patrol) or [Sonic the Hedgehog](http://en.wikipedia.org/wiki/Sonic_the_Hedgehog_%28video_game%29). In such 2D games parallax scrolling was used to create an illusion of three dimensional depth.
 
 Since our operating systems are mainly 2D too we can use this pseudo 3D technique to create the same illusion in our web browsers. Of course this was first done by flash designers and it's a popular effect used in flash based websites or [parts of it](http://a.viary.com/).
 
 But with the rise of CSS this technique can now be done without the use of flash as [Alex Walker](http://www.sitepoint.com/blogs/2008/01/18/in-the-lab-doing-strange-things-to-css-backgrounds/) and [Paul Annett](http://www.thinkvitamin.com/features/design/how-to-recreate-silverbacks-parallax) discovered. You see we are now very close to the [Atari](http://en.wikipedia.org/wiki/Atari) with Web-Design.
-
-So it's time for a first showcase of websites using this effect. At the end of this article you'll find some tutorials for making this effect too. And as you can see there's a parallax effect in the header of this website too so I will not include myself in this showcase list ;-)
-
-<!-- more -->
 
 So here are the examples. Just start clicking, resizing and goggling!
 

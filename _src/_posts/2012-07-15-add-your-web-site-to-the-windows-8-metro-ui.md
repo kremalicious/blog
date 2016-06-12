@@ -20,8 +20,6 @@ Windows 8 and Internet Explorer 10 make it possible to pin your site to the Metr
 
 There was a great [post](https://github.com/h5bp/html5-boilerplate/issues/1136) about that in the H5BP issues section and Microsoft has a [full explanation](https://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx). It all comes down to this:
 
-<!-- more -->
-
   * create a 144x144px image with your logo/icon filling the whole canvas and a transparent background
   * add two `meta` tags in the `head` of your site defining the image path and optionally the tile color
   * as noted in the [issue post](https://github.com/h5bp/html5-boilerplate/issues/1136), the image must be saved as a transparent 32bit PNG ("24bit" in Photoshop's Save For Web dialogue) without running it through image optimisers like [ImageOptim](http://imageoptim.com)

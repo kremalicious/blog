@@ -15,9 +15,6 @@ As you may know there's a huge Internet censorship going on in China. Contrary t
 
 And as in every political system with totalitarian elements there's a good chance you will meet some angry lackeys if you're going to report about topics the chinese authorities don't want you to report. But more important they will threat your sources if their identity gets revealed. So if you want to report about [the water shortage in the villages around Beijing](http://www.voanews.com/english/2008-06-27-voa10.cfm), the [massive air pollution in Beijing](http://english.chosun.com/w21data/html/news/200807/200807300031.html) or about all the forced resettlements going on in China you should consider some security precautions to protect you and your sources.
 
-
-<!-- more -->
-
 Especially there's two things to do here: First you have to use technologies to circumvent firewalls. Second is to secure your connections and your communication to protect you and your sources.
 
 And remember that you have to protect your Computer _before_ arriving in China because websites like the [Tor project](http://www.torproject.org) are blocked in China.
@@ -48,7 +45,7 @@ If you use mails be sure to encrypt everything, your logins with SSL/TLS **and**
 
 
 
-Just don't download Skype while being in China! If you want to use Skype be sure to download it outside of China. But remember that it's not possible to secure your Skype chats and calls because they can't be encrypted. 
+Just don't download Skype while being in China! If you want to use Skype be sure to download it outside of China. But remember that it's not possible to secure your Skype chats and calls because they can't be encrypted.
 
 
 
@@ -86,4 +83,3 @@ If you want to know more about how to protect you and your sources be sure to ch
 [Handbook for Bloggers and Cyber-Dissidents (Reporters Without Borders)](http://www.rsf.org./IMG/pdf/guide_gb_md.pdf)
 
 [Reporters’ Guide to China (Foreign Correspondents Club of China)](http://www.rsf.org/IMG/pdf/Guide_FCCC.pdf)
-

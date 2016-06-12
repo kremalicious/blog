@@ -5,7 +5,7 @@ author: Matthias Kretschmann
 date: 2007-06-11 18:44:28+00:00
 wordpress_id: 1563
 category: photography
-tags: 
+tags:
   - tutorial
   - osx
 published: true
@@ -14,12 +14,10 @@ redirect_from:
   - /2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/
 ---
 
-**UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
-[Using the CanoScan LiDE 500F scanner with Mac OS X Leopard](/using-the-canoscan-lide-500f-with-mac-os-x-leopard/)**
-
 At the end of last year I watched out for a new scanner and the CanoScan LiDE 500f from Canon was the choice. But finding a suitable driver wasn't that simple cause everywhere around was only the horribly old PowerPC-driver. As long as I had my old G4 in the house it wasn't that problem. But at this time all Macs were already Intel-powered and also my new MacBook which replaced the G4 was Intel-Powered and i had a problem.
 
-<!-- more -->
+**UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
+[Using the CanoScan LiDE 500F scanner with Mac OS X Leopard](/using-the-canoscan-lide-500f-with-mac-os-x-leopard/)**
 
 So there were two choices for using the scanner on an Intel-Mac: installing the PowerPC-driver and using [VueScan](http://www.hamrick.com/) for scanning. But, man, was that slow! And i couldn't get the 16bit per channel scanning to function, which is an essential function for me. Also they want to have 40$ for this app, which isn't that much but after spending money for the scanner and for Photoshop I didn't want to buy another component for using the scanner. On the other hand you could use the [Preview.app](http://www.apple.com/macosx/features/pdf/) built into MAC OS X with Image > Import Image. But this last solution only offers rudimentary functions for scanning. Good to scan a document but not for scanning photos in high quality and for archive purposes. And nevertheless none of these solutions worked for scanning directly in the new Adobe Photoshop CS3.
 

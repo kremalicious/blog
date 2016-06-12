@@ -21,8 +21,6 @@ Because it's included in Safari since version 1.1(!) Mac users should be aware o
 
 This article describes how text-shadow works, what you can do with it and which browsers currently support it. At the end of this article I've made up some examples and provide a list of useful resources.
 
-<!-- more -->
-
 Here's an overview of the headlines in this article. As you can see it's rather complex and long. Be sure to get a delicious fresh cup of coffee or tea before reading on:
 
   1. What text-shadow is good for

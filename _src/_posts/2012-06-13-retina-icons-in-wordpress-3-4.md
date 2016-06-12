@@ -19,8 +19,6 @@ And it looks gorgeous. Here's a detail screenshot of the admin area in 3.4 in fu
 
 ![](/media/wp34_retina_icons.png)
 
-<!-- more -->
-
 So if you're a plugin developer you absolutely want to make sure to include retina assets for your plugin, like a double sized admin menu icon.
 
 There's just one problem: WordPress doesn't include anything to make this easy for developers. The functions `register_post_type()` and `add_menu_page()` only allow you to define one image as menu icon which then gets inserted as `img` tag.

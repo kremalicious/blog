@@ -23,8 +23,6 @@ redirect_from:
 
 For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
 
-<!-- more -->
-
 <div class="alert alert-info">
     <p>This article is very old and has been rendered obsolete for OS X 10.9 Mavericks and above. Apple uses v2 of the Samba protocol, dubbed SMB2 for file sharing by default now, which includes many technical advantages over AFP. On Ubuntu, the Samba package can be <a href="https://www.andyibanez.com/making-linux-file-server-interacts-os-x-mavericks/">easily installed and configured</a> to provide connectivity between Ubuntu und Mac OS X out of the box.</p>
     <p>You should follow the steps in the following article only if you want to setup a Mac with an OS X version below 10.9. or you are absolutely sure you want to use AFP for file sharing.</p>

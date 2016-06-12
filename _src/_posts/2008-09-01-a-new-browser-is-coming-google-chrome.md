@@ -3,6 +3,7 @@ layout: post
 
 title: 'A New Browser Is Coming: Google Chrome'
 author: Matthias Kretschmann
+image: googlechrome.png
 
 date: 2008-09-01 20:40:38+00:00
 wordpress_id: 197
@@ -13,11 +14,9 @@ tags:
 - google
 ---
 
-![Google Chrome](/media/googlechrome.png)Today some informations about Google's new open source browser called Google Chrome came up. First published as a comic on [Blogoscoped.com](http://blogoscoped.com/google-chrome/) and [confirmed by Kara Swisher](http://kara.allthingsd.com/20080901/google-ignites-a-new-browser-war-with-microsoft-by-unveiling-one-of-its-own/), Google Chrome will be a [WebKit](http://webkit.org/)-based browser with a new JavaScript Virtual Machine called V8 and with [Google Gears](http://gears.google.com/) included.
+Today some informations about Google's new open source browser called Google Chrome came up. First published as a comic on [Blogoscoped.com](http://blogoscoped.com/google-chrome/) and [confirmed by Kara Swisher](http://kara.allthingsd.com/20080901/google-ignites-a-new-browser-war-with-microsoft-by-unveiling-one-of-its-own/), Google Chrome will be a [WebKit](http://webkit.org/)-based browser with a new JavaScript Virtual Machine called V8 and with [Google Gears](http://gears.google.com/) included.
 
 Google Chrome has a different UI-Design compared to other browsers especially regarding tabs. Google Chrome tabs will be on top of the address bar so every tab has its own address bar. Beside that every tab will run its own process to improve stability.
-
-<!-- more -->
 
 Using WebKit as its rendering engine, Google Chrome will have all the cool WebKit stuff included like [CSS Gradients](http://www.kremalicious.com/2008/04/webkit-team-introduced-css-based-gradients/), [CSS Masks](http://www.kremalicious.com/2008/04/more-awesomeness-from-the-webkit-team-css-masks/) and the CSS3 property text-shadow, which [I've covered earlier in detail](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/).
 

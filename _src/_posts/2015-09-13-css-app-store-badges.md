@@ -13,13 +13,7 @@ tags:
     - svg
 ---
 
-The badges provided by all app store providers just don't play well together with their varying typography and different sizing. Only Apple provides a proper SVG source for their badge, Google doesn’t even provide a retina bitmap asset.
-
-On top of that, using svg or png assets makes localization a pain unless you want to manage multiple assets per language.
-
-So let's make them all visually unified, infinitely scalable, with pure text for easier localization and some web interaction styles. And while we’re at it: different sizes with the same markup by using some modifier classes.
-
-<!-- more -->
+The badges provided by all app store providers just don't play well together with their varying typography and different sizing. So let's make them all visually unified, infinitely scalable, with pure text for easier localization and some web interaction styles. And while we’re at it: different sizes with the same markup by using some modifier classes.
 
 <p class="content-download">
     <a class="btn-primary icon-eye" href="https://lab.kremalicious.com/appstorebadges/">Demo</a>

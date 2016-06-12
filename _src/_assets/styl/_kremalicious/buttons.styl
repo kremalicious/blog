@@ -42,6 +42,9 @@ a.btn
     text-transform: uppercase
     box-shadow: 0 1px 3px alpha($brand-grey-light, .1), inset 0 1px 0 rgba(255,255,255,.7)
 
+    @media $screen-sm
+        max-width: 20rem
+
     &:hover,
     &:focus
         outline: 0
@@ -153,7 +156,7 @@ a.btn-primary
 
 .content-download
     @extend .grid, .grid--gutters
-
+    text-align: center
     display: block
     margin-top: 0
 
@@ -164,7 +167,10 @@ a.btn-primary
     a
         @extend .btn, .grid__col
         margin: $gutter-space 0 0 $gutter-space
-        display: block
+
+        &:only-child
+            margin-left: auto
+            margin-right: auto
 
         span
             font-size: $font-size-mini

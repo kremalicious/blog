@@ -13,11 +13,9 @@ tags:
     - osx
 ---
 
-![Aperture Scanning](/media/aperturescan.png)Wouldn't that be great? Hook up your scanner, fire up Aperture, click on Import and the images coming directly from your scanner plate? Although my scanner is shown as a source in the import dialogue you can't import images with it directly from Aperture. But using Preview/Image Capture and Automator you can bypass this limitation.
+![Aperture Scanning](/media/aperturescan.png)Wouldn't that be great? Hook up your scanner, fire up Aperture, click on Import and the images coming directly from your scanner plate? Although my scanner is shown as a source in the import dialogue you can't import images with it directly from Aperture. But using Preview/Image Capture and Automator you can bypass this limitation. So here's what you can do to scan directly into Aperture in 3 simple steps.
 
-In the Image Capture scan window you can define an automatic task which will follow the scan process. It defaults to Preview meaning that the scanned image will open as a new Preview document after the scan. But we can make the images import to Aperture after the scan just with tools which are build into Mac OS X and come with every Mac (besides Aperture). So here's what you can do to scan directly into Aperture in 3 simple steps.
-
-<!-- more -->
+In the Image Capture scan window you can define an automatic task which will follow the scan process. It defaults to Preview meaning that the scanned image will open as a new Preview document after the scan. But we can make the images import to Aperture after the scan just with tools which are build into Mac OS X and come with every Mac (besides Aperture).
 
 # 1. Make an Automator action
 

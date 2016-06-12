@@ -38,6 +38,16 @@
         &:before
             @extend .hide
 
+
+// Post Header
+/////////////////////////////////////
+
+.entry-header
+    .page-single &
+        @media $screen-md
+            breakoutviewport()
+
+
 // Post Title
 /////////////////////////////////////
 
@@ -49,6 +59,14 @@
 
     .format-link &
         @extend .h3
+
+
+// Post Lead
+/////////////////////////////////////
+
+.entry-lead
+    @extend .large, .bold, .textcenter
+    color: $brand-grey
 
 
 // Post/photo teaser

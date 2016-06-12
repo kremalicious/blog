@@ -5,8 +5,11 @@ layout: base
 <section role="main" id="main" class="page-single">
 
     <article class="hentry format-post">
-        <header>
+        <header class="entry-header">
             <h1 class="entry-title">{{ page.title | titlecase }}</h1>
+            <div class="entry-lead">
+                {{ page.excerpt }}
+            </div>
         </header>
 
         <section class="entry-content">
@@ -16,7 +19,7 @@ layout: base
                 </figure>
             {% endif %}
 
-            {{ content }}
+            {{ content | remove: page.excerpt }}
         </section>
 
         {% include actions.html %}

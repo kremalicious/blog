@@ -20,8 +20,6 @@ I received quite a few mails in the last days from Aperture users asking for the
 
 In this article I will lay out every way I've found to add watermarks to your images in an Aperture 2 workflow and will discuss the advantages and disadvantages of each solution. The goal of this article is to give you a brief overview about the various ways you can add watermarks to your images so you can easily choose the best one for different needs. In short these are the possibilities:
 
-<!-- more -->
-
 
 ## 1. The Aperture Way
 

@@ -2,7 +2,7 @@
 {% if post.layout == "link" %}
 
     <article class="hentry format-link">
-        <header>
+        <header class="entry-header">
             <h1 class="entry-title">
                 <a href="{{ post.linkurl }}" title="Go to source: {{ post.linkurl | remove:'http://' | remove:'https://' | remove:'www.' }}">
                     {{ post.title | titlecase }}
@@ -15,7 +15,7 @@
         </header>
 
         <section class="entry-content">
-            {{ post.content | markdownify }}
+            {{ post.content }}
             <p>
                 <a class="more-link" href="{{ post.linkurl }}">Go to source
                     <svg class="icon icon-entypo icon-entypo-forward">
@@ -49,7 +49,7 @@
 {% else %}
 
     <article class="hentry format-post">
-        <header>
+        <header class="entry-header">
             <h1 class="entry-title"><a href="{{ post.url }}">{{ post.title | titlecase }}</a></h1>
         </header>
 
@@ -64,11 +64,7 @@
             {% capture has_more %}{{ post.content | has_excerpt }}{% endcapture %}
 
             {% unless post.categories contains "goodies" and page.path contains "goodies" %}
-                {% if has_more == 'true' %}
-                    {{ post.content | post.excerpt | excerpt | markdownify }}
-                {% else %}
-                    {{ post.excerpt | markdownify }}
-                {% endif %}
+                {{ post.excerpt }}
             {% endunless %}
 
             {% if post.categories contains "goodies" and page.path contains "goodies" %}
