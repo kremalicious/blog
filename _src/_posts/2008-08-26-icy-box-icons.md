@@ -3,6 +3,7 @@ layout: post
 
 title: Icy Box Icons
 image: Teaser-Icy-Box.jpg
+download: icybox_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-08-26 19:16:38+00:00
@@ -23,7 +24,7 @@ As always these desktop icons are free for you personal and non-commercial use. 
 The whole package includes 7 icons either packed in a nice tagged iContainer for use with Candybar or in Mac + Win + Linux compatible formats. If you have such an Icy Box case grab the icons [from my Goodies page.](http://www.kremalicious.com/goodies/#icons) Have fun!
 
 <p class="content-download">
-    <a class="icon-download" href="http://cdn2.kremalicious.com/media/icybox_by_kremalicious.zip">Download Icy Box Icons <span>zip</span></a>
+    <a class="icon-download" href="/media/{{ page.download }}">Download Icy Box Icons <span>zip</span></a>
 </p>
 
   * Replacement icons for the silver and black Icy Box external aluminium case with USB interface
