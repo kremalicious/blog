@@ -12,9 +12,8 @@
 
 	<p class="time">
 		<time-ago class="pubdate" datetime="{{ page.date | date_to_xmlschema }}" pubdate{% if page.updated %} data-updated="true"{% endif %}>{{ page.date | date_to_string }}</time-ago>
-	    {% if page.updated %}
-		<br>updated <time-ago class="updated" datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date_to_string }}</time-ago>
-	    {% endif %}
+
+	    {% if page.updated %} &bull; updated <time-ago class="updated" datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date_to_string }}</time-ago>{% endif %}
 	</p>
 
 	<p class="categories">
