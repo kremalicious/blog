@@ -35,7 +35,10 @@
     border-bottom: 1px solid rgba(255,255,255,.7)
     box-shadow: 0 1px 4px alpha($brand-dark, .1), 0 -1px 4px alpha($brand-dark, .2)
 
-    transform: translate3d(0,-($spacer*7.2),0)
+    transform: translate3d(0,-($spacer*7.7),0)
+
+    @media $screen-xs
+        transform: translate3d(0,-($spacer*7.2),0)
 
     @media $screen-sm
         transform: translate3d(0,-($spacer*5),0)

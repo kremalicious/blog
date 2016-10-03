@@ -16,6 +16,9 @@
         color: $text-color-light
         line-height: $spacer
 
+    a
+        @extend .link--nounderline
+
 .footer-description
     @extend .h5
     a
@@ -44,7 +47,7 @@
         margin: 0
 
     .link
-        @extend .textcenter
+        @extend .textcenter, .link--nounderline
         width: 42px
         padding: $padding-small-vertical
         margin: 0

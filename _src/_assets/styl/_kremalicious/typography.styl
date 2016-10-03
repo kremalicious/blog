@@ -10,7 +10,10 @@
 
 // Body reset
 html
-    font-size: $font-size-root
+    font-size: $font-size-root-xs
+
+    @media $screen-xs
+        font-size: $font-size-root
 
     @media $screen-lg
         font-size: $font-size-root-lg
@@ -117,25 +120,35 @@ h6, .h6
 // Links
 /////////////////////////////////////
 
-a
+a,
+.link
     color: $link-color
     text-decoration: none
-    transition: color .2s ease-in-out
+    transition: .2s ease-in-out
+    box-shadow: 0 1px 0 rgba($link-color, 40%)
 
     &:hover,
     &:focus
         outline: 0
         color: $link-color-hover
+        box-shadow: 0 1px 0 rgba($link-color-hover, 70%)
 
     &:active
         transition: none
         color: darken($link-color, 30%)
+        box-shadow: 0 1px 0 darken($link-color, 30%)
 
     h1 &,
     h2 &,
     h3 &
         color: $headings-color
 
+.link--nounderline
+    &,
+    &:hover,
+    &:focus,
+    &:active
+        box-shadow: none
 
 // Lists
 /////////////////////////////////////
@@ -233,7 +246,9 @@ hr
     margin-bottom: ($spacer*2)
 
 .large
-    font-size: $font-size-large
+    font-size: $font-size-large-xs
+    @media $screen-xs
+        font-size: $font-size-large
 
 .small
     font-size: $font-size-small

@@ -57,6 +57,9 @@
     margin-top: 0
     margin-bottom: $spacer
 
+    a
+        @extend .link--nounderline
+
     .format-link &
         @extend .h3
 
@@ -123,6 +126,9 @@
     @extend .small
     margin-top: ($spacer*2)
 
+    a
+        @extend .link--nounderline
+
 .byline,
 .time,
 .tags,
@@ -150,7 +156,7 @@
     margin-bottom: ($spacer/2)
 
 .category
-    @extend .h6, .textcenter, .mini
+    @extend .h6, .textcenter, .mini, .link--nounderline
     color: $text-color
     line-height: 1
     text-transform: uppercase
@@ -171,6 +177,7 @@
         color: #fff
 
 .tag
+    @extend .link--nounderline
     color: $text-color
     margin-right: 5px
 

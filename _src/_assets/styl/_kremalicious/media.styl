@@ -44,6 +44,10 @@ img.aligncenter
 
 .media-frame
     @extend .transition
-    border: 2px solid transparent
+    border-top: 2px solid transparent
+    border-bottom: 2px solid transparent
     border-radius: $border-radius-base
     box-shadow: 0 1px 3px alpha($brand-grey,.2)
+
+    @media $screen-sm
+        border: 2px solid transparent

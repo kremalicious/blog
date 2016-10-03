@@ -63,7 +63,7 @@
         opacity: 1
 
 .nav-link
-    @extend .category
+    @extend .link--nounderline, .category
     font-size: $font-size-small
     text-shadow: 0 1px 0 rgba(#fff, .5)
     padding: $padding-base-horizontal
@@ -85,6 +85,7 @@
         margin-bottom: -5px
 
 .paginator__link
+    @extend .link--nounderline
     width: 2rem
     height: 2rem
     line-height: 1.7
