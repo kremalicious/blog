@@ -5,7 +5,7 @@ title: Simple Tor setup on Mac OS X
 image: teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
-updated: 2016-05-15 18:26:46+02:00
+updated: 2016-10-03 18:26:46+02:00
 
 category:
 tags:
@@ -48,11 +48,11 @@ In order for all your system traffic being routed through Tor you need to adjust
 
 ## Set network proxy settings via System Preferences
 
-You can do this under System Preferences > Network and creating a specific Tor network location for it:
+You can do this under *System Preferences > Network* by creating a specific Tor network location for it:
 
-1. From Location dropdown at the top, select Edit Locations...
+1. From Location dropdown at the top, select *Edit Locations...*
 2. Create a new location by hitting the plus button and name it *Tor*. Hitting Done will select the new location which is now ready to be configured
-4. Go to Advanced > Proxies and activate *SOCKS Proxy* and add those values:
+4. Go to *Advanced > Proxies* and activate *SOCKS Proxy* and add those values:
 
 - *SOCKS proxy server*: `localhost`
 - *Port*: `9050`
@@ -103,7 +103,6 @@ echo "Starting Tor..."
 echo "$(tput sgr0)" # color reset
 
 tor
-
 ```
 
 Save this script under something like `tor.sh` in one of your sourced `bin` folders, make it executable with `chmod + x` and use it as a replacement for the general `tor` command. So you can just run
@@ -118,4 +117,4 @@ and Tor should run smoothly on your system without additional configuration:
 
 Verify you're indeed browsing over the Tor network by going to [check.torproject.org](https://check.torproject.org).
 
-If you're done, just exit the script with <kbd>ctrl</kbd> + <kbd>c</kbd> and the network settings will be reverted to their previous configuration.
+When you're done, just exit the script with <kbd>ctrl</kbd> + <kbd>c</kbd> and the network settings will be reverted to their previous configuration.
