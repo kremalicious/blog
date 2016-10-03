@@ -8,6 +8,7 @@ category: photography
 tags:
   - tutorial
   - osx
+  - macos
 published: true
 
 redirect_from:

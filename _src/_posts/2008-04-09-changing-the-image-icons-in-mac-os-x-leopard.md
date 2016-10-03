@@ -10,6 +10,7 @@ category: design
 tags:
     - tutorial
     - osx
+    - macos
     - icon
 ---
 

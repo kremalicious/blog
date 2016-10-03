@@ -10,6 +10,7 @@ wordpress_id: 22
 category: design
 tags:
     - osx
+    - macos
     - icon
 ---
 

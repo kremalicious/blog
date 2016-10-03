@@ -9,6 +9,7 @@ wordpress_id: 70
 category: design
 tags:
     - osx
+    - macos
     - css
 ---
 

@@ -10,6 +10,7 @@ category: design
 tags:
     - tutorial
     - osx
+    - macos
 
 redirect_from:
     - /2008/02/how-to-quickly-generate-encrypted-logins-on-a-mac-for-htaccess-protected-sites/

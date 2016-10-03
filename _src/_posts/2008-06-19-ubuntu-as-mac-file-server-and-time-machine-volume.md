@@ -14,6 +14,7 @@ category: design
 tags:
     - tutorial
     - osx
+    - macos
     - ubuntu
 
 redirect_from:

@@ -1,24 +1,27 @@
 ---
 layout: post
 
-title: Simple Tor setup on Mac OS X
+title: Simple Tor setup on macOS
 image: teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
-updated: 2016-10-03 18:26:46+02:00
+updated: 2016-10-03 22:52:46+02:00
 
 category:
 tags:
     - tutorial
     - tor
     - osx
+    - macos
 ---
 
-There're many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here're some steps to setup Tor on OS X with a simple automated script at the end.
+There're many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here're some steps to setup Tor on macOS with a simple automated script at the end.
 
-I'm using OS X Yosemite (10.10) for the following instructions but it should work on almost any OS X version.
+I'm using macOS Sierra (10.12) for the following instructions but it should work on almost any macOS version.
 
 ## Tor Browser
+
+![Tor Browser](/media/tor-browser.png)
 
 The most simple way to surf anonymously with Tor is to just grab the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) bundle.
 
@@ -28,7 +31,7 @@ For this you need to have Tor installed on your system and additionally set spec
 
 ## Install Tor
 
-Contrary to the weirdly outdated [install instructions on Tor's website](https://www.torproject.org/docs/tor-doc-osx.html.en) (hey, remember Macports?), installing Tor on Mac OS X is super simple with [Homebrew](http://brew.sh).
+Contrary to the weirdly outdated [install instructions on Tor's website](https://www.torproject.org/docs/tor-doc-osx.html.en) (hey, remember Macports?), installing Tor on macOS is super simple with [Homebrew](http://brew.sh).
 
 In your Terminal execute:
 
@@ -44,7 +47,7 @@ tor
 
 Congratulations, you now have Tor running on your system. But none of your network traffic is routed through it yet.
 
-In order for all your system traffic being routed through Tor you need to adjust your system's network proxy settings which you can either do visually in the System Preferences or programmatically via OS X's builtin `networksetup`.
+In order for all your system traffic being routed through Tor you need to adjust your system's network proxy settings which you can either do visually in the System Preferences or programmatically via macOS's builtin `networksetup`.
 
 ## Set network proxy settings via System Preferences
 
@@ -67,7 +70,7 @@ Switching to the Tor location routes all network traffic on your system through 
 
 When you're already in the Terminal to start up Tor, additionally setting the network settings invloves a lot of fiddling around. Ain't nobody got time for that.
 
-Thankfully OS X provides a way to programmatically set those proxy values via the `networksetup` utility. I've found a [nice script](http://leonid.shevtsov.me/en/an-easy-way-to-use-tor-on-os-x) for this but running it opened multiple admin password prompts. So I extended it a bit to make it more user friendly.
+Thankfully macOS provides a way to programmatically set those proxy values via the `networksetup` utility. I've found a [nice script](http://leonid.shevtsov.me/en/an-easy-way-to-use-tor-on-os-x) for this but running it opened multiple admin password prompts. So I extended it a bit to make it more user friendly.
 
 In a nutshell, this shell script asks you for your admin password upfront, starts up Tor, and sets all required proxy network settings automatically:
 
