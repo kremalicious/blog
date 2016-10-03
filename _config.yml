@@ -40,7 +40,7 @@ future:                 false
 markdown:               redcarpet
 
 redcarpet:
-    extensions:         ['autolink', 'tables', 'smart', 'hard_wrap', 'fenced_code_blocks', 'strikethrough', 'highlight', 'quote', 'footnotes', 'with_toc_data', 'space_after_headers', 'superscript']
+    extensions:         ['no_intra_emphasis', 'autolink', 'tables', 'smart', 'hard_wrap', 'fenced_code_blocks', 'strikethrough', 'highlight', 'quote', 'footnotes', 'with_toc_data', 'space_after_headers', 'superscript', 'lax_spacing']
 
 
 # Generator
