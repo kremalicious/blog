@@ -19,7 +19,7 @@ redirect_from:
     - /2009/02/out-of-whale-oil/
 ---
 
-Simple, high-resolution Futurama tribute wallpaper pack inspired by the latest Futurama movie Into The Wild Green Yonder. This pack includes 4 versions of the Planet Express ship whale oil indicator in 2 different sizes for desktop and iPhone use. Vivid pink Feminista versions included too ;-)
+Simple, high-resolution Futurama tribute wallpaper pack inspired by the latest Futurama movie Into The Wild Green Yonder. This pack includes 4 versions of the Planet Express ship whale oil indicator in 2 different sizes for desktop and iPhone use. Vivid pink Feminista versions included too.
 
 ![Futurama: Out Of Whale Oil Wallpaper Detail](/media/out_of_whale_oil_detail.png)Here're the details for the whole pack:
 
@@ -31,7 +31,7 @@ Simple, high-resolution Futurama tribute wallpaper pack inspired by the latest F
 
 [![Futurama: Out Of Whale Oil Wallpaper Pack by kremalicious](/media/out-of-whale-oil-overview.png)](http://www.kremalicious.com/goodies/#wall)
 
-Seriously, the pink versions are burning my eyes but the pink is a good reference to the events in the recent movie ;-)
+Seriously, the pink versions are burning my eyes but the pink is a good reference to the events in the recent movie.
 
 <p class="content-download">
     <a class="icon-download" href="/media/out-of-whale-oil-wall-by-kremalicious.zip">Download</a>

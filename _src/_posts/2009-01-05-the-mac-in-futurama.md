@@ -251,4 +251,4 @@ And finally there's my Futurama: Out Of Whale Oil Wallpaper pack for Desktop and
 
 And that's it folks. Hope you enjoyed this fun article. If you know of more Mac or Apple references in Futurama or links to nice Futurama icons, wallpapers or application resources feel free to post them in the comments.
 
-As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee ;-)
+As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee.

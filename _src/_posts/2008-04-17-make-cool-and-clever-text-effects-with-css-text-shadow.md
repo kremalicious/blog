@@ -341,7 +341,7 @@ A xpi-plugin providing support for text-shadow in Firefox written by Shimoda Hir
 The author animates multiple text-shadows with javascript, really incredible. Also various nice examples on this page.
 
   * [Text-Shadow in Safari 1.1](http://whatdoiknow.org/archives/001305.shtml)
-Propably the oldest text-shadow demo originally made for Safari 1.1 ;-)
+Propably the oldest text-shadow demo originally made for Safari 1.1
 
   * [10.5.2 brings WebKit text-shadow rendering changes](http://www.islayer.com/blog/?p=255)
 Blog entry on islayer.com about different text-shadow rendering across different Mac OS X versions

@@ -1,5 +1,7 @@
+'use strict'
+
 // load plugins
-var $ = require('gulp-load-plugins')();
+var $ = require('gulp-load-plugins')()
 
 // manually require modules that won"t get picked up by gulp-load-plugins
 var gulp            = require('gulp'),
@@ -8,52 +10,52 @@ var gulp            = require('gulp'),
     parallelize     = require('concurrent-transform'),
     browser         = require('browser-sync'),
     autoprefixer    = require('autoprefixer'),
-    cssnano         = require('cssnano');
+    cssnano         = require('cssnano')
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
-var runSequence = require('run-sequence');
+var runSequence = require('run-sequence')
 
 // handle errors
 var onError = function(error) {
-    $.util.log('');
-    $.util.log($.util.colors.red('You fucked up:', error.message, 'on line' , error.lineNumber));
-    $.util.log('');
-    this.emit('end');
+    $.util.log('')
+    $.util.log($.util.colors.red('You fucked up:', error.message, 'on line' , error.lineNumber))
+    $.util.log('')
+    this.emit('end')
 }
 
 // 'development' is just default, production overrides are triggered
 // by adding the production flag to the gulp command e.g. `gulp build --production`
-var isProduction = ($.util.env.production === true ? true : false);
+var isProduction = ($.util.env.production === true ? true : false)
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Terminal Banner
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-console.log("");
-console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
-console.log("");
-console.log($.util.colors.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "));
-console.log("");
-console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
-console.log("");
+console.log("")
+console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
+console.log("")
+console.log($.util.colors.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "))
+console.log("")
+console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
+console.log("")
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Config
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // Port to use for the development server.
-var PORT = 1337;
+var PORT = 1337
 
 // Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+var COMPATIBILITY = ['last 2 versions', 'ie >= 10']
 
 // paths
 var SRC       = '_src',
     DIST      = '_site',
     S3BUCKET  = 'kremalicious.com',
     S3PATH    = '/',
-    S3REGION  = 'eu-central-1';
+    S3REGION  = 'eu-central-1'
 
 // icons
 var ICONS = {
@@ -67,12 +69,12 @@ var ICONS = {
     }
 }
 
-var iconset = ICONS.entypo;
+var iconset = ICONS.entypo
 
 // Iterate through the icon set array
 iconset.icons.forEach(function(icon, i, icons) {
-    icons[i] = iconset.src + icon + '.svg';
-});
+    icons[i] = iconset.src + icon + '.svg'
+})
 
 // SVG sprite
 var SPRITE = {
@@ -104,7 +106,7 @@ var BANNER = [
     ' ** <%= pkg.repository.url %> ',
     ' **/',
     ''
-].join('\n');
+].join('\n')
 
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,28 +122,28 @@ gulp.task('clean', function(done) {
         DIST + '/.*', // delete all hidden files
         '!' + DIST + '/media/**'
     ], done)
-});
+})
 
 
 //
 // Jekyll
 //
 gulp.task('jekyll', function(cb) {
-    browser.notify('Compiling Jekyll');
+    browser.notify('Compiling Jekyll')
 
-    var spawn = require('child_process').spawn;
+    var spawn = require('child_process').spawn
 
     if (isProduction) {
-        process.env.JEKYLL_ENV = 'production';
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' });
+        process.env.JEKYLL_ENV = 'production'
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' })
     } else {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config.dev.yml', '--drafts', '--future', '--incremental'], { stdio: 'inherit' });
+        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config.dev.yml', '--drafts', '--future', '--incremental'], { stdio: 'inherit' })
     }
 
     jekyll.on('exit', function(code) {
-        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
-    });
-});
+        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code)
+    })
+})
 
 
 //
@@ -161,7 +163,7 @@ gulp.task('html', function() {
             minifyCSS: true
         })))
         .pipe(gulp.dest(DIST))
-});
+})
 
 
 //
@@ -172,7 +174,7 @@ gulp.task('css', function() {
     var processors = [
         autoprefixer({ browsers: COMPATIBILITY }),
         cssnano()
-    ];
+    ]
 
     return gulp.src([
             SRC + '/_assets/styl/kremalicious3.styl',
@@ -186,7 +188,7 @@ gulp.task('css', function() {
         .pipe($.rename({ suffix: '.min' }))
         .pipe(gulp.dest(DIST + '/assets/css/'))
         .pipe(browser.stream())
-});
+})
 
 
 //
@@ -201,7 +203,7 @@ gulp.task('js:libraries', function() {
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.rename({ suffix: '.min'}))
         .pipe(gulp.dest(DIST + '/assets/js/'))
-});
+})
 
 // Project js
 gulp.task('js:project', function() {
@@ -213,7 +215,7 @@ gulp.task('js:project', function() {
         .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(DIST + '/assets/js/'))
-});
+})
 
 // Service Worker js
 gulp.task('js:sw', function() {
@@ -224,7 +226,7 @@ gulp.task('js:sw', function() {
             }
         }))).on('error', onError)
         .pipe(gulp.dest(DIST + '/'))
-});
+})
 
 // Collect all script tasks
 gulp.task('js', ['js:libraries', 'js:project', 'js:sw'])
@@ -241,7 +243,7 @@ gulp.task('icons', function() {
         .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
         .pipe($.svgSprite(SPRITE))
         .pipe(gulp.dest(iconset.dist))
-});
+})
 
 
 //
@@ -260,7 +262,7 @@ gulp.task('images', function() {
         svgoPlugins: [{ removeViewBox: false }]
     })))
     .pipe(gulp.dest(DIST + '/assets/img/'))
-});
+})
 
 
 //
@@ -269,7 +271,7 @@ gulp.task('images', function() {
 gulp.task('fonts', function() {
     return gulp.src(SRC + '/_assets/fonts/**/*')
         .pipe(gulp.dest(DIST + '/assets/fonts/'))
-});
+})
 
 
 //
@@ -278,7 +280,7 @@ gulp.task('fonts', function() {
 gulp.task('media', function() {
     return gulp.src(SRC + '/_media/**/*')
         .pipe(gulp.dest(DIST + '/media/'))
-});
+})
 
 
 //
@@ -294,7 +296,7 @@ gulp.task('rev', function() {
             .pipe($.if(isProduction, $.rev.manifest()))
             .pipe(gulp.dest(DIST + '/assets/'))
     }
-});
+})
 
 
 //
@@ -304,12 +306,12 @@ gulp.task('rev', function() {
 gulp.task('rev:replace', function() {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
-        var manifest = gulp.src(DIST + '/assets/rev-manifest.json');
+        var manifest = gulp.src(DIST + '/assets/rev-manifest.json')
         return gulp.src(DIST + '/**/*.{html,xml,txt,json,css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
             .pipe($.if(isProduction, $.revReplace({ manifest: manifest })))
             .pipe(gulp.dest(DIST))
     }
-});
+})
 
 
 //
@@ -320,8 +322,8 @@ gulp.task('server', ['build'], function() {
         server: DIST,
         port: PORT,
         reloadDebounce: 2000
-    });
-});
+    })
+})
 
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -333,13 +335,13 @@ gulp.task('server', ['build'], function() {
 // Build site, run server, and watch for file changes
 //
 gulp.task('default', ['build', 'server'], function() {
-    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css']);
-    gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload]);
-    gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload]);
-    gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload]);
-    gulp.watch([SRC + '/_media/**/*'], ['media', browser.reload]);
-    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml'], ['build', browser.reload]);
-});
+    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css'])
+    gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload])
+    gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload])
+    gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload])
+    gulp.watch([SRC + '/_media/**/*'], ['media', browser.reload])
+    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml'], ['build', browser.reload])
+})
 
 
 //
@@ -347,9 +349,9 @@ gulp.task('default', ['build', 'server'], function() {
 //
 gulp.task('build', function(done) {
 
-    console.log($.util.colors.gray("         ------------------------------------------"));
-    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'));
-    console.log($.util.colors.gray("         ------------------------------------------"));
+    console.log($.util.colors.gray("         ------------------------------------------"))
+    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'))
+    console.log($.util.colors.gray("         ------------------------------------------"))
 
     runSequence(
         'clean',
@@ -358,8 +360,8 @@ gulp.task('build', function(done) {
         'rev',
         'rev:replace',
         done
-    );
-});
+    )
+})
 
 
 //
@@ -375,7 +377,7 @@ gulp.task('deploy', function() {
         "accessKeyId": process.env.AWS_ACCESS_KEY,
         "secretAccessKey": process.env.AWS_SECRET_KEY,
         "region": S3REGION
-    });
+    })
 
     return gulp.src(DIST + '/**/*')
         .pipe($.awspublishRouter({
@@ -407,11 +409,11 @@ gulp.task('deploy', function() {
         }))
         // make sure everything goes to the root '/'
         .pipe($.rename(function (path) {
-            path.dirname = S3PATH + path.dirname;
+            path.dirname = S3PATH + path.dirname
         }))
         .pipe(parallelize(publisher.publish(), 100))
         .pipe(publisher.sync()) // delete files in bucket that are not in local folder
         .pipe($.awspublish.reporter({
             states: ['create', 'update', 'delete']
-        }));
-});
+        }))
+})

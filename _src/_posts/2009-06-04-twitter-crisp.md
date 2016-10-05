@@ -14,7 +14,7 @@ tags:
 - icon
 ---
 
-Here's a quick twitter icon for use on your websites which is kind of a by-product from one of my last projects. But I would consider it a waste to just bury this deep in my filesystem so I think it's best I'm throwing this out to you. ;-)
+Here's a quick twitter icon for use on your websites which is kind of a by-product from one of my last projects. But I would consider it a waste to just bury this deep in my filesystem so I think it's best I'm throwing this out to you.
 
 This icon comes in various formats (PNG, ICNS, iContainer) and in 4 different sizes (128px, 48px, 32px, 16px) with each icon size redrawn (of course). Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab these icons while they're hot.
 

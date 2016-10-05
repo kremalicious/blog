@@ -70,7 +70,7 @@ Before starting to create hundreds of watermark images remember that Aperture au
 
 If you want to have full control and the highest quality you should repeat the above steps for every pixel size you are going to export from Aperture. So if you have a email preset which resizes the exported image to 600px than you should use a canvas of 600x600px in Photoshop and draw your watermark at that size. You could save those files with the pixel size added in the file name to avoid confusion.
 
-Now you can close Photoshop or let it open if you have enough RAM ;-)
+Now you can close Photoshop or let it open if you have enough RAM.
 
 
 

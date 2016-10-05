@@ -62,13 +62,13 @@ You can do this under *System Preferences > Network* by creating a specific Tor 
 
 ![Network Settings](/media/tor-osx-proxy.png)
 
-After hitting *OK* & *Apply* at the initial network screen, you can easily switch to this newly created location from your menu bar under  > Location whenever you start up Tor.
+After hitting *OK* & *Apply* at the initial network screen, you can easily switch to this newly created location from your menu bar under * > Location* whenever you start up Tor.
 
 Switching to the Tor location routes all network traffic on your system through Tor. Note that you have to repeat those steps for every other network interface if you use, say, Wi-Fi and Ethernet interchangeably.
 
 ## All in one go: start Tor & set network proxy settings automatically
 
-When you're already in the Terminal to start up Tor, additionally setting the network settings invloves a lot of fiddling around. Ain't nobody got time for that.
+When you're already in the Terminal to start up Tor, additionally setting the network settings involves a lot of fiddling around. Ain't nobody got time for that.
 
 Thankfully macOS provides a way to programmatically set those proxy values via the `networksetup` utility. I've found a [nice script](http://leonid.shevtsov.me/en/an-easy-way-to-use-tor-on-os-x) for this but running it opened multiple admin password prompts. So I extended it a bit to make it more user friendly.
 

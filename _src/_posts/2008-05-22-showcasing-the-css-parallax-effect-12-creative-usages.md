@@ -160,7 +160,7 @@ And he has found another Parallax effect on the [website of the Rissington Podca
 
 [Sonus:portals](http://www.sonus-game.com/)
 
-A star parallax which follows your mouse pointer. Done with jQuery and with heavy CPU load ;-)
+A star parallax which follows your mouse pointer. Done with jQuery and with heavy CPU load.
 
 [![Sonus:portals](/media/parallax_017.jpg)](http://www.sonus-game.com/)  
 

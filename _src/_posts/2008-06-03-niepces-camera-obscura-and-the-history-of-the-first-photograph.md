@@ -30,7 +30,7 @@ Either just download the icons or read the exciting story about the First Photog
 
 # The story behind these icons
 
-There's a fascinating story behind these icons which is nothing more than the story of the invention of photography. Grab yourself a cup of coffee or tea and sit back while reading this story. Of course, if you're bored already just grab the download package further down this page ;-)
+There's a fascinating story behind these icons which is nothing more than the story of the invention of photography. Grab yourself a cup of coffee or tea and sit back while reading this story. Of course, if you're bored already just grab the download package further down this page.
 
 ## Nicéphore Niépce and The First Photograph
 
@@ -62,7 +62,7 @@ If you're interested in all the different processes and techniques used by Niép
 
 Finally let me say that this is just a brief description of Niépce's discoveries and photographic inventions in general. If you're interested I've provided some more resources for you to dive into this topic after the next paragraph.
 
-Now switch back from historical learning to Icon Design ;-)
+Now switch back from historical learning to Icon Design.
 
 ## References in the icons
 
@@ -70,7 +70,7 @@ The Camera Obscura seen in my icon set is a drawing of the replica of Niépce's 
 
 The photography you can find in the iPhoto icon is the First Photograph "View from the Window at Le Gras", produced as a Heliography and dated to 1826 or 1827.
 
-And finally, if you know the Aperture and iPhoto icons then you may have noticed the references to these applications too (just compare the lenses). ;-)
+And finally, if you know the Aperture and iPhoto icons then you may have noticed the references to these applications too (just compare the lenses).
 
 ## Sources and more informations on Nicéphore Niépce
 
@@ -84,7 +84,7 @@ In-Depth historical article about the First Photograph and Niépce's life in gen
 When in France you have to visit this museum in Chalon sur Saône where they have a Niépce and a Daguerre room.
 
 [Nicéphore Niépce on Wikipedia](http://en.wikipedia.org/wiki/Nicéphore_Niépce)
-If you're more into un-referenced facts (Citation needed) ;-)
+If you're more into un-referenced facts (Citation needed)
 
 [The Daguerreian Society: Daguerreian texts](http://daguerre.org/resource/texts.html)
 Massive 19th and 20th century text archive of The Daguerreian Society about the daguerreotype

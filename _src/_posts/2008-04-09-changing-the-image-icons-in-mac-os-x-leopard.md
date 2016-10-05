@@ -41,6 +41,6 @@ So here's the trick: The icons from Photoshop are stored in Adobe Photoshop CS3.
 
 ![Path Photoshop](/media/pathphotoshop.png)
 
-Hope this helps you although it's very tricky. But changing icons for images in Mac OS X is a bit out of my control since i don't develop Mac OS X ;-)
+Hope this helps you although it's very tricky. But changing icons for images in Mac OS X is a bit out of my control since i don't develop Mac OS X.
 
 By the way, this should also work in Tiger...

@@ -174,7 +174,7 @@ Well and that's it. I would love to link to some smart WordPress Codex pages for
 <a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
 
 
-As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee ;-)
+As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee.
 
 
 
