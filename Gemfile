@@ -6,7 +6,7 @@ group :jekyll do
     gem 'jekyll-sitemap'
     gem 'jekyll-redirect-from'
     gem 'jekyll-picture-tag'
-    gem 'jekyll-archives'
+    gem 'jekyll-archives', :git => 'https://github.com/jekyll/jekyll-archives.git' #temporary fix for https://github.com/jekyll/jekyll-archives/issues/75
     gem 'jekyll-paginate'
 end
 

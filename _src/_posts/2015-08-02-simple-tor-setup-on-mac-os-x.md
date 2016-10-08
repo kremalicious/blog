@@ -23,11 +23,11 @@ I'm using macOS Sierra (10.12) for the following instructions but it should work
 
 ![Tor Browser](/media/tor-browser.png)
 
-The most simple way to surf anonymously with Tor is to just grab the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) bundle.
+The most simple way to surf anonymously with Tor is to just grab [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). It's a modified version of [Firefox Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/) with Tor and some extensions (Torbutton, TorLauncher, NoScript, and HTTPS-Everywhere) built right in. Upon start, Tor Browser automatically starts the required Tor background processes and routes traffic through the Tor network. That's the way to go if you want the highest level of protection without much further configuration.
 
-But it's based on a super old version of Firefox. And there might be more you want to do anonymously on your machine than just browsing the web, like accessing resources via the Terminal or any other app. Or just use the browser you're used to.
+But it's based on a super old version of Firefox and there might be more you want to do anonymously on your machine than just browsing the web, like accessing resources via the Terminal or any other app. Or just use the browser you're used to.
 
-For this you need to have Tor installed on your system and additionally set specific Proxy values in your network preferences after you've started Tor.
+For this you need to have Tor installed on your system and additionally set specific proxy values in your network preferences after you've started Tor.
 
 ## Install Tor
 
