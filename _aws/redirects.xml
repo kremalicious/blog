@@ -44,6 +44,14 @@
     </RoutingRule>
     <RoutingRule>
         <Condition>
+            <KeyPrefixEquals>feed/</KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <ReplaceKeyPrefixWith>feed.xml</ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+    <RoutingRule>
+        <Condition>
             <KeyPrefixEquals>portfolio/</KeyPrefixEquals>
         </Condition>
         <Redirect>
