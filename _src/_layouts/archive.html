@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<section role="main" id="main" class="grid">
+<section role="main" id="main">
 
     {% if page.type == 'category' %}
     <h1 class="page-title">{{ page.title }}</h1>
@@ -11,10 +11,18 @@ layout: base
     {% else %}
     <h1 class="page-title">{{ page.type }} archive for {{ page.title }}</h1>
     {% endif %}
-
-    {% for post in page.posts %}
-        {% include articles.html %}
-    {% endfor %}
+    
+    {% if page.path contains "photos" %}<div class="grid grid--gutters grid--half grid-medium--third">{% endif %}
+        {% for post in page.posts %}
+            
+            {% if post.layout == "photo" %}
+                {% include photos.html %}
+            {% else %}
+                {% include articles.html %}
+            {% endif %}
+            
+        {% endfor %}
+    {% if page.path contains "photos" %}</div>{% endif %}
 
 </section>
 

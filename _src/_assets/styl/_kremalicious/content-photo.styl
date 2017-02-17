@@ -67,7 +67,10 @@
 
 
 .photo-link
-    display: block
+    display: block;
+    
+    img
+        @extend .media-frame
 
     &,
     &:hover,
@@ -75,14 +78,16 @@
     &:active
         box-shadow: none
 
-    &:hover
+    &:hover,
+    &:focus
         img
-            border-color: $link-color
+            border-color: $link-color-hover
+            border-radius: $border-radius-base
 
     &:active
         background: none
 
-
+    
 //
 // Photo background change adjustment
 //
