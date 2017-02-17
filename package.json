@@ -21,8 +21,8 @@
     "picturefill": ">=2.3.1",
     "simple-jekyll-search": ">=1.1.4",
     "svg4everybody": ">=0.0.2",
-    "webcomponents.js": ">=0.7.1",
-    "vex-js": ">=2.3.4"
+    "vex-js": ">=2.3.4",
+    "webcomponents.js": ">=0.7.1"
   },
   "devDependencies": {
     "autoprefixer": ">=6.3.6",
