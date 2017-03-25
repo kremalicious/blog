@@ -3,18 +3,18 @@
 // load plugins
 const $ = require('gulp-load-plugins')()
 
-// manually require modules that won"t get picked up by gulp-load-plugins
-const gulp            = require('gulp'),
-      del             = require('del'),
-      pkg             = require('./package.json'),
-      parallelize     = require('concurrent-transform'),
-      browser         = require('browser-sync'),
-      autoprefixer    = require('autoprefixer'),
-      cssnano         = require('cssnano')
+// manually import modules that won't get picked up by gulp-load-plugins
+import gulp from 'gulp'
+import del from 'del'
+import pkg from './package.json'
+import parallelize from 'concurrent-transform'
+import browser from 'browser-sync'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
-const runSequence = require('run-sequence')
+import runSequence from 'run-sequence'
 
 // handle errors
 const onError = (error) => {
@@ -334,7 +334,7 @@ gulp.task('server', ['build'], () => {
 //
 // Build site, run server, and watch for file changes
 //
-gulp.task('default', ['build', 'server'], () => {
+gulp.task('default', ['server'], () => {
     gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css'])
     gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload])
     gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload])
@@ -372,11 +372,11 @@ gulp.task('deploy', () => {
     // create publisher, define config
     var publisher = $.awspublish.create({
         params: {
-            "Bucket": S3BUCKET
+            'Bucket': S3BUCKET
         },
-        "accessKeyId": process.env.AWS_ACCESS_KEY,
-        "secretAccessKey": process.env.AWS_SECRET_KEY,
-        "region": S3REGION
+        'accessKeyId': process.env.AWS_ACCESS_KEY,
+        'secretAccessKey': process.env.AWS_SECRET_KEY,
+        'region': S3REGION
     })
 
     return gulp.src(DIST + '/**/*')
