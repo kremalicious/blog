@@ -206,7 +206,10 @@ const jsProject = () => src(SRC + '/_assets/js/kremalicious3.js')
     .pipe($.rename({suffix: '.min'}))
     .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/js/'))
-    .pipe($.if(isProduction, $.rev.manifest()))
+    .pipe($.if(isProduction, $.rev.manifest({
+		base: DIST + '/assets/js/',
+		merge: true
+	})))
     .pipe($.if(isProduction, dest(DIST + '/assets/js/')))
 
 // Service Worker js
@@ -229,7 +232,10 @@ export const icons = () => src(iconset.icons)
     .pipe($.svgSprite(SPRITE))
     .pipe($.if(isProduction, $.rev()))
     .pipe(dest(iconset.dist))
-    .pipe($.if(isProduction, $.rev.manifest()))
+    .pipe($.if(isProduction, $.rev.manifest({
+		base: iconset.dist,
+		merge: true
+	})))
     .pipe($.if(isProduction, dest(iconset.dist)))
 
 
@@ -250,7 +256,10 @@ export const images = () =>
     })))
     .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/img/'))
-    .pipe($.if(isProduction, $.rev.manifest()))
+    .pipe($.if(isProduction, $.rev.manifest({
+		base: DIST + '/assets/img/',
+		merge: true
+	})))
     .pipe($.if(isProduction, dest(DIST + '/assets/img/')))
 
 
