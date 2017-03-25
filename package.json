@@ -26,13 +26,16 @@
   },
   "devDependencies": {
     "autoprefixer": ">=6.3.6",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
     "browser-sync": ">=2.10.0",
     "concurrent-transform": ">=1.0.0",
     "cssnano": ">=3.6.2",
     "del": ">=1.2.0",
-    "gulp": ">=3.8.0",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-awspublish": ">=2.0.2",
     "gulp-awspublish-router": ">=0.1.1",
+    "gulp-cli": ">=1.2.2",
     "gulp-filter": ">=2.0.2",
     "gulp-header": ">=1.2.2",
     "gulp-htmlmin": ">=1.1.2",
@@ -49,8 +52,7 @@
     "gulp-stylus": ">=2.3.1",
     "gulp-svg-sprite": ">=1.2.2",
     "gulp-uglify": ">=1.2.0",
-    "gulp-util": ">=3.0.6",
-    "run-sequence": ">=1.1.0"
+    "gulp-util": ">=3.0.6"
   },
   "engines": {
     "node": ">=5.0.0"
