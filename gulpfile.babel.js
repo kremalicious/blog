@@ -12,10 +12,6 @@ import browser from 'browser-sync'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 
-// Temporary solution until gulp 4
-// https://github.com/gulpjs/gulp/issues/355
-import runSequence from 'run-sequence'
-
 // handle errors
 const onError = (error) => {
     $.util.log('')
@@ -110,46 +106,82 @@ const BANNER = [
 
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// Tasks
+// gulp tasks
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+//
+// Full build
+//
+// `gulp build` is the development build
+// `gulp build --production` is the production build
+//
+gulp.task('build', gulp.series(
+    buildBanner, clean, jekyll,
+    gulp.parallel(html, css, js, images, icons, fonts, media),
+    rev, revReplace
+))
+
+function buildBanner(done) {
+    console.log($.util.colors.gray("         ------------------------------------------"))
+    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'))
+    console.log($.util.colors.gray("         ------------------------------------------"))
+
+    done()
+}
+
+
+//
+// Build site, run server, and watch for file changes
+//
+gulp.task('default', gulp.series('build', server, watch))
+
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// Functions
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 //
 // Delete build artifacts
 //
-gulp.task('clean', (done) => {
+function clean(done) {
     return del([
-        DIST + '/**/*',
-        DIST + '/.*', // delete all hidden files
+        DIST + '**/*',
+        DIST + '.*', // delete all hidden files
         '!' + DIST + '/media/**'
-    ], done)
-})
+    ])
+
+    done()
+}
 
 
 //
 // Jekyll
 //
-gulp.task('jekyll', (cb) => {
-    browser.notify('Compiling Jekyll')
+function jekyll(done) {
 
-    var spawn = require('child_process').spawn
+    browser.notify('Compiling Jekyll')
 
     if (isProduction) {
         process.env.JEKYLL_ENV = 'production'
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--lsi'], { stdio: 'inherit' })
+        var jekyll_options = 'jekyll build --lsi'
     } else {
-        var jekyll = spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config.dev.yml', '--drafts', '--future', '--incremental'], { stdio: 'inherit' })
+        var jekyll_options = 'jekyll build --config _config.yml,_config.dev.yml --incremental --drafts --future'
     }
 
-    jekyll.on('exit', function(code) {
-        cb(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code)
-    })
-})
+    var spawn  = require('child_process').spawn,
+        jekyll = spawn('bundle', ['exec', jekyll_options], { stdio: 'inherit' })
+
+    return jekyll
+        .on('error', (error) => onError() )
+        .on('close', done)
+}
 
 
 //
 // HTML
 //
-gulp.task('html', () => {
+function html() {
     return gulp.src(DIST + '/**/*.html')
         .pipe($.if(isProduction, $.htmlmin({
             collapseWhitespace: true,
@@ -163,13 +195,13 @@ gulp.task('html', () => {
             minifyCSS: true
         })))
         .pipe(gulp.dest(DIST))
-})
+}
 
 
 //
 // Styles
 //
-gulp.task('css', () => {
+function css() {
 
     var processors = [
         autoprefixer({ browsers: COMPATIBILITY }),
@@ -188,7 +220,7 @@ gulp.task('css', () => {
         .pipe($.rename({ suffix: '.min' }))
         .pipe(gulp.dest(DIST + '/assets/css/'))
         .pipe(browser.stream())
-})
+}
 
 
 //
@@ -196,17 +228,17 @@ gulp.task('css', () => {
 //
 
 // Libraries
-gulp.task('js:libraries', () => {
+function jsLibraries() {
     return gulp.src([
             'node_modules/picturefill/dist/picturefill.js'
         ])
         .pipe($.if(isProduction, $.uglify())).on('error', onError)
         .pipe($.rename({ suffix: '.min'}))
         .pipe(gulp.dest(DIST + '/assets/js/'))
-})
+}
 
 // Project js
-gulp.task('js:project', () => {
+function jsProject() {
     return gulp.src(SRC + '/_assets/js/kremalicious3.js')
         .pipe($.sourcemaps.init())
         .pipe($.include()).on('error', onError)
@@ -215,10 +247,10 @@ gulp.task('js:project', () => {
         .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
         .pipe($.rename({suffix: '.min'}))
         .pipe(gulp.dest(DIST + '/assets/js/'))
-})
+}
 
 // Service Worker js
-gulp.task('js:sw', () => {
+function jsSW() {
     return gulp.src(DIST + '/service-worker.js')
         .pipe($.if(isProduction, $.uglify({
             compress: {
@@ -226,16 +258,18 @@ gulp.task('js:sw', () => {
             }
         }))).on('error', onError)
         .pipe(gulp.dest(DIST + '/'))
-})
+}
 
 // Collect all script tasks
-gulp.task('js', ['js:libraries', 'js:project', 'js:sw'])
+function js() {
+    return jsLibraries(), jsProject(), jsSW()
+}
 
 
 //
 // Icons
 //
-gulp.task('icons', () => {
+function icons() {
     return gulp.src(iconset.icons)
         .pipe($.rename({ prefix: iconset.prefix }))
         .pipe(gulp.dest(iconset.dist))
@@ -243,13 +277,13 @@ gulp.task('icons', () => {
         .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
         .pipe($.svgSprite(SPRITE))
         .pipe(gulp.dest(iconset.dist))
-})
+}
 
 
 //
 // Copy images
 //
-gulp.task('images', () => {
+function images() {
     return gulp.src([
         SRC + '/_assets/img/**/*',
         '!' + SRC + '/_assets/img/entypo/**/*'
@@ -262,48 +296,49 @@ gulp.task('images', () => {
         svgoPlugins: [{ removeViewBox: false }]
     })))
     .pipe(gulp.dest(DIST + '/assets/img/'))
-})
+}
 
 
 //
 // Copy fonts
 //
-gulp.task('fonts', () => {
+function fonts() {
     return gulp.src(SRC + '/_assets/fonts/**/*')
         .pipe(gulp.dest(DIST + '/assets/fonts/'))
-})
+}
 
 
 //
 // Copy media
 //
-gulp.task('media', () => {
+function media() {
     return gulp.src(SRC + '/_media/**/*')
         .pipe(gulp.dest(DIST + '/media/'))
-})
+}
 
 
 //
 // Revision static assets
 //
-gulp.task('rev', () => {
+function rev(done) {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
-        return gulp.src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
+        return gulp.src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff,woff2}')
             .pipe($.if(isProduction, $.rev()))
             .pipe(gulp.dest(DIST + '/assets/'))
             // output rev manifest for next replace task
             .pipe($.if(isProduction, $.rev.manifest()))
             .pipe(gulp.dest(DIST + '/assets/'))
     }
-})
+    done()
+}
 
 
 //
 // Replace all links to assets in files
 // from a manifest file
 //
-gulp.task('rev:replace', () => {
+function revReplace(done) {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
         var manifest = gulp.src(DIST + '/assets/rev-manifest.json')
@@ -311,63 +346,42 @@ gulp.task('rev:replace', () => {
             .pipe($.if(isProduction, $.revReplace({ manifest: manifest })))
             .pipe(gulp.dest(DIST))
     }
-})
+    done()
+}
 
 
 //
 // Dev Server
 //
-gulp.task('server', ['build'], () => {
+function server(done) {
     browser.init({
         server: DIST,
         port: PORT,
         reloadDebounce: 2000
     })
-})
+
+    done()
+}
+
+
+//
+// Watch for file changes
+//
+function watch() {
+    gulp.watch(SRC + '_assets/styl/**/*.styl').on('all', gulp.series(css))
+    gulp.watch(SRC + '_assets/js/**/*.js').on('all', gulp.series(js, browser.reload))
+    gulp.watch(SRC + '_assets/img/**/*.{png,jpg,jpeg,gif,webp}').on('all', gulp.series(images, browser.reload))
+    gulp.watch(SRC + '_assets/img/**/*.{svg}').on('all', gulp.series(icons, browser.reload))
+    gulp.watch(SRC + '_media/**/*').on('all', gulp.series(media, browser.reload))
+    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml', SRC + '_includes/svg/*']).on('all', gulp.series('build', browser.reload))
+}
 
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// Task sequences
+// Deployment
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-//
-// Build site, run server, and watch for file changes
-//
-gulp.task('default', ['server'], () => {
-    gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css'])
-    gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload])
-    gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload])
-    gulp.watch([SRC + '/_assets/img/**/*.{svg}'], ['icons', browser.reload])
-    gulp.watch([SRC + '/_media/**/*'], ['media', browser.reload])
-    gulp.watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml'], ['build', browser.reload])
-})
-
-
-//
-// Full build
-//
-gulp.task('build', (done) => {
-
-    console.log($.util.colors.gray("         ------------------------------------------"))
-    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'))
-    console.log($.util.colors.gray("         ------------------------------------------"))
-
-    runSequence(
-        'clean',
-        'jekyll',
-        ['html', 'css', 'js', 'images', 'icons', 'fonts', 'media'],
-        'rev',
-        'rev:replace',
-        done
-    )
-})
-
-
-//
-// Deploy to S3
-//
-gulp.task('deploy', () => {
+gulp.task('deploy', (done) => {
 
     // create publisher, define config
     var publisher = $.awspublish.create({
@@ -387,7 +401,7 @@ gulp.task('deploy', () => {
             },
             routes: {
                 // all static assets, cached & gzipped
-                '^assets/(?:.+)\\.(?:js|css|png|jpg|jpeg|gif|ico|svg|ttf)$': {
+                '^assets/(?:.+)\\.(?:js|css|png|jpg|jpeg|gif|ico|svg|ttf|eot|woff|woff2)$': {
                     cacheTime: 2592000, // cache for 1 month
                     gzip: true
                 },
@@ -401,6 +415,20 @@ gulp.task('deploy', () => {
                 '^.+\\.html': {
                     cacheTime: 0,
                     gzip: true
+                },
+
+                // font mime types
+                '\.ttf$': {
+                    key: '$&',
+                    headers: { 'Content-Type': 'application/x-font-ttf' }
+                },
+                '\.woff$': {
+                    key: '$&',
+                    headers: { 'Content-Type': 'application/x-font-woff' }
+                },
+                '\.woff2$': {
+                    key: '$&',
+                    headers: { 'Content-Type': 'application/x-font-woff2' }
                 },
 
                 // pass-through for anything that wasn't matched by routes above, to be uploaded with default options
