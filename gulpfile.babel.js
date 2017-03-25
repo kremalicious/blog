@@ -1,23 +1,23 @@
 'use strict'
 
 // load plugins
-var $ = require('gulp-load-plugins')()
+const $ = require('gulp-load-plugins')()
 
 // manually require modules that won"t get picked up by gulp-load-plugins
-var gulp            = require('gulp'),
-    del             = require('del'),
-    pkg             = require('./package.json'),
-    parallelize     = require('concurrent-transform'),
-    browser         = require('browser-sync'),
-    autoprefixer    = require('autoprefixer'),
-    cssnano         = require('cssnano')
+const gulp            = require('gulp'),
+      del             = require('del'),
+      pkg             = require('./package.json'),
+      parallelize     = require('concurrent-transform'),
+      browser         = require('browser-sync'),
+      autoprefixer    = require('autoprefixer'),
+      cssnano         = require('cssnano')
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
-var runSequence = require('run-sequence')
+const runSequence = require('run-sequence')
 
 // handle errors
-var onError = function(error) {
+const onError = (error) => {
     $.util.log('')
     $.util.log($.util.colors.red('You fucked up:', error.message, 'on line' , error.lineNumber))
     $.util.log('')
@@ -26,7 +26,7 @@ var onError = function(error) {
 
 // 'development' is just default, production overrides are triggered
 // by adding the production flag to the gulp command e.g. `gulp build --production`
-var isProduction = ($.util.env.production === true ? true : false)
+const isProduction = ($.util.env.production === true ? true : false)
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Terminal Banner
@@ -45,20 +45,20 @@ console.log("")
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // Port to use for the development server.
-var PORT = 1337
+const PORT = 1337
 
 // Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 10']
+const COMPATIBILITY = ['last 2 versions', 'ie >= 10']
 
 // paths
-var SRC       = '_src',
-    DIST      = '_site',
-    S3BUCKET  = 'kremalicious.com',
-    S3PATH    = '/',
-    S3REGION  = 'eu-central-1'
+const SRC       = '_src',
+      DIST      = '_site',
+      S3BUCKET  = 'kremalicious.com',
+      S3PATH    = '/',
+      S3REGION  = 'eu-central-1'
 
 // icons
-var ICONS = {
+const ICONS = {
     entypo: {
         src: SRC + '/_assets/icons/entypo/',
         dist: DIST + '/assets/img/',
@@ -69,7 +69,7 @@ var ICONS = {
     }
 }
 
-var iconset = ICONS.entypo
+const iconset = ICONS.entypo
 
 // Iterate through the icon set array
 iconset.icons.forEach(function(icon, i, icons) {
@@ -77,7 +77,7 @@ iconset.icons.forEach(function(icon, i, icons) {
 })
 
 // SVG sprite
-var SPRITE = {
+const SPRITE = {
     dest: DIST + '/assets/img/',
     mode: {
         symbol: {
@@ -88,7 +88,7 @@ var SPRITE = {
 }
 
 // code banner
-var BANNER = [
+const BANNER = [
     '/**',
     ' ** <%= pkg.name %> v<%= pkg.version %>',
     ' ** <%= pkg.description %>',
@@ -116,7 +116,7 @@ var BANNER = [
 //
 // Delete build artifacts
 //
-gulp.task('clean', function(done) {
+gulp.task('clean', (done) => {
     return del([
         DIST + '/**/*',
         DIST + '/.*', // delete all hidden files
@@ -128,7 +128,7 @@ gulp.task('clean', function(done) {
 //
 // Jekyll
 //
-gulp.task('jekyll', function(cb) {
+gulp.task('jekyll', (cb) => {
     browser.notify('Compiling Jekyll')
 
     var spawn = require('child_process').spawn
@@ -149,7 +149,7 @@ gulp.task('jekyll', function(cb) {
 //
 // HTML
 //
-gulp.task('html', function() {
+gulp.task('html', () => {
     return gulp.src(DIST + '/**/*.html')
         .pipe($.if(isProduction, $.htmlmin({
             collapseWhitespace: true,
@@ -169,7 +169,7 @@ gulp.task('html', function() {
 //
 // Styles
 //
-gulp.task('css', function() {
+gulp.task('css', () => {
 
     var processors = [
         autoprefixer({ browsers: COMPATIBILITY }),
@@ -196,7 +196,7 @@ gulp.task('css', function() {
 //
 
 // Libraries
-gulp.task('js:libraries', function() {
+gulp.task('js:libraries', () => {
     return gulp.src([
             'node_modules/picturefill/dist/picturefill.js'
         ])
@@ -206,7 +206,7 @@ gulp.task('js:libraries', function() {
 })
 
 // Project js
-gulp.task('js:project', function() {
+gulp.task('js:project', () => {
     return gulp.src(SRC + '/_assets/js/kremalicious3.js')
         .pipe($.sourcemaps.init())
         .pipe($.include()).on('error', onError)
@@ -218,7 +218,7 @@ gulp.task('js:project', function() {
 })
 
 // Service Worker js
-gulp.task('js:sw', function() {
+gulp.task('js:sw', () => {
     return gulp.src(DIST + '/service-worker.js')
         .pipe($.if(isProduction, $.uglify({
             compress: {
@@ -235,7 +235,7 @@ gulp.task('js', ['js:libraries', 'js:project', 'js:sw'])
 //
 // Icons
 //
-gulp.task('icons', function() {
+gulp.task('icons', () => {
     return gulp.src(iconset.icons)
         .pipe($.rename({ prefix: iconset.prefix }))
         .pipe(gulp.dest(iconset.dist))
@@ -249,7 +249,7 @@ gulp.task('icons', function() {
 //
 // Copy images
 //
-gulp.task('images', function() {
+gulp.task('images', () => {
     return gulp.src([
         SRC + '/_assets/img/**/*',
         '!' + SRC + '/_assets/img/entypo/**/*'
@@ -268,7 +268,7 @@ gulp.task('images', function() {
 //
 // Copy fonts
 //
-gulp.task('fonts', function() {
+gulp.task('fonts', () => {
     return gulp.src(SRC + '/_assets/fonts/**/*')
         .pipe(gulp.dest(DIST + '/assets/fonts/'))
 })
@@ -277,7 +277,7 @@ gulp.task('fonts', function() {
 //
 // Copy media
 //
-gulp.task('media', function() {
+gulp.task('media', () => {
     return gulp.src(SRC + '/_media/**/*')
         .pipe(gulp.dest(DIST + '/media/'))
 })
@@ -286,7 +286,7 @@ gulp.task('media', function() {
 //
 // Revision static assets
 //
-gulp.task('rev', function() {
+gulp.task('rev', () => {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
         return gulp.src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
@@ -303,7 +303,7 @@ gulp.task('rev', function() {
 // Replace all links to assets in files
 // from a manifest file
 //
-gulp.task('rev:replace', function() {
+gulp.task('rev:replace', () => {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
         var manifest = gulp.src(DIST + '/assets/rev-manifest.json')
@@ -317,7 +317,7 @@ gulp.task('rev:replace', function() {
 //
 // Dev Server
 //
-gulp.task('server', ['build'], function() {
+gulp.task('server', ['build'], () => {
     browser.init({
         server: DIST,
         port: PORT,
@@ -334,7 +334,7 @@ gulp.task('server', ['build'], function() {
 //
 // Build site, run server, and watch for file changes
 //
-gulp.task('default', ['build', 'server'], function() {
+gulp.task('default', ['build', 'server'], () => {
     gulp.watch([SRC + '/_assets/styl/**/*.styl'], ['css'])
     gulp.watch([SRC + '/_assets/js/*.js'], ['js', browser.reload])
     gulp.watch([SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif}'], ['images', browser.reload])
@@ -347,7 +347,7 @@ gulp.task('default', ['build', 'server'], function() {
 //
 // Full build
 //
-gulp.task('build', function(done) {
+gulp.task('build', (done) => {
 
     console.log($.util.colors.gray("         ------------------------------------------"))
     console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'))
@@ -367,7 +367,7 @@ gulp.task('build', function(done) {
 //
 // Deploy to S3
 //
-gulp.task('deploy', function() {
+gulp.task('deploy', () => {
 
     // create publisher, define config
     var publisher = $.awspublish.create({
