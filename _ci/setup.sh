@@ -7,7 +7,7 @@ echo "         Installing dependencies "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
-npm install gulp bower -g
+npm install gulpjs/gulp.git#4.0 bower -g
 npm install
 bower install
 
