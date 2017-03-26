@@ -165,6 +165,7 @@ const processors = [
     autoprefixer({ browsers: COMPATIBILITY }),
     cssnano()
 ]
+
 export const css = () =>
     src([
         SRC + '/_assets/styl/kremalicious3.styl',
@@ -176,41 +177,25 @@ export const css = () =>
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
     .pipe($.rename({ suffix: '.min' }))
-    .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/css/'))
-    .pipe($.if(isProduction, $.rev.manifest()))
-    .pipe($.if(isProduction, dest(DIST + '/assets/css/')))
     .pipe(browser.stream())
 
 
 //
 // Scripts
 //
-
-// Libraries
-const jsLibraries = () => src('node_modules/picturefill/dist/picturefill.js')
-    .pipe($.if(isProduction, $.uglify())).on('error', onError)
-    .pipe($.rename({ suffix: '.min'}))
-    .pipe($.if(isProduction, $.rev()))
-    .pipe(dest(DIST + '/assets/js/'))
-    .pipe($.if(isProduction, $.rev.manifest()))
-    .pipe($.if(isProduction, dest(DIST + '/assets/js/')))
-
-// Project js
-const jsProject = () => src(SRC + '/_assets/js/kremalicious3.js')
+const jsProject = () =>
+    src([
+        SRC + '/_assets/js/kremalicious3.js',
+        'node_modules/picturefill/dist/picturefill.js'
+    ])
     .pipe($.sourcemaps.init())
     .pipe($.include()).on('error', onError)
     .pipe($.if(isProduction, $.uglify())).on('error', onError)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
     .pipe($.rename({suffix: '.min'}))
-    .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/js/'))
-    .pipe($.if(isProduction, $.rev.manifest({
-		base: DIST + '/assets/js/',
-		merge: true
-	})))
-    .pipe($.if(isProduction, dest(DIST + '/assets/js/')))
 
 // Service Worker js
 const jsSW = () => src(DIST + '/service-worker.js')
@@ -218,7 +203,7 @@ const jsSW = () => src(DIST + '/service-worker.js')
     .pipe(dest(DIST + '/'))
 
 // Collect all script tasks
-export const js = series(jsLibraries, jsProject, jsSW)
+export const js = series(jsProject, jsSW)
 
 
 //
@@ -230,13 +215,7 @@ export const icons = () => src(iconset.icons)
     .pipe($.filter('**/*.svg'))
     .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
     .pipe($.svgSprite(SPRITE))
-    .pipe($.if(isProduction, $.rev()))
     .pipe(dest(iconset.dist))
-    .pipe($.if(isProduction, $.rev.manifest({
-		base: iconset.dist,
-		merge: true
-	})))
-    .pipe($.if(isProduction, dest(iconset.dist)))
 
 
 //
@@ -254,13 +233,7 @@ export const images = () =>
         multipass: true, // svg
         svgoPlugins: [{ removeViewBox: false }]
     })))
-    .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/img/'))
-    .pipe($.if(isProduction, $.rev.manifest({
-		base: DIST + '/assets/img/',
-		merge: true
-	})))
-    .pipe($.if(isProduction, dest(DIST + '/assets/img/')))
 
 
 //
@@ -269,8 +242,6 @@ export const images = () =>
 export const fonts = () => src(SRC + '/_assets/fonts/**/*')
     .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/fonts/'))
-    .pipe($.if(isProduction, $.rev.manifest()))
-    .pipe($.if(isProduction, dest(DIST + '/assets/fonts/')))
 
 
 //
@@ -281,11 +252,28 @@ export const media = () => src(SRC + '/_media/**/*')
 
 
 //
+// Revision static assets
+//
+export const rev = (done) => {
+    // globbing is slow so do everything conditionally for faster dev build
+    if (isProduction) {
+        return src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
+            .pipe($.rev())
+            .pipe(dest(DIST + '/assets/'))
+            // output rev manifest for next replace task
+            .pipe($.rev.manifest())
+            .pipe(dest(DIST + '/assets/'))
+    }
+    done()
+}
+
+
+//
 // Replace all links to assets in files
 // from a manifest file
 //
 export const revReplace = (done) => {
-    let manifest = src(DIST + '/**/rev-manifest.json')
+    let manifest = src(DIST + '/assets/rev-manifest.json')
 
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
@@ -345,7 +333,7 @@ export const buildBanner = (done) => {
 // `gulp build` is the development build
 // `gulp build --production` is the production build
 //
-export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, images, icons, fonts, media), revReplace)
+export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, images, icons, fonts, media), rev, revReplace)
 
 //
 // Build site, run server, and watch for file changes
