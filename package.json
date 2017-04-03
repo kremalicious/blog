@@ -8,7 +8,7 @@
   "description": "Blog of Matthias Kretschmann",
   "homepage": "https://kremalicious.com",
   "license": "MIT",
-  "main": "gulpfile.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production"
@@ -19,7 +19,7 @@
     "normalize-css": ">=2.3.1",
     "normalize-opentype.css": ">=0.2.4",
     "picturefill": ">=2.3.1",
-    "simple-jekyll-search": ">=1.1.4",
+    "simple-jekyll-search": "1.1.8",
     "svg4everybody": ">=0.0.2",
     "vex-js": ">=2.3.4",
     "webcomponents.js": ">=0.7.1"
@@ -30,6 +30,7 @@
     "babel-preset-es2015": "^6.24.0",
     "browser-sync": ">=2.10.0",
     "concurrent-transform": ">=1.0.0",
+    "critical": ">=0.8.4",
     "cssnano": ">=3.6.2",
     "del": ">=1.2.0",
     "gulp": "github:gulpjs/gulp#4.0",

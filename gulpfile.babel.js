@@ -1,16 +1,17 @@
 'use strict'
 
-// load plugins
-const $ = require('gulp-load-plugins')()
-
-// manually import modules that won't get picked up by gulp-load-plugins
-import { src, dest, watch, parallel, series } from 'gulp'
-import del from 'del'
-import pkg from './package.json'
-import parallelize from 'concurrent-transform'
-import browser from 'browser-sync'
+import { src, dest, parallel, series, watch } from 'gulp'
+import plugins      from 'gulp-load-plugins'
+import del          from 'del'
+import pkg          from './package.json'
+import parallelize  from 'concurrent-transform'
+import browser      from 'browser-sync'
 import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
+import cssnano      from 'cssnano'
+import critical     from 'critical'
+
+// load plugins
+const $ = plugins()
 
 // handle errors
 const onError = (error) => {
@@ -116,7 +117,7 @@ export const clean = () =>
     del([
         DIST + '**/*',
         DIST + '.*', // delete all hidden files
-        '!' + DIST + '/media/**'
+        '!' + DIST + '/media'
     ])
 
 
@@ -139,6 +140,7 @@ export const jekyll = (done) => {
 
     jekyll.on('error', (error) => onError() ).on('close', done)
 }
+
 
 //
 // HTML
@@ -180,6 +182,33 @@ export const css = () =>
     .pipe(dest(DIST + '/assets/css/'))
     .pipe(browser.stream())
 
+// inline critical-path CSS
+export const criticalCss = (done) => {
+    if (isProduction) {
+        critical.generate({
+            base: DIST,
+            src: 'index.html',
+            dest: 'index.html',
+            inline: true,
+            minify: true,
+            dimensions: [{
+                height: 320,
+                width: 480
+            }, {
+                height: 600,
+                width: 650
+            }, {
+                height: 700,
+                width: 960
+            }, {
+                height: 900,
+                width: 1400
+            }]
+        })
+    }
+    done()
+}
+
 
 //
 // Scripts
@@ -219,12 +248,12 @@ export const icons = () => src(iconset.icons)
 
 
 //
-// Copy images
+// Images
 //
 export const images = () =>
     src([
         SRC + '/_assets/img/**/*',
-        '!' + SRC + '/_assets/img/entypo/**/*'
+        '!' + SRC + '/_assets/img/entypo'
     ])
     .pipe($.if(isProduction, $.imagemin({
         optimizationLevel: 5, // png
@@ -235,12 +264,22 @@ export const images = () =>
     })))
     .pipe(dest(DIST + '/assets/img/'))
 
+// optimize Jekyll generated images
+export const imagesGenerated = () => src(DIST + '/media/gen/**/*')
+    .pipe($.if(isProduction, $.imagemin({
+        optimizationLevel: 5, // png
+        progressive: true, // jpg
+        interlaced: true, // gif
+        multipass: true, // svg
+        svgoPlugins: [{ removeViewBox: false }]
+    })))
+    .pipe(dest(DIST + '/media/gen/'))
+
 
 //
 // Copy fonts
 //
 export const fonts = () => src(SRC + '/_assets/fonts/**/*')
-    .pipe($.if(isProduction, $.rev()))
     .pipe(dest(DIST + '/assets/fonts/'))
 
 
@@ -248,7 +287,7 @@ export const fonts = () => src(SRC + '/_assets/fonts/**/*')
 // Copy media
 //
 export const media = () => src(SRC + '/_media/**/*')
-    .pipe(dest(DIST + '/assets/media/'))
+    .pipe(dest(DIST + '/media/'))
 
 
 //
@@ -257,7 +296,7 @@ export const media = () => src(SRC + '/_media/**/*')
 export const rev = (done) => {
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
-        return src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff}')
+        return src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff,woff2}')
             .pipe($.rev())
             .pipe(dest(DIST + '/assets/'))
             // output rev manifest for next replace task
@@ -273,10 +312,10 @@ export const rev = (done) => {
 // from a manifest file
 //
 export const revReplace = (done) => {
-    let manifest = src(DIST + '/assets/rev-manifest.json')
-
     // globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
+        let manifest = src(DIST + '/assets/rev-manifest.json')
+
         return src(DIST + '/**/*.{html,css,js}')
             .pipe($.revReplace({ manifest: manifest }))
             .pipe(dest(DIST))
@@ -302,11 +341,11 @@ export const server = (done) => {
 // Watch for file changes
 //
 export const watchSrc = () => {
-    watch(SRC + '_assets/styl/**/*.styl').on('all', series(css))
-    watch(SRC + '_assets/js/**/*.js').on('all', series(js, browser.reload))
-    watch(SRC + '_assets/img/**/*.{png,jpg,jpeg,gif,webp}').on('all', series(images, browser.reload))
-    watch(SRC + '_assets/img/**/*.{svg}').on('all', series(icons, browser.reload))
-    watch(SRC + '_media/**/*').on('all', series(media, browser.reload))
+    watch(SRC + '/_assets/styl/**/*.styl').on('all', series(css))
+    watch(SRC + '/_assets/js/**/*.js').on('all', series(js, browser.reload))
+    watch(SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif,webp}').on('all', series(images, browser.reload))
+    watch(SRC + '/_assets/img/**/*.{svg}').on('all', series(icons, browser.reload))
+    watch(SRC + '/_media/**/*').on('all', series(media, browser.reload))
     watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml', SRC + '_includes/svg/*']).on('all', series('build', browser.reload))
 }
 
@@ -333,7 +372,7 @@ export const buildBanner = (done) => {
 // `gulp build` is the development build
 // `gulp build --production` is the production build
 //
-export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, images, icons, fonts, media), rev, revReplace)
+export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, images, imagesGenerated, icons, fonts, media), rev, revReplace, criticalCss)
 
 //
 // Build site, run server, and watch for file changes
