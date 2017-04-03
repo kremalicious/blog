@@ -1,15 +1,14 @@
 'use strict'
 
 import { src, dest, parallel, series, watch } from 'gulp'
-import plugins           from 'gulp-load-plugins'
-import del               from 'del'
-import pkg               from './package.json'
-import parallelize       from 'concurrent-transform'
-import browser           from 'browser-sync'
-import autoprefixer      from 'autoprefixer'
-import cssnano           from 'cssnano'
-import critical          from 'critical'
-import imageminJpegoptim from 'imagemin-jpegoptim'
+import plugins      from 'gulp-load-plugins'
+import del          from 'del'
+import pkg          from './package.json'
+import parallelize  from 'concurrent-transform'
+import browser      from 'browser-sync'
+import autoprefixer from 'autoprefixer'
+import cssnano      from 'cssnano'
+import critical     from 'critical'
 
 // load plugins
 const $ = plugins()
@@ -253,7 +252,7 @@ export const icons = () => src(iconset.icons)
 //
 const imageminPlugins = [
     $.imagemin.gifsicle({ interlaced: true }),
-    imageminJpegoptim(),
+    $.imagemin.jpegtran(),
     $.imagemin.optipng({ optimizationLevel: 5 }),
     $.imagemin.svgo({ plugins: [{removeViewBox: false }]})
 ]
