@@ -53,7 +53,8 @@
     "gulp-stylus": ">=2.3.1",
     "gulp-svg-sprite": ">=1.2.2",
     "gulp-uglify": ">=1.2.0",
-    "gulp-util": ">=3.0.6"
+    "gulp-util": ">=3.0.6",
+    "imagemin-jpegoptim": ">=5.0.0"
   },
   "engines": {
     "node": ">=5.0.0"

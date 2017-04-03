@@ -1,14 +1,15 @@
 'use strict'
 
 import { src, dest, parallel, series, watch } from 'gulp'
-import plugins      from 'gulp-load-plugins'
-import del          from 'del'
-import pkg          from './package.json'
-import parallelize  from 'concurrent-transform'
-import browser      from 'browser-sync'
-import autoprefixer from 'autoprefixer'
-import cssnano      from 'cssnano'
-import critical     from 'critical'
+import plugins           from 'gulp-load-plugins'
+import del               from 'del'
+import pkg               from './package.json'
+import parallelize       from 'concurrent-transform'
+import browser           from 'browser-sync'
+import autoprefixer      from 'autoprefixer'
+import cssnano           from 'cssnano'
+import critical          from 'critical'
+import imageminJpegoptim from 'imagemin-jpegoptim'
 
 // load plugins
 const $ = plugins()
@@ -250,29 +251,24 @@ export const icons = () => src(iconset.icons)
 //
 // Images
 //
+const imageminPlugins = [
+    $.imagemin.gifsicle({ interlaced: true }),
+    imageminJpegoptim(),
+    $.imagemin.optipng({ optimizationLevel: 5 }),
+    $.imagemin.svgo({ plugins: [{removeViewBox: false }]})
+]
+
 export const images = () =>
     src([
         SRC + '/_assets/img/**/*',
         '!' + SRC + '/_assets/img/entypo'
     ])
-    .pipe($.if(isProduction, $.imagemin({
-        optimizationLevel: 5, // png
-        progressive: true, // jpg
-        interlaced: true, // gif
-        multipass: true, // svg
-        svgoPlugins: [{ removeViewBox: false }]
-    })))
+    .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
     .pipe(dest(DIST + '/assets/img/'))
 
 // optimize Jekyll generated images
 export const imagesGenerated = () => src(DIST + '/media/gen/**/*')
-    .pipe($.if(isProduction, $.imagemin({
-        optimizationLevel: 5, // png
-        progressive: true, // jpg
-        interlaced: true, // gif
-        multipass: true, // svg
-        svgoPlugins: [{ removeViewBox: false }]
-    })))
+    .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
     .pipe(dest(DIST + '/media/gen/'))
 
 
