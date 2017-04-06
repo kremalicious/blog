@@ -9,6 +9,8 @@ echo "$(tput sgr0)" # reset
 
 gulp deploy
 
+gulp seo
+
 echo "$(tput setaf 64)" # green
 echo "---------------------------------------------"
 echo "         ✓ done S3 deployment "

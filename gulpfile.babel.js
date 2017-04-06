@@ -3,12 +3,18 @@
 import { src, dest, parallel, series, watch } from 'gulp'
 import plugins      from 'gulp-load-plugins'
 import del          from 'del'
-import pkg          from './package.json'
 import parallelize  from 'concurrent-transform'
 import browser      from 'browser-sync'
 import autoprefixer from 'autoprefixer'
 import cssnano      from 'cssnano'
 import critical     from 'critical'
+import request      from 'request'
+import fs           from 'fs'
+import yaml         from 'js-yaml'
+
+// get all the configs: `pkg` and `site`
+import pkg from './package.json'
+const site = yaml.safeLoad(fs.readFileSync('./_config.yml'))
 
 // load plugins
 const $ = plugins()
@@ -48,8 +54,8 @@ const PORT = 1337
 const COMPATIBILITY = ['last 2 versions', 'ie >= 10']
 
 // paths
-const SRC       = '_src',
-      DIST      = '_site',
+const SRC       = site.source,
+      DIST      = site.destination,
       S3BUCKET  = 'kremalicious.com',
       S3PATH    = '/',
       S3REGION  = 'eu-central-1'
@@ -315,6 +321,33 @@ export const revReplace = (done) => {
             .pipe($.revReplace({ manifest: manifest }))
             .pipe(dest(DIST))
     }
+    done()
+}
+
+
+//
+// Ping search engines
+//
+export const seo = (done) => {
+
+    const googleUrl = 'http://www.google.com/webmasters/tools/ping?sitemap=',
+          bingUrl   = 'http://www.bing.com/webmaster/ping.aspx?siteMap='
+
+    const response = (error, response) => {
+        if (error) {
+            $.util.log($.util.colors.red(error))
+        } else {
+            $.util.log($.util.colors.gray('Status:', response && response.statusCode))
+
+            if (response.statusCode === 200) {
+                $.util.log($.util.colors.green('Successfully notified'))
+            }
+        }
+    }
+
+    request(googleUrl + site.url + '/sitemap.xml', response)
+    request(bingUrl + site.url + '/sitemap.xml', response)
+
     done()
 }
 
