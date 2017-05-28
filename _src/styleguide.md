@@ -754,8 +754,8 @@ Design and mark-up patterns unique to this site.
 
 <nav class="paginator">
     <a class="paginator__link" href="/">
-        <svg class="icon icon-entypo icon-entypo-chevron-left">
-            <use xlink:href="/assets/img/sprite.svg#entypo-chevron-left"></use>
+        <svg class="icon icon-chevron-left">
+            <use xlink:href="/assets/img/sprite.svg#chevron-left"></use>
         </svg>
     </a>
     <a href="/" class="paginator__link">1</a>
@@ -771,8 +771,8 @@ Design and mark-up patterns unique to this site.
     <a class="paginator__link" href="/page/11">11</a>
     <a class="paginator__link" href="/page/12">12</a>
     <a class="paginator__link" href="/page/3">
-        <svg class="icon icon-entypo icon-entypo-chevron-right">
-            <use xlink:href="/assets/img/sprite.svg#entypo-chevron-right"></use>
+        <svg class="icon icon-chevron-right">
+            <use xlink:href="/assets/img/sprite.svg#chevron-right"></use>
         </svg>
     </a>
 </nav>

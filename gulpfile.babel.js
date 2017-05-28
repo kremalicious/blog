@@ -60,27 +60,8 @@ const SRC       = site.source,
       S3PATH    = '/',
       S3REGION  = 'eu-central-1'
 
-// icons
-const ICONS = {
-    entypo: {
-        src: SRC + '/_assets/icons/entypo/',
-        dist: DIST + '/assets/img/',
-        prefix: 'entypo-',
-        icons: [
-            'twitter', 'facebook', 'google+', 'magnifying-glass', 'rss', 'link', 'arrow-with-circle-down', 'forward', 'heart', 'info-with-circle', 'infinity', 'github', 'chevron-right', 'chevron-left', 'eye', 'bitcoin'
-        ]
-    }
-}
-
-const iconset = ICONS.entypo
-
-// Iterate through the icon set array
-iconset.icons.forEach(function(icon, i, icons) {
-    icons[i] = iconset.src + icon + '.svg'
-})
-
 // SVG sprite
-const SPRITE = {
+const SPRITECONFIG = {
     dest: DIST + '/assets/img/',
     mode: {
         symbol: {
@@ -236,15 +217,9 @@ const js = () =>
 
 
 //
-// Icons
+// SVG sprite
 //
-export const icons = () => src(iconset.icons)
-    .pipe($.rename({ prefix: iconset.prefix }))
-    .pipe(dest(iconset.dist))
-    .pipe($.filter('**/*.svg'))
-    .pipe($.if(isProduction, $.imagemin({ svgoPlugins: [{ removeViewBox: false }] })))
-    .pipe($.svgSprite(SPRITE))
-    .pipe(dest(iconset.dist))
+
 
 
 //
@@ -257,12 +232,15 @@ const imageminPlugins = [
     $.imagemin.svgo({ plugins: [{removeViewBox: false }]})
 ]
 
-export const images = () =>
-    src([
-        SRC + '/_assets/img/**/*',
-        '!' + SRC + '/_assets/img/entypo'
-    ])
+// Copy all images
+export const images = () => src(SRC + '/_assets/img/**/*')
     .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
+    .pipe(dest(DIST + '/assets/img/'))
+
+// SVG sprite
+export const svg = () => src(SRC + '/_assets/img/**/*.svg')
+    .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
+    .pipe($.svgSprite(SPRITECONFIG))
     .pipe(dest(DIST + '/assets/img/'))
 
 // optimize Jekyll generated images
@@ -366,7 +344,7 @@ export const watchSrc = () => {
     watch(SRC + '/_assets/styl/**/*.styl').on('all', series(css))
     watch(SRC + '/_assets/js/**/*.js').on('all', series(js, browser.reload))
     watch(SRC + '/_assets/img/**/*.{png,jpg,jpeg,gif,webp}').on('all', series(images, browser.reload))
-    watch(SRC + '/_assets/img/**/*.{svg}').on('all', series(icons, browser.reload))
+    watch(SRC + '/_assets/img/**/*.{svg}').on('all', series(svg, browser.reload))
     watch(SRC + '/_media/**/*').on('all', series(media, browser.reload))
     watch([SRC + '/**/*.{html,xml,json,txt,md,yml}', './*.yml', SRC + '_includes/svg/*']).on('all', series('build', browser.reload))
 }
@@ -394,7 +372,7 @@ export const buildBanner = (done) => {
 // `gulp build` is the development build
 // `gulp build --production` is the production build
 //
-export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, images, imagesGenerated, icons, fonts, media), rev, revReplace, criticalCss)
+export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, svg, images, imagesGenerated, fonts, media), rev, revReplace, criticalCss)
 
 //
 // Build site, run server, and watch for file changes

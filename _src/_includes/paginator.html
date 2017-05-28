@@ -9,8 +9,8 @@
                 {% else %}
                     href="/page/{{paginator.previous_page}}">
                 {% endif %}
-                <svg class="icon icon-entypo icon-entypo-chevron-left">
-                    <use xlink:href="/assets/img/sprite.svg#entypo-chevron-left"></use>
+                <svg class="icon icon-chevron-left">
+                    <use xlink:href="/assets/img/sprite.svg#chevron-left"></use>
                 </svg>
             </a>
         {% endif %}
@@ -33,8 +33,8 @@
 
         {% if paginator.next_page %}
             <a class="paginator__link" href="/page/{{paginator.next_page}}">
-                <svg class="icon icon-entypo icon-entypo-chevron-right">
-                    <use xlink:href="/assets/img/sprite.svg#entypo-chevron-right"></use>
+                <svg class="icon icon-chevron-right">
+                    <use xlink:href="/assets/img/sprite.svg#chevron-right"></use>
                 </svg>
             </a>
         {% endif %}
