@@ -9,7 +9,6 @@ cache:
   bundler: true
   directories:
   - $TRAVIS_BUILD_DIR/node_modules
-  - $TRAVIS_BUILD_DIR/bower_components
   - $TRAVIS_BUILD_DIR/_site/media
 
 addons:

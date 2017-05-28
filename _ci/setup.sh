@@ -7,9 +7,8 @@ echo "         Installing dependencies "
 echo "============================================="
 echo "$(tput sgr0)" # reset
 
-npm install gulpjs/gulp.git#4.0 bower -g
+npm install gulpjs/gulp.git#4.0 -g
 npm install
-bower install
 
 # Travis does that automatically after selecting ruby
 #bundle install
