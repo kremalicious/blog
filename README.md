@@ -37,7 +37,7 @@ Get up and running
 Run the following command from the repository's root folder to install all dependencies.
 
 ```bash
-npm install && bower install && bundle install
+npm install && bundle install
 ```
 
 ### Development server

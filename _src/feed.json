@@ -1,0 +1,34 @@
+---
+layout: null
+---
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": {{ site.name | smartify | jsonify }},
+    {% if site.description %}"description": {{ site.description | smartify | jsonify }},{% endif %}
+    "home_page_url": "{{ site.url }}",
+    "feed_url": "{{ site.url }}/feed.json",
+    "icon": "{{ site.url }}/assets/img/touch-icon-192x192.png",
+    "favicon": "{{ site.url }}/assets/img/favicon-32x32.png",
+    "expired": false,
+    "author": {
+        "name": {{ site.author.name | smartify | jsonify }},
+        "url": "{{ site.author.uri }}",
+        "avatar": "https://kremalicious.com/assets/img/avatar.jpeg"
+    },
+    "items": [
+    {% for post in site.posts %}
+        {
+            "title": {{ post.title | smartify | jsonify }},
+            "date_published": "{{ post.date }}",
+            {% if post.updated %}"date_modified": "{{ post.updated }}",{% endif %}
+            "id": "{{ post.id }}",
+            "url": "{{ site.url }}{{ post.url }}",
+            {% if post.linkurl %}"external_url": "{{ post.linkurl }}",{% endif %}
+            "author": "{{ site.author.name }}",
+            "summary": {{ post.excerpt | smartify | jsonify }},
+            {% if post.image %}"image": "{{ site.url }}/media/{{ post.image }}",{% endif %}
+            "content_html": {{ post.content | jsonify }}
+        }{% unless forloop.last == true %},{% endunless %}
+    {% endfor %}
+    ]
+}
