@@ -219,7 +219,7 @@ export const criticalCss = (done) => {
 //
 // Scripts
 //
-const jsProject = () =>
+const js = () =>
     src([
         SRC + '/_assets/js/kremalicious3.js',
         'node_modules/picturefill/dist/picturefill.js'
@@ -233,14 +233,6 @@ const jsProject = () =>
     .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
     .pipe($.rename({suffix: '.min'}))
     .pipe(dest(DIST + '/assets/js/'))
-
-// Service Worker js
-const jsSW = () => src(DIST + '/service-worker.js')
-    .pipe($.if(isProduction, $.uglify({ compress: { drop_console: true } }))).on('error', onError)
-    .pipe(dest(DIST + '/'))
-
-// Collect all script tasks
-export const js = series(jsProject, jsSW)
 
 
 //
