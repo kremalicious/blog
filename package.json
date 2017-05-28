@@ -34,6 +34,7 @@
     "babel-core": ">=6.24.0",
     "babel-preset-es2015": ">=6.24.0",
     "browser-sync": ">=2.10.0",
+    "chalk": ">=1.1.3",
     "concurrent-transform": ">=1.0.0",
     "critical": ">=0.8.4",
     "cssnano": ">=3.6.2",
@@ -43,7 +44,6 @@
     "gulp-awspublish": ">=2.0.2",
     "gulp-awspublish-router": ">=0.1.1",
     "gulp-cli": ">=1.2.2",
-    "gulp-filter": ">=2.0.2",
     "gulp-header": ">=1.2.2",
     "gulp-htmlmin": ">=1.1.2",
     "gulp-if": ">=1.2.5",
@@ -59,12 +59,12 @@
     "gulp-stylus": ">=2.3.1",
     "gulp-svg-sprite": ">=1.2.2",
     "gulp-uglify": ">=1.2.0",
-    "gulp-util": ">=3.0.6",
     "js-yaml": ">=3.8.3",
-    "request": ">=2.81.0"
+    "request": ">=2.81.0",
+    "yargs": ">=8.0.1"
   },
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=7.0.0"
   },
   "repository": {
     "type": "git",

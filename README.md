@@ -13,7 +13,6 @@ Requirements
 You need to have the following tools installed on your development machine before moving on:
 
 - [node.js](http://nodejs.org/) & [npm](https://npmjs.org/)
-- [Bower](http://bower.io/)
 - [Ruby](https://www.ruby-lang.org) (for sanity, install with [rvm](https://rvm.io/)) and [Bundler](http://bundler.io/)
 
 

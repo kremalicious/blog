@@ -11,6 +11,8 @@ import critical     from 'critical'
 import request      from 'request'
 import fs           from 'fs'
 import yaml         from 'js-yaml'
+import chalk        from 'chalk'
+import yargs        from 'yargs'
 
 // get all the configs: `pkg` and `site`
 import pkg from './package.json'
@@ -21,26 +23,28 @@ const $ = plugins()
 
 // handle errors
 const onError = (error) => {
-    $.util.log('')
-    $.util.log($.util.colors.red('You fucked up:', error.message, 'on line' , error.lineNumber))
-    $.util.log('')
+    console.log('')
+    console.log(chalk.red('You fucked up:', error.message, 'on line' , error.lineNumber))
+    console.log('')
     this.emit('end')
 }
 
 // 'development' is just default, production overrides are triggered
 // by adding the production flag to the gulp command e.g. `gulp build --production`
-const isProduction = ($.util.env.production === true ? true : false)
+const argv = yargs.parse(process.argv.slice(1))
+const isProduction = argv.production
+
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Terminal Banner
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 console.log("")
-console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
+console.log(chalk.dim("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
 console.log("")
-console.log($.util.colors.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "))
+console.log(chalk.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "))
 console.log("")
-console.log($.util.colors.gray("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
+console.log(chalk.dim("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
 console.log("")
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -304,12 +308,12 @@ export const seo = (done) => {
 
     const response = (error, response) => {
         if (error) {
-            $.util.log($.util.colors.red(error))
+            console.log(chalk.red(error))
         } else {
-            $.util.log($.util.colors.gray('Status:', response && response.statusCode))
+            console.log(chalk.dim('Status:', response && response.statusCode))
 
             if (response.statusCode === 200) {
-                $.util.log($.util.colors.green('Successfully notified'))
+                console.log(chalk.green('Successfully notified'))
             }
         }
     }
@@ -351,9 +355,9 @@ export const watchSrc = () => {
 // Build banner
 //
 export const buildBanner = (done) => {
-    console.log($.util.colors.gray("         ------------------------------------------"))
-    console.log($.util.colors.green('                Building ' + ($.util.env.production ? 'production' : 'dev') + ' version...'))
-    console.log($.util.colors.gray("         ------------------------------------------"))
+    console.log(chalk.dim("   ------------------------------------------"))
+    console.log(chalk.green('          Building ' + (isProduction ? 'production' : 'dev') + ' version...'))
+    console.log(chalk.dim("   ------------------------------------------"))
 
     done()
 }
