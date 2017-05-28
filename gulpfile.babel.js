@@ -225,7 +225,9 @@ const jsProject = () =>
         'node_modules/picturefill/dist/picturefill.js'
     ])
     .pipe($.sourcemaps.init())
-    .pipe($.include()).on('error', onError)
+    .pipe($.include({
+        includePaths: ['node_modules', SRC + '/_assets/js']
+    })).on('error', onError)
     .pipe($.if(isProduction, $.uglify())).on('error', onError)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))

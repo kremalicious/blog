@@ -1,5 +1,5 @@
 
-//=require ../../../node_modules/bootstrap/js/tooltip.js
+//=require bootstrap/js/tooltip.js
 
 var Tooltips = (function(w, d) {
 

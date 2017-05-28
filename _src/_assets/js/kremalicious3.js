@@ -1,9 +1,9 @@
 
-//=require ../../../node_modules/webcomponents.js/CustomElements.js
-//=require ../../../node_modules/svg4everybody/dist/svg4everybody.js
-//=require ../../../node_modules/jquery/dist/jquery.js
-//=require ../../../bower_components/time-elements/time-elements.js
-//=require ../../../node_modules/vex-js/dist/js/vex.combined.js
+//=require webcomponents.js/CustomElements.js
+//=require svg4everybody/dist/svg4everybody.js
+//=require jquery/dist/jquery.js
+//=require time-elements/time-elements.js
+//=require vex-js/dist/js/vex.combined.js
 
 //
 // include modules
