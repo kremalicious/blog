@@ -13,6 +13,10 @@
     "start": "gulp",
     "build": "gulp build --production"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
   "dependencies": {
     "bootstrap": "^3.3.6",
     "jquery": ">=2.1.4",

@@ -50,9 +50,6 @@ console.log("")
 // Port to use for the development server.
 const PORT = 1337
 
-// Browsers to target when prefixing CSS.
-const COMPATIBILITY = ['last 2 versions', 'ie >= 10']
-
 // paths
 const SRC       = site.source,
       DIST      = site.destination,
@@ -151,7 +148,7 @@ export const html = () => src(DIST + '/**/*.html')
 // Styles
 //
 const processors = [
-    autoprefixer({ browsers: COMPATIBILITY }),
+    autoprefixer(),
     cssnano()
 ]
 
