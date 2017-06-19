@@ -39,7 +39,7 @@
     "critical": ">=0.8.4",
     "cssnano": ">=3.6.2",
     "del": ">=1.2.0",
-    "fs": ">=0.0.1-security",
+    "fs": ">=0.0.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-awspublish": ">=2.0.2",
     "gulp-awspublish-router": ">=0.1.1",
