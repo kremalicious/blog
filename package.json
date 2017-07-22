@@ -23,7 +23,7 @@
     "normalize-css": ">=2.3.1",
     "normalize-opentype.css": ">=0.2.4",
     "picturefill": ">=2.3.1",
-    "simple-jekyll-search": "1.1.8",
+    "simple-jekyll-search": "1.2.0",
     "svg4everybody": "^2.1.9",
     "time-elements": ">=0.6.1",
     "vex-js": "^4.0.0",
