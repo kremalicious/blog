@@ -26,7 +26,7 @@ layout: null
             {% if post.linkurl %}"external_url": "{{ post.linkurl }}",{% endif %}
             "author": "{{ site.author.name }}",
             "summary": {{ post.excerpt | smartify | jsonify }},
-            {% if post.image %}"image": "{{ site.url }}/media/{{ post.image }}",{% endif %}
+            {% if post.image %}"image": "{{ site.media_url }}/w_940/media/{{ post.image }}",{% endif %}
             "content_html": {{ post.content | jsonify }}
         }{% unless forloop.last == true %},{% endunless %}
     {% endfor %}

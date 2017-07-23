@@ -58,7 +58,7 @@ redirect_from:
             <id>{{ post.id | prepend: site.url | xml_escape }}</id>
             <content type="html" xml:base="{{ post.url | xml_escape }}">
                 {% if post.image %}
-                    &lt;img src=&quot;{{ site.url }}/media/{{ post.image }}&quot; /&gt;
+                    &lt;img src=&quot;{{ site.media_url }}/w_940/media/{{ post.image }}&quot; /&gt;
                 {% endif %}
 
                 {{ post.content | markdownify | xml_escape }}
