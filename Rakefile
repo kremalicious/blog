@@ -58,7 +58,7 @@ task :photo do
       file.puts "---"
     end
   end
-  `atom #{path}`
+  `atom-beta #{path}`
 
   exit 1
 end

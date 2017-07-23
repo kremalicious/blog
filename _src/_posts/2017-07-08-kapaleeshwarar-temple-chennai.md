@@ -1,0 +1,12 @@
+---
+layout: photo
+title: Kapaleeshwarar Temple Chennai
+image: 2017-07-08-kapaleeshwarar-temple-chennai.jpg
+author: Matthias Kretschmann
+date: 2017-07-08 21:21:41.413746000 +02:00
+category: photos
+---
+
+@Kapaleeshwarar Temple, Chennai, India
+
+[Instagram](https://www.instagram.com/p/BWSaALoF4nB)

@@ -11,7 +11,6 @@ end
 
 group :development do
     gem 'redcarpet'
-    gem 'mini_magick'
 end
 
 group :lsi do
