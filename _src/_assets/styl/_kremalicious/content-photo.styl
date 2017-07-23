@@ -7,6 +7,9 @@
 .hentry.format-photo
     @extend .textcenter
 
+    .entry-title
+        margin-top: -($spacer * 1.5)
+
     figure
         @extend .aligncenter
         position: relative
@@ -29,7 +32,7 @@
             text-shadow: 0 1px 0 #000
 
             left: -($spacer)
-            top: $spacer
+            top: $spacer * 6
 
             @media $screen-sm
                 left: -($spacer * 4)
@@ -59,16 +62,10 @@
         figure img
             max-height: none
 
-        figcaption
-            opacity: 1
-            transform: translate(0,0)
-            background: #000
-            background: rgba(#000, .4)
-
 
 .photo-link
     display: block;
-    
+
     img
         @extend .media-frame
 
@@ -87,7 +84,7 @@
     &:active
         background: none
 
-    
+
 //
 // Photo background change adjustment
 //

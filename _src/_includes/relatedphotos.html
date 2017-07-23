@@ -2,11 +2,11 @@
 
     <div class="grid grid--gutters grid--half grid-medium--third">
 
-        {% for post in site.categories['photos'] limit:6 %}
+        {% for post in site.categories['photos'] limit:9 %}
 
             <article class="related-photo grid__col">
                 <a class="photo-link" href="{{ post.url }}">
-                    {% picture photothumb {{ post.image }} %}
+                    {% include picture.html size='photothumb' file=post.image %}
                 </a>
             </article>
 

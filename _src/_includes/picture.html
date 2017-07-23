@@ -1,0 +1,30 @@
+{% case include.size %}
+
+{% when 'phototeaser' %}
+     {% assign pictureSize = 'w_940,h_700,c_fill' %}
+     {% assign pictureSizeRetina = 'w_1880,h_1400,c_fill' %}
+{% when 'photothumb' %}
+    {% assign pictureSize = 'w_190,h_190,c_thumb' %}
+    {% assign pictureSizeRetina = 'w_380,h_380,c_thumb' %}
+{% when 'featured' %}
+    {% assign pictureSize = 'w_275,h_100,c_fill' %}
+    {% assign pictureSizeRetina = 'w_550,h_200,c_fill' %}
+{% else %}
+     {% assign pictureSize = 'w_940' %}
+     {% assign pictureSizeRetina = 'w_1880' %}
+{% endcase %}
+
+{% if include.file %}
+    {% assign pictureSrc = include.file %}
+{% else %}
+    {% if page.image %}
+        {% assign pictureSrc = page.image %}
+    {% else %}
+        {% assign pictureSrc = post.image %}
+    {% endif %}
+{% endif %}
+
+<picture>
+    <source srcset="{{ site.media_url }}/{{ pictureSizeRetina }}/media/{{ pictureSrc }}" media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)">
+    <img srcset="{{ site.media_url }}/{{ pictureSize }}/media/{{ pictureSrc }}" alt="">
+</picture>

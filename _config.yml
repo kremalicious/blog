@@ -31,6 +31,7 @@ paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
 category_title_prefix:  ""
+media_url:              "https://res.cloudinary.com/kremalicious"
 
 
 # Content Parsing
@@ -48,7 +49,7 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./_site
-keep_files:             ['media', 'gen']
+keep_files:             ['media']
 
 
 # Plugins
@@ -57,7 +58,6 @@ keep_files:             ['media', 'gen']
 gems:
     - jekyll-sitemap
     - jekyll-redirect-from
-    - jekyll-picture-tag
     - jekyll-paginate
     - jekyll-archives
 
@@ -73,63 +73,3 @@ jekyll-archives:
     permalinks:
         tag: '/tag/:name/'
         category: '/:name/'
-
-
-# jekyll-picture-tag
-# --------------------
-
-picture:
-  source: "_media"
-  output: "media/gen"
-  markup: "picture"
-  presets:
-    default:
-      ppi: [1, 2]
-      source_large:
-        media: "(min-width: 87.500em)"
-        width: "1000"
-      source_medium:
-        media: "(min-width: 40.625em)"
-        width: "800"
-      source_small:
-        media: "(min-width: 30em)"
-        width: "600"
-      source_default:
-        width: "400"
-    phototeaser:
-      ppi: [1, 2]
-      source_large:
-        media: "(min-width: 87.500em)"
-        width: "1000"
-        height: "650"
-      source_medium:
-        media: "(min-width: 40.625em)"
-        width: "800"
-        height: "550"
-      source_small:
-        media: "(min-width: 30em)"
-        width: "600"
-        height: "450"
-      source_default:
-        width: "400"
-        height: "250"
-    featured:
-      ppi: [1, 2]
-      attr:
-        class: "featured-image"
-        itemprop: "image"
-      source_medium:
-        media: "(min-width: 40.625em)"
-        width: "275"
-        height: "100"
-      source_default:
-        width: "190"
-        height: "100"
-    photothumb:
-      ppi: [1, 2]
-      attr:
-        class: "related-image"
-        itemprop: "image"
-      source_default:
-        width: "190"
-        height: "190"
