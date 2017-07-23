@@ -6,11 +6,13 @@ layout: base
 
     <article class="hentry format-photo">
 
+        <header>
+            <h1 class="entry-title fn">{{ page.title | titlecase }}</h1>
+        </header>
+
         <figure class="hentry__teaser hmedia">
 
-            {% picture {{ page.image }} %}
-
-            <figcaption class="entry-title fn">{{ page.title | titlecase }}</figcaption>
+            {% include picture.html %}
 
         </figure>
 

@@ -5,7 +5,6 @@ group :jekyll do
     gem 'jekyll', '3.4.3'
     gem 'jekyll-sitemap'
     gem 'jekyll-redirect-from'
-    gem 'jekyll-picture-tag'
     gem 'jekyll-archives'
     gem 'jekyll-paginate'
 end

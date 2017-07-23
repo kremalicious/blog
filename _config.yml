@@ -31,6 +31,7 @@ paginate:               15
 paginate_path:          "/page/:num"
 category_dir:           "/"
 category_title_prefix:  ""
+media_url:              "https://res.cloudinary.com/kremalicious"
 
 
 # Content Parsing
@@ -48,7 +49,7 @@ redcarpet:
 
 source:                 ./_src
 destination:            ./_site
-keep_files:             ['media', 'gen']
+keep_files:             ['media']
 
 
 # Plugins
@@ -57,7 +58,6 @@ keep_files:             ['media', 'gen']
 gems:
     - jekyll-sitemap
     - jekyll-redirect-from
-    - jekyll-picture-tag
     - jekyll-paginate
     - jekyll-archives
 

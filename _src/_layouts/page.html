@@ -11,7 +11,7 @@ layout: base
 
         <section class="entry-content">
             {% if page.image %}
-                {% picture {{ page.image }} class="teaser" %}
+                {% include picture.html %}
             {% endif %}
 
             {{ content }}

@@ -218,12 +218,6 @@ const js = () =>
 
 
 //
-// SVG sprite
-//
-
-
-
-//
 // Images
 //
 const imageminPlugins = [
@@ -243,11 +237,6 @@ export const svg = () => src(SRC + '/_assets/img/**/*.svg')
     .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
     .pipe($.svgSprite(SPRITECONFIG))
     .pipe(dest(DIST + '/assets/img/'))
-
-// optimize Jekyll generated images
-export const imagesGenerated = () => src(DIST + '/media/gen/**/*')
-    .pipe($.if(isProduction, $.imagemin(imageminPlugins)))
-    .pipe(dest(DIST + '/media/gen/'))
 
 
 //
@@ -373,7 +362,15 @@ export const buildBanner = (done) => {
 // `gulp build` is the development build
 // `gulp build --production` is the production build
 //
-export const build = series(buildBanner, clean, jekyll, parallel(html, css, js, svg, images, imagesGenerated, fonts, media), rev, revReplace, criticalCss)
+export const build = series(
+    buildBanner,
+    clean,
+    jekyll,
+    parallel(html, css, js, svg, images, fonts, media),
+    rev,
+    revReplace,
+    criticalCss
+)
 
 //
 // Build site, run server, and watch for file changes
