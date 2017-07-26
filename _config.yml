@@ -55,7 +55,7 @@ keep_files:             ['media']
 # Plugins
 # --------------------
 
-gems:
+plugins:
     - jekyll-sitemap
     - jekyll-redirect-from
     - jekyll-paginate

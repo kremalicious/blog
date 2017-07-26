@@ -2,7 +2,7 @@
 source "https://rubygems.org"
 
 group :jekyll do
-    gem 'jekyll', '3.4.3'
+    gem 'jekyll'
     gem 'jekyll-sitemap'
     gem 'jekyll-redirect-from'
     gem 'jekyll-archives'
