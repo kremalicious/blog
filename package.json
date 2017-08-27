@@ -18,16 +18,16 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.6",
-    "jquery": ">=2.1.4",
-    "normalize-css": ">=2.3.1",
-    "normalize-opentype.css": ">=0.2.4",
-    "picturefill": ">=2.3.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "normalize-css": "^2.3.1",
+    "normalize-opentype.css": "^0.2.4",
+    "picturefill": "^3.0.2",
     "simple-jekyll-search": "1.1.8",
     "svg4everybody": "^2.1.9",
-    "time-elements": ">=0.6.1",
+    "time-elements": "^0.6.1",
     "vex-js": "^4.0.0",
-    "webcomponents.js": ">=0.7.1"
+    "webcomponents.js": "^0.7.24"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
