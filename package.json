@@ -11,12 +11,34 @@
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production"
+    "build": "gulp build --production",
+    "test": "xo"
   },
   "browserslist": [
-    "last 2 versions",
-    "ie >= 11"
+    "last 3 versions"
   ],
+  "xo": {
+    "space": 4,
+    "semicolon": false,
+    "rules": {
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 2,
+          "maxEOF": 1
+        }
+      ]
+    },
+    "globals": [
+      "window",
+      "document",
+      "jQuery",
+      "$"
+    ],
+    "ignores": [
+      "_src/_assets/js/_*.js"
+    ]
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
@@ -62,6 +84,7 @@
     "gulp-uglify": ">=1.2.0",
     "js-yaml": "^3.9.1",
     "request": ">=2.81.0",
+    "xo": "^0.18.2",
     "yargs": "^8.0.2"
   },
   "engines": {

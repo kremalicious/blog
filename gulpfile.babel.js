@@ -1,31 +1,29 @@
-'use strict'
-
-import { src, dest, parallel, series, watch } from 'gulp'
-import plugins      from 'gulp-load-plugins'
-import del          from 'del'
-import parallelize  from 'concurrent-transform'
-import browser      from 'browser-sync'
+import fs from 'fs'
+import {src, dest, parallel, series, watch} from 'gulp'
+import del from 'del'
+import parallelize from 'concurrent-transform'
+import browser from 'browser-sync'
 import autoprefixer from 'autoprefixer'
-import cssnano      from 'cssnano'
-import critical     from 'critical'
-import request      from 'request'
-import fs           from 'fs'
-import yaml         from 'js-yaml'
-import chalk        from 'chalk'
-import yargs        from 'yargs'
+import cssnano from 'cssnano'
+import critical from 'critical'
+import request from 'request'
 
-// get all the configs: `pkg` and `site`
-import pkg from './package.json'
+import yaml from 'js-yaml'
+import chalk from 'chalk'
+import yargs from 'yargs'
+
+// Get all the configs: `pkg` and `site`
+import pkg from './package'
+
 const site = yaml.safeLoad(fs.readFileSync('./_config.yml'))
 
-// load plugins
-const $ = plugins()
+// Load plugins
+const spawn = require('child_process').spawn
+const $ = require('gulp-load-plugins')()
 
-// handle errors
-const onError = (error) => {
-    console.log('')
-    console.log(chalk.red('You fucked up:', error.message, 'on line' , error.lineNumber))
-    console.log('')
+// Handle errors
+const onError = error => {
+    console.log($.util.colors.red('\nYou fucked up:', error.message, 'on line', error.lineNumber, '\n'))
     this.emit('end')
 }
 
@@ -39,13 +37,14 @@ const isProduction = argv.production
 // Terminal Banner
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-console.log("")
-console.log(chalk.dim("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
-console.log("")
-console.log(chalk.cyan("      (o) Just what do you think you're doing,", process.env.USER, "?    "))
-console.log("")
-console.log(chalk.dim("   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>"))
-console.log("")
+console.log('')
+console.log(chalk.dim('   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>'))
+console.log('')
+console.log(chalk.cyan('      (o) Just what do you think you\'re doing,', process.env.USER, '?    '))
+console.log('')
+console.log(chalk.dim('   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>'))
+console.log('')
+
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Config
@@ -54,12 +53,14 @@ console.log("")
 // Port to use for the development server.
 const PORT = 1337
 
-// paths
-const SRC       = site.source,
-      DIST      = site.destination,
-      S3BUCKET  = 'kremalicious.com',
-      S3PATH    = '/',
-      S3REGION  = 'eu-central-1'
+// Paths
+const SRC = site.source
+const DIST = site.destination
+
+// Deployment
+const S3BUCKET = 'kremalicious.com'
+const S3PATH = '/'
+const S3REGION = 'eu-central-1'
 
 // SVG sprite
 const SPRITECONFIG = {
@@ -72,7 +73,7 @@ const SPRITECONFIG = {
     }
 }
 
-// code banner
+// Code banner
 const BANNER = [
     '/**',
     ' ** <%= pkg.name %> v<%= pkg.version %>',
@@ -98,13 +99,14 @@ const BANNER = [
 // Tasks
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
 //
 // Delete build artifacts
 //
 export const clean = () =>
     del([
         DIST + '**/*',
-        DIST + '.*', // delete all hidden files
+        DIST + '.*', // Delete all hidden files
         '!' + DIST + '/media'
     ])
 
@@ -112,21 +114,22 @@ export const clean = () =>
 //
 // Jekyll
 //
-export const jekyll = (done) => {
-
+export const jekyll = done => {
     browser.notify('Compiling Jekyll')
+
+    let jekyllOptions
 
     if (isProduction) {
         process.env.JEKYLL_ENV = 'production'
-        var jekyll_options = 'jekyll build --lsi'
+        jekyllOptions = 'jekyll build --lsi'
     } else {
-        var jekyll_options = 'jekyll build --config _config.yml,_config.dev.yml --incremental --drafts --future'
+        process.env.JEKYLL_ENV = 'development'
+        jekyllOptions = 'jekyll build --config _config.yml,_config.dev.yml --incremental --drafts --future'
     }
 
-    let spawn  = require('child_process').spawn,
-        jekyll = spawn('bundle', ['exec', jekyll_options], { stdio: 'inherit' })
+    const jekyllInstance = spawn('bundle', ['exec', jekyllOptions], {stdio: 'inherit'})
 
-    jekyll.on('error', (error) => onError() ).on('close', done)
+    jekyllInstance.on('error', error => onError(error)).on('close', done)
 }
 
 
@@ -162,16 +165,16 @@ export const css = () =>
         SRC + '/_assets/styl/post-*.styl'
     ])
     .pipe($.if(!isProduction, $.sourcemaps.init()))
-    .pipe($.stylus({ 'include css': true })).on('error', onError)
+    .pipe($.stylus({'include css': true})).on('error', onError)
     .pipe($.postcss(processors)).on('error', onError)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
-    .pipe($.rename({ suffix: '.min' }))
+    .pipe($.if(isProduction, $.header(BANNER, {pkg})))
+    .pipe($.rename({suffix: '.min'}))
     .pipe(dest(DIST + '/assets/css/'))
     .pipe(browser.stream())
 
-// inline critical-path CSS
-export const criticalCss = (done) => {
+// Inline critical-path CSS
+export const criticalCss = done => {
     if (isProduction) {
         critical.generate({
             base: DIST,
@@ -212,7 +215,7 @@ const js = () =>
     })).on('error', onError)
     .pipe($.if(isProduction, $.uglify())).on('error', onError)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.header(BANNER, { pkg: pkg })))
+    .pipe($.if(isProduction, $.header(BANNER, {pkg})))
     .pipe($.rename({suffix: '.min'}))
     .pipe(dest(DIST + '/assets/js/'))
 
@@ -221,10 +224,10 @@ const js = () =>
 // Images
 //
 const imageminPlugins = [
-    $.imagemin.gifsicle({ interlaced: true }),
+    $.imagemin.gifsicle({interlaced: true}),
     $.imagemin.jpegtran(),
-    $.imagemin.optipng({ optimizationLevel: 5 }),
-    $.imagemin.svgo({ plugins: [{removeViewBox: false }]})
+    $.imagemin.optipng({optimizationLevel: 5}),
+    $.imagemin.svgo({plugins: [{removeViewBox: false}]})
 ]
 
 // Copy all images
@@ -256,13 +259,13 @@ export const media = () => src(SRC + '/_media/**/*')
 //
 // Revision static assets
 //
-export const rev = (done) => {
-    // globbing is slow so do everything conditionally for faster dev build
+export const rev = done => {
+    // Globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
         return src(DIST + '/assets/**/*.{css,js,png,jpg,jpeg,svg,eot,ttf,woff,woff2}')
             .pipe($.rev())
             .pipe(dest(DIST + '/assets/'))
-            // output rev manifest for next replace task
+            // Output rev manifest for next replace task
             .pipe($.rev.manifest())
             .pipe(dest(DIST + '/assets/'))
     }
@@ -274,13 +277,13 @@ export const rev = (done) => {
 // Replace all links to assets in files
 // from a manifest file
 //
-export const revReplace = (done) => {
-    // globbing is slow so do everything conditionally for faster dev build
+export const revReplace = done => {
+    // Globbing is slow so do everything conditionally for faster dev build
     if (isProduction) {
-        let manifest = src(DIST + '/assets/rev-manifest.json')
+        const manifest = src(DIST + '/assets/rev-manifest.json')
 
         return src(DIST + '/**/*.{html,css,js}')
-            .pipe($.revReplace({ manifest: manifest }))
+            .pipe($.revReplace({manifest}))
             .pipe(dest(DIST))
     }
     done()
@@ -290,10 +293,9 @@ export const revReplace = (done) => {
 //
 // Ping search engines
 //
-export const seo = (done) => {
-
-    const googleUrl = 'http://www.google.com/webmasters/tools/ping?sitemap=',
-          bingUrl   = 'http://www.bing.com/webmaster/ping.aspx?siteMap='
+export const seo = done => {
+    const googleUrl = 'http://www.google.com/webmasters/tools/ping?sitemap='
+    const bingUrl = 'http://www.bing.com/webmaster/ping.aspx?siteMap='
 
     const response = (error, response) => {
         if (error) {
@@ -317,7 +319,7 @@ export const seo = (done) => {
 //
 // Dev Server
 //
-export const server = (done) => {
+export const server = done => {
     browser.init({
         server: DIST,
         port: PORT,
@@ -343,10 +345,10 @@ export const watchSrc = () => {
 //
 // Build banner
 //
-export const buildBanner = (done) => {
-    console.log(chalk.dim("   ------------------------------------------"))
+export const buildBanner = done => {
+    console.log(chalk.dim('   ------------------------------------------'))
     console.log(chalk.green('          Building ' + (isProduction ? 'production' : 'dev') + ' version...'))
-    console.log(chalk.dim("   ------------------------------------------"))
+    console.log(chalk.dim('   ------------------------------------------'))
 
     done()
 }
@@ -355,6 +357,7 @@ export const buildBanner = (done) => {
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // Collection tasks
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 //
 // Full build
@@ -371,6 +374,7 @@ export const build = series(
     revReplace,
     criticalCss
 )
+
 
 //
 // Build site, run server, and watch for file changes
@@ -390,61 +394,61 @@ export default dev
 // create publisher, define config
 const publisher = $.awspublish.create({
     params: {
-        'Bucket': S3BUCKET
+        Bucket: S3BUCKET
     },
-    'accessKeyId': process.env.AWS_ACCESS_KEY,
-    'secretAccessKey': process.env.AWS_SECRET_KEY,
-    'region': S3REGION
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: S3REGION
 })
 
 export const s3 = () => src(DIST + '/**/*')
     .pipe($.awspublishRouter({
         cache: {
-            // cache for 5 minutes by default
+            // Cache for 5 minutes by default
             cacheTime: 300
         },
         routes: {
-            // all static assets, cached & gzipped
+            // All static assets, cached & gzipped
             '^assets/(?:.+)\\.(?:js|css|png|jpg|jpeg|gif|ico|svg|ttf|eot|woff|woff2)$': {
-                cacheTime: 2592000, // cache for 1 month
+                cacheTime: 2592000, // Cache for 1 month
                 gzip: true
             },
 
-            // every other asset, cached
+            // Every other asset, cached
             '^assets/.+$': {
-                cacheTime: 2592000  // cache for 1 month
+                cacheTime: 2592000  // Cache for 1 month
             },
 
-            // all html files, not cached & gzipped
+            // All html files, not cached & gzipped
             '^.+\\.html': {
                 cacheTime: 0,
                 gzip: true
             },
 
-            // font mime types
-            '\.ttf$': {
+            // Font mime types
+            '.ttf$': {
                 key: '$&',
-                headers: { 'Content-Type': 'application/x-font-ttf' }
+                headers: {'Content-Type': 'application/x-font-ttf'}
             },
-            '\.woff$': {
+            '.woff$': {
                 key: '$&',
-                headers: { 'Content-Type': 'application/x-font-woff' }
+                headers: {'Content-Type': 'application/x-font-woff'}
             },
-            '\.woff2$': {
+            '.woff2$': {
                 key: '$&',
-                headers: { 'Content-Type': 'application/x-font-woff2' }
+                headers: {'Content-Type': 'application/x-font-woff2'}
             },
 
-            // pass-through for anything that wasn't matched by routes above, to be uploaded with default options
-            "^.+$": "$&"
+            // Pass-through for anything that wasn't matched by routes above, to be uploaded with default options
+            '^.+$': '$&'
         }
     }))
-    // make sure everything goes to the root '/'
-    .pipe($.rename(function (path) {
+    // Make sure everything goes to the root '/'
+    .pipe($.rename(path => {
         path.dirname = S3PATH + path.dirname
     }))
     .pipe(parallelize(publisher.publish(), 100))
-    .pipe(publisher.sync()) // delete files in bucket that are not in local folder
+    .pipe(publisher.sync()) // Delete files in bucket that are not in local folder
     .pipe($.awspublish.reporter({
         states: ['create', 'update', 'delete']
     }))
