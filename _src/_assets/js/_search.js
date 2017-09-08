@@ -1,5 +1,5 @@
 
-//=require simple-jekyll-search/dest/jekyll-search.js
+//=require simple-jekyll-search/dest/simple-jekyll-search.js
 
 var Search = (function(w, d) {
 
