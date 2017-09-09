@@ -24,7 +24,4 @@
     {% endif %}
 {% endif %}
 
-<picture>
-    <source srcset="{{ site.media_url }}/{{ pictureSizeRetina }}/media/{{ pictureSrc }}" media="(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)">
-    <img srcset="{{ site.media_url }}/{{ pictureSize }}/media/{{ pictureSrc }}" alt="">
-</picture>
+<img src="{{ site.media_url }}/{{ pictureSize }}/media/{{ pictureSrc }}" srcset="{{ site.media_url }}/{{ pictureSize }}/media/{{ pictureSrc }} 1x, {{ site.media_url }}/{{ pictureSizeRetina }}/media/{{ pictureSrc }} 2x" alt="{{ post.title }}">

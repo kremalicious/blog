@@ -13,9 +13,8 @@
     margin-bottom: $spacer
 
 .related-post
-    picture
-        img
-            @extend .media-frame
+    img
+        @extend .media-frame
 
     .post-title
         @extend .h5, .transition, .text-dimmed
@@ -31,9 +30,8 @@
         &:focus
             .post-title
                 color: $link-color
-            picture
-                img
-                    border-color: $link-color-hover
+            img
+                border-color: $link-color-hover
 
         &:active
             .post-title

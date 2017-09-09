@@ -214,8 +214,7 @@ export const criticalCss = done => {
 export const js = () =>
     src([
         SRC + '/_assets/js/*.js',
-        '!' + SRC + '/_assets/js/_*.js',
-        'node_modules/picturefill/dist/picturefill.js'
+        '!' + SRC + '/_assets/js/_*.js'
     ])
     .pipe($.sourcemaps.init())
     .pipe($.include({
