@@ -4,6 +4,7 @@
     <script src="/assets/js/{{ page.js }}"></script>
 {% endif %}
 
+
 {% if jekyll.environment == "production" %}
     <script>
         var _paq = _paq || [];
@@ -17,7 +18,7 @@
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
             }
-        }(navigator.doNotTrack || navigator.msDoNotTrack || null));
+        }(navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || null));
     </script>
     <noscript><p><img src="//analytics.kremalicious.com/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
 {% endif %}
@@ -60,7 +61,7 @@
             };
         }
 
-    }(window, navigator.doNotTrack || navigator.msDoNotTrack || null));
+    }(window, navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || null));
 </script>
 
 {% if jekyll.environment == "production" %}

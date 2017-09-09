@@ -1,115 +1,84 @@
+/* global SimpleJekyllSearch */
 
+/* eslint-disable spaced-comment */
 //=require simple-jekyll-search/dest/simple-jekyll-search.js
+/* eslint-enable spaced-comment */
 
-var Search = (function(w, d) {
+$(document).ready(() => {
+    const searchlink = $('.search-btn, .js-search-init')
+    const searcharea = $('.search-area')
+    const searchfield = $('#search-input')
+    const searchpop = $('#search-popover')
 
-    var app, _private, _config;
+    const searchReset = () => {
+        // Revert all search elements
+        searcharea
+            .removeClass('animation-slidedown')
+            .addClass('animation-bounceOutUp')
+            .on('animationend webkitAnimationEnd oAnimationEnd', () => {
+                $('body').removeClass('has-search-open')
+            })
+        searchpop.addClass('hide')
+    }
 
-    _config = {
-        content       : $('.site__content'),
-        searchlink    : $('.search-btn, .js-search-init'),
-        searcharea    : $('.search-area'),
-        searchfield   : $('#search-input'),
-        searchresults : $('#search-results'),
-        searchpop     : $('#search-popover'),
-        body          : $('body')
-    };
+    searchlink.on('click', e => {
+        e.preventDefault()
 
-    _private = {
-        searchShow: function() {
+        // Show search field
+        searcharea
+            .removeClass('is-ready animation-bounceOutUp')
+            .addClass('is-ready animation-slidedown')
+            .on('animationend webkitAnimationEnd oAnimationEnd', () => {
+                $('body').addClass('has-search-open')
+            })
 
-            _config.searchlink.on('click', function(e) {
-                e.preventDefault();
+        searchfield.focus()
 
-                $('[data-toggle="tooltip"]').tooltip('hide');
+        SimpleJekyllSearch({ // eslint-disable-line new-cap
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('search-results'),
+            json: '/api/search.json',
+            searchResultTemplate: '<a class="search-link" href="{url}">{title}</a>',
+            fuzzy: false
+        })
 
-                // show search field
-                _config.searcharea
-                    .removeClass('is-ready animation-bounceOutUp')
-                    .addClass('is-ready animation-slidedown')
-                    .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                        _config.body.addClass('has-search-open');
-                    });
-
-                _config.searchfield.focus();
-
-                _private.searchSimpleJekyllSearch();
-
-                // hide menu too just in case
-                if (_config.body.hasClass('has-menu-open')) {
-                    _config.body.removeClass('has-menu-open');
-                }
-
-                // bind the hide controls
-                $(document).bind('click.hidethepop', function() {
-                    _private.searchReset();
-
-                    // unbind the hide controls
-                    $(document).unbind('click.hidethepop');
-                });
-
-                // dont close thepop when click on thepop
-                _config.searchpop.on('click', function(e) {
-                    e.stopPropagation();
-                });
-                // dont close thepop when click on search field
-                _config.searchfield.on('click', function(e) {
-                    e.stopPropagation();
-                });
-
-                // and dont close thepop now
-                e.stopPropagation();
-            });
-        },
-
-        searchResultsShow: function() {
-            // show popup upon first keypress
-            _config.searchfield.on('keyup', function() {
-                _config.searchpop.removeClass('hide');
-            });
-        },
-
-        searchSimpleJekyllSearch: function() {
-            SimpleJekyllSearch({
-                searchInput: document.getElementById('search-input'),
-                resultsContainer: document.getElementById('search-results'),
-                json: '/api/search.json',
-                searchResultTemplate: '<a class="search-link" href="{url}">{title}</a>',
-                fuzzy: false
-            });
-        },
-
-        searchHide: function() {
-            $('.search-close').on('click', function(e) {
-                e.preventDefault();
-
-                _private.searchReset();
-
-                // empty search field
-                _config.searchfield.val('').blur();
-            });
-        },
-
-        searchReset: function() {
-            // revert all search elements
-            _config.searcharea
-                .removeClass('animation-slidedown')
-                .addClass('animation-bounceOutUp')
-                .on('animationend webkitAnimationEnd oAnimationEnd', function(){
-                    _config.body.removeClass('has-search-open');
-                });
-            _config.searchpop.addClass('hide');
+        // Hide menu too just in case
+        if ($('body').hasClass('has-menu-open')) {
+            $('body').removeClass('has-menu-open')
         }
-    };
 
-    app = {
-        init: function() {
-            _private.searchShow();
-            _private.searchResultsShow();
-            _private.searchHide();
-        }
-    };
+        // Bind the hide controls
+        $(document).bind('click.hidethepop', () => {
+            searchReset()
 
-    return app;
+            // Unbind the hide controls
+            $(document).unbind('click.hidethepop')
+        })
 
-})(document, window);
+        // Dont close thepop when click on thepop
+        searchpop.on('click', e => {
+            e.stopPropagation()
+        })
+        // Dont close thepop when click on search field
+        searchfield.on('click', e => {
+            e.stopPropagation()
+        })
+
+        // And dont close thepop now
+        e.stopPropagation()
+    })
+
+    // Show popup upon first keypress
+    searchfield.on('keyup', () => {
+        searchpop.removeClass('hide')
+    })
+
+    $('.search-close').on('click', e => {
+        e.preventDefault()
+
+        searchReset()
+
+        // Empty search field
+        searchfield.val('').blur()
+    })
+})

@@ -32,11 +32,9 @@
     "globals": [
       "window",
       "document",
+      "navigator",
       "jQuery",
       "$"
-    ],
-    "ignores": [
-      "_src/_assets/js/_*.js"
     ]
   },
   "dependencies": {

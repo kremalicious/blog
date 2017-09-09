@@ -1,47 +1,27 @@
-var Menu = (function(w, d) {
+$(document).ready(() => {
+    const thesite = $('.site')
+    const thelink = $('.menu-btn')
+    const thepop = $('.nav-popover')
 
-    var app, _private, _config;
+    thelink.on('click', e => {
+        e.preventDefault()
 
-    _config = {
-        thesite : $('.site'),
-        thelink : $('.menu-btn'),
-        thepop  : $('.nav-popover')
-    };
+        // Toggle menu
+        thesite.toggleClass('has-menu-open')
 
-    _private = {
-        menuShow: function() {
-            _config.thelink.on('click', function(e) {
-                e.preventDefault();
+        // Bind the hide controls
+        $(document).bind('click.hidethepop', () => {
+            thesite.removeClass('has-menu-open')
+            // Unbind the hide controls
+            $(document).unbind('click.hidethepop')
+        })
 
-                $('[data-toggle="tooltip"]').tooltip('hide');
+        // Dont close thepop when you click on thepop
+        thepop.on('click', e => {
+            e.stopPropagation()
+        })
 
-                // toggle menu
-                _config.thesite.toggleClass('has-menu-open');
-
-                // bind the hide controls
-                $(document).bind('click.hidethepop', function() {
-                    _config.thesite.removeClass('has-menu-open');
-                    // unbind the hide controls
-                    $(document).unbind('click.hidethepop');
-                });
-
-                // dont close thepop when you click on thepop
-                _config.thepop.on('click', function(e) {
-                    e.stopPropagation();
-                });
-
-                // and dont close thepop now
-                e.stopPropagation();
-            });
-        }
-    };
-
-    app = {
-        init: function() {
-            _private.menuShow();
-        }
-    };
-
-    return app;
-
-})(window, document);
+        // And dont close thepop now
+        e.stopPropagation()
+    })
+})
