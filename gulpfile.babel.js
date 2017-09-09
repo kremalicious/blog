@@ -214,6 +214,7 @@ export const criticalCss = done => {
 export const js = () =>
     src([
         SRC + '/_assets/js/kremalicious3.js',
+        SRC + '/_assets/js/analytics.js',
         'node_modules/picturefill/dist/picturefill.js'
     ])
     .pipe($.sourcemaps.init())

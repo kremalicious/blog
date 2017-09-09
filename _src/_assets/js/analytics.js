@@ -69,10 +69,14 @@ const krlcAnalytics = (() => { // eslint-disable-line no-unused-vars
 
 
     return {
-        init: [
-            gaBreakpoints(),
-            gaViewport(),
-            gaPixelDensity()
-        ]
+        init() {
+            const dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack
+
+            if (dnt !== 'yes' && dnt !== '1') {
+                gaBreakpoints()
+                gaViewport()
+                gaPixelDensity()
+            }
+        }
     }
 })(); // eslint-disable-line semi

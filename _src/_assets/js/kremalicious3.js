@@ -1,4 +1,4 @@
-/* global krlcMenu, krlcSearch, krlcModals, krlcAnalytics, svg4everybody */
+/* global krlcMenu, krlcSearch, krlcModals, svg4everybody */
 
 /* eslint-disable spaced-comment */
 //=require webcomponents.js/CustomElements.js
@@ -9,7 +9,6 @@
 //=include _menu.js
 //=include _search.js
 //=include _modals.js
-//=include _analytics.js
 /* eslint-enable spaced-comment */
 
 
@@ -26,12 +25,6 @@ $(document).ready(() => {
 // Init js modules
 //
 krlcModals.init()
-
-const dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack
-
-if (dnt !== 'yes' && dnt !== '1') {
-    krlcAnalytics.init()
-}
 
 svg4everybody({
     nosvg: false
