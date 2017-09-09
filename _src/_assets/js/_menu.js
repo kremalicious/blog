@@ -1,27 +1,39 @@
-$(document).ready(() => {
-    const thesite = $('.site')
-    const thelink = $('.menu-btn')
-    const thepop = $('.nav-popover')
+/* exported krlcMenu */
 
-    thelink.on('click', e => {
-        e.preventDefault()
+const krlcMenu = (() => { // eslint-disable-line no-unused-vars
+    const _config = {
+        thesite: $('.site'),
+        thelink: $('.menu-btn'),
+        thepop: $('.nav-popover')
+    }
 
-        // Toggle menu
-        thesite.toggleClass('has-menu-open')
+    const _private = {
+        toggleMenu() {
+            _config.thelink.on('click', e => {
+                e.preventDefault()
 
-        // Bind the hide controls
-        $(document).bind('click.hidethepop', () => {
-            thesite.removeClass('has-menu-open')
-            // Unbind the hide controls
-            $(document).unbind('click.hidethepop')
-        })
+                // Toggle menu
+                _config.thesite.toggleClass('has-menu-open')
 
-        // Dont close thepop when you click on thepop
-        thepop.on('click', e => {
-            e.stopPropagation()
-        })
+                // Bind the hide controls
+                $(document).bind('click.hidethepop', () => {
+                    _config.thesite.removeClass('has-menu-open')
+                    // Unbind the hide controls
+                    $(document).unbind('click.hidethepop')
+                })
 
-        // And dont close thepop now
-        e.stopPropagation()
-    })
-})
+                // Dont close thepop when you click on thepop
+                _config.thepop.on('click', e => {
+                    e.stopPropagation()
+                })
+
+                // And dont close thepop now
+                e.stopPropagation()
+            })
+        }
+    }
+
+    return {
+        init: _private.toggleMenu
+    }
+})(); // eslint-disable-line semi

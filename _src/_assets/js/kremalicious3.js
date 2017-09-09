@@ -1,39 +1,37 @@
-/* global svg4everybody, vex */
+/* global krlcMenu, krlcSearch, krlcModals, krlcAnalytics, svg4everybody */
 
 /* eslint-disable spaced-comment */
 //=require webcomponents.js/CustomElements.js
 //=require svg4everybody/dist/svg4everybody.js
 //=require jquery/dist/jquery.js
 //=require time-elements/time-elements.js
-//=require vex-js/dist/js/vex.combined.js
 
-/* eslint-disable spaced-comment */
-//=include _analytics.js
-//=include _search.js
 //=include _menu.js
+//=include _search.js
+//=include _modals.js
+//=include _analytics.js
 /* eslint-enable spaced-comment */
 
 
 //
-// Vex modals
+// Init jQuery-based modules
 //
-const vexInit = () => {
-    const vexTriggers = document.querySelectorAll('.js-vex-btc')
+$(document).ready(() => {
+    krlcMenu.init()
+    krlcSearch.init()
+})
 
-    vexTriggers.forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault()
 
-            vex.defaultOptions.className = 'vex-theme-kremalicious vex-bitcoin'
-            vex.dialog.buttons.YES.text = 'Close'
-            vex.open({
-                unsafeContent: '<h3 class="vex__title">My Bitcoin Address</h3>\n <img src="/assets/img/btc-qr.png" />\n <pre class="highlight"><code class="nt">171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V</code></pre>'
-            })
-        }, false)
-    })
+//
+// Init js modules
+//
+krlcModals.init()
+
+const dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack
+
+if (dnt !== 'yes' && dnt !== '1') {
+    krlcAnalytics.init()
 }
-
-vexInit()
 
 svg4everybody({
     nosvg: false
