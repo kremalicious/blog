@@ -12,6 +12,10 @@ import yaml from 'js-yaml'
 import chalk from 'chalk'
 import yargs from 'yargs'
 
+// Required for mixing old and ES6+ js with ugify-js 3
+import uglifyjs from 'uglify-es'
+import composer from 'gulp-uglify/composer'
+
 // Get all the configs: `pkg` and `site`
 import pkg from './package'
 
@@ -20,6 +24,9 @@ const site = yaml.safeLoad(fs.readFileSync('./_config.yml'))
 // Load plugins
 const spawn = require('child_process').spawn
 const $ = require('gulp-load-plugins')()
+
+// Custom minify
+const minify = composer(uglifyjs, console)
 
 // Handle errors
 const onError = error => {
@@ -204,7 +211,7 @@ export const criticalCss = done => {
 //
 // Scripts
 //
-const js = () =>
+export const js = () =>
     src([
         SRC + '/_assets/js/kremalicious3.js',
         'node_modules/picturefill/dist/picturefill.js'
@@ -213,7 +220,7 @@ const js = () =>
     .pipe($.include({
         includePaths: ['node_modules', SRC + '/_assets/js']
     })).on('error', onError)
-    .pipe($.if(isProduction, $.uglify())).on('error', onError)
+    .pipe($.if(isProduction, minify())).on('error', onError)
     .pipe($.if(!isProduction, $.sourcemaps.write()))
     .pipe($.if(isProduction, $.header(BANNER, {pkg})))
     .pipe($.rename({suffix: '.min'}))
