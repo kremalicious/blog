@@ -11,18 +11,10 @@
 //=include _modals.js
 /* eslint-enable spaced-comment */
 
-
-//
-// Init jQuery-based modules
-//
-$(document).ready(() => {
-    krlcSearch.init()
-})
-
-
 //
 // Init js modules
 //
+krlcSearch.init()
 krlcMenu.init()
 krlcModals.init()
 
