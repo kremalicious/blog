@@ -1,10 +1,13 @@
 ---
-layout: null
 ---
 [
     {
         "name"         : "{{ site.name }}",
         "description"  : "{{ site.description | xml_escape }}",
-        "url"          : "{{ site.url }}"
+        "url"          : "{{ site.url }}",
+        "author"       : {
+          {% for item in site.author %}"{{ item[0] }}": "{{ item[1] }}"{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        }
     }
 ]
