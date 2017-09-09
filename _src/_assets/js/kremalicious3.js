@@ -16,7 +16,6 @@
 // Init jQuery-based modules
 //
 $(document).ready(() => {
-    krlcMenu.init()
     krlcSearch.init()
 })
 
@@ -24,6 +23,7 @@ $(document).ready(() => {
 //
 // Init js modules
 //
+krlcMenu.init()
 krlcModals.init()
 
 svg4everybody({

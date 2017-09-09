@@ -2,28 +2,21 @@
 
 const krlcMenu = (() => { // eslint-disable-line no-unused-vars
     const _config = {
-        thesite: $('.site'),
-        thelink: $('.menu-btn'),
-        thepop: $('.nav-popover')
+        thesite: document.getElementsByClassName('site')[0],
+        thelink: document.getElementsByClassName('menu-btn')[0],
+        thepop: document.getElementsByClassName('nav-popover')[0]
     }
 
     const _private = {
         toggleMenu() {
-            _config.thelink.on('click', e => {
+            _config.thelink.addEventListener('click', e => {
                 e.preventDefault()
 
                 // Toggle menu
-                _config.thesite.toggleClass('has-menu-open')
-
-                // Bind the hide controls
-                $(document).bind('click.hidethepop', () => {
-                    _config.thesite.removeClass('has-menu-open')
-                    // Unbind the hide controls
-                    $(document).unbind('click.hidethepop')
-                })
+                _config.thesite.classList.toggle('has-menu-open')
 
                 // Dont close thepop when you click on thepop
-                _config.thepop.on('click', e => {
+                _config.thepop.addEventListener('click', e => {
                     e.stopPropagation()
                 })
 
