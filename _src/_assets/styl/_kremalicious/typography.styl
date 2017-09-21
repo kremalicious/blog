@@ -125,18 +125,17 @@ a,
     color: $link-color
     text-decoration: none
     transition: .2s ease-in-out
-    box-shadow: 0 1px 0 rgba($link-color, 40%)
 
     &:hover,
     &:focus
         outline: 0
         color: $link-color-hover
-        box-shadow: 0 1px 0 rgba($link-color-hover, 70%)
+        box-shadow: inset 0 -1px 0 rgba($link-color-hover, 70%)
 
     &:active
         transition: none
         color: darken($link-color, 30%)
-        box-shadow: 0 1px 0 darken($link-color, 30%)
+        box-shadow: inset 0 -1px 0 darken($link-color, 30%)
 
     h1 &,
     h2 &,
