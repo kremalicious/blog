@@ -77,7 +77,6 @@
 /////////////////////////////////////
 
 .hentry__teaser
-    @extend .breakoutviewport
     max-width: none
     display: block
     margin-top: ($spacer*1.5)
@@ -89,6 +88,9 @@
 
         @media $screen-sm
             border-radius: $border-radius-base
+
+    &:not(.featured .hentry__teaser)
+        @extend .breakoutviewport
 
 .hentry__teaser--link
     &:hover,
