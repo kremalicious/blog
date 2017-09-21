@@ -40,7 +40,7 @@
     @media $screen-xs
         transform: translate3d(0,-($spacer*7.2),0)
 
-    @media $screen-sm
+    @media $screen-md
         transform: translate3d(0,-($spacer*5),0)
 
     .has-menu-open &
@@ -49,13 +49,13 @@
 .site__footer
     margin-top: -($spacer*6.5)
 
-    @media $screen-sm
+    @media $screen-md
         margin-top: 0
 
     .has-menu-open &
         margin-top: 0
 
-@media $screen-sm and (min-height: 650px)
+@media $screen-md and (min-height: 650px)
     .site
         position: relative
 
@@ -63,7 +63,7 @@
         @extend .transition
         position: relative
         z-index: 2
-        margin-bottom: 30rem
+        margin-bottom: 32rem
         transform: translate3d(0,($spacer*3),0)
 
         .has-menu-open &
