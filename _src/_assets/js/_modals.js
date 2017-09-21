@@ -58,7 +58,7 @@ const krlcModals = (() => { // eslint-disable-line no-unused-vars
                         `
                     })
 
-                    // Generate QR code
+                    // Generate QR codes
                     const qrBtc = new QRious({
                         element: document.getElementById('qr-btc'),
                         value: btcAddress
@@ -69,12 +69,14 @@ const krlcModals = (() => { // eslint-disable-line no-unused-vars
                         value: ethAddress
                     })
 
-                    qrBtc.backgroundAlpha = 0
-                    qrEth.backgroundAlpha = 0
-                    qrBtc.foreground = '#6b7f88'
-                    qrEth.foreground = '#6b7f88'
-                    qrBtc.size = 160
-                    qrEth.size = 160
+                    const qrOptions = {
+                        backgroundAlpha: 0,
+                        foreground: '#6b7f88',
+                        size: 160
+                    }
+
+                    qrBtc.set(qrOptions)
+                    qrEth.set(qrOptions)
 
                     // Clipboard button
                     const clipboard = new Clipboard('.btn')
