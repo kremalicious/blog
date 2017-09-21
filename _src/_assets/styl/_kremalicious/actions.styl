@@ -6,8 +6,14 @@
     .grid
         margin-bottom: 0
 
+        @media $screen-sm
+            .grid__col:last-child
+                display: flex
+                justify-content: flex-end
+
 .action
     padding-left: 32px
+    display: inline-block
 
     .icon
         margin-right: 8px
@@ -38,10 +44,52 @@
 .vex-bitcoin
     @extend .textcenter
 
-    img
+    .vex-content
+        max-width: 45em
+
+    h4
+        margin-top: 0
+        margin-bottom: ($spacer / 2)
+
+    .qr
         margin-bottom: $spacer
-        width: 156px
+        width: 120px
 
     pre
         @extend .small
-        display: inline-block
+        margin: 0
+        position: relative
+        padding-right: 2.4rem
+
+        code
+            padding: ($spacer / 2)
+            padding-right: 0
+            font-size: .65rem
+
+    .btn
+        position: absolute
+        right: 0
+        top: 0
+        bottom: 0
+        border: 0
+        box-shadow: none
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+        background: alpha($brand-grey, 30%)
+
+        svg
+            width: 1rem
+            height: 1rem
+            fill: $brand-grey
+            transition: .15s ease-out
+
+        &:hover
+            background: alpha($brand-grey, 30%)
+            svg
+                fill: $brand-grey-dimmed
+
+        &.success
+            background: darken($alert-success, 50%)
+
+            svg
+                fill: $brand-dark
