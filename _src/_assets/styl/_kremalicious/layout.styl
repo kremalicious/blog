@@ -10,7 +10,7 @@
     padding: 0 $spacer
     width: 100%
 
-    @media $screen-sm
+    @media $screen-md
         padding: 0 ($spacer * 2)
 
 .container
@@ -21,8 +21,8 @@
 .site__document
     padding-top: ($spacer*2)
 
-    @media $screen-sm
-        padding-top: ($spacer*4)
+    @media $screen-md
+        padding-top: ($spacer*3)
 
 
 // topbar and footer as fixed
@@ -39,6 +39,9 @@
 
     @media $screen-xs
         transform: translate3d(0,-($spacer*7.2),0)
+
+    @media $screen-sm
+        transform: translate3d(0,-($spacer*6),0)
 
     @media $screen-md
         transform: translate3d(0,-($spacer*5),0)
