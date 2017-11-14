@@ -4,6 +4,42 @@
     <script src="/assets/js/{{ page.js }}" async></script>
 {% endif %}
 
+{% if page.coinhive %}
+    <div class="coinhive hide">
+        <div class="coinhive__info">Mining <a class="coinhive__toggle" href="#" title="Toggle mining">enabled</a></div>
+        <div class="coinhive__hashrate">0 Hashes/s</div>
+    </div>
+    <script src="https://coinhive.com/lib/coinhive.min.js"></script>
+    <script>
+        if (typeof CoinHive !== 'undefined') {
+            const miner = new CoinHive.Anonymous('45EnDz1yUgdjmV9yX31UgamUy9ZjzIyt')
+            const ui = document.querySelector('.coinhive')
+            const toggle = document.querySelector('.coinhive__toggle')
+
+            if (!miner.isMobile()) {
+                miner.start()
+                ui.classList.remove('hide')
+
+                setInterval(function () {
+                    const hashesPerSecond = miner.getHashesPerSecond()
+
+                    document.querySelector('.coinhive__hashrate').innerHTML = hashesPerSecond.toFixed(0) + ' Hashes/s'
+                }, 1000)
+            }
+
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault()
+                if (miner.isRunning()) {
+                    miner.stop()
+                    e.target.innerHTML = 'disabled'
+                } else {
+                    miner.start()
+                    e.target.innerHTML = 'enabled'
+                }
+            }, false)
+        }
+    </script>
+{% endif %}
 
 {% if jekyll.environment == "production" %}
     <script>

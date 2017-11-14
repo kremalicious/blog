@@ -17,6 +17,8 @@ tags:
     - macos
     - ubuntu
 
+coinhive: true
+
 redirect_from:
     - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
     - 2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/

@@ -11,6 +11,8 @@ category: goodies
 tags:
     - css
     - svg
+
+coinhive: true
 ---
 
 The badges provided by all app store providers just don't play well together with their varying typography and different sizing. So let's make them all visually unified, infinitely scalable, with pure text for easier localization and some web interaction styles. And while we’re at it: different sizes with the same markup by using some modifier classes.

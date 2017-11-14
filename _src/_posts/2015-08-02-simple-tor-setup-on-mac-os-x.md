@@ -13,6 +13,8 @@ tags:
     - tor
     - osx
     - macos
+
+coinhive: true
 ---
 
 There're many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here're some steps to setup Tor on macOS with a simple automated script at the end.

@@ -16,6 +16,8 @@ tags:
     - tutorial
     - wordpress
 
+coinhive: true
+
 redirect_from:
     - /2012/05/wp-icons-template/
 ---

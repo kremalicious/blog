@@ -12,6 +12,8 @@ tags:
     - osx
     - macos
 
+coinhive: true
+
 redirect_from:
     - /2008/02/how-to-quickly-generate-encrypted-logins-on-a-mac-for-htaccess-protected-sites/
 ---
