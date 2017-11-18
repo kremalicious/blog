@@ -1,5 +1,7 @@
 ---
 layout: base
+
+js: photos.min.js
 ---
 
 <section role="main" id="main" class="page-single">
@@ -15,6 +17,10 @@ layout: base
             {% include picture.html %}
 
         </figure>
+
+        <aside class="exif">
+            <div class="exif__make"></div>
+        </aside>
 
         <section class="entry-content">
             {{ content }}

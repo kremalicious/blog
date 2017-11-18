@@ -2,6 +2,8 @@
 
 {% if page.js %}
     <script src="/assets/js/{{ page.js }}" async></script>
+{% elsif layout.js %}
+    <script src="/assets/js/{{ layout.js }}" async></script>
 {% endif %}
 
 {% if page.coinhive %}
