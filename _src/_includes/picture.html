@@ -1,17 +1,17 @@
 {% case include.size %}
 
 {% when 'phototeaser' %}
-     {% assign pictureSize = 'w_940%2Ch_700%2Cc_fill%2Cq_90' %}
-     {% assign pictureSizeRetina = 'w_1880%2Ch_1400%2Cc_fill%2Cq_90' %}
+     {% assign pictureSize = 'w_940,h_700,c_fill,q_90' %}
+     {% assign pictureSizeRetina = 'w_1880,h_1400,c_fill,q_90' %}
 {% when 'photothumb' %}
-    {% assign pictureSize = 'w_190%2Ch_190%2Cc_thumb%2Cq_90' %}
-    {% assign pictureSizeRetina = 'w_380%2Ch_380%2Cc_thumb%2Cq_90' %}
+    {% assign pictureSize = 'w_190,h_190,c_thumb,q_90' %}
+    {% assign pictureSizeRetina = 'w_380,h_380,c_thumb,q_90' %}
 {% when 'featured' %}
-    {% assign pictureSize = 'w_275%2Ch_100%2Cc_fill' %}
-    {% assign pictureSizeRetina = 'w_550%2Ch_200%2Cc_fill%2Cq_90' %}
+    {% assign pictureSize = 'w_275,h_100,c_fill' %}
+    {% assign pictureSizeRetina = 'w_550,h_200,c_fill,q_90' %}
 {% else %}
-     {% assign pictureSize = 'w_940%2Cq_90' %}
-     {% assign pictureSizeRetina = 'w_1880%2Cq_90' %}
+     {% assign pictureSize = 'w_940,q_90' %}
+     {% assign pictureSizeRetina = 'w_1880,q_90' %}
 {% endcase %}
 
 {% if include.file %}
