@@ -12,6 +12,8 @@ tags:
     - wallpaper
     - futurama
 
+coinhive: true
+
 redirect_from:
 - /new-goodie-futurama-mars-university-wallpaper/
 ---

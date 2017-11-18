@@ -11,6 +11,8 @@ tags:
     - futurama
     - mac
 
+coinhive: true
+
 slug: the-mac-in-futurama
 wordpress_id: 440
 ---

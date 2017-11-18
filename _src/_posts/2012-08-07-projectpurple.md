@@ -12,6 +12,8 @@ category: goodies
 tags:
     - iphone
     - wallpaper
+
+coinhive: true
 ---
 
 It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstall-fight-club-day-three-apple-samsung-trial/in/2971889) the original iPhone was developed in a locked down building under the name "Project Purple". Because of the secrecy involved, the team decorated the building with [Fight Club](http://www.imdb.com/title/tt0137523/) references. If you don't think this demands a wallpaper, you're weird.

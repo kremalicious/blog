@@ -12,6 +12,8 @@ categories:
 tags:
 - aperture
 
+coinhive: true
+
 redirect_from:
   - /2008/10/the-definite-guide-to-watermarks-in-apple-aperture/
 ---

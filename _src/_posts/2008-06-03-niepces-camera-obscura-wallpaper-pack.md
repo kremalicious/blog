@@ -13,6 +13,8 @@ categories:
 tags:
 - wallpaper
 
+coinhive: true
+
 redirect_from:
   - /new-goodie-niepces-camera-obscura-wallpaper-pack/
 ---
