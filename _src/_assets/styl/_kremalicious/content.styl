@@ -89,7 +89,7 @@
         @media $screen-sm
             border-radius: $border-radius-base
 
-    &:not(.featured .hentry__teaser)
+    .hentry.format-photo &
         @extend .breakoutviewport
 
 .hentry__teaser--link
@@ -112,10 +112,6 @@
         @extend .h3
     h3
         @extend .h4
-
-    img:not(.hentry__teaser img)
-        @extend .media-frame
-        margin-bottom: ($spacer/2)
 
     p:last-child
         margin-bottom: 0
