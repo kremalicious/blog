@@ -16,11 +16,17 @@ js: photos.min.js
 
             {% include picture.html %}
 
+            <aside class="exif">
+                <div class="container">
+                    <span class="exif__model" title="Camera model"></span>
+                    <span class="exif__aperture" title="Aperture"></span>
+                    <span class="exif__shutterspeed" title="Shutter speed"></span>
+                    <span class="exif__exposure" title="Exposure"></span>
+                    <span class="exif__iso" title="ISO"></span>
+                    <span class="exif__focallength" title="Focal length"></span>
+                </div>
+            </aside>
         </figure>
-
-        <aside class="exif">
-            <div class="exif__make"></div>
-        </aside>
 
         <section class="entry-content">
             {{ content }}

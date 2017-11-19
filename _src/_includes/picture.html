@@ -10,8 +10,8 @@
     {% assign pictureSize = 'w_275,h_100,c_fill,q_auto:good,f_auto' %}
     {% assign pictureSizeRetina = 'w_550,h_200,c_fill,q_auto:good,f_auto' %}
 {% else %}
-     {% assign pictureSize = 'w_940,q_auto:best,f_auto' %}
-     {% assign pictureSizeRetina = 'w_1880,q_auto:best,f_auto' %}
+     {% assign pictureSize = 'w_940,f_auto,fl_keep_iptc' %}
+     {% assign pictureSizeRetina = 'w_1880,f_auto,fl_keep_iptc' %}
 {% endcase %}
 
 {% if include.file %}
