@@ -2,7 +2,7 @@
 
 npm test &&
 
-if [ $TRAVIS_BRANCH == "master" ]; then
+if [ "$TRAVIS_BRANCH" == "master" ]; then
     gulp build --production
 else
     gulp build

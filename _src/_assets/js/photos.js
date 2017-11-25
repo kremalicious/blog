@@ -1,12 +1,16 @@
-//=include exif-js/exif.js
+/* global EXIF */
 
-window.onload = getExif;
+/* eslint-disable spaced-comment */
+//=include exif-js/exif.js
+/* eslint-enable spaced-comment */
+
+window.onload = getExif
 
 function getExif() {
     const image = document.querySelector('.hentry__teaser img')
 
     EXIF.getData(image, function () {
-        // get individual data
+        // Get individual data
         const modelvalue = EXIF.getTag(this, 'Model')
         const shutterspeedvalue = EXIF.getTag(this, 'ExposureTime')
         const aperturevalue = EXIF.getTag(this, 'FNumber')
@@ -14,7 +18,7 @@ function getExif() {
         const isovalue = EXIF.getTag(this, 'ISOSpeedRatings')
         const focallengthvalue = EXIF.getTag(this, 'FocalLength')
 
-        // inject data
+        // Inject data
         if (modelvalue) {
             const model = document.querySelector('.exif__model')
             model.innerHTML = modelvalue
