@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-npm test
+npm test &&
 
 if [ $TRAVIS_BRANCH == "master" ]; then
     gulp build --production
