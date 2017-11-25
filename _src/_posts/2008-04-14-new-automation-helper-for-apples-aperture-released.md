@@ -7,6 +7,7 @@ author: Matthias Kretschmann
 date: 2008-04-14 13:51:39+00:00
 wordpress_id: 37
 category: photography
+coinhive: true
 tags:
 - aperture
 ---

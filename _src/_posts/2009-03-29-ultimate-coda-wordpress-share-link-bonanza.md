@@ -13,6 +13,8 @@ categories:
 tags:
     - tutorial
     - wordpress
+
+coinhive: true
 ---
 
 ![Coda Clips Teaser](/media/codaclips-teaser.png)

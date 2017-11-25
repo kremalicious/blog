@@ -7,6 +7,7 @@ author: Matthias Kretschmann
 date: 2008-04-09 13:13:42+00:00
 wordpress_id: 32
 category: design
+coinhive: true
 tags:
     - tutorial
     - osx

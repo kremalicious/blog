@@ -13,6 +13,8 @@ tags:
 - aperture
 - tutorial
 
+coinhive: true
+
 redirect_from:
   - /2008/05/high-quality-watermarks-with-aperture/
 ---

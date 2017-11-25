@@ -10,6 +10,7 @@ categories:
 - photography
 tags:
 - aperture
+coinhive: true
 ---
 
 The Adjustment Tool Guide gives an in-depth-view of the Adjustment tool in Aperture. The documentary provided by Apple isn't that what most people were looking for. But Kendall Gelner wrote his own Adjustment Tools Guide originally for the Aperture Version 1.0.1.

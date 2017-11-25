@@ -11,6 +11,8 @@ categories:
 - photography
 tags:
 - aperture
+
+coinhive: true
 ---
 
 There are already some lists like this available on the web and they are always very subjective so I thought I should add my subjective list too. While Aperture was released I was coding this website and had not much time for writing about it. So although a bit late here is my absolutely biased list of my favorite 15 new features included in Apple's Aperture since version 2.0. It's in a nice countdown order ending with the best new feature (to me) at the bottom. Just click on the little screenshots to smoothly zoom to the full version of them.
@@ -113,6 +115,6 @@ Now you can "scroll like butter" (I bet you know who said that) through your who
 
 The best new feature to me just because the whole purpose of Aperture should be producing the best looking images from your RAW files. While the first RAW 1.0 often rendered terrible pictures, the RAW 1.1 algorithm did it a lot better. But now we have a massive improvement to the RAW 1.1 algorithm with crisp highlights and more details in dark areas with less chromatic aberration by default. To me Aperture is now close and sometimes better than the quality of PhaseOne or CameraRAW. Of course Aperture 2 leaves all your old adjustments made in previous versions of Aperture alone and you can optionally migrate them all at once or separately.
 
-And you even get more adjustments for decoding the RAW file. The new Hue Boost slider only applies to the colors of your images rather than to the overall exposure like Boost do.  
+And you even get more adjustments for decoding the RAW file. The new Hue Boost slider only applies to the colors of your images rather than to the overall exposure like Boost do.
 
 These are my favorite new features of Aperture 2.

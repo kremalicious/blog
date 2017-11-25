@@ -8,6 +8,7 @@ date: 2008-05-04 16:04:48+00:00
 
 wordpress_id: 45
 category: photography
+coinhive: true
 tags:
     - tutorial
     - osx

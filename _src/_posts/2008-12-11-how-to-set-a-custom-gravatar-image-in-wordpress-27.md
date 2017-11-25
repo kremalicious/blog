@@ -13,6 +13,8 @@ tags:
 - tutorial
 - wordpress
 
+coinhive: true
+
 redirect_from:
     - /2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/
 ---
@@ -39,12 +41,12 @@ So we were able to set a path to our image we wanted to use as the default grava
 But we can use the functions.php file in your template directory and add some lines to it: (If you don't have a functions.php file just create one.)
 
 {% highlight php %}
-<?php  
-	function my_own_gravatar( $avatar_defaults ) {  
-	    $myavatar = get_bloginfo('template_directory') . '/images/gravatar.png';  
-	    $avatar_defaults[$myavatar] = 'GRAVATAR NAME DISPLAYED IN WORDPRESS';  
-	    return $avatar_defaults;  
-	}  
+<?php
+	function my_own_gravatar( $avatar_defaults ) {
+	    $myavatar = get_bloginfo('template_directory') . '/images/gravatar.png';
+	    $avatar_defaults[$myavatar] = 'GRAVATAR NAME DISPLAYED IN WORDPRESS';
+	    return $avatar_defaults;
+	}
 	add_filter( 'avatar_defaults', 'my_own_gravatar' );
 ?>
 {% endhighlight %}

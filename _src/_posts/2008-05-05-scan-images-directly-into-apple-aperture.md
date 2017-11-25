@@ -7,6 +7,7 @@ author: Matthias Kretschmann
 date: 2008-05-05 04:15:11+00:00
 wordpress_id: 46
 category: photography
+coinhive: true
 tags:
     - aperture
     - tutorial
