@@ -32,6 +32,7 @@ body
     word-break: break-word
 
     text-rendering: optimizeLegibility
+    font-display: swap
     // Controversial! But prevents text flickering in
     // Safari/Firefox when animations are running
     -webkit-font-smoothing: antialiased
@@ -39,9 +40,6 @@ body
     -moz-font-feature-settings: 'liga', 'kern'
 
     letter-spacing: -.01em
-
-    .wf-active &
-        letter-spacing: normal
 
 p,
 ul,
@@ -71,10 +69,6 @@ h1, h2, h3, h4, h5, h6,
     color: $headings-color
     font-weight: 500
     letter-spacing: -.04em
-
-    .wf-active &
-        font-weight: $headings-font-weight
-        letter-spacing: normal
 
 h1, .h1,
 h2, .h2
