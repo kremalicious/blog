@@ -50,10 +50,10 @@
   },
   "devDependencies": {
     "acorn": "^5.2.1",
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^7.2.3",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.20.1",
     "chalk": "^2.3.0",
     "concurrent-transform": ">=1.0.0",
     "critical": "^1.0.0",
@@ -81,7 +81,7 @@
     "gulp-uglify": ">=1.2.0",
     "js-yaml": "^3.10.0",
     "request": "^2.83.0",
-    "uglify-es": "^3.1.10",
+    "uglify-es": "^3.2.2",
     "xo": "^0.18.2",
     "yargs": "^10.0.3"
   },
