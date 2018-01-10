@@ -2,7 +2,7 @@
 
 /* eslint-disable spaced-comment */
 //=require webcomponents.js/CustomElements.js
-//=require time-elements/time-elements.js
+//=require time-elements/dist/time-elements.js
 
 //=include _menu.js
 //=include _search.js
