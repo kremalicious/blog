@@ -44,7 +44,7 @@
     "normalize-opentype.css": "^0.2.4",
     "qrious": "^4.0.2",
     "simple-jekyll-search": "^1.5.0",
-    "time-elements": "^0.6.1",
+    "time-elements": "^1.0.0",
     "vex-js": "^4.0.1",
     "webcomponents.js": "^0.7.24"
   },
