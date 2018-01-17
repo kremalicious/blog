@@ -64,7 +64,7 @@
     "gulp-awspublish": ">=2.0.2",
     "gulp-awspublish-router": ">=0.1.1",
     "gulp-cli": "^2.0.0",
-    "gulp-header": "^1.8.9",
+    "gulp-header": "^2.0.1",
     "gulp-htmlmin": "^4.0.0",
     "gulp-if": ">=1.2.5",
     "gulp-imagemin": "^4.1.0",
