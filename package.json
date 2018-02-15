@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "acorn": "^5.3.0",
-    "autoprefixer": "^7.2.4",
+    "autoprefixer": "^8.0.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.23.5",
