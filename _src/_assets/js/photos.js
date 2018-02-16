@@ -4,7 +4,7 @@
 //=include exif-js/exif.js
 /* eslint-enable spaced-comment */
 
-window.onload = getExif
+window.addEventListener('load', getExif, false)
 
 function getExif() {
     const image = document.querySelector('.hentry__teaser img')

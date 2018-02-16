@@ -22,7 +22,7 @@ import pkg from './package'
 const site = yaml.safeLoad(fs.readFileSync('./_config.yml'))
 
 // Load plugins
-const spawn = require('child_process').spawn
+const cp = require('child_process')
 const $ = require('gulp-load-plugins')()
 
 // Custom minify
@@ -134,9 +134,9 @@ export const jekyll = done => {
         jekyllOptions = 'jekyll build --config _config.yml,_config.dev.yml --incremental --drafts --future'
     }
 
-    const jekyllInstance = spawn('bundle', ['exec', jekyllOptions], {stdio: 'inherit'})
+    const jekyll = cp.execFile('bundle', ['exec', jekyllOptions], {stdio: 'inherit'})
 
-    jekyllInstance.on('error', error => onError(error)).on('close', done)
+    jekyll.on('error', error => onError(error)).on('close', done)
 }
 
 
@@ -171,14 +171,14 @@ export const css = () =>
         SRC + '/_assets/styl/kremalicious3.styl',
         SRC + '/_assets/styl/post-*.styl'
     ])
-    .pipe($.if(!isProduction, $.sourcemaps.init()))
-    .pipe($.stylus({'include css': true})).on('error', onError)
-    .pipe($.postcss(processors)).on('error', onError)
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.header(BANNER, {pkg})))
-    .pipe($.rename({suffix: '.min'}))
-    .pipe(dest(DIST + '/assets/css/'))
-    .pipe(browser.stream())
+        .pipe($.if(!isProduction, $.sourcemaps.init()))
+        .pipe($.stylus({'include css': true})).on('error', onError)
+        .pipe($.postcss(processors)).on('error', onError)
+        .pipe($.if(!isProduction, $.sourcemaps.write()))
+        .pipe($.if(isProduction, $.header(BANNER, {pkg})))
+        .pipe($.rename({suffix: '.min'}))
+        .pipe(dest(DIST + '/assets/css/'))
+        .pipe(browser.stream())
 
 // Inline critical-path CSS
 export const criticalCss = done => {
@@ -216,15 +216,15 @@ export const js = () =>
         SRC + '/_assets/js/*.js',
         '!' + SRC + '/_assets/js/_*.js'
     ])
-    .pipe($.sourcemaps.init())
-    .pipe($.include({
-        includePaths: ['node_modules', SRC + '/_assets/js']
-    })).on('error', onError)
-    .pipe($.if(isProduction, minify())).on('error', onError)
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe($.if(isProduction, $.header(BANNER, {pkg})))
-    .pipe($.rename({suffix: '.min'}))
-    .pipe(dest(DIST + '/assets/js/'))
+        .pipe($.sourcemaps.init())
+        .pipe($.include({
+            includePaths: ['node_modules', SRC + '/_assets/js']
+        })).on('error', onError)
+        .pipe($.if(isProduction, minify())).on('error', onError)
+        .pipe($.if(!isProduction, $.sourcemaps.write()))
+        .pipe($.if(isProduction, $.header(BANNER, {pkg})))
+        .pipe($.rename({suffix: '.min'}))
+        .pipe(dest(DIST + '/assets/js/'))
 
 
 //
@@ -423,7 +423,7 @@ export const s3 = () => src(DIST + '/**/*')
 
             // Every other asset, cached
             '^assets/.+$': {
-                cacheTime: 2592000  // Cache for 1 month
+                cacheTime: 2592000 // Cache for 1 month
             },
 
             // All html files, not cached & gzipped
