@@ -1,7 +1,7 @@
 /* global krlcMenu, krlcSearch, krlcModals */
 
 /* eslint-disable spaced-comment */
-//=require webcomponents.js/CustomElements.js
+//=require @webcomponents/webcomponentsjs/webcomponents-hi-sd-ce.js
 //=require time-elements/dist/time-elements.js
 
 //=include _menu.js
