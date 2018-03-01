@@ -2,7 +2,7 @@
 // Vex modals
 //
 
-/* global vex, fetch, Clipboard, QRious */
+/* global vex, fetch, ClipboardJS, QRious */
 /* exported krlcModals */
 
 /* eslint-disable spaced-comment */
