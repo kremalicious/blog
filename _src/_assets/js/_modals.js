@@ -79,7 +79,7 @@ const krlcModals = (() => { // eslint-disable-line no-unused-vars
                     qrEth.set(qrOptions)
 
                     // Clipboard button
-                    const clipboard = new Clipboard('.btn')
+                    const clipboard = new ClipboardJS('.btn')
 
                     clipboard.on('success', e => {
                         e.trigger.classList.add('success')
