@@ -136,7 +136,13 @@ export const jekyll = done => {
 
     const jekyll = cp.execFile('bundle', ['exec', jekyllOptions], {stdio: 'inherit'})
 
-    jekyll.on('error', error => onError(error)).on('close', done)
+    const jekyllLogger = buffer => {
+        buffer.toString()
+            .split(/\n/)
+            .forEach(message => console.log(message))
+    }
+
+    jekyll.stdout.on('data', jekyllLogger).on('close', done)
 }
 
 
