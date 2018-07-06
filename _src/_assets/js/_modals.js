@@ -31,7 +31,7 @@ const krlcModals = (() => { // eslint-disable-line no-unused-vars
                 })
                 .catch(err => console.error(err))
 
-            return {btcAddress, ethAddress}
+            return { btcAddress, ethAddress }
         },
 
         vexBtc() {
@@ -41,7 +41,7 @@ const krlcModals = (() => { // eslint-disable-line no-unused-vars
 
                     vex.defaultOptions.className = 'vex-theme-kremalicious vex-bitcoin'
                     vex.dialog.buttons.YES.text = 'Close'
-                    vex.open({unsafeContent: `
+                    vex.open({ unsafeContent: `
                         <h3 class="vex__title">Say thanks</h3>
                         <div class="grid grid--full grid-medium--half grid--gutters">
                             <div class="grid__col">

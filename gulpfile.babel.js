@@ -1,5 +1,5 @@
 import fs from 'fs'
-import {src, dest, parallel, series, watch} from 'gulp'
+import { src, dest, parallel, series, watch } from 'gulp'
 import del from 'del'
 import parallelize from 'concurrent-transform'
 import browser from 'browser-sync'
@@ -134,7 +134,7 @@ export const jekyll = done => {
         jekyllOptions = 'jekyll build --config _config.yml,_config.dev.yml --incremental --drafts --future'
     }
 
-    const jekyll = cp.execFile('bundle', ['exec', jekyllOptions], {stdio: 'inherit'})
+    const jekyll = cp.execFile('bundle', ['exec', jekyllOptions], { stdio: 'inherit' })
 
     const jekyllLogger = buffer => {
         buffer.toString()
@@ -167,7 +167,7 @@ export const html = () => src(DIST + '/**/*.html')
 //
 // Styles
 //
-const processors = [
+const plugins = [
     autoprefixer(),
     cssnano()
 ]
@@ -178,11 +178,11 @@ export const css = () =>
         SRC + '/_assets/styl/post-*.styl'
     ])
         .pipe($.if(!isProduction, $.sourcemaps.init()))
-        .pipe($.stylus({'include css': true})).on('error', onError)
-        .pipe($.postcss(processors)).on('error', onError)
+        .pipe($.stylus({ 'include css': true })).on('error', onError)
+        .pipe($.postcss(plugins)).on('error', onError)
         .pipe($.if(!isProduction, $.sourcemaps.write()))
-        .pipe($.if(isProduction, $.header(BANNER, {pkg})))
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.if(isProduction, $.header(BANNER, { pkg })))
+        .pipe($.rename({ suffix: '.min' }))
         .pipe(dest(DIST + '/assets/css/'))
         .pipe(browser.stream())
 
@@ -228,8 +228,8 @@ export const js = () =>
         })).on('error', onError)
         .pipe($.if(isProduction, minify())).on('error', onError)
         .pipe($.if(!isProduction, $.sourcemaps.write()))
-        .pipe($.if(isProduction, $.header(BANNER, {pkg})))
-        .pipe($.rename({suffix: '.min'}))
+        .pipe($.if(isProduction, $.header(BANNER, { pkg })))
+        .pipe($.rename({ suffix: '.min' }))
         .pipe(dest(DIST + '/assets/js/'))
 
 
@@ -237,10 +237,10 @@ export const js = () =>
 // Images
 //
 const imageminPlugins = [
-    $.imagemin.gifsicle({interlaced: true}),
+    $.imagemin.gifsicle({ interlaced: true }),
     $.imagemin.jpegtran(),
-    $.imagemin.optipng({optimizationLevel: 5}),
-    $.imagemin.svgo({plugins: [{removeViewBox: false}]})
+    $.imagemin.optipng({ optimizationLevel: 5 }),
+    $.imagemin.svgo({ plugins: [{ removeViewBox: false }] })
 ]
 
 // Copy all images
@@ -296,7 +296,7 @@ export const revReplace = done => {
         const manifest = src(DIST + '/assets/rev-manifest.json')
 
         return src(DIST + '/**/*.{html,css,js}')
-            .pipe($.revReplace({manifest}))
+            .pipe($.revReplace({ manifest }))
             .pipe(dest(DIST))
     }
     done()
@@ -441,15 +441,15 @@ export const s3 = () => src(DIST + '/**/*')
             // Font mime types
             '.ttf$': {
                 key: '$&',
-                headers: {'Content-Type': 'application/x-font-ttf'}
+                headers: { 'Content-Type': 'application/x-font-ttf' }
             },
             '.woff$': {
                 key: '$&',
-                headers: {'Content-Type': 'application/x-font-woff'}
+                headers: { 'Content-Type': 'application/x-font-woff' }
             },
             '.woff2$': {
                 key: '$&',
-                headers: {'Content-Type': 'application/x-font-woff2'}
+                headers: { 'Content-Type': 'application/x-font-woff2' }
             },
 
             // Pass-through for anything that wasn't matched by routes above, to be uploaded with default options

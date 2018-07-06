@@ -21,13 +21,9 @@
     "space": 4,
     "semicolon": false,
     "rules": {
-      "no-multiple-empty-lines": [
-        "error",
-        {
-          "max": 2,
-          "maxEOF": 1
-        }
-      ]
+      "no-multiple-empty-lines": [ "error", { "max": 2, "maxEOF": 1 }],
+      "object-curly-spacing": ["error", "always"],
+      "promise/prefer-await-to-then": 0
     },
     "globals": [
       "window",
@@ -38,8 +34,8 @@
     ]
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "clipboard": "^2.0.0",
+    "@webcomponents/webcomponentsjs": "^2.0.2",
+    "clipboard": "^2.0.1",
     "exif-js": "^2.3.0",
     "normalize-css": "^2.3.1",
     "normalize-opentype.css": "^0.2.4",
@@ -49,15 +45,14 @@
     "vex-js": "^4.1.0"
   },
   "devDependencies": {
-    "acorn": "^5.7.1",
-    "autoprefixer": "^8.6.3",
+    "autoprefixer": "^8.6.5",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.24.5",
     "chalk": "^2.4.1",
-    "concurrent-transform": ">=1.0.0",
+    "concurrent-transform": "^1.0.0",
     "critical": "^1.3.3",
-    "cssnano": ">=3.6.2",
+    "cssnano": "^4.0.0",
     "del": "^3.0.0",
     "fs": ">=0.0.2",
     "gulp": "^4.0.0",
@@ -66,27 +61,27 @@
     "gulp-cli": "^2.0.0",
     "gulp-header": "^2.0.5",
     "gulp-htmlmin": "^4.0.0",
-    "gulp-if": ">=1.2.5",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
-    "gulp-include": ">=2.0.2",
-    "gulp-load-plugins": ">=0.10.0",
+    "gulp-include": "^2.3.1",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.3.0",
     "gulp-replace": "^1.0.0",
     "gulp-rev": "^8.1.1",
     "gulp-rev-replace": "^0.4.4",
-    "gulp-sourcemaps": "^2.6.3",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-stylus": "^2.7.0",
     "gulp-svg-sprite": "^1.4.0",
-    "gulp-uglify": ">=1.2.0",
+    "gulp-uglify": "^3.0.0",
     "js-yaml": "^3.12.0",
     "request": "^2.87.0",
-    "uglify-es": "^3.3.10",
-    "xo": "^0.21.0",
+    "uglify-es": "^3.3.9",
+    "xo": "^0.21.1",
     "yargs": "^12.0.1"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",
