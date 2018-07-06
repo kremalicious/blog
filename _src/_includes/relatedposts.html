@@ -10,7 +10,7 @@
                 <article class="related-post grid__col">
                     <a class="post-title-link" href="{{ post.url }}">
                         {% if post.image %}
-                            {% include picture.html size='photothumb' %}
+                            {% include picture.html size='photothumb' file=post.image %}
                         {% endif %}
                         <h1 class="post-title">{{ post.title | titlecase }}</h1>
                     </a>
