@@ -3,7 +3,7 @@ kremalicious3
 
 > [kremalicious.com](http://kremalicious.com) based on [Jekyll](http://jekyllrb.com). Neat.
 
-[![Build Status](https://travis-ci.org/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.org/kremalicious/kremalicious3)
+[![Build Status](https://travis-ci.com/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.com/kremalicious/kremalicious3)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/kremalicious3.svg)](https://greenkeeper.io/)
 
 
