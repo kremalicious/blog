@@ -1,0 +1,19 @@
+.image {
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.imageWrap {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    @media (min-width: 940px) {
+        max-width: 940px;
+        border-radius: .25rem;
+        overflow: hidden;
+    }
+}

@@ -1,6 +1,3 @@
----
----
-
 User-agent: *
 Disallow: /search/
 Disallow: /page/
@@ -8,4 +5,4 @@ Disallow: /*/page/
 Disallow: /tag/
 Disallow: /api/
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://kremalicious.com/sitemap.xml

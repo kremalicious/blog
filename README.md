@@ -1,23 +1,17 @@
-blog
-==================
+# blog
 
 > [kremalicious.com](http://kremalicious.com) built with [Gatsby](http://gatsbyjs.org). Neat.
 
 [![Build Status](https://travis-ci.com/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.com/kremalicious/kremalicious3)
 [![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/kremalicious3.svg)](https://greenkeeper.io/)
 
-
-Requirements
-------------------
+## Requirements
 
 You need to have the following tools installed on your development machine before moving on:
 
-- [node.js](http://nodejs.org/) & [npm](https://npmjs.org/)
+- [Node.js](http://nodejs.org/) & [npm](https://npmjs.org/)
 
-
-Get up and running
-------------------
-
+## Get up and running
 
 ### Install dependencies
 
@@ -29,8 +23,6 @@ npm install
 
 ### Development server
 
-This generates the site with the dev build task `gulp build` and starts a local dev server combined with a livereloading watch task under `http://localhost:1337`.
-
 ```bash
 npm start
 ```
@@ -41,9 +33,7 @@ npm start
 npm run build
 ```
 
-
-Licenses
-------------------
+## Licenses
 
 ### Posts
 

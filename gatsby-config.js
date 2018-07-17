@@ -9,36 +9,11 @@ module.exports = {
     siteUrl: `${url}`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 600
-            }
-          },
-          'gatsby-remark-smartypants'
-        ]
-      }
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        includePaths: [`${__dirname}/node_modules`]
-      }
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'pages',
-        path: path.join(__dirname, 'content', 'pages')
+        name: 'posts',
+        path: path.join(__dirname, 'content', 'posts')
       }
     },
     {
@@ -47,6 +22,35 @@ module.exports = {
         name: 'media',
         path: path.join(__dirname, 'content', 'media')
       }
-    }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 940,
+              linkImagesToOriginal: false,
+              sizeByPixelDensity: true,
+              showCaptions: true
+            }
+          },
+          'gatsby-remark-smartypants',
+          'gatsby-remark-autolink-headers'
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        includePaths: [`${__dirname}/node_modules`]
+      }
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-yaml',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap'
   ]
 }
