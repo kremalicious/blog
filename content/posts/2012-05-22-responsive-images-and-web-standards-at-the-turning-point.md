@@ -6,7 +6,7 @@ linkurl: http://www.alistapart.com/articles/responsive-images-and-web-standards-
 author: Matthias Kretschmann
 
 date: 2012-05-22 06:23:26+00:00
-wordpress_id: 2133
+  
 categories:
 - design
 post_format:

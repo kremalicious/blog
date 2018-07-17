@@ -2,12 +2,12 @@
 layout: post
 
 title: iPixelPad - Tongue Twisting But Crisp iPad Icons
-image: Teaser-iPixelPad.png
-download: ipixelpad_by_kremalicious.zip
+image: ../media/Teaser-iPixelPad.png
+download: ../media/ipixelpad_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2010-02-04 15:21:42+00:00
-wordpress_id: 1092
+  
 categories:
 - goodies
 tags:
@@ -22,7 +22,7 @@ They also come in two different versions for each size: with a matte highlight s
 
 And drawing the homescreen icons was quite funky and if you know the standard iPhone icons I bet you can guess what icons you can see here and in the icon files, at least in the 48px and 32px versions:
 
-![ipixelpad-homescreen-zoom.png](/media/ipixelpad-homescreen-zoom.png)
+![ipixelpad-homescreen-zoom.png](../media/ipixelpad-homescreen-zoom.png)
 
 The homescreen icons pixels in the 16px version needed all more vivid colors to get them distinguishable from the wallpaper background so they're a bit different from the other sizes. These are the times I wish I could modify just half a pixel.
 

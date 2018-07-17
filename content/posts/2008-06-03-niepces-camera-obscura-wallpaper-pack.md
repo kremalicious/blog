@@ -2,12 +2,12 @@
 layout: post
 
 title: Niépce's Camera Obscura Wallpaper Pack
-image: Teaser-Camera-Obscura-Walls.jpg
-download: niepces_camera_obscura_wallpaper_pack_by_kremalicious.zip
+image: ../media/Teaser-Camera-Obscura-Walls.jpg
+download: ../media/niepces_camera_obscura_wallpaper_pack_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-06-03 13:32:24+00:00
-wordpress_id: 66
+  
 categories:
 - goodies
 tags:

@@ -5,14 +5,14 @@ title: Everything Back To Normal On Kremalicious.com (Almost)
 author: Matthias Kretschmann
 
 date: 2008-07-01 16:39:02+00:00
-wordpress_id: 80
+  
 categories:
 - personal
 tags:
     - wordpress
 ---
 
-![Server screwed](/media/xserve_screwed.png)As you may have noticed, kremalicious.com was a bit screwed in the last week and some of you have asked me via mail and twitter what exactly was wrong. So to satisfy the curious geek in you I will provide some informations about it.
+![Server screwed](../media/xserve_screwed.png)As you may have noticed, kremalicious.com was a bit screwed in the last week and some of you have asked me via mail and twitter what exactly was wrong. So to satisfy the curious geek in you I will provide some informations about it.
 
 It all started with a move of my whole website to new and shiny servers with PHP 5 running by my host. I didn't heard of any incompatibilities between the latest Wordpress version running on PHP 5 and in fact Wordpress loves to use PHP 5. But somehow I wasn't able to update my site neither over http or ftp. Since I can contact my host admins directly ([thank you jpBerlin/Heinlein-Support!](http://www.jpberlin.de/)) this problem was addressed rather quickly. They just neglected to tell me that the server address for login also changed (I should have think of this too). So all my changes were applied to my Wordpress installation on the old server. Problem solved I thought.
 

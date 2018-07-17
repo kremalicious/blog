@@ -6,7 +6,7 @@ linkurl: http://alt.adrianshort.co.uk/blog/2012/06/30/what-makes-twitter-twitter
 author: Matthias Kretschmann
 
 date: 2012-07-07 08:18:58+00:00
-wordpress_id: 2252
+  
 categories:
 - links
 post_format:

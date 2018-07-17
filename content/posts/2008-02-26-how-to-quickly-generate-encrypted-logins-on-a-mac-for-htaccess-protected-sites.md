@@ -5,7 +5,7 @@ title: How to quickly generate encrypted .htpasswd passwords
 author: Matthias Kretschmann
 
 date: 2008-02-26 23:24:17+00:00
-wordpress_id: 12
+  
 category: design
 tags:
     - tutorial

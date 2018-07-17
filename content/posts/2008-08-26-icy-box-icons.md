@@ -2,12 +2,12 @@
 layout: post
 
 title: Icy Box Icons
-image: Teaser-Icy-Box.jpg
-download: icybox_by_kremalicious.zip
+image: ../media/Teaser-Icy-Box.jpg
+download: ../media/icybox_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-08-26 19:16:38+00:00
-wordpress_id: 146
+  
 categories:
 - goodies
 tags:
@@ -32,4 +32,4 @@ The whole package includes 7 icons either packed in a nice tagged iContainer for
   * Leopard ready (512x512)
   * including 7 icons with 2 Time Machine versions
 
-[![Icy Box Icons](/media/icybox_teaser2_small.png)](/media/icybox_teaser2.jpg)
+[![Icy Box Icons](../media/icybox_teaser2_small.png)](../media/icybox_teaser2.jpg)

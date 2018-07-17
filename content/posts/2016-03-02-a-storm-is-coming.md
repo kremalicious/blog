@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: A storm is coming
-image: a-storm-is-coming.jpg
+image: ../media/a-storm-is-coming.jpg
 author: Matthias Kretschmann
 category: photos
 ---

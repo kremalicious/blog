@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Add your web site to the Windows 8 Metro UI
-image: kremalicious-Teaser-Metro-Tile.jpg
+image: ../media/kremalicious-Teaser-Metro-Tile.jpg
 author: Matthias Kretschmann
 
 date: 2012-07-15 16:19:55+00:00
-wordpress_id: 2269
+  
 categories:
 - design
 tags:
@@ -35,16 +35,16 @@ As an example, I just [pushed](https://github.com/kremalicious/kremalicious2/com
 
 When browsing the site in Windows 8/Internet Explorer 10, users have the choice of pinning it to the start screen:
 
-![](/media/Windows-8-Metro-tile-kremalicious.png)
+![](../media/Windows-8-Metro-tile-kremalicious.png)
 
 And this is how it looks like on the Windows 8 start screen:
 
-![](/media/Windows-8-Metro-tile-kremalicious-in-action.png)
+![](../media/Windows-8-Metro-tile-kremalicious-in-action.png)
 
 As you can see, pinned sites always get a smaller, square tile. Sadly, the image somehow still gets resized which makes it really hard to create pixel perfect icons for it. It's also not possible to horizontally center the image within it's tile, placing the logo at the bottom of the image file ended up the same. That's because the title can fill two rows.
 
 And the image is only used on the start screen but not on the All apps screen where your site will get the default IE logo, at least with the defined background color:
 
-![](/media/Windows-8-Metro-tile-kremalicious-all-apps.png)
+![](../media/Windows-8-Metro-tile-kremalicious-all-apps.png)
 
 The described behavior and screenshots are from the Windows 8 Consumer Preview and may change. I will update this article if there's new stuff in the final version.

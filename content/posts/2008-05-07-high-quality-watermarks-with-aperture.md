@@ -3,10 +3,10 @@ layout: post
 
 title: 'HowTo: Use high-quality watermarks in your images with Aperture 2.1'
 author: Matthias Kretschmann
-image: watermark_aperture.jpg
+image: ../media/watermark_aperture.jpg
 
 date: 2008-05-07 03:27:25+00:00
-wordpress_id: 48
+  
 categories:
 - photography
 tags:
@@ -23,42 +23,40 @@ Since version 1.0 Aperture is able to render images on export with a graphic ove
 
 The steps for this magic involves 4 simple steps:
 
-  1. Create a watermark image in Photoshop
-  2. Render different sizes of the watermark image
-  3. Define the watermark image inside an export preset in Aperture
-  4. Make even more...
-
+1.  Create a watermark image in Photoshop
+2.  Render different sizes of the watermark image
+3.  Define the watermark image inside an export preset in Aperture
+4.  Make even more...
 
 ## 1. Create a watermark image in Photoshop
-
 
 Open up Photoshop and load a photo taken with your camera in full size (pixel size of course, not file size). If you have photos with different pixel sizes you should use a photo with the biggest pixel size you're going to export from your Aperture library.
 
 To illustrate the process I will use a picture taken by me. Create a new layer on top of the background layer and call it "watermark" or anything you like.
 
-![Aperture Watermark example 1](/media/watermark_1.png)
+![Aperture Watermark example 1](../media/watermark_1.png)
 
 If you want it simple you can start with the Text tool right now but I prefer to add a background so our text is always readable no matter if the photo is dark or light. With the select tool draw a rectangle on the bottom of the image. Then select the Paintbucket tool, chose a foreground color of white and click on the selection in the image so the rectangle selection is filled with white.
 
-![Aperture Watermark example 2](/media/watermark_2.png)
+![Aperture Watermark example 2](../media/watermark_2.png)
 
 Add some inner shadow by double clicking on the watermark layer and adjusting the values for inner shadow (just have a german speaking Photoshop version while writing this article but i guess you can identify the values visually):
 
-![Aperture Watermark example 3](/media/watermark_3.png)
+![Aperture Watermark example 3](../media/watermark_3.png)
 
 Adjust the Fill of the layer to 40%. This will just make the fill color transparent while the opacity of the layer styles are preserved. You should end up with something like this:
 
-![Aperture Watermark example 4](/media/watermark_4.png)
+![Aperture Watermark example 4](../media/watermark_4.png)
 
 Next select the Text tool, chose a black color in the tool preferences and click on the image. A new layer will be automatically created and you can type in the text you want to use in your watermark. For this tutorial I just used the copyright sign (opt + g) with a year and the word "Watermark". I used Helvetica Neue Ultra Light as font face.
 
-Place the text at the bottom right and be sure to add some space to the right and to the bottom. Next set the layer mode of the text layer to "Overlay". Finally I've added a logo and set it's opacity to 80%. So  now you should end up with something like this:
+Place the text at the bottom right and be sure to add some space to the right and to the bottom. Next set the layer mode of the text layer to "Overlay". Finally I've added a logo and set it's opacity to 80%. So now you should end up with something like this:
 
-![Aperture Watermark example 5](/media/watermark_5.png)
+![Aperture Watermark example 5](../media/watermark_5.png)
 
 Now delete the Background layer. You should see the transparent grid. Next chose Image > Trim from the menu bar, select transparent pixels and click ok. The result should look like this:
 
-![Aperture Watermark example 6](/media/watermark_6.png)
+![Aperture Watermark example 6](../media/watermark_6.png)
 
 Although Aperture is able to render all layers even with their layer styles correctly it has some problems with text layers and their styles. So to be on the save side you should flatten the layers by selecting them all (with command + click on the name of the layers) and pressing command + e which will merge all layers into one. After this step you won't be able to edit your layers so maybe you want to save your document BEFORE this step as an editable psd template file. Be sure that the background of your canvas remains transparent.
 
@@ -74,37 +72,27 @@ If you want to have full control and the highest quality you should repeat the a
 
 Now you can close Photoshop or let it open if you have enough RAM.
 
-
-
 ## 3. Define the watermark image inside an export preset
-
-
 
 Now we're going to make the watermark image part of an export preset inside Aperture. Open up Aperture and chose Aperture > Presets > Image Export from the menubar. In the Export Presets dialogue add a new preset by clicking on the little plus sign at the bottom left of the dialogue and give it a name:
 
-![Aperture Watermark example 7](/media/watermark_7.png)
-
-
+![Aperture Watermark example 7](../media/watermark_7.png)
 
 Now adjust your desired values before the "Show Watermark" part at the right. After you've finished click on the checkbox beside "Show Watermark" to activate watermarks for this export preset. For our example we will set the position of the image to Lower Right. Either drag your freshly created watermark.psd onto the drop field or chose it via Aperture's file inspector by clicking on the Choose Image button. The watermark image is automatically copied over to the Library folder of the user under /Application Support/Aperture/WatermarkImages. Just keep that in mind when you want to update your watermark images.
-
-
 
 As said before you can adjust the opacity of your watermark image but since we have included some different transparencies in our file we have to set it to an opacity of 1,0.
 
 Finally you can activate the "Scale watermark" checkbox if you want to use your big sized watermark image once and let Aperture scale it down for you. If you have created different sized watermark images you want to leave this deactivated and create a unique export preset for every size you want to export to. In this example we end up with those values:
 
-![Aperture Watermark example 8](/media/watermark_8.png)
-
-
+![Aperture Watermark example 8](../media/watermark_8.png)
 
 If you're done just click OK and select an image you want to export. Select File > Export > Versions from the menubar or press shift + command + e. In the Aperture file dialogue chose your destination and select your freshly created preset from the Export Preset dropdown menu and click OK.
 
-![Aperture Watermark example 9](/media/watermark_9.png)
+![Aperture Watermark example 9](../media/watermark_9.png)
 
 Your image is rendered in the background and you should end up with something like this. Click on it to zoom to the full sized version or open the link to the full image in a new browser window. (the full view image is scaled down with a 1024x1024px preset):
 
-![Aperture Watermark example final](/media/watermarkexample_final.jpg)
+![Aperture Watermark example final](../media/watermarkexample_final.jpg)
 
 You can also have a look at the psd file by downloading it here:
 
@@ -116,11 +104,11 @@ Here are some quick examples by me:
 
 You can be a bit more subtle:
 
-![Aperture Watermark example v2](/media/watermarkexample_v2.jpg)
+![Aperture Watermark example v2](../media/watermarkexample_v2.jpg)
 
 Or use a subtle colorful spectrum:
 
-![Aperture Watermark example v3](/media/watermarkexample_v3.jpg)
+![Aperture Watermark example v3](../media/watermarkexample_v3.jpg)
 
 ## 4. Make even more...
 
@@ -130,7 +118,7 @@ Just create a watermark image which has exactly the same size as your exported i
 
 And maybe you end up with something like this grunge old look just done with the watermark feature of Aperture:
 
-![Aperture Watermark example v4](/media/watermarkexample_v4.jpg)
+![Aperture Watermark example v4](../media/watermarkexample_v4.jpg)
 
 And that's it. Hope this article helped you mastering the watermark feature of Aperture.
 

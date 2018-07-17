@@ -5,14 +5,14 @@ title: Enjoy Kremalicious{iPhone}
 author: Matthias Kretschmann
 
 date: 2008-07-11 00:20:22+00:00
-wordpress_id: 85
+  
 categories:
 - personal
 tags:
     - wordpress
 ---
 
-![](/media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
+![](../media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
 
 When the website detects an iPhone or iPod Touch it will automatically switch to another freshly created theme which is absolutely seamless to the user. This detection is done by the wonderful slim iPhone Wordpress plug-in from ContentRobot which was slightly modified by me.
 
@@ -43,7 +43,7 @@ There's neither an active nor a hover state for links on the iPhone which makes 
 
 # Home Screen Icon
 
-![image](/media/kremalicious-iconiphone.png)I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
+![image](../media/kremalicious-iconiphone.png)I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
 
 {% highlight html %}
 <link rel="apple-touch-icon" href="/i/apple-touch-icon.png" />

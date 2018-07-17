@@ -2,11 +2,11 @@
 layout: photo
 
 title: A Long Time Ago...
-image: A-Long-Time-Ago.jpg
+image: ../media/A-Long-Time-Ago.jpg
 author: Matthias Kretschmann
 
 date: 2008-09-23 20:33:48+00:00
-wordpress_id: 1905
+  
 category: photos
 tags:
     - mac

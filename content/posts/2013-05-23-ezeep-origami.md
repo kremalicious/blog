@@ -2,7 +2,7 @@
 layout: photo
 
 title: ezeep origami
-image: 8782995066_e90ff6b3ae_o.jpg
+image: ../media/8782995066_e90ff6b3ae_o.jpg
 author: Matthias Kretschmann
 
 categories:

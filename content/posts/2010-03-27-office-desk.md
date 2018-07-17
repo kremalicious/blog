@@ -2,12 +2,12 @@
 layout: photo
 
 title: Office Desk
-image: Office-Desk.jpg
+image: ../media/Office-Desk.jpg
 author: Matthias Kretschmann
 
 date: 2010-03-27 21:31:35+00:00
 
-wordpress_id: 1901
+  
 categories:
 - photos
 post_format:

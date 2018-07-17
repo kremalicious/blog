@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Ai Weiwei, Stools
-image: ai-wei-wei-stools.jpg
+image: ../media/ai-wei-wei-stools.jpg
 author: Matthias Kretschmann
 category: photos
 ---

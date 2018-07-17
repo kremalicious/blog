@@ -5,7 +5,7 @@ title: Adjustment Tool Guide for Aperture 1.5.2
 author: Matthias Kretschmann
 
 date: 2007-03-01 20:50:32+00:00
-wordpress_id: 1562
+  
 categories:
 - photography
 tags:

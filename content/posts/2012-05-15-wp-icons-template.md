@@ -2,11 +2,11 @@
 layout: post
 
 title: WordPress Admin Icons Template
-image: kremalicious-Teaser-WP-Icon-Template.png
+image: ../media/kremalicious-Teaser-WP-Icon-Template.png
 author: Matthias Kretschmann
 
 date: 2012-05-15 16:00:44+00:00
-wordpress_id: 2043
+  
 
 categories:
     - design
@@ -35,7 +35,7 @@ So if you value quality and want pixel perfect icons in your admin area you need
 
 ## The Template
 
-![](/media/WordPress-Admin-Icons-Template-Filled.png)
+![](../media/WordPress-Admin-Icons-Template-Filled.png)
 
 I’ve put the template along with the implementation examples from the next section on [github](https://github.com/kremalicious/wp-icons-template). You can just download the whole package right away:
 
@@ -101,14 +101,14 @@ function custom_post_type_icon() {
 
             /* Admin Menu - 16px @2x */
             #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
-                background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+                background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
                 -webkit-background-size: 16px 48px;
                 -moz-background-size: 16px 48px;
                 background-size: 16px 48px;
             }
             /* Post Screen - 32px @2x */
             .icon32-posts-YOUR_POSTTYPE_NAME {
-                background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+                background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
                 -webkit-background-size: 32px 32px;
                 -moz-background-size: 32px 32px;
                 background-size: 32px 32px;
@@ -178,7 +178,7 @@ function option_page_icon() {
                Use only if you put your plugin or option page in the top level via add_menu_page()
             */
                #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
-                   background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+                   background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
                    -webkit-background-size: 16px 48px;
                    -moz-background-size: 16px 48px;
                    background-size: 16px 48px;
@@ -186,7 +186,7 @@ function option_page_icon() {
 
                /* Option Screen - 32px @2x */
                #PLUGINNAME.icon32 {
-                   background-image: url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+                   background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
                    -webkit-background-size: 32px 32px;
                    -moz-background-size: 32px 32px;
                    background-size: 32px 32px;

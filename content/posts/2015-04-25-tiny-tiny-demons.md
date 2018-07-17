@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Tiny tiny demons
-image: tiny_tiny_demons.jpg
+image: ../media/tiny_tiny_demons.jpg
 author: Matthias Kretschmann
 category: photos
 ---

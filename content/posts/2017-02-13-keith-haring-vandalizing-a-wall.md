@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: K. Haring vandalizing a wall
-image: keith-haring-vandalizing-a-wall.jpg
+image: ../media/keith-haring-vandalizing-a-wall.jpg
 author: Matthias Kretschmann
 category: photos
 ---

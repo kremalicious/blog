@@ -2,11 +2,11 @@
 layout: photo
 
 title: GDR Helvetica
-image: GDR-Helvetica.jpg
+image: ../media/GDR-Helvetica.jpg
 author: Matthias Kretschmann
 
 date: 2010-09-01 20:21:43+00:00
-wordpress_id: 1892
+  
 categories:
 - photos
 post_format:

@@ -2,11 +2,11 @@
 layout: photo
 
 title: Blaue Türme
-image: Blaue-Tuerme-1.jpg
+image: ../media/Blaue-Tuerme-1.jpg
 author: Matthias Kretschmann
 
 date: 2012-04-03 12:41:01+00:00
-wordpress_id: 1753
+  
 categories:
 - photos
 post_format:

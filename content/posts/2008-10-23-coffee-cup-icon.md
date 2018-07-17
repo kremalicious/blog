@@ -2,12 +2,12 @@
 layout: post
 
 title: Coffee Cup Icon
-image: Teaser-Coffee-Cup-Icon.jpg
-download: coffee_cup_by_kremalicious.zip
+image: ../media/Teaser-Coffee-Cup-Icon.jpg
+download: ../media/coffee_cup_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-10-23 14:59:23+00:00
-wordpress_id: 1817
+  
 categories:
 - goodies
 tags:

@@ -6,7 +6,7 @@ linkurl: http://designpepper.com/blog/6-web-design-tips-from-leonardo-da-vinci
 author: Matthias Kretschmann
 
 date: 2008-04-04 18:43:05+00:00
-wordpress_id: 24
+  
 categories:
 - design
 ---

@@ -6,7 +6,7 @@ linkurl: http://www.fastcodesign.com/1669879/can-we-please-move-past-apples-sill
 author: Matthias Kretschmann
 
 date: 2012-06-05 16:25:56+00:00
-wordpress_id: 2187
+  
 categories:
 - design
 post_format:

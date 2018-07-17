@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Just a normal Sunday
-image: just-a-normal-sunday.jpg
+image: ../media/just-a-normal-sunday.jpg
 author: Matthias Kretschmann
 category: photos
 ---

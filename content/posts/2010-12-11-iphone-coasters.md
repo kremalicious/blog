@@ -2,11 +2,11 @@
 layout: photo
 
 title: iPhone Coasters
-image: iPhone-Coasters-1-Version-2.jpg
+image: ../media/iPhone-Coasters-1-Version-2.jpg
 author: Matthias Kretschmann
 
 date: 2010-12-11 21:19:29+00:00
-wordpress_id: 1889
+  
 categories:
 - photos
 post_format:

@@ -2,11 +2,11 @@
 layout: photo
 
 title: Snail on a leaf
-image: schnecke_blatt.jpg
+image: ../media/schnecke_blatt.jpg
 author: Matthias Kretschmann
 
 date: 2005-08-02 11:39:04+00:00
-wordpress_id: 1973
+  
 categories:
 - photos
 ---

@@ -2,17 +2,17 @@
 layout: post
 
 title: 'Portal Thingy: matthiaskretschmann.com'
-image: 
+image: ../media/
 author: Matthias Kretschmann
 
 date: 2009-02-01 06:01:28+00:00
-wordpress_id: 504
+  
 categories:
 - personal
 ---
 
 
-[![matthiaskretschmann.com](/media/vcardsite-mk.png)](http://matthiaskretschmann.com)
+[![matthiaskretschmann.com](../media/vcardsite-mk.png)](http://matthiaskretschmann.com)
 Just some self reference here. I've launched a slick new site under [matthiaskretschmann.com](http://matthiaskretschmann.com) today which has an absolute simple concept. It's kind of a digital business card site for being digitally present under my name. Beside that it has Links to my social media stuff so it's easier for you to stalk me. In the 90's we probably would have called it a Portal.
 
 As you can read in the sliding Colophon at the bottom of the site, it is written in valid XHTML 1.1 and CSS3 code and makes heavy use of jQuery. But, of course, it is fully functional without JavaScript enabled. Even the tab interface remains intact in such a case which is done by some PHP magic. Just the print and text-size buttons in the lower right will be gone without JavaScript. But that's ok because their functionality can be implemented just with JavaScript anyway.
@@ -39,23 +39,23 @@ If you find a bug or have any additions feel free to [contact me](/contact), pos
 
 With the concept of this little site I've kinda jumped on the bandwagon which obviously was started by [Tim van Damme's excellent small site under timvandamme.com](http://timvandamme.com/).
 
-[![timvandamme.com](/media/vcardsite-tim.png)](http://timvandamme.com)
+[![timvandamme.com](../media/vcardsite-tim.png)](http://timvandamme.com)
 
 I was just blown away by the smart concept when first seeing this site last year and immediately made some rough sketches and drafts for my own implementation of this concept. But sadly time was too short for a new personal side project so everything laid down until last week.
 
 Another great version based on Tim's concept was crafted by [Mr. Foliage-O-Meter Rogie King](http://www.komodomedia.com/) under [rogieking.com](http://rogieking.com/) and there was also a nice little discussion about inspiration in [Rogie's blog](http://www.komodomedia.com/blog/2009/01/timvandammecom/) after he had launched his site.
 
-[![rogieking.com](/media/vcardsite-rogie.png)](http://rogieking.com)
+[![rogieking.com](../media/vcardsite-rogie.png)](http://rogieking.com)
 
 Finally I find it very interesting to compare the jQuery code of the three sites afterwards. We all have some sort of tab interface with fancy stuff going on when the tabs change. But we wrote three completely different versions of code for that purpose but all with the same JavaScript library. Oh mighty flexible jQuery!
 
 ## More Business Card Style Sites
 
-![lbaumann.com](/media/vcardsite-laurent.png)
+![lbaumann.com](../media/vcardsite-laurent.png)
 [Icon- and UI-Designer Laurent Baumann](http://lbaumann.com/)
 
-![maximilianschoening.com](/media/vcardsite-maximilian.png)
+![maximilianschoening.com](../media/vcardsite-maximilian.png)
 [Interface-Designer Maximilian Schöning](http://www.maximilianschoening.com/)
 
-![arefjdey.com](/media/vcardsite-arefjdey.png)
+![arefjdey.com](../media/vcardsite-arefjdey.png)
 [Consultant & Blogger Aref Jdey (Design & Code by yours truly)](http://www.arefjdey.com/)

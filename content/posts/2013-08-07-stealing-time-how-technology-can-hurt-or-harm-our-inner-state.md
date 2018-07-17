@@ -2,7 +2,7 @@
 layout: post
 
 title: 'Stealing Time: How Technology Can Hurt or Harm Our Inner State'
-image: post-time.png
+image: ../media/post-time.png
 author: Matthias Kretschmann
 categories:
 - design

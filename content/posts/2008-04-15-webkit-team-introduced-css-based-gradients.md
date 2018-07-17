@@ -5,14 +5,14 @@ title: WebKit team introduces CSS-based gradients
 author: Matthias Kretschmann
 
 date: 2008-04-15 17:36:34+00:00
-wordpress_id: 38
+  
 categories:
 - design
 tags:
 - css
 ---
 
-![WebKit](/media/webkit.png)Writing right now on a longer article about text-shadow and it's implementation in WebKit, the rendering engine which powers Safari and Konqueror. But now this exciting news popped up from Surfin' Safari, the blog of the WebKit development team:
+![WebKit](../media/webkit.png)Writing right now on a longer article about text-shadow and it's implementation in WebKit, the rendering engine which powers Safari and Konqueror. But now this exciting news popped up from Surfin' Safari, the blog of the WebKit development team:
 
 > WebKit now supports gradients specified in CSS. There are two types of gradients: linear gradients and radial gradients.
 

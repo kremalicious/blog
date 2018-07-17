@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: That moment when your childhood toys hang painted in a gallery
-image: Monstrum_Gameboy_Catherine_Kaleel.jpg
+image: ../media/Monstrum_Gameboy_Catherine_Kaleel.jpg
 author: Matthias Kretschmann
 category: photos
 ---

@@ -2,11 +2,11 @@
 layout: photo
 
 title: Wooden Windmill
-image: muehle_suhlendorf_HDR_Tonemapped_16bit.jpg
+image: ../media/muehle_suhlendorf_HDR_Tonemapped_16bit.jpg
 author: Matthias Kretschmann
 
 date: 2006-09-16 11:47:16+00:00
-wordpress_id: 1985
+  
 categories:
 - photos
 ---

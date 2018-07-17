@@ -2,11 +2,11 @@
 layout: photo
 
 title: Typeface condoms
-image: Typeface-condoms.jpg
+image: ../media/Typeface-condoms.jpg
 author: Matthias Kretschmann
 
 date: 2010-07-18 20:28:33+00:00
-wordpress_id: 1898
+  
 categories:
 - photos
 post_format:

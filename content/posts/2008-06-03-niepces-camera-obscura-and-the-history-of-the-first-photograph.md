@@ -2,12 +2,12 @@
 layout: post
 
 title: Niépce's Camera Obscura And The History Of The First Photograph
-image: Teaser-Camera-Obscura-Icons.jpg
-download: niepces_camera_obscura_by_kremalicious.zip
+image: ../media/Teaser-Camera-Obscura-Icons.jpg
+download: ../media/niepces_camera_obscura_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-06-03 14:34:03+00:00
-wordpress_id: 67
+  
 
 categories:
     - goodies
@@ -36,8 +36,7 @@ There's a fascinating story behind these icons which is nothing more than the st
 
 ## Nicéphore Niépce and The First Photograph
 
-
-![Nicéphore Niépce, ca. 1795](/media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
+![Nicéphore Niépce, ca. 1795](../media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
 
 Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
@@ -106,7 +105,7 @@ In addition to these icons you can download the [associated wallpapers for your 
 
 # How to use these icons
 
-![Niépce's Camera Obscura in use](/media/cameraobscura_inuse.png)These desktop icons are free for your personal and non-commercial use. They were intended to be replacement icons for Apple's Aperture and iPhoto applications. Of course, you can use it for every other application instead or use the folder icon for your picture collection.
+![Niépce's Camera Obscura in use](../media/cameraobscura_inuse.png)These desktop icons are free for your personal and non-commercial use. They were intended to be replacement icons for Apple's Aperture and iPhoto applications. Of course, you can use it for every other application instead or use the folder icon for your picture collection.
 
 The easiest way to change and apply icons in Mac OS X involves the awesome application [Candybar](http://www.panic.com/candybar) from [Panic Software](http://www.panic.com/). In case you don't have it you can change your icons by following these steps:
 
@@ -118,6 +117,6 @@ These desktop icons are free for you personal and non-commercial use. All other 
 
 # Final Words
 
-<a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
+<a href="http://krlc.us/givecoffee">![Oh no!](../media/coffee-cup-empty.png)</a>
 
 Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](https://kremalicious.com/feed/) or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.

@@ -3,10 +3,10 @@ layout: post
 
 title: 'A New Browser Is Coming: Google Chrome'
 author: Matthias Kretschmann
-image: googlechrome.png
+image: ../media/googlechrome.png
 
 date: 2008-09-01 20:40:38+00:00
-wordpress_id: 197
+  
 
 categories:
 - design
@@ -30,7 +30,7 @@ Update 2: Google Chrome can now be downloaded for Windows from [google.com/chrom
 
 Update 3: Google Chrome seems to have problems with some of my transparent PNGs:
 
-![Chrome UI](/media/chrome-ui.png)
+![Chrome UI](../media/chrome-ui.png)
 
 Update 4: There are some nice articles about various aspects of Chrome available in the web:
 

@@ -3,13 +3,12 @@ layout: post
 title: Finally... a universal scanner driver for the Canon CanoScan LiDE 500F for Intel Macs
 author: Matthias Kretschmann
 date: 2007-06-11 18:44:28+00:00
-wordpress_id: 1563
+
 category: photography
 tags:
   - tutorial
   - osx
   - macos
-published: true
 
 redirect_from:
   - /2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/
@@ -24,25 +23,22 @@ So there were two choices for using the scanner on an Intel-Mac: installing the 
 
 So I called the Canon Support two months ago but they could only say sorry and advertise for their new scanner LiDE 600f which has a new Universal-driver and so on. But it hasn't really any new functions. And spending 100$ or so just for a new driver? So what??! They really wanted me to replace my scanner, which isn't a year old. Damn Canon-Support! So I had to keep on searching on all Canon-websites and finally...
 
-
-
 # The solution...
-
 
 [Canon Asia](http://www.canon-asia.com/) (Canon South & Southeast-Asia to be precise) was the solution! They really offer a universal-driver for the CanoScan LiDE 500f on their site which is from June 2007! You have to follow this link and choose your desired device:
 [http://www.canon-asia.com/index.jsp?fuseaction=support∏_type=scanner&country;=SG](http://www.canon-asia.com/index.jsp?fuseaction=support&prod_type=scanner&country=SG)
 
 After choosing the scanner in the dropdown-menu and clicking on "Drivers & Software" you will come to a popup-window where you can find the driver called "LiDE 500F Scanner Driver Ver. 11.2.4.0X (Mac OS X)" in the middle of the site:
 
-![image](/media/canon1.png)
+![image](../media/canon1.png)
 
 And after installing (and rebooting the system) you can use the scanner with Photoshop CS3 on Intel-Macs. The scanner appears in Photoshop under File > Import > CanoScan LiDE 500f.
 
-![image](/media/canon2.png)
+![image](../media/canon2.png)
 
-![image](/media/canon3.png)And don't forget to take a look in the preferences-dialog in the scan-window to set your color-management under the tab "Color Settings"  
+![image](../media/canon3.png)And don't forget to take a look in the preferences-dialog in the scan-window to set your color-management under the tab "Color Settings"
 
-![image](/media/canon4.png)Another important setting is enabling 16bit per channel scanning under the tab "Scan".
+![image](../media/canon4.png)Another important setting is enabling 16bit per channel scanning under the tab "Scan".
 
 The only problem that remains is that Photoshop really uses 50% of my CPU-Power (2GHz Intel Core2Duo) just when the scan-window is open. But now after six months of waiting i can finally scan my analog photography in acceptable quality. Thanks to Canon for nothing!
 

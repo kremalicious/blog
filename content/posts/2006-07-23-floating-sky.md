@@ -2,11 +2,11 @@
 layout: photo
 
 title: Floating Sky
-image: floating-sky-1.jpg
+image: ../media/floating-sky-1.jpg
 author: Matthias Kretschmann
 
 date: 2006-07-23 11:32:14+00:00
-wordpress_id: 1964
+  
 categories:
 - photos
 ---

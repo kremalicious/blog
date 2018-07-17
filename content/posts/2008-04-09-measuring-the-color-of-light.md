@@ -6,7 +6,7 @@ linkurl: http://duncandavidson.com/2008/04/kelvins-and-the-color-of-light.html
 author: Matthias Kretschmann
 
 date: 2008-04-09 17:44:23+00:00
-wordpress_id: 33
+  
 categories:
 - photography
 ---

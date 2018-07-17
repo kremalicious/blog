@@ -5,7 +5,7 @@ title: 'More awesomeness from the WebKit team: CSS Masks'
 author: Matthias Kretschmann
 
 date: 2008-04-28 12:53:18+00:00
-wordpress_id: 44
+  
 categories:
     - design
 
@@ -13,7 +13,7 @@ tags:
     - css
 ---
 
-![WebKit](/media/webkit.png)They won't stop with their cutting edge love. After having [text-shadow](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) implemented since many years and having a bunch of other cool stuff implemented like CSS gradients or CSS box-shadow the WebKit team freshly announced a new cool feature: CSS alpha masks.
+![WebKit](../media/webkit.png)They won't stop with their cutting edge love. After having [text-shadow](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) implemented since many years and having a bunch of other cool stuff implemented like CSS gradients or CSS box-shadow the WebKit team freshly announced a new cool feature: CSS alpha masks.
 
 From the Surfin' Safari Blog:
 

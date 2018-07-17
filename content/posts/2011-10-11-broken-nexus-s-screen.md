@@ -2,11 +2,11 @@
 layout: photo
 
 title: Broken Nexus S Screen
-image: Broken-Nexus-S-Screen.jpg
+image: ../media/Broken-Nexus-S-Screen.jpg
 author: Matthias Kretschmann
 
 date: 2011-10-11 14:37:06+00:00
-wordpress_id: 1861
+  
 categories:
 - photos
 post_format:

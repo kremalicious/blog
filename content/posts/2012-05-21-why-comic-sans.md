@@ -6,7 +6,7 @@ linkurl: http://www.connare.com/whycomic.htm
 author: Matthias Kretschmann
 
 date: 2012-05-21 21:18:17+00:00
-wordpress_id: 2120
+  
 categories:
 - design
 post_format:

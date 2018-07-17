@@ -2,11 +2,11 @@
 layout: post
 
 title: Ultimate Share Link Bonanza For Coda, Wordpress And Everything Else
-download: share-link-bonanza-coda-clips.zip
+download: ../media/share-link-bonanza-coda-clips.zip
 author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
-wordpress_id: 576
+  
 
 categories:
     - design
@@ -17,7 +17,7 @@ tags:
 coinhive: true
 ---
 
-![Coda Clips Teaser](/media/codaclips-teaser.png)
+![Coda Clips Teaser](../media/codaclips-teaser.png)
 Ever wanted to include those sharing links to social or bookmarking sites so users can easily submit your content to these sites in a Wordpress site or any other platform? Then you might have experienced a rather time consuming search odyssey to get those links. But fear no more! In this article I've provided a huge collection of all the links to your favorite social sites compiled in two handy Coda Clip files in a plain and a Wordpress version. And the non-Coda users can download an html file with all the links included.
 
 Additionally you'll find a huge list within this article with the separated links in two versions for each site. And finally I've put together a quick tutorial for using buttons or icons with these links. This way you can easily add content submit/sharing links to your sites in no time.
@@ -42,7 +42,7 @@ _
 
 ## Bonus: Coda Clips Icon
 
-![Coda Clips Icon](/media/codaclips-icon128.png)There's no special icon for Coda Clips included in the recent Coda version (they use the blank one) so I quickly created one based on the other Coda file type icons. And the nice Panic guys allowed me to distribute this icon here. I've just made the 256px icon a bit sharper than the equivalent other coda file type icons.
+![Coda Clips Icon](../media/codaclips-icon128.png)There's no special icon for Coda Clips included in the recent Coda version (they use the blank one) so I quickly created one based on the other Coda file type icons. And the nice Panic guys allowed me to distribute this icon here. I've just made the 256px icon a bit sharper than the equivalent other coda file type icons.
 
 If you download the above Coda Clip files this icon is already applied on the clip files but here're just the icon files (icns, folder, iContainer, PNGs):
 
@@ -50,11 +50,11 @@ If you download the above Coda Clip files this icon is already applied on the cl
 
 ## 2. Usage
 
-![Coda Clips HUD](/media/codaclips-hud.png)Just download and double click the Coda clip documents and two new clip groups will be created in your Coda Clips HUD with the various clips inside of them. All you have to do in Coda is inserting the clip by double clicking in the Coda Clips HUD and start typing your link text or type your link text first, select it and double click the clip in order to insert it.
+![Coda Clips HUD](../media/codaclips-hud.png)Just download and double click the Coda clip documents and two new clip groups will be created in your Coda Clips HUD with the various clips inside of them. All you have to do in Coda is inserting the clip by double clicking in the Coda Clips HUD and start typing your link text or type your link text first, select it and double click the clip in order to insert it.
 
-That's because both collections have their placeholder selection (the ![Coda Clips Placeholder](/media/codaclips-placeholder.png)) located where the link text would be:
+That's because both collections have their placeholder selection (the ![Coda Clips Placeholder](../media/codaclips-placeholder.png)) located where the link text would be:
 
-{% highlight html %}<a href="" title="">![Coda Clips Placeholder](/media/codaclips-placeholder.png)</a>{% endhighlight %}
+{% highlight html %}<a href="" title="">![Coda Clips Placeholder](../media/codaclips-placeholder.png)</a>{% endhighlight %}
 
 As you can see I've also included the link title value usually with the name of the specific social site. Also I've already encoded all the entities so there shouldn't be any (X)HTML validation errors when using these links in your projects.
 
@@ -74,7 +74,7 @@ Apart from that some sites allow you to add and submit more informations than ju
 
 ## 2.2 Share Links (Wordpress Edition)
 
-![Wordpress logo by kremalicious](/media/wordpress-logo.png)The Wordpress edition of these share link collection includes some Wordpress php bits for dynamically creating the whole submit URL so there's no need to manually edit most of the links. The Wordpress template tags used are:
+![Wordpress logo by kremalicious](../media/wordpress-logo.png)The Wordpress edition of these share link collection includes some Wordpress php bits for dynamically creating the whole submit URL so there's no need to manually edit most of the links. The Wordpress template tags used are:
 
 * `<?php the_permalink();?>` to create the URL dynamically depending on the article under which you have included the share and submit links.
 
@@ -85,7 +85,7 @@ Anyway, as I've said above some sites allow more to submit here and you'll find 
 
 ## 3. Quick Tutorial For Using Icons With These Links
 
-![Tutorial icon by kremalicious](/media/tutorial-icon.png)I've also written a quick tutorial in case you want to use little images as icons beside your links. To achieve this these two solution provided here should fit every need for this. You can do this by using one of these two techniques realized with HTML and CSS:
+![Tutorial icon by kremalicious](../media/tutorial-icon.png)I've also written a quick tutorial in case you want to use little images as icons beside your links. To achieve this these two solution provided here should fit every need for this. You can do this by using one of these two techniques realized with HTML and CSS:
 
 ## 3.1 Use The &lt;img /&gt; Tag Element
 
@@ -675,7 +675,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 
 ## 5. Please Jump Around, Then Spread The Word
 
-![Coffee](/media/coffee-cup-icon-kremalicious.png)
+![Coffee](../media/coffee-cup-icon-kremalicious.png)
 
 If you ever wanted or had to include such sharing links manually in your sites and searched hours for those you should already have recognized the value of this article and if not already happened you can now jump around to express your enjoyment. After this you should immediately bookmark or share this site on your favorite social site. And while you're at it [I could use another coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krema%40jpberlin%2ede&item_name=kremalicious%2ecom%20%2d%20Buy%20me%20a%20coffee%20or%20two%20or%20three%20or%20more&no_shipping=1&return=http%3a%2f%2fwww%2ekremalicious%2ecom%2fthank%2dyou%2f&tax=0&currency_code=EUR&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8).
 

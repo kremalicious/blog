@@ -2,11 +2,11 @@
 layout: photo
 
 title: Free Monkey Breath, Not Soylent Green
-image: Free-Monkey-Breath-Not-Soylent-Green.jpg
+image: ../media/Free-Monkey-Breath-Not-Soylent-Green.jpg
 author: Matthias Kretschmann
 
 date: 2010-12-29 21:16:55+00:00
-wordpress_id: 1886
+  
 categories:
 - photos
 post_format:

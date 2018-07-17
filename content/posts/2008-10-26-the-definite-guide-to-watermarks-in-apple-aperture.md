@@ -3,10 +3,10 @@ layout: post
 
 title: The Definite Guide To Watermarks In Apple Aperture
 author: Matthias Kretschmann
-image: watermark_aperture.jpg
+image: ../media/watermark_aperture.jpg
 
 date: 2008-10-26 16:05:58+00:00
-wordpress_id: 318
+  
 categories:
 - photography
 tags:
@@ -27,7 +27,7 @@ In this article I will lay out every way I've found to add watermarks to your im
 
 Aperture has built-in support for watermarking your images on export. But you have to create a watermark image in a bitmap graphic editor like [Photoshop](http://www.adobe.com/products/photoshop/photoshop/), [Pixelmator](http://www.pixelmator.com/) or [Acorn](http://flyingmeat.com/acorn/) before you can start adding watermarks. But I've written a detailed article about how to use this feature of Aperture back in May 2008 named [HowTo: Use high-quality watermarks in your images with Aperture 2.1](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/). In short, you have to create your watermark image first and then define it in a new export preset. In the end all images exported with this preset will have your defined watermark image on them. If you want to watermark your images the Aperture way be sure to [check out my tutorial](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/).
 
-![Aperture Watermark](/media/watermark_8.png)
+![Aperture Watermark](../media/watermark_8.png)
 
 This way is perfect if you want to watermark a lot of images at once or if your copyright info doesn't change often. And this works with Aperture's Web Journal or Web Page feature if you add a watermark image to the export presets for that. Also this works with any other export plug-in in Aperture which utilizes the export presets, like the [FlickrExport](http://connectedflow.com/flickrexport/aperture/) plug-in. You just have to create e.g. a flickr export preset, define your watermark image there and chose it inside of FlickrExport from the export preset dropdown list.
 
@@ -57,7 +57,7 @@ Because of Aperture's workflow design you're always free to open up your image i
 
 Now you can just right click or ctrl + click on every image to open the context menu and choose Edit With whereas the first entry will be your external editor set in the preferences. Aperture will automatically render your image creating a new file and opens that up. Just add a new text layer in your external editor, type in your preferred text and save the file from there. Aperture will update with the changes accordingly.
 
-![Aperture Watermark example 5](/media/watermark_5.png)
+![Aperture Watermark example 5](../media/watermark_5.png)
 
 
 
@@ -83,7 +83,7 @@ But since Aperture always creates a psd or tiff file for that you will end up wi
 
 But it has some powerful features in terms of watermarking: It can read out some IPTC fields to use the text as your copyright text, it is capable of saving presets and you can open several images at once in the plug-in window. So it works similar to Aperture's built-in watermarking feature but gives you full control over the watermark look without leaving Aperture.
 
-![Aperture BorderFX](/media/aperture_borderfx.png)
+![Aperture BorderFX](../media/aperture_borderfx.png)
 
 
 
@@ -101,7 +101,7 @@ But you can't see your changes made in the plug-in on the images in your library
 
 With the release of Aperture 2.1 and its Edit Plug-In architecture Apple also released some sample plug-ins which aren't included in Aperture (just the Dodge & Burn plug-in is). But you can easily [download it from Apple’s Developer Connection website without registration](http://developer.apple.com/samplecode/BordersAndTitles/index.html) for free.
 
-![Borders & Titles](/media/aperture_bt.png)
+![Borders & Titles](../media/aperture_bt.png)
 
 
 
@@ -118,7 +118,7 @@ As with every Edit Plug-In every time you fire up an image with this plug-in Ape
 
 [Impression](http://www.bluecrowbar.com/software/impressionaperture/) is an Aperture Edit Plug-In from [Blue Crowbar Software](http://www.bluecrowbar.com) released in Sept. 2009. The developer claims it's mainly targeted for those people who want to have a copy of their watermarked image within Aperture. Also there's a nice blog post by the developer lining out [why he thinks this plug-in beats Aperture's builtin watermarks.](http://www.bluecrowbar.com/blog/posts/impression-for-aperture.html)
 
-![Impression Watermark Plug-In](/media/aperture-impression.png)
+![Impression Watermark Plug-In](../media/aperture-impression.png)
 
 This plug-in is pretty powerful and probably the best choice for watermarking your images in Aperture through an Edit Plug-In workflow. Watermarking multiple photos at once is also possible and you can use existing PSD or PNG images as a watermark image as well as from a RTF text file. Apart from the functionality it also has a quite beautiful UI with the controls laying over your image.
 

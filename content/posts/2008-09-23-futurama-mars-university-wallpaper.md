@@ -2,11 +2,11 @@
 layout: post
 
 title: Futurama Mars University Wallpaper
-image: Teaser-Mars-U.jpg
+image: ../media/Teaser-Mars-U.jpg
 author: Matthias Kretschmann
 
 date: 2008-09-23 23:22:16+00:00
-wordpress_id: 256
+  
 category: goodies
 tags:
     - wallpaper

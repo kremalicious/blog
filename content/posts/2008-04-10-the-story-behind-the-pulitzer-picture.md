@@ -6,7 +6,7 @@ linkurl: http://blogs.reuters.com/photographers-blog/2008/04/07/the-story-behind
 author: Matthias Kretschmann
 
 date: 2008-04-10 13:16:47+00:00
-wordpress_id: 34
+  
 categories:
 - photography
 ---

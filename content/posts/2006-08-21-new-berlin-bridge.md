@@ -2,11 +2,11 @@
 layout: photo
 
 title: New Berlin Bridge
-image: berliner_bruecke1-HDR-16bit.jpg
+image: ../media/berliner_bruecke1-HDR-16bit.jpg
 author: Matthias Kretschmann
 
 date: 2006-08-21 11:22:34+00:00
-wordpress_id: 1958
+  
 categories:
 - photos
 ---

@@ -2,7 +2,7 @@
 layout: post
 
 title: Using &lt;kbd&gt; for fun and profit
-image: kremalicious-kbdfun-teaser.png
+image: ../media/kremalicious-kbdfun-teaser.png
 style: post-kbd.min.css
 author: Matthias Kretschmann
 featured: true

@@ -6,7 +6,7 @@ linkurl: http://gizmodo.com/5910223/how-yahoo-killed-flickr-and-lost-the-interne
 author: Matthias Kretschmann
 
 date: 2012-05-22 01:00:03+00:00
-wordpress_id: 2125
+  
 categories:
 - photography
 post_format:

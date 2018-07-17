@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Aperture File Types
-image: "Teaser-Aperture-File-Types.jpg"
-download: aperturefiletypes_by_kremalicious.zip
+image: ../media/Teaser-Aperture-File-Types.jpg
+download: ../media/aperturefiletypes_by_kremalicious.zip
 author: Matthias Kretschmann
 date: 2008-04-04T01:55:54.000Z
-wordpress_id: 21
+
 category: goodies
 coinhive: true
 tags:
@@ -19,9 +19,9 @@ redirect_from:
 
 These icons are free for your personal use and include icons for all file types Apple’s Aperture 2.0 can handle (.jpeg, .gif, .tiff, .png, .pdf, .psd, .arw, .cr2, .crw, .mos, .nef, .raf, .raw, .srw, .tif, .oly, .fff, .3fr, .dng, .mrw, .pef, .srf, .orf).
 
-  * Mac + Win + Linux + iContainer
-  * Leopard ready (512×512)
-  * custom 32px and 16px icons
+- Mac + Win + Linux + iContainer
+- Leopard ready (512×512)
+- custom 32px and 16px icons
 
 Get them from [the goodies-page](http://www.kremalicious.com/goodies/) and have fun.
 

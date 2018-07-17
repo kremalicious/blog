@@ -2,12 +2,12 @@
 layout: post
 
 title: Twitter Crisp
-image: Teaser-Twitter-Crisp.jpg
-download: twitter-crisp-by-kremalicious.zip
+image: ../media/Teaser-Twitter-Crisp.jpg
+download: ../media/twitter-crisp-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-06-04 00:16:40+00:00
-wordpress_id: 794
+  
 categories:
 - goodies
 tags:

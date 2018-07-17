@@ -5,7 +5,7 @@ title: New all-in-one Aperture plug-in released
 author: Matthias Kretschmann
 
 date: 2008-05-28 15:29:56+00:00
-wordpress_id: 60
+  
 categories:
 - photography
 tags:
@@ -14,7 +14,7 @@ tags:
 coinhive: true
 ---
 
-![ApertureEdit](/media/apertureedit_logo.png)Today [Human Software](http://www.humansoftware.com) released an exciting image editing plug-in for Apple's Aperture. It's called [ApertureEdit](http://www.humansoftware.com/pages1200/ApertureEdit/HSapertureedit11.html) and according to Human Software it offers more than 4000 professional effects which you can achieve right within Aperture.
+![ApertureEdit](../media/apertureedit_logo.png)Today [Human Software](http://www.humansoftware.com) released an exciting image editing plug-in for Apple's Aperture. It's called [ApertureEdit](http://www.humansoftware.com/pages1200/ApertureEdit/HSapertureedit11.html) and according to Human Software it offers more than 4000 professional effects which you can achieve right within Aperture.
 
 The ApertureEdit plug-in is a bundle of 11 different modules for denoising, lens fixing, framing, light effects and many more. All effects can be applied to one image at a time or to a whole set of images at once. Just head over to the [product page](http://www.humansoftware.com/pages1200/ApertureEdit/HSapertureedit11.html) to see all effects and features this plugin bundle is capable of.
 

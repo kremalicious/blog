@@ -5,7 +5,7 @@ title: Using The New Post Thumbnail Feature In WordPress 2.9
 author: Matthias Kretschmann
 
 date: 2009-12-17 04:00:21+00:00
-wordpress_id: 959
+  
 
 categories:
     - design
@@ -19,11 +19,11 @@ redirect_from:
     - /2009/12/wordpress-post-thumbnails/
 ---
 
-![Wordpress Logo by kremalicious](/media/wordpress-logo.png)WordPress 2.9 added a new feature which allows you to assign an image to an article to make it the post image like it's often used in magazine style themes. This new feature along with a new template tag makes all the custom field hacks usually used for this functionality in the past obsolete. So here's a quick walkthrough to make use of the new post thumbnail feature and of course how to make it backwards compatible.
+![Wordpress Logo by kremalicious](../media/wordpress-logo.png)WordPress 2.9 added a new feature which allows you to assign an image to an article to make it the post image like it's often used in magazine style themes. This new feature along with a new template tag makes all the custom field hacks usually used for this functionality in the past obsolete. So here's a quick walkthrough to make use of the new post thumbnail feature and of course how to make it backwards compatible.
 
 ## 1. Activate The Feature
 
-![Add WordPress Post Thumbnail Support To Theme](/media/wordpress-thumbnail-1.png)For whatever reason you first have to activate the feature with an entry in your theme's _functions.php_ file in order to get the Post Thumbnail box in the Editor.
+![Add WordPress Post Thumbnail Support To Theme](../media/wordpress-thumbnail-1.png)For whatever reason you first have to activate the feature with an entry in your theme's _functions.php_ file in order to get the Post Thumbnail box in the Editor.
 
 So just open up your theme's _functions.php_ file in your favorite editor or create it if there's no such file in your theme folder. Add this little code snippet to this file:
 
@@ -47,21 +47,21 @@ This makes sure WordPress installation prior to 2.9 won't get screwed up when us
 ## 2. Add A Post Thumbnail To Your Post
 
 
-![Add Post Thumbnail](/media/wordpress-thumbnail-2.png)After you've added the above mentioned code into your _functions.php_ file there should be a new Post Thumbnail box in the WordPress editor view on the right side.
+![Add Post Thumbnail](../media/wordpress-thumbnail-2.png)After you've added the above mentioned code into your _functions.php_ file there should be a new Post Thumbnail box in the WordPress editor view on the right side.
 
 In this box click on the _Set Thumbnail link_ and the usual Add Media dialogue will pop up where you can choose an image from your Media Library. At the end of the dialogue for the selected image there's a new link beside the Insert into Post button called _Use as thumbnail_.
 
-![Add Post Thumbnail 2](/media/wordpress-thumbnail-3.png)Click this and your chosen image will be assigned as the post thumbnail. (Unfortunately the _Use as thumbnail_ link is missing in the dialogue which appears after uploading an image, it's just there if you browse your Media Library.)
+![Add Post Thumbnail 2](../media/wordpress-thumbnail-3.png)Click this and your chosen image will be assigned as the post thumbnail. (Unfortunately the _Use as thumbnail_ link is missing in the dialogue which appears after uploading an image, it's just there if you browse your Media Library.)
 
 You can close the media dialogue now and you will see the image in the Post Thumbnail box:
 
-![Post Thumbnail added](/media/wordpress-thumbnail-4.png)
+![Post Thumbnail added](../media/wordpress-thumbnail-4.png)
 
 
 ## 3. Display The Post Thumbnail In Your Theme
 
 
-![Add to theme](/media/wordpress-thumbnail-5.png)Basically all you have to do is to add this new template tag in your theme files where you want to display the post thumbnail, most certainly in your _index.php_ file:
+![Add to theme](../media/wordpress-thumbnail-5.png)Basically all you have to do is to add this new template tag in your theme files where you want to display the post thumbnail, most certainly in your _index.php_ file:
 {% highlight php %}<?php the_post_thumbnail(); ?>{% endhighlight %}
 This template tag will display the thumbnail sized post thumbnail by default and is essentially the same as:
 
@@ -173,7 +173,7 @@ This first checks if the feature exists and if a post thumbnail was addd with th
 Well and that's it. I would love to link to some smart WordPress Codex pages for these new template tags but at the time of this writing there simply isn't anything in the Codex about this.
 
 
-<a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
+<a href="http://krlc.us/givecoffee">![Oh no!](../media/coffee-cup-empty.png)</a>
 
 
 As always: before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or buy me my next coffee.

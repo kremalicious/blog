@@ -6,7 +6,7 @@ linkurl: http://www.guardian.co.uk/commentisfree/2012/may/01/open-free-access-ac
 author: Matthias Kretschmann
 
 date: 2012-05-02 03:12:40+00:00
-wordpress_id: 1989
+  
 categories:
 - links
 post_format:

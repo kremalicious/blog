@@ -6,7 +6,7 @@ linkurl: http://css-tricks.com/html-for-icon-font-usage/
 author: Matthias Kretschmann
 
 date: 2012-05-26 05:13:58+00:00
-wordpress_id: 2154
+  
 categories:
 - design
 post_format:

@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Behind the art
-image: behind-the-art.jpg
+image: ../media/behind-the-art.jpg
 author: Matthias Kretschmann
 category: photos
 ---

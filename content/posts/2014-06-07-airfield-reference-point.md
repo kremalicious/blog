@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Airfield Reference Point
-image: airfield-reference-point.jpg
+image: ../media/airfield-reference-point.jpg
 author: Matthias Kretschmann
 category: photos
 ---

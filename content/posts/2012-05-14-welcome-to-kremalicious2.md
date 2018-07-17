@@ -2,11 +2,11 @@
 layout: post
 
 title: Welcome to kremalicious2
-image: kremalicious2-teaser.jpg
+image: ../media/kremalicious2-teaser.jpg
 author: Matthias Kretschmann
 
 date: 2012-05-14 19:33:22+00:00
-wordpress_id: 1920
+  
 
 categories:
     - personal
@@ -30,13 +30,13 @@ To make future maintenance a bit easier, I’m using the simple [HS Responsive
 
 ## Typography
 
-![](/media/kremalicious2-typography.jpg)After much experimentation, all fonts (that is, those for texts) on this blog are now coming from TypeKit. The body text is set in [Rooney Web](http://www.janfromm.de/typefaces/rooney/overview/) from [Jan Fromm](https://twitter.com/janfromm) which looks just gorgeous on Retina screens. All headings & buttons use Adobe's [Cronos Pro](https://typekit.com/fonts/cronos-pro).
+![](../media/kremalicious2-typography.jpg)After much experimentation, all fonts (that is, those for texts) on this blog are now coming from TypeKit. The body text is set in [Rooney Web](http://www.janfromm.de/typefaces/rooney/overview/) from [Jan Fromm](https://twitter.com/janfromm) which looks just gorgeous on Retina screens. All headings & buttons use Adobe's [Cronos Pro](https://typekit.com/fonts/cronos-pro).
 
 Sadly, Typekit [only works in webkit based mobile browsers](http://help.typekit.com/customer/portal/articles/6786) which is a real bummer. Sorry Firefox & Opera users on mobile devices.
 
 ## Icons
 
-![](/media/kremalicious2-topicicons.jpg)All icons on the site are coming from the awesome icon font [Font Awesome](http://fortawesome.github.com/Font-Awesome/) made by Dave Gandy. But the original font was missing some needed glyphs so I’m using a fork called [Font Awesome More](http://gregoryloucas.github.com/Font-Awesome-More/) from Gregory Loucas ([@gregoryLpaul](https://twitter.com/gregoryLpaul)). This makes things like changing icon colors so much easier but using icon fonts still has the problem of small icons not rendering super crisp, although `font-smoothing: antialiased` helps a bit.
+![](../media/kremalicious2-topicicons.jpg)All icons on the site are coming from the awesome icon font [Font Awesome](http://fortawesome.github.com/Font-Awesome/) made by Dave Gandy. But the original font was missing some needed glyphs so I’m using a fork called [Font Awesome More](http://gregoryloucas.github.com/Font-Awesome-More/) from Gregory Loucas ([@gregoryLpaul](https://twitter.com/gregoryLpaul)). This makes things like changing icon colors so much easier but using icon fonts still has the problem of small icons not rendering super crisp, although `font-smoothing: antialiased` helps a bit.
 
 
 ## CSS beats Images
@@ -46,7 +46,7 @@ The whole interface is mostly CSS based, only the logo typeface with the cloud a
 
 But even those @2x assets are just blurry when the user zooms into the interface. But with most interface elements being css or font based you can zoom in ridiculously without anything becoming blurry. That's actually a scaled down full size screenshot of a zoom in on the 3rd generation iPad:
 
-![](/media/kremaliciouscom-iPad-3.jpg)
+![](../media/kremaliciouscom-iPad-3.jpg)
 
 Needless to say this introduces new problems, especially for performance on mobile devices. As we know, current mobile devices and their browsers come into memory problems when told to render a lot of css box-shadows or css gradients. This all isn't noticeable on Desktop devices or an iPad 1, but it's quite noticeable in the Android stock browser on a Nexus S for instance.
 
@@ -74,11 +74,11 @@ Link post means a short comment from me to a valuable or interesting resource wh
 ### Photo posts
 
 
-![](/media/kremalicious2-photoposts.jpg)
+![](../media/kremalicious2-photoposts.jpg)
 
 [Photo posts](/photos) are my new favorite: beside selected images from my Flickr and 500px profiles, they include automatic posting of my Instagram images. After being taken, a new Instagram image is posted immediately as a special styled photo post in this blog.
 
-![](/media/kremalicious2-photogrid.jpg)And I didn’t wanted to clutter the blog stream in times when there’re a lot of photo-only posts between text based posts.
+![](../media/kremalicious2-photogrid.jpg)And I didn’t wanted to clutter the blog stream in times when there’re a lot of photo-only posts between text based posts.
 
 So all photo posts which immediately follow one another are grouped together in a grid, nicely laid out by [jQuery Masonry](http://masonry.desandro.com/). I couldn't figure out a way to make this filtering on the WordPress loop level for now so this grouping is done with jQuery after page load.
 

@@ -5,12 +5,12 @@ title: Pulitzer Price Winners 2008 announced, various photographers awarded
 author: Matthias Kretschmann
 
 date: 2008-04-08 15:48:14+00:00
-wordpress_id: 31
+  
 categories:
 - photography
 ---
 
-![Pulitzer Price](/media/pulitzer.png)The Columbia University has announced the winners for 2008 of the 92nd annual Pulitzer Price. The Pulitzer Price itself is often cited as the highest honor for american journalists. Among the various categories there are two winning entries for [Breaking News Photography](http://www.pulitzer.org/year/2008/breaking-news-photography) and [Feature Photography](http://www.pulitzer.org/year/2008/feature-photography).
+![Pulitzer Price](../media/pulitzer.png)The Columbia University has announced the winners for 2008 of the 92nd annual Pulitzer Price. The Pulitzer Price itself is often cited as the highest honor for american journalists. Among the various categories there are two winning entries for [Breaking News Photography](http://www.pulitzer.org/year/2008/breaking-news-photography) and [Feature Photography](http://www.pulitzer.org/year/2008/feature-photography).
 
 In the Breaking News Photography the price was won by Adrees Latif of Reuters [for his picture of the japanese videographer Kenji Nagai shot down during riots in Myanmar in 2007](http://www.pulitzer.org/year/2008/breaking-news-photography/works/).
 

@@ -6,7 +6,7 @@ linkurl: http://netmagazine.com/opinions/nielsen-vs-clark-theyre-both-wrong
 author: Matthias Kretschmann
 
 date: 2012-05-12 13:19:02+00:00
-wordpress_id: 2024
+  
 categories:
 - design
 post_format:

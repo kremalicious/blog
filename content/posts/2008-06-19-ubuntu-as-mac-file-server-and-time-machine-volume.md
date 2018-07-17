@@ -1,15 +1,14 @@
 ---
 layout: post
 
-slug: ubuntu-as-mac-file-server-and-time-machine-volume
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
 author: Matthias Kretschmann
-image: ubuntu_mac_feature.jpg
+image: ../media/ubuntu_mac_feature.jpg
 
 date: 2008-06-19 03:08:11+00:00
 updated: 2016-06-12 14:29:11+00:00
 
-wordpress_id: 75
+  
 category: design
 tags:
     - tutorial
@@ -41,23 +40,23 @@ Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 
-  1. Modify and install Netatalk (Open Source AFP implementation)
-  2. Configure Netatalk
-  3. Configure shared volumes (and Time Machine volume)
-  4. Install Avahi (Open Source Bonjour implementation)
-  5. Configure Avahi and advertise services
-  6. Configure TimeMachine
-  7. Conclusion, Problems and more informations
-  8. Downloading and using the Server Display Icons
-  9. Translations Of This Article
+1.  Modify and install Netatalk (Open Source AFP implementation)
+2.  Configure Netatalk
+3.  Configure shared volumes (and Time Machine volume)
+4.  Install Avahi (Open Source Bonjour implementation)
+5.  Configure Avahi and advertise services
+6.  Configure TimeMachine
+7.  Conclusion, Problems and more informations
+8.  Downloading and using the Server Display Icons
+9.  Translations Of This Article
 
 # 1. Modify and install Netatalk
 
-![Netatalk icon](/media/netatalk.png)[Netatalk](http://netatalk.sourceforge.net/) is the Open Source implementation of AFP. Mac OS X requires encryption to work properly but the standard package of netatalk provided in the Ubuntu repositories doesn't include this feature. So we have to build our own netatalk package from the sources with the encryption feature enabled.
+![Netatalk icon](../media/netatalk.png)[Netatalk](http://netatalk.sourceforge.net/) is the Open Source implementation of AFP. Mac OS X requires encryption to work properly but the standard package of netatalk provided in the Ubuntu repositories doesn't include this feature. So we have to build our own netatalk package from the sources with the encryption feature enabled.
 
 First you have to enable the Source Code repositories via System > Administration > Software Sources under the Ubuntu Software tab. Check the Source Code Box, click Close and choose Reload in the next dialogue.
 
-![Source Code Repositories](/media/ubuntuserver1.png)
+![Source Code Repositories](../media/ubuntuserver1.png)
 
 Alessandro has built [a nice .deb package for i386 machines](http://dl.getdropbox.com/u/187424/netatalk_2.0.3-brando0_i386.deb). Although written in italian you can follow the necessary code snippets for installing this package [in his blog post.](http://gpz500.wordpress.com/2008/09/27/lairone-al-servizio-del-leopardo/) If the install package works for you just skip the following self compiling process and head over to the [Configure Netatalk section.](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#netatalk2)
 
@@ -68,7 +67,7 @@ sudo apt-get build-dep netatalk
 sudo apt-get install cracklib2-dev fakeroot libssl-dev
 sudo apt-get source netatalk
 cd netatalk-2*
-````
+```
 
 Now you have downloaded the source code of Netatalk to your home folder, installed some required packages for building Netatalk and changed the directory to the downloaded folder.
 
@@ -80,10 +79,9 @@ sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot
 
 Depending on your hardware this may take a while but you can enjoy the geeky build output in your Terminal:
 
-![Building Netatalk](/media/ubuntuserver2.png)
+![Building Netatalk](../media/ubuntuserver2.png)
 
 If everything went through without errors (except the signing warnings, can be ignored) you can install the recently created package:
-
 
 ```shell
 sudo dpkg -i ~/netatalk_2*.deb
@@ -99,7 +97,7 @@ Now you have successfully build and installed your custom Netatalk package which
 
 # 2. Configure Netatalk
 
-![Netatalk icon](/media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor vi for stopping unneeded services:
+![Netatalk icon](../media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor vi for stopping unneeded services:
 
 ```shell
 sudo vi /etc/default/netatalk
@@ -134,7 +132,7 @@ Press Ctrl + S to save the document or choose File > Save.
 
 # 3. Configure shared Volumes
 
-![Time Machine Volume icon](/media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in vim with superuser privileges (required for saving) where we can define our shared volumes:
+![Time Machine Volume icon](../media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in vim with superuser privileges (required for saving) where we can define our shared volumes:
 
 ```shell
 sudo vi /etc/netatalk/AppleVolumes.default
@@ -173,7 +171,7 @@ Although we now have a fully configured AFP file server it will not show up in t
 
 # 4. Install Avahi
 
-![Bonjour icon](/media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
+![Bonjour icon](../media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
 
 ```shell
 sudo apt-get install avahi-daemon
@@ -196,7 +194,7 @@ Press Ctrl + S to save the document or choose File > Save.
 
 # 5. Configure Avahi and advertise services
 
-![Bonjour icon](/media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
+![Bonjour icon](../media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
 
 ```shell
 sudo vi /etc/avahi/services/afpd.service
@@ -233,19 +231,19 @@ Now you have configured the Avahi daemon to advertise AFP sharing across your ne
 
 Now you're done with setting up AFP file sharing on your Ubuntu box and advertising it across the network for Finder's sidebar. Check if everything works as intended by clicking on your Ubuntu server in Finder and clicking on the "Connect As" button. Enter your username and password (the ones you're using on your Ubuntu machine) and you should see the Volumes we defined earlier with the AppleVolumes.default file:
 
-![Netatalk shares](/media/ubuntuserver3.png)
+![Netatalk shares](../media/ubuntuserver3.png)
 
 Another side effect of using AFP is that your Ubuntu box will show up as a nice Apple Cinema Display icon instead of the BSOD windows icon. Here you see my Ubuntu server showing up in Finder as [Rockhopper](http://en.wikipedia.org/wiki/Southern_Rockhopper_Penguin):
 
-![Ubuntu box in Finder](/media/ubuntuserver4.png)
+![Ubuntu box in Finder](../media/ubuntuserver4.png)
 
 update: If you've followed the revised version of this article your Linux box should now be represented by a Xserve icon in Finder:
 
-![Ubuntu box as Xserver in Finder](/media/ubuntuserver4a.png)
+![Ubuntu box as Xserver in Finder](../media/ubuntuserver4a.png)
 
 # 6. Configure Time Machine
 
-![Time Machine icon](/media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
+![Time Machine icon](../media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
 
 ```shell
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
@@ -257,7 +255,7 @@ Now just mount the "TimeMachine" Volume first and choose it as a backup disk in 
 
 When your first Time Machine backup is done you can remove all Volumes and the next time Time Machine starts it will automagically mount the disk image from your TimeMachine volume on your Ubuntu box without mounting the whole TimeMachine volume:
 
-![Finder sidebar](/media/ubuntuserver5.png)
+![Finder sidebar](../media/ubuntuserver5.png)
 
 # 7. Conclusion, Problems and more informations
 
@@ -291,7 +289,7 @@ The secret number Time Machine adds to your computer name is nothing more than t
 
 In the field volume name write Backup of computername. Now FIRST chose sparse bundle disk image as the image format and THEN adjust the volume size to the size of your internal harddrive (minimum, choose more if you like) afterwards. Remember that Disk Utility won't let you make a bigger image file as you have physical hard drive space available if you don't chose sparse bundle disk image as the image format first. For reference have a look at this screenshot:
 
-![Time Machine sparse bundle disk image](/media/tm-sparsebundle.png)
+![Time Machine sparse bundle disk image](../media/tm-sparsebundle.png)
 
 Select your Desktop as destination and click create. After the creation is finished drag the created disk image to your mounted Time Machine volume (you can delete the disk image on your desktop when copy is finished). Finally go to Time Machine preferences and start your backup again and everything should work as expected now. After the first backup (this can take a long time depending on your harddrive) you can unmount your Time Machine volume and the next time Time Machine starts it will grab and mount the sparse bundle disk image automatically (with "Backup of computername" as the volume name).
 
@@ -304,17 +302,17 @@ In short you have to allow communications over port 548 and 5353.
 ## "Connection Failed"
 
 If you get one of those errors:
+````
+
+Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
+
+```
+or
+```
+
+There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
 
 ````
-Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
-```
-
-or
-
-```
-There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
-```
-
 you should first be sure you have either no firewall on your Ubuntu box in use or have it configured to allow AFP communications as suggested in the above paragraph.
 
 Remember that this error can be caused by a myriad of problems and just a lot of other configurations on your side. So you should try a minimal way: On my Ubuntu boxes I have no other file sharing protocol like samba or NFS enabled (even not installed) so the samba hostname and the AFP hostname can't interfere with each other. Also I've left the Workgroup field blank under System > Administration > Network > General tab.
@@ -323,7 +321,7 @@ If you still can't connect to your Ubuntu box you can edit your /etc/hosts file 
 
 ```shell
 sudo vi /etc/hosts
-```
+````
 
 Add the following two lines at the very top of the file.
 
@@ -374,22 +372,21 @@ In the forum you'll also find some links to various patches to avoid problems wi
 
 ## More Articles
 
-  * In case you want to connect your iPhone via AFP: [An AFP Server on your iPhone](http://www.eecs.berkeley.edu/~job/afpd/AFP_File_Server_on_your_iPhone.html). This uses the Netatalk package too
-  * [Netatalk 2.0 manual](http://netatalk.sourceforge.net/2.0/htmldocs/)
-  * [All possible AppleVolumes.default options (part of the Netatalk manual)](http://netatalk.sourceforge.net/2.0/htmldocs/AppleVolumes.default.5.html)
-  * [Overview and templates about services Avahi can advertise](http://holyarmy.org/2008/01/27/advertising-linux-services-via-avahibonjour)
-  * [In-depth article about Sparse Bundle disk images](http://db.tidbits.com/article/9673)
-  * [How-to: Get files off a Time Machine backup without using your Mac](http://carsonbaker.org/2008/06/23/time-machine-restore/): In case you have to access Time Machine backups from Ubuntu or any other Linux system
-  * [Using NetBSD, with guest account](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143): [Johannes](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143) laid down the steps to use NetBSD instead of Ubuntu.
-
+- In case you want to connect your iPhone via AFP: [An AFP Server on your iPhone](http://www.eecs.berkeley.edu/~job/afpd/AFP_File_Server_on_your_iPhone.html). This uses the Netatalk package too
+- [Netatalk 2.0 manual](http://netatalk.sourceforge.net/2.0/htmldocs/)
+- [All possible AppleVolumes.default options (part of the Netatalk manual)](http://netatalk.sourceforge.net/2.0/htmldocs/AppleVolumes.default.5.html)
+- [Overview and templates about services Avahi can advertise](http://holyarmy.org/2008/01/27/advertising-linux-services-via-avahibonjour)
+- [In-depth article about Sparse Bundle disk images](http://db.tidbits.com/article/9673)
+- [How-to: Get files off a Time Machine backup without using your Mac](http://carsonbaker.org/2008/06/23/time-machine-restore/): In case you have to access Time Machine backups from Ubuntu or any other Linux system
+- [Using NetBSD, with guest account](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143): [Johannes](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143) laid down the steps to use NetBSD instead of Ubuntu.
 
 # 8. Downloading and using the Server Display Icons
 
-![Ubuntu Server Display](/media/ubuntuserver97.png)I've quickly crafted a custom icon for your Ubuntu server. It's the Apple Cinema Display with the default wallpaper of Ubuntu 8.04 called Hardy Heron. Additionally I've included an icon with the default Leopard and the default Vista wallpaper to represent your Leopard and Windows server too (The default Mac server icon uses the old Tiger wallpaper).
+![Ubuntu Server Display](../media/ubuntuserver97.png)I've quickly crafted a custom icon for your Ubuntu server. It's the Apple Cinema Display with the default wallpaper of Ubuntu 8.04 called Hardy Heron. Additionally I've included an icon with the default Leopard and the default Vista wallpaper to represent your Leopard and Windows server too (The default Mac server icon uses the old Tiger wallpaper).
 
 Here you can see the icons included in the Server Displays icon pack:
 
-![Server Displays](/media/serverdisplays.jpg)
+![Server Displays](../media/serverdisplays.jpg)
 
 Because I've just modified Apple's standard icons these icons are just available via this blog post and they will not show up in my Goodies section. Just download the whole package directly via this link:
 
@@ -413,13 +410,13 @@ As for the Windows Vista server icon: Just rename the Windows Server.icns file t
 
 ```
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
-````
+```
 
 Now drag & drop the renamed file into this path and replace the generic icon (making a backup before doing that is a good idea) and after a logout all your Windows servers should be displayed with the new icon.
 
 update: A solution for the icon problem is here: [Simon Wheatley figured out](http://www.simonwheatley.co.uk/2008/04/06/avahi-finder-icons/trackback/) how to assign a different icon to your avahi advertised Linux box. All you have to do is assigning a device info part at the end of the avahi service file for AFP. I've updated this article to include this part. Please head back to the Configure Avahi and advertise services part in this article and edit your afpd.service file again if you've followed the first revision of this article.
 
-<a href="http://krlc.us/givecoffee">![Oh no!](/media/coffee-cup-empty.png)</a>
+<a href="http://krlc.us/givecoffee">![Oh no!](../media/coffee-cup-empty.png)</a>
 
 Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
 

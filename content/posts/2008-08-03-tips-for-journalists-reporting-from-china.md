@@ -5,12 +5,12 @@ title: Tips for Journalists Reporting From China
 author: Matthias Kretschmann
 
 date: 2008-08-03 17:10:25+00:00
-wordpress_id: 95
+  
 categories:
 - photography
 ---
 
-![Jingjing and Chacha are watching you](/media/jingjing_chacha_kremalicious.jpg)
+![Jingjing and Chacha are watching you](../media/jingjing_chacha_kremalicious.jpg)
 As you may know there's a huge Internet censorship going on in China. Contrary to promises made by chinese authorities and the International Olympic Committee (IOC) this Internet censorship is active during the Olympic Games [even in the international media centre](http://news.bbc.co.uk/2/hi/asia-pacific/7532338.stm). And the [IOC shares the current ideas of censorship in China](http://www.rsf.org/article.php3?id_article=26461).
 
 And as in every political system with totalitarian elements there's a good chance you will meet some angry lackeys if you're going to report about topics the chinese authorities don't want you to report. But more important they will threat your sources if their identity gets revealed. So if you want to report about [the water shortage in the villages around Beijing](http://www.voanews.com/english/2008-06-27-voa10.cfm), the [massive air pollution in Beijing](http://english.chosun.com/w21data/html/news/200807/200807300031.html) or about all the forced resettlements going on in China you should consider some security precautions to protect you and your sources.

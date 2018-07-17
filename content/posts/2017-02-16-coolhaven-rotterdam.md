@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Coolhaven Rotterdam
-image: coolhaven-rotterdam.jpg
+image: ../media/coolhaven-rotterdam.jpg
 author: Matthias Kretschmann
 category: photos
 ---

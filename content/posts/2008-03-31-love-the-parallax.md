@@ -5,12 +5,12 @@ title: Love the parallax
 author: Matthias Kretschmann
 
 date: 2008-03-31 20:54:45+00:00
-wordpress_id: 15
+  
 categories:
 - design
 ---
 
-![parallax](/media/parallax.png)If you resize your browser window while you are browsing this website you can see the black polaroids in my header fly and move at different speed on three layers. Pretty cool, huh?
+![parallax](../media/parallax.png)If you resize your browser window while you are browsing this website you can see the black polaroids in my header fly and move at different speed on three layers. Pretty cool, huh?
 
 I implemented the header effect of those flying black polaroids on kremalicious.com following the original idea by the folks of [clearleft](http://clearleft.com/) on [their silverback teaser page](http://www.silverbackapp.com/)
 

@@ -2,11 +2,11 @@
 layout: post
 
 title: I'm joining ezeep
-image: kremalicious-Teaser-ezeep.png
+image: ../media/kremalicious-Teaser-ezeep.png
 author: Matthias Kretschmann
 
 date: 2012-08-20 14:12:11+00:00
-wordpress_id: 2387
+  
 categories:
 - personal
 tags:

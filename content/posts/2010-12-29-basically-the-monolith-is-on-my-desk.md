@@ -2,11 +2,11 @@
 layout: photo
 
 title: Basically, The Monolith Is On My Desk
-image: Basically-The-Monolith-Is-On-My-Desk.jpg
+image: ../media/Basically-The-Monolith-Is-On-My-Desk.jpg
 author: Matthias Kretschmann
 
 date: 2010-12-29 15:47:12+00:00
-wordpress_id: 1873
+  
 categories:
 - photos
 post_format:

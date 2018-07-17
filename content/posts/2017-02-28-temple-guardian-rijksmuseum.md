@@ -1,7 +1,7 @@
 ---
 layout: photo
 title: Temple Guardian Rijksmuseum
-image: 2017-02-28-temple-guardian-rijksmuseum.jpg
+image: ../media/2017-02-28-temple-guardian-rijksmuseum.jpg
 author: Matthias Kretschmann
 date: 2017-02-28 15:38:28.206431000 +02:00
 category: photos

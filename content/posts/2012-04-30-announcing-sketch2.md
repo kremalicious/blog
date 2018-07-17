@@ -6,7 +6,7 @@ linkurl: http://www.bohemiancoding.com/about/blog/announcing-sketch-2-0/
 author: Matthias Kretschmann
 
 date: 2012-04-30 12:37:05+00:00
-wordpress_id: 1950
+  
 categories:
 - design
 post_format:

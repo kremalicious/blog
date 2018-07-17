@@ -2,8 +2,8 @@
 layout: post
 
 title: Project Purple
-image: Teaser-Project-Purple.png
-download: project-purple-kremalicious.zip
+image: ../media/Teaser-Project-Purple.png
+download: ../media/project-purple-kremalicious.zip
 author: Matthias Kretschmann
 featured: true
 
@@ -22,11 +22,11 @@ It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstal
 
 > Forstall said that "on the front door of the Purple Dorm we put a sign up that said 'Fight Club'... because the first rule of that project was to not talk about it outside those doors."
 
-![](/media/project-purple-nexus-kremalicious.png)
+![](../media/project-purple-nexus-kremalicious.png)
 
 The full size I designed the wallpaper in is 3200x2048px. I don't know why Apple uses 3200px as width for the default wallpapers in Mountain Lion but it seems a good width for now. And a height of 2048px makes this big size perfectly usable for the iPad 3 too.
 
-![](/media/Project-Purple-Dribbble.png)
+![](../media/Project-Purple-Dribbble.png)
 
 ## Download
 
@@ -36,10 +36,10 @@ Download the whole package with all the sizes included or grab the individual on
     <a class="icon-download" href="/media/project-purple-kremalicious.zip">Download <span> zip</span></a>
 </p>
 
-  * [Desktop/rMBP/iPad 3 (3200x2048)](/media/project-purple-kremalicious.png)
-  * [Laptop/Nexus 7/Galaxy Nexus (1280x800)](/media/project-purple-nexus-kremalicious.png)
-  * [iPad (1024x1024)](/media/project-purple-ipad-kremalicious.png)
-  * [iPhone (640x960)](/media/project-purple-iphone4-kremalicious.png)
+  * [Desktop/rMBP/iPad 3 (3200x2048)](../media/project-purple-kremalicious.png)
+  * [Laptop/Nexus 7/Galaxy Nexus (1280x800)](../media/project-purple-nexus-kremalicious.png)
+  * [iPad (1024x1024)](../media/project-purple-ipad-kremalicious.png)
+  * [iPhone (640x960)](../media/project-purple-iphone4-kremalicious.png)
 
 ## License
 
