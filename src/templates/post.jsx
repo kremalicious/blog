@@ -2,25 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Image from '../components/Image'
+import Layout from '../components/Layout'
+import Image from '../components/atoms/Image'
 
 const Post = ({ data }) => {
   const { markdownRemark: post } = data
   const { title, image } = post.frontmatter
 
   return (
-    <div className="blog-post-container">
+    <Layout location={location}>
       <Helmet title={title} />
 
-      <div className="blog-post">
+      <article className="blog-post">
         <h1 className="title">{title}</h1>
-        <Image fluid={image.childImageSharp.fluid} alt={title} />
+        {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-      </div>
-    </div>
+      </article>
+    </Layout>
   )
 }
 

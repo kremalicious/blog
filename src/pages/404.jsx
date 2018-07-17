@@ -1,16 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import Layout from '../components/Layout'
 
 const NotFound = () => (
-  <Fragment>
+  <Layout location={location}>
     <div className="hal-9000" />
 
     <p className="srverror-title">I am sorry Dave,</p>
-    <p className="srverror-text">I am afraid I can NotFound do that.</p>
+    <p className="srverror-text">I am afraid I can not do that.</p>
 
     <a href="#" className="js-search-init">
       How about a nice search?
     </a>
-  </Fragment>
+  </Layout>
 )
 
 export default NotFound

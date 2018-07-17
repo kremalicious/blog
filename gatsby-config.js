@@ -24,6 +24,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: path.join(__dirname, 'content')
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -33,7 +40,8 @@ module.exports = {
               maxWidth: 940,
               linkImagesToOriginal: false,
               sizeByPixelDensity: true,
-              showCaptions: true
+              showCaptions: true,
+              backgroundColor: '#e7eef4'
             }
           },
           'gatsby-remark-smartypants',
@@ -44,7 +52,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        includePaths: [`${__dirname}/node_modules`]
+        includePaths: [`${__dirname}/node_modules`, `${__dirname}/src/styles`]
       }
     },
     'gatsby-plugin-react-helmet',

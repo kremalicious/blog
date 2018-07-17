@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges
@@ -12,7 +13,11 @@ const IndexPage = ({ data }) => {
       </li>
     ))
 
-  return <ul>{Posts}</ul>
+  return (
+    <Layout location={location}>
+      <ul>{Posts}</ul>
+    </Layout>
+  )
 }
 
 IndexPage.propTypes = {

@@ -9,8 +9,8 @@
 # Basics
 # --------------------
 
-name:                   kremalicious
-description:            'Blog of designer & developer Matthias Kretschmann'
+title:                  kremalicious
+tagline:                'Blog of designer & developer Matthias Kretschmann'
 url:                    https://kremalicious.com
 author:
     name:               Matthias Kretschmann
@@ -24,8 +24,4 @@ author:
     ether:              "0x339dbC44d39bf1961E385ed0Ae88FC6069b87Ea1"
 
 
-# Urls
-# --------------------
-
-media_url:              "https://res.cloudinary.com/kremalicious"
-
+typekitID:              msu4qap

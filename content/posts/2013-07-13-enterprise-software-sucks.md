@@ -40,13 +40,13 @@ Just adding feature after feature out of dubious reasons (“Your competitors ha
 
 After finding ezeep’s Buddha nature, the next step was to actually create the various elements of our experience and branding, ranging from typography, color, visual style, writing style, interaction models, user flows and more.
 
-<img src="/media/buddha-colorscheme.png" alt="ezeep color scheme">
+![ezeep color scheme](../media/buddha-colorscheme.png)
 
 While being human and friendly sounds like a no-brainer, in the corporate software world, it turns out it isn’t. ezeep’s vivid color scheme, subtle textures, graphics and icons are a visible manifestation of this, tackling the negative perception of printing for our users.
 
 Creating this layer of delight on top of the functional layers is especially crucial in printing. Good design helps making users more forgiving about errors no matter who’s responsible for them. Printers – the little autistic beings they are – just tend to not work from time to time, and a failing device immediately reflects back on our service. If that’s the case the least we can do is make the experience beautiful.
 
-<img src="/media/buddha-printer.png">
+![](../media/buddha-printer.png)
 
 Paired with helpful and to-the-point copy, this creates a friendly and unifying atmosphere across the whole product, ranging from the web to native apps on Mac, Windows, iOS and Android.
 
