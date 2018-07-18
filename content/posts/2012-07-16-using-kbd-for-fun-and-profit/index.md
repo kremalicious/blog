@@ -2,8 +2,8 @@
 layout: post
 
 title: Using <kbd> for fun and profit
-image: ../media/kremalicious-kbdfun-teaser.png
-style: post-kbd.min.css
+image: ./kremalicious-kbdfun-teaser.png
+style: ./post-kbd.css
 author: Matthias Kretschmann
 featured: true
 
@@ -16,6 +16,10 @@ tags:
 
 coinhive: true
 ---
+
+<style>
+    @import './post-kbd.css';
+</style>
 
 There's this HTML element meant for marking up keyboard keys named `<kbd>`. Obviously it can be styled with CSS so why not use it to make those elements look a bit more like hardware or the iOS and Android software keys.
 

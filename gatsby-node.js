@@ -1,17 +1,23 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-// Create slug & date for posts from file path
+// Create slug & date for posts from file path values
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent)
     const parsedFilePath = path.parse(fileNode.relativePath)
+    const slugOriginal = createFilePath({ node, getNode })
 
     // slug
-    const slugOriginal = createFilePath({ node, getNode })
-    const slug = `/${slugOriginal.substring(12)}` // remove date from file path
+    let slug
+
+    if (parsedFilePath.name === 'index') {
+      slug = `/${parsedFilePath.dir.substring(11)}` // remove date from file dir
+    } else {
+      slug = `/${slugOriginal.substring(12)}` // remove first slash & date from file path
+    }
 
     createNodeField({
       node,
@@ -25,7 +31,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (node.frontmatter.date) {
       date = `${node.frontmatter.date}`
     } else {
-      date = `${parsedFilePath.name.substring(0, 10)}`
+      date = `${slugOriginal.substring(1, 10)}` // grab date from file path
     }
 
     createNodeField({
@@ -42,18 +48,22 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve('src/templates/Post.jsx')
     // const indexTemplate = path.resolve('src/templates/index.jsx')
-    // const tagPage = path.resolve('src/templates/tag.jsx')
-    // const categoryPage = path.resolve('src/templates/category.jsx')
+    // const tagTemplate = path.resolve('src/templates/tag.jsx')
+    // const categoryTemplate = path.resolve('src/templates/category.jsx')
 
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark {
+            allMarkdownRemark(
+              sort: { fields: [fields___date], order: DESC }
+              limit: 1000
+            ) {
               edges {
                 node {
                   fields {
                     slug
+                    date
                   }
                 }
               }
@@ -67,20 +77,21 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        // Creates Index page
-        // createPaginatedPages({
-        //   edges: result.data.allMarkdownRemark.edges,
-        //   createPage: createPage,
-        //   pageTemplate: indexTemplate
-        // })
-
         // Create Posts
-        result.data.allMarkdownRemark.edges.forEach(edge => {
+        const posts = result.data.allMarkdownRemark.edges
+
+        posts.forEach((post, index) => {
+          const previous =
+            index === posts.length - 1 ? null : posts[index + 1].node
+          const next = index === 0 ? null : posts[index - 1].node
+
           createPage({
-            path: `${edge.node.fields.slug}`,
+            path: `${post.node.fields.slug}`,
             component: postTemplate,
             context: {
-              slug: edge.node.fields.slug
+              slug: post.node.fields.slug,
+              previous,
+              next
             }
           })
         })
@@ -89,47 +100,40 @@ exports.createPages = ({ graphql, actions }) => {
         // const tagMap = new Map()
         // const categorySet = new Set()
 
-        // result.data.allMarkdownRemark.edges.forEach(edge => {
-        //   if (edge.node.frontmatter.tags) {
-        //     edge.node.frontmatter.tags.forEach(tag => {
+        // posts.forEach(post => {
+        //   if (post.node.frontmatter.tags) {
+        //     post.node.frontmatter.tags.forEach(tag => {
         //       tagSet.add(tag)
 
         //       const array = tagMap.has(tag) ? tagMap.get(tag) : []
-        //       array.push(edge)
+        //       array.push(post)
         //       tagMap.set(tag, array)
         //     })
         //   }
 
-        //   if (edge.node.frontmatter.category) {
-        //     categorySet.add(edge.node.frontmatter.category)
+        //   if (post.node.frontmatter.category) {
+        //     categorySet.add(post.node.frontmatter.category)
         //   }
         // })
 
-        // const tagFormatter = tag => route =>
-        //   `/tags/${_.kebabCase(tag)}/${route !== 1 ? route : ''}`
         // const tagList = Array.from(tagSet)
+
         // tagList.forEach(tag => {
         //   // Creates tag pages
-        //   createPaginationPages({
-        //     createPage,
-        //     edges: tagMap.get(tag),
-        //     component: tagPage,
-        //     pathFormatter: tagFormatter(tag),
-        //     limit: siteConfig.sitePaginationLimit,
-        //     context: {
-        //       tag
-        //     }
+        //   createPage({
+        //     path: `/tags/${tag}/`,
+        //     component: tagTemplate,
+        //     context: { tag }
         //   })
         // })
 
         // const categoryList = Array.from(categorySet)
+
         // categoryList.forEach(category => {
         //   createPage({
-        //     path: `/categories/${_.kebabCase(category)}/`,
-        //     component: categoryPage,
-        //     context: {
-        //       category
-        //     }
+        //     path: `/categories/${category}/`,
+        //     component: categoryTemplate,
+        //     context: { category }
         //   })
         // })
 

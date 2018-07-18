@@ -34,12 +34,18 @@
     margin-top: $spacer * 1.5;
     margin-bottom: $spacer * 1.5;
 
-    img {
+    > div {
+        @include media-frame();
+
         border-radius: 0;
 
         @media (min-width: $screen-sm) {
             border-radius: $border-radius;
         }
+    }
+
+    img {
+        border-radius: 0;
     }
 }
 

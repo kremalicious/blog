@@ -205,3 +205,19 @@
         color: $color;
     }
 }
+
+// Image frame style
+/////////////////////////////////////
+
+@mixin media-frame() {
+    @include transition();
+
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: $border-radius;
+    box-shadow: 0 1px 3px rgba($brand-grey, .2);
+
+    @media (min-width: $screen-sm) {
+        border: 2px solid transparent;
+    }
+}

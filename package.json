@@ -21,10 +21,10 @@
     "last 3 versions"
   ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.3",
     "clipboard": "^2.0.1",
     "exif-js": "^2.3.0",
-    "gatsby": "^2.0.0-beta.46",
+    "gatsby": "^2.0.0-beta.47",
     "gatsby-image": "^2.0.0-beta.6",
     "gatsby-plugin-matomo": "^0.4.1",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.3",

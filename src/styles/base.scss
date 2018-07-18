@@ -167,16 +167,26 @@ a {
     }
 }
 
-// Media
+// Responsive Media
 /////////////////////////////////////
 
+figure,
 img,
-video,
 svg,
-figure {
+video,
+audio,
+embed,
+canvas,
+picture {
     max-width: 100%;
     height: auto;
-    margin: 0;
+    margin: 0 auto;
+    display: block;
+    border-radius: $border-radius;
+}
+
+img {
+    vertical-align: middle;
 }
 
 // Lists
