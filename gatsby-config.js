@@ -41,9 +41,10 @@ module.exports = {
               linkImagesToOriginal: false,
               sizeByPixelDensity: true,
               showCaptions: true,
-              backgroundColor: '#e7eef4'
+              backgroundColor: '#dfe8ef'
             }
           },
+          'gatsby-remark-prismjs',
           'gatsby-remark-smartypants',
           'gatsby-remark-autolink-headers'
         ]

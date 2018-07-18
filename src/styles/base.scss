@@ -10,11 +10,11 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background: $body-background-color;
 }
 
 html {
     font-size: $font-size-root;
-    background: $body-background-color;
 }
 
 body {
@@ -24,12 +24,17 @@ body {
     line-height: $line-height;
     color: $font-color-base;
     text-rendering: optimizeLegibility;
+    letter-spacing: -.01em;
     font-feature-settings: 'liga', 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
-    background: $body-background-color;
     transition: background .6s $easing;
+
+    // handling long text, like URLs
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 
     &.dark {
         background-color: $body-background-color--dark;
@@ -43,27 +48,73 @@ ol {
     margin: 0 0 $spacer;
 }
 
+// Reset fonts for relevant elements
+/////////////////////////////////////
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
 // Headings
 /////////////////////////////////////
 
+h1,
+h2 {
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+}
+
 h1 {
-    font-size: $font-size-h1;
+    font-size: $font-size-h2;
+
+    @media (min-width: $screen-xs) {
+        font-size: $font-size-h1;
+    }
 }
 
 h2 {
-    font-size: $font-size-h2;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-xs) {
+        font-size: $font-size-h2;
+    }
 }
 
 h3 {
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
+
+    @media (min-width: $screen-xs) {
+        font-size: $font-size-h3;
+    }
 }
 
 h4 {
-    font-size: $font-size-h4;
+    font-size: $font-size-h5;
+
+    @media (min-width: $screen-xs) {
+        font-size: $font-size-h4;
+    }
 }
 
 h5 {
-    font-size: $font-size-h5;
+    font-size: $font-size-h6;
+
+    @media (min-width: $screen-xs) {
+        font-size: $font-size-h5;
+    }
 }
 
 h6 {
@@ -96,10 +147,23 @@ a {
     text-decoration: none;
     transition: .2s ease-out;
 
+    h1 &,
+    h2 &,
+    h3 & {
+        color: $color-headings;
+    }
+
     &:hover,
     &:focus {
+        outline: 0;
         color: lighten($brand-cyan, 10%);
         transform: translate3d(0, -.1rem, 0);
+    }
+
+    &:active {
+        transition: none;
+        color: darken($brand-cyan, 30%);
+        box-shadow: inset 0 -1px 0 darken($brand-cyan, 30%);
     }
 }
 
@@ -114,8 +178,175 @@ svg {
     margin: 0;
 }
 
+// Lists
+/////////////////////////////////////
+
+ul {
+    li {
+        &::before {
+            content: ' \2015'; // horizontal bar: ― &#8213;
+        }
+    }
+}
+
+ol {
+    counter-reset: ol-counter;
+
+    li {
+        &::before {
+            content: counter(ol-counter) '.';
+            counter-increment: ol-counter;
+        }
+    }
+
+    ul li::before {
+        display: none;
+    }
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: $spacer;
+    padding-left: ($spacer * 1.5);
+    list-style: none;
+
+    li {
+        position: relative;
+
+        // stylelint-disable no-descending-specificity
+        &::before {
+            position: absolute;
+            left: -($spacer * 1.5);
+            top: -1px;
+            color: $text-color-light;
+            user-select: none;
+        }
+        // stylelint-enable no-descending-specificity
+    }
+
+    ul,
+    ol {
+        margin-bottom: 0;
+    }
+}
+
+// Inline typography
+/////////////////////////////////////
+
+b,
+strong,
+.bold {
+    font-weight: 700;
+    font-style: normal;
+}
+
+em,
+.italic {
+    font-style: italic;
+}
+
+abbr[title],
+dfn {
+    text-transform: none;
+    font-style: normal;
+    font-size: inherit;
+    border-bottom: 1px dashed $brand-grey-dimmed;
+    cursor: help;
+    font-feature-settings: inherit;
+}
+
+mark {
+    background: #fffaab;
+    color: $text-color;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px dashed #afc3cb;
+    padding-bottom: $spacer;
+    margin-bottom: $spacer * 2;
+
+    &::before {
+        bottom: -2px;
+        width: 100%;
+        border-bottom: 1px dashed #fff;
+    }
+}
+
+// Quotes
+/////////////////////////////////////
+
+q {
+    font-style: italic;
+}
+
+cite {
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+blockquote,
+blockquote > p {
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0 0 $spacer;
+    position: relative;
+    padding-left: 20px;
+
+    @media (min-width: $screen-xs) {
+        padding-left: 40px;
+    }
+
+    @media (min-width: $screen-lg) {
+        padding-left: 60px;
+    }
+
+    // quotation marks
+    &::before {
+        content: '“';
+        font-size: 300%;
+        color: lighten($text-color, 40%);
+        position: absolute;
+        left: -10px;
+        top: -20px;
+
+        @media (min-width: $screen-xs) {
+            left: 0;
+        }
+
+        @media (min-width: $screen-lg) {
+            top: -30px;
+        }
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Selection
+/////////////////////////////////////
+
+::-moz-selection {
+    background: #2e4f5c;
+    color: #fff;
+}
+
+::selection {
+    background: #2e4f5c;
+    color: #fff;
+}
+
 #___gatsby {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
+
+// More basic elements
+/////////////////////////////////////
+
+@import 'code';
