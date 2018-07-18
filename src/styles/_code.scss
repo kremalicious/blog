@@ -64,16 +64,16 @@ pre {
     }
 }
 
-pre > code.language-bash {
-    padding-left: 1.5em;
+pre > code.language-shell {
+    padding-left: $spacer / 2;
     display: block;
 
     &::before {
         content: '$';
-        opacity: .5;
+        opacity: .4;
         display: inline-block;
-        margin-left: -.5em;
-        margin-right: .8em;
+        margin-left: -.5rem;
+        margin-right: .5rem;
     }
 }
 
