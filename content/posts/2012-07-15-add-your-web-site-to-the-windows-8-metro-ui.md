@@ -28,10 +28,10 @@ While the size is the same as for the iPad 3 homescreen icon, I strongly suggest
 
 As an example, I just [pushed](https://github.com/kremalicious/kremalicious2/commit/4c7e215f4abecde4385028767b633be1278f277e) the Metro [tile image](/metro-tile.png) for kremalicious.com with those `meta` tags:
 
-{% highlight html %}
+```html
 <meta name="msapplication-TileImage" content="/metro-tile.png"/>
 <meta name="msapplication-TileColor" content="#015565"/>
-{% endhighlight %}
+```
 
 When browsing the site in Windows 8/Internet Explorer 10, users have the choice of pinning it to the start screen:
 

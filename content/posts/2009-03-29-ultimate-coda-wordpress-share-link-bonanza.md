@@ -6,7 +6,7 @@ download: ../media/share-link-bonanza-coda-clips.zip
 author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
-  
+
 
 categories:
     - design
@@ -54,7 +54,9 @@ If you download the above Coda Clip files this icon is already applied on the cl
 
 That's because both collections have their placeholder selection (the ![Coda Clips Placeholder](../media/codaclips-placeholder.png)) located where the link text would be:
 
-{% highlight html %}<a href="" title="">![Coda Clips Placeholder](../media/codaclips-placeholder.png)</a>{% endhighlight %}
+```html
+<a href="" title="">![Coda Clips Placeholder](../media/codaclips-placeholder.png)</a>
+```
 
 As you can see I've also included the link title value usually with the name of the specific social site. Also I've already encoded all the entities so there shouldn't be any (X)HTML validation errors when using these links in your projects.
 
@@ -91,11 +93,15 @@ Anyway, as I've said above some sites allow more to submit here and you'll find 
 
 Just include an img element wrapped inside the link tag, like so:
 
-{% highlight html %}<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /> Delicious</a>{% endhighlight %}
+```html
+<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /> Delicious</a>
+```
 
 And if you want to just use an icon with no text use just an img element without providing any link text:
 
-{% highlight html %}<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>{% endhighlight %}
+```html
+<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>
+```
 
 
 
@@ -105,29 +111,31 @@ And if you want to just use an icon with no text use just an img element without
 
 To me a more cleaner solution is to use the css background-image property to include the icon images. Just add a class or an id to every share link like so:
 
-{% highlight html %}<a class="delicious" href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious">Delicious</a>{% endhighlight %}
+```html
+<a class="delicious" href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious">Delicious</a>
+```
 
 And in your CSS select this class and style it with a background image. Assuming you want the site icon to appear left beside the link text you would also have to add some padding so the text won't overlap the icons:
 
 
-{% highlight css %}
-    .delicious {
-    	background: url(delicious.png) no-repeat center center;
-    	padding-left: 20px;
-    }
-{% endhighlight %}
+```css
+.delicious {
+  background: url(delicious.png) no-repeat center center;
+  padding-left: 20px;
+}
+```
 
 
 If you want to use just icons and no text you should provide a link text anyway but hide it with css. This is a good practice for accessibility and search engine optimization. Also you would have to provide the dimensions of the icon:
 
-{% highlight css %}
-    .delicious {
-    	width: 16px;
-    	height: 16px;
-    	background: url(delicious.png) no-repeat center center;
-    	text-indent: -999999px;
-    }
-{% endhighlight %}
+```css
+.delicious {
+  width: 16px;
+  height: 16px;
+  background: url(delicious.png) no-repeat center center;
+  text-indent: -999999px;
+}
+```
 
 ## 4. HTML File Download And All The Links Separated
 

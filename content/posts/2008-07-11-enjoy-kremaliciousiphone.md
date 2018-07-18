@@ -5,7 +5,7 @@ title: Enjoy Kremalicious{iPhone}
 author: Matthias Kretschmann
 
 date: 2008-07-11 00:20:22+00:00
-  
+
 categories:
 - personal
 tags:
@@ -26,9 +26,9 @@ While Safari on iPhone will display all websites just fine it can happen that th
 
 The viewport can be larger or smaller than the visible area but I wanted my content to exactly fit the width of the iPhone and the goal was to make the text legible on first load. So here's what I use for kremalicious{iPhone}:
 
-{% highlight html %}
+```html
 <meta name="Viewport" content="maximum-scale=1.6,width=device-width" >
-{% endhighlight %}
+```
 
 This code will let the user scale the content up to 1.6 times to the default view and the default width of the content is set to the width of the (iPhone) device.
 
@@ -37,17 +37,17 @@ This code will let the user scale the content up to 1.6 times to the default vie
 
 There's neither an active nor a hover state for links on the iPhone which makes sense on a touch interface although it would be much easier to just use a:active for the tap highlighting. Safari on the iPhone uses a special webkit property for that:
 
-{% highlight css %}
--webkit-tap-highlight-color: rgba(234,234,234,0.5);
-{% endhighlight %}
+```css
+-webkit-tap-highlight-color: rgba(234,234,234, .5);
+```
 
 # Home Screen Icon
 
 ![image](../media/kremalicious-iconiphone.png)I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
 
-{% highlight html %}
+```html
 <link rel="apple-touch-icon" href="/i/apple-touch-icon.png" />
-{% endhighlight %}
+```
 
 And finally many thanks to [cschock](http://www.cschock.de) for continuously testing my code voodoo soup even at late hours.
 

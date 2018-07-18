@@ -23,7 +23,7 @@ In MarsEdit main window right-click (or ctrl + click) in the sidebar on the blog
 Just copy and paste the following HTML and CSS into your Preview Template editor. If something goes wrong with the source formatting, I've also provided [a txt file with the code](../media/marsedit_kremalicious.txt):
 
 
-{% highlight html %}
+```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -70,7 +70,7 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
 
     </body>
 </html>
-{% endhighlight %}
+```
 
 
 Now click on Save Changes in the lower right corner of the window and there you have it.

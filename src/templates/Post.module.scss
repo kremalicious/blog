@@ -1,0 +1,70 @@
+@import 'variables';
+@import 'mixins';
+
+.hentry {
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+        padding-top: $spacer * 3;
+        padding-bottom: $spacer * 3;
+    }
+}
+
+// Post Title
+/////////////////////////////////////
+
+.hentry__title {
+    font-size: $font-size-h1;
+    text-align: center;
+    color: $color-headings;
+    margin-top: 0;
+    margin-bottom: $spacer;
+}
+
+// Post/photo teaser
+/////////////////////////////////////
+
+.hentry__teaser {
+    @include breakoutviewport();
+
+    max-width: none;
+    display: block;
+    margin-top: $spacer * 1.5;
+    margin-bottom: $spacer * 1.5;
+
+    img {
+        border-radius: 0;
+
+        @media (min-width: $screen-sm) {
+            border-radius: $border-radius;
+        }
+    }
+}
+
+// Post Content
+/////////////////////////////////////
+
+.hentry__content {
+    h1,
+    h2 {
+        @include heading-band();
+    }
+
+    h1 {
+        font-size: $font-size-h2;
+    }
+
+    h2 {
+        font-size: $font-size-h3;
+    }
+
+    h3 {
+        font-size: $font-size-h4;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

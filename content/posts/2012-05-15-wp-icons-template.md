@@ -6,7 +6,7 @@ image: ../media/kremalicious-Teaser-WP-Icon-Template.png
 author: Matthias Kretschmann
 
 date: 2012-05-15 16:00:44+00:00
-  
+
 
 categories:
     - design
@@ -70,8 +70,8 @@ You can always refer to the inline commented versions of these snippets in the [
 
 WordPress automatically puts an ID around your new menu item which contains the name of your custom post type (the $post_type parameter in `register_post_type()`). Just change this to your own post type name:
 
-{% highlight php %}
 
+```php
 <?php
 /**
  * Custom Post Type Icon for Admin Menu & Post Screen
@@ -118,15 +118,16 @@ function custom_post_type_icon() {
 <?php }
 
 ?>
-
-{% endhighlight %}
+```
 
 ### Plugin And Theme Options Icons
 
 The easiest way is to just use this markup on your option page before the page heading which is the default on all admin pages:
 
-{% highlight html %}<div id="PLUGINNAME" class="icon32"></div>
-<h2>My cool option page</h2>{% endhighlight %}
+```html
+<div id="PLUGINNAME" class="icon32"></div>
+<h2>My cool option page</h2>
+```
 
 This is the markup being addressed in the snippet block for option page icons. The `icon32` class will make sure everything is aligned consistent to all other pages without redefining everything in css.
 
@@ -136,8 +137,7 @@ Putting your plugin or option page in the top level of the admin menu via `add_m
 
 So all this combined leads to this snippet:
 
-{% highlight php %}
-
+```php
 <?php
 
 /**
@@ -196,8 +196,7 @@ function option_page_icon() {
 <?php }
 
 ?>
-
-{% endhighlight %}
+```
 
 Just replace the bits in the ID selectors with your stuff. If you have problems finding the correct ID selector just inspect element in the admin area.
 

@@ -1,0 +1,207 @@
+@import 'variables';
+
+// Centering Blocks
+/////////////////////////////////////
+
+@mixin aligncenter() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Toggling content
+/////////////////////////////////////
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hide() {
+    display: none !important;
+    visibility: hidden;
+}
+
+@mixin show() {
+    display: block;
+    visibility: visible;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visuallyhidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    // Extends the .visuallyhidden class to allow the
+    // element to be focusable when navigated to via the keyboard: h5bp.com/p
+    &.focusable:active,
+    &.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible() {
+    visibility: hidden;
+}
+
+// CSS image replacement
+/////////////////////////////////////
+
+@mixin hide-text() {
+    font: 0/0 a; // stylelint-disable font-family-no-missing-generic-family-keyword
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+// Text overflow
+/////////////////////////////////////
+
+@mixin ellipsis($width) {
+    width: $width;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// Default transition
+/////////////////////////////////////
+
+@mixin transition() {
+    transition: all ease-in-out .15s;
+}
+
+// Dashed Dividers
+/////////////////////////////////////
+
+@mixin divider() {
+    position: relative;
+    border-bottom: 1px dashed #afc3cb;
+    margin-top: $spacer;
+    margin-bottom: $spacer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 1px;
+        bottom: -2px;
+        width: 100%;
+        border-bottom: 1px dashed #fff;
+    }
+}
+
+// Heading band
+/////////////////////////////////////
+
+@mixin heading-band() {
+    display: inline-block;
+    clear: both;
+    background: rgba(255, 255, 255, .5);
+    padding: ($spacer/2) $spacer ($spacer/2) 100%;
+    margin-left: -100%;
+}
+
+// Lead paragraph
+/////////////////////////////////////
+
+@mixin lead() {
+    font-size: $font-size-large;
+    line-height: $spacer * 1.15;
+}
+
+// Layout breakout
+/////////////////////////////////////
+
+@mixin breakoutviewport() {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+
+    @media (min-width: $screen-md) {
+        @include breakoutviewport--base();
+    }
+}
+
+@mixin breakoutviewport--base() {
+    margin-left: -($spacer * 4);
+    margin-right: -($spacer * 4);
+}
+
+@mixin breakoutviewport--full() {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+// Button sizing
+/////////////////////////////////////
+
+@mixin button-size(
+    $padding-vertical,
+    $padding-horizontal,
+    $font-size,
+    $line-height,
+    $border-radius
+) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+
+// Form control sizing
+/////////////////////////////////////
+
+@mixin input-size(
+    $padding-vertical,
+    $padding-horizontal,
+    $font-size,
+    $line-height,
+    $border-radius
+) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+
+    &input[type='search'] {
+        background-size: $font-size;
+        background-position: $padding-vertical center;
+        padding-left: ($padding-vertical * 4);
+    }
+
+    &select {
+        line-height: $input-height;
+    }
+
+    &textarea,
+    &select[multiple] {
+        height: auto;
+    }
+}
+
+// Placeholder text
+/////////////////////////////////////
+
+@mixin placeholder($color: $input-color-placeholder) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1; // Override Firefox's unusual default opacity; See https//github.com/twbs/bootstrap/pull/11526
+    }
+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}

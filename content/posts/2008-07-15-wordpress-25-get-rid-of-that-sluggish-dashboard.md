@@ -5,7 +5,7 @@ title: 'Wordpress 2.5+: Get Rid of That Sluggish Dashboard'
 author: Matthias Kretschmann
 
 date: 2008-07-15 14:04:46+00:00
-  
+
 
 categories:
 - design
@@ -20,7 +20,7 @@ I've searched for a simple way of disabling those feeds, plugins etc. stuff the 
 
 So open your `/wp-admin/index-extra.php` file. It should look like this:
 
-{% highlight php %}
+```php
 <?php
 	require_once('admin.php');
 	require( 'includes/dashboard.php' );
@@ -41,12 +41,12 @@ So open your `/wp-admin/index-extra.php` file. It should look like this:
 		break;
 	}
 ?>
-{% endhighlight %}
+```
 
 
 Now just uncomment the lines so it looks like this (every line with two leading // is uncommented and therefore inactive):
 
-{% highlight php %}
+```php
 <?php
 	require_once('admin.php');
 	require( 'includes/dashboard.php' );
@@ -72,7 +72,7 @@ Now just uncomment the lines so it looks like this (every line with two leading 
 	//
 	// }
 ?>
-{% endhighlight %}
+```
 
 And that's it. Save the file on your server, log in to your Wordpress backend and you should see your Dashboard with everything intact. It just won't search for incoming links and all those other RSS sources anymore.
 

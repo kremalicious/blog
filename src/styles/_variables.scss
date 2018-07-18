@@ -68,6 +68,13 @@ $line-height-headings: 1.1;
 $color-headings: $brand-main;
 $color-headings--dark: $brand-main-light;
 
+// Spacing
+/////////////////////////////////////
+
+$spacer: ($font-size-base * $line-height);
+
+$border-radius: 3px;
+
 // Code
 /////////////////////////////////////
 
@@ -75,13 +82,6 @@ $code-bg: #343642;
 $code-color: $brand-light;
 $kbd-bg: $code-bg;
 $kbd-color: $code-color;
-
-// Components spacing
-/////////////////////////////////////
-
-$spacer: ($font-size-base * $line-height);
-
-$border-radius: 3px;
 
 // Responsive breakpoints
 /////////////////////////////////////

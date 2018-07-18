@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
+import styles from './Post.module.scss'
 
 const Post = ({ data }) => {
   const { markdownRemark: post } = data
@@ -13,11 +14,15 @@ const Post = ({ data }) => {
     <Layout location={location}>
       <Helmet title={title} />
 
-      <article className="blog-post">
-        <h1 className="title">{title}</h1>
-        {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
+      <article className={styles.hentry}>
+        <h1 className={styles.hentry__title}>{title}</h1>
+        {image && (
+          <figure className={styles.hentry__teaser}>
+            <Image fluid={image.childImageSharp.fluid} alt={title} />
+          </figure>
+        )}
         <div
-          className="blog-post-content"
+          className={styles.hentry__content}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
       </article>
