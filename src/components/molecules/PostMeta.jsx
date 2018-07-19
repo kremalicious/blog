@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Time from 'react-time'
+import PostLinkActions from '../atoms/PostLinkActions'
 import styles from './PostMeta.module.scss'
 
 const PostMeta = ({ post, meta }) => {
-  const { author, updated, category, tags } = post.frontmatter
-  const { date } = post.fields
+  const { author, updated, category, tags, type, linkurl } = post.frontmatter
+  const { date, slug } = post.fields
 
   return (
     <footer className={styles.entryMeta}>
+      {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
+
       <div className={styles.byline}>
         <span className={styles.by}>by</span>
         <a className="fn" rel="author" href={meta.author.uri}>
@@ -29,9 +32,11 @@ const PostMeta = ({ post, meta }) => {
       </div>
 
       {category && (
-        <a className={styles.category} href="/">
-          {category}
-        </a>
+        <div className={styles.categories}>
+          <a className={styles.category} href="/">
+            {category}
+          </a>
+        </div>
       )}
 
       {tags && (

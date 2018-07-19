@@ -17,7 +17,7 @@
 
 .byline,
 .time {
-    font-size: italic;
+    font-style: italic;
 }
 
 .byline {
@@ -37,6 +37,7 @@
 
 .categories {
     margin-bottom: $spacer / 2;
+    text-align: center;
 }
 
 .category {
@@ -62,9 +63,6 @@
         top: 0;
         color: #fff;
     }
-}
-
-.tags {
 }
 
 .tag {

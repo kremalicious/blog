@@ -1,0 +1,16 @@
+@import 'variables';
+
+// Post Title
+/////////////////////////////////////
+
+.hentry__title {
+    font-size: $font-size-h1;
+    text-align: center;
+    color: $color-headings;
+    margin-top: 0;
+    margin-bottom: $spacer;
+}
+
+.hentry__title__link {
+    font-size: $font-size-h3;
+}

@@ -12,17 +12,6 @@
     }
 }
 
-// Post Title
-/////////////////////////////////////
-
-.hentry__title {
-    font-size: $font-size-h1;
-    text-align: center;
-    color: $color-headings;
-    margin-top: 0;
-    margin-bottom: $spacer;
-}
-
 // Post/photo teaser
 /////////////////////////////////////
 
@@ -60,5 +49,18 @@
 
     p:last-child {
         margin-bottom: 0;
+    }
+}
+
+// Goodies download
+/////////////////////////////////////
+
+.goodie-actions {
+    text-align: center;
+    max-width: 640px;
+
+    .btn {
+        margin-bottom: 0;
+        display: block;
     }
 }

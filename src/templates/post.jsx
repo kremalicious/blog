@@ -4,25 +4,28 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
+import PostTitle from '../components/atoms/PostTitle'
 import PostMeta from '../components/molecules/PostMeta'
 import styles from './Post.module.scss'
 
 const Post = ({ data }) => {
   const { markdownRemark: post } = data
   const { contentYaml: meta } = data
-  const { title, image } = post.frontmatter
+  const { title, image, type, linkurl } = post.frontmatter
 
   return (
     <Layout location={location}>
       <Helmet title={title} />
 
       <article className={styles.hentry}>
-        <h1 className={styles.hentry__title}>{title}</h1>
+        <PostTitle type={type} linkurl={linkurl} title={title} />
+
         {image && (
           <figure className={styles.hentry__teaser}>
             <Image fluid={image.childImageSharp.fluid} alt={title} />
           </figure>
         )}
+
         <div
           className={styles.hentry__content}
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -45,6 +48,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        type
         title
         image {
           childImageSharp {
@@ -55,6 +59,7 @@ export const pageQuery = graphql`
         updated
         category
         tags
+        linkurl
       }
       fields {
         slug
