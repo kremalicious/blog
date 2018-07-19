@@ -11,7 +11,7 @@ $brand-light: #e7eef4;
 
 $brand-grey: #6b7f88;
 $brand-grey-light: lighten($brand-grey, 15%);
-$brand-grey-dimmed: lighten($brand-grey, 50%);
+$brand-grey-dimmed: lighten($brand-grey, 30%);
 
 // Backgrounds
 /////////////////////////////////////
@@ -29,6 +29,8 @@ $text-color-light: $brand-grey-light;
 
 $text-color--dark: $brand-grey-light;
 $text-color-light--dark: $brand-grey;
+
+$link-color: $brand-cyan;
 
 // Base Typography
 /////////////////////////////////////

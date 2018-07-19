@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: CSS App Store Badges
 image: ../media/teaser-appstorebadges.png

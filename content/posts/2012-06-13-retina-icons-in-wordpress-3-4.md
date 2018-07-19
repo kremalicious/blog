@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: Retina icons in WordPress 3.4
 author: Matthias Kretschmann
 
 date: 2012-06-13 19:01:20+00:00
-  
 
-categories:
-    - design
+
+category: design
 tags:
     - wordpress
 

@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Everything Back To Normal On Kremalicious.com (Almost)
 author: Matthias Kretschmann
 
 date: 2008-07-01 16:39:02+00:00
 
-categories:
-- personal
+category: personal
 tags:
     - wordpress
 ---

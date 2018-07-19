@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Using <kbd> for fun and profit
 image: ./kremalicious-kbdfun-teaser.png
@@ -8,9 +8,7 @@ author: Matthias Kretschmann
 featured: true
 
 date: 2012-07-16 14:36:58+00:00
-categories:
-    - design
-    - goodies
+category: design
 tags:
     - css
 

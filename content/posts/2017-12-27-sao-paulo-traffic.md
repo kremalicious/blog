@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Traffic of São Paulo"
 image: ../media/2017-12-27-sao-paulo-traffic.jpg
 author: Matthias Kretschmann

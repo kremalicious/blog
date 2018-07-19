@@ -1,14 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Using The New Post Thumbnail Feature In WordPress 2.9
 author: Matthias Kretschmann
 
 date: 2009-12-17 04:00:21+00:00
 
-
-categories:
-    - design
+category: design
 tags:
     - tutorial
     - wordpress

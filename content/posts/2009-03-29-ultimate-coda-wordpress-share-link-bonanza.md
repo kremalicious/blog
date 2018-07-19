@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Ultimate Share Link Bonanza For Coda, Wordpress And Everything Else
 download: ../media/share-link-bonanza-coda-clips.zip
@@ -7,9 +7,7 @@ author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
 
-
-categories:
-    - design
+category: design
 tags:
     - tutorial
     - wordpress

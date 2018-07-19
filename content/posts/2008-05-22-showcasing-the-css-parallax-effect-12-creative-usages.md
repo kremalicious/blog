@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: 'Showcasing the CSS Parallax Effect: 12+1 Creative Usages'
 author: Matthias Kretschmann
 image: ../media/parallax-visualization_big.png
 
 date: 2008-05-22 20:01:12+00:00
-  
-categories:
-    - design
+
+category: design
 
 tags:
     - css

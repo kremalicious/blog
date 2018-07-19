@@ -1,16 +1,13 @@
 ---
-layout: photo
+type: photo
 
 title: GDR Helvetica
 image: ../media/GDR-Helvetica.jpg
 author: Matthias Kretschmann
 
 date: 2010-09-01 20:21:43+00:00
-  
-categories:
-- photos
-post_format:
-- Image
+
+category: photos
 ---
 
 Must be socialist Helvetica or something

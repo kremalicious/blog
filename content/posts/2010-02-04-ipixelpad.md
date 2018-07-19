@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: iPixelPad - Tongue Twisting But Crisp iPad Icons
 image: ../media/Teaser-iPixelPad.png
@@ -7,9 +7,8 @@ download: ../media/ipixelpad_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2010-02-04 15:21:42+00:00
-  
-categories:
-- goodies
+
+category: goodies
 tags:
 - icon
 

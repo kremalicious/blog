@@ -1,16 +1,13 @@
 ---
-layout: photo
+type: photo
 
 title: Historic Flood Levels
 image: ../media/Historic-Flood-Levels.jpg
 author: Matthias Kretschmann
 
 date: 2011-01-18 15:40:12+00:00
-  
-categories:
-- photos
-post_format:
-- Image
+
+category: photos
 ---
 
 dates ranging from 16th - 19th century

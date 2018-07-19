@@ -1,16 +1,13 @@
 ---
-layout: photo
+type: photo
 
 title: Basically, The Monolith Is On My Desk
 image: ../media/Basically-The-Monolith-Is-On-My-Desk.jpg
 author: Matthias Kretschmann
 
 date: 2010-12-29 15:47:12+00:00
-  
-categories:
-- photos
-post_format:
-- Image
+
+category: photos
 ---
 
 Be careful: your mind will get blown when you stare at it for too long. TMA-1 Action Figure from [ThinkGeek](http://thinkgeek.com)

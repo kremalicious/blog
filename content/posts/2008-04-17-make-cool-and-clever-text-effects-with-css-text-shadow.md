@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'Text-Shadow Exposed: Make cool and clever text effects with css text-shadow'
 author: Matthias Kretschmann

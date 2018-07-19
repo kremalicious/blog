@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: The 15 best new features of Aperture 2
 author: Matthias Kretschmann
 image: ../media/aperture15_7.png
 
 date: 2008-05-07 19:22:49+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 

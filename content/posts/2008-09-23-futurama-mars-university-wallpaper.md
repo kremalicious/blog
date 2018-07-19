@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Futurama Mars University Wallpaper
 image: ../media/Teaser-Mars-U.jpg

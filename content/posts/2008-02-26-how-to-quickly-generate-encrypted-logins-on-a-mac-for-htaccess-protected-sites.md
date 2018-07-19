@@ -1,16 +1,17 @@
 ---
-layout: post
+type: post
 
 title: How to quickly generate encrypted .htpasswd passwords
 author: Matthias Kretschmann
 
 date: 2008-02-26 23:24:17+00:00
-  
+
 category: design
+
 tags:
-    - tutorial
-    - osx
-    - macos
+- tutorial
+- osx
+- macos
 
 coinhive: true
 

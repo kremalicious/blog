@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Enjoy Kremalicious{iPhone}
 author: Matthias Kretschmann
 
 date: 2008-07-11 00:20:22+00:00
 
-categories:
-- personal
+category: personal
 tags:
     - wordpress
 ---

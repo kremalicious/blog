@@ -1,12 +1,11 @@
 ---
-layout: link
+type: link
 
 title: Why We Are Allowed to Hate Silicon Valley
 linkurl: http://www.faz.net/aktuell/feuilleton/debatten/the-internet-ideology-why-we-are-allowed-to-hate-silicon-valley-12658406.html
 author: Matthias Kretschmann
 
-categories:
-- links
+category: links
 tags:
 - 'silicon valley'
 - google

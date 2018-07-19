@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Pulitzer Price Winners 2008 announced, various photographers awarded
 author: Matthias Kretschmann
 
 date: 2008-04-08 15:48:14+00:00
-  
-categories:
-- photography
+
+category: photography
 ---
 
 ![Pulitzer Price](../media/pulitzer.png)The Columbia University has announced the winners for 2008 of the 92nd annual Pulitzer Price. The Pulitzer Price itself is often cited as the highest honor for american journalists. Among the various categories there are two winning entries for [Breaking News Photography](http://www.pulitzer.org/year/2008/breaking-news-photography) and [Feature Photography](http://www.pulitzer.org/year/2008/feature-photography).

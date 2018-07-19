@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: Designing with Code
 linkurl: http://www.teehanlax.com/blog/designing-with-code/
 author: Matthias Kretschmann
 
 date: 2012-09-26 11:45:40+00:00
-  
-categories:
-- design
-post_format:
-- Link
+
+category: design
 ---
 
 I try to repeat that at least 2 times a day:

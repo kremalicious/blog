@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "The Parthenon"
 image: ../media/2017-11-10-acropolis-the-parthenon.jpg
 author: Matthias Kretschmann

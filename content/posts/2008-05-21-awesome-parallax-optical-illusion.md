@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'Awesome parallax optical illusion: Make a horse move'
 author: Matthias Kretschmann
 
 date: 2008-05-21 13:02:00+00:00
-  
-categories:
-- design
+
+category: design
 tags:
 - css
 ---

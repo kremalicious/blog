@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: New Passion Façade
 image: ../media/new-passion-facade.jpg
 author: Matthias Kretschmann

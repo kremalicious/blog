@@ -1,15 +1,14 @@
 ---
-layout: post
+type: post
 
 title: Welcome to kremalicious2
 image: ../media/kremalicious2-teaser.jpg
 author: Matthias Kretschmann
 
 date: 2012-05-14 19:33:22+00:00
-  
 
-categories:
-    - personal
+
+category: personal
 tags:
     - wordpress
 ---

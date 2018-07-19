@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
 author: Matthias Kretschmann

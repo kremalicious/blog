@@ -1,15 +1,14 @@
 ---
-layout: post
+type: post
 
 title: 'A New Browser Is Coming: Google Chrome'
 author: Matthias Kretschmann
 image: ../media/googlechrome.png
 
 date: 2008-09-01 20:40:38+00:00
-  
 
-categories:
-- design
+
+category: design
 tags:
 - google
 ---

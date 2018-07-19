@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'More awesomeness from the WebKit team: CSS Masks'
 author: Matthias Kretschmann
 
 date: 2008-04-28 12:53:18+00:00
-  
-categories:
-    - design
+
+category: design
 
 tags:
     - css

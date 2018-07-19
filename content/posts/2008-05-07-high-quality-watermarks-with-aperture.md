@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: 'HowTo: Use high-quality watermarks in your images with Aperture 2.1'
 author: Matthias Kretschmann
 image: ../media/watermark_aperture.jpg
 
 date: 2008-05-07 03:27:25+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 - tutorial

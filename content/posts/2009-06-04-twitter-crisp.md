@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Twitter Crisp
 image: ../media/Teaser-Twitter-Crisp.jpg
@@ -7,9 +7,8 @@ download: ../media/twitter-crisp-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-06-04 00:16:40+00:00
-  
-categories:
-- goodies
+
+category: goodies
 tags:
 - icon
 ---

@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Nik ships Viveza as an Aperture editing plugin
 author: Matthias Kretschmann
 
 date: 2008-05-07 19:21:34+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 ---

@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: The Definite Guide To Watermarks In Apple Aperture
 author: Matthias Kretschmann
 image: ../media/watermark_aperture.jpg
 
 date: 2008-10-26 16:05:58+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 

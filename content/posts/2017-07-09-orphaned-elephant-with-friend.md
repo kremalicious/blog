@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Orphaned elephant with friend
 image: ../media/2017-07-09-orphaned-elephant-with-friend.jpg
 author: Matthias Kretschmann

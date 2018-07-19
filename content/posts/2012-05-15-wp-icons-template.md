@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: WordPress Admin Icons Template
 image: ../media/kremalicious-Teaser-WP-Icon-Template.png
@@ -8,13 +8,12 @@ author: Matthias Kretschmann
 date: 2012-05-15 16:00:44+00:00
 
 
-categories:
-    - design
-    - goodies
+category: design
 tags:
-    - boilerplate
-    - tutorial
-    - wordpress
+- goodies
+- boilerplate
+- tutorial
+- wordpress
 
 coinhive: true
 

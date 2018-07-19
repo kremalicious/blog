@@ -1,16 +1,13 @@
 ---
-layout: photo
+type: photo
 
 title: Typeface condoms
 image: ../media/Typeface-condoms.jpg
 author: Matthias Kretschmann
 
 date: 2010-07-18 20:28:33+00:00
-  
-categories:
-- photos
-post_format:
-- Image
+
+category: photos
 ---
 
 Burg Giebichenstein Hochschule für Kunst & Design Halle Jahresausstellung 2010, Campus Design

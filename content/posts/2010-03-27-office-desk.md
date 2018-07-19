@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 
 title: Office Desk
 image: ../media/Office-Desk.jpg
@@ -7,11 +7,7 @@ author: Matthias Kretschmann
 
 date: 2010-03-27 21:31:35+00:00
 
-  
-categories:
-- photos
-post_format:
-- Image
+category: photos
 ---
 
 Lost in this gorgeous figure. East Indian Rosewood, FTW!

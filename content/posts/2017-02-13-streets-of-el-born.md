@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Streets of El Born
 image: ../media/streets-of-el-born.jpg
 author: Matthias Kretschmann

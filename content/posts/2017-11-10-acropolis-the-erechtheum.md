@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "The Erechtheum"
 image: ../media/2017-11-10-acropolis-the-erechtheum.jpg
 author: Matthias Kretschmann

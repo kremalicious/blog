@@ -1,14 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'HowTo: Styling Author Comments With Wordpress 2.7+'
 author: Matthias Kretschmann
 
 date: 2008-12-13 16:47:43+00:00
 
-
-categories:
-- design
+category: design
 tags:
 - tutorial
 - wordpress

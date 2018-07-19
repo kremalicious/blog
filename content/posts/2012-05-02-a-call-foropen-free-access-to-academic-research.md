@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: A call for open, free access to academic research
 linkurl: http://www.guardian.co.uk/commentisfree/2012/may/01/open-free-access-academic-research
 author: Matthias Kretschmann
 
 date: 2012-05-02 03:12:40+00:00
-  
-categories:
-- links
-post_format:
-- Link
+
+category: links
 ---
 
 David Willetts, a minister of state for universities and science in the UK, is calling for more open access in academics:

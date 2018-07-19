@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: The Finest Coffee Cups - Most Incredible Coffee Icons On The Web
 author: Matthias Kretschmann
 image: ../media/coffee-cup-icon-kremalicious.png
 
 date: 2008-10-23 02:23:39+00:00
-  
-categories:
-- design
+
+category: design
 ---
 
 In this article I present you the finest icons of the fuel of a lot of designers and students (and other people too) available on the web. I've just released [my own coffee cup icon](/coffee-cup-icon) but this beverage seem to have inspired a lot of other beautiful icons especially for Mac OS X.

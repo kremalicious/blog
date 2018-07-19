@@ -1,5 +1,5 @@
 ---
-layout: link
+type: link
 
 title: 'Mac OS X Leopard: Designer’s Guide to Icons'
 linkurl: http://www.smashingmagazine.com/2008/04/04/mac-os-x-leopard-designers-guide-to-icons

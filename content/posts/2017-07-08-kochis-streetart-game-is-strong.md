@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Kochi's street art game is strong"
 image: ../media/2017-07-14-kochis-streetart-game-is-strong.jpg
 author: Matthias Kretschmann

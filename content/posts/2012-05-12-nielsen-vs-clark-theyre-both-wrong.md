@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: Nielsen vs Clark – they're both wrong
 linkurl: http://netmagazine.com/opinions/nielsen-vs-clark-theyre-both-wrong
 author: Matthias Kretschmann
 
 date: 2012-05-12 13:19:02+00:00
-  
-categories:
-- design
-post_format:
-- Link
+
+category: design
 tags:
 - mobile
 - responsive

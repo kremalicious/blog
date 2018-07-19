@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'Architect and Façade: Theming For Leopard'
 author: Matthias Kretschmann

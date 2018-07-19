@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Watching The Night Watch
 image: ../media/2017-02-28-watching-the-night-watch.jpg
 author: Matthias Kretschmann

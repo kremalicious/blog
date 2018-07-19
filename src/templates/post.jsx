@@ -4,10 +4,12 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
+import PostMeta from '../components/molecules/PostMeta'
 import styles from './Post.module.scss'
 
 const Post = ({ data }) => {
   const { markdownRemark: post } = data
+  const { contentYaml: meta } = data
   const { title, image } = post.frontmatter
 
   return (
@@ -25,6 +27,8 @@ const Post = ({ data }) => {
           className={styles.hentry__content}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        <PostMeta post={post} meta={meta} />
       </article>
     </Layout>
   )
@@ -47,10 +51,20 @@ export const pageQuery = graphql`
             ...ImageFluid
           }
         }
+        author
+        updated
+        category
+        tags
       }
       fields {
         slug
         date(formatString: "MMMM DD, YYYY")
+      }
+    }
+
+    contentYaml {
+      author {
+        uri
       }
     }
   }

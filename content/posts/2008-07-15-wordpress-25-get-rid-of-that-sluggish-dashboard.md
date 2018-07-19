@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'Wordpress 2.5+: Get Rid of That Sluggish Dashboard'
 author: Matthias Kretschmann
@@ -7,8 +7,7 @@ author: Matthias Kretschmann
 date: 2008-07-15 14:04:46+00:00
 
 
-categories:
-- design
+category: design
 tags:
 - tutorial
 - wordpress

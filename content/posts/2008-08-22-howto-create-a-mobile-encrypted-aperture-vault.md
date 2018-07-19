@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'HowTo: Create A Mobile Encrypted Aperture Vault'
 author: Matthias Kretschmann

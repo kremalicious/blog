@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: Can We Please Move Past Apple's Silly, Faux-Real UIs?
 linkurl: http://www.fastcodesign.com/1669879/can-we-please-move-past-apples-silly-faux-real-uis
 author: Matthias Kretschmann
 
 date: 2012-06-05 16:25:56+00:00
-  
-categories:
-- design
-post_format:
-- Link
+
+category: design
 ---
 
 Much has been written about the good and bad of skeuomorphism. Tom Hobbs wrote a [great piece](http://www.fastcodesign.com/1669879/can-we-please-move-past-apples-silly-faux-real-uis) putting everything together.

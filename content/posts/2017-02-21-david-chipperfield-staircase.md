@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: David Chipperfield staircase
 image: ../media/2017-02-21-david-chipperfield-staircase.jpg
 author: Matthias Kretschmann

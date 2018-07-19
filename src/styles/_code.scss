@@ -78,7 +78,7 @@ pre > code.language-shell {
 }
 
 :not(pre) > code[class*='language-'] {
-    background: rgba($code-bg, .1);
+    background: rgba($code-bg, .05);
     color: $text-color;
 }
 

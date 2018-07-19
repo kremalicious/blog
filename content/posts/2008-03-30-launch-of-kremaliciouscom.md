@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Launch of kremalicious.com
 author: Matthias Kretschmann
 
 date: 2008-03-30 19:24:21+00:00
-  
-categories:
-- personal
+
+category: personal
 tags:
     - wordpress
 ---

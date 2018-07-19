@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'Update: First overview: Aperture 2.1 adjustment plugins have arrived'
 author: Matthias Kretschmann
 
 date: 2008-05-18 05:00:01+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 

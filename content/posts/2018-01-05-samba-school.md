@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Escola de Samba"
 image: ../media/2018-01-05-samba-school.jpg
 author: Matthias Kretschmann

@@ -1,14 +1,11 @@
 ---
 author: Matthias Kretschmann
 date: 2012-04-04 14:24:30+00:00
-layout: post
+type: post
 title: The Android Tab Bar Conundrum. Again.
 image: ../media/tabs_overview.png
 
-  
-
-categories:
-    - design
+category: design
 tags:
     - android
 ---

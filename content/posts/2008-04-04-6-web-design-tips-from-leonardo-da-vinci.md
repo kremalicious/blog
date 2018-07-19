@@ -1,14 +1,13 @@
 ---
-layout: link
+type: link
 
 title: 6 Web Design Tips from Leonardo da Vinci
 linkurl: http://designpepper.com/blog/6-web-design-tips-from-leonardo-da-vinci
 author: Matthias Kretschmann
 
 date: 2008-04-04 18:43:05+00:00
-  
-categories:
-- design
+
+category: design
 ---
 
 An awesome creative idea for a blog post about Web-Design from Joshua Clanton:

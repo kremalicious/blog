@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'New Aperture Plug-Ins: Jade And PTLens'
 author: Matthias Kretschmann
 
 date: 2008-07-08 19:19:54+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 ---

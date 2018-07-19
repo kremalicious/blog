@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Passagem Literária da Consolação"
 image: ../media/2018-01-04-passagem-literaria-da-consolacao.jpg
 author: Matthias Kretschmann

@@ -1,14 +1,13 @@
 ---
-layout: link
+type: link
 
 title: First principles for choosing the right typeface
 linkurl: http://ilovetypography.com/2008/04/04/on-choosing-type
 author: Matthias Kretschmann
 
 date: 2008-04-05 14:01:51+00:00
-  
-categories:
-- design
+
+category: design
 tags:
 - typography
 ---

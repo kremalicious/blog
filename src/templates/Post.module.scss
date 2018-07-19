@@ -58,18 +58,6 @@
         @include heading-band();
     }
 
-    h1 {
-        font-size: $font-size-h2;
-    }
-
-    h2 {
-        font-size: $font-size-h3;
-    }
-
-    h3 {
-        font-size: $font-size-h4;
-    }
-
     p:last-child {
         margin-bottom: 0;
     }

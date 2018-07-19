@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: Aperture File Types
 image: ../media/Teaser-Aperture-File-Types.jpg
 download: ../media/aperturefiletypes_by_kremalicious.zip
@@ -23,10 +23,10 @@ These icons are free for your personal use and include icons for all file types 
 - Leopard ready (512×512)
 - custom 32px and 16px icons
 
-Get them from [the goodies-page](http://www.kremalicious.com/goodies/) and have fun.
+Get them from [the goodies-page](https://kremalicious.com/goodies/) and have fun.
 
 <p class="content-download">
     <a class="icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
 </p>
 
-And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](http://www.kremalicious.com/2008/04/changing-the-image-icons-in-mac-os-x-leopard/).
+And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](https://kremalicious.com/2008/04/changing-the-image-icons-in-mac-os-x-leopard/).

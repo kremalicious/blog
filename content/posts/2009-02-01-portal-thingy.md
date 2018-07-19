@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: 'Portal Thingy: matthiaskretschmann.com'
 image: ../media/
 author: Matthias Kretschmann
 
 date: 2009-02-01 06:01:28+00:00
-  
-categories:
-- personal
+
+category: personal
 ---
 
 
@@ -29,7 +28,7 @@ But the sad thing I had to learn was that Internet Explorer 7 and Google Chrome 
 
 That's why some eye candy will not be displayed to Internet Explorer users (no big light spot and no hover effect on the header) and I hope Google will fix this soon. And following my own tradition Internet Explorer 6 and below users will get a big warning banner on top of the site.
 
-For all other modern browsers beside those mentioned above the site should work well but you'll get the best viewing experience with [Safari](http://www.apple.com/safari/), [Firefox 3.1](http://www.mozilla.com/en-US/firefox/all-beta.html) or [Opera](http://www.opera.com/) (because of their [text-shadow support](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/)). 
+For all other modern browsers beside those mentioned above the site should work well but you'll get the best viewing experience with [Safari](http://www.apple.com/safari/), [Firefox 3.1](http://www.mozilla.com/en-US/firefox/all-beta.html) or [Opera](http://www.opera.com/) (because of their [text-shadow support](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/)).
 
 If you find a bug or have any additions feel free to [contact me](/contact), post them in the comments or [throw me a note on Twitter](https://twitter.com/kremalicious).
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Icy Box Icons
 image: ../media/Teaser-Icy-Box.jpg
@@ -7,9 +7,8 @@ download: ../media/icybox_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-08-26 19:16:38+00:00
-  
-categories:
-- goodies
+
+category: goodies
 tags:
 - icon
 

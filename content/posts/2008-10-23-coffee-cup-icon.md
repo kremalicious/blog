@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Coffee Cup Icon
 image: ../media/Teaser-Coffee-Cup-Icon.jpg
@@ -7,9 +7,8 @@ download: ../media/coffee_cup_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-10-23 14:59:23+00:00
-  
-categories:
-- goodies
+
+category: goodies
 tags:
 - icon
 ---

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Scan images directly into Apple Aperture
 author: Matthias Kretschmann

@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: How Yahoo Killed Flickr and Lost the Internet
 linkurl: http://gizmodo.com/5910223/how-yahoo-killed-flickr-and-lost-the-internet
 author: Matthias Kretschmann
 
 date: 2012-05-22 01:00:03+00:00
-  
-categories:
-- photography
-post_format:
-- Link
+
+category: photography
 ---
 
 Great insight article into what and how exactly Yahoo managed to screw this up.

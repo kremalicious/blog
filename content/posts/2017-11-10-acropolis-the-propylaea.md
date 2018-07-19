@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "The Propylaea"
 image: ../media/2017-11-10-acropolis-the-propylaea.jpg
 author: Matthias Kretschmann

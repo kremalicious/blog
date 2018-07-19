@@ -1,14 +1,13 @@
 ---
-layout: post
+type: post
 
 title: I'm joining ezeep
 image: ../media/kremalicious-Teaser-ezeep.png
 author: Matthias Kretschmann
 
 date: 2012-08-20 14:12:11+00:00
-  
-categories:
-- personal
+
+category: personal
 tags:
 - ezeep
 ---

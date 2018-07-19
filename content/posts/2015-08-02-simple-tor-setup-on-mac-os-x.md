@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Simple Tor setup on macOS
 image: ../media/teaser-tor.png

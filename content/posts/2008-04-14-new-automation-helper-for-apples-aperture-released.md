@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: New automation helper for Apple's Aperture released
 author: Matthias Kretschmann

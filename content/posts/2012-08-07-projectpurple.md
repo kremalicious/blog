@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Project Purple
 image: ../media/Teaser-Project-Purple.png

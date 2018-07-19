@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 title: Add your web site to the Windows 8 Metro UI
 image: ../media/kremalicious-Teaser-Metro-Tile.jpg
 author: Matthias Kretschmann
 
 date: 2012-07-15 16:19:55+00:00
-  
-categories:
-- design
+
+category: design
 tags:
 - icon
 - windows

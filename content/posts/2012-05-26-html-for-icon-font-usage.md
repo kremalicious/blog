@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: HTML for Icon Font Usage
 linkurl: http://css-tricks.com/html-for-icon-font-usage/
 author: Matthias Kretschmann
 
 date: 2012-05-26 05:13:58+00:00
-  
-categories:
-- design
-post_format:
-- Link
+
+category: design
 ---
 
 Chris Coyier on an accessible implementation for icon fonts:

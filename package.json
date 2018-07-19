@@ -21,7 +21,6 @@
     "last 3 versions"
   ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.0.3",
     "clipboard": "^2.0.1",
     "exif-js": "^2.3.0",
     "gatsby": "^2.0.0-beta.47",
@@ -49,7 +48,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
-    "time-elements": "^1.1.0",
+    "react-time": "^4.3.0",
     "vex-js": "^4.1.0"
   },
   "devDependencies": {

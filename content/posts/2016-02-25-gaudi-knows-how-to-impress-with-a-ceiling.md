@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: 'Gaudí knows how to impress with a ceiling'
 image: ../media/sagrada-familia-ceiling.jpg
 author: Matthias Kretschmann

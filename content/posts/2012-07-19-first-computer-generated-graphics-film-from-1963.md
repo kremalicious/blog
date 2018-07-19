@@ -1,16 +1,13 @@
 ---
-layout: link
+type: link
 
 title: First computer generated graphics film from 1963
 linkurl: http://techchannel.att.com/play-video.cfm/2012/7/18/AT&T-Archives-First-Computer-Generated-Graphics-Film
 author: Matthias Kretschmann
 
 date: 2012-07-19 12:30:56+00:00
-  
-categories:
-- design
-post_format:
-- Link
+
+category: design
 tags:
 - history
 ---

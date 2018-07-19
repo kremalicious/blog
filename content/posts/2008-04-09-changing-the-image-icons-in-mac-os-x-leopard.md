@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'HowTo: Changing the image icons in Mac OS X Leopard'
 author: Matthias Kretschmann

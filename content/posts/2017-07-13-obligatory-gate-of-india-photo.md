@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Obligatory Gateway of India photo"
 image: ../media/2017-07-13-obligatory-gate-of-india-photo.jpg
 author: Matthias Kretschmann

@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Behind the art
 image: ../media/behind-the-art.jpg
 author: Matthias Kretschmann

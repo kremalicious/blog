@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: 'New Aperture Plug-In: Nik announces Silver Efex Pro'
 author: Matthias Kretschmann
 
 date: 2008-07-11 19:13:16+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 ---

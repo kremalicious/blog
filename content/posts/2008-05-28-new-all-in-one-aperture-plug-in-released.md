@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: New all-in-one Aperture plug-in released
 author: Matthias Kretschmann
 
 date: 2008-05-28 15:29:56+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 

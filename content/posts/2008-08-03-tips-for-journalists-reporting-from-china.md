@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Tips for Journalists Reporting From China
 author: Matthias Kretschmann
 
 date: 2008-08-03 17:10:25+00:00
-  
-categories:
-- photography
+
+category: photography
 ---
 
 ![Jingjing and Chacha are watching you](../media/jingjing_chacha_kremalicious.jpg)

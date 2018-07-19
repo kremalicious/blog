@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: WebKit team introduces CSS-based gradients
 author: Matthias Kretschmann
 
 date: 2008-04-15 17:36:34+00:00
-  
-categories:
-- design
+
+category: design
 tags:
 - css
 ---

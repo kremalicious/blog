@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: The Mac in Futurama
 author: Matthias Kretschmann

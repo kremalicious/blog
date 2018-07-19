@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Adiumeetie. Tweetie Style Adium Icon
 image: ../media/Teaser-Adiumeetie.jpg

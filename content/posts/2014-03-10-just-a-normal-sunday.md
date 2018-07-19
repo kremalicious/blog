@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Just a normal Sunday
 image: ../media/just-a-normal-sunday.jpg
 author: Matthias Kretschmann

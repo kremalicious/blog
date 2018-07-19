@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: Kochis dhobhi ghat
 image: ../media/2017-07-10-kochis-dhobhi-ghat.jpg
 author: Matthias Kretschmann

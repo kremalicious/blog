@@ -1,14 +1,13 @@
 ---
-layout: link
+type: link
 
 title: Photographers strike back in UK
 linkurl: http://www.pressgazette.co.uk/node/40875
 author: Matthias Kretschmann
 
 date: 2008-04-11 14:16:51+00:00
-  
-categories:
-- photography
+
+category: photography
 ---
 
 [![London police afraid of photographers](../media/londonpolice.jpg)](../media/londonpolice.jpg)Remember [the campaign of the London police](http://www.kremalicious.com/2008/04/london-police-afraid-of-photographers/) calling all people to regard photographers as potential terrorists?

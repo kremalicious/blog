@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: We Are Out Of Whale Oil
 image: ../media/Teaser-Out-Of-Whale-Oil.jpg

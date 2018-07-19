@@ -1,5 +1,5 @@
 ---
-layout: link
+type: link
 
 title: 9 Lesser Known Safari Features
 linkurl: http://www.danielmiessler.com/blog/9-lesser-known-safari-features-worth-switching-for

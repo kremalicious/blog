@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: Using the CanoScan LiDE 500F scanner with Mac OS X Leopard
 author: Matthias Kretschmann

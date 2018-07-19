@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 
 title: 'Safari 4 Developer Preview - Better Performance, Overhauled Web Inspector, New CSS'
 author: Matthias Kretschmann

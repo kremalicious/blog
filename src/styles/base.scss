@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 *,
 *::before,
@@ -131,7 +132,6 @@ h6 {
     line-height: $line-height-headings;
     color: $color-headings;
     font-weight: $font-weight-headings;
-    margin: 0 0 $spacer;
     letter-spacing: -.02em;
 
     .dark & {
@@ -143,7 +143,7 @@ h6 {
 /////////////////////////////////////
 
 a {
-    color: $brand-cyan;
+    color: $link-color;
     text-decoration: none;
     transition: .2s ease-out;
 
@@ -156,14 +156,14 @@ a {
     &:hover,
     &:focus {
         outline: 0;
-        color: lighten($brand-cyan, 10%);
+        color: lighten($link-color, 10%);
         transform: translate3d(0, -.1rem, 0);
     }
 
     &:active {
         transition: none;
-        color: darken($brand-cyan, 30%);
-        box-shadow: inset 0 -1px 0 darken($brand-cyan, 30%);
+        color: darken($link-color, 30%);
+        box-shadow: inset 0 -1px 0 darken($link-color, 30%);
     }
 }
 
@@ -219,7 +219,7 @@ ul,
 ol {
     margin-top: 0;
     margin-bottom: $spacer;
-    padding-left: ($spacer * 1.5);
+    padding-left: $spacer;
     list-style: none;
 
     li {
@@ -228,7 +228,7 @@ ol {
         // stylelint-disable no-descending-specificity
         &::before {
             position: absolute;
-            left: -($spacer * 1.5);
+            left: -($spacer);
             top: -1px;
             color: $text-color-light;
             user-select: none;
@@ -273,16 +273,10 @@ mark {
 }
 
 hr {
+    margin: 0;
     border: 0;
-    border-bottom: 1px dashed #afc3cb;
-    padding-bottom: $spacer;
-    margin-bottom: $spacer * 2;
 
-    &::before {
-        bottom: -2px;
-        width: 100%;
-        border-bottom: 1px dashed #fff;
-    }
+    @include divider();
 }
 
 // Quotes
@@ -300,6 +294,7 @@ cite {
 blockquote,
 blockquote > p {
     font-style: italic;
+    color: $brand-grey-light;
 }
 
 blockquote {
@@ -319,7 +314,7 @@ blockquote {
     &::before {
         content: '“';
         font-size: 300%;
-        color: lighten($text-color, 40%);
+        color: lighten($brand-grey-light, 20%);
         position: absolute;
         left: -10px;
         top: -20px;

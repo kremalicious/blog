@@ -1,11 +1,10 @@
 ---
-layout: link
+type: link
 
 title: Why the world's best photo startup is going out of business
 linkurl: http://www.theverge.com/2013/11/5/5039216/everpix-life-and-death-inside-the-worlds-best-photo-startup
 
-categories:
-- photography
+category: photography
 ---
 
 Really sad, the service was awesome. But good example that building an awesome product is not enough:

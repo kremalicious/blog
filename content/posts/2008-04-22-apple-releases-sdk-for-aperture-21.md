@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Apple releases plugin-SDK for Aperture 2.1
 author: Matthias Kretschmann
 
 date: 2008-04-22 05:58:41+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 ---

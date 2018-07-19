@@ -1,5 +1,5 @@
 ---
-layout: photo
+type: photo
 title: "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya"
 image: ../media/2017-07-14-chhatrapati-shivaji-maharaj-vastu-sangrahalaya.jpg
 author: Matthias Kretschmann

@@ -1,13 +1,12 @@
 ---
-layout: post
+type: post
 
 title: Adjustment Tool Guide for Aperture 1.5.2
 author: Matthias Kretschmann
 
 date: 2007-03-01 20:50:32+00:00
-  
-categories:
-- photography
+
+category: photography
 tags:
 - aperture
 coinhive: true
