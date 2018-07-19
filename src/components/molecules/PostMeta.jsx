@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Time from 'react-time'
+import slugify from 'slugify'
 import PostLinkActions from '../atoms/PostLinkActions'
 import styles from './PostMeta.module.scss'
 
@@ -33,7 +34,7 @@ const PostMeta = ({ post, meta }) => {
 
       {category && (
         <div className={styles.categories}>
-          <a className={styles.category} href="/">
+          <a className={styles.category} href={`/${slugify(category)}/`}>
             {category}
           </a>
         </div>
@@ -42,7 +43,7 @@ const PostMeta = ({ post, meta }) => {
       {tags && (
         <div className={styles.tags}>
           {tags.map(tag => (
-            <a key={tag} className={styles.tag} href={`/tag/${tag}/`}>
+            <a key={tag} className={styles.tag} href={`/tag/${slugify(tag)}/`}>
               {tag}
             </a>
           ))}

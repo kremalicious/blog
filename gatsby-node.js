@@ -47,9 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve('src/templates/Post.jsx')
-    // const indexTemplate = path.resolve('src/templates/index.jsx')
-    // const tagTemplate = path.resolve('src/templates/tag.jsx')
-    // const categoryTemplate = path.resolve('src/templates/category.jsx')
+    const archiveTemplate = path.resolve('src/templates/Archive.jsx')
 
     resolve(
       graphql(
@@ -64,6 +62,10 @@ exports.createPages = ({ graphql, actions }) => {
                   fields {
                     slug
                     date
+                  }
+                  frontmatter {
+                    category
+                    tags
                   }
                 }
               }
@@ -90,46 +92,46 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        // const tagSet = new Set()
-        // const tagMap = new Map()
-        // const categorySet = new Set()
+        // Category & Tag Pages
+        const tagSet = new Set()
+        const tagMap = new Map()
+        const categorySet = new Set()
 
-        // posts.forEach(post => {
-        //   if (post.node.frontmatter.tags) {
-        //     post.node.frontmatter.tags.forEach(tag => {
-        //       tagSet.add(tag)
+        posts.forEach(post => {
+          if (post.node.frontmatter.tags) {
+            post.node.frontmatter.tags.forEach(tag => {
+              tagSet.add(tag)
 
-        //       const array = tagMap.has(tag) ? tagMap.get(tag) : []
-        //       array.push(post)
-        //       tagMap.set(tag, array)
-        //     })
-        //   }
+              const array = tagMap.has(tag) ? tagMap.get(tag) : []
+              array.push(post)
+              tagMap.set(tag, array)
+            })
+          }
 
-        //   if (post.node.frontmatter.category) {
-        //     categorySet.add(post.node.frontmatter.category)
-        //   }
-        // })
+          if (post.node.frontmatter.category) {
+            categorySet.add(post.node.frontmatter.category)
+          }
+        })
 
-        // const tagList = Array.from(tagSet)
+        const tagList = Array.from(tagSet)
 
-        // tagList.forEach(tag => {
-        //   // Creates tag pages
-        //   createPage({
-        //     path: `/tags/${tag}/`,
-        //     component: tagTemplate,
-        //     context: { tag }
-        //   })
-        // })
+        tagList.forEach(tag => {
+          createPage({
+            path: `/tag/${tag}/`,
+            component: archiveTemplate,
+            context: { tag }
+          })
+        })
 
-        // const categoryList = Array.from(categorySet)
+        const categoryList = Array.from(categorySet)
 
-        // categoryList.forEach(category => {
-        //   createPage({
-        //     path: `/categories/${category}/`,
-        //     component: categoryTemplate,
-        //     context: { category }
-        //   })
-        // })
+        categoryList.forEach(category => {
+          createPage({
+            path: `/${category}/`,
+            component: archiveTemplate,
+            context: { category }
+          })
+        })
 
         resolve()
       })

@@ -33,6 +33,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        excerpt_separator: '<!-- more -->',
         plugins: [
           {
             resolve: 'gatsby-remark-images',
@@ -42,6 +43,12 @@ module.exports = {
               sizeByPixelDensity: true,
               showCaptions: true,
               backgroundColor: '#dfe8ef'
+            }
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'media'
             }
           },
           'gatsby-remark-prismjs',
@@ -60,6 +67,7 @@ module.exports = {
     'gatsby-transformer-yaml',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-catch-links'
   ]
 }

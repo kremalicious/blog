@@ -47,6 +47,7 @@ export const pageQuery = graphql`
   query BlogPostByPath($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       frontmatter {
         type
         title
