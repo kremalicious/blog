@@ -15,10 +15,6 @@ tags:
 coinhive: true
 ---
 
-<style>
-    @import './post-kbd.css';
-</style>
-
 There's this HTML element meant for marking up keyboard keys named `<kbd>`. Obviously it can be styled with CSS so why not use it to make those elements look a bit more like hardware or the iOS and Android software keys.
 
 The above picture might be blurry depending on the device you're using so here's a live rendered demo:

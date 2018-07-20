@@ -21,8 +21,10 @@ const PostMeta = ({ post, meta }) => {
       </div>
 
       <div className={styles.time}>
+        {updated && 'published '}
         <Time value={new Date(date)} titleFormat="YYYY/MM/DD HH:mm" relative />
 
+        {updated && ' • updated '}
         {updated && (
           <Time
             value={new Date(updated)}

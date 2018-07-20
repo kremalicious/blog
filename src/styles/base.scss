@@ -279,60 +279,6 @@ hr {
     @include divider();
 }
 
-// Quotes
-/////////////////////////////////////
-
-q {
-    font-style: italic;
-}
-
-cite {
-    font-style: normal;
-    text-transform: uppercase;
-}
-
-blockquote,
-blockquote > p {
-    font-style: italic;
-    color: $brand-grey-light;
-}
-
-blockquote {
-    margin: 0 0 $spacer;
-    position: relative;
-    padding-left: 20px;
-
-    @media (min-width: $screen-xs) {
-        padding-left: 40px;
-    }
-
-    @media (min-width: $screen-lg) {
-        padding-left: 60px;
-    }
-
-    // quotation marks
-    &::before {
-        content: '“';
-        font-size: 300%;
-        color: lighten($brand-grey-light, 20%);
-        position: absolute;
-        left: -10px;
-        top: -20px;
-
-        @media (min-width: $screen-xs) {
-            left: 0;
-        }
-
-        @media (min-width: $screen-lg) {
-            top: -30px;
-        }
-    }
-
-    p:last-child {
-        margin-bottom: 0;
-    }
-}
-
 // Selection
 /////////////////////////////////////
 
@@ -357,3 +303,5 @@ blockquote {
 
 @import 'code';
 @import 'buttons';
+@import 'alerts';
+@import 'content';

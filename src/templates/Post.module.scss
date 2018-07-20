@@ -41,15 +41,8 @@
 // Post Content
 /////////////////////////////////////
 
-.hentry__content {
-    h1,
-    h2 {
-        @include heading-band();
-    }
-
-    p:last-child {
-        margin-bottom: 0;
-    }
+.hentry__lead {
+    @include lead();
 }
 
 // Goodies download

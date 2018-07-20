@@ -167,8 +167,8 @@ a.btn-primary {
 .content-download {
     text-align: center;
     display: block;
-    margin-top: $spacer * 2;
-    margin-bottom: $spacer * 2;
+    margin-top: $spacer;
+    margin-bottom: $spacer;
 
     @media (min-width: $screen-xs) {
         display: flex;

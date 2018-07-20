@@ -40,7 +40,7 @@ module.exports = {
             options: {
               maxWidth: 940,
               linkImagesToOriginal: false,
-              sizeByPixelDensity: true,
+              // sizeByPixelDensity: true,
               showCaptions: true,
               backgroundColor: '#dfe8ef'
             }

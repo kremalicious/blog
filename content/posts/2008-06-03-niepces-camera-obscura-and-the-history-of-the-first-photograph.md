@@ -21,11 +21,13 @@ redirect_from:
     - /2008/06/niepces-camera-obscura-and-the-history-of-the-first-photograph/
 ---
 
-These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography. This first preserved photograph "View from the Window at Le Gras" is the one you can see in the iPhoto icon contained in this package. The third icon is the folder icon I have created for this icon package.
+These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography.
+
+This first preserved photograph _View from the Window at Le Gras_ is the one you can see in the iPhoto icon contained in this package. The third icon is the folder icon I have created for this icon package.
 
 Either just download the icons or read the exciting story about the First Photograph.
 
-{% include picture.html file='cameraobscura11_all.png' %}
+![](../media/cameraobscura11_all.png)
 
 # The story behind these icons
 
@@ -33,7 +35,7 @@ There's a fascinating story behind these icons which is nothing more than the st
 
 ## Nicéphore Niépce and The First Photograph
 
-![Nicéphore Niépce, ca. 1795](../media/nicephore-niepce.jpg) Nicéphore Niépce, ca. 1795
+<img src="../media/nicephore-niepce.jpg" alt="Nicéphore Niépce, ca. 1795" title="Nicéphore Niépce, ca. 1795">
 
 Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
@@ -45,16 +47,15 @@ In 1822 he created a first non-fading negative contact print by utilizing a bitu
 
 After some more tries and combining other elements in his procedure he was able to produce the famous First Photograph "View from the Window at Le Gras" in 1826 or 1827 by utilizing a bitumen of Judea-coated pewter plate and improved lenses from the Paris optician, Charles Chevalier. He called this procedure Heliography and the bitumen-coated pewter plate needed an exposure of eight or more hours!
 
-{% include picture.html file='View-from-the-Window-at-Le-Gras.png' %}
-View from the Window at Le Gras
+<img src="../media/view_from_the_window_at_le_gras_nicephore_niepce.jpg" alt="View from the Window at Le Gras" title="View from the Window at Le Gras">
 
-By the way, in 2002 another Picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", "View from the Window at Le Gras" remains the First "real" photograph.
+By the way, in 2002 another picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", _View from the Window at Le Gras_ remains the first "real" photograph.
 
-Because of his inventions he got in contact with the French artist, chemist and inventor Louis-Jacques-Mandé Daguerre and they became officially partners by the time of 1829 (14 December). At this time Daguerre already was famous for his impressive Dioramas. They were both experimenting a lot to produce preserved images in less time. In June 1832 both invented a process called the Physautotype. This process utilized a distillate of lavender oil as the photosensitive agent and produced images in fewer than 8 hours.
+Because of his inventions he got in contact with the French artist, chemist and inventor Louis-Jacques-Mandé Daguerre and they became officially partners by the time of 1829 (14 December). At that time, Daguerre already was famous for his impressive Dioramas. They were both experimenting a lot to produce preserved images in less time. In June 1832 both invented a process called the Physautotype. This process utilized a distillate of lavender oil as the photosensitive agent and produced images in fewer than 8 hours.
 
 But Niépce died suddenly in 1833 and instead of him his partner Louis-Jacques-Mandé Daguerre became famous with his Daguerreotype process in 1839. Finally Daguerre was named and praised as the inventor of photography along with his competitor [William Fox Talbot](http://en.wikipedia.org/wiki/William_Henry_Fox_Talbot).
 
-But in 1952 Niépce's lost image "View from the Window at Le Gras" was discovered and since then he has to be named along with Daguerre and Talbot when speaking of the invention of photography. And we can learn that the invention of photography wasn't an act of one particular genius but a decades long process with many smart people involved.
+But in 1952 Niépce's lost image _View from the Window at Le Gras_ was discovered and since then he has to be named along with Daguerre and Talbot when speaking of the invention of photography. And we can learn that the invention of photography wasn't an act of one particular genius but a decades long process with many smart people involved.
 
 If you're interested in all the different processes and techniques used by Niépce and Daguerre you can browse the [Invention of Photography section on the website of Maison Nicéphore Niépce](http://www.nicephore-niepce.com/pagus/pagus-inv.html).
 
