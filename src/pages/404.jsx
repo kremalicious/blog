@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Layout from '../components/Layout'
 
-const NotFound = () => (
+const NotFound = ({ location }) => (
   <Layout location={location}>
     <div className="hal-9000" />
 
@@ -13,5 +14,9 @@ const NotFound = () => (
     </a>
   </Layout>
 )
+
+NotFound.propTypes = {
+  location: PropTypes.object.isRequired
+}
 
 export default NotFound

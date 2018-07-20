@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import styles from './Archive.module.scss'
 
-const Archive = ({ data, pageContext }) => {
+const Archive = ({ data, location, pageContext }) => {
   let posts
   let archiveTitle
 
@@ -32,6 +32,7 @@ const Archive = ({ data, pageContext }) => {
 
 Archive.propTypes = {
   data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired
 }
 

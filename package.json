@@ -23,7 +23,7 @@
   "dependencies": {
     "clipboard": "^2.0.1",
     "exif-js": "^2.3.0",
-    "gatsby": "^2.0.0-beta.53",
+    "gatsby": "^2.0.0-beta.54",
     "gatsby-image": "^2.0.0-beta.6",
     "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-matomo": "^0.4.1",

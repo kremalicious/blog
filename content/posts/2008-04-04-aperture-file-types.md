@@ -26,7 +26,7 @@ These icons are free for your personal use and include icons for all file types 
 Get them from [the goodies-page](https://kremalicious.com/goodies/) and have fun.
 
 <p class="content-download">
-    <a class="icon-download" href="/media/aperturefiletypes_by_kremalicious.zip">Download</a>
+    <a class="icon-download" href="../media/aperturefiletypes_by_kremalicious.zip">Download</a>
 </p>
 
 And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](https://kremalicious.com/2008/04/changing-the-image-icons-in-mac-os-x-leopard/).

@@ -44,16 +44,3 @@
 .hentry__lead {
     @include lead();
 }
-
-// Goodies download
-/////////////////////////////////////
-
-.goodie-actions {
-    text-align: center;
-    max-width: 640px;
-
-    .btn {
-        margin-bottom: 0;
-        display: block;
-    }
-}

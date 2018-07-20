@@ -31,7 +31,7 @@ But I think you don't want to load tons of scripts on your websites if you inclu
 
 To make this a bit more straightforward I provide these links compiled within two Coda Clip files for use with [Panic's Coda](http://panic.com/coda). While the first clip group contains all the plain link snippets the second group includes those snippets for use with Wordpress. Just download and add them to your Coda Clips collection:
 
-<a class="btn btn-primary icon icon-download" href="/media/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
+<a class="btn btn-primary icon icon-download" href="../media/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
 
 Included are a **total of 40 share links per clip group** for the following social/bookmark sites. This list uses the links provided in the Coda clips so you can test them out here with this article:
 

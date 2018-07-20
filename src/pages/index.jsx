@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const edges = data.allMarkdownRemark.edges
   const Posts = edges
     // .filter(edge => !!edge.node.frontmatter.date)
@@ -21,7 +21,8 @@ const IndexPage = ({ data }) => {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 }
 
 export default IndexPage
