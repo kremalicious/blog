@@ -295,12 +295,6 @@ hr {
 // More basic elements
 /////////////////////////////////////
 
-#___gatsby {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
 @import 'code';
 @import 'buttons';
 @import 'alerts';

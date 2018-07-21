@@ -1,9 +1,51 @@
 @import 'variables';
+@import 'mixins';
 
-.screen {
+#___gatsby {
+    // display: flex;
+    // min-height: 100vh;
+    // flex-direction: column;
+    position: relative;
+}
+
+.site__content,
+.header__content,
+.footer__content {
+    padding: 0 $spacer;
     width: 100%;
-    max-width: 38rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: $spacer;
+
+    @media (min-width: $screen-sm) {
+        padding: 0 ($spacer * 2);
+    }
+}
+
+// topbar and footer as fixed
+// site background
+/////////////////////////////////////
+
+.site__document {
+    width: 100%;
+    padding-top: ($spacer * 2);
+    background-color: $page-background-color;
+    border-top: 1px solid rgba(255, 255, 255, .7);
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    box-shadow: 0 1px 4px rgba($brand-main, .1),
+        0 -1px 4px rgba($brand-main, .2);
+    transform: translate3d(0, 0, 0);
+
+    .has-menu-open & {
+        transform: translate3d(0, 0, 0);
+    }
+
+    @media (min-width: $screen-sm) {
+        @include transition;
+
+        margin-top: $spacer * 3;
+        position: relative;
+        z-index: 2;
+
+        .has-menu-open & {
+            transform: translate3d(0, ($spacer * 8), 0);
+        }
+    }
 }

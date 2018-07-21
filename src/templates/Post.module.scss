@@ -10,6 +10,10 @@
         padding-top: $spacer * 3;
         padding-bottom: $spacer * 3;
     }
+
+    &:first-child {
+        padding-top: 0;
+    }
 }
 
 // Post/photo teaser

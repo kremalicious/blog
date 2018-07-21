@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import Container from './atoms/Container'
 import Head from './molecules/Head'
+import Header from './molecules/Header'
 import styles from './Layout.module.scss'
 
 const Layout = ({ children, location }) => {
@@ -34,9 +36,12 @@ const Layout = ({ children, location }) => {
         return (
           <Fragment>
             <Head meta={meta} />
+            <Header />
 
-            <main className={styles.screen} location={location}>
-              {children}
+            <main className={styles.site__document} location={location}>
+              <div className={styles.site__content}>
+                <Container>{children}</Container>
+              </div>
             </main>
           </Fragment>
         )
