@@ -118,8 +118,8 @@ And in your CSS select this class and style it with a background image. Assuming
 
 ```css
 .delicious {
-  background: url(delicious.png) no-repeat center center;
-  padding-left: 20px;
+    background: url(delicious.png) no-repeat center center;
+    padding-left: 20px;
 }
 ```
 
@@ -128,10 +128,10 @@ If you want to use just icons and no text you should provide a link text anyway 
 
 ```css
 .delicious {
-  width: 16px;
-  height: 16px;
-  background: url(delicious.png) no-repeat center center;
-  text-indent: -999999px;
+    width: 16px;
+    height: 16px;
+    background: url(delicious.png) no-repeat center center;
+    text-indent: -999999px;
 }
 ```
 

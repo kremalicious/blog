@@ -66,21 +66,28 @@ const Post = ({ data, location }) => {
       <article className={styles.hentry}>
         <PostTitle type={type} linkurl={linkurl} title={title} />
 
+        <PostLead post={post} />
+
         {image && (
           <figure className={styles.hentry__teaser}>
             <Image fluid={image.childImageSharp.fluid} alt={title} />
           </figure>
         )}
 
-        <div
-          className={styles.hentry__content}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        <PostContent post={post} />
 
         <PostMeta post={post} meta={meta} />
       </article>
     </Layout>
   )
+}
+
+PostLead.propTypes = {
+  post: PropTypes.object.isRequired
+}
+
+PostContent.propTypes = {
+  post: PropTypes.object.isRequired
 }
 
 Post.propTypes = {
