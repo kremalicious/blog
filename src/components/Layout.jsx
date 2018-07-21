@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Container from './atoms/Container'
 import Head from './molecules/Head'
-import Header from './molecules/Header'
+import Header from './organisms/Header'
 import styles from './Layout.module.scss'
 
 const Layout = ({ children, location }) => {

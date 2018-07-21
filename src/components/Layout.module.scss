@@ -9,7 +9,6 @@
 }
 
 .site__content,
-.header__content,
 .footer__content {
     padding: 0 $spacer;
     width: 100%;
@@ -33,19 +32,19 @@
         0 -1px 4px rgba($brand-main, .2);
     transform: translate3d(0, 0, 0);
 
-    .has-menu-open & {
-        transform: translate3d(0, 0, 0);
+    :global(.has-menu-open) & {
+        transform: translate3d(0, ($spacer * 8), 0);
     }
 
     @media (min-width: $screen-sm) {
         @include transition;
 
-        margin-top: $spacer * 3;
+        margin-top: $spacer * 2.65;
         position: relative;
         z-index: 2;
 
-        .has-menu-open & {
-            transform: translate3d(0, ($spacer * 8), 0);
+        :global(.has-menu-open) & {
+            transform: translate3d(0, ($spacer * 5), 0);
         }
     }
 }

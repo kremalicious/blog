@@ -61,6 +61,20 @@ textarea {
     line-height: inherit;
 }
 
+// Reset default button element
+button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+
+    &:active {
+        transition: none;
+        text-shadow: none;
+    }
+}
+
 // Headings
 /////////////////////////////////////
 

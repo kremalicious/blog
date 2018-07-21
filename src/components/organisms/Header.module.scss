@@ -6,14 +6,25 @@
     margin-bottom: ($spacer/2);
 
     @media (min-width: $screen-sm) {
-        margin-top: $spacer;
-        margin-bottom: $spacer;
         position: fixed;
         width: 100%;
         z-index: 1;
         top: 0;
         border: 0;
         will-change: transform;
+    }
+}
+
+.header__content {
+    @include breakoutviewport;
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $spacer;
+
+    @media (min-width: $screen-md) {
+        padding: 0;
     }
 }
 
@@ -44,7 +55,8 @@
 }
 
 .title {
-    margin: 0;
+    margin-top: $spacer / 5;
+    margin-bottom: 0;
     // display toned down logo
     // by default
     @extend .logo;
@@ -69,5 +81,41 @@
     &:active {
         top: 0;
         box-shadow: none;
+    }
+}
+
+.nav {
+    display: inline-block;
+}
+
+.search {
+    padding: .65rem .85rem;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: $spacer / 4;
+
+    &:focus {
+        outline: 0;
+    }
+
+    svg {
+        fill: $text-color-light;
+        width: 21px;
+        height: 21px;
+    }
+
+    &:hover,
+    &:focus {
+        svg {
+            fill: $brand-cyan;
+        }
+    }
+
+    &:active {
+        svg {
+            fill: darken($brand-cyan, 30%);
+        }
     }
 }

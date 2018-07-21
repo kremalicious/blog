@@ -2,7 +2,8 @@
 @import 'mixins';
 
 .archiveTitle {
-    font-size: $font-size-h3;
-
     @include heading-band();
+
+    font-size: $font-size-h3;
+    margin-top: 0;
 }
