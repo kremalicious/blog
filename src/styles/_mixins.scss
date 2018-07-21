@@ -66,8 +66,7 @@
 // Text overflow
 /////////////////////////////////////
 
-@mixin ellipsis($width) {
-    width: $width;
+@mixin ellipsis() {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

@@ -1,15 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import Forward from '../svg/Forward'
+import Infinity from '../svg/Infinity'
 import styles from './PostLinkActions.module.scss'
 
 const PostLinkActions = ({ linkurl, slug }) => (
   <div className={styles.postLinkActions}>
     <a className="more-link" href={linkurl}>
-      Go to source
+      Go to source <Forward />
     </a>
-    <a className="more-link" href={slug} rel="tooltip" title="Permalink">
-      Permalink
-    </a>
+    <Link className="more-link" to={slug} rel="tooltip" title="Permalink">
+      <Infinity />
+    </Link>
   </div>
 )
 

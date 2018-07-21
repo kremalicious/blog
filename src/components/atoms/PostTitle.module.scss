@@ -14,4 +14,29 @@
 
 .hentry__title__link {
     font-size: $font-size-h3;
+
+    svg {
+        width: $font-size-base;
+        height: $font-size-base;
+        display: inline-block;
+        fill: $text-color-light;
+        vertical-align: baseline;
+    }
+}
+
+.linkurl {
+    @include ellipsis();
+
+    width: 100%;
+    text-align: center;
+    color: $brand-grey-light;
+    font-family: $font-family-base;
+    font-size: $font-size-mini;
+    padding: ($spacer/3) 0;
+    max-width: 70%;
+    margin: -($spacer) auto $spacer auto;
+
+    @media (min-width: $screen-sm) {
+        max-width: 50%;
+    }
 }

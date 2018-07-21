@@ -5,4 +5,22 @@
     justify-content: space-between;
     margin-top: $spacer * 2;
     margin-bottom: $spacer * 2;
+
+    a {
+        svg {
+            width: $font-size-small;
+            height: $font-size-small;
+            display: inline-block;
+            fill: $text-color-light;
+            vertical-align: baseline;
+        }
+
+        &:last-child {
+            svg {
+                width: $font-size-base;
+                height: $font-size-base;
+                fill: $brand-cyan;
+            }
+        }
+    }
 }
