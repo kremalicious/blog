@@ -52,12 +52,10 @@ pre {
     }
 
     code {
+        padding: 0;
         white-space: pre;
-        overflow: auto;
         display: block;
         color: inherit;
-        background-color: transparent;
-        border-radius: 0;
         overflow-wrap: normal;
         word-wrap: normal;
         word-break: normal;
@@ -75,11 +73,6 @@ pre > code.language-shell {
         margin-left: -.5rem;
         margin-right: .5rem;
     }
-}
-
-:not(pre) > code[class*='language-'] {
-    background: rgba($code-bg, .05);
-    color: $text-color;
 }
 
 @import 'syntax';
