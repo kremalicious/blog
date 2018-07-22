@@ -1,23 +1,53 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Image from '../components/atoms/Image'
+import PostTitle from '../components/atoms/PostTitle'
+import PostLead from '../components/atoms/PostLead'
+import PostContent from '../components/atoms/PostContent'
+import PostLinkActions from '../components/atoms/PostLinkActions'
+import postStyles from '../templates/Post.module.scss'
+import styles from './index.module.scss'
 
 const IndexPage = ({ data, location }) => {
   const edges = data.allMarkdownRemark.edges
-  const Posts = edges
-    // .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => (
-      <li key={edge.node.id}>
-        <Link to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
-      </li>
-    ))
 
-  return (
-    <Layout location={location}>
-      <ul>{Posts}</ul>
-    </Layout>
-  )
+  const Posts = edges.map(({ node }) => {
+    const { type, linkurl, title, image } = node.frontmatter
+    const { slug } = node.fields
+
+    return (
+      <article className={postStyles.hentry} key={node.id}>
+        <PostTitle type={type} linkurl={linkurl} title={title} />
+
+        {image && (
+          <figure className={styles.hentry__image}>
+            <Link to={slug}>
+              <Image fluid={image.childImageSharp.fluid} alt={title} />
+            </Link>
+          </figure>
+        )}
+
+        <PostLead post={node} />
+
+        {type === 'post' && (
+          <Link className="more-link" to={slug}>
+            Continue Reading
+          </Link>
+        )}
+
+        {type === 'link' && (
+          <Fragment>
+            <PostContent post={node} />
+            <PostLinkActions slug={slug} linkurl={linkurl} />
+          </Fragment>
+        )}
+      </article>
+    )
+  })
+
+  return <Layout location={location}>{Posts}</Layout>
 }
 
 IndexPage.propTypes = {
@@ -33,9 +63,17 @@ export const indexQuery = graphql`
       edges {
         node {
           id
+          html
           excerpt(pruneLength: 250)
           frontmatter {
             title
+            type
+            linkurl
+            image {
+              childImageSharp {
+                ...ImageFluid
+              }
+            }
           }
           fields {
             slug

@@ -1,0 +1,5 @@
+@import 'mixins';
+
+.lead {
+    @include lead();
+}

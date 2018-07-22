@@ -5,54 +5,10 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
 import PostTitle from '../components/atoms/PostTitle'
+import PostLead from '../components/atoms/PostLead'
+import PostContent from '../components/atoms/PostContent'
 import PostMeta from '../components/molecules/PostMeta'
 import styles from './Post.module.scss'
-
-const separator = '<!-- more -->'
-
-// Extract lead paragraph from content
-// Grab everything before more tag, or just first paragraph
-const PostLead = ({ post }) => {
-  let lead
-  const content = post.html
-
-  if (post.frontmatter.type === 'post') {
-    if (content.includes(separator)) {
-      lead = content.split(separator)[0]
-    } else {
-      lead = content.split('\n')[0]
-    }
-  } else {
-    return null
-  }
-
-  return (
-    <div
-      className={styles.hentry__lead}
-      dangerouslySetInnerHTML={{ __html: lead }}
-    />
-  )
-}
-
-// Remove lead paragraph from content
-const PostContent = ({ post }) => {
-  let content
-
-  content = post.html
-
-  if (post.frontmatter.type === 'post') {
-    if (content.includes(separator)) {
-      content = content.split(separator)[1]
-    } else {
-      const lead = content.split('\n')[0]
-      content = content.replace(lead, '')
-    }
-  }
-
-  return (
-    <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
-  )
-}
 
 const Post = ({ data, location }) => {
   const { markdownRemark: post } = data
