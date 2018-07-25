@@ -6,7 +6,7 @@ import Head from './molecules/Head'
 import Header from './organisms/Header'
 import styles from './Layout.module.scss'
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -38,7 +38,7 @@ const Layout = ({ children, location }) => {
             <Head meta={meta} />
             <Header />
 
-            <main className={styles.site__document} location={location}>
+            <main className={styles.site__document}>
               <div className={styles.site__content}>
                 <Container>{children}</Container>
               </div>
