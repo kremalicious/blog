@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import Forward from '../svg/Forward'
 import styles from './PostTitle.module.scss'
 
-const PostTitle = ({ type, linkurl, title }) => {
+const PostTitle = ({ type, slug, linkurl, title }) => {
   const linkHostname = linkurl ? new URL(linkurl).hostname : null
 
   return type === 'link' ? (
@@ -17,6 +18,10 @@ const PostTitle = ({ type, linkurl, title }) => {
       </h1>
       <div className={styles.linkurl}>{linkHostname}</div>
     </Fragment>
+  ) : slug ? (
+    <h1 className={styles.hentry__title}>
+      <Link to={slug}>{title}</Link>
+    </h1>
   ) : (
     <h1 className={styles.hentry__title}>{title}</h1>
   )
@@ -25,6 +30,7 @@ const PostTitle = ({ type, linkurl, title }) => {
 PostTitle.propTypes = {
   type: PropTypes.string,
   title: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   linkurl: PropTypes.string
 }
 

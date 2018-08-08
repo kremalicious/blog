@@ -13,6 +13,8 @@ tags:
 
 ![Server screwed](../media/xserve_screwed.png)As you may have noticed, kremalicious.com was a bit screwed in the last week and some of you have asked me via mail and twitter what exactly was wrong. So to satisfy the curious geek in you I will provide some informations about it.
 
+<!-- more -->
+
 It all started with a move of my whole website to new and shiny servers with PHP 5 running by my host. I didn't heard of any incompatibilities between the latest Wordpress version running on PHP 5 and in fact Wordpress loves to use PHP 5. But somehow I wasn't able to update my site neither over http or ftp. Since I can contact my host admins directly ([thank you jpBerlin/Heinlein-Support!](http://www.jpberlin.de/)) this problem was addressed rather quickly. They just neglected to tell me that the server address for login also changed (I should have think of this too). So all my changes were applied to my Wordpress installation on the old server. Problem solved I thought.
 
 But more problems appeared. The display of the newest and latest posts and the next post/previous post links at the end of every article didn't work as they should. But not enough I wasn't able to moderate any comments. Sigh. Looked like any sort of database problem and I started a lot of things. First I manually scanned all database entries for any wrong things but I couldn't find anything suspicious. After that I dropped the whole database and imported my database dump but this didn't solve the problems. My final step was to re-install everything so that Wordpress creates the tables in the databse. And guess what: It didn't work too!

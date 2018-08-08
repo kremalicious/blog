@@ -6,6 +6,7 @@ import Image from '../components/atoms/Image'
 import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
+import PostMore from '../components/atoms/PostMore'
 import PostLinkActions from '../components/atoms/PostLinkActions'
 import postStyles from '../templates/Post.module.scss'
 import styles from './index.module.scss'
@@ -19,7 +20,7 @@ const IndexPage = ({ data, location }) => {
 
     return (
       <article className={postStyles.hentry} key={node.id}>
-        <PostTitle type={type} linkurl={linkurl} title={title} />
+        <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
 
         {image && (
           <figure className={styles.hentry__image}>
@@ -31,11 +32,7 @@ const IndexPage = ({ data, location }) => {
 
         <PostLead post={node} />
 
-        {type === 'post' && (
-          <Link className="more-link" to={slug}>
-            Continue Reading
-          </Link>
-        )}
+        {type === 'post' && <PostMore to={slug}>Continue Reading</PostMore>}
 
         {type === 'link' && (
           <Fragment>

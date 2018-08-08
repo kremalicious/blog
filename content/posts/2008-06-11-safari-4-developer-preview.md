@@ -5,7 +5,7 @@ title: 'Safari 4 Developer Preview - Better Performance, Overhauled Web Inspecto
 author: Matthias Kretschmann
 
 date: 2008-06-11 10:37:07+00:00
-  
+
 category: design
 tags:
     - osx
@@ -14,6 +14,8 @@ tags:
 ---
 
 ![Safari](../media/safari-logo.png)Apple released a developer preview of the upcoming version of its web browser Safari to registered Developers. The Safari 4 Developer Preview is available for Mac OS X Tiger/Leopard and Windows. While the main changes are not visible to the user the most significant visible new feature is the overhauled Web Inspector.
+
+<!-- more -->
 
 You can access Safari's Web Inspector through Develop > Show Web Inspector (you have to check the "Show Develop menu" box in the Preferences first to enable it). The Web Inspector, like the Firebug plug-in for Firefox, is a cool tool especially for Web Developers to inspect various elements of the website you're browsing.
 

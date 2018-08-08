@@ -19,6 +19,8 @@ redirect_from:
 
 ![CSS](../media/css.png)The aim of this article is to give you a quick introduction of a css property named text-shadow which was first included in CSS2 (but it's not implemented in all browsers yet). Nevertheless you can make some cool effects with it, which could only be done before by photoshopping text and rendering it as an image.
 
+<!-- more -->
+
 Because it's included in Safari since version 1.1(!) Mac users should be aware of various effects done by this property. In fact, most companys and persons with mac users as their main target audience use this effect on their websites.
 
 This article describes how text-shadow works, what you can do with it and which browsers currently support it. At the end of this article I've made up some examples and provide a list of useful resources.

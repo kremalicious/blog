@@ -11,6 +11,8 @@ category: goodies
 
 ![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious.png)Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.
 
+<!-- more -->
+
 A while ago I've made a custom style for the blog on kremalicious.com and would like to share this style with you. The style is based on the colors used on kremalicious.com with a black background and light grey text on top of it. The links have the same blueish hover style as on my website:
 
 [![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious_big.png)](../media/marsedit_kremalicious_big.png)

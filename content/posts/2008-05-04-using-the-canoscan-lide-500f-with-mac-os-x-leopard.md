@@ -3,10 +3,11 @@ type: post
 
 title: Using the CanoScan LiDE 500F scanner with Mac OS X Leopard
 author: Matthias Kretschmann
+image: ../media/canoscanlide500f.jpg
 
 date: 2008-05-04 16:04:48+00:00
 
-  
+
 category: photography
 coinhive: true
 tags:
@@ -15,7 +16,7 @@ tags:
     - macos
 ---
 
-![Canon CanoScan LiDE 500F](../media/canoscanlide500f.jpg)A while ago I [wrote about my problems](http://www.kremalicious.com/2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/) finding a universal scanner driver from Canon for my CanoScan LiDE 500F to use it under Mac OS X. The solution was the Canon Asia website where a universal driver version was available. But since then Apple released Mac OS X 10.5 Leopard in october 2007 and the Canon driver with the version 11.2.4.0X stopped working on this new operating system.
+A while ago I [wrote about my problems](http://www.kremalicious.com/2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/) finding a universal scanner driver from Canon for my CanoScan LiDE 500F to use it under Mac OS X. The solution was the Canon Asia website where a universal driver version was available. But since then Apple released Mac OS X 10.5 Leopard in october 2007 and the Canon driver with the version 11.2.4.0X stopped working on this new operating system.
 
 # Finding and downloading the new driver 11.2.5.0X
 

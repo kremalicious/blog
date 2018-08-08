@@ -5,7 +5,7 @@ title: 'HowTo: Create A Mobile Encrypted Aperture Vault'
 author: Matthias Kretschmann
 
 date: 2008-08-22 18:50:31+00:00
-  
+
 category: photography
 tags:
     - aperture
@@ -18,7 +18,10 @@ coinhive: true
 
 ![Niepce's Aperture Vault](../media/niepces_aperture_vault256.png)When on the road I always take a little mobile hard drive with me where all my referenced Aperture Masters from the past years and my mobile Aperture Vault (backing up the un-referenced Masters from the current year) reside. But being little and mobile also means the external hard drive can easily be lost or stolen exposing all my pictures to the thief. To avoid that you can use encryption so in the case of a lost or theft the data is not accessible by the thief. This can easily be done with [sparse bundle disk images](http://db.tidbits.com/article/9673) so you won't have to encrypt the whole hard drive with additional software.
 
+<!-- more -->
+
 So in this quick tutorial I will show you how to create an encrypted Aperture Vault by using Sparse Bundle Disk Images and by utilizing tools built into Mac OS X. All this can be done in two simple steps.
+
 
 ## 1. Create an encrypted disk image
 

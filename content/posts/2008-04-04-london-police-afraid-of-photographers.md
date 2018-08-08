@@ -9,9 +9,11 @@ date: 2008-04-04 19:01:09+00:00
 category: photography
 ---
 
-> Thousands of people take photos every day. What if one of them seems odd? Terrorists use surveillance to help plan attacks, taking photos and making notes about security measures like the location of CCTV cameras. If you see someone doing that, we need to know. Let experienced officers decide what action to take.
-
 ![London cops](../media/londonpolice.jpg)
+
+<!-- more -->
+
+> Thousands of people take photos every day. What if one of them seems odd? Terrorists use surveillance to help plan attacks, taking photos and making notes about security measures like the location of CCTV cameras. If you see someone doing that, we need to know. Let experienced officers decide what action to take.
 
 yeah, i'm guilty. i took several photos of cctv cameras:
 [At Agentur Ahron](http://www.agentur-ahron.de/bild_db/details.php?image_id=552)

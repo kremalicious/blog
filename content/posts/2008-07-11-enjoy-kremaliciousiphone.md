@@ -13,6 +13,8 @@ tags:
 
 ![](../media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
 
+<!-- more -->
+
 When the website detects an iPhone or iPod Touch it will automatically switch to another freshly created theme which is absolutely seamless to the user. This detection is done by the wonderful slim iPhone Wordpress plug-in from ContentRobot which was slightly modified by me.
 
 The theme itself makes heavy use of the `-webkit-border-radius` css option to display all the round corners. That's why there are just four images at work in the whole theme which makes it load in no time even on EDGE connections. And because just the theme is switching all the content remain the same so you don't have just a shortened mobile version of this website.

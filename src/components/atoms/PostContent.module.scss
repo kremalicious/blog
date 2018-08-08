@@ -60,22 +60,14 @@
     blockquote,
     blockquote > p {
         font-style: italic;
-        color: $brand-grey-light;
+        color: $brand-grey;
     }
     // stylelint-enable no-descending-specificity
 
     blockquote {
         margin: 0 0 $spacer;
         position: relative;
-        padding-left: 20px;
-
-        @media (min-width: $screen-xs) {
-            padding-left: 40px;
-        }
-
-        @media (min-width: $screen-lg) {
-            padding-left: 60px;
-        }
+        padding-left: $spacer * 1.5;
 
         // quotation marks
         &::before {

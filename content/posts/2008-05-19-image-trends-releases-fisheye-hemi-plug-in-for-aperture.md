@@ -13,6 +13,8 @@ tags:
 
 [![Fisheye-Hemi](../media/imagetrends_hemi_10.jpg)](../media/imagetrends_hemi_10.jpg)Today Image Trends Inc. [announced](http://www.imagetrendsinc.com/news/Aperture%20Fisheye%20Hemi%20%20Final.pdf) the final availability of the anti-distortion plugin [Fisheye-Hemi](http://www.imagetrendsinc.com/products/prodpage_hemi.asp) as an editing plugin for Aperture 2.1. The plugin will remap your hemispheric images taken with a fisheye lens. So if you take pictures with a fisheye lens this plugin is a must have for you.
 
+<!-- more -->
+
 From the press release:
 
 > Photographers can now easily preserve a normal view of people by not distorting their faces and bodies, as the plug-in straightens vertical lines. Fisheye-Hemi Plug-In uses almost all of the pixel data in that view with no loss of image resolution while displaying the intended composition and framing better than other un-warping programs. 

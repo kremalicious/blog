@@ -17,6 +17,8 @@ coinhive: true
 ![Wordpress Logo by kremalicious](../media/wordpress-logo.png)
 Since my update to Wordpress 2.7 I'm pretty much into all the new comments stuff. As [I've written before](http://www.kremalicious.com/2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/), the comment functionality changed dramatically with Wordpress 2.7. This makes writing a comments template much easier but if you used Worpress prior to 2.7 you have to change some things to work again. Beside other things this includes [Gravatar styling](http://www.kremalicious.com/2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/) and also adding different styling to comments from the author of an article. In this article I will show you how to realize the latter with Wordpress 2.7 and above.
 
+<!-- more -->
+
 Let's start by looking at the code to achieve styling of author comments prior to Wordpress 2.7. On kremalicious.com I've used this code:
 
 ```php
