@@ -1,28 +1,39 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 import Typekit from '../atoms/Typekit'
 
-const Head = ({ meta }) => {
-  const { title, tagline } = meta
+const Head = () => (
+  <StaticQuery
+    query={graphql`
+      query {
+        contentYaml {
+          title
+          tagline
+        }
+      }
+    `}
+    render={data => {
+      const { title, tagline } = data.contentYaml
 
-  return (
-    <Fragment>
-      <Helmet
-        defaultTitle={`${title.toLowerCase()} ¦ ${tagline.toLowerCase()}`}
-        titleTemplate={`%s ¦ ${title.toLowerCase()}`}
-      >
-        <meta name="apple-mobile-web-app-title" content={title.toLowerCase()} />
-        <meta name="theme-color" content="#e7eef4" />
-      </Helmet>
+      return (
+        <Fragment>
+          <Helmet
+            defaultTitle={`${title.toLowerCase()} ¦ ${tagline.toLowerCase()}`}
+            titleTemplate={`%s ¦ ${title.toLowerCase()}`}
+          >
+            <meta
+              name="apple-mobile-web-app-title"
+              content={title.toLowerCase()}
+            />
+            <meta name="theme-color" content="#e7eef4" />
+          </Helmet>
 
-      <Typekit />
-    </Fragment>
-  )
-}
-
-Head.propTypes = {
-  meta: PropTypes.object.isRequired
-}
+          <Typekit />
+        </Fragment>
+      )
+    }}
+  />
+)
 
 export default Head

@@ -8,8 +8,7 @@
     position: relative;
 }
 
-.site__content,
-.footer__content {
+.content {
     padding: 0 $spacer;
     width: 100%;
 
@@ -22,7 +21,7 @@
 // site background
 /////////////////////////////////////
 
-.site__document {
+.document {
     width: 100%;
     padding-top: ($spacer * 2);
     background-color: $page-background-color;
@@ -40,6 +39,7 @@
         @include transition;
 
         margin-top: $spacer * 2.65;
+        margin-bottom: $spacer * 20;
         position: relative;
         z-index: 2;
 

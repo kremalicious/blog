@@ -1,58 +1,28 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import Container from './atoms/Container'
 import Head from './molecules/Head'
 import Header from './organisms/Header'
+import Footer from './organisms/Footer'
 import styles from './Layout.module.scss'
 
-const Layout = ({ children }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          # the content/meta.yml file
-          contentYaml {
-            title
-            tagline
-            url
-            author {
-              name
-              email
-              uri
-              twitter
-              github
-              facebook
-              googleplus
-              bitcoin
-              ether
-            }
-          }
-        }
-      `}
-      render={data => {
-        const meta = data.contentYaml
+const Layout = ({ children }) => (
+  <Fragment>
+    <Head />
+    <Header />
 
-        return (
-          <Fragment>
-            <Head meta={meta} />
-            <Header />
+    <main className={styles.document}>
+      <div className={styles.content}>
+        <Container>{children}</Container>
+      </div>
+    </main>
 
-            <main className={styles.site__document}>
-              <div className={styles.site__content}>
-                <Container>{children}</Container>
-              </div>
-            </main>
-          </Fragment>
-        )
-      }}
-    />
-  )
-}
+    <Footer />
+  </Fragment>
+)
 
 Layout.propTypes = {
-  children: PropTypes.any.isRequired,
-  location: PropTypes.object.isRequired
+  children: PropTypes.any.isRequired
 }
 
 export default Layout

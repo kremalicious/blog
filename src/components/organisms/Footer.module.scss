@@ -1,0 +1,137 @@
+@import 'variables';
+@import 'mixins';
+
+.footer {
+    text-align: center;
+    padding-top: $spacer * 2;
+    color: $text-color-light;
+    line-height: $spacer;
+
+    @media (min-width: $screen-sm) {
+        position: fixed;
+        width: 100%;
+        border: 0;
+        will-change: transform;
+        z-index: 0;
+        bottom: 0;
+        box-shadow: none;
+    }
+
+    svg {
+        fill: $brand-grey-light;
+    }
+}
+
+.avatar {
+    @include media-frame;
+
+    margin-bottom: ($spacer / 2);
+    border-radius: 50%;
+}
+
+.description {
+    font-size: $font-size-h5;
+    margin-top: 0;
+    margin-bottom: ($spacer / 4);
+
+    a {
+        display: block;
+    }
+}
+
+.copyright {
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+
+    p {
+        margin-bottom: 0;
+        font-size: $font-size-mini;
+    }
+
+    svg {
+        width: 15px;
+        height: 15px;
+        margin-right: .2em;
+        margin-bottom: -2px;
+        display: inline-block;
+    }
+}
+
+// Subscribe component
+.subscribe {
+    margin: $spacer auto;
+
+    p {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.link {
+    text-align: center;
+    width: 2rem;
+    padding: $spacer / 4;
+    margin: 0;
+    display: inline-block;
+    color: $text-color-light;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    svg {
+        transition: color .3s ease-in-out;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.rss:hover {
+    fill: #e15a00;
+}
+
+.json:hover {
+    fill: #8be028;
+}
+
+.twitter:hover {
+    fill: #019ad2;
+}
+
+.google:hover {
+    fill: #c63b1e;
+}
+
+.facebook:hover {
+    fill: #3b5998;
+}
+
+.github:hover {
+    fill: #333;
+}
+
+.title {
+    font-size: $font-size-h5;
+    margin-bottom: ($spacer/2);
+}
+
+.btc {
+    margin-left: ($spacer / 2);
+
+    // stylelint-disable-next-line
+    svg {
+        width: 10px;
+        margin-right: 0;
+    }
+
+    code {
+        font-size: .6rem;
+        background: none;
+        color: $link-color;
+        padding: 0;
+    }
+}
