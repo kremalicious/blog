@@ -37,6 +37,7 @@ pre {
     background-color: $code-bg;
     margin-left: -($spacer);
     margin-right: -($spacer);
+    border-radius: $border-radius;
 
     // make 'em scrollable
     overflow: scroll;
@@ -59,6 +60,7 @@ pre {
         overflow-wrap: normal;
         word-wrap: normal;
         word-break: normal;
+        overflow: auto;
     }
 }
 

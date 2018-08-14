@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Container from '../atoms/Container'
+import ModalThanks from '../molecules/ModalThanks'
+
 import Twitter from '../svg/Twitter'
 import Github from '../svg/Github'
 import Facebook from '../svg/Facebook'
@@ -16,7 +18,14 @@ class Footer extends PureComponent {
   constructor(props) {
     super(props)
 
-    this.state = { year: null }
+    this.state = {
+      year: null,
+      showModal: false
+    }
+  }
+
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal })
   }
 
   componentDidMount() {
@@ -46,7 +55,6 @@ class Footer extends PureComponent {
                   }
                 }
                 bitcoin
-                ether
               }
             }
           }
@@ -125,11 +133,20 @@ class Footer extends PureComponent {
                       <Github />
                       View source
                     </a>
-                    <a href="#" className={styles.btc}>
+                    <a
+                      href="#"
+                      className={styles.btc}
+                      onClick={this.toggleModal}
+                    >
                       <Bitcoin />
                       <code>{author.bitcoin}</code>
                     </a>
                   </p>
+
+                  <ModalThanks
+                    isOpen={this.state.showModal}
+                    handleCloseModal={this.toggleModal}
+                  />
                 </section>
               </Container>
             </footer>

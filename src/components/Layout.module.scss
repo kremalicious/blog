@@ -39,7 +39,7 @@
         @include transition;
 
         margin-top: $spacer * 2.65;
-        margin-bottom: $spacer * 20;
+        margin-bottom: $spacer * 20; // height of footer
         position: relative;
         z-index: 2;
 

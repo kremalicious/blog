@@ -18,6 +18,14 @@
     &:first-child {
         padding-top: 0;
     }
+
+    &:only-child {
+        border: 0;
+
+        &::before {
+            display: none;
+        }
+    }
 }
 
 // Post/photo teaser
