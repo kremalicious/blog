@@ -99,3 +99,20 @@ $screen-xs: 30em;
 $screen-sm: 40.625em;
 $screen-md: 60em;
 $screen-lg: 87.5em;
+
+// Forms
+/////////////////////////////////////
+
+$input-bg: rgba(#fff, .85);
+$input-bg-focus: #fff;
+$input-bg-disabled: $brand-grey-light;
+
+$input-font-size: $font-size-base;
+$input-font-weight: $font-weight-base;
+
+$input-color: $font-color-base;
+$input-color-placeholder: rgba(46, 79, 92, .3);
+
+$input-border: $brand-grey-light;
+$input-border-radius: $border-radius;
+$input-border-focus: $brand-cyan;
