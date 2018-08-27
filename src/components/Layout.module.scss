@@ -22,6 +22,8 @@
 /////////////////////////////////////
 
 .document {
+    @include transition;
+
     width: 100%;
     padding-top: ($spacer * 2);
     background-color: $page-background-color;
@@ -36,8 +38,6 @@
     }
 
     @media (min-width: $screen-sm) {
-        @include transition;
-
         margin-top: $spacer * 2.65;
         margin-bottom: $spacer * 20; // height of footer
         position: relative;
