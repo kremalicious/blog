@@ -19,7 +19,7 @@ class Header extends PureComponent {
             </h1>
 
             <nav role="navigation" className={styles.nav}>
-              <Search />
+              <Search lng="en" />
               <Menu />
             </nav>
           </div>

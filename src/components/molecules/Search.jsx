@@ -1,9 +1,11 @@
 import React, { PureComponent, Fragment } from 'react'
-// import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
-import Input from '../atoms/Input'
-import SearchIcon from '../svg/MagnifyingGlass'
+import SearchInput from '../atoms/SearchInput'
+import SearchButton from '../atoms/SearchButton'
+import SearchResults from '../atoms/SearchResults'
+
 import styles from './Search.module.scss'
 
 class Search extends PureComponent {
@@ -11,7 +13,9 @@ class Search extends PureComponent {
     super(props)
 
     this.state = {
-      searchOpen: false
+      searchOpen: false,
+      query: '',
+      results: []
     }
   }
 
@@ -21,51 +25,70 @@ class Search extends PureComponent {
     }))
   }
 
+  closeSearch = () => {
+    this.setState({
+      searchOpen: false,
+      query: '',
+      results: []
+    })
+  }
+
   isSearchOpen = () => this.state.searchOpen === true
 
+  getSearchResults(query) {
+    if (!query || !window.__LUNR__) return []
+    const lunrIndex = window.__LUNR__[this.props.lng]
+    const results = lunrIndex.index.search(query)
+    return results.map(({ ref }) => lunrIndex.store[ref])
+  }
+
+  search = event => {
+    const query = event.target.value
+    const results = this.getSearchResults(query)
+    this.setState({
+      results,
+      query
+    })
+  }
+
   render() {
+    const { searchOpen, query, results } = this.state
+
     return (
       <Fragment>
         <Helmet>
           <body className={this.isSearchOpen() ? 'has-search-open' : null} />
         </Helmet>
 
-        <button
-          type="button"
-          className={styles.searchButton}
-          onClick={this.toggleSearch}
-        >
-          <SearchIcon />
-        </button>
+        <SearchButton onClick={this.toggleSearch} />
 
-        {this.state.searchOpen && (
+        {searchOpen && (
           <CSSTransition
-            appear={this.state.searchOpen}
-            in={this.state.searchOpen}
+            appear={searchOpen}
+            in={searchOpen}
             timeout={200}
             classNames={styles}
           >
             <section className={styles.search}>
-              <Input
-                autoFocus
-                type="search"
-                placeholder="Search everything"
-                onBlur={this.toggleSearch}
-                // value={this.state.query}
-                // onChange={this.search}
+              <SearchInput
+                value={query}
+                onChange={this.search}
+                onToggle={this.closeSearch}
               />
-              <button
-                className={styles.searchInputClose}
-                onClick={this.toggleSearch}
-              >
-                &times;
-              </button>
             </section>
           </CSSTransition>
+        )}
+
+        {query && (
+          <SearchResults results={results} onClose={this.closeSearch} />
         )}
       </Fragment>
     )
   }
+}
+
+Search.propTypes = {
+  lng: PropTypes.string.isRequired
 }
 
 export default Search

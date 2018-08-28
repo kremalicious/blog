@@ -76,6 +76,7 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM DD, YYYY")
       }
+      rawMarkdownBody
     }
 
     contentYaml {

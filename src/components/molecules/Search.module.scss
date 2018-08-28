@@ -1,37 +1,5 @@
 @import 'variables';
 
-.searchButton {
-    padding: .65rem .85rem;
-    text-align: center;
-    line-height: 1;
-    vertical-align: middle;
-    display: inline-block;
-    margin-right: $spacer / 4;
-
-    &:focus {
-        outline: 0;
-    }
-
-    svg {
-        fill: $text-color-light;
-        width: 21px;
-        height: 21px;
-    }
-
-    &:hover,
-    &:focus {
-        svg {
-            fill: $brand-cyan;
-        }
-    }
-
-    &:active {
-        svg {
-            fill: darken($brand-cyan, 30%);
-        }
-    }
-}
-
 .search {
     position: absolute;
     left: $spacer / 2;
@@ -47,12 +15,6 @@
         left: 0;
         right: 0;
     }
-}
-
-.searchInputClose {
-    position: absolute;
-    right: $spacer / 4;
-    top: $spacer / 4;
 }
 
 .appear,
