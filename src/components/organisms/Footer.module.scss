@@ -22,23 +22,6 @@
     }
 }
 
-.avatar {
-    @include media-frame;
-
-    margin-bottom: ($spacer / 2);
-    border-radius: 50%;
-}
-
-.description {
-    font-size: $font-size-h5;
-    margin-top: 0;
-    margin-bottom: ($spacer / 4);
-
-    a {
-        display: block;
-    }
-}
-
 .copyright {
     padding-top: $spacer;
     padding-bottom: $spacer;
@@ -55,68 +38,6 @@
         margin-bottom: -2px;
         display: inline-block;
     }
-}
-
-// Subscribe component
-.subscribe {
-    margin: $spacer auto;
-
-    p {
-        text-align: center;
-        margin: 0;
-    }
-}
-
-.link {
-    text-align: center;
-    width: 2rem;
-    padding: $spacer / 4;
-    margin: 0;
-    display: inline-block;
-    color: $text-color-light;
-
-    &:first-child {
-        margin-left: 0;
-    }
-
-    &:last-child {
-        margin-right: 0;
-    }
-
-    svg {
-        transition: color .3s ease-in-out;
-        display: block;
-        margin: 0 auto;
-    }
-}
-
-.rss:hover {
-    fill: #e15a00;
-}
-
-.json:hover {
-    fill: #8be028;
-}
-
-.twitter:hover {
-    fill: #019ad2;
-}
-
-.google:hover {
-    fill: #c63b1e;
-}
-
-.facebook:hover {
-    fill: #3b5998;
-}
-
-.github:hover {
-    fill: #333;
-}
-
-.title {
-    font-size: $font-size-h5;
-    margin-bottom: ($spacer/2);
 }
 
 .btc {
