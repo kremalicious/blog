@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'mixins';
+
+.actions {
+    @include divider;
+    @include divider-top;
+
+    margin-top: $spacer * 3;
+    padding: $spacer * $line-height 0;
+
+    @media (min-width: $screen-xs) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.action {
+    padding-left: 1.75rem;
+    position: relative;
+
+    &:first-child {
+        margin-bottom: $spacer * 2;
+    }
+
+    @media (min-width: $screen-xs) {
+        flex: 1 1 48%;
+
+        &:first-child {
+            margin-bottom: 0;
+        }
+    }
+
+    svg {
+        position: absolute;
+        left: 0;
+        top: .2rem;
+        fill: $brand-grey-light;
+    }
+}
+
+.actionTitle {
+    font-size: $font-size-base;
+    line-height: $line-height;
+    color: $text-color;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.actionText {
+    font-size: $font-size-small;
+    margin-bottom: 0;
+}

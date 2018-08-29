@@ -8,6 +8,7 @@ import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
 import PostMeta from '../components/molecules/PostMeta'
+import PostActions from '../components/atoms/PostActions'
 import styles from './Post.module.scss'
 
 const Post = ({ data, location }) => {
@@ -31,6 +32,8 @@ const Post = ({ data, location }) => {
         )}
 
         <PostContent post={post} />
+
+        <PostActions slug={post.fields.slug} url={meta.url} />
 
         <PostMeta post={post} meta={meta} />
       </article>
@@ -80,6 +83,7 @@ export const pageQuery = graphql`
     }
 
     contentYaml {
+      url
       author {
         uri
       }

@@ -99,6 +99,23 @@
     }
 }
 
+@mixin divider-top() {
+    position: relative;
+    border-top: 1px dashed #afc3cb;
+    margin-top: $spacer * $line-height;
+    margin-bottom: $spacer * $line-height;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 1px;
+        top: 0;
+        width: 100%;
+        border-bottom: 1px dashed #fff;
+    }
+}
+
 // Heading band
 /////////////////////////////////////
 
