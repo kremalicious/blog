@@ -23,7 +23,7 @@ These icons are free for your personal use and include icons for all file types 
 - Leopard ready (512×512)
 - custom 32px and 16px icons
 
-Get them from [the goodies-page](https://kremalicious.com/goodies/) and have fun.
+Get them and have fun.
 
 <p class="content-download">
     <a class="icon-download" href="../media/aperturefiletypes_by_kremalicious.zip">Download</a>

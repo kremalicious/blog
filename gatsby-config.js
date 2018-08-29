@@ -108,6 +108,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-catch-links'
+    'gatsby-plugin-catch-links',
+    'gatsby-redirect-from'
   ]
 }
