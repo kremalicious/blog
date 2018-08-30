@@ -6,10 +6,6 @@ image: ../media/41b5a454a43811e1989612313815112c_7.jpeg
 author: Matthias Kretschmann
 
 date: 2012-05-23 14:23:38+00:00
-
-category: photos
-tags:
-- instagram
 ---
 
 @[Ofen- und Keramikmuseum Velten](http://www.ofenmuseum-velten.de/)

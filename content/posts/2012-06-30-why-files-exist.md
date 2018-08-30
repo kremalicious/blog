@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-06-30 18:17:33+00:00
 
-category: design
+tags:
+- design
 ---
 
 [This](http://blog.filepicker.io/post/26157006600/why-files-exist) has been said many times, but it bears repeating:

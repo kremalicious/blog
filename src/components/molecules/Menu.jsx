@@ -36,7 +36,7 @@ class Menu extends PureComponent {
                 edges {
                   node {
                     frontmatter {
-                      category
+                      type
                     }
                   }
                 }
@@ -45,20 +45,20 @@ class Menu extends PureComponent {
           `}
           render={data => {
             const posts = data.allMarkdownRemark.edges
-            const categorySet = new Set()
+            const typeSet = new Set()
 
             posts.forEach(post => {
-              if (post.node.frontmatter.category) {
-                categorySet.add(post.node.frontmatter.category)
+              if (post.node.frontmatter.type) {
+                typeSet.add(post.node.frontmatter.type)
               }
             })
 
-            const categoryList = Array.from(categorySet)
+            const typeList = Array.from(typeSet)
 
-            const Categories = categoryList.map(category => (
-              <li key={category}>
-                <Link onClick={this.toggleMenu} to={`/${category}/`}>
-                  {category}
+            const Types = typeList.map(type => (
+              <li key={type}>
+                <Link onClick={this.toggleMenu} to={`/${type}s/`}>
+                  {type}s
                 </Link>
               </li>
             ))
@@ -66,7 +66,7 @@ class Menu extends PureComponent {
             return (
               <Fragment>
                 <Hamburger onClick={this.toggleMenu} />
-                <ul className={styles.menu}>{Categories}</ul>
+                <ul className={styles.menu}>{Types}</ul>
               </Fragment>
             )
           }}

@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-05-21 21:18:17+00:00
 
-category: design
 tags:
+- design
 - typography
 ---
 

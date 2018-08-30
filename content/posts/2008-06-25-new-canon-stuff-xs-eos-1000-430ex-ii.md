@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-06-25 16:41:59+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 ![Digital Rebel XS/EOS 1000D ](../media/canon1000d.png)After the latest Digital Photo Professional update (DPP 3.4.1.1) [revealed some evidence about an upcoming Canon EOS Rebel XS/1000D](http://www.bobatkins.com/photography/digital/canon_xs_1000D_dpp34.html), Canon finally introduced this new entry-level DSLR this month. The [EOS Digital Rebel XS/1000D/Kiss F](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp) ([full product specifications](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp?specs=1)) is technically a hybrid between hardware and features found in Canon's entry-level cameras from the past: the 7-point autofocus system comes from the XT/350D, the Digic III processor is the same as in the XSi/450D and the Live View feature is implemented with the same features as found in the XSi/450D.

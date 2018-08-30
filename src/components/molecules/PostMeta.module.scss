@@ -32,36 +32,36 @@
     margin-bottom: $spacer * 2;
 }
 
-// Categories & Tags
+// Types & Tags
 /////////////////////////////////////
 
-.categories {
+.type {
     margin-bottom: $spacer / 2;
     text-align: center;
-}
 
-.category {
-    font-size: $font-size-mini;
-    text-align: center;
-    color: $text-color;
-    line-height: 1;
-    text-transform: uppercase;
-    border: 1px solid $text-color;
-    border-radius: $border-radius;
-    padding: 4px 8px;
-    margin: 0;
-    display: inline-block;
+    a {
+        font-size: $font-size-mini;
+        text-align: center;
+        color: $text-color;
+        line-height: 1;
+        text-transform: uppercase;
+        border: 1px solid $text-color;
+        border-radius: $border-radius;
+        padding: 4px 8px;
+        margin: 0;
+        display: inline-block;
 
-    &:hover,
-    &:focus {
-        color: $link-color;
-        border-color: $link-color;
-    }
+        &:hover,
+        &:focus {
+            color: $link-color;
+            border-color: $link-color;
+        }
 
-    &:active {
-        background: $link-color;
-        top: 0;
-        color: #fff;
+        &:active {
+            background: $link-color;
+            top: 0;
+            color: #fff;
+        }
     }
 }
 

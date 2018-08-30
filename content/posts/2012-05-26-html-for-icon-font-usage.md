@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-05-26 05:13:58+00:00
 
-category: design
+tags:
+- design
 ---
 
 Chris Coyier on an accessible implementation for icon fonts:

@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-03-31 20:54:45+00:00
 
-category: design
+tags:
+- design
 ---
 
 ![parallax](../media/parallax.png)If you resize your browser window while you are browsing this website you can see the black polaroids in my header fly and move at different speed on three layers. Pretty cool, huh?

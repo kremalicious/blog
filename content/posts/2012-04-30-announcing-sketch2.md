@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-04-30 12:37:05+00:00
 
-category: design
+tags:
+- design
 ---
 
 Remarkable update to Bohemian Coding's [Sketch](http://bohemiancoding.com/sketch) app. It's like Photoshop but with only the UI design related features included:

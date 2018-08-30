@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-05-04 13:12:54+00:00
 
-category: photography
 tags:
+- photography
 - photojournalism
 ---
 

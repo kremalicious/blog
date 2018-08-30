@@ -4,7 +4,9 @@ type: link
 title: 9 Lesser Known Safari Features
 linkurl: http://www.danielmiessler.com/blog/9-lesser-known-safari-features-worth-switching-for
 author: Matthias Kretschmann
-category: design
+
+tags:
+- design
 
 date: 2008-04-06 21:21:22+00:00
 ---

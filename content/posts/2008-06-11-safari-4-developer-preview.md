@@ -6,11 +6,12 @@ author: Matthias Kretschmann
 
 date: 2008-06-11 10:37:07+00:00
 
-category: design
+category: 
 tags:
-    - osx
-    - macos
-    - css
+  - design
+  - osx
+  - macos
+  - css
 ---
 
 ![Safari](../media/safari-logo.png)Apple released a developer preview of the upcoming version of its web browser Safari to registered Developers. The Safari 4 Developer Preview is available for Mac OS X Tiger/Leopard and Windows. While the main changes are not visible to the user the most significant visible new feature is the overhauled Web Inspector.

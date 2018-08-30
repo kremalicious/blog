@@ -6,12 +6,12 @@ author: Matthias Kretschmann
 
 date: 2008-08-22 18:50:31+00:00
 
-category: photography
 tags:
-    - aperture
-    - tutorial
-    - osx
-    - macos
+  - photography
+  - aperture
+  - tutorial
+  - osx
+  - macos
 
 coinhive: true
 ---

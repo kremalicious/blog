@@ -7,8 +7,8 @@ image: ../media/watermark_aperture.jpg
 
 date: 2008-05-07 03:27:25+00:00
 
-category: photography
 tags:
+- photography
 - aperture
 - tutorial
 

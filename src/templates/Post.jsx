@@ -71,7 +71,6 @@ export const pageQuery = graphql`
         }
         author
         updated
-        category
         tags
         linkurl
       }

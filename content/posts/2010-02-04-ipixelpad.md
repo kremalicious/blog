@@ -7,9 +7,9 @@ download: ../media/ipixelpad_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2010-02-04 15:21:42+00:00
-
-category: goodies
+ 
 tags:
+- goodies
 - icon
 
 coinhive: true

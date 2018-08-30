@@ -6,8 +6,6 @@ image: ../media/Glowing-Star-Inside.jpg
 author: Matthias Kretschmann
 
 date: 2011-01-08 15:45:26+00:00
-
-category: photos
 ---
 
 Thanks Dad!

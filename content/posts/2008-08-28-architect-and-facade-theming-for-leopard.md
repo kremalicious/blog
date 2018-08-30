@@ -6,10 +6,10 @@ author: Matthias Kretschmann
 
 date: 2008-08-28 09:54:06+00:00
   
-category: design
 tags:
-    - osx
-    - macos
+  - design
+  - osx
+  - macos
 ---
 
 ![Architect icon](../media/architect-icon.jpg)There's good news for all you Mac OS X Leopard GUI Themer out there. While there's Panic's [Candybar](http://www.panic.com/candybar) for icon customization in OS X there is no application to alter all the user interface elements of Leopard. In Tiger there was an application called ShapeShifter but since the whole GUI in Leopard changed it stopped working. Architect and Façade to the rescue.

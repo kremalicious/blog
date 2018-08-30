@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2009-02-01 06:01:28+00:00
 
-category: personal
+tags:
+- personal
 ---
 
 Just some self reference here. I've launched a slick new site under [matthiaskretschmann.com](http://matthiaskretschmann.com) today which has an absolute simple concept. It's kind of a digital business card site for being digitally present under my name. Beside that it has Links to my social media stuff so it's easier for you to stalk me. In the 90's we probably would have called it a Portal.

@@ -8,13 +8,12 @@ image: ../media/ubuntu_mac_feature.jpg
 date: 2008-06-19 03:08:11+00:00
 updated: 2016-06-12 14:29:11+00:00
 
-  
-category: design
 tags:
-    - tutorial
-    - osx
-    - macos
-    - ubuntu
+  - design
+  - tutorial
+  - osx
+  - macos
+  - ubuntu
 
 coinhive: true
 

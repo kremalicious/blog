@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-05-22 01:00:03+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 Great insight article into what and how exactly Yahoo managed to screw this up.

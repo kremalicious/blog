@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-05-14 10:01:15+00:00
   
-category: photography
+tags:
+- photography
 ---
 
 Canon has posted some updates for their photographic software on the Canon USA website:

@@ -7,8 +7,8 @@ image: ../media/watermark_aperture.jpg
 
 date: 2008-10-26 16:05:58+00:00
 
-category: photography
 tags:
+- photography
 - aperture
 
 coinhive: true

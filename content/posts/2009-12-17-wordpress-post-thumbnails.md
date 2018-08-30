@@ -6,10 +6,10 @@ author: Matthias Kretschmann
 
 date: 2009-12-17 04:00:21+00:00
 
-category: design
 tags:
-    - tutorial
-    - wordpress
+  - design
+  - tutorial
+  - wordpress
 
 coinhive: true
 

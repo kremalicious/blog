@@ -8,11 +8,11 @@ author: Matthias Kretschmann
 
 date: 2009-06-24 21:00:38+00:00
   
-category: goodies
 tags:
-    - icon
-    - osx
-    - macos
+  - goodies
+  - icon
+  - osx
+  - macos
 ---
 
 Here's a new desktop goodie for your pleasure. It's a replacement dock icon for the popular Mac IM client [Adium](http://adium.im/) following the style of atebit's excellent [Tweetie for Mac](http://www.atebits.com/tweetie-mac/) icon.

@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2008-04-09 17:44:23+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 Ever wondered what the heck 6500 Kelvin has to do with your photos? Here's an in-depth article from the blog of [James Duncan Davidson](http://duncandavidson.com/blog/) for better understanding of the whole color and white balance thing in photography.

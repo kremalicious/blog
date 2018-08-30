@@ -3,7 +3,6 @@ type: photo
 title: Typographic diamond
 image: ../media/typographic-diamond.jpg
 author: Matthias Kretschmann
-category: photos
 ---
 
 Typographic diamond at Hobrechtstraße

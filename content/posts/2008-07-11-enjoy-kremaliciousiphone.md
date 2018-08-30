@@ -6,9 +6,9 @@ author: Matthias Kretschmann
 
 date: 2008-07-11 00:20:22+00:00
 
-category: personal
 tags:
-    - wordpress
+- personal
+- wordpress
 ---
 
 ![](../media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?

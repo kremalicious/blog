@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-08-03 17:10:25+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 ![Jingjing and Chacha are watching you](../media/jingjing_chacha_kremalicious.jpg)

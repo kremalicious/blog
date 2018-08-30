@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-04-04 19:01:09+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 ![London cops](../media/londonpolice.jpg)

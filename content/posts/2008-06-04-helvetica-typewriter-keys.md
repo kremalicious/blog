@@ -7,7 +7,6 @@ author: Matthias Kretschmann
 
 date: 2008-06-04 11:41:01+00:00
 
-category: photos
 tags:
 - typography
 ---

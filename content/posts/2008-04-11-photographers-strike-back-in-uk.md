@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2008-04-11 14:16:51+00:00
 
-category: photography
+tags:
+- photography
 ---
 
 [![London police afraid of photographers](../media/londonpolice.jpg)](../media/londonpolice.jpg)

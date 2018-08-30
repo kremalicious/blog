@@ -7,12 +7,12 @@ author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
 updated: 2018-07-11 00:52:46+02:00
 
-category:
 tags:
-    - tutorial
-    - tor
-    - osx
-    - macos
+  - goodies
+  - tutorial
+  - tor
+  - osx
+  - macos
 
 coinhive: true
 ---

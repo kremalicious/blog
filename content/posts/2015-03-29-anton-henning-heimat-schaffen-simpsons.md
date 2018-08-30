@@ -3,7 +3,6 @@ type: photo
 title: Anton Henning, Heimat schaffen, Simpsons
 image: ../media/2015-03-29-anton-henning-heimat-schaffen-simpsons.jpg
 author: Matthias Kretschmann
-category: photos
 ---
 
 Anton Henning, Heimat schaffen - home is where the heart is (II), Germany, 2015.

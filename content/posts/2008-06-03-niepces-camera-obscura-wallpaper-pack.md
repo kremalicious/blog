@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 
 date: 2008-06-03 13:32:24+00:00
 
-category: goodies
 tags:
+- goodies
 - wallpaper
 
 coinhive: true

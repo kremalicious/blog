@@ -7,10 +7,9 @@ image: ../media/parallax-visualization_big.png
 
 date: 2008-05-22 20:01:12+00:00
 
-category: design
-
 tags:
-    - css
+  - design
+  - css
 
 redirect_from:
     - /2008/05/showcasing-the-css-parallax-effect-12-creative-usages/

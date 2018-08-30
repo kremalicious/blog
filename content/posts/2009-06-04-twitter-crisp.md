@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 
 date: 2009-06-04 00:16:40+00:00
 
-category: goodies
 tags:
+- goodies
 - icon
 ---
 

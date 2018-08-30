@@ -7,13 +7,13 @@ download: ../media/out-of-whale-oil-wall-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-02-17 20:11:55+00:00
-  
 
 featured: true
-category: goodies
+
 tags:
-    - wallpaper
-    - futurama
+  - goodies
+  - wallpaper
+  - futurama
 
 coinhive: true
 

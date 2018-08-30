@@ -6,8 +6,8 @@ linkurl: http://venturevillage.eu/10-pro-tips-redesign
 author: Matthias Kretschmann
 date: 2013-07-13 12:49:39+00:00
 
-category: design
 tags:
+- design
 - ezeep
 - personal
 ---

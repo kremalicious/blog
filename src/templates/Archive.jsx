@@ -39,25 +39,7 @@ Archive.propTypes = {
 export default Archive
 
 export const archiveQuery = graphql`
-  query($category: String, $tag: String) {
-    category: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: $category } } }
-      sort: { order: DESC, fields: [fields___date] }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-          }
-          fields {
-            slug
-            date(formatString: "MMMM DD, YYYY")
-          }
-        }
-      }
-    }
-
+  query($tag: String) {
     tag: allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $tag } } }
       sort: { order: DESC, fields: [fields___date] }

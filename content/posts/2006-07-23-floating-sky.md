@@ -6,8 +6,6 @@ image: ../media/floating-sky-1.jpg
 author: Matthias Kretschmann
 
 date: 2006-07-23 11:32:14+00:00
-
-category: photos
 ---
 
 Combining of a lot of techniques: a long exposured HDR (3 bracketed shots) processed in Photomatix and finally polished in Photoshop.

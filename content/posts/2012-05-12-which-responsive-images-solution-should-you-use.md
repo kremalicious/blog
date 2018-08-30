@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 
 date: 2012-05-12 17:52:53+00:00
 
-category: design
 tags:
+- design
 - mobile
 - responsive
 ---

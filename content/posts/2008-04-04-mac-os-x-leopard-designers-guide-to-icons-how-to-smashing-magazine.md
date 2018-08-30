@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 
 date: 2008-04-04 10:47:23+00:00
   
-category: design
 tags:
+    - design
     - osx
     - macos
     - icon

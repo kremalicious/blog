@@ -3,7 +3,6 @@ type: photo
 title: Airfield Reference Point
 image: ../media/airfield-reference-point.jpg
 author: Matthias Kretschmann
-category: photos
 ---
 
 Airfield Reference Point Black And White at Tempelhofer Feld

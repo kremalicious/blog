@@ -6,8 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-12-13 16:47:43+00:00
 
-category: design
 tags:
+- design
 - tutorial
 - wordpress
 

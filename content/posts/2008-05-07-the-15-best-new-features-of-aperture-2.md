@@ -7,8 +7,8 @@ image: ../media/aperture15_7.png
 
 date: 2008-05-07 19:22:49+00:00
 
-category: photography
 tags:
+- photography
 - aperture
 
 coinhive: true

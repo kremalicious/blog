@@ -1,13 +1,15 @@
 ---
-author: Matthias Kretschmann
-date: 2012-04-04 14:24:30+00:00
 type: post
+
 title: The Android Tab Bar Conundrum. Again.
 image: ../media/tabs_overview.png
 
-category: design
+author: Matthias Kretschmann
+date: 2012-04-04 14:24:30+00:00
+
 tags:
-    - android
+- design
+- android
 ---
 
 With [Instagram for Android](https://play.google.com/store/apps/details?id=com.instagram.android&hl=en) there's once again an app getting ported to Android from iOS which doesn't follow the platform specific guidelines with a lot of elements. But this time it's a bit complicated, let me explain.

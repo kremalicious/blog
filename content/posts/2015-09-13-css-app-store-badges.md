@@ -7,10 +7,11 @@ image: ../media/teaser-appstorebadges.png
 author: Matthias Kretschmann
 date: 2015-09-13 18:55:18.418548000 +02:00
 
-category: goodies
+category: 
 tags:
-    - css
-    - svg
+- goodies
+- css
+- svg
 
 coinhive: true
 ---

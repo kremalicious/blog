@@ -6,8 +6,6 @@ linkurl: http://www.guardian.co.uk/commentisfree/2012/may/01/open-free-access-ac
 author: Matthias Kretschmann
 
 date: 2012-05-02 03:12:40+00:00
-
-category: links
 ---
 
 David Willetts, a minister of state for universities and science in the UK, is calling for more open access in academics:

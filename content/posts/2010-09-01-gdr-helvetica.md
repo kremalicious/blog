@@ -7,7 +7,8 @@ author: Matthias Kretschmann
 
 date: 2010-09-01 20:21:43+00:00
 
-category: photos
+tags:
+- typography
 ---
 
 Must be socialist Helvetica or something

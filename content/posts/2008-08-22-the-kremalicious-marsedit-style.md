@@ -6,7 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-08-22 17:04:19+00:00
 
-category: goodies
+tags:
+- goodies
 ---
 
 ![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious.png)Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.

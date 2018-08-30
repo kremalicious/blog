@@ -7,10 +7,12 @@ author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
 
-category: design
+category: 
 tags:
-    - tutorial
-    - wordpress
+  - design
+  - goodies
+  - tutorial
+  - wordpress
 
 coinhive: true
 ---

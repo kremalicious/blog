@@ -6,8 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-05-18 05:00:01+00:00
 
-category: photography
 tags:
+- photography
 - aperture
 
 coinhive: true

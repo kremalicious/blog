@@ -6,8 +6,8 @@ author: Matthias Kretschmann
 
 date: 2008-07-08 19:19:54+00:00
 
-category: photography
 tags:
+- photography
 - aperture
 ---
 

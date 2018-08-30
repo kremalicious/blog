@@ -8,9 +8,10 @@ author: Matthias Kretschmann
 featured: true
 
 date: 2012-07-16 14:36:58+00:00
-category: design
+ 
 tags:
-    - css
+- design
+- css
 
 coinhive: true
 ---

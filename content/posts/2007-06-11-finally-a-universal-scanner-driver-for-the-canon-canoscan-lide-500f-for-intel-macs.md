@@ -4,8 +4,8 @@ title: Finally... a universal scanner driver for the Canon CanoScan LiDE 500F fo
 author: Matthias Kretschmann
 date: 2007-06-11 18:44:28+00:00
 
-category: photography
 tags:
+- photography
 - tutorial
 - osx
 - macos

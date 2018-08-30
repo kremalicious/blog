@@ -3,7 +3,6 @@ type: photo
 title: Just a normal Sunday
 image: ../media/just-a-normal-sunday.jpg
 author: Matthias Kretschmann
-category: photos
 ---
 
 Just a normal Sunday at Botschaft der Russischen Föderation | Embassy of the Russian Federation

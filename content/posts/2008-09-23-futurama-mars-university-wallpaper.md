@@ -7,10 +7,10 @@ author: Matthias Kretschmann
 
 date: 2008-09-23 23:22:16+00:00
   
-category: goodies
 tags:
-    - wallpaper
-    - futurama
+  - goodies
+  - wallpaper
+  - futurama
 
 coinhive: true
 

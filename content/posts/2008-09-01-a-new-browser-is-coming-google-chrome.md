@@ -7,9 +7,8 @@ image: ../media/googlechrome.png
 
 date: 2008-09-01 20:40:38+00:00
 
-
-category: design
 tags:
+- design
 - google
 ---
 

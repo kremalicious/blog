@@ -53,10 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMarkdownRemark(
-              sort: { fields: [fields___date], order: DESC }
-              limit: 1000
-            ) {
+            allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
               edges {
                 node {
                   fields {
@@ -64,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
                     date
                   }
                   frontmatter {
-                    category
+                    type
                     tags
                   }
                 }
@@ -95,7 +92,6 @@ exports.createPages = ({ graphql, actions }) => {
         // Category & Tag Pages
         const tagSet = new Set()
         const tagMap = new Map()
-        const categorySet = new Set()
 
         posts.forEach(post => {
           if (post.node.frontmatter.tags) {
@@ -107,10 +103,6 @@ exports.createPages = ({ graphql, actions }) => {
               tagMap.set(tag, array)
             })
           }
-
-          if (post.node.frontmatter.category) {
-            categorySet.add(post.node.frontmatter.category)
-          }
         })
 
         const tagList = Array.from(tagSet)
@@ -120,16 +112,6 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/tag/${tag}/`,
             component: archiveTemplate,
             context: { tag }
-          })
-        })
-
-        const categoryList = Array.from(categorySet)
-
-        categoryList.forEach(category => {
-          createPage({
-            path: `/${category}/`,
-            component: archiveTemplate,
-            context: { category }
           })
         })
 
