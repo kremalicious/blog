@@ -4,6 +4,9 @@ const yaml = require('js-yaml')
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { url } = meta
 
+// required for gatsby-plugin-meta-redirect
+require('regenerator-runtime/runtime')
+
 module.exports = {
   siteMetadata: {
     siteUrl: `${url}`
@@ -109,6 +112,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
-    'gatsby-redirect-from'
+    'gatsby-redirect-from',
+    'gatsby-plugin-meta-redirect'
   ]
 }
