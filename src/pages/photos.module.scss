@@ -1,0 +1,18 @@
+@import 'mixins';
+
+.photos {
+    @include breakoutviewport;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.photo {
+    flex: 0 0 48%;
+    margin-bottom: 4%;
+
+    a {
+        display: block;
+    }
+}

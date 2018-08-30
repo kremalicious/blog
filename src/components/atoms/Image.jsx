@@ -4,18 +4,20 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styles from './Image.module.scss'
 
-const Image = props => (
+const Image = ({ fluid, fixed, alt }) => (
   <Img
     className={styles.image}
     outerWrapperClassName={styles.imageWrap}
     backgroundColor="#6b7f88"
-    fluid={props.fluid}
-    alt={props.alt}
+    fluid={fluid ? fluid : null}
+    fixed={fixed ? fixed : null}
+    alt={alt}
   />
 )
 
 Image.propTypes = {
-  fluid: PropTypes.object.isRequired,
+  fluid: PropTypes.object,
+  fixed: PropTypes.object,
   alt: PropTypes.string
 }
 
