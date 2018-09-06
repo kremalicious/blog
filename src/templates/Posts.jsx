@@ -8,12 +8,12 @@ import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
 import PostMore from '../components/atoms/PostMore'
 import PostLinkActions from '../components/atoms/PostLinkActions'
+import Pagination from '../components/molecules/Pagination'
 import postStyles from '../templates/Post.module.scss'
 import styles from './Posts.module.scss'
 
 const IndexPage = ({ data, location, pageContext }) => {
   const edges = data.allMarkdownRemark.edges
-  const { previousPagePath, nextPagePath } = pageContext
 
   const Posts = edges.map(({ node }) => {
     const { type, linkurl, title, image } = node.frontmatter
@@ -41,17 +41,16 @@ const IndexPage = ({ data, location, pageContext }) => {
             <PostLinkActions slug={slug} linkurl={linkurl} />
           </Fragment>
         )}
-        <div>
-          {previousPagePath ? (
-            <Link to={previousPagePath}>Previous</Link>
-          ) : null}
-          {nextPagePath ? <Link to={nextPagePath}>Next</Link> : null}
-        </div>
       </article>
     )
   })
 
-  return <Layout location={location}>{Posts}</Layout>
+  return (
+    <Layout location={location}>
+      {Posts}
+      <Pagination pageContext={pageContext} />
+    </Layout>
+  )
 }
 
 IndexPage.propTypes = {
