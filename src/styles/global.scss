@@ -173,7 +173,6 @@ a {
     &:focus {
         outline: 0;
         color: lighten($link-color, 10%);
-        transform: translate3d(0, -.1rem, 0);
     }
 
     &:active {

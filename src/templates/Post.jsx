@@ -26,7 +26,7 @@ const Post = ({ data, location }) => {
         <PostLead post={post} />
 
         {image && (
-          <figure className={styles.hentry__teaser}>
+          <figure className={styles.hentryImage}>
             <Image fluid={image.childImageSharp.fluid} alt={title} />
           </figure>
         )}

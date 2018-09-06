@@ -22,17 +22,24 @@ const Posts = ({ data, location, pageContext }) => {
 
     return (
       <article className={styles.hentry} key={node.id}>
-        <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
+        {type !== 'photo' && (
+          <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
+        )}
 
         {image && (
-          <figure className={styles.hentry__image}>
+          <figure className={styles.hentryImage}>
             <Link to={slug}>
               <Image fluid={image.childImageSharp.fluid} alt={title} />
+              {type === 'photo' && (
+                <figcaption className={styles.hentryImageTitle}>
+                  {title}
+                </figcaption>
+              )}
             </Link>
           </figure>
         )}
 
-        <PostLead post={node} />
+        {type === 'post' && <PostLead post={node} />}
 
         {type === 'post' && <PostMore to={slug}>Continue Reading</PostMore>}
 

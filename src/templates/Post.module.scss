@@ -10,7 +10,7 @@
 // Post/photo teaser
 /////////////////////////////////////
 
-.hentry__teaser {
+.hentryImage {
     @include breakoutviewport();
 
     max-width: none;
