@@ -49,10 +49,12 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 940,
+              quality: 80,
+              withWebp: true,
               linkImagesToOriginal: false,
               // sizeByPixelDensity: true,
               showCaptions: true,
-              backgroundColor: '#dfe8ef'
+              backgroundColor: '#e7eef4'
             }
           },
           {

@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+.featured {
+    @include breakoutviewport;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+}
+
+.featuredTitle {
+    transition: .1s ease-out;
+    font-size: $font-size-small;
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    min-width: 45%;
+    text-align: right;
+    padding: $spacer / 3;
+    background: rgba($link-color, .85);
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    left: 0;
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+}
+
+.featuredItem {
+    flex: 0 0 31%;
+    position: relative;
+    margin-bottom: 3%;
+
+    a:hover {
+        > div {
+            border-color: $link-color !important;
+        }
+
+        .featuredTitle {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}

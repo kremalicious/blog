@@ -1,6 +1,11 @@
 const path = require('path')
+const fs = require('fs')
+const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { paginate } = require('gatsby-awesome-pagination')
+
+const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
+const { itemsPerPage } = meta
 
 // Create slug & date for posts from file path values
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -107,7 +112,7 @@ const generateContent = (createPage, posts) => {
   paginate({
     createPage,
     items: posts,
-    itemsPerPage: 5,
+    itemsPerPage: itemsPerPage,
     pathPrefix: '/',
     component: postsTemplate
   })

@@ -9,11 +9,13 @@ import PostContent from '../components/atoms/PostContent'
 import PostMore from '../components/atoms/PostMore'
 import PostLinkActions from '../components/atoms/PostLinkActions'
 import Pagination from '../components/molecules/Pagination'
+import Featured from '../components/molecules/Featured'
 import postStyles from '../templates/Post.module.scss'
 import styles from './Posts.module.scss'
 
 const IndexPage = ({ data, location, pageContext }) => {
   const edges = data.allMarkdownRemark.edges
+  const { humanPageNumber } = pageContext
 
   const Posts = edges.map(({ node }) => {
     const { type, linkurl, title, image } = node.frontmatter
@@ -47,6 +49,7 @@ const IndexPage = ({ data, location, pageContext }) => {
 
   return (
     <Layout location={location}>
+      {humanPageNumber === 1 && <Featured />}
       {Posts}
       <Pagination pageContext={pageContext} />
     </Layout>
