@@ -3,12 +3,14 @@
 
 .featured {
     @include breakoutviewport;
+    @include divider;
 
+    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: $spacer * 2;
-    margin-bottom: $spacer * 2;
+    padding-bottom: $spacer * 2;
 }
 
 .featuredTitle {

@@ -8,8 +8,6 @@ author: Matthias Kretschmann
 
 date: 2009-02-17 20:11:55+00:00
 
-featured: true
-
 tags:
   - goodies
   - wallpaper
