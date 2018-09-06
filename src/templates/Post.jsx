@@ -9,6 +9,7 @@ import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
 import PostMeta from '../components/molecules/PostMeta'
 import PostActions from '../components/atoms/PostActions'
+import Exif from '../components/atoms/Exif'
 import styles from './Post.module.scss'
 
 const Post = ({ data, location }) => {
@@ -29,6 +30,10 @@ const Post = ({ data, location }) => {
           <figure className={styles.hentryImage}>
             <Image fluid={image.childImageSharp.fluid} alt={title} />
           </figure>
+        )}
+
+        {type === 'photo' && (
+          <Exif image={image.childImageSharp.original.src} />
         )}
 
         <PostContent post={post} />
@@ -67,6 +72,9 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             ...ImageFluid
+            original {
+              src
+            }
           }
         }
         author

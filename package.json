@@ -22,6 +22,7 @@
     "last 3 versions"
   ],
   "dependencies": {
+    "exif-js": "^2.3.0",
     "gatsby": "^2.0.0-rc.13",
     "gatsby-awesome-pagination": "^0.1.1",
     "gatsby-image": "^2.0.0-rc.1",
