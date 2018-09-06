@@ -84,7 +84,7 @@
 
 @mixin divider() {
     position: relative;
-    border-bottom: 1px dashed #afc3cb;
+    border-bottom: 1px dashed lighten($brand-grey-light, 7%);
     margin-top: $spacer * $line-height;
     margin-bottom: $spacer * $line-height;
 
@@ -101,7 +101,7 @@
 
 @mixin divider-top() {
     position: relative;
-    border-top: 1px dashed #afc3cb;
+    border-top: 1px dashed lighten($brand-grey-light, 7%);
     margin-top: $spacer * $line-height;
     margin-bottom: $spacer * $line-height;
 
@@ -124,13 +124,6 @@
     background: rgba(255, 255, 255, .5);
     padding: ($spacer/2) $spacer ($spacer/2) 100%;
     margin-left: -100%;
-}
-
-// Lead paragraph
-/////////////////////////////////////
-
-@mixin lead() {
-    font-size: $font-size-large;
 }
 
 // Layout breakout

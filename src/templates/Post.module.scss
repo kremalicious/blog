@@ -2,31 +2,9 @@
 @import 'mixins';
 
 .hentry {
-    @include divider;
-
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: $spacer * 2;
-    padding-bottom: $spacer * 2;
     width: 100%;
-
-    @media (min-width: $screen-sm) {
-        padding-top: $spacer * 3;
-        padding-bottom: $spacer * 3;
-    }
-
-    &:first-child {
-        padding-top: 0;
-    }
-
-    &:only-child,
-    &:last-child {
-        border: 0;
-
-        &::before {
-            display: none;
-        }
-    }
+    padding-top: $spacer;
+    padding-bottom: $spacer * 3;
 }
 
 // Post/photo teaser

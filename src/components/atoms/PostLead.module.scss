@@ -1,5 +1,5 @@
-@import 'mixins';
+@import 'variables';
 
 .lead {
-    @include lead();
+    font-size: $font-size-large;
 }

@@ -93,9 +93,10 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+const postsTemplate = path.resolve('src/templates/Posts.jsx')
+
 const generateContent = (createPage, posts) => {
   const postTemplate = path.resolve('src/templates/Post.jsx')
-  const postsTemplate = path.resolve('src/templates/Posts.jsx')
 
   // Create Post pages
   posts.forEach(post => {
@@ -119,8 +120,6 @@ const generateContent = (createPage, posts) => {
 }
 
 const createTagPages = (createPage, posts) => {
-  const archiveTemplate = path.resolve('src/templates/Archive.jsx')
-
   const tagSet = new Set()
   const tagMap = new Map()
 
@@ -139,17 +138,10 @@ const createTagPages = (createPage, posts) => {
   const tagList = Array.from(tagSet)
 
   tagList.forEach(tag => {
-    // Create paginated tag pages
-    // paginate({
-    //   createPage,
-    //   items: tagList, // An array of objects
-    //   itemsPerPage: 5,
-    //   pathPrefix: `/tag/${tag.toLowerCase()}`,
-    //   component: archiveTemplate
-    // })
+    // Create tag pages
     createPage({
       path: `/tag/${tag}/`,
-      component: archiveTemplate,
+      component: postsTemplate,
       context: { tag }
     })
   })
@@ -164,7 +156,7 @@ const createTagPages = (createPage, posts) => {
   //         page === 1
   //           ? `/tag/${tagName.toLowerCase()}`
   //           : `/tag/${tagName.toLowerCase()}/page/${page}`,
-  //       component: tagTemplate,
+  //       component: postsTemplate,
   //       context: {
   //         posts: paginate(posts[tagName], pageSize, page),
   //         tag: tagName,

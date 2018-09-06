@@ -5,7 +5,6 @@ import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
 
 import styles from './photos.module.scss'
-import stylesArchive from '../templates/Archive.module.scss'
 
 const Photos = ({ data, location }) => {
   const edges = data.photos.edges
@@ -27,7 +26,7 @@ const Photos = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <h1 className={stylesArchive.archiveTitle}>Photos</h1>
+      <h1 className={styles.pageTitle}>Photos</h1>
       <section className={styles.photos}>{PhotoThumbs}</section>
     </Layout>
   )

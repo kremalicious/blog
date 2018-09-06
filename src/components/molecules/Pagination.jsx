@@ -8,14 +8,14 @@ const Pagination = ({ pageContext }) => {
 
   return (
     <div className={styles.pagination}>
-      {previousPagePath ? (
-        <Link className={styles.paginationLink} to={previousPagePath}>
-          &laquo; Newer Posts
-        </Link>
-      ) : null}
       {nextPagePath ? (
         <Link className={styles.paginationLink} to={nextPagePath}>
-          Older Posts &raquo;
+          &laquo; Older Posts
+        </Link>
+      ) : null}
+      {previousPagePath ? (
+        <Link className={styles.paginationLink} to={previousPagePath}>
+          Newer Posts &raquo;
         </Link>
       ) : null}
     </div>
