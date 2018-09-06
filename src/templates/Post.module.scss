@@ -19,7 +19,8 @@
         padding-top: 0;
     }
 
-    &:only-child {
+    &:only-child,
+    &:last-child {
         border: 0;
 
         &::before {
