@@ -6,13 +6,14 @@ import styles from './PostActions.module.scss'
 import Twitter from '../svg/Twitter'
 import Bitcoin from '../svg/Bitcoin'
 
-class PostActions extends PureComponent {
-  constructor(props) {
-    super(props)
+export default class PostActions extends PureComponent {
+  state = {
+    showModal: false
+  }
 
-    this.state = {
-      showModal: false
-    }
+  static propTypes = {
+    slug: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
   }
 
   toggleModal = () => {
@@ -55,10 +56,3 @@ class PostActions extends PureComponent {
     )
   }
 }
-
-PostActions.propTypes = {
-  slug: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
-}
-
-export default PostActions

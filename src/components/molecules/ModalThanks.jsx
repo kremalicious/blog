@@ -7,18 +7,20 @@ import Modal from '../atoms/Modal'
 import IconClipboard from '../svg/Clipboard'
 import styles from './ModalThanks.module.scss'
 
+const query = graphql`
+  query {
+    contentYaml {
+      author {
+        bitcoin
+        ether
+      }
+    }
+  }
+`
+
 const ModalThanks = ({ ...props }) => (
   <StaticQuery
-    query={graphql`
-      query {
-        contentYaml {
-          author {
-            bitcoin
-            ether
-          }
-        }
-      }
-    `}
+    query={query}
     render={data => {
       const { author } = data.contentYaml
 

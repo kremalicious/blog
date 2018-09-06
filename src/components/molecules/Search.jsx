@@ -8,15 +8,15 @@ import SearchResults from '../atoms/SearchResults'
 
 import styles from './Search.module.scss'
 
-class Search extends PureComponent {
-  constructor(props) {
-    super(props)
+export default class Search extends PureComponent {
+  state = {
+    searchOpen: false,
+    query: '',
+    results: []
+  }
 
-    this.state = {
-      searchOpen: false,
-      query: '',
-      results: []
-    }
+  static propTypes = {
+    lng: PropTypes.string.isRequired
   }
 
   toggleSearch = () => {
@@ -86,9 +86,3 @@ class Search extends PureComponent {
     )
   }
 }
-
-Search.propTypes = {
-  lng: PropTypes.string.isRequired
-}
-
-export default Search

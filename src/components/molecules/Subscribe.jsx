@@ -3,18 +3,20 @@ import { StaticQuery, graphql } from 'gatsby'
 import IconLinks from './IconLinks'
 import styles from './Subscribe.module.scss'
 
+const query = graphql`
+  query {
+    contentYaml {
+      author {
+        rss
+        jsonfeed
+      }
+    }
+  }
+`
+
 const Subscribe = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        contentYaml {
-          author {
-            rss
-            jsonfeed
-          }
-        }
-      }
-    `}
+    query={query}
     render={data => {
       const { rss, jsonfeed } = data.contentYaml.author
 

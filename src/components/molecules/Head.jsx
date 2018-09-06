@@ -3,16 +3,18 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import Typekit from '../atoms/Typekit'
 
+const query = graphql`
+  query {
+    contentYaml {
+      title
+      tagline
+    }
+  }
+`
+
 const Head = () => (
   <StaticQuery
-    query={graphql`
-      query {
-        contentYaml {
-          title
-          tagline
-        }
-      }
-    `}
+    query={query}
     render={data => {
       const { title, tagline } = data.contentYaml
 

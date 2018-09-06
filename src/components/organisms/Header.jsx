@@ -6,7 +6,7 @@ import Menu from '../molecules/Menu'
 
 import styles from './Header.module.scss'
 
-class Header extends PureComponent {
+export default class Header extends PureComponent {
   render() {
     return (
       <header role="banner" className={styles.header}>
@@ -28,7 +28,3 @@ class Header extends PureComponent {
     )
   }
 }
-
-Header.propTypes = {}
-
-export default Header

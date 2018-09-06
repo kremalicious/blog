@@ -11,14 +11,22 @@ import Bitcoin from '../svg/Bitcoin'
 
 import styles from './Footer.module.scss'
 
-class Footer extends PureComponent {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      year: null,
-      showModal: false
+const query = graphql`
+  query {
+    contentYaml {
+      author {
+        name
+        uri
+        bitcoin
+      }
     }
+  }
+`
+
+export default class Footer extends PureComponent {
+  state = {
+    year: null,
+    showModal: false
   }
 
   toggleModal = () => {
@@ -33,17 +41,7 @@ class Footer extends PureComponent {
   render() {
     return (
       <StaticQuery
-        query={graphql`
-          query {
-            contentYaml {
-              author {
-                name
-                uri
-                bitcoin
-              }
-            }
-          }
-        `}
+        query={query}
         render={data => {
           const { name, uri, bitcoin } = data.contentYaml.author
 
@@ -90,5 +88,3 @@ class Footer extends PureComponent {
     )
   }
 }
-
-export default Footer

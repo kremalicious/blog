@@ -6,7 +6,14 @@ import styles from './Modal.module.scss'
 
 ReactModal.setAppElement('#___gatsby')
 
-class Modal extends PureComponent {
+export default class Modal extends PureComponent {
+  static propTypes = {
+    title: PropTypes.string,
+    isOpen: PropTypes.bool,
+    handleCloseModal: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired
+  }
+
   render() {
     if (!this.props.isOpen) {
       return null
@@ -31,12 +38,3 @@ class Modal extends PureComponent {
     )
   }
 }
-
-Modal.propTypes = {
-  title: PropTypes.string,
-  isOpen: PropTypes.bool,
-  handleCloseModal: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired
-}
-
-export default Modal

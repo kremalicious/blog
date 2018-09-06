@@ -4,28 +4,30 @@ import Img from 'gatsby-image'
 import IconLinks from './IconLinks'
 import styles from './Vcard.module.scss'
 
-const Vcard = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        contentYaml {
-          author {
-            name
-            uri
-            twitter
-            github
-            facebook
-            avatar {
-              childImageSharp {
-                fixed(width: 80, height: 80) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
+const query = graphql`
+  query {
+    contentYaml {
+      author {
+        name
+        uri
+        twitter
+        github
+        facebook
+        avatar {
+          childImageSharp {
+            fixed(width: 80, height: 80) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
       }
-    `}
+    }
+  }
+`
+
+const Vcard = () => (
+  <StaticQuery
+    query={query}
     render={data => {
       const {
         twitter,

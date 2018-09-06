@@ -4,13 +4,23 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
 import styles from './Menu.module.scss'
 
-class Menu extends PureComponent {
-  constructor() {
-    super()
-
-    this.state = {
-      menuOpen: false
+const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
+      edges {
+        node {
+          frontmatter {
+            type
+          }
+        }
+      }
     }
+  }
+`
+
+export default class Menu extends PureComponent {
+  state = {
+    menuOpen: false
   }
 
   toggleMenu = () => {
@@ -28,21 +38,7 @@ class Menu extends PureComponent {
           <body className={this.isMenuOpen() ? 'has-menu-open' : null} />
         </Helmet>
         <StaticQuery
-          query={graphql`
-            query {
-              allMarkdownRemark(
-                sort: { fields: [fields___date], order: DESC }
-              ) {
-                edges {
-                  node {
-                    frontmatter {
-                      type
-                    }
-                  }
-                }
-              }
-            }
-          `}
+          query={query}
           render={data => {
             const posts = data.allMarkdownRemark.edges
             const typeSet = new Set()
@@ -75,5 +71,3 @@ class Menu extends PureComponent {
     )
   }
 }
-
-export default Menu
