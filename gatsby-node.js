@@ -3,6 +3,7 @@ const fs = require('fs')
 const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { paginate } = require('gatsby-awesome-pagination')
+const fastExif = require('fast-exif')
 
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { itemsPerPage } = meta
@@ -45,6 +46,35 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'date',
       value: date
     })
+  }
+
+  // exif
+  if (node.internal.mediaType === 'image/jpeg') {
+    fastExif
+      .read(node.absolutePath)
+      .then(exifData => {
+        const iso = exifData.exif.ISO || null
+        const model = exifData.image.Model || null
+        const fstop = exifData.exif.FNumber || null
+        const shutterspeed = exifData.exif.ExposureTime || null
+        const focalLength = exifData.exif.FocalLength || null
+        const exposure = exifData.exif.ExposureBiasValue || null
+
+        // add exif fields to type File
+        createNodeField({
+          node,
+          name: 'exif',
+          value: {
+            iso,
+            model,
+            fstop,
+            shutterspeed,
+            focalLength,
+            exposure
+          }
+        })
+      })
+      .catch(() => null) // just silently fail when exif can't be extracted
   }
 }
 

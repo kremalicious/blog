@@ -15,11 +15,6 @@
         padding-top: $spacer * 3;
         padding-bottom: $spacer * 3;
     }
-
-    a {
-        position: relative;
-        display: block;
-    }
 }
 
 .hentryImageTitle {
@@ -44,14 +39,19 @@
 .hentryImage {
     composes: hentryImage from './Post.module.scss';
 
-    a:hover {
-        > div {
-            border-color: $link-color !important;
-        }
+    a {
+        position: relative;
+        display: block;
 
-        .hentryImageTitle {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
+        &:hover {
+            > div {
+                border-color: $link-color !important;
+            }
+
+            .hentryImageTitle {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
         }
     }
 }

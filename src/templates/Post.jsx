@@ -7,8 +7,8 @@ import Image from '../components/atoms/Image'
 import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
-import PostMeta from '../components/molecules/PostMeta'
 import PostActions from '../components/atoms/PostActions'
+import PostMeta from '../components/molecules/PostMeta'
 import Exif from '../components/atoms/Exif'
 import styles from './Post.module.scss'
 
@@ -32,9 +32,7 @@ const Post = ({ data, location }) => {
           </figure>
         )}
 
-        {type === 'photo' && (
-          <Exif image={image.childImageSharp.original.src} />
-        )}
+        {image && image.fields && <Exif exif={image.fields.exif} />}
 
         <PostContent post={post} />
 
@@ -62,7 +60,7 @@ Post.propTypes = {
 export default Post
 
 export const pageQuery = graphql`
-  query BlogPostByPath($slug: String!) {
+  query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
@@ -72,8 +70,15 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             ...ImageFluid
-            original {
-              src
+          }
+          fields {
+            exif {
+              iso
+              model
+              fstop
+              shutterspeed
+              focalLength
+              exposure
             }
           }
         }

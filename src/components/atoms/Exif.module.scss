@@ -1,0 +1,17 @@
+@import 'variables';
+
+.exif {
+    font-size: $font-size-small;
+    color: $brand-grey-light;
+    margin-top: -($spacer);
+    margin-bottom: $spacer * 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+
+    span {
+        flex: 1;
+        white-space: nowrap;
+    }
+}
