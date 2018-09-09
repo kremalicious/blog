@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import Layout from '../components/Layout'
+import styles from './404.module.scss'
 
 const NotFound = ({ location }) => (
   <Layout location={location}>
-    <div className="hal-9000" />
+    <div className={styles.hal9000} />
 
-    <p className="srverror-title">I am sorry Dave,</p>
-    <p className="srverror-text">I am afraid I can not do that.</p>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>I am sorry Dave,</h1>
+      <p className={styles.text}>I am afraid I can not do that.</p>
 
-    <a href="#" className="js-search-init">
-      How about a nice search?
-    </a>
+      <Link to={'/'}>Back to homepage</Link>
+    </div>
   </Layout>
 )
 

@@ -29,6 +29,7 @@
     background-color: $page-background-color;
     border-top: 1px solid rgba(255, 255, 255, .7);
     border-bottom: 1px solid rgba(255, 255, 255, .7);
+    padding-bottom: $spacer * 2;
     box-shadow: 0 1px 4px rgba($brand-main, .1),
         0 -1px 4px rgba($brand-main, .2);
     transform: translate3d(0, 0, 0);
