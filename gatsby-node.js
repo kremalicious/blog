@@ -53,29 +53,33 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     fastExif
       .read(node.absolutePath)
       .then(exifData => {
-        const iso = exifData.exif.ISO || null
-        const model = exifData.image.Model || null
-        const fstop = exifData.exif.FNumber || null
-        const shutterspeed = exifData.exif.ExposureTime || null
-        const focalLength = exifData.exif.FocalLength || null
-        const exposure = exifData.exif.ExposureBiasValue || null
-
-        // add exif fields to type File
-        createNodeField({
-          node,
-          name: 'exif',
-          value: {
-            iso,
-            model,
-            fstop,
-            shutterspeed,
-            focalLength,
-            exposure
-          }
-        })
+        generateExif(exifData, createNodeField, node)
       })
       .catch(() => null) // just silently fail when exif can't be extracted
   }
+}
+
+const generateExif = (exifData, createNodeField, node) => {
+  const iso = exifData.exif.ISO || null
+  const model = exifData.image.Model || null
+  const fstop = exifData.exif.FNumber || null
+  const shutterspeed = exifData.exif.ExposureTime || null
+  const focalLength = exifData.exif.FocalLength || null
+  const exposure = exifData.exif.ExposureBiasValue || null
+
+  // add exif fields to type File
+  createNodeField({
+    node,
+    name: 'exif',
+    value: {
+      iso,
+      model,
+      fstop,
+      shutterspeed,
+      focalLength,
+      exposure
+    }
+  })
 }
 
 exports.createPages = ({ graphql, actions }) => {
@@ -115,7 +119,7 @@ exports.createPages = ({ graphql, actions }) => {
         generateContent(createPage, posts)
 
         // Generate Tag Pages
-        createTagPages(createPage, posts)
+        generateTagPages(createPage, posts)
 
         resolve()
       })
@@ -149,7 +153,7 @@ const generateContent = (createPage, posts) => {
   })
 }
 
-const createTagPages = (createPage, posts) => {
+const generateTagPages = (createPage, posts) => {
   const tagSet = new Set()
   const tagMap = new Map()
 
