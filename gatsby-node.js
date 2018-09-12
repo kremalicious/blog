@@ -51,21 +51,49 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // exif
   if (node.internal.mediaType === 'image/jpeg') {
     fastExif
-      .read(node.absolutePath)
+      .read(node.absolutePath, true)
       .then(exifData => {
+        if (!exifData) return
         generateExif(exifData, createNodeField, node)
       })
       .catch(() => null) // just silently fail when exif can't be extracted
   }
 }
 
+const getFraction = decimal => {
+  for (var denominator = 1; (decimal * denominator) % 1 !== 0; denominator++);
+  return { numerator: decimal * denominator, denominator: denominator }
+}
+
 const generateExif = (exifData, createNodeField, node) => {
-  const iso = exifData.exif.ISO || null
-  const model = exifData.image.Model || null
-  const fstop = exifData.exif.FNumber || null
-  const shutterspeed = exifData.exif.ExposureTime || null
-  const focalLength = exifData.exif.FocalLength || null
-  const exposure = exifData.exif.ExposureBiasValue || null
+  const { Model } = exifData.image
+  const {
+    ISO,
+    FNumber,
+    ExposureTime,
+    FocalLength,
+    ExposureBiasValue
+  } = exifData.exif
+
+  const shutterspeedNumerator = getFraction(ExposureTime).numerator
+  const shutterspeedDenominator = getFraction(ExposureTime).denominator
+  const exposureShortened = parseFloat(ExposureBiasValue.toFixed(2))
+
+  const model = Model
+  const iso = `ISO ${ISO}`
+  const fstop = `ƒ ${FNumber}`
+  const shutterspeed = `${shutterspeedNumerator}/${shutterspeedDenominator}s`
+  const focalLength = `${FocalLength}mm`
+
+  let exposure
+
+  if (ExposureBiasValue === 0) {
+    exposure = `+/- ${exposureShortened} ev`
+  } else if (ExposureBiasValue > 0) {
+    exposure = `+ ${exposureShortened} ev`
+  } else {
+    exposure = `${exposureShortened} ev`
+  }
 
   // add exif fields to type File
   createNodeField({

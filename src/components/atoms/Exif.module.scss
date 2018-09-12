@@ -1,17 +1,32 @@
 @import 'variables';
+@import 'mixins';
 
 .exif {
-    font-size: $font-size-small;
+    font-size: $font-size-mini;
     color: $brand-grey-light;
-    margin-top: -($spacer);
+    margin-top: -($spacer * 1.5);
     margin-bottom: $spacer * 2;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     text-align: center;
 
     span {
-        flex: 1;
+        display: block;
+        flex: 0 0 33%;
         white-space: nowrap;
+        padding: $spacer / 4;
+
+        &:first-child {
+            flex-basis: 100%;
+        }
+    }
+
+    @media (min-width: $screen-sm) {
+        span {
+            &,
+            &:first-child {
+                flex: 1 1 auto;
+            }
+        }
     }
 }

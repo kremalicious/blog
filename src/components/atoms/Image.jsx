@@ -8,7 +8,7 @@ const Image = ({ fluid, fixed, alt }) => (
   <Img
     className={styles.image}
     outerWrapperClassName={styles.imageWrap}
-    backgroundColor="#6b7f88"
+    backgroundColor="#dfe8ef"
     fluid={fluid ? fluid : null}
     fixed={fixed ? fixed : null}
     alt={alt}
