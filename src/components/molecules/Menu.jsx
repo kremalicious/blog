@@ -6,12 +6,11 @@ import styles from './Menu.module.scss'
 
 const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
+    allMenuYaml {
       edges {
         node {
-          frontmatter {
-            type
-          }
+          title
+          link
         }
       }
     }
@@ -40,21 +39,12 @@ export default class Menu extends PureComponent {
         <StaticQuery
           query={query}
           render={data => {
-            const posts = data.allMarkdownRemark.edges
-            const typeSet = new Set()
+            const { edges } = data.allMenuYaml
 
-            posts.forEach(post => {
-              if (post.node.frontmatter.type) {
-                typeSet.add(post.node.frontmatter.type)
-              }
-            })
-
-            const typeList = Array.from(typeSet)
-
-            const Types = typeList.map(type => (
-              <li key={type}>
-                <Link onClick={this.toggleMenu} to={`/${type}s/`}>
-                  {type}s
+            const MenuItems = edges.map(({ node }) => (
+              <li key={node.title}>
+                <Link onClick={this.toggleMenu} to={node.link}>
+                  {node.title}
                 </Link>
               </li>
             ))
@@ -62,7 +52,7 @@ export default class Menu extends PureComponent {
             return (
               <Fragment>
                 <Hamburger onClick={this.toggleMenu} />
-                <ul className={styles.menu}>{Types}</ul>
+                <ul className={styles.menu}>{MenuItems}</ul>
               </Fragment>
             )
           }}

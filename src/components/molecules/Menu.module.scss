@@ -2,11 +2,16 @@
 @import 'mixins';
 
 .menu {
+    @include divider-top;
+
+    margin-top: 0;
+    padding-top: $spacer / 2;
     position: absolute;
-    top: calc(100% + #{$spacer});
+    top: calc(100% + #{$spacer / 2});
     left: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
 
     li {
