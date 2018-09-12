@@ -2,10 +2,10 @@
 
 > My blog [kremalicious.com](http://kremalicious.com) built with [Gatsby](http://gatsbyjs.org). Neat.
 
-[![Build Status](https://travis-ci.com/kremalicious/kremalicious3.svg?branch=master)](https://travis-ci.com/kremalicious/kremalicious3)
-[![Maintainability](https://api.codeclimate.com/v1/badges/1b7f317ccca9a430ee59/maintainability)](https://codeclimate.com/github/kremalicious/kremalicious3/maintainability)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/22716f4e00d14df8991af76384193953)](https://www.codacy.com/app/kremalicious/kremalicious3)
-[![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/kremalicious3.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/kremalicious/blog.svg?branch=master)](https://travis-ci.com/kremalicious/blog)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability)](https://codeclimate.com/github/kremalicious/blog/maintainability)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/22716f4e00d14df8991af76384193953)](https://www.codacy.com/app/kremalicious/blog)
+[![Greenkeeper badge](https://badges.greenkeeper.io/kremalicious/blog.svg)](https://greenkeeper.io/)
 
 ## Requirements
 
