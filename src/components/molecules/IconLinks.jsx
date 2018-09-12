@@ -9,17 +9,21 @@ import Rss from '../svg/Rss'
 import Jsonfeed from '../svg/Jsonfeed'
 
 const NetworkIcon = ({ link }) => {
+  let Icon
+
   if (link.includes('twitter')) {
-    return <Twitter className={styles.twitter} />
+    Icon = <Twitter className={styles.twitter} />
   } else if (link.includes('github')) {
-    return <Github className={styles.github} />
+    Icon = <Github className={styles.github} />
   } else if (link.includes('facebook')) {
-    return <Facebook className={styles.facebook} />
+    Icon = <Facebook className={styles.facebook} />
   } else if (link.includes('feed.xml')) {
-    return <Rss className={styles.rss} />
+    Icon = <Rss className={styles.rss} />
   } else if (link.includes('feed.json')) {
-    return <Jsonfeed className={styles.json} />
+    Icon = <Jsonfeed className={styles.json} />
   }
+
+  return Icon
 }
 
 const IconLinks = ({ links }) => (

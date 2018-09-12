@@ -9,59 +9,68 @@ const Fraction = require('fraction.js')
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { itemsPerPage } = meta
 
-// Create slug & date for posts from file path values
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
+  // Markdown files
   if (node.internal.type === 'MarkdownRemark') {
-    const fileNode = getNode(node.parent)
-    const parsedFilePath = path.parse(fileNode.relativePath)
-    const slugOriginal = createFilePath({ node, getNode })
-
-    // slug
-    let slug
-
-    if (parsedFilePath.name === 'index') {
-      slug = `/${parsedFilePath.dir.substring(11)}` // remove date from file dir
-    } else {
-      slug = `/${slugOriginal.substring(12)}` // remove first slash & date from file path
-    }
-
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug
-    })
-
-    // date
-    let date
-
-    if (node.frontmatter.date) {
-      date = `${node.frontmatter.date}`
-    } else {
-      date = `${slugOriginal.substring(1, 10)}` // grab date from file path
-    }
-
-    createNodeField({
-      node,
-      name: 'date',
-      value: date
-    })
+    createMarkdownNodeFields(node, createNodeField, getNode)
   }
 
-  // exif
+  // Image files
   if (node.internal.mediaType === 'image/jpeg') {
-    fastExif
-      .read(node.absolutePath, true)
-      .then(exifData => {
-        if (!exifData) return
-        generateExif(exifData, createNodeField, node)
-      })
-      .catch(() => null) // just silently fail when exif can't be extracted
+    readAndCreateExifFields(node, createNodeField)
   }
 }
 
-const generateExif = (exifData, createNodeField, node) => {
+// Create slug & date for posts from file path values
+const createMarkdownNodeFields = (node, createNodeField, getNode) => {
+  const fileNode = getNode(node.parent)
+  const parsedFilePath = path.parse(fileNode.relativePath)
+  const slugOriginal = createFilePath({ node, getNode })
+
+  // slug
+  let slug
+
+  if (parsedFilePath.name === 'index') {
+    slug = `/${parsedFilePath.dir.substring(11)}` // remove date from file dir
+  } else {
+    slug = `/${slugOriginal.substring(12)}` // remove first slash & date from file path
+  }
+
+  createNodeField({
+    node,
+    name: 'slug',
+    value: slug
+  })
+
+  // date
+  let date
+
+  if (node.frontmatter.date) {
+    date = `${node.frontmatter.date}`
+  } else {
+    date = `${slugOriginal.substring(1, 10)}` // grab date from file path
+  }
+
+  createNodeField({
+    node,
+    name: 'date',
+    value: date
+  })
+}
+
+const readAndCreateExifFields = (node, createNodeField) => {
+  fastExif
+    .read(node.absolutePath, true)
+    .then(exifData => {
+      if (!exifData) return
+      createExifFields(exifData, createNodeField, node)
+    })
+    .catch(() => null) // just silently fail when exif can't be extracted
+}
+
+const createExifFields = (exifData, createNodeField, node) => {
   const { Model } = exifData.image
   const {
     ISO,
