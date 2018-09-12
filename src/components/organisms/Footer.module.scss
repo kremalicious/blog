@@ -7,7 +7,7 @@
     color: $text-color-light;
     line-height: $spacer;
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-sm) and (min-height: 500px) {
         position: fixed;
         width: 100%;
         border: 0;

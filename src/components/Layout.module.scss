@@ -38,7 +38,7 @@
         transform: translate3d(0, ($spacer * 8), 0);
     }
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-sm) and (min-height: 500px) {
         margin-top: $spacer * 2.65;
         margin-bottom: $spacer * 20; // height of footer
         position: relative;
