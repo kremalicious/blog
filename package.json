@@ -60,7 +60,7 @@
     "gulp-awspublish-router": "^0.1.5",
     "gulp-cli": "^2.0.0",
     "gulp-header": "^2.0.5",
-    "gulp-htmlmin": "^4.0.0",
+    "gulp-htmlmin": "^5.0.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-include": "^2.3.1",
