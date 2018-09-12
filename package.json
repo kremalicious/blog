@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "fast-exif": "^1.0.1",
-    "fractional": "^1.0.0",
+    "fraction.js": "^4.0.9",
     "gatsby": "^2.0.0-rc.21",
     "gatsby-awesome-pagination": "^0.1.1",
     "gatsby-image": "^2.0.0-rc.2",
