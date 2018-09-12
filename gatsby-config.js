@@ -108,6 +108,14 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        matomoUrl: 'https://analytics.kremalicious.com',
+        siteUrl: `${url}`
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
