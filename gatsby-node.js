@@ -4,6 +4,7 @@ const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { paginate } = require('gatsby-awesome-pagination')
 const fastExif = require('fast-exif')
+const { Fraction } = require('fractional')
 
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { itemsPerPage } = meta
@@ -60,11 +61,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-const getFraction = decimal => {
-  for (var denominator = 1; (decimal * denominator) % 1 !== 0; denominator++);
-  return { numerator: decimal * denominator, denominator: denominator }
-}
-
 const generateExif = (exifData, createNodeField, node) => {
   const { Model } = exifData.image
   const {
@@ -75,14 +71,13 @@ const generateExif = (exifData, createNodeField, node) => {
     ExposureBiasValue
   } = exifData.exif
 
-  const shutterspeedNumerator = getFraction(ExposureTime).numerator
-  const shutterspeedDenominator = getFraction(ExposureTime).denominator
+  const { numerator, denominator } = new Fraction(ExposureTime)
   const exposureShortened = parseFloat(ExposureBiasValue.toFixed(2))
 
-  const model = Model
+  const model = `${Model}`
   const iso = `ISO ${ISO}`
   const fstop = `ƒ ${FNumber}`
-  const shutterspeed = `${shutterspeedNumerator}/${shutterspeedDenominator}s`
+  const shutterspeed = `${numerator}/${denominator}s`
   const focalLength = `${FocalLength}mm`
 
   let exposure
