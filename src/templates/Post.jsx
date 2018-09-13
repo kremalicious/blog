@@ -15,11 +15,13 @@ import styles from './Post.module.scss'
 const Post = ({ data, location }) => {
   const { markdownRemark: post } = data
   const { contentYaml: meta } = data
-  const { title, image, type, linkurl } = post.frontmatter
+  const { title, image, type, linkurl, style } = post.frontmatter
 
   return (
     <Layout location={location}>
-      <Helmet title={title} />
+      <Helmet title={title}>
+        {style && <link rel="stylesheet" href={style.publicURL} />}
+      </Helmet>
 
       <article className={styles.hentry}>
         <PostTitle type={type} linkurl={linkurl} title={title} />
@@ -86,6 +88,9 @@ export const pageQuery = graphql`
         updated
         tags
         linkurl
+        style {
+          publicURL
+        }
       }
       fields {
         slug

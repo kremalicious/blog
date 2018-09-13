@@ -66,8 +66,8 @@ kbd.android.color {
 
 @font-face {
     font-family: 'RobotoRegular';
-    src: url('./Roboto-Regular-webfont.eot');
-    src: url('./Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('./Roboto-Regular-webfont.woff') format('woff'), url('./Roboto-Regular-webfont.ttf') format('truetype'), url('./Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    src: url('/media/Roboto-Regular-webfont.eot');
+    src: url('/media/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/media/Roboto-Regular-webfont.woff') format('woff'), url('/media/Roboto-Regular-webfont.ttf') format('truetype'), url('/media/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
