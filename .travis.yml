@@ -11,7 +11,7 @@ install:
 
 script:
   - npm test
-  - npm run build
+  - travis_wait 30 npm run build
 
 after_success:
   - pip install --user awscli
@@ -19,5 +19,5 @@ after_success:
   - npm run deploy
 
 notifications:
-    email: false
-    slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
+  email: false
+  slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
