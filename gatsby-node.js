@@ -5,6 +5,7 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const { paginate } = require('gatsby-awesome-pagination')
 const fastExif = require('fast-exif')
 const Fraction = require('fraction.js')
+const dms2dec = require('dms2dec')
 
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { itemsPerPage } = meta
@@ -79,6 +80,12 @@ const createExifFields = (exifData, createNodeField, node) => {
     FocalLength,
     ExposureBiasValue
   } = exifData.exif
+  const {
+    GPSLatitudeRef,
+    GPSLatitude,
+    GPSLongitudeRef,
+    GPSLongitude
+  } = exifData.gps
 
   const { n, d } = new Fraction(ExposureTime)
   const exposureShortened = parseFloat(ExposureBiasValue.toFixed(2))
@@ -88,6 +95,16 @@ const createExifFields = (exifData, createNodeField, node) => {
   const fstop = `ƒ ${FNumber}`
   const shutterspeed = `${n}/${d}s`
   const focalLength = `${FocalLength}mm`
+
+  const GPSdec = dms2dec(
+    GPSLatitude,
+    GPSLatitudeRef,
+    GPSLongitude,
+    GPSLongitudeRef
+  )
+
+  const latitude = GPSdec[0]
+  const longitude = GPSdec[1]
 
   let exposure
 
@@ -109,7 +126,11 @@ const createExifFields = (exifData, createNodeField, node) => {
       fstop,
       shutterspeed,
       focalLength,
-      exposure
+      exposure,
+      gps: {
+        latitude,
+        longitude
+      }
     }
   })
 }

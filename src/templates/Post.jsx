@@ -81,6 +81,10 @@ export const pageQuery = graphql`
               shutterspeed
               focalLength
               exposure
+              gps {
+                latitude
+                longitude
+              }
             }
           }
         }

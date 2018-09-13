@@ -2,10 +2,13 @@
 @import 'mixins';
 
 .exif {
+    margin-top: -($spacer);
+    margin-bottom: $spacer * 2;
+}
+
+.data {
     font-size: $font-size-mini;
     color: $brand-grey-light;
-    margin-top: -($spacer * 1.25);
-    margin-bottom: $spacer * 2;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -29,4 +32,14 @@
             }
         }
     }
+}
+
+.map {
+    @include breakoutviewport;
+
+    border-radius: $border-radius;
+    overflow: hidden;
+    margin-top: $spacer / 2;
+    border: 1px solid $brand-grey-dimmed;
+    height: 160px;
 }
