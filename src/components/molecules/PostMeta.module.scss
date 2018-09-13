@@ -64,9 +64,14 @@
     }
 }
 
+.tags {
+    margin-top: $spacer / 2;
+}
+
 .tag {
     color: $text-color;
-    margin-right: 5px;
+    margin-left: $spacer / 2;
+    margin-right: $spacer / 2;
 
     &::before {
         color: $brand-grey-dimmed;

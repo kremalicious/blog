@@ -1,17 +1,14 @@
 @import 'variables';
 @import 'mixins';
 
-.photos {
+.image {
     @include breakoutviewport;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    max-width: none;
 }
 
-.photo {
-    flex: 0 0 48%;
-    margin-bottom: 4%;
+.goodie {
+    margin-bottom: $spacer * 4;
 
     a {
         display: block;
@@ -21,4 +18,11 @@
 .pageTitle {
     composes: archiveTitle from '../templates/Posts.module.scss';
     margin-bottom: $spacer * 2;
+}
+
+.title {
+    font-size: $font-size-h3;
+    color: $brand-grey;
+    margin-top: 0;
+    margin-bottom: $spacer;
 }

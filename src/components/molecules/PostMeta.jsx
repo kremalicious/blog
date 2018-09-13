@@ -35,19 +35,24 @@ const PostMeta = ({ post, meta }) => {
         )}
       </div>
 
-      {type && (
-        <div className={styles.type}>
-          <Link to={`/${slugify(type)}s/`}>{type}s</Link>
-        </div>
-      )}
+      {type &&
+        type === 'photo' && (
+          <div className={styles.type}>
+            <Link to={`/${slugify(type)}s/`}>{type}s</Link>
+          </div>
+        )}
 
       {tags && (
         <div className={styles.tags}>
-          {tags.map(tag => (
-            <Link key={tag} className={styles.tag} to={`/tag/${slugify(tag)}/`}>
-              {tag}
-            </Link>
-          ))}
+          {tags.map(tag => {
+            const to = tag === 'goodies' ? '/goodies' : `/tag/${slugify(tag)}/`
+
+            return (
+              <Link key={tag} className={styles.tag} to={to}>
+                {tag}
+              </Link>
+            )
+          })}
         </div>
       )}
     </footer>

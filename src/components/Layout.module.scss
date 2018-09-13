@@ -43,6 +43,7 @@
         margin-bottom: $spacer * 20; // height of footer
         position: relative;
         z-index: 2;
+        min-height: 500px;
 
         :global(.has-menu-open) & {
             transform: translate3d(0, ($spacer * 5), 0);

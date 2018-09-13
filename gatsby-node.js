@@ -204,6 +204,8 @@ const generateTagPages = (createPage, posts) => {
   const tagList = Array.from(tagSet)
 
   tagList.forEach(tag => {
+    if (tag === 'goodies') return
+
     // Create tag pages
     createPage({
       path: `/tag/${tag}/`,
