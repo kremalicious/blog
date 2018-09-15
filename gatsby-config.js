@@ -2,14 +2,17 @@ const path = require('path')
 const fs = require('fs')
 const yaml = require('js-yaml')
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
-const { url } = meta
+const { title, tagline, url, author } = meta
 
 // required for gatsby-plugin-meta-redirect
 require('regenerator-runtime/runtime')
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `${url}`
+    title: `${title}`,
+    description: `${tagline}`,
+    siteUrl: `${url}`,
+    author: `${author.name}`
   },
   plugins: [
     {
@@ -116,6 +119,64 @@ module.exports = {
         siteUrl: `${url}`
       }
     },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+                author
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: feedContent(edge),
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  author: site.siteMetadata.author,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 20,
+                  sort: { order: DESC, fields: [fields___date] }
+                ) {
+                  edges {
+                    node {
+                      html
+                      fields { slug, date }
+                      frontmatter {
+                        title
+                        image {
+                          childImageSharp {
+                            resize(width: 960, quality: 80) {
+                              src
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/feed.xml'
+          }
+        ]
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
@@ -125,4 +186,12 @@ module.exports = {
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect'
   ]
+}
+
+const feedContent = edge => {
+  const { image } = edge.node.frontmatter
+
+  return image
+    ? `<img src="${image.childImageSharp.resize.src}" /><br />${edge.node.html}`
+    : edge.node.html
 }

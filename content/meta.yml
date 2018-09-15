@@ -20,8 +20,8 @@ author:
     github:             https://github.com/kremalicious
     facebook:           https://facebook.com/matthiaskretschmann
     googleplus:         https://plus.google.com/+MatthiasKretschmann
-    rss:                https://kremalicious.com/feed.xml
-    jsonfeed:           http://kremalicious.com/feed.json
+    rss:                /feed.xml
+    jsonfeed:           /feed.json
     avatar:             ../src/images/avatar.jpg
     bitcoin:            171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V
     ether:              "0x339dbC44d39bf1961E385ed0Ae88FC6069b87Ea1"
