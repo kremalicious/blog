@@ -5,13 +5,13 @@ $easing: cubic-bezier(.75, 0, .08, 1);
 /////////////////////////////////////
 
 $brand-main: #015565;
-$brand-main-light: #88bec8;
 $brand-cyan: #43a699;
+$brand-main-light: #88bec8;
 $brand-light: #e7eef4;
 
-$brand-grey: #6b7f88;
+$brand-grey: #4e5d63;
 $brand-grey-light: lighten($brand-grey, 15%);
-$brand-grey-dimmed: lighten($brand-grey, 30%);
+$brand-grey-dimmed: lighten($brand-grey, 50%);
 
 $alert-info: #f7f1e4;
 $alert-success: #dff0d8;
@@ -20,8 +20,8 @@ $alert-error: #f2dede;
 // Backgrounds
 /////////////////////////////////////
 
-$body-background-color: #dfe8ef;
-$body-background-color--dark: darken($brand-grey, 30%);
+$body-background-color: $brand-light;
+$body-background-color--dark: darken($brand-grey, 22%);
 
 $page-background-color: $brand-light;
 
@@ -31,8 +31,8 @@ $page-background-color: $brand-light;
 $text-color: $brand-grey;
 $text-color-light: $brand-grey-light;
 
-$text-color--dark: $brand-grey-light;
-$text-color-light--dark: $brand-grey;
+$text-color--dark: lighten($brand-grey-light, 5%);
+$text-color-light--dark: lighten($brand-grey-light, 5%);
 
 $link-color: $brand-cyan;
 
