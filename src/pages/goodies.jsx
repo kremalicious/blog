@@ -25,11 +25,7 @@ const Goodies = ({ data }) => {
     )
   })
 
-  return (
-    <Page title="Goodies">
-      <section className={styles.goodies}>{GoodiesThumbs}</section>
-    </Page>
-  )
+  return <Page title="Goodies">{GoodiesThumbs}</Page>
 }
 
 Goodies.propTypes = {

@@ -4,19 +4,20 @@ import Layout from '../components/Layout'
 
 import styles from './Page.module.scss'
 
-const Page = ({ title, location, children }) => {
+const Page = ({ title, location, section, children }) => {
   return (
     <Layout location={location}>
       <h1 className={styles.pageTitle}>{title}</h1>
-      {children}
+      {section ? <section className={section}>{children}</section> : children}
     </Layout>
   )
 }
 
 Page.propTypes = {
-  location: PropTypes.object,
+  title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
-  title: PropTypes.string.isRequired
+  section: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default Page

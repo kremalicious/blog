@@ -25,8 +25,8 @@ const Photos = ({ data }) => {
   })
 
   return (
-    <Page title="Photos">
-      <section className={styles.photos}>{PhotoThumbs}</section>
+    <Page title="Photos" section={styles.photos}>
+      {PhotoThumbs}
     </Page>
   )
 }
