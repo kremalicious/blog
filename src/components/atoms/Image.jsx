@@ -18,10 +18,10 @@ const Image = ({ fluid, fixed, alt }) => (
 Image.propTypes = {
   fluid: PropTypes.object,
   fixed: PropTypes.object,
-  alt: PropTypes.string
+  alt: PropTypes.string.isRequired
 }
 
-export const projectImage = graphql`
+export const imageSizeDefault = graphql`
   fragment ImageFluid on ImageSharp {
     fluid(maxWidth: 940, quality: 85) {
       ...GatsbyImageSharpFluid_withWebp_noBase64

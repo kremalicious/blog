@@ -13,11 +13,16 @@
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: $spacer;
     display: block;
 
     @media (min-width: 940px) {
         max-width: 940px;
         border-radius: .25rem;
         overflow: hidden;
+    }
+
+    a:hover & {
+        border-color: $link-color !important;
     }
 }

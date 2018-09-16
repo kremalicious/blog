@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import Image from '../components/atoms/Image'
+import PostImage from '../components/atoms/PostImage'
 import Page from '../templates/Page'
 
 import styles from './goodies.module.scss'
@@ -18,9 +18,7 @@ const Goodies = ({ data }) => {
         {image && (
           <Link to={slug}>
             <h1 className={styles.title}>{title}</h1>
-            <figure className={styles.image}>
-              <Image fluid={image.childImageSharp.fluid} alt={title} />
-            </figure>
+            <PostImage fluid={image.childImageSharp.fluid} alt={title} />
           </Link>
         )}
       </article>

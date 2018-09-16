@@ -6,29 +6,3 @@
     padding-top: $spacer;
     padding-bottom: $spacer * 3;
 }
-
-// Post/photo teaser
-/////////////////////////////////////
-
-.hentryImage {
-    @include breakoutviewport();
-
-    max-width: none;
-    display: block;
-    margin-top: $spacer * 1.5;
-    margin-bottom: $spacer * 1.5;
-
-    > div {
-        @include media-frame();
-
-        border-radius: 0;
-
-        @media (min-width: $screen-sm) {
-            border-radius: $border-radius;
-        }
-    }
-
-    img {
-        border-radius: 0;
-    }
-}

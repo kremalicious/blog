@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Image from '../components/atoms/Image'
+import PostImage from '../components/atoms/PostImage'
 import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
@@ -28,11 +28,7 @@ const Post = ({ data, location }) => {
 
         <PostLead post={post} />
 
-        {image && (
-          <figure className={styles.hentryImage}>
-            <Image fluid={image.childImageSharp.fluid} alt={title} />
-          </figure>
-        )}
+        {image && <PostImage fluid={image.childImageSharp.fluid} alt={title} />}
 
         {image && image.fields && <Exif exif={image.fields.exif} />}
 

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Image from '../components/atoms/Image'
+import PostImage from '../components/atoms/PostImage'
 import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
@@ -29,12 +29,11 @@ const Posts = ({ data, location, pageContext }) => {
         {image && (
           <figure className={styles.hentryImage}>
             <Link to={slug}>
-              <Image fluid={image.childImageSharp.fluid} alt={title} />
-              {type === 'photo' && (
-                <figcaption className={styles.hentryImageTitle}>
-                  {title}
-                </figcaption>
-              )}
+              <PostImage
+                title={type === 'photo' ? title : null}
+                fluid={image.childImageSharp.fluid}
+                alt={title}
+              />
             </Link>
           </figure>
         )}
