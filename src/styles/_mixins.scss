@@ -84,7 +84,7 @@
 
 @mixin divider() {
     position: relative;
-    border-bottom: 1px dashed lighten($brand-grey-light, 7%);
+    border-bottom: 1px dashed lighten($brand-grey-light, 20%);
     margin-top: $spacer * $line-height;
     margin-bottom: $spacer * $line-height;
 
@@ -101,7 +101,7 @@
 
 @mixin divider-top() {
     position: relative;
-    border-top: 1px dashed lighten($brand-grey-light, 7%);
+    border-top: 1px dashed lighten($brand-grey-light, 20%);
     margin-top: $spacer * $line-height;
     margin-bottom: $spacer * $line-height;
 

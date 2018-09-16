@@ -2,22 +2,27 @@
 @import 'mixins';
 
 .exif {
-    margin-top: -($spacer);
+    margin-top: -($spacer * 1.5);
     margin-bottom: $spacer * 2;
 }
 
 .data {
+    @include breakoutviewport;
+
     font-size: $font-size-mini;
     color: $brand-grey-light;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
+    margin-bottom: -3px;
 
     span {
         display: block;
-        flex: 0 0 33%;
+        flex: 1 1 20%;
         white-space: nowrap;
-        padding: $spacer / 4;
+        padding: $spacer / 1.5;
+        border-bottom: 1px solid $brand-grey-dimmed;
 
         &:first-child {
             flex-basis: 100%;
@@ -25,10 +30,20 @@
     }
 
     @media (min-width: $screen-sm) {
+        margin-bottom: 0;
+
         span {
+            border-left: 1px solid $brand-grey-dimmed;
+            border-bottom: 0;
+            padding: $spacer;
+
             &,
             &:first-child {
                 flex: 1 1 auto;
+            }
+
+            &:first-child {
+                border-left: 0;
             }
         }
     }
@@ -36,10 +51,8 @@
 
 .map {
     @include breakoutviewport;
+    @include media-frame;
 
-    border-radius: $border-radius;
     overflow: hidden;
-    margin-top: $spacer / 2;
-    border: 1px solid $brand-grey-dimmed;
     height: 160px;
 }
