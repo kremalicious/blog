@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
 import Image from '../components/atoms/Image'
+import Page from '../templates/Page'
 
 import styles from './photos.module.scss'
 
-const Photos = ({ data, location }) => {
+const Photos = ({ data }) => {
   const edges = data.photos.edges
 
   const PhotoThumbs = edges.map(({ node }) => {
@@ -25,10 +25,9 @@ const Photos = ({ data, location }) => {
   })
 
   return (
-    <Layout location={location}>
-      <h1 className={styles.pageTitle}>Photos</h1>
+    <Page title="Photos">
       <section className={styles.photos}>{PhotoThumbs}</section>
-    </Layout>
+    </Page>
   )
 }
 

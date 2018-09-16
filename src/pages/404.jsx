@@ -1,20 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Layout from '../components/Layout'
+import Page from '../templates/Page'
 import styles from './404.module.scss'
 
-const NotFound = ({ location }) => (
-  <Layout location={location}>
+const NotFound = () => (
+  <Page title="404 - Not Found">
     <div className={styles.hal9000} />
 
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>I am sorry Dave,</h1>
-      <p className={styles.text}>I am afraid I can not do that.</p>
-
+      {/* eslint-disable-next-line quotes */}
+      <h1 className={styles.title}>{"I'm sorry Dave"}</h1>{' '}
+      {/* eslint-disable-next-line quotes */}
+      <p className={styles.text}>{"I'm afraid I can't do that"}</p>
       <Link to={'/'}>Back to homepage</Link>
     </div>
-  </Layout>
+  </Page>
 )
 
 NotFound.propTypes = {

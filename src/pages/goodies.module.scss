@@ -15,11 +15,6 @@
     }
 }
 
-.pageTitle {
-    composes: archiveTitle from '../templates/Posts.module.scss';
-    margin-bottom: $spacer * 2;
-}
-
 .title {
     font-size: $font-size-h3;
     color: $brand-grey;
