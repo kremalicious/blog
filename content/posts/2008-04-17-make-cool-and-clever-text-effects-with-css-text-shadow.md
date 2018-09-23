@@ -6,7 +6,7 @@ author: Matthias Kretschmann
 
 date: "2008-04-17 01:32:13+00:00"
 
-category: 
+category:
 tags:
   - design
   - css

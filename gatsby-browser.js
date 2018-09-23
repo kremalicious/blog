@@ -1,8 +1,6 @@
-require('./src/styles/global.scss')
+import './src/styles/global.scss'
 
-exports.onClientEntry = () => {
-  // IntersectionObserver polyfill for gatsby-image (Safari, IE)
-  if (typeof window.IntersectionObserver === 'undefined') {
-    require('intersection-observer')
-  }
+// IntersectionObserver polyfill for gatsby-image (Safari, IE)
+if (typeof window.IntersectionObserver === 'undefined') {
+  import('intersection-observer')
 }

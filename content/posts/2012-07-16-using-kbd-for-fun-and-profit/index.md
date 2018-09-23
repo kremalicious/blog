@@ -31,7 +31,6 @@ They are completely styled with CSS3 so they're sharp on all screens no matter h
 
 ## Usage
 
-
 ### CSS
 
 Just drop in the `kbdftw.css` in your `head`:
@@ -62,6 +61,7 @@ The default styling are light keys with Lucida Grande as font:
 ```html
 <kbd>Q</kbd>
 ```
+
 becomes <kbd>Q</kbd>
 
 Add a dark class to get the dark keys:
@@ -69,6 +69,7 @@ Add a dark class to get the dark keys:
 ```html
 <kbd class="dark">Q</kbd>
 ```
+
 becomes <kbd class="dark">Q</kbd>
 
 Adding an ios or android class gives a replica of those system keys. Android uses three different colors on the default keyboard.
@@ -76,21 +77,25 @@ Adding an ios or android class gives a replica of those system keys. Android use
 ```html
 <kbd class="ios">Q</kbd>
 ```
+
 becomes <kbd class="ios">Q</kbd>
 
 ```html
 <kbd class="android">Q</kbd>
 ```
+
 becomes <kbd class="android">Q</kbd>
 
 ```html
 <kbd class="android dark">Q</kbd>
 ```
+
 becomes <kbd class="android dark">Q</kbd>
 
 ```html
 <kbd class="android color">Q</kbd>
 ```
+
 becomes <kbd class="android color">Q</kbd>
 
 I've let the default `display: inline` intact so all padding on the `kbd` elements won't affect the line-height of the surrounding text. This leads to problems when you want to use them over multiple lines so just make them `display: inline-block` in this scenario.
