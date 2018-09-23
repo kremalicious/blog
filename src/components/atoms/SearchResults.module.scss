@@ -15,6 +15,11 @@
 
         margin-top: $spacer;
 
+        li {
+            margin-left: $spacer;
+            margin-right: $spacer;
+        }
+
         li::before {
             top: $spacer / 7;
         }

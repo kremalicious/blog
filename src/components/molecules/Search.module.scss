@@ -25,7 +25,7 @@
     &.appearActive,
     &.enterActive {
         opacity: 1;
-        transition: 200ms cubic-bezier(.4, 1.72, .61, .7);
+        transition: .2s ease-out;
         transform: translate3d(0, 0, 0);
     }
 }
@@ -36,7 +36,7 @@
 
     &.exitActive {
         opacity: .01;
-        transition: 200ms ease-in;
+        transition: .2s ease-in;
         transform: translate3d(0, -100px, 0);
     }
 }

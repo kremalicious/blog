@@ -7,6 +7,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-left: $spacer;
+    padding-right: $spacer;
+
+    @media (min-width: $screen-md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .photo {
