@@ -144,20 +144,21 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: feedContent(edge),
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  author: site.siteMetadata.author,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug
-                })
-              })
+              return allMarkdownRemark.edges.map(edge => ({
+                title: edge.node.frontmatter.title,
+                date: edge.node.fields.date,
+                description: feedContent(edge),
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                categories: edge.node.frontmatter.tags,
+                author: site.siteMetadata.author,
+                guid: site.siteMetadata.siteUrl + edge.node.fields.slug
+              }))
             },
             query: `
               {
                 allMarkdownRemark(
-                  limit: 20,
-                  sort: { order: DESC, fields: [fields___date] }
+                  sort: { order: DESC, fields: [fields___date] },
+                  limit: 20
                 ) {
                   edges {
                     node {
@@ -167,7 +168,7 @@ module.exports = {
                         title
                         image {
                           childImageSharp {
-                            resize(width: 960, quality: 80) {
+                            resize(width: 940, quality: 85) {
                               src
                             }
                           }
@@ -196,8 +197,11 @@ module.exports = {
 
 const feedContent = edge => {
   const { image } = edge.node.frontmatter
+  const { html } = edge.node
+  const footer =
+    '<hr />This post was published on <a href="https://kremalicious.com">kremalicious.com</a>'
 
   return image
-    ? `<img src="${image.childImageSharp.resize.src}" /><br />${edge.node.html}`
-    : edge.node.html
+    ? `<img src="${image.childImageSharp.resize.src}" /><br />${html}${footer}`
+    : `${html}${footer}`
 }
