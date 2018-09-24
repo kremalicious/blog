@@ -49,7 +49,9 @@ class SEO extends Component {
             description = postMeta.description
               ? postMeta.description
               : post.excerpt
-            image = postMeta.image.childImageSharp.fluid.src
+            image = postMeta.image
+              ? postMeta.image.childImageSharp.fluid.src
+              : siteMeta.author.avatar.childImageSharp.resize.src
             postURL = `${siteMeta.url}${slug}`
           } else {
             title = `${siteMeta.title} ¦ ${siteMeta.tagline}`
