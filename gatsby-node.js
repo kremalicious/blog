@@ -10,6 +10,11 @@ const dms2dec = require('dms2dec')
 const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
 const { itemsPerPage } = meta
 
+const redirects = [
+  { f: '/feed', t: '/feed.xml' },
+  { f: '/feed/', t: '/feed.xml' }
+]
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
@@ -136,7 +141,7 @@ const createExifFields = (exifData, createNodeField, node) => {
 }
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -173,6 +178,15 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Generate Tag Pages
         generateTagPages(createPage, posts)
+
+        // create manual redirects
+        redirects.forEach(({ f, t }) => {
+          createRedirect({
+            fromPath: f,
+            redirectInBrowser: true,
+            toPath: t
+          })
+        })
 
         resolve()
       })
