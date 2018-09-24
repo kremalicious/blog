@@ -7,11 +7,10 @@ download: ../media/adiumeetie-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-06-24 21:00:38+00:00
-  
+
 tags:
   - goodies
   - icon
-  - osx
   - macos
 ---
 

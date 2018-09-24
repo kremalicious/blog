@@ -11,7 +11,6 @@ coinhive: true
 tags:
   - photography
   - tutorial
-  - osx
   - macos
 ---
 

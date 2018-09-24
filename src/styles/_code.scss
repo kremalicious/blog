@@ -64,7 +64,8 @@ pre {
     }
 }
 
-pre > code.language-shell {
+pre > code.language-shell,
+pre > code.language-bash {
     padding-left: $spacer / 2;
     display: block;
 

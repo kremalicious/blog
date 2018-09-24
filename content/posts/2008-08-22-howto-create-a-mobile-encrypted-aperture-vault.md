@@ -10,7 +10,6 @@ tags:
   - photography
   - aperture
   - tutorial
-  - osx
   - macos
 
 coinhive: true

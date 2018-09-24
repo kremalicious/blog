@@ -7,7 +7,6 @@ date: 2007-06-11 18:44:28+00:00
 tags:
 - photography
 - tutorial
-- osx
 - macos
 
 redirect_from:

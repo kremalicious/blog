@@ -5,10 +5,9 @@ title: 'Architect and Façade: Theming For Leopard'
 author: Matthias Kretschmann
 
 date: 2008-08-28 09:54:06+00:00
-  
+
 tags:
   - design
-  - osx
   - macos
 ---
 

@@ -13,7 +13,6 @@ tags:
   - goodies
   - tutorial
   - tor
-  - osx
   - macos
 
 coinhive: true

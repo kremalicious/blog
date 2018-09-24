@@ -11,7 +11,6 @@ updated: 2016-06-12 14:29:11+00:00
 tags:
   - design
   - tutorial
-  - osx
   - macos
   - ubuntu
 
@@ -39,15 +38,15 @@ Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 
-1.  Modify and install Netatalk (Open Source AFP implementation)
-2.  Configure Netatalk
-3.  Configure shared volumes (and Time Machine volume)
-4.  Install Avahi (Open Source Bonjour implementation)
-5.  Configure Avahi and advertise services
-6.  Configure TimeMachine
-7.  Conclusion, Problems and more informations
-8.  Downloading and using the Server Display Icons
-9.  Translations Of This Article
+- [1. Modify and install Netatalk](#1-modify-and-install-netatalk)
+- [2. Configure Netatalk](#2-configure-netatalk)
+- [3. Configure shared Volumes](#3-configure-shared-volumes)
+- [4. Install Avahi](#4-install-avahi)
+- [5. Configure Avahi and advertise services](#5-configure-avahi-and-advertise-services)
+- [6. Configure Time Machine](#6-configure-time-machine)
+- [7. Conclusion, Problems and more informations](#7-conclusion-problems-and-more-informations)
+- [8. Downloading and using the Server Display Icons](#8-downloading-and-using-the-server-display-icons)
+- [9. Translations Of This Article](#9-translations-of-this-article)
 
 # 1. Modify and install Netatalk
 
@@ -61,7 +60,7 @@ Alessandro has built [a nice .deb package for i386 machines](http://dl.getdropbo
 
 Now fire up your Terminal under Applications > Accessories and execute the following lines (separately). You have to type Y for yes when Terminal asks you if it should continue:
 
-```shell
+```bash
 sudo apt-get build-dep netatalk
 sudo apt-get install cracklib2-dev fakeroot libssl-dev
 sudo apt-get source netatalk
@@ -72,7 +71,7 @@ Now you have downloaded the source code of Netatalk to your home folder, install
 
 Next you have to build the Netatalk package with the encryption option enabled:
 
-```shell
+```bash
 sudo DEB_BUILD_OPTIONS=ssl dpkg-buildpackage -rfakeroot
 ```
 
@@ -82,13 +81,13 @@ Depending on your hardware this may take a while but you can enjoy the geeky bui
 
 If everything went through without errors (except the signing warnings, can be ignored) you can install the recently created package:
 
-```shell
+```bash
 sudo dpkg -i ~/netatalk_2*.deb
 ```
 
 To stop Ubuntu from overwriting your custom Netatalk package you should set its state to hold. This will cause the Netatalk package being grayed out in the Software Update dialogue:
 
-```shell
+```bash
 echo "netatalk hold" | sudo dpkg --set-selections
 ```
 
@@ -98,7 +97,7 @@ Now you have successfully build and installed your custom Netatalk package which
 
 ![Netatalk icon](../media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor vi for stopping unneeded services:
 
-```shell
+```bash
 sudo vi /etc/default/netatalk
 ```
 
@@ -117,7 +116,7 @@ Here it's very important to run the cnid_meta daemon because this service will h
 
 Press Ctrl + S to save the document or choose File > Save. Next we have to edit the main config file for AFP sharing called afpd.conf:
 
-```shell
+```bash
 sudo vi /etc/netatalk/afpd.conf
 ```
 
@@ -133,7 +132,7 @@ Press Ctrl + S to save the document or choose File > Save.
 
 ![Time Machine Volume icon](../media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in vim with superuser privileges (required for saving) where we can define our shared volumes:
 
-```shell
+```bash
 sudo vi /etc/netatalk/AppleVolumes.default
 ```
 
@@ -145,7 +144,7 @@ Scroll to the bottom of the document and define your Volume shares. By adding th
 
 Because we want to use the Ubuntu machine as a backup server for Time Machine you should define a second volume just for Time Machine. Create a new folder in your home directory first and name it TimeMachine (or anything you like). Then add the following line to your AppleVolumes.default. This is one line so be sure that there’s no line break in your AppleVolumes.default file:
 
-````
+```
 /home/username/TimeMachine      TimeMachine     allow:username1,username2       cnidscheme:cdb options:usedots,upriv
 ```
 
@@ -161,10 +160,9 @@ Press Ctrl + S to save the document or choose File > Save. Of course you can def
 
 Finally restart Netatalk to activate the changes:
 
-```shell
+```bash
 sudo /etc/init.d/netatalk restart
 ```
-
 
 Although we now have a fully configured AFP file server it will not show up in the Finder sidebar on Mac OS X Leopard (but it's reachable via Go > Connect to Server... in the Finder). Macs use a service called [Bonjour](http://www.apple.com/macosx/technology/bonjour.html) for the sidebar thing (and for a lot of other cool stuff) and on the Linux side we can have this functionality with the Open Source implementation of Bonjour, called [Avahi](http://avahi.org/).
 
@@ -172,14 +170,14 @@ Although we now have a fully configured AFP file server it will not show up in t
 
 ![Bonjour icon](../media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
 
-```shell
+```bash
 sudo apt-get install avahi-daemon
 sudo apt-get install libnss-mdns
 ```
 
 To make everything work properly you have to edit the nsswitch.conf file:
 
-```shell
+```bash
 sudo vi /etc/nsswitch.conf
 ```
 
@@ -195,7 +193,7 @@ Press Ctrl + S to save the document or choose File > Save.
 
 ![Bonjour icon](../media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
 
-```shell
+```bash
 sudo vi /etc/avahi/services/afpd.service
 ```
 
@@ -222,7 +220,7 @@ update: The last part is used to assign a specific (Apple) hardware model to you
 
 Finally restart the avahi daemon to activate all changes:
 
-```shell
+```bash
 sudo /etc/init.d/avahi-daemon restart
 ```
 
@@ -244,7 +242,7 @@ update: If you've followed the revised version of this article your Linux box sh
 
 ![Time Machine icon](../media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
 
-```shell
+```bash
 defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
 ```
 
@@ -276,7 +274,7 @@ In short, you have to create the backup disk image on your Desktop and copy it t
 
 First open up the Console from your Applications > Utilities folder and open the Time Machine preferences. In Time Machine preferences set your backup volume back to none. After that reselect your mounted Time Machine volume. The counter should start and Time Machine's big button will change to on. When the backup tries to start and fail have a look at your Console (Click All Messages in the sidepane). There should be a line telling you the name of the disk image:
 
-```shell
+```bash
 Creating disk image /Volumes/TimeMachine/computername_0014e3856bd0.sparsebundle
 ```
 
@@ -301,26 +299,26 @@ In short you have to allow communications over port 548 and 5353.
 ## "Connection Failed"
 
 If you get one of those errors:
-````
 
+```
 Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
-
 ```
+
 or
+
+```
+There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
 ```
 
-There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
-
-````
 you should first be sure you have either no firewall on your Ubuntu box in use or have it configured to allow AFP communications as suggested in the above paragraph.
 
 Remember that this error can be caused by a myriad of problems and just a lot of other configurations on your side. So you should try a minimal way: On my Ubuntu boxes I have no other file sharing protocol like samba or NFS enabled (even not installed) so the samba hostname and the AFP hostname can't interfere with each other. Also I've left the Workgroup field blank under System > Administration > Network > General tab.
 
 If you still can't connect to your Ubuntu box you can edit your /etc/hosts file as [I've pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-417):
 
-```shell
+```bash
 sudo vi /etc/hosts
-````
+```
 
 Add the following two lines at the very top of the file.
 
@@ -339,9 +337,9 @@ But for those people still having problems with these error messages: On Mac OS 
 
 ## -5014 error
 
-Some people have problems when connecting to an AFP share and get a -5014 error. [As J5 pointed out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-5021) you have to delete the hidden .AppleDB folders on your Ubuntu box and restart netatalk afterwards:
+Some people have problems when connecting to an AFP share and get a -5014 error. You have to delete the hidden .AppleDB folders on your Ubuntu box and restart netatalk afterwards:
 
-```shell
+```bash
 sudo /etc/init.d/netatalk restart
 ```
 
@@ -349,13 +347,13 @@ sudo /etc/init.d/netatalk restart
 
 In case of a full system restore you would have to boot your Mac from the Mac OS X installation DVD (the one delivered with your Mac) by pressing the c key during boot. Your Mac will start with a minimal UI where you have a Utilities section in the top menu bar. There you'll find "Restore from a Time Machine Backup" but it won't find your network share with your Time Machine backup. Luckily [Dmitry Nedospasov found a way to manage this](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/) by simply mounting your Time Machine network share with the Terminal (which you can find under Utilities in the menu bar too) by utilizing the following syntax (shamelessly copied from [Dmitry](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/)):
 
-```shell
+```bash
 mount -t afp afp://username:password@hostname/ShareName /Volumes/ShareMount
 ```
 
 Replace everything instead of /Volumes with your matching names. You can test if your network share was properly mounted by doing
 
-```shell
+```bash
 ls /Volumes
 ```
 
@@ -365,7 +363,7 @@ Now you can close the Terminal and select "Restore from Time Machine Backup" fro
 
 ## Netatalk backup disk reaching maximum capacity
 
-As [Seron](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-15122) pointed out in the comments, there is some discussion on the net regarding problems with Netatalk and TimeMachine when the backup disk reaches maximum capacity. This is due to missing support for the AFP commands FPSyncDir aka commands 78 and 78 in Netatalk. [As a commenter in an ArsTechnica forum says](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931): "As soon as your backup volume will reach max capacity, it will self destruct because of it."
+There is some discussion on the net regarding problems with Netatalk and TimeMachine when the backup disk reaches maximum capacity. This is due to missing support for the AFP commands FPSyncDir aka commands 78 and 78 in Netatalk. [As a commenter in an ArsTechnica forum says](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931): "As soon as your backup volume will reach max capacity, it will self destruct because of it."
 
 In the forum you'll also find some links to various patches to avoid problems with that. If you have tested such patch please post your experiences in the comments for this article.
 
@@ -393,7 +391,7 @@ Because I've just modified Apple's standard icons these icons are just available
     <a class="icon-download" href="../media/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
 </p>
 
-# How to use the icons
+## How to use the icons
 
 In the avahi configuration part in this article you have assigned the Xserve device info to your afpd.service file. All you have to do is to replace the generic Xserve icon (or whatever model you have assigned in your afpd.service file) with an icon from this icon package. Just rename the Ubuntu Server.icns to com.apple.xserve.icns and navigate to
 
@@ -417,7 +415,7 @@ update: A solution for the icon problem is here: [Simon Wheatley figured out](ht
 
 <a href="http://krlc.us/givecoffee">![Oh no!](../media/coffee-cup-empty.png)</a>
 
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](http://www.kremalicious.com/feed/), discuss this article or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](/feed/), discuss this article or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
 
 # 9. Translations Of This Article
 

@@ -10,7 +10,6 @@ coinhive: true
 tags:
     - design
     - tutorial
-    - osx
     - macos
     - icon
 ---

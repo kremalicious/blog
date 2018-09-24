@@ -12,7 +12,6 @@ tags:
   - photography
   - aperture
   - tutorial
-  - osx
   - macos
 ---
 

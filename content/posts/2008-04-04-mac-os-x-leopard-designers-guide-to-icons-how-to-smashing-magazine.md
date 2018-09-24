@@ -6,10 +6,9 @@ linkurl: http://www.smashingmagazine.com/2008/04/04/mac-os-x-leopard-designers-g
 author: Matthias Kretschmann
 
 date: 2008-04-04 10:47:23+00:00
-  
+
 tags:
     - design
-    - osx
     - macos
     - icon
 ---

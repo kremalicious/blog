@@ -11,7 +11,6 @@ category:
 tags:
 - design
 - tutorial
-- osx
 - macos
 
 coinhive: true
