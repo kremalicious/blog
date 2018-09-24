@@ -8,6 +8,7 @@ import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
 import PostMore from '../components/atoms/PostMore'
 import PostLinkActions from '../components/atoms/PostLinkActions'
+import SEO from '../components/atoms/SEO'
 import Pagination from '../components/molecules/Pagination'
 import Featured from '../components/molecules/Featured'
 import styles from './Posts.module.scss'
@@ -54,6 +55,7 @@ const Posts = ({ data, location, pageContext }) => {
 
   return (
     <Layout location={location}>
+      <SEO />
       {location.pathname === '/' && <Featured />}
       {tag && <h1 className={styles.archiveTitle}>{tag}</h1>}
       {previousPagePath && (
