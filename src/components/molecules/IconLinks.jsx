@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './IconLinks.module.scss'
 
-import Twitter from '../svg/Twitter'
-import Github from '../svg/Github'
-import Facebook from '../svg/Facebook'
-import Rss from '../svg/Rss'
-import Jsonfeed from '../svg/Jsonfeed'
+import { ReactComponent as Twitter } from '../../images/twitter.svg'
+import { ReactComponent as Github } from '../../images/github.svg'
+import { ReactComponent as Facebook } from '../../images/facebook.svg'
+import { ReactComponent as Rss } from '../../images/rss.svg'
+import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 
 const NetworkIcon = ({ link }) => {
   let Icon

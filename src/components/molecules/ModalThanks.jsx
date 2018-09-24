@@ -4,7 +4,7 @@ import { QRCode } from 'react-qr-svg'
 import Clipboard from 'react-clipboard.js'
 
 import Modal from '../atoms/Modal'
-import IconClipboard from '../svg/Clipboard'
+import { ReactComponent as IconClipboard } from '../../images/clipboard.svg'
 import styles from './ModalThanks.module.scss'
 
 const query = graphql`

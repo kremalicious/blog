@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Forward from '../svg/Forward'
+import { ReactComponent as Forward } from '../../images/forward.svg'
 import styles from './PostTitle.module.scss'
 
 const PostTitle = ({ type, slug, linkurl, title }) => {

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import ModalThanks from '../molecules/ModalThanks'
 import styles from './PostActions.module.scss'
 
-import Twitter from '../svg/Twitter'
-import Bitcoin from '../svg/Bitcoin'
+import { ReactComponent as Twitter } from '../../images/twitter.svg'
+import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 
 export default class PostActions extends PureComponent {
   state = {

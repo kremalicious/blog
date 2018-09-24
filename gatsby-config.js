@@ -79,6 +79,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        icon: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [

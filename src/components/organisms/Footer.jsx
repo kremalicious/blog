@@ -6,8 +6,8 @@ import Vcard from '../molecules/Vcard'
 import Subscribe from '../molecules/Subscribe'
 import ModalThanks from '../molecules/ModalThanks'
 
-import Github from '../svg/Github'
-import Bitcoin from '../svg/Bitcoin'
+import { ReactComponent as Github } from '../../images/github.svg'
+import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 
 import styles from './Footer.module.scss'
 
