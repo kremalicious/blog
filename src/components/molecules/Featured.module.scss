@@ -15,7 +15,7 @@
 
 .featuredTitle {
     transition: .1s ease-out;
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     margin: 0;
     position: absolute;
     top: 25%;
@@ -35,14 +35,21 @@
     position: relative;
     margin-bottom: 3%;
 
-    a:hover {
+    a {
         > div {
-            border-color: $link-color !important;
+            @include media-frame();
         }
 
-        .featuredTitle {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
+        &:hover,
+        &:focus {
+            > div {
+                border-color: $link-color !important;
+            }
+
+            .featuredTitle {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
         }
     }
 }
