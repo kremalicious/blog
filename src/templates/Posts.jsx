@@ -28,15 +28,13 @@ const Posts = ({ data, location, pageContext }) => {
         )}
 
         {image && (
-          <figure className={styles.hentryImage}>
-            <Link to={slug}>
-              <PostImage
-                title={type === 'photo' ? title : null}
-                fluid={image.childImageSharp.fluid}
-                alt={title}
-              />
-            </Link>
-          </figure>
+          <Link to={slug}>
+            <PostImage
+              title={type === 'photo' ? title : null}
+              fluid={image.childImageSharp.fluid}
+              alt={title}
+            />
+          </Link>
         )}
 
         {type === 'post' && <PostLead post={node} />}
