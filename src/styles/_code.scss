@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'nord/src/sass/nord';
 
 code,
 kbd,
@@ -10,12 +11,14 @@ samp {
 
 code,
 kbd {
-    padding: 2px 4px;
+    padding: .1em;
 }
 
 code,
 samp {
-    color: darken($code-color, 40%);
+    white-space: normal;
+    background: $nord4;
+    color: inherit;
     background-color: rgba($code-bg, .05);
     border-radius: $border-radius;
 }
@@ -30,7 +33,7 @@ kbd {
 
 pre {
     display: block;
-    padding: $spacer / 2;
+    padding: $spacer / 1.5 $spacer;
     margin-bottom: $spacer;
     line-height: $line-height;
     color: $code-color;
@@ -62,10 +65,17 @@ pre {
         word-break: normal;
         overflow: auto;
     }
+
+    .line {
+        white-space: pre;
+        overflow-wrap: normal;
+        word-wrap: normal;
+        word-break: normal;
+    }
 }
 
-pre > code.language-shell,
-pre > code.language-bash {
+pre .line:only-child .source.shell,
+pre .line:only-child .source.bash {
     padding-left: $spacer / 2;
     display: block;
 

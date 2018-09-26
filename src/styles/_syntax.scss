@@ -1,96 +1,1432 @@
-@import 'nord/src/sass/nord';
+/* stylelint-disable */
 
-/* Code blocks */
-pre[class*='language-'] {
-    background: $nord0;
-    color: $nord4;
-}
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+title      Editor                                              +
+project    nord-atom-syntax                                    +
+repository https://github.com/arcticicestudio/nord-atom-syntax +
+author     Arctic Ice Studio                                   +
+email      development@arcticicestudio.com                     +
+copyright  Copyright (C) 2017                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+.nord {
+    margin-left: -($spacer);
+    margin-right: -($spacer);
 
-pre[class*='language-'],
-code[class*='language-'] {
-    ::-moz-selection,
-    ::selection {
-        background: $nord4;
+    > pre {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
-/* Inline code */
-:not(pre) > code[class*='language-'] {
-    padding: .1em;
-    border-radius: .3em;
-    white-space: normal;
-    background: $nord4;
-    color: inherit;
+.editor {
+    background-color: #2e3440;
+    color: #d8dee9;
 }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-    color: $nord3;
+.editor .bracket-matcher .region {
+    border: 1px solid #88c0d0;
+    box-sizing: border-box;
 }
 
-.token.punctuation {
-    color: $nord9;
+.editor .cursor {
+    border-left: 2px solid #d8dee9;
 }
 
-.namespace {
-    opacity: .7;
+.editor .indent-guide {
+    box-shadow: inset 1px 0 #434c5e;
 }
 
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    color: $nord9;
+.editor .invisible {
+    color: #4c566a;
 }
 
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    color: $nord7;
+.editor .invisible-character {
+    color: #4c566a;
 }
 
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    color: $nord7;
+.editor .line.cursor-line {
+    background-color: rgba(67, 76, 94, .32);
 }
 
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-    color: $nord14;
+.editor .selection .region {
+    background-color: rgba(67, 76, 94, .8);
 }
 
-.token.function,
-.token.class-name {
-    color: $nord12;
+.editor .wrap-guide {
+    background-color: #4c566a;
 }
 
-.token.regex,
-.token.important,
-.token.variable {
-    color: $nord13;
+.editor .find-result .region.region.region,
+.editor .current-result .region.region.region {
+    background-color: rgba(136, 192, 208, .3);
+    transition: border-color 400ms;
 }
 
-.token.important,
-.token.bold {
+.editor .current-result .region.region.region {
+    background-color: rgba(136, 192, 208, .38);
+    border: 2px solid #88c0d0;
+    transition-duration: 400ms;
+}
+
+.editor .find-result .region.region.region {
+    border: 2px solid transparent;
+}
+
+.editor .gutter {
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    background-color: #2e3440;
+    margin-right: 0;
+    border-right: 0;
+    padding-right: 0;
+}
+
+.editor .gutter .line-numbers {
+    background: transparent !important;
+}
+
+.editor .gutter .line-number {
+    background: transparent;
+    color: rgba(216, 222, 233, .4);
+    padding-right: 0;
+}
+
+.editor .gutter .line-number.git-line-added {
+    color: #a3be8c;
+    border-left-color: #a3be8c;
+}
+
+.editor .gutter .line-number.git-line-added.cursor-line,
+.editor .gutter .line-number.git-line-added.cursor-line-no-selection {
+    color: #a3be8c;
+    border-left-color: #a3be8c;
+}
+
+.editor .gutter .line-number.git-line-modified {
+    color: #ebcb8b;
+    border-left-color: #ebcb8b;
+}
+
+.editor .gutter .line-number.git-line-modified.cursor-line,
+.editor .gutter .line-number.git-line-modified.cursor-line-no-selection {
+    color: #ebcb8b;
+    border-left-color: #ebcb8b;
+}
+
+.editor .gutter .line-number.git-line-removed {
+    color: #bf616a;
+    border-left-color: #bf616a;
+}
+
+.editor .gutter .line-number.git-line-removed.cursor-line,
+.editor .gutter .line-number.git-line-removed.cursor-line-no-selection {
+    color: #bf616a;
+    border-left-color: #bf616a;
+}
+
+.editor .gutter .line-number.cursor-line,
+.editor .gutter .line-number.cursor-line-no-selection {
+    color: #eceff4;
+    font-weight: 600;
+}
+
+.editor .gutter .line-number .icon-right {
+    opacity: 1;
+    color: rgba(216, 222, 233, .4);
+    transition: all 400ms ease;
+}
+
+.editor .gutter .line-number .icon-right:hover {
+    color: #eceff4;
+}
+
+.editor .gutter .line-number.folded,
+.editor .gutter .line-number::after,
+.editor .fold-marker::after {
+    color: #eceff4;
+}
+
+.editor .gutter .line-number.folded .icon-right,
+.editor .gutter .line-number::after .icon-right,
+.editor .fold-marker::after .icon-right {
+    opacity: .5;
+    color: #88c0d0;
+    transition: all 400ms ease;
+}
+
+.editor .gutter .line-number.folded .icon-right:hover,
+.editor .gutter .line-number::after .icon-right:hover,
+.editor .fold-marker::after .icon-right:hover {
+    opacity: 1;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Syntax                                              +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  */
+
+/*+------+
+    + Base +
+    +------+*/
+.source {
+    -webkit-font-smoothing: auto;
+    color: #d8dee9;
+}
+
+.none {
+    color: #d8dee9;
+}
+
+/*+----------+
+    + Entities +
+    +----------+*/
+.comment {
+    color: #4c566a;
+}
+
+.comment .markup.link {
+    color: #4c566a;
+    text-decoration: none;
+}
+
+.comment .markup.link:hover {
+    text-decoration: underline;
+}
+
+.constant {
+    color: #8fbcbb;
+}
+
+.constant.character.escape {
+    color: #d08770;
+}
+
+.constant.numeric,
+.constant.other.color {
+    color: #b48ead;
+}
+
+.constant.language {
+    color: #81a1c1;
+}
+
+.constant.other.symbol {
+    color: #8fbcbb;
+}
+
+.constant.other.placeholder {
+    color: #d08770;
+}
+
+.constant.variable {
+    color: #d8dee9;
+}
+
+.entity.name.function {
+    color: #88c0d0;
+}
+
+.entity.name.class,
+.entity.name.type.class {
+    color: #8fbcbb;
+}
+
+.entity.name.section {
+    color: #81a1c1;
+}
+
+.entity.name.tag {
+    color: #81a1c1;
+}
+
+.entity.name.type {
+    color: #8fbcbb;
+}
+
+.entity.other.inherited-class {
+    color: #8fbcbb;
     font-weight: bold;
 }
 
-.token.italic {
+.entity.other.attribute-name {
+    color: #8fbcbb;
+}
+
+.entity.other.attribute-name.id {
+    color: #8fbcbb;
+    text-decoration: underline;
+}
+
+.invalid.deprecated {
+    color: #ebcb8b !important;
+    text-decoration: line-through !important;
+}
+
+.invalid.illegal {
+    color: #d8dee9 !important;
+    background-color: #bf616a !important;
+}
+
+.keyword {
+    color: #81a1c1;
+}
+
+.keyword.control {
+    color: #81a1c1;
+}
+
+.keyword.operator {
+    color: #81a1c1;
+}
+
+.keyword.other.special-method {
+    color: #88c0d0;
     font-style: italic;
 }
 
-.token.entity {
-    cursor: help;
+.keyword.other.unit {
+    color: #81a1c1;
+}
+
+.markup.bold {
+    font-weight: bold;
+}
+
+.markup.changed {
+    color: #ebcb8b;
+}
+
+.markup.deleted {
+    color: #bf616a;
+}
+
+.markup.italic {
+    font-style: italic;
+}
+
+.markup.heading {
+    color: #88c0d0;
+}
+
+.markup.heading .marker {
+    color: #81a1c1;
+}
+
+.markup.heading .punctuation.definition.heading {
+    color: #88c0d0;
+}
+
+.markup.link {
+    text-decoration: none;
+}
+
+.markup.link:hover {
+    text-decoration: underline;
+}
+
+.markup.quote {
+    color: #eceff4;
+}
+
+.markup.raw {
+    color: #8fbcbb;
+}
+
+.meta {
+    color: #d8dee9;
+}
+
+.meta.brace {
+    color: #d8dee9;
+}
+
+.meta.class {
+    color: #8fbcbb;
+}
+
+.meta.class.body {
+    color: #d8dee9;
+}
+
+.meta.definition.variable {
+    color: #d8dee9;
+}
+
+.meta.link {
+    color: #d8dee9;
+}
+
+.meta.method {
+    color: #88c0d0;
+}
+
+.meta.method.body {
+    color: #d8dee9;
+}
+
+.meta.method-call {
+    color: #d8dee9;
+}
+
+.meta.require {
+    color: #5e81ac;
+}
+
+.meta.selector {
+    color: #8fbcbb;
+}
+
+.meta.separator {
+    color: #d8dee9;
+}
+
+.meta.tag {
+    color: #81a1c1;
+}
+
+.punctuation {
+    color: #d8dee9;
+}
+
+.punctuation.definition.array,
+.punctuation.definition.function-parameters,
+.punctuation.definition.method-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator {
+    color: #d8dee9;
+}
+
+.punctuation.definition.bold {
+    font-weight: bold;
+}
+
+.punctuation.definition.comment {
+    color: #4c566a;
+}
+
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+    color: #88c0d0;
+}
+
+.punctuation.definition.italic {
+    font-style: italic;
+}
+
+.punctuation.definition.tag {
+    color: #81a1c1;
+}
+
+.punctuation.section.embedded {
+    color: #81a1c1;
+}
+
+.punctuation.section.class,
+.punctuation.section.inner-class,
+.punctuation.section.method {
+    color: #8fbcbb;
+}
+
+.storage {
+    color: #81a1c1;
+}
+
+.storage.modifier.import,
+.storage.modifier.package {
+    color: #8fbcbb;
+}
+
+.storage.type.annotation,
+.storage.type.primitive {
+    color: #81a1c1;
+}
+
+.string {
+    color: #a3be8c;
+}
+
+.string.other.link {
+    color: #a3be8c;
+    text-decoration: none;
+}
+
+.string.other.link:hover {
+    text-decoration: underline;
+}
+
+.string > .punctuation.definition.string {
+    color: #d8dee9;
+}
+
+.string.regexp {
+    color: #ebcb8b;
+}
+
+.string.regexp .source.ruby.embedded {
+    color: #ebcb8b;
+}
+
+.string.unquoted {
+    color: #d8dee9;
+}
+
+.support.class {
+    color: #8fbcbb;
+}
+
+.support.function {
+    color: #88c0d0;
+}
+
+.support.function.any-method {
+    color: #88c0d0;
+}
+
+.support.type {
+    color: #8fbcbb;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.variable {
+    color: #d8dee9;
+}
+
+.variable.interpolation {
+    color: #d8dee9;
+    font-style: italic;
+}
+
+.variable.language {
+    color: #81a1c1;
+}
+
+.variable.parameter {
+    color: #d8dee9;
+}
+
+/*+--- Languages ---+*/
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language C/C++                                      +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-c (https://atom.io/packages/language-c)
+
+  [References]
+  Standard C++
+    (https://isocpp.org)
+  */
+.source.c .keyword.operator,
+.source.cpp .keyword.operator {
+    color: #81a1c1;
+}
+
+.source.c .meta.preprocessor,
+.source.cpp .meta.preprocessor {
+    color: #5e81ac;
+}
+
+.source.c .punctuation.definition.directive,
+.source.cpp .punctuation.definition.directive {
+    color: #81a1c1;
+}
+
+.source.c .punctuation.separator.pointer-access,
+.source.cpp .punctuation.separator.pointer-access {
+    color: #81a1c1;
+}
+
+.source.c .string.include,
+.source.cpp .string.include {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Clojure                                    +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-clojure (https://atom.io/packages/language-clojure)
+
+  [References]
+  Clojure
+    (https://clojure.org)
+  */
+.source.clojure .entity.global {
+    color: #8fbcbb;
+}
+
+.source.clojure .meta.symbol {
+    color: #d8dee9;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language CoffeeScript                               +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-coffee-script (https://atom.io/packages/language-coffee-script)
+
+  [References]
+  CoffeeScript
+    (http://coffeescript.org)
+  */
+.source.coffee .variable.other.instance {
+    color: #d8dee9;
+    font-style: italic;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language C#                                         +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-csharp (https://atom.io/packages/language-csharp)
+
+  [References]
+  Microsoft .NET Framework
+    (https://www.microsoft.com/net)
+  */
+.source.cs .entity.name.interface.class {
+    font-weight: bold;
+}
+
+.source.cs .meta.method.annotation {
+    color: #d08770;
+}
+
+.source.cs .meta.namespace.body {
+    color: #8fbcbb;
+}
+
+.source.cs .meta.directive.preprocessor {
+    color: #5e81ac;
+}
+
+.source.cs .meta .generic.method.identifier {
+    color: #d8dee9;
+}
+
+.source.cs .punctuation.section.class.begin,
+.source.cs .punctuation.section.class.end {
+    color: #d8dee9;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language CSS                                        +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  Supports LESSCSS and Sass.
+
+  [Language Packages]
+    > language-css (https://atom.io/packages/language-css)
+
+  [References]
+  LESSCSS
+    (http://lesscss.org)
+  Sass
+    (http://sass-lang.com)
+  W3C
+    (https://www.w3.org/TR/css3-roadmap)
+  */
+.source.css .meta.at-rule .punctuation.definition.keyword,
+.source.css.less .meta.at-rule .punctuation.definition.keyword,
+.source.css.scss .meta.at-rule .punctuation.definition.keyword,
+.source.css.sass .meta.at-rule .punctuation.definition.keyword {
+    color: #81a1c1;
+}
+
+.source.css .meta.at-rule > .string.quoted,
+.source.css.less .meta.at-rule > .string.quoted,
+.source.css.scss .meta.at-rule > .string.quoted,
+.source.css.sass .meta.at-rule > .string.quoted {
+    color: #8fbcbb;
+}
+
+.source.css .meta.property-value .punctuation.definition.constant,
+.source.css.less .meta.property-value .punctuation.definition.constant,
+.source.css.scss .meta.property-value .punctuation.definition.constant,
+.source.css.sass .meta.property-value .punctuation.definition.constant {
+    color: #81a1c1;
+}
+
+.source.css .support.constant.property-value,
+.source.css.less .support.constant.property-value,
+.source.css.scss .support.constant.property-value,
+.source.css.sass .support.constant.property-value {
+    color: #81a1c1;
+}
+
+.source.css .support.type.property-name,
+.source.css.less .support.type.property-name,
+.source.css.scss .support.type.property-name,
+.source.css.sass .support.type.property-name {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language diff                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-diff (https://atom.io/packages/language-diff)
+  */
+.source.diff .meta.range.context,
+.source.diff .meta.header.from-file {
+    color: #8fbcbb;
+}
+
+.source.diff .punctuation.definition.separator {
+    color: #81a1c1;
+}
+
+.source.diff .punctuation.definition.from-file,
+.source.diff .punctuation.definition.range {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Elixir                                         +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-elixir (https://atom.io/packages/language-elixir)
+
+  [References]
+  Elixir
+    (http://elixir-lang.org)
+  */
+.source.elixir .variable.other.readwrite.module {
+    color: #d08770;
+}
+
+.source.elixir .variable.other.readwrite.constant {
+    color: #8fbcbb;
+}
+
+.source.elixir .punctuation.definition.variable {
+    color: #d08770;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language GitHub Flavored Markdown                   +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-gfm (https://atom.io/packages/language-gfm)
+
+  [References]
+  GitHub
+    (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+  */
+.source.gfm .comment.hr {
+    color: #81a1c1;
+}
+
+.source.gfm .link .entity {
+    color: #88c0d0;
+}
+
+.source.gfm .punctuation.definition {
+    color: #81a1c1;
+}
+
+.source.gfm .variable.unordered.list {
+    color: #81a1c1;
+}
+
+.source.gfm .support {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language GLSL                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-glsl (https://atom.io/packages/language-glsl)
+
+  [References]
+  OpenGL
+    (https://www.opengl.org/documentation/glsl)
+  */
+.source.glsl .punctuation.definition.directive {
+    color: #81a1c1;
+}
+
+.source.glsl .string.include {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Go                                         +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-go (https://atom.io/packages/language-go)
+
+  [References]
+  Go
+    (https://golang.org)
+  */
+.source.go .entity.name.package {
+    color: #8fbcbb;
+}
+
+.source.go .storage.type.string {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language HAML                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-haml (https://atom.io/packages/language-haml)
+
+  [References]
+  HAML
+    (http://haml.info)
+  */
+.text.haml .meta.prolog {
+    color: #5e81ac;
+}
+
+.text.haml .meta.section.object {
+    color: #8fbcbb;
+}
+
+.text.haml .punctuation.definition.prolog {
+    color: #81a1c1;
+}
+
+.text.haml .punctuation.definition.tag {
+    color: #81a1c1;
+}
+
+.text.haml .variable.other.instance {
+    color: #d8dee9;
+    font-style: italic;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Haskell                                    +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-haskell (https://atom.io/packages/language-haskell)
+
+  [References]
+  Haskell
+    (https://www.haskell.org)
+  */
+.source.haskell .entity.name.function.infix {
+    color: #81a1c1;
+}
+
+.source.haskell .identifier {
+    color: #d8dee9;
+}
+
+.source.haskell .meta.preprocessor {
+    color: #5e81ac;
+}
+
+.source.haskell .punctuation.definition.directive {
+    color: #81a1c1;
+}
+
+.source.haskell .support.other.module {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language HTML                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-html (https://atom.io/packages/language-html)
+
+  [References]
+  W3C
+    (https://www.w3.org/html/)
+  */
+.text.html.basic .constant.other.inline-data {
+    color: #d8dee9;
+    font-style: italic;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Java                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  Supports Java, Scala and Java Properties.
+
+  [Index]
+    > Java
+    > Scala
+    > Java Properties
+
+  [Language Packages]
+    > language-java (https://atom.io/packages/language-java)
+    > language-scala (https://atom.io/packages/language-scala)
+
+  [References]
+  Java
+    (https://java.com)
+    (http://openjdk.java.net)
+  Scala
+    (http://scala-lang.org)
+  */
+
+/*+------+
+    + Java +
+    +------+*/
+.source.java .comment.block.javadoc .variable.parameter {
+    color: #88c0d0;
+}
+
+.source.java .keyword.operator.instanceof {
+    color: #81a1c1;
+}
+
+.source.java .keyword.other.documentation.javadoc {
+    color: #8fbcbb;
+}
+
+.source.java .punctuation.bracket.angle {
+    color: #81a1c1;
+}
+
+.source.java .storage.modifier.import,
+.source.java .storage.modifier.package {
+    color: #8fbcbb;
+}
+
+.source.java .storage.type {
+    color: #8fbcbb;
+}
+
+.source.java .storage.type.annotation {
+    color: #d08770;
+}
+
+.source.java .storage.type.primitive {
+    color: #81a1c1;
+}
+
+/*+-------+
+    + Scala +
+    +-------+*/
+.source.scala .entity.name.package {
+    color: #8fbcbb;
+}
+
+.source.scala .meta.import {
+    color: #8fbcbb;
+}
+
+.source.scala .meta.import .variable {
+    color: #8fbcbb;
+}
+
+.source.scala .scala.type {
+    color: #8fbcbb;
+}
+
+.source.scala .scala.type .class {
+    color: #8fbcbb;
+}
+
+/*+-----------------+
+    + Java Properties +
+    +-----------------+*/
+.source.java-properties .meta.key-pair {
+    color: #81a1c1;
+}
+
+.source.java-properties .meta.key-pair > .punctuation {
+    color: #d8dee9;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language JavaScript                                 +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  Support for
+    - ES15/16
+    - ESNext
+    - Atom's Etch
+    - Facebook's React, Flow and GraphQL
+
+  [Language Packages]
+    > language-babel (https://atom.io/packages/language-babel)
+    > language-javascript (https://atom.io/packages/language-javascript)
+
+  [References]
+  Babel
+    (https://babeljs.io)
+  ESNext
+    (https://github.com/esnext/esnext)
+  Atom
+    (https://github.com/atom/etch)
+  Facebook
+    (https://facebook.github.io/react)
+    (https://flowtype.org)
+    (http://graphql.org)
+  */
+.source.js.jsx .variable.other.class {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language JSON                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-json (https://atom.io/packages/language-json)
+
+  [References]
+  JSON
+    (http://www.json.org)
+  */
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+    color: #8fbcbb;
+}
+
+.source.json
+.meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+    color: #d8dee9;
+}
+
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+    color: #81a1c1;
+}
+
+.source.json
+.meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json {
+    color: #a3be8c;
+}
+
+.source.json
+.meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json
+.meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+    color: #d8dee9;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Julia                                      +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-julia (https://atom.io/packages/language-julia)
+
+  [References]
+  Julia Language
+    (http://julialang.org)
+  */
+.source.julia .support.function.macro {
+    color: #d08770;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language LESSCSS                                    +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-less (https://atom.io/packages/language-less)
+
+  [References]
+  LESSCSS
+    (http://lesscss.org)
+  */
+.source.css.less .mixin {
+    color: #88c0d0;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language PHP                                        +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-php (https://atom.io/packages/language-php)
+
+  [References]
+  PHP
+    (https://secure.php.net)
+  Laravel
+    https://laravel.com/docs/blade
+  */
+.source.php .meta.function-call {
+    color: #88c0d0;
+}
+
+.source.php .meta.function-call.static {
+    font-style: italic;
+}
+
+.source.php .meta.string-contents {
+    color: #a3be8c;
+}
+
+.source.php .punctuation.definition.variable {
+    color: #81a1c1;
+}
+
+.source.php .support.other.namespace.use {
+    color: #8fbcbb;
+}
+
+.text.html.php.blade .keyword {
+    color: #d08770;
+}
+
+.text.html.php.blade .keyword.operator {
+    color: #81a1c1;
+}
+
+.text.html.php.blade .support.function.construct {
+    color: #5e81ac;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Python                                     +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-python (https://atom.io/packages/language-python)
+
+  [References]
+  Ruby
+    (https://www.python.org)
+  */
+.source.python .variable.parameter {
+    color: #d8dee9;
+}
+
+.source.python .meta.function-call {
+    color: #88c0d0;
+}
+
+.source.python .meta.function-call.arguments {
+    color: #d8dee9;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language RestructuredText                           +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-gfm (https://atom.io/packages/language-restructuredtext)
+
+  [References]
+  Docutils
+    http://docutils.sourceforge.net/rst.html
+  */
+.text.restructuredtext .entity.name.tag {
+    color: #81a1c1;
+}
+
+.text.restructuredtext .markup.bold,
+.text.restructuredtext .markup.italic {
+    color: #81a1c1;
+}
+
+.text.restructuredtext .markup.other.command {
+    color: #8fbcbb;
+    font-style: italic;
+}
+
+.text.restructuredtext .punctuation.definition {
+    color: #81a1c1;
+}
+
+.text.restructuredtext .punctuation.definition.heading {
+    color: #81a1c1;
+}
+
+.text.restructuredtext .punctuation.separator.line-block {
+    color: #81a1c1;
+}
+
+.text.restructuredtext .string.other.link.title {
+    color: #88c0d0;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language Ruby                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-ruby (https://atom.io/packages/language-ruby)
+
+  [References]
+  Ruby
+    (https://www.ruby-lang.org)
+  */
+.source.ruby .constant.other.symbol > .punctuation {
+    color: #81a1c1;
+}
+
+.source.ruby .variable.other.constant {
+    color: #8fbcbb;
+}
+
+.source.ruby .punctuation.definition.variable {
+    color: #81a1c1;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language ShellScript                                +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-shellscript (https://atom.io/packages/language-shellscript)
+  */
+.source.shell .punctuation.definition.variable {
+    color: #81a1c1;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language YAML                                       +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-yaml (https://atom.io/packages/language-yaml)
+
+  [References]
+  YAML
+    (http://yaml.org)
+  */
+.source.yaml .entity.name.tag {
+    color: #8fbcbb;
+}
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Language XML                                        +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  [Language Packages]
+    > language-xml (https://atom.io/packages/language-xml)
+
+  [References]
+  W3C
+    (https://www.w3.org/TR/xml)
+  */
+.text.xml .constant.character.entity,
+.text.xml .constant.character .punctuation.definition {
+    color: #d08770;
+}
+
+.text.xml .entity.name.tag.namespace {
+    color: #8fbcbb;
+}
+
+.text.xml .string.unquoted.cdata {
+    color: #4c566a;
+}
+
+.text.xml .string.unquoted.cdata .punctuation.definition {
+    color: #4c566a;
+    font-weight: bold;
+}
+
+/*+----------------+
+    + Theme Settings +
+    +----------------+*/
+
+/*
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  title      Syntax Theme Settings                               +
+  project    nord-atom-syntax                                    +
+  repository https://github.com/arcticicestudio/nord-atom-syntax +
+  author     Arctic Ice Studio                                   +
+  email      development@arcticicestudio.com                     +
+  copyright  Copyright (C) 2017                                  +
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  */
+
+/*+-------------+
+  + Accessibility +
+  +---------------+*/
+
+/*+--- Custom Comment Contrast ---+*/
+.theme-nord-atom-syntax-accessibility-custom-comment-contrast .comment {
+    color: #4c566a;
+}
+
+.theme-nord-atom-syntax-accessibility-custom-comment-contrast
+.comment
+.markup.link {
+    color: #4c566a;
+}
+
+.theme-nord-atom-syntax-accessibility-custom-comment-contrast
+.punctuation.comment {
+    color: #4c566a;
 }

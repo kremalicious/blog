@@ -66,7 +66,14 @@ module.exports = {
               destinationDir: 'media'
             }
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-highlights',
+            options: {
+              codeWrap: {
+                className: 'nord'
+              }
+            }
+          },
           'gatsby-remark-smartypants',
           'gatsby-remark-autolink-headers'
         ]
