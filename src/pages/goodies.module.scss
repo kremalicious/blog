@@ -8,7 +8,23 @@
 }
 
 .goodie {
-    margin-bottom: $spacer * 4;
+    @include divider;
+
+    padding-top: $spacer;
+    padding-bottom: $spacer * 2;
+
+    &:first-of-type {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+
+        &::before {
+            display: none;
+        }
+    }
 
     a {
         display: block;
@@ -16,8 +32,6 @@
 }
 
 .title {
-    font-size: $font-size-h3;
-    color: $brand-grey;
     margin-top: 0;
     margin-bottom: $spacer;
 }
