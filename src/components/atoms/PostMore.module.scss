@@ -1,0 +1,27 @@
+@import 'variables';
+
+.postMore {
+    font-family: $font-family-headings;
+    font-weight: $font-weight-headings;
+    font-size: $font-size-base * .9;
+    color: $link-color;
+    text-transform: uppercase;
+
+    svg {
+        display: inline-block;
+        margin: 0;
+        top: .2rem;
+        position: relative;
+        width: 1.1rem;
+        height: 1.1rem;
+        fill: $text-color-light;
+        transition: .2s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+        svg {
+            transform: translate3d(.2rem, 0, 0);
+        }
+    }
+}

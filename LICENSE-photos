@@ -1,7 +1,6 @@
-All photos & image assets under `_src/_media`, `_src/assets/img`, and
-`assets sheet.psd` are plain ol' copyright.
+All photos & image assets under `./content/media`, `./src/images`, and `assets sheet.psd` are plain ol' copyright.
 
-Copyright (c) 2008–2017 Matthias Kretschmann
+Copyright (c) 2008–2018 Matthias Kretschmann
 
 Don't care if you fork & play with it, but you're not allowed to publish
 anything from it as a whole without my written permission.

@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'mixins';
+
+.header {
+    margin-top: ($spacer/2);
+    margin-bottom: ($spacer/2);
+
+    @media (min-width: $screen-sm) and (min-height: 500px) {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        border: 0;
+        will-change: transform;
+    }
+}
+
+.header__content {
+    @include breakoutviewport;
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $spacer;
+
+    @media (min-width: $screen-md) {
+        padding: 0;
+    }
+}
+
+// Logo
+/////////////////////////////////////
+
+.logo {
+    display: block;
+    background-image: url('../../images/logo.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 47px;
+    height: 31px;
+
+    @media (min-width: $screen-sm) {
+        width: 183px;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+        background-image: url('../../images/logo@2x.png');
+        background-size: 183px 62px;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 344dpi) {
+        background-image: url('../../images/logo@3x.png');
+        background-size: 183px 62px;
+    }
+}
+
+.title {
+    margin-top: $spacer / 5;
+    margin-bottom: 0;
+    // display toned down logo
+    // by default
+    @extend .logo;
+}
+
+.header__logo {
+    @include hide-text;
+    // repeat logo
+    // but display hover version
+    @extend .logo;
+
+    background-position: left bottom;
+
+    // hide by default
+    opacity: 0;
+    // show smooooothly on hover
+    &:hover {
+        opacity: 1;
+        transform: none;
+    }
+
+    &:active {
+        top: 0;
+        box-shadow: none;
+    }
+}
+
+.nav {
+    display: inline-block;
+}

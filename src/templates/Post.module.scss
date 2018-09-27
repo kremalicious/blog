@@ -1,0 +1,8 @@
+@import 'variables';
+@import 'mixins';
+
+.hentry {
+    width: 100%;
+    padding-top: $spacer;
+    padding-bottom: $spacer * 3;
+}

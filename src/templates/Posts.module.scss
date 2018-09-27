@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+.hentry {
+    composes: hentry from '../templates/Post.module.scss';
+
+    @include divider;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: $spacer * 2;
+    padding-bottom: $spacer * 2;
+
+    @media (min-width: $screen-sm) {
+        padding-top: $spacer * 3;
+        padding-bottom: $spacer * 3;
+    }
+}
+
+.archiveTitle {
+    @include heading-band();
+
+    font-size: $font-size-h3;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @media (min-width: $screen-md) {
+        margin-left: -117%;
+    }
+}

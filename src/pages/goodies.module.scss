@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'mixins';
+
+.image {
+    @include breakoutviewport;
+
+    max-width: none;
+}
+
+.goodie {
+    @include divider;
+
+    padding-top: $spacer;
+    padding-bottom: $spacer * 2;
+
+    &:first-of-type {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    a {
+        display: block;
+    }
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: $spacer;
+}

@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins';
+
+.searchResults {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    background: $body-background-color;
+
+    ul {
+        @include breakoutviewport;
+
+        margin-top: $spacer;
+
+        li {
+            margin-left: $spacer;
+            margin-right: $spacer;
+        }
+
+        li::before {
+            top: $spacer / 7;
+        }
+    }
+
+    a {
+        padding-top: $spacer / 6;
+        padding-bottom: $spacer / 6;
+        display: inline-block;
+    }
+}

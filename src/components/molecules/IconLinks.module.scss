@@ -1,0 +1,44 @@
+@import 'variables';
+
+.link {
+    text-align: center;
+    width: 2rem;
+    padding: $spacer / 4;
+    margin: 0;
+    display: inline-block;
+    color: $text-color-light;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    svg {
+        transition: color .3s ease-in-out;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.twitter:hover {
+    fill: #019ad2;
+}
+
+.facebook:hover {
+    fill: #3b5998;
+}
+
+.github:hover {
+    fill: #333;
+}
+
+.rss:hover {
+    fill: #e15a00;
+}
+
+.json:hover {
+    fill: #8be028;
+}

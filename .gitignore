@@ -1,8 +1,8 @@
 node_modules
-_site
-_build
-Gemfile.lock
-_src/.jekyll-metadata
 yarn.lock
 .yarnclean
 package-lock.json
+public
+.cache
+src/components/svg
+plugins/gatsby-redirect-from

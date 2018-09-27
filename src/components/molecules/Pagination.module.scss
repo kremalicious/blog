@@ -1,0 +1,20 @@
+@import 'variables';
+
+.pagination {
+    display: flex;
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+}
+
+.paginationLink {
+    flex: 1 1 50%;
+    display: block;
+
+    &:last-child {
+        text-align: right;
+    }
+
+    &:only-child {
+        text-align: left;
+    }
+}

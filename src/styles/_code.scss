@@ -1,0 +1,91 @@
+@import 'variables';
+@import 'nord/src/sass/nord';
+
+code,
+kbd,
+pre,
+samp {
+    font-family: $font-family-monospace;
+    font-size: $font-size-small;
+}
+
+code,
+kbd {
+    padding: .1em;
+}
+
+code,
+samp {
+    white-space: normal;
+    background: $nord4;
+    color: inherit;
+    background-color: rgba($code-bg, .05);
+    border-radius: $border-radius;
+}
+
+kbd {
+    color: $kbd-color;
+    background-color: $kbd-bg;
+    border-radius: $border-radius;
+    border: 1px solid $kbd-bg;
+    box-shadow: inset 0 1px 0 rgba(#fff, .4);
+}
+
+pre {
+    display: block;
+    padding: $spacer / 1.5 $spacer;
+    margin-bottom: $spacer;
+    line-height: $line-height;
+    color: $code-color;
+    background-color: $code-bg;
+    margin-left: -($spacer);
+    margin-right: -($spacer);
+    border-radius: $border-radius;
+
+    // make 'em scrollable
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    max-height: 300px;
+
+    @media (min-width: $screen-sm) {
+        max-height: 500px;
+    }
+
+    @media (min-width: $screen-md) {
+        border-radius: $border-radius;
+    }
+
+    code {
+        padding: 0;
+        white-space: pre;
+        display: block;
+        color: inherit;
+        overflow-wrap: normal;
+        word-wrap: normal;
+        word-break: normal;
+        overflow: auto;
+    }
+
+    .line {
+        white-space: pre;
+        overflow-wrap: normal;
+        word-wrap: normal;
+        word-break: normal;
+    }
+}
+
+pre .line:only-child .source.shell,
+pre .line:only-child .source.bash {
+    padding-left: $spacer / 2;
+    display: block;
+
+    &::before {
+        content: '$';
+        opacity: .4;
+        display: inline-block;
+        margin-left: -.5rem;
+        margin-right: .5rem;
+    }
+}
+
+@import 'syntax';

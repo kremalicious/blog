@@ -1,0 +1,81 @@
+@import 'variables';
+
+// Post meta
+/////////////////////////////////////
+
+.entryMeta {
+    font-size: $font-size-small;
+    margin-top: $spacer * 2;
+}
+
+.byline,
+.time,
+.tags,
+.categories {
+    text-align: center;
+}
+
+.byline,
+.time {
+    font-style: italic;
+}
+
+.byline {
+    margin-bottom: 0;
+}
+
+.by {
+    display: block;
+}
+
+.time {
+    margin-bottom: $spacer * 2;
+}
+
+// Types & Tags
+/////////////////////////////////////
+
+.type {
+    text-align: center;
+
+    a {
+        font-size: $font-size-mini;
+        text-align: center;
+        color: $text-color;
+        line-height: 1;
+        text-transform: uppercase;
+        border: 1px solid $text-color;
+        border-radius: $border-radius;
+        padding: 4px 8px;
+        margin: 0;
+        display: inline-block;
+
+        &:hover,
+        &:focus {
+            color: $link-color;
+            border-color: $link-color;
+        }
+
+        &:active {
+            background: $link-color;
+            top: 0;
+            color: #fff;
+        }
+    }
+}
+
+.tags {
+    margin-top: $spacer / 2;
+}
+
+.tag {
+    color: $text-color;
+    margin-left: $spacer / 2;
+    margin-right: $spacer / 2;
+
+    &::before {
+        color: $brand-grey-light;
+        content: '#';
+        margin-right: 1px;
+    }
+}

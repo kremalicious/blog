@@ -1,0 +1,77 @@
+@import 'variables';
+@import 'mixins';
+
+.hamburgerLine {
+    @include transition;
+
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: $text-color-light;
+    border-radius: 20px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+
+    &:nth-child(1) {
+        top: 0;
+        transform-origin: left center;
+    }
+
+    &:nth-child(2) {
+        top: 5px;
+        transform-origin: left center;
+    }
+
+    &:nth-child(3) {
+        top: 10px;
+        transform-origin: left center;
+    }
+
+    // open state
+    :global(.has-menu-open) & {
+        &:nth-child(1) {
+            transform: rotate(45deg);
+            top: -1px;
+        }
+
+        &:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 12px;
+        }
+    }
+}
+
+.hamburgerButton {
+    padding: .65rem .85rem;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+
+    &:hover,
+    &:focus {
+        outline: 0;
+
+        .hamburgerLine {
+            background: $brand-cyan;
+        }
+    }
+}
+
+.hamburger {
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: relative;
+    transform: rotate(0deg);
+    cursor: pointer;
+    margin-top: 6px;
+}

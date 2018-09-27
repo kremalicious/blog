@@ -1,37 +1,23 @@
-language: ruby
-rvm:
-    - 2.5
+language: node_js
+node_js: node
 
 cache:
-  bundler: true
   directories:
-  - $TRAVIS_BUILD_DIR/node_modules
-  - $TRAVIS_BUILD_DIR/_site/media
+    - node_modules
+    - public
 
-addons:
-    artifacts:
-        paths:
-        - $TRAVIS_BUILD_DIR/_site/media
-    apt:
-        update: true
-        packages:
-        - libgsl0ldbl
-        - libgsl0-dev
+install:
+  - npm i
 
-before_install:
-    - nvm install 10
+script:
+  - npm test
+  - npm run build
 
-before_script: "_ci/setup.sh"
-script: "_ci/build.sh"
-
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: "_ci/deploy.sh"
-  on:
-    branch: master
-
+after_success:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - npm run deploy
 
 notifications:
-    email: false
-    slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
+  email: false
+  slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr

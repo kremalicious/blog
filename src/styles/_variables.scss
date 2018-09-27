@@ -1,0 +1,118 @@
+$imageMaxWidth: 940px;
+$easing: cubic-bezier(.75, 0, .08, 1);
+
+// Colors
+/////////////////////////////////////
+
+$brand-main: #015565;
+$brand-cyan: #43a699;
+$brand-main-light: #88bec8;
+$brand-light: #e7eef4;
+
+$brand-grey: #4e5d63;
+$brand-grey-light: lighten($brand-grey, 15%);
+$brand-grey-dimmed: lighten($brand-grey, 50%);
+
+$alert-info: #f7f1e4;
+$alert-success: #dff0d8;
+$alert-error: #f2dede;
+
+// Backgrounds
+/////////////////////////////////////
+
+$body-background-color: $brand-light;
+$body-background-color--dark: darken($brand-grey, 22%);
+
+$page-background-color: $brand-light;
+
+// Text Colors
+/////////////////////////////////////
+
+$text-color: $brand-grey;
+$text-color-light: $brand-grey-light;
+
+$text-color--dark: lighten($brand-grey-light, 5%);
+$text-color-light--dark: lighten($brand-grey-light, 5%);
+
+$link-color: $brand-cyan;
+
+// Base Typography
+/////////////////////////////////////
+
+$font-size-root: 18px;
+
+$font-size-base: 1rem;
+$font-size-large: 1.15rem;
+$font-size-small: .8rem;
+$font-size-mini: .7rem;
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.75rem;
+$font-size-h4: $font-size-large;
+$font-size-h5: $font-size-base;
+$font-size-h6: $font-size-small;
+
+$line-height: 1.5;
+$line-height-small: 1.1428571429;
+
+$font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+$font-weight-base: 400;
+$font-color-base: $text-color;
+
+$font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+
+// Headings
+/////////////////////////////////////
+
+$font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+$font-weight-headings: 500;
+$line-height-headings: 1.1;
+
+$color-headings: $brand-main;
+$color-headings--dark: $brand-main-light;
+
+// Spacing
+/////////////////////////////////////
+
+$spacer: ($font-size-base * $line-height);
+$padding-base-vertical: 8px;
+$padding-base-horizontal: 12px;
+
+$border-radius: 3px;
+
+// Code
+/////////////////////////////////////
+
+$code-bg: #343642;
+$code-color: $brand-light;
+$kbd-bg: $code-bg;
+$kbd-color: $code-color;
+
+// Responsive breakpoints
+/////////////////////////////////////
+
+$screen-xs: 30em;
+$screen-sm: 40.625em;
+$screen-md: 60em;
+$screen-lg: 87.5em;
+
+// Forms
+/////////////////////////////////////
+
+$input-bg: rgba(#fff, .85);
+$input-bg-focus: #fff;
+$input-bg-disabled: $brand-grey-light;
+
+$input-font-size: $font-size-base;
+$input-font-weight: $font-weight-base;
+
+$input-color: $font-color-base;
+$input-color-placeholder: rgba(46, 79, 92, .3);
+
+$input-border: $brand-grey-light;
+$input-border-radius: $border-radius;
+$input-border-focus: $brand-cyan;
