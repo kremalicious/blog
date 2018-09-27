@@ -9,14 +9,10 @@ const PostLead = ({ post, index }) => {
   const content = post.html
   const separator = '<!-- more -->'
 
-  if (post.frontmatter.type === 'post') {
-    if (content.includes(separator)) {
-      lead = content.split(separator)[0]
-    } else {
-      lead = content.split('\n')[0]
-    }
+  if (content.includes(separator)) {
+    lead = content.split(separator)[0]
   } else {
-    return null
+    lead = content.split('\n')[0]
   }
 
   return (

@@ -31,7 +31,7 @@ const Post = ({ data, location }) => {
 
         <article className={styles.hentry}>
           <PostTitle type={type} linkurl={linkurl} title={title} />
-          <PostLead post={post} />
+          {type === 'post' && <PostLead post={post} />}
           {image && (
             <PostImage fluid={image.childImageSharp.fluid} alt={title} />
           )}

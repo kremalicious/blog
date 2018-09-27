@@ -37,9 +37,12 @@ const Posts = ({ data, location, pageContext }) => {
           </Link>
         )}
 
-        {type === 'post' && <PostLead post={node} index />}
-
-        {type === 'post' && <PostMore to={slug}>Continue Reading</PostMore>}
+        {type === 'post' && (
+          <Fragment>
+            <PostLead post={node} index />
+            <PostMore to={slug}>Continue Reading</PostMore>
+          </Fragment>
+        )}
 
         {type === 'link' && (
           <Fragment>
