@@ -1,6 +1,6 @@
 # blog
 
-> My blog [kremalicious.com](http://kremalicious.com) built with [Gatsby](http://gatsbyjs.org). Neat.
+> 🍭 My blog [kremalicious.com](http://kremalicious.com) built with [Gatsby](http://gatsbyjs.org). Neat.
 
 [![Build Status](https://travis-ci.com/kremalicious/blog.svg?branch=master)](https://travis-ci.com/kremalicious/blog)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability)](https://codeclimate.com/github/kremalicious/blog/maintainability)
@@ -14,23 +14,14 @@ You need to have the following tools installed on your development machine befor
 - [Node.js](http://nodejs.org/)
 - [npm](https://npmjs.org/)
 
-## Get up and running
-
-### Install dependencies
-
-Run the following command from the repository's root folder to install all dependencies.
+## Development
 
 ```bash
 npm i
-```
-
-### Development server
-
-```bash
 npm start
 ```
 
-### Production build
+## Production build
 
 ```bash
 npm run build
