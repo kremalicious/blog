@@ -18,6 +18,7 @@ const query = graphql`
         name
         uri
         bitcoin
+        github
       }
     }
   }
@@ -43,7 +44,7 @@ export default class Footer extends PureComponent {
       <StaticQuery
         query={query}
         render={data => {
-          const { name, uri, bitcoin } = data.contentYaml.author
+          const { name, uri, bitcoin, github } = data.contentYaml.author
 
           return (
             <footer role="contentinfo" className={styles.footer}>
@@ -61,7 +62,7 @@ export default class Footer extends PureComponent {
                   </p>
 
                   <p>
-                    <a href="https://github.com/kremalicious/kremalicious3/">
+                    <a href={`${github}/blog`}>
                       <Github />
                       View source
                     </a>

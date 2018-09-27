@@ -37,7 +37,7 @@ const Posts = ({ data, location, pageContext }) => {
           </Link>
         )}
 
-        {type === 'post' && <PostLead post={node} />}
+        {type === 'post' && <PostLead post={node} index />}
 
         {type === 'post' && <PostMore to={slug}>Continue Reading</PostMore>}
 

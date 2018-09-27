@@ -4,7 +4,7 @@ import styles from './PostLead.module.scss'
 
 // Extract lead paragraph from content
 // Grab everything before more tag, or just first paragraph
-const PostLead = ({ post }) => {
+const PostLead = ({ post, index }) => {
   let lead
   const content = post.html
   const separator = '<!-- more -->'
@@ -20,12 +20,16 @@ const PostLead = ({ post }) => {
   }
 
   return (
-    <div className={styles.lead} dangerouslySetInnerHTML={{ __html: lead }} />
+    <div
+      className={index ? styles.index : styles.lead}
+      dangerouslySetInnerHTML={{ __html: lead }}
+    />
   )
 }
 
 PostLead.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
+  index: PropTypes.bool
 }
 
 export default PostLead

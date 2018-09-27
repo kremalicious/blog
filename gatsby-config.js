@@ -140,8 +140,8 @@ module.exports = {
         // WebApp Manifest Configuration
         appName: title.toLowerCase(),
         appDescription: tagline,
-        developerName: null,
-        developerURL: null,
+        developerName: author.name,
+        developerURL: author.uri,
         dir: 'auto',
         lang: 'en-US',
         background: '#e7eef4',

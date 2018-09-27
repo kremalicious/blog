@@ -29,7 +29,7 @@ const NetworkIcon = ({ link }) => {
 const IconLinks = ({ links }) => (
   <p>
     {links.map(link => (
-      <a key={link} className={styles.link} href={link}>
+      <a key={link} className={styles.link} href={link} title={link}>
         <NetworkIcon link={link} />
       </a>
     ))}
