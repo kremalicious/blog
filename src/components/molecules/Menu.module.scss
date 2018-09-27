@@ -16,9 +16,9 @@
 
     li {
         list-style: none;
-        flex: 0 0 100%;
+        flex: 0 0 50%;
 
-        @media (min-width: $screen-sm) {
+        @media (min-width: $screen-xs) {
             flex-basis: 33%;
         }
 

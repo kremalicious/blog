@@ -35,7 +35,7 @@
     transform: translate3d(0, 0, 0);
 
     :global(.has-menu-open) & {
-        transform: translate3d(0, ($spacer * 8), 0);
+        transform: translate3d(0, ($spacer * 3), 0);
     }
 
     @media (min-width: $screen-sm) and (min-height: 500px) {
@@ -44,9 +44,5 @@
         position: relative;
         z-index: 2;
         min-height: 500px;
-
-        :global(.has-menu-open) & {
-            transform: translate3d(0, ($spacer * 5), 0);
-        }
     }
 }

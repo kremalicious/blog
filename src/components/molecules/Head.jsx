@@ -16,18 +16,12 @@ const Head = () => (
   <StaticQuery
     query={query}
     render={data => {
-      const { title, tagline } = data.contentYaml
+      const { title } = data.contentYaml
 
       return (
         <Fragment>
-          <Helmet
-            defaultTitle={`${title.toLowerCase()} ¦ ${tagline.toLowerCase()}`}
-            titleTemplate={`%s ¦ ${title.toLowerCase()}`}
-          >
-            <meta
-              name="apple-mobile-web-app-title"
-              content={title.toLowerCase()}
-            />
+          <Helmet>
+            <meta name="apple-mobile-web-app-title" content={title} />
             <meta name="theme-color" content="#e7eef4" />
           </Helmet>
 

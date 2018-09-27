@@ -133,6 +133,39 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: './src/images/apple-touch-icon.png',
+
+        // WebApp Manifest Configuration
+        appName: title.toLowerCase(),
+        appDescription: tagline,
+        developerName: null,
+        developerURL: null,
+        dir: 'auto',
+        lang: 'en-US',
+        background: '#e7eef4',
+        theme_color: '#88bec8',
+        display: 'minimal-ui',
+        orientation: 'any',
+        start_url: '/?homescreen=1',
+        version: '1.0',
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
@@ -198,7 +231,9 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
-    'gatsby-plugin-meta-redirect'
+    'gatsby-plugin-meta-redirect',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline'
   ]
 }
 
