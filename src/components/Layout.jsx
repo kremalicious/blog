@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Container from './atoms/Container'
-import Head from './molecules/Head'
+import Typekit from './atoms/Typekit'
 import Header from './organisms/Header'
 import Footer from './organisms/Footer'
 import styles from './Layout.module.scss'
 
 const Layout = ({ children }) => (
   <Fragment>
-    <Head />
+    <Typekit />
     <Header />
 
     <main className={styles.document} id="document">
