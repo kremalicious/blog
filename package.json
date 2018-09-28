@@ -28,7 +28,7 @@
     "fast-exif": "^1.0.1",
     "fraction.js": "^4.0.9",
     "gatsby": "^2.0.11",
-    "gatsby-awesome-pagination": "^0.2.1",
+    "gatsby-awesome-pagination": "^0.3.1",
     "gatsby-image": "^2.0.10",
     "gatsby-plugin-catch-links": "^2.0.3",
     "gatsby-plugin-favicon": "^3.1.4",
