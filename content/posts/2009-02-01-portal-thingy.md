@@ -17,11 +17,7 @@ As you can read in the sliding Colophon at the bottom of the site, it is written
 
 For your learning pleasure I've let my comments in my [jQuery file](http://matthiaskretschmann.com/js/effects.js) intact and you'll also find the sources for code-parts where I didn't wanted to invent the wheel again. Although slightly modified by me, this includes the code for the vCard popup bubble when hovering over the header ([by jqueryfordesigner.com](http://jqueryfordesigners.com/coda-popup-bubbles/)) and the text-resizing function ([from dev-tips.com](http://dev-tips.com/featured/jquery-tip-font-resizing-with-animation-effects)) .
 
-
-
 ## Browser Compatibility
-
-
 
 But the sad thing I had to learn was that Internet Explorer 7 and Google Chrome have heavy problems with transparent images (PNG24 with alpha transparency to be exactly) which are faded in or out with JavaScript (or just jQuery?). They look great when just there but during fade they have a big bold border. Once the fade is done the border disappears. Weird!
 
@@ -30,8 +26,6 @@ That's why some eye candy will not be displayed to Internet Explorer users (no b
 For all other modern browsers beside those mentioned above the site should work well but you'll get the best viewing experience with [Safari](http://www.apple.com/safari/), [Firefox 3.1](http://www.mozilla.com/en-US/firefox/all-beta.html) or [Opera](http://www.opera.com/) (because of their [text-shadow support](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/)).
 
 If you find a bug or have any additions feel free to [contact me](/contact), post them in the comments or [throw me a note on Twitter](https://twitter.com/kremalicious).
-
-
 
 ## Inspiration
 

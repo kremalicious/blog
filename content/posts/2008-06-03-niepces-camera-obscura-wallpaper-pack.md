@@ -28,6 +28,6 @@ All Wallpapers are using a custom designed background which imitates the look of
 
 Here are the details:
 
-  * Aperture and iPhoto styled Camera Obscura as it was used by Nicéphore Niépce.
-  * Including one desktop version with the Aperture styled Camera Obscura and one with the iPhoto styled. Both come in 1920x1200 for widescreen displays and 1600x1200 for normal displays
-  * Including 2 different crops for the iPhone (480x320).
+* Aperture and iPhoto styled Camera Obscura as it was used by Nicéphore Niépce.
+* Including one desktop version with the Aperture styled Camera Obscura and one with the iPhoto styled. Both come in 1920x1200 for widescreen displays and 1600x1200 for normal displays
+* Including 2 different crops for the iPhone (480x320).

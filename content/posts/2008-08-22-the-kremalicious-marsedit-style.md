@@ -24,56 +24,54 @@ In MarsEdit main window right-click (or ctrl + click) in the sidebar on the blog
 
 Just copy and paste the following HTML and CSS into your Preview Template editor. If something goes wrong with the source formatting, I've also provided [a txt file with the code](../media/marsedit_kremalicious.txt):
 
-
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-	    <title>#weblogName#: #title#</title>
-	    <style>
-		    body {margin: 0; background-color: #000;}
+      <title>#weblogName#: #title#</title>
+      <style>
+        body { margin: 0; background-color: #000;}
 
-		    a {color: #778caa; text-decoration: none;}
+        a { color: #778caa; text-decoration: none;}
 
-		    a:hover {background-color: #778caa; color: #000; text-shadow: 0px 1px 1px #ddd;}
+        a:hover { background-color: #778caa; color: #000; text-shadow: 0px 1px 1px #ddd;}
 
-		    #title { color: #778caa; background-color: #333; margin: 0; font: normal 2.1em "HelveticaNeue-UltraLight", Helvetica, sans-serif;}
+        #title { color: #778caa; background-color: #333; margin: 0; font: normal 2.1em "HelveticaNeue-UltraLight", Helvetica, sans-serif;}
 
-		    #title a {display: block; position: relative; padding: 10px 20px;}
+        #title a {display: block; position: relative; padding: 10px 20px;}
 
-		    #title a:hover {text-shadow: 0px 1px 1px #B3B3B3;}
+        #title a:hover {text-shadow: 0px 1px 1px #B3B3B3;}
 
-		    #content {font: 1em "Lucida Grande", Lucida, Verdana, sans-serif; color: #ddd; padding: 10px 20px;}
+        #content {font: 1em "Lucida Grande", Lucida, Verdana, sans-serif; color: #ddd; padding: 10px 20px;}
 
-		    #meta {margin-top: 20px; padding: 5px; background-color: #333; -webkit-border-radius: 5px;}
+        #meta {margin-top: 20px; padding: 5px; background-color: #333; -webkit-border-radius: 5px;}
 
-		    #credit {font: italic 0.8em/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; text-align: center; margin-top:20px;}
-	    </style>
+        #credit {font: italic 0.8em/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; text-align: center; margin-top:20px;}
+      </style>
     </head>
     <body>
 
-	    <div id="title">
-	    	<a href="#url#">#title#</a>
-	    </div>
+      <div id="title">
+        <a href="#url#">#title#</a>
+      </div>
 
-	    <div id="content">
-	    	#body#
-	    	#extended#
+      <div id="content">
+        #body#
+        #extended#
 
-		    <div id="meta">
-			    <b>url</b>  : <a href="#url#">#url#</a><br />
-			    <b>tags</b> : #tags#
-		    </div>
-		    <div id="credit">
-			    The Kremalicious MarsEdit Style<br />
-			    <a href="http://www.kremalicious.com">www.kremalicious.com</a>
-		    </div>
-	    </div> <-- end content -->
+        <div id="meta">
+          <b>url</b>  : <a href="#url#">#url#</a><br />
+          <b>tags</b> : #tags#
+        </div>
+        <div id="credit">
+          The Kremalicious MarsEdit Style<br />
+          <a href="http://www.kremalicious.com">www.kremalicious.com</a>
+        </div>
+      </div> <-- end content -->
 
     </body>
 </html>
 ```
-
 
 Now click on Save Changes in the lower right corner of the window and there you have it.
 

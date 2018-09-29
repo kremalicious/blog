@@ -51,6 +51,10 @@ ol {
     margin: 0 0 $spacer;
 }
 
+p:last-child {
+    margin-bottom: 0;
+}
+
 // Reset fonts for relevant elements
 /////////////////////////////////////
 
@@ -82,7 +86,7 @@ button {
 
 h1,
 h2 {
-    margin-top: $spacer * 2;
+    margin-top: $spacer * $line-height;
     margin-bottom: $spacer * 2;
 }
 
@@ -90,7 +94,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: $spacer;
+    margin-top: $spacer * $line-height;
     margin-bottom: $spacer;
 }
 
@@ -103,6 +107,8 @@ h1 {
 }
 
 h2 {
+    @include heading-band();
+
     font-size: $font-size-h3;
 
     @media (min-width: $screen-xs) {
@@ -203,6 +209,14 @@ img {
     vertical-align: middle;
 }
 
+figcaption {
+    font-size: $font-size-small;
+    color: $brand-grey;
+    font-style: italic;
+    text-align: center;
+    margin-top: -($spacer / $line-height);
+}
+
 // Lists
 /////////////////////////////////////
 
@@ -293,6 +307,50 @@ hr {
     @include divider();
 }
 
+// Quotes
+/////////////////////////////////////
+
+q {
+    font-style: italic;
+}
+
+cite {
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+// stylelint-disable no-descending-specificity
+blockquote,
+blockquote > p {
+    font-style: italic;
+    color: $brand-grey;
+}
+// stylelint-enable no-descending-specificity
+
+blockquote {
+    margin: 0 0 $spacer;
+    position: relative;
+    padding-left: $spacer * 1.5;
+
+    // quotation marks
+    &::before {
+        content: '“';
+        font-size: 300%;
+        color: lighten($brand-grey-light, 20%);
+        position: absolute;
+        left: -10px;
+        top: -20px;
+
+        @media (min-width: $screen-xs) {
+            left: 0;
+        }
+
+        @media (min-width: $screen-lg) {
+            top: -30px;
+        }
+    }
+}
+
 // Selection
 /////////////////////////////////////
 
@@ -312,3 +370,4 @@ hr {
 @import 'code';
 @import 'buttons';
 @import 'alerts';
+@import 'content';

@@ -13,7 +13,7 @@ tags:
 When asking people about printing there’s one common ground – namely, that it sucks. This sentiment comes from the experience with connecting printers with the devices to print, and the act of printing itself with a plethora of print settings to chose from.
 
 <p class="alert alert-info">
-	This article originally appeared in the <a href="https://www.ezeep.com/blog/enterprise-software-sucks-but-its-buddha-nature-can-be-unconvered/">ezeep blog</a>.
+  This article originally appeared in the <a href="https://www.ezeep.com/blog/enterprise-software-sucks-but-its-buddha-nature-can-be-unconvered/">ezeep blog</a>.
 </p>
 
 As Peter Sikking put it wonderfully in his [8 rules of printing interaction](http://blog.mmiworks.net/2008/07/to-istanbul-via-tokyo.html): printing does not exist. Users don’t want to be bothered about the process between thinking of printing and the actual printout. But when they deep dive into the process everyone does something else so “printing turns out to have as many use cases as there are users.”

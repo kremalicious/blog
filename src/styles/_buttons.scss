@@ -12,7 +12,7 @@ a.btn {
     background-image: none; // Reset unusual Firefox-on-Android default style
     white-space: nowrap;
     user-select: none;
-    transition: all .2s ease-in-out;
+    transition: .2s ease-in-out;
 
     // Default Button
     @include button-size(

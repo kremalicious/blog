@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './PostContent.module.scss'
 
 // Remove lead paragraph from content
 const PostContent = ({ post }) => {
@@ -18,12 +17,7 @@ const PostContent = ({ post }) => {
     }
   }
 
-  return (
-    <div
-      className={styles.content}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
-  )
+  return <div dangerouslySetInnerHTML={{ __html: content }} />
 }
 
 PostContent.propTypes = {

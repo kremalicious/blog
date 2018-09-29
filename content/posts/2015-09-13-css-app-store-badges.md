@@ -23,8 +23,7 @@ The badges provided by all app store providers just don't play well together wit
     <a href="http://codepen.io/kremalicious/details/EVVraP/">Codepen</a>
 </p>
 
-
-# Styling
+## Styling
 
 Let’s be honest, Google, Amazon & Microsoft created just slight variations of the badge style established by Apple’s App Store badge. So it’s only natural to unify all badges by leaning more to Apple’s style in terms of typography. Apple uses Myriad Pro in their original badge which isn’t available for free web usage.
 
@@ -40,7 +39,7 @@ The first three values are grabbing the system installed version on OS X & iOS, 
 
 Because of varying copy resulting in different badge widths, the only way to make them unified when they are stacked on top of each other, like in a mobile layout, was to make all of them the width of the widest one. This is [defined as a variable in the Stylus source](https://github.com/kremalicious/appstorebadges/blob/master/src/styl/_variables.styl#L12) and set as `min-height` so the badges can grow, like with bigger font sizes or because of localization.
 
-# Usage
+## Usage
 
 Install with npm:
 
@@ -60,7 +59,7 @@ Or just directly link to the css file in the [GitHub repo](https://github.com/kr
 <link rel="stylesheet" href="https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css">
 ```
 
-## HTML Markup
+### HTML Markup
 
 This is the basic markup for all badges:
 
@@ -76,7 +75,7 @@ Only the icon and the copy change for each badge. To be able to style modify all
 
 For maximum browser compatibility and simplicity, I just inlined the icon assets in all markup blocks. In a production environment you should create a sprite from them, reference them with the SVG `use` element and polyfill with [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
-## Size Variations
+### Size Variations
 
 Just drop those modifier classes on the `badge` base element:
 

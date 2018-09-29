@@ -27,7 +27,7 @@ But with the rise of CSS this technique can now be done without the use of flash
 
 So here are the examples. Just start clicking, resizing and goggling!
 
-# Examples
+## Examples
 
 [Clearleft's Silverback Teaser page](http://www.silverbackapp.com/)
 
@@ -77,7 +77,7 @@ A russian site with an awesome making-webdesign-in-jungle parallax (thanks [egot
 
 [![cdev.ru](../media/parallax_013.jpg)](http://www.cdev.ru/)
 
-# More Scripts and Interaction, please
+## More Scripts and Interaction, please
 
 All the showcased sites above need to be resized in the browser to see the effect. This fact makes those effects nice easter eggs but they are rather useless for most users. But with some JavaScript we can bypass this limitation.
 
@@ -111,7 +111,7 @@ Same graphics as on Silverback too but this Parallax follows your mouse pointer.
 
 [![WeblogR demo](../media/parallax_012.jpg)](http://www.weblogr.fr/demo/09052008/)
 
-# How-Tos and Tutorials
+## How-Tos and Tutorials
 
 - [How to recreate Silverback's Parallax Effect](http://www.thinkvitamin.com/features/design/how-to-recreate-silverbacks-parallax)
 

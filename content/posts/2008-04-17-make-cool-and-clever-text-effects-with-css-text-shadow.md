@@ -28,13 +28,13 @@ This article describes how text-shadow works, what you can do with it and which 
 
 Here's an overview of the headlines in this article. As you can see it's rather complex and long. Be sure to get a delicious fresh cup of coffee or tea before reading on:
 
-1.  What text-shadow is good for
-2.  Which browsers support it
-3.  Cross-browser compatibility
-4.  How does it work and how to use it
-5.  Examples with code & demos
-6.  Hack: Safari Text Rendering
-7.  More articles and resources
+1. What text-shadow is good for
+2. Which browsers support it
+3. Cross-browser compatibility
+4. How does it work and how to use it
+5. Examples with code & demos
+6. Hack: Safari Text Rendering
+7. More articles and resources
 
 ## 1. What text-shadow is good for
 

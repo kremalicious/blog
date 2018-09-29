@@ -22,7 +22,7 @@ So there were two choices for using the scanner on an Intel-Mac: installing the 
 
 So I called the Canon Support two months ago but they could only say sorry and advertise for their new scanner LiDE 600f which has a new Universal-driver and so on. But it hasn't really any new functions. And spending 100$ or so just for a new driver? So what??! They really wanted me to replace my scanner, which isn't a year old. Damn Canon-Support! So I had to keep on searching on all Canon-websites and finally...
 
-# The solution...
+## The solution
 
 [Canon Asia](http://www.canon-asia.com/) (Canon South & Southeast-Asia to be precise) was the solution! They really offer a universal-driver for the CanoScan LiDE 500f on their site which is from June 2007! You have to follow this link and choose your desired device:
 [http://www.canon-asia.com/index.jsp?fuseaction=support∏_type=scanner&country;=SG](http://www.canon-asia.com/index.jsp?fuseaction=support&prod_type=scanner&country=SG)
