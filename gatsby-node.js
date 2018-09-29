@@ -2,7 +2,6 @@ const path = require('path')
 const fs = require('fs')
 const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { paginate } = require('gatsby-awesome-pagination')
 const fastExif = require('fast-exif')
 const Fraction = require('fraction.js')
 const dms2dec = require('dms2dec')
@@ -172,12 +171,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const posts = result.data.allMarkdownRemark.edges
+        const numPages = Math.ceil(posts.length / itemsPerPage)
 
         // Generate posts & posts index
-        generateContent(createPage, posts)
+        generateContent(createPage, posts, numPages)
 
         // Generate Tag Pages
-        generateTagPages(createPage, posts)
+        generateTagPages(createPage, posts, numPages)
 
         // create manual redirects
         redirects.forEach(({ f, t }) => {
@@ -196,7 +196,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 const postsTemplate = path.resolve('src/templates/Posts.jsx')
 
-const generateContent = (createPage, posts) => {
+const generateContent = (createPage, posts, numPages) => {
   const postTemplate = path.resolve('src/templates/Post.jsx')
 
   // Create Post pages
@@ -210,69 +210,49 @@ const generateContent = (createPage, posts) => {
     })
   })
 
-  // Create paginated front page
-  paginate({
-    createPage,
-    items: posts,
-    itemsPerPage: itemsPerPage,
-    pathPrefix: '/',
-    component: postsTemplate
+  // Create paginated Blog index pages
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? '/' : `/page/${i + 1}`,
+      component: postsTemplate,
+      context: {
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
+        numPages,
+        currentPageNumber: i + 1,
+        prevPage: i - 1,
+        nextPage: i + 2
+      }
+    })
   })
 }
 
 const generateTagPages = (createPage, posts) => {
-  const tagSet = new Set()
-  const tagMap = new Map()
-
-  posts.forEach(post => {
-    if (post.node.frontmatter.tags) {
-      post.node.frontmatter.tags.forEach(tag => {
-        tagSet.add(tag)
-
-        const array = tagMap.has(tag) ? tagMap.get(tag) : []
-        array.push(post)
-        tagMap.set(tag, array)
-      })
-    }
-  })
-
-  const tagList = Array.from(tagSet)
+  const tagList = arrayReducer(posts, 'tags')
 
   tagList.forEach(tag => {
     if (tag === 'goodies') return
 
     // Create tag pages
     createPage({
-      path: `/tag/${tag}/`,
+      path: `/tags/${tag}/`,
       component: postsTemplate,
       context: { tag }
     })
   })
-
-  // Object.keys(posts).forEach(tagName => {
-  //   const pageSize = 5
-  //   const pagesSum = Math.ceil(posts[tagName].length / pageSize)
-
-  //   for (let page = 1; page <= pagesSum; page++) {
-  //     createPage({
-  //       path:
-  //         page === 1
-  //           ? `/tag/${tagName.toLowerCase()}`
-  //           : `/tag/${tagName.toLowerCase()}/page/${page}`,
-  //       component: postsTemplate,
-  //       context: {
-  //         posts: paginate(posts[tagName], pageSize, page),
-  //         tag: tagName,
-  //         pagesSum,
-  //         page
-  //       }
-  //     })
-  //   }
-  // })
 }
 
-// function paginate(array, page_size, page_number) {
-//   return array
-//     .slice(0)
-//     .slice((page_number - 1) * page_size, page_number * page_size)
-// }
+// https://www.adamjberkowitz.com/tags-and-categories-in-gatsby-js/
+const arrayReducer = (postsArray, type) => {
+  return (postsArray = postsArray
+    .map(({ node }) => {
+      return node.frontmatter[type]
+    })
+    .reduce((a, b) => {
+      return a.concat(b)
+    }, [])
+    .filter((type, index, array) => {
+      return array.indexOf(type) === index
+    })
+    .sort())
+}
