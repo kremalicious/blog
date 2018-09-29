@@ -26,6 +26,10 @@ The whole [blog](https://kremalicious.com) is a React-based Single Page App buil
 
 ...
 
+### Related Posts
+
+...
+
 ### 🏆 SEO component
 
 Includes a SEO component which automatically switches all required `meta` tags for search engines, Twitter Cards, and Facebook OpenGraph tags based on the browsed route/page.

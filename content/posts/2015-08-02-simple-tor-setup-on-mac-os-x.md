@@ -10,10 +10,10 @@ updated: 2018-07-11 00:52:46+02:00
 featured: true
 
 tags:
-  - goodies
   - tutorial
   - tor
   - macos
+  - goodies
 
 coinhive: true
 ---

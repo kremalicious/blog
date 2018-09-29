@@ -3,17 +3,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Time from 'react-time'
 import slugify from 'slugify'
-import PostLinkActions from '../atoms/PostLinkActions'
 import styles from './PostMeta.module.scss'
 
 const PostMeta = ({ post, meta }) => {
-  const { author, updated, tags, type, linkurl } = post.frontmatter
-  const { date, slug } = post.fields
+  const { author, updated, tags, type } = post.frontmatter
+  const { date } = post.fields
 
   return (
     <footer className={styles.entryMeta}>
-      {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-
       <div className={styles.byline}>
         <span className={styles.by}>by</span>
         <a className="fn" rel="author" href={meta.author.uri}>
@@ -45,7 +42,7 @@ const PostMeta = ({ post, meta }) => {
       {tags && (
         <div className={styles.tags}>
           {tags.map(tag => {
-            const to = tag === 'goodies' ? '/goodies' : `/tag/${slugify(tag)}/`
+            const to = tag === 'goodies' ? '/goodies' : `/tags/${slugify(tag)}/`
 
             return (
               <Link key={tag} className={styles.tag} to={to}>
