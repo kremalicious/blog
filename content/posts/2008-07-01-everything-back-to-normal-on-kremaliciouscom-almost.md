@@ -24,9 +24,9 @@ Now it's clear something with my code must be wrong, I thought. For displaying t
 ```php
 <?php $postslist = get_posts('numberposts=5&order=DESC&orderby;=post_date');
  foreach ($postslist as $post) : setup_postdata($post); ?>
- 	<ul>
- 		<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><span><?php the_date(); ?></span></li>
- 	</ul>
+  <ul>
+    <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><span><?php the_date(); ?></span></li>
+  </ul>
 <?php endforeach; ?>
 ```
 

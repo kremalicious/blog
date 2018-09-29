@@ -21,7 +21,7 @@ The theme itself makes heavy use of the `-webkit-border-radius` css option to di
 
 Beside that I've used some special html and css properties which are essential for the iPhone:
 
-# The Viewport
+## The Viewport
 
 While Safari on iPhone will display all websites just fine it can happen that the initial viewport is too big so the text is too small to read. By setting a viewport meta tag you can exactly define the viewable dimensions of your website. Apple has [some nice examples](http://developer.apple.com/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/chapter_4_section_3.html#//apple_ref/doc/uid/TP40006509-SW33) for understanding the importance of setting the Viewport in iPhone optimized websites.
 
@@ -33,8 +33,7 @@ The viewport can be larger or smaller than the visible area but I wanted my cont
 
 This code will let the user scale the content up to 1.6 times to the default view and the default width of the content is set to the width of the (iPhone) device.
 
-
-# Tap Color
+## Tap Color
 
 There's neither an active nor a hover state for links on the iPhone which makes sense on a touch interface although it would be much easier to just use a:active for the tap highlighting. Safari on the iPhone uses a special webkit property for that:
 
@@ -42,7 +41,7 @@ There's neither an active nor a hover state for links on the iPhone which makes 
 -webkit-tap-highlight-color: rgba(234,234,234, .5);
 ```
 
-# Home Screen Icon
+## Home Screen Icon
 
 ![image](../media/kremalicious-iconiphone.png)I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
 
@@ -52,8 +51,7 @@ There's neither an active nor a hover state for links on the iPhone which makes 
 
 And finally many thanks to [cschock](http://www.cschock.de) for continuously testing my code voodoo soup even at late hours.
 
-
-# Resources for you to do the same and even more
+## Resources for you to do the same and even more
 
   * [iWPhone by ContentRobot](http://iwphone.contentrobot.com/): The plug-in I use for kremalicious.iPhone. It detects an iPhone or iPod Touch and switches to another simple theme. You can easily adjust the plugin to point it to your own theme.
 

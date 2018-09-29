@@ -48,7 +48,7 @@ Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 - [8. Downloading and using the Server Display Icons](#8-downloading-and-using-the-server-display-icons)
 - [9. Translations Of This Article](#9-translations-of-this-article)
 
-# 1. Modify and install Netatalk
+## 1. Modify and install Netatalk
 
 ![Netatalk icon](../media/netatalk.png)[Netatalk](http://netatalk.sourceforge.net/) is the Open Source implementation of AFP. Mac OS X requires encryption to work properly but the standard package of netatalk provided in the Ubuntu repositories doesn't include this feature. So we have to build our own netatalk package from the sources with the encryption feature enabled.
 
@@ -93,7 +93,7 @@ echo "netatalk hold" | sudo dpkg --set-selections
 
 Now you have successfully build and installed your custom Netatalk package which now has support for encrypted logins. Now let's configure the whole thing.
 
-# 2. Configure Netatalk
+## 2. Configure Netatalk
 
 ![Netatalk icon](../media/netatalk.png)First you should deactivate services provided by Netatalk which are not needed if you just want to use your Ubuntu box for file sharing. This will speed up the response and startup time of Netatalk dramatically. For instance Netatalk starts the old AppleTalk protocol by default which is just needed for pre OS X systems. So we're going to use the graphical editor vi for stopping unneeded services:
 
@@ -128,7 +128,7 @@ Scroll to the very bottom of the document and add this to the bottom (replace th
 
 Press Ctrl + S to save the document or choose File > Save.
 
-# 3. Configure shared Volumes
+## 3. Configure shared Volumes
 
 ![Time Machine Volume icon](../media/timemachinedisk97.png)Now we have to tell the afpd daemon what Volumes to share. This is defined in the AppleVolumes.default file inside /etc/netatalk/. The following line will open this file in vim with superuser privileges (required for saving) where we can define our shared volumes:
 
@@ -166,7 +166,7 @@ sudo /etc/init.d/netatalk restart
 
 Although we now have a fully configured AFP file server it will not show up in the Finder sidebar on Mac OS X Leopard (but it's reachable via Go > Connect to Server... in the Finder). Macs use a service called [Bonjour](http://www.apple.com/macosx/technology/bonjour.html) for the sidebar thing (and for a lot of other cool stuff) and on the Linux side we can have this functionality with the Open Source implementation of Bonjour, called [Avahi](http://avahi.org/).
 
-# 4. Install Avahi
+## 4. Install Avahi
 
 ![Bonjour icon](../media/bonjour97.png)So the Avahi daemon will advertise all defined services across your network just like Bonjour do. So let's install the avahi daemon and the mDNS library used for imitating the Bonjour service. When fully configured this will cause all Macs in your network to discover your Ubuntu box automatically:
 
@@ -189,7 +189,7 @@ hosts:      files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns
 
 Press Ctrl + S to save the document or choose File > Save.
 
-# 5. Configure Avahi and advertise services
+## 5. Configure Avahi and advertise services
 
 ![Bonjour icon](../media/bonjour97.png)Next we have to tell Avahi which services it should advertise across the network. In our case we just want to advertise AFP sharing. This is done by creating a xml-file for each service inside /etc/avahi/services/ following a special syntax. Let's create a xml-file for the afpd service with the following line:
 
@@ -238,7 +238,7 @@ update: If you've followed the revised version of this article your Linux box sh
 
 ![Ubuntu box as Xserver in Finder](../media/ubuntuserver4a.png)
 
-# 6. Configure Time Machine
+## 6. Configure Time Machine
 
 ![Time Machine icon](../media/timemachine97.png)**update 07/14/2008:** On the Mac side you have to enable the option to use network volumes as Time Machine drives first. Without it your freshly shared and advertised network volume won't show up in the disk selection dialogue in Time Machine. This is a hidden option not accessible via the graphical user interface so you have to copy & paste this in Terminal (it's one line):
 
@@ -254,7 +254,7 @@ When your first Time Machine backup is done you can remove all Volumes and the n
 
 ![Finder sidebar](../media/ubuntuserver5.png)
 
-# 7. Conclusion, Problems and more informations
+## 7. Conclusion, Problems and more informations
 
 You see that Linux and Ubuntu can be configured to behave like Macs in your network. But it's sad, that you have to fire up the Terminal to achieve this. I hope especially the Ubuntu team will simplify this in future versions. Another sad thing is that Ubuntu is missing a useful avahi/Bonjour and AFP implementation for Nautilus, the file manager. So there's no way to access your Mac from Ubuntu via AFP in the file manager. In my network I use SSH to access the Macs from Ubuntu or Linux by allowing Remote Login on the Macs in the Sharing preferences. But there's a command line based [AFP client available called afps-ng](http://alexthepuffin.googlepages.com/home) which uses the FUSE system.
 
@@ -266,7 +266,7 @@ Although I have checked all log files while using file sharing and especially wh
 
 Finally the only problem remaining is that your Ubuntu or Linux box isn't formatted as journaled HFS+ so some scenarios would fail or make problems. This can include having your iTunes, iPhoto or Aperture library on your Ubuntu server. But the cnid_meta daemon will always try handle that for us. This will cause some hidden folders to show up in Ubuntu which are used to store all the metadata required to almost reproduce a HFS+ file system. But if you ever run into problems you can easily resolve these by creating sparse disk images on your server with the Disk Utility built into Mac OS X. Just create a new sparse disk image on your desktop, copy it to your mounted Ubuntu volume and mount the copied disk image by double clicking it. Now you can put all the files and libraries in it which depends on HFS+
 
-## Problems with creating the backup disk image
+### Problems with creating the backup disk image
 
 If Time Machine says "The backup disk image could not be created" during the first backup attempt you can do the following to avoid this problem and some others (backup fail due to permissions):
 
@@ -290,7 +290,7 @@ In the field volume name write Backup of computername. Now FIRST chose sparse bu
 
 Select your Desktop as destination and click create. After the creation is finished drag the created disk image to your mounted Time Machine volume (you can delete the disk image on your desktop when copy is finished). Finally go to Time Machine preferences and start your backup again and everything should work as expected now. After the first backup (this can take a long time depending on your harddrive) you can unmount your Time Machine volume and the next time Time Machine starts it will grab and mount the sparse bundle disk image automatically (with "Backup of computername" as the volume name).
 
-## Firewall Settings
+### Firewall Settings
 
 As [Kevin points out in the comments](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6431) you would have to adjust any firewall you use. But the standard Ubuntu installation won't use any Firewall.
 
@@ -335,7 +335,7 @@ Sorry I can't give you any other solutions for that but in most cases it's some 
 
 But for those people still having problems with these error messages: On Mac OS X have a look in the Console app inside your Utilities folder. Click on "All Messages" in the left sidebar, try to connect to your Ubuntu box in Finder and see the messages in Console. These are the "real" error messages which normally will lead you to a solution.
 
-## -5014 error
+### -5014 error
 
 Some people have problems when connecting to an AFP share and get a -5014 error. You have to delete the hidden .AppleDB folders on your Ubuntu box and restart netatalk afterwards:
 
@@ -343,7 +343,7 @@ Some people have problems when connecting to an AFP share and get a -5014 error.
 sudo /etc/init.d/netatalk restart
 ```
 
-## Time Machine Full System Restore
+### Time Machine Full System Restore
 
 In case of a full system restore you would have to boot your Mac from the Mac OS X installation DVD (the one delivered with your Mac) by pressing the c key during boot. Your Mac will start with a minimal UI where you have a Utilities section in the top menu bar. There you'll find "Restore from a Time Machine Backup" but it won't find your network share with your Time Machine backup. Luckily [Dmitry Nedospasov found a way to manage this](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/) by simply mounting your Time Machine network share with the Terminal (which you can find under Utilities in the menu bar too) by utilizing the following syntax (shamelessly copied from [Dmitry](http://nedos.net/2008/03/29/restore-from-an-unsupported-time-machine-backup-with-the-leopard-dvd/)):
 
@@ -361,13 +361,13 @@ which outputs the content of the Volumes folder and you should see your network 
 
 Now you can close the Terminal and select "Restore from Time Machine Backup" from the Utilities entry in the menu bar and select your mounted Time Machine backup and thats it. Oh, needless to say: a gigabit ethernet connection will speed things up dramatically even compared to (draft)n-WLAN.
 
-## Netatalk backup disk reaching maximum capacity
+### Netatalk backup disk reaching maximum capacity
 
 There is some discussion on the net regarding problems with Netatalk and TimeMachine when the backup disk reaches maximum capacity. This is due to missing support for the AFP commands FPSyncDir aka commands 78 and 78 in Netatalk. [As a commenter in an ArsTechnica forum says](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931): "As soon as your backup volume will reach max capacity, it will self destruct because of it."
 
 In the forum you'll also find some links to various patches to avoid problems with that. If you have tested such patch please post your experiences in the comments for this article.
 
-## More Articles
+### More Articles
 
 - In case you want to connect your iPhone via AFP: [An AFP Server on your iPhone](http://www.eecs.berkeley.edu/~job/afpd/AFP_File_Server_on_your_iPhone.html). This uses the Netatalk package too
 - [Netatalk 2.0 manual](http://netatalk.sourceforge.net/2.0/htmldocs/)
@@ -377,7 +377,7 @@ In the forum you'll also find some links to various patches to avoid problems wi
 - [How-to: Get files off a Time Machine backup without using your Mac](http://carsonbaker.org/2008/06/23/time-machine-restore/): In case you have to access Time Machine backups from Ubuntu or any other Linux system
 - [Using NetBSD, with guest account](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143): [Johannes](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-6143) laid down the steps to use NetBSD instead of Ubuntu.
 
-# 8. Downloading and using the Server Display Icons
+## 8. Downloading and using the Server Display Icons
 
 ![Ubuntu Server Display](../media/ubuntuserver97.png)I've quickly crafted a custom icon for your Ubuntu server. It's the Apple Cinema Display with the default wallpaper of Ubuntu 8.04 called Hardy Heron. Additionally I've included an icon with the default Leopard and the default Vista wallpaper to represent your Leopard and Windows server too (The default Mac server icon uses the old Tiger wallpaper).
 
@@ -391,7 +391,7 @@ Because I've just modified Apple's standard icons these icons are just available
     <a class="icon-download" href="../media/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
 </p>
 
-## How to use the icons
+### How to use the icons
 
 In the avahi configuration part in this article you have assigned the Xserve device info to your afpd.service file. All you have to do is to replace the generic Xserve icon (or whatever model you have assigned in your afpd.service file) with an icon from this icon package. Just rename the Ubuntu Server.icns to com.apple.xserve.icns and navigate to
 
@@ -417,7 +417,7 @@ update: A solution for the icon problem is here: [Simon Wheatley figured out](ht
 
 Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](/feed/), discuss this article or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
 
-# 9. Translations Of This Article
+## 9. Translations Of This Article
 
 The following articles are direct translations of my article but some of them are slightly modified or simplified. Remember that the authors/translators are responsible for the content.
 

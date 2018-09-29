@@ -25,10 +25,7 @@ A bunch of colorful cups of coffee.
 
 [![Coffee Cup icons by Susumo Yoshida](../media/coffee-showcase-susumo.png)](http://www.mcdodesign.com/?page_id=22)
 
-
-
 ## CoffeeCon icon by Vegrafik
-
 
 A hyperrealistic icon from Vegrafik
 

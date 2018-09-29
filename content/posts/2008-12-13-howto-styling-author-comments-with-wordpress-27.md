@@ -23,14 +23,14 @@ Let's start by looking at the code to achieve styling of author comments prior t
 
 ```php
 <li class="
-	<?php
-		if ($comment->comment_author_url == "http://www.kremalicious.com")
-			echo 'author';
-		else echo $oddcomment;
-	?>
-	item" id="comment-<?php comment_ID() ?>">
-		<em>other comments code</em>
-	</li>
+  <?php
+    if ($comment->comment_author_url == "http://www.kremalicious.com")
+      echo 'author';
+    else echo $oddcomment;
+  ?>
+  item" id="comment-<?php comment_ID() ?>">
+    <em>other comments code</em>
+  </li>
 ```
 
 So with some php stuff we were able to check for the author name or, as I did it, for the URL of the comment author. If one of these were detected Wordpress added a new class 'author' to the `<li>` tag which we were able to style by adding a li.author to our css file:

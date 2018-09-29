@@ -28,11 +28,11 @@ Either just download the icons or read the exciting story about the First Photog
 
 ![](../media/cameraobscura11_all.png)
 
-# The story behind these icons
+## The story behind these icons
 
 There's a fascinating story behind these icons which is nothing more than the story of the invention of photography. Grab yourself a cup of coffee or tea and sit back while reading this story. Of course, if you're bored already just grab the download package further down this page.
 
-## Nicéphore Niépce and The First Photograph
+### Nicéphore Niépce and The First Photograph
 
 <img src="../media/nicephore-niepce.jpg" alt="Nicéphore Niépce, ca. 1795" title="Nicéphore Niépce, ca. 1795">
 
@@ -62,7 +62,7 @@ Finally let me say that this is just a brief description of Niépce's discoverie
 
 Now switch back from historical learning to Icon Design.
 
-## References in the icons
+### References in the icons
 
 The Camera Obscura seen in my icon set is a drawing of the replica of Niépce's Camera Obscura which you can find in Chalon-sur-Saône, France in Niépce's house. The Maison Nicéphore Niépce is a museum today, where they try to reproduce Niépce's procedures. And this isn't as easy as it seems with our shiny new 21st century technology.
 
@@ -70,7 +70,7 @@ The photography you can find in the iPhoto icon is the First Photograph "View fr
 
 And finally, if you know the Aperture and iPhoto icons then you may have noticed the references to these applications too (just compare the lenses).
 
-## Sources and more informations on Nicéphore Niépce
+### Sources and more informations on Nicéphore Niépce
 
 [Maison Nicéphore Niépce](http://www.niepce.com/)
 The home of Nicéphore Niépce in Saint-Loup-de-Varennes, France which is a museum today. It houses the replica of Niépce's Camera Obscura which was the inspiration for these icons and it was the view out of this house which became the First Photograph/Heliography.
@@ -90,7 +90,7 @@ Massive 19th and 20th century text archive of The Daguerreian Society about the 
 [Daguerre and the Invention of Photography](http://www.metmuseum.org/toah/hd/dagu/hd_dagu.htm)
 Brief description of Daguerres role in the invention of photography process by The Metropolitan Museum of Art
 
-# Download and enjoy
+## Download and enjoy
 
 This icon package was exclusively announced first on [MacThemes](http://macthemes2.net) and you can download it from the [Goodies section on this website](/goodies/) or directly via this link:
 
@@ -100,7 +100,7 @@ This icon package was exclusively announced first on [MacThemes](http://mactheme
 
 In addition to these icons you can download the [associated wallpapers for your desktop or your iPhone](http://www.kremalicious.com/2008/06/new-goodie-niepces-camera-obscura-wallpaper-pack/).
 
-# How to use these icons
+## How to use these icons
 
 ![Niépce's Camera Obscura in use](../media/cameraobscura_inuse.png)These desktop icons are free for your personal and non-commercial use. They were intended to be replacement icons for Apple's Aperture and iPhoto applications. Of course, you can use it for every other application instead or use the folder icon for your picture collection.
 
@@ -108,12 +108,12 @@ The easiest way to change and apply icons in Mac OS X involves the awesome appli
 
 To replace the icon of either an application, file or folder on Mac OS X simply ctrl + click (or right-click) on the desired application, file or folder and click "Get Info". Leave the Get Info dialog open and browse to an icon from this package inside the Mac folder. There you have three folders with the different icons applied to them. Now simply ctrl + click (or right-click) on the desired folder with the icon applied to it and click "Get Info". Now click on the icon in the upper left corner so it has a subtle shine around it noticing you it's selected. Now copy the icon by hitting command + c or choose Edit > Copy from the menubar. Make the dialog active we have opened in the first step by clicking on it and select the image in the upper left corner and hit command + v or choose Edit > Paste from the menubar. Now the desired icon should have been applied to the new folder.
 
-# Legal
+## Legal
 
 These desktop icons are free for you personal and non-commercial use. All other usage of this copyrighted material [require my written permission](/about/).
 
-# Final Words
+## Final Words
 
 <a href="http://krlc.us/givecoffee">![Oh no!](../media/coffee-cup-empty.png)</a>
 
-Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-](https://kremalicious.com/feed/) or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.
+Congratulations! You finally arrived at the end of my article. There's a good chance that your coffee or tea cup is now empty. But before making your next coffee you should share this article on your favorite social website. Your vote is highly appreciated! After you've finished voting and making your next coffee or tea you could subscribe to my [RSS-Feed](https://kremalicious.com/feed/) or <a href="http://krlc.us/givecoffee">buy me my next coffee</a>.

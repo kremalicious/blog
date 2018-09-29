@@ -36,6 +36,10 @@ If you want to know how, have a look at the respective component under [`src/com
 
 Site sends usage statistics to my own [Matomo](https://matomo.org) installation. To make this work in Gatsby, I created and open sourced a plugin, [gatsby-plugin-matomo](https://github.com/kremalicious/gatsby-plugin-matomo), which is in use on this site.
 
+### gatsby-redirect-from
+
+https://github.com/kremalicious/gatsby-redirect-from
+
 ### 💎 Importing SVG assets
 
 All SVG assets under `src/images/` will be converted to React components with the help of [gatsby-plugin-svgr](https://github.com/zabute/gatsby-plugin-svgr). Makes use of [SVGR](https://github.com/smooth-code/svgr) so SVG assets can be imported like so:
@@ -59,6 +63,13 @@ You need to have the following tools installed on your development machine befor
 - [Node.js](http://nodejs.org/)
 - [npm](https://npmjs.org/)
 
+Then install dependencies and start everything up:
+
+```bash
+npm i
+npm start
+```
+
 ### 🔮 Linting
 
 ESlint, Prettier, and Stylelint are setup for all linting purposes:
@@ -75,6 +86,10 @@ npm run format:css
 ```
 
 ### 🎈 Add a new project
+
+```bash
+npm run new -- "Hello"
+```
 
 ...
 

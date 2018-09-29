@@ -5,17 +5,22 @@
     @include breakoutviewport;
     @include divider;
 
-    margin-bottom: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: $spacer * 2;
-    padding-bottom: $spacer * 2;
+    margin-top: $spacer * $line-height;
+    padding-left: $spacer / 2;
+    padding-right: $spacer / 2;
+    margin-bottom: -($spacer);
+    padding-bottom: $spacer * 3;
+
+    @media (min-width: $screen-md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .featuredTitle {
     transition: .1s ease-out;
-    font-size: $font-size-base;
+    font-size: $font-size-mini;
     margin: 0;
     position: absolute;
     top: 25%;
@@ -28,12 +33,20 @@
     left: 0;
     opacity: 0;
     transform: translate3d(0, -20px, 0);
+
+    @media (min-width: $screen-sm) {
+        font-size: $font-size-base;
+    }
 }
 
 .featuredItem {
-    flex: 0 0 31%;
+    flex: 1;
     position: relative;
-    margin-bottom: 3%;
+    margin-left: $spacer / 2;
+
+    &:first-child {
+        margin-left: 0;
+    }
 
     a {
         > div {

@@ -24,11 +24,11 @@ I'm using macOS High Sierra (10.13) for the following instructions but it should
 
 ## Table of Contents
 
-  - [Tor Browser](#tor-browser)
-  - [Install Tor](#install-tor)
-  - [Set network proxy settings via System Preferences](#set-network-proxy-settings-via-system-preferences)
-  - [All in one go: start Tor &amp; set network proxy settings automatically](#all-in-one-go-start-tor-set-network-proxy-settings-automatically)
-  - [Non-standard apps](#non-standard-apps)
+- [Tor Browser](#tor-browser)
+- [Install Tor](#install-tor)
+- [Set network proxy settings via System Preferences](#set-network-proxy-settings-via-system-preferences)
+- [All in one go: start Tor &amp; set network proxy settings automatically](#all-in-one-go-start-tor-set-network-proxy-settings-automatically)
+- [Non-standard apps](#non-standard-apps)
 
 ---
 

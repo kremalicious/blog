@@ -4,5 +4,6 @@
   "no-inline-html": false,
   "fenced-code-language": false,
   "first-line-h1": false,
-  "first-heading-h1": false
+  "first-heading-h1": false,
+  "no-bare-urls": false
 }

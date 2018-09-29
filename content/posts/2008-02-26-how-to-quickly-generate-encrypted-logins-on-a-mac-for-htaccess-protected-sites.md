@@ -27,7 +27,7 @@ The login data, in detail just the password is stored encrypted in the .htpasswd
 
 Just open Terminal application and type in the following code and replace username and password with your desired data:
 
-```shell
+```bash
 htpasswd -nb username password
 ```
 
