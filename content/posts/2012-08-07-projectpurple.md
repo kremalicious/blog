@@ -27,7 +27,7 @@ It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstal
 
 The full size I designed the wallpaper in is 3200x2048px. I don't know why Apple uses 3200px as width for the default wallpapers in Mountain Lion but it seems a good width for now. And a height of 2048px makes this big size perfectly usable for the iPad 3 too.
 
-![](../media/Project-Purple-Dribbble.png)
+![Project-Purple-Dribbble](../media/Project-Purple-Dribbble.png)
 
 ## Download
 

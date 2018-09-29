@@ -55,6 +55,7 @@
     vertical-align: middle;
     display: inline-block;
     margin: 0;
+    margin-right: -($spacer / 2);
 
     &:hover,
     &:focus {

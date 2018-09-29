@@ -16,7 +16,7 @@ const query = graphql`
             title
             image {
               childImageSharp {
-                fluid(maxWidth: 260, maxHeight: 100, cropFocus: CENTER) {
+                fluid(maxWidth: 300, maxHeight: 130, cropFocus: CENTER) {
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }

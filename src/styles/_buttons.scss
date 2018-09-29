@@ -4,7 +4,7 @@
 .btn,
 a.btn {
     text-align: center;
-    display: inline-block;
+    display: block;
     margin-bottom: 0;
     vertical-align: middle;
     touch-action: manipulation;
@@ -162,8 +162,13 @@ a.btn-primary {
     a {
         @extend .btn;
 
-        flex: 1;
-        margin-left: $spacer / 2;
+        margin-bottom: $spacer / 2;
+
+        @media (min-width: $screen-xs) {
+            flex: 1;
+            margin-left: $spacer / 2;
+            margin-bottom: 0;
+        }
 
         &:first-child {
             margin-left: 0;

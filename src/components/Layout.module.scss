@@ -40,7 +40,7 @@
 
     @media (min-width: $screen-sm) and (min-height: 500px) {
         margin-top: $spacer * 2.65;
-        margin-bottom: $spacer * 20; // height of footer
+        margin-bottom: $spacer * 19; // height of footer
         position: relative;
         z-index: 2;
         min-height: 500px;
