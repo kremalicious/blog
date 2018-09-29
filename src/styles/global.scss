@@ -202,7 +202,6 @@ picture {
     height: auto;
     margin: 0 auto;
     display: block;
-    border-radius: $border-radius;
 }
 
 img {
@@ -323,14 +322,14 @@ cite {
 blockquote,
 blockquote > p {
     font-style: italic;
-    color: $brand-grey;
+    color: $brand-grey-light;
 }
 // stylelint-enable no-descending-specificity
 
 blockquote {
     margin: 0 0 $spacer;
     position: relative;
-    padding-left: $spacer * 1.5;
+    padding-left: $spacer * 1.25;
 
     // quotation marks
     &::before {

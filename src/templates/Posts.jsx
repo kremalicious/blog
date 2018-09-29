@@ -15,7 +15,7 @@ import styles from './Posts.module.scss'
 
 const Posts = ({ data, location, pageContext }) => {
   const edges = data.allMarkdownRemark.edges
-  const { tag, previousPagePath, humanPageNumber, numberOfPages } = pageContext
+  const { tag, currentPageNumber, numPages } = pageContext
 
   const PostsList = edges.map(({ node }) => {
     const { type, linkurl, title, image } = node.frontmatter
@@ -58,11 +58,11 @@ const Posts = ({ data, location, pageContext }) => {
     <Layout location={location}>
       <SEO />
       {location.pathname === '/' && <Featured />}
-      {tag && <h1 className={styles.archiveTitle}>{tag}</h1>}
-      {previousPagePath && (
+      {tag && <h1 className={styles.archiveTitle}>#{tag}</h1>}
+      {currentPageNumber > 1 && (
         <h1
           className={styles.archiveTitle}
-        >{`Page ${humanPageNumber} / ${numberOfPages}`}</h1>
+        >{`Page ${currentPageNumber} / ${numPages}`}</h1>
       )}
       {PostsList}
       <Pagination pageContext={pageContext} />

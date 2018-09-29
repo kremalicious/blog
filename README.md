@@ -16,15 +16,37 @@
 
 ## Table of Contents
 
+- [🎉 Features](#-features)
+  - [🎆 EXIF extraction](#-exif-extraction)
+  - [🕸 Related Posts](#-related-posts)
+  - [🏆 SEO component](#-seo-component)
+  - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
+  - [gatsby-redirect-from](#-gatsby-redirect-from)
+  - [💎 Importing SVG assets](#-importing-svg-assets)
+  - [🍬 Typekit component](#-typekit-component)
+- [✨ Development](#-development)
+  - [🔮 Linting](#-linting)
+  - [🎈 Add a new project](#-add-a-new-project)
+- [🚚 Deployment](#-deployment)
+- [🏛 Licenses](#-licenses)
+  - [Posts](#-posts)
+  - [Photos &amp; images](#-photos-images)
+
 ---
 
 ## 🎉 Features
 
 The whole [blog](https://kremalicious.com) is a React-based Single Page App built with [Gatsby v2](https://www.gatsbyjs.org).
 
-### EXIF extraction
+### 🎆 EXIF extraction
 
 ...
+
+### 🕸 Related Posts
+
+Under each post a list of related posts is displayed which are based on the tags of the currently viewed post. Also allows loading more related posts in place.
+
+If you want to know how, have a look at the respective component under [`src/components/molecules/Pagination.jsx`](src/components/molecules/Pagination.jsx)
 
 ### 🏆 SEO component
 

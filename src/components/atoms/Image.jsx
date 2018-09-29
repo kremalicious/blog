@@ -29,4 +29,12 @@ export const imageSizeDefault = graphql`
   }
 `
 
+export const imageSizeThumb = graphql`
+  fragment ImageFluidThumb on ImageSharp {
+    fluid(maxWidth: 200, maxHeight: 85, quality: 85, cropFocus: CENTER) {
+      ...GatsbyImageSharpFluid_withWebp_noBase64
+    }
+  }
+`
+
 export default Image

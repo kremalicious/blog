@@ -8,16 +8,26 @@ import PostTitle from '../components/atoms/PostTitle'
 import PostLead from '../components/atoms/PostLead'
 import PostContent from '../components/atoms/PostContent'
 import PostActions from '../components/atoms/PostActions'
+import PostLinkActions from '../components/atoms/PostLinkActions'
 import SEO from '../components/atoms/SEO'
 import Coinhive from '../components/atoms/Coinhive'
 import PostMeta from '../components/molecules/PostMeta'
 import Exif from '../components/atoms/Exif'
+import RelatedPosts from '../components/molecules/RelatedPosts'
 import styles from './Post.module.scss'
 
 const Post = ({ data, location }) => {
   const { markdownRemark: post } = data
   const { contentYaml: meta } = data
-  const { title, image, type, linkurl, style, coinhive } = post.frontmatter
+  const {
+    title,
+    image,
+    type,
+    linkurl,
+    style,
+    coinhive,
+    tags
+  } = post.frontmatter
   const { slug } = post.fields
 
   return (
@@ -37,9 +47,12 @@ const Post = ({ data, location }) => {
           )}
           {image && image.fields && <Exif exif={image.fields.exif} />}
           <PostContent post={post} />
+          {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
           <PostActions slug={slug} url={meta.url} />
           <PostMeta post={post} meta={meta} />
         </article>
+
+        {type === 'post' && <RelatedPosts tags={tags} />}
       </Layout>
       {coinhive && <Coinhive />}
     </Fragment>
