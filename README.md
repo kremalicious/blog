@@ -110,7 +110,7 @@ npm run format:css
 ### 🎈 Add a new project
 
 ```bash
-npm run new -- "Hello"
+npm run new "Hello"
 ```
 
 ...

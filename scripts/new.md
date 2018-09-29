@@ -1,10 +1,8 @@
 ---
 type: post
+date: DATE
 
 title: TITLE
-author: Matthias Kretschmann
-
-date: DATE
 
 tags:
   - tag
