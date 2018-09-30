@@ -1,18 +1,12 @@
 const path = require('path')
-const fs = require('fs')
-const yaml = require('js-yaml')
-const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
-const { title, tagline, url, author } = meta
+const siteConfig = require('./config')
 
 // required for gatsby-plugin-meta-redirect
 require('regenerator-runtime/runtime')
 
 module.exports = {
   siteMetadata: {
-    title: `${title}`,
-    description: `${tagline}`,
-    siteUrl: `${url}`,
-    author: `${author.name}`
+    ...siteConfig
   },
   plugins: [
     {
@@ -27,13 +21,6 @@ module.exports = {
       options: {
         name: 'media',
         path: path.join(__dirname, 'content', 'media')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: path.join(__dirname, 'content')
       }
     },
     {
@@ -129,7 +116,7 @@ module.exports = {
       options: {
         siteId: '1',
         matomoUrl: 'https://analytics.kremalicious.com',
-        siteUrl: `${url}`
+        siteUrl: `${siteConfig.siteUrl}`
       }
     },
     {
@@ -138,14 +125,14 @@ module.exports = {
         logo: './src/images/apple-touch-icon.png',
 
         // WebApp Manifest Configuration
-        appName: title.toLowerCase(),
-        appDescription: tagline,
-        developerName: author.name,
-        developerURL: author.uri,
+        appName: siteConfig.siteTitle.toLowerCase(),
+        appDescription: siteConfig.siteDescription,
+        developerName: siteConfig.author.name,
+        developerURL: siteConfig.author.uri,
         dir: 'auto',
         lang: 'en-US',
-        background: '#e7eef4',
-        theme_color: '#88bec8',
+        background: siteConfig.backgroundColor,
+        theme_color: siteConfig.themeColor,
         display: 'minimal-ui',
         orientation: 'any',
         start_url: '/?homescreen=1',
@@ -172,11 +159,9 @@ module.exports = {
           {
             site {
               siteMetadata {
-                title
-                description
                 siteUrl
-                site_url: siteUrl
                 author
+                site_url: siteUrl
               }
             }
           }
@@ -224,8 +209,8 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-webpack-size',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-yaml',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',

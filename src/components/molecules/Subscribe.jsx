@@ -5,8 +5,8 @@ import styles from './Subscribe.module.scss'
 
 const query = graphql`
   query {
-    contentYaml {
-      author {
+    site {
+      siteMetadata {
         rss
         jsonfeed
       }
@@ -18,7 +18,7 @@ const Subscribe = () => (
   <StaticQuery
     query={query}
     render={data => {
-      const { rss, jsonfeed } = data.contentYaml.author
+      const { rss, jsonfeed } = data.site.siteMetadata
 
       const links = [rss, jsonfeed]
 

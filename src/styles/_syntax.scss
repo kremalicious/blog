@@ -173,9 +173,9 @@ copyright  Copyright (C) 2017                                  +
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   */
 
-/*+------+
+/* +------+
     + Base +
-    +------+*/
+    +------+ */
 .source {
     -webkit-font-smoothing: auto;
     color: #d8dee9;
@@ -185,9 +185,9 @@ copyright  Copyright (C) 2017                                  +
     color: #d8dee9;
 }
 
-/*+----------+
+/* +----------+
     + Entities +
-    +----------+*/
+    +----------+ */
 .comment {
     color: #4c566a;
 }
@@ -516,7 +516,7 @@ copyright  Copyright (C) 2017                                  +
     color: #d8dee9;
 }
 
-/*+--- Languages ---+*/
+/* +--- Languages ---+ */
 
 /*
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -976,9 +976,9 @@ copyright  Copyright (C) 2017                                  +
     (http://scala-lang.org)
   */
 
-/*+------+
+/* +------+
     + Java +
-    +------+*/
+    +------+ */
 .source.java .comment.block.javadoc .variable.parameter {
     color: #88c0d0;
 }
@@ -1012,9 +1012,9 @@ copyright  Copyright (C) 2017                                  +
     color: #81a1c1;
 }
 
-/*+-------+
+/* +-------+
     + Scala +
-    +-------+*/
+    +-------+ */
 .source.scala .entity.name.package {
     color: #8fbcbb;
 }
@@ -1035,9 +1035,9 @@ copyright  Copyright (C) 2017                                  +
     color: #8fbcbb;
 }
 
-/*+-----------------+
+/* +-----------------+
     + Java Properties +
-    +-----------------+*/
+    +-----------------+ */
 .source.java-properties .meta.key-pair {
     color: #81a1c1;
 }
@@ -1396,9 +1396,9 @@ copyright  Copyright (C) 2017                                  +
     font-weight: bold;
 }
 
-/*+----------------+
+/* +----------------+
     + Theme Settings +
-    +----------------+*/
+    +----------------+ */
 
 /*
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1411,11 +1411,11 @@ copyright  Copyright (C) 2017                                  +
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   */
 
-/*+-------------+
+/* +-------------+
   + Accessibility +
-  +---------------+*/
+  +---------------+ */
 
-/*+--- Custom Comment Contrast ---+*/
+/* +--- Custom Comment Contrast ---+ */
 .theme-nord-atom-syntax-accessibility-custom-comment-contrast .comment {
     color: #4c566a;
 }

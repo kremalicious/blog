@@ -2,7 +2,7 @@ User-agent: *
 Disallow: /search/
 Disallow: /page/
 Disallow: /*/page/
-Disallow: /tag/
+Disallow: /tags/
 Disallow: /api/
 
 Sitemap: https://kremalicious.com/sitemap.xml

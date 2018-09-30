@@ -5,19 +5,15 @@ import Helmet from 'react-helmet'
 
 const query = graphql`
   query {
-    contentYaml {
-      title
-      tagline
-      url
-      author {
-        name
-        twitter
-        avatar {
-          childImageSharp {
-            resize(width: 160) {
-              src
-            }
-          }
+    site {
+      siteMetadata {
+        siteTitle
+        siteDescription
+        siteUrl
+        author {
+          name
+          twitter
+          avatar
         }
       }
     }
@@ -134,7 +130,7 @@ const SEO = ({ post, slug, postSEO }) => (
   <StaticQuery
     query={query}
     render={data => {
-      const siteMeta = data.contentYaml
+      const siteMeta = data.site.siteMetadata
       let title
       let description
       let image
@@ -142,20 +138,20 @@ const SEO = ({ post, slug, postSEO }) => (
 
       if (postSEO) {
         const postMeta = post.frontmatter
-        title = `${postMeta.title} ¦ ${siteMeta.tagline}`
+        title = `${postMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
         description = postMeta.description ? postMeta.description : post.excerpt
         image = postMeta.image
           ? postMeta.image.childImageSharp.fluid.src
-          : siteMeta.author.avatar.childImageSharp.resize.src
-        postURL = `${siteMeta.url}${slug}`
+          : siteMeta.author.avatar
+        postURL = `${siteMeta.siteUrl}${slug}`
       } else {
-        title = `${siteMeta.title} ¦ ${siteMeta.tagline}`
-        description = siteMeta.tagline
-        image = siteMeta.author.avatar.childImageSharp.resize.src
+        title = `${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
+        description = siteMeta.siteDescription
+        image = siteMeta.author.avatar
       }
 
-      image = `${siteMeta.url}${image}`
-      const blogURL = siteMeta.url
+      image = `${siteMeta.siteUrl}${image}`
+      const blogURL = siteMeta.siteUrl
       const url = postSEO ? postURL : blogURL
 
       let schema = createSchemaOrg(

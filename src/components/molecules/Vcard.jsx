@@ -1,24 +1,20 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import IconLinks from './IconLinks'
 import styles from './Vcard.module.scss'
 
 const query = graphql`
   query {
-    contentYaml {
-      author {
-        name
-        uri
-        twitter
-        github
-        facebook
-        avatar {
-          childImageSharp {
-            fixed(width: 80, height: 80) {
-              ...GatsbyImageSharpFixed
-            }
-          }
+    site {
+      siteMetadata {
+        author {
+          name
+          uri
+          twitter
+          github
+          facebook
+          avatar
         }
       }
     }
@@ -36,13 +32,13 @@ const Vcard = () => (
         avatar,
         name,
         uri
-      } = data.contentYaml.author
+      } = data.site.siteMetadata.author
 
       const links = [twitter, github, facebook]
 
       return (
         <div className="vcard author">
-          <Img className={styles.avatar} fixed={avatar.childImageSharp.fixed} />
+          <img className={styles.avatar} src={avatar} alt="avatar" />
           <p className={styles.description}>
             Blog of designer &amp; developer{' '}
             <a className="fn" rel="author" href={uri}>

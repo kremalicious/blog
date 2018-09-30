@@ -3,9 +3,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["react", "graphql", "prettier"],
+  "plugins": ["react", "graphql", "prettier", "jsx-a11y"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
