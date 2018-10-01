@@ -159,10 +159,11 @@ module.exports = {
           {
             site {
               siteMetadata {
+                siteTitle
+                siteDescription
                 siteUrl
-                author {
-                  name
-                }
+                title: siteTitle
+                description: siteDescription
                 site_url: siteUrl
               }
             }
@@ -170,15 +171,15 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => ({
                 title: edge.node.frontmatter.title,
                 date: edge.node.fields.date,
                 description: feedContent(edge),
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                url: siteConfig.siteUrl + edge.node.fields.slug,
                 categories: edge.node.frontmatter.tags,
-                author: site.siteMetadata.author.name,
-                guid: site.siteMetadata.siteUrl + edge.node.fields.slug
+                author: siteConfig.author.name,
+                guid: siteConfig.siteUrl + edge.node.fields.slug
               }))
             },
             query: `
