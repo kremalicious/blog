@@ -1,0 +1,4 @@
+plugins/gatsby-redirect-from
+node_modules
+public
+.cache

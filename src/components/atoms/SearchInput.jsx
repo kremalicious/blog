@@ -4,7 +4,7 @@ import styles from './SearchInput.module.scss'
 
 const SearchInput = props => (
   <Fragment>
-    <Input autoFocus type="search" placeholder="Search everything" {...props} />
+    <Input type="search" placeholder="Search everything" {...props} />
     <button className={styles.searchInputClose} onClick={props.onToggle}>
       &times;
     </button>

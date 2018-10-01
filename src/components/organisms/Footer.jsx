@@ -13,12 +13,14 @@ import styles from './Footer.module.scss'
 
 const query = graphql`
   query {
-    contentYaml {
-      author {
-        name
-        uri
-        bitcoin
-        github
+    site {
+      siteMetadata {
+        author {
+          name
+          uri
+          bitcoin
+          github
+        }
       }
     }
   }
@@ -44,7 +46,7 @@ export default class Footer extends PureComponent {
       <StaticQuery
         query={query}
         render={data => {
-          const { name, uri, bitcoin, github } = data.contentYaml.author
+          const { name, uri, bitcoin, github } = data.site.siteMetadata.author
 
           return (
             <footer role="contentinfo" className={styles.footer}>
@@ -66,14 +68,10 @@ export default class Footer extends PureComponent {
                       <Github />
                       View source
                     </a>
-                    <a
-                      href="#"
-                      className={styles.btc}
-                      onClick={this.toggleModal}
-                    >
+                    <button className={styles.btc} onClick={this.toggleModal}>
                       <Bitcoin />
                       <code>{bitcoin}</code>
-                    </a>
+                    </button>
                   </p>
 
                   <ModalThanks

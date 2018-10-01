@@ -6,9 +6,9 @@ import styles from './Menu.module.scss'
 
 const query = graphql`
   query {
-    allMenuYaml {
-      edges {
-        node {
+    site {
+      siteMetadata {
+        menu {
           title
           link
         }
@@ -39,12 +39,12 @@ export default class Menu extends PureComponent {
         <StaticQuery
           query={query}
           render={data => {
-            const { edges } = data.allMenuYaml
+            const { menu } = data.site.siteMetadata
 
-            const MenuItems = edges.map(({ node }) => (
-              <li key={node.title}>
-                <Link onClick={this.toggleMenu} to={node.link}>
-                  {node.title}
+            const MenuItems = menu.map(item => (
+              <li key={item.title}>
+                <Link onClick={this.toggleMenu} to={item.link}>
+                  {item.title}
                 </Link>
               </li>
             ))

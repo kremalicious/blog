@@ -18,7 +18,7 @@ import styles from './Post.module.scss'
 
 const Post = ({ data, location }) => {
   const { markdownRemark: post } = data
-  const { contentYaml: meta } = data
+  const meta = data.site.siteMetadata
   const {
     title,
     image,
@@ -48,7 +48,7 @@ const Post = ({ data, location }) => {
           {image && image.fields && <Exif exif={image.fields.exif} />}
           <PostContent post={post} />
           {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-          <PostActions slug={slug} url={meta.url} />
+          <PostActions slug={slug} url={meta.siteUrl} />
           <PostMeta post={post} meta={meta} />
         </article>
 
@@ -117,10 +117,12 @@ export const pageQuery = graphql`
       rawMarkdownBody
     }
 
-    contentYaml {
-      url
-      author {
-        uri
+    site {
+      siteMetadata {
+        siteUrl
+        author {
+          uri
+        }
       }
     }
   }

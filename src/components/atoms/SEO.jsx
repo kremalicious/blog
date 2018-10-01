@@ -5,19 +5,22 @@ import Helmet from 'react-helmet'
 
 const query = graphql`
   query {
-    contentYaml {
-      title
-      tagline
-      url
-      author {
-        name
-        twitter
-        avatar {
-          childImageSharp {
-            resize(width: 160) {
-              src
-            }
-          }
+    site {
+      siteMetadata {
+        siteTitle
+        siteDescription
+        siteUrl
+        author {
+          name
+          twitter
+        }
+      }
+    }
+
+    logo: allFile(filter: { name: { eq: "apple-touch-icon" } }) {
+      edges {
+        node {
+          relativePath
         }
       }
     }
@@ -88,8 +91,8 @@ const MetaTags = ({
   siteMeta
 }) => (
   <Helmet
-    defaultTitle={`${siteMeta.title} ¦ ${siteMeta.tagline}`}
-    titleTemplate={`%s ¦ ${siteMeta.title}`}
+    defaultTitle={`${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`}
+    titleTemplate={`%s ¦ ${siteMeta.siteTitle}`}
   >
     <html lang="en" />
 
@@ -134,7 +137,9 @@ const SEO = ({ post, slug, postSEO }) => (
   <StaticQuery
     query={query}
     render={data => {
-      const siteMeta = data.contentYaml
+      const siteMeta = data.site.siteMetadata
+      const logo = data.logo.edges[0].node.relativePath
+
       let title
       let description
       let image
@@ -142,20 +147,18 @@ const SEO = ({ post, slug, postSEO }) => (
 
       if (postSEO) {
         const postMeta = post.frontmatter
-        title = `${postMeta.title} ¦ ${siteMeta.tagline}`
+        title = `${postMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
         description = postMeta.description ? postMeta.description : post.excerpt
-        image = postMeta.image
-          ? postMeta.image.childImageSharp.fluid.src
-          : siteMeta.author.avatar.childImageSharp.resize.src
-        postURL = `${siteMeta.url}${slug}`
+        image = postMeta.image ? postMeta.image.childImageSharp.fluid.src : logo
+        postURL = `${siteMeta.siteUrl}${slug}`
       } else {
-        title = `${siteMeta.title} ¦ ${siteMeta.tagline}`
-        description = siteMeta.tagline
-        image = siteMeta.author.avatar.childImageSharp.resize.src
+        title = `${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
+        description = siteMeta.siteDescription
+        image = logo
       }
 
-      image = `${siteMeta.url}${image}`
-      const blogURL = siteMeta.url
+      image = `${siteMeta.siteUrl}${image}`
+      const blogURL = siteMeta.siteUrl
       const url = postSEO ? postURL : blogURL
 
       let schema = createSchemaOrg(

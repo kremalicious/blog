@@ -1,13 +1,9 @@
 const path = require('path')
-const fs = require('fs')
-const yaml = require('js-yaml')
 const { createFilePath } = require('gatsby-source-filesystem')
 const fastExif = require('fast-exif')
 const Fraction = require('fraction.js')
 const dms2dec = require('dms2dec')
-
-const meta = yaml.load(fs.readFileSync('./content/meta.yml', 'utf8'))
-const { itemsPerPage } = meta
+const { itemsPerPage } = require('./config')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },

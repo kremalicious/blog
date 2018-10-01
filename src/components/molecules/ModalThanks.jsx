@@ -9,10 +9,12 @@ import styles from './ModalThanks.module.scss'
 
 const query = graphql`
   query {
-    contentYaml {
-      author {
-        bitcoin
-        ether
+    site {
+      siteMetadata {
+        author {
+          bitcoin
+          ether
+        }
       }
     }
   }
@@ -22,7 +24,7 @@ const ModalThanks = ({ ...props }) => (
   <StaticQuery
     query={query}
     render={data => {
-      const { author } = data.contentYaml
+      const { author } = data.site.siteMetadata
 
       return (
         <Modal

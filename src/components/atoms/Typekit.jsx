@@ -19,8 +19,10 @@ const TypekitScript = typekitID => (
 
 const query = graphql`
   query {
-    contentYaml {
-      typekitID
+    site {
+      siteMetadata {
+        typekitID
+      }
     }
   }
 `
@@ -29,7 +31,7 @@ const Typekit = () => (
   <StaticQuery
     query={query}
     render={data => {
-      const { typekitID } = data.contentYaml
+      const { typekitID } = data.site.siteMetadata
 
       return (
         typekitID && (
