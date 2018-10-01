@@ -160,7 +160,9 @@ module.exports = {
             site {
               siteMetadata {
                 siteUrl
-                author
+                author {
+                  name
+                }
                 site_url: siteUrl
               }
             }
@@ -175,7 +177,7 @@ module.exports = {
                 description: feedContent(edge),
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 categories: edge.node.frontmatter.tags,
-                author: site.siteMetadata.author,
+                author: site.siteMetadata.author.name,
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug
               }))
             },

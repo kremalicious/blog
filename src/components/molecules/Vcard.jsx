@@ -14,7 +14,6 @@ const query = graphql`
           twitter
           github
           facebook
-          avatar
         }
       }
     }

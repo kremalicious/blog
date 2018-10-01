@@ -91,8 +91,8 @@ const MetaTags = ({
   siteMeta
 }) => (
   <Helmet
-    defaultTitle={`${siteMeta.title} ¦ ${siteMeta.tagline}`}
-    titleTemplate={`%s ¦ ${siteMeta.title}`}
+    defaultTitle={`${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`}
+    titleTemplate={`%s ¦ ${siteMeta.siteTitle}`}
   >
     <html lang="en" />
 
