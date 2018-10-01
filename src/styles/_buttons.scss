@@ -83,6 +83,21 @@ a.btn {
     }
 }
 
+button.link {
+    color: $link-color;
+
+    &:hover,
+    &:focus {
+        outline: 0;
+        color: lighten($link-color, 10%);
+    }
+
+    &:active {
+        transition: none;
+        color: darken($link-color, 10%);
+    }
+}
+
 // Primary Button
 .btn-primary,
 a.btn-primary {

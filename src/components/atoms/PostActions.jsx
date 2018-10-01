@@ -42,7 +42,7 @@ export default class PostActions extends PureComponent {
           <h1 className={styles.actionTitle}>Found something useful?</h1>
           <p className={styles.actionText}>
             Say thanks{' '}
-            <button onClick={this.toggleModal}>with Bitcoins or Ether.</button>
+            <button className="link" onClick={this.toggleModal}>with Bitcoins or Ether.</button>
           </p>
         </article>
 
