@@ -82,7 +82,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-graphql": "^2.1.1",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-prettier": "^2.7.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "markdownlint": "^0.11.0",
     "markdownlint-cli": "^0.13.0",
