@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   siteTitle: 'kremalicious',
   siteTitleShort: 'krlc',
@@ -8,12 +6,10 @@ module.exports = {
   themeColor: '#88bec8',
   backgroundColor: '#e7eef4',
   pathPrefix: null,
-  logo: path.resolve(__dirname, 'src/images/avatar.jpg'),
   author: {
     name: 'Matthias Kretschmann',
     email: 'm@kretschmann.io',
     uri: 'https://matthiaskretschmann.com',
-    avatar: './src/images/avatar.jpg',
     twitter: 'https://twitter.com/kremalicious',
     github: 'https://github.com/kremalicious',
     facebook: 'https://facebook.com/matthiaskretschmann',

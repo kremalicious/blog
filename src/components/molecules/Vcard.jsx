@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-// import Img from 'gatsby-image'
+import Img from 'gatsby-image'
 import IconLinks from './IconLinks'
 import styles from './Vcard.module.scss'
 
@@ -18,6 +18,18 @@ const query = graphql`
         }
       }
     }
+
+    avatar: allFile(filter: { name: { eq: "avatar" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fixed(width: 80, height: 80, quality: 90) {
+              ...GatsbyImageSharpFixed_withWebp_noBase64
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -29,16 +41,22 @@ const Vcard = () => (
         twitter,
         github,
         facebook,
-        avatar,
         name,
         uri
       } = data.site.siteMetadata.author
 
+      const avatar = data.avatar.edges[0].node.childImageSharp.fixed
       const links = [twitter, github, facebook]
 
       return (
         <div className="vcard author">
-          <img className={styles.avatar} src={avatar} alt="avatar" />
+          <Img
+            className={styles.avatar}
+            fixed={avatar}
+            alt="avatar"
+            width="80"
+            height="80"
+          />
           <p className={styles.description}>
             Blog of designer &amp; developer{' '}
             <a className="fn" rel="author" href={uri}>

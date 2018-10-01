@@ -13,7 +13,14 @@ const query = graphql`
         author {
           name
           twitter
-          avatar
+        }
+      }
+    }
+
+    logo: allFile(filter: { name: { eq: "apple-touch-icon" } }) {
+      edges {
+        node {
+          relativePath
         }
       }
     }
@@ -131,6 +138,8 @@ const SEO = ({ post, slug, postSEO }) => (
     query={query}
     render={data => {
       const siteMeta = data.site.siteMetadata
+      const logo = data.logo.edges[0].node.relativePath
+
       let title
       let description
       let image
@@ -140,14 +149,12 @@ const SEO = ({ post, slug, postSEO }) => (
         const postMeta = post.frontmatter
         title = `${postMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
         description = postMeta.description ? postMeta.description : post.excerpt
-        image = postMeta.image
-          ? postMeta.image.childImageSharp.fluid.src
-          : siteMeta.author.avatar
+        image = postMeta.image ? postMeta.image.childImageSharp.fluid.src : logo
         postURL = `${siteMeta.siteUrl}${slug}`
       } else {
         title = `${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
         description = siteMeta.siteDescription
-        image = siteMeta.author.avatar
+        image = logo
       }
 
       image = `${siteMeta.siteUrl}${image}`

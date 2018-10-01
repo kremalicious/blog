@@ -5,7 +5,12 @@
     @include media-frame;
 
     margin-bottom: ($spacer / 2);
-    border-radius: 50%;
+
+    &,
+    img {
+        border-radius: 50%;
+        overflow: hidden;
+    }
 }
 
 .description {
