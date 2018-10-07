@@ -45,7 +45,7 @@
     "gatsby-plugin-sharp": "^2.0.5",
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-plugin-svgr": "^2.0.0-alpha",
-    "gatsby-plugin-webpack-size": "^0.0.2",
+    "gatsby-plugin-webpack-size": "^0.0.3",
     "gatsby-redirect-from": "^0.1.1",
     "gatsby-remark-autolink-headers": "^2.0.6",
     "gatsby-remark-copy-linked-files": "^2.0.5",
