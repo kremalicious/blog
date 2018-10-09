@@ -40,7 +40,13 @@ The whole [blog](https://kremalicious.com) is a React-based Single Page App buil
 
 ### 🎆 EXIF extraction
 
-...
+Automatically extracts EXIF metadata from my photos on build time. For minimal overhead, [fast-exif](https://github.com/titarenko/fast-exif) parses every JPG file upon Gatsby file node creation and adds the extracted EXIF data as node fields. This way EXIF data is only extracted at build time and can be simply queried with GraphQL at run time.
+
+In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
+
+<img width="878" alt="screen shot 2018-10-09 at 23 59 39" src="https://user-images.githubusercontent.com/90316/46701262-6ed05680-cc1f-11e8-81c4-f4ea18b89bc0.png">
+
+If you want to know how, have a look at the respective component under [`src/components/atoms/Exif.jsx`](src/components/atoms/Exif.jsx) and the EXIF node fields creation in [`gatsby-node.js`](gatsby-node.js).
 
 ### 🕸 Related Posts
 
