@@ -48,10 +48,12 @@ export default class PostActions extends PureComponent {
           </p>
         </article>
 
-        <ModalThanks
-          isOpen={this.state.showModal}
-          handleCloseModal={this.toggleModal}
-        />
+        {this.state.showModal && (
+          <ModalThanks
+            isOpen={this.state.showModal}
+            handleCloseModal={this.toggleModal}
+          />
+        )}
       </aside>
     )
   }

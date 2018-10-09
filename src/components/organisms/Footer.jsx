@@ -74,10 +74,12 @@ export default class Footer extends PureComponent {
                     </button>
                   </p>
 
-                  <ModalThanks
-                    isOpen={this.state.showModal}
-                    handleCloseModal={this.toggleModal}
-                  />
+                  {this.state.showModal && (
+                    <ModalThanks
+                      isOpen={this.state.showModal}
+                      handleCloseModal={this.toggleModal}
+                    />
+                  )}
                 </section>
               </Container>
             </footer>
