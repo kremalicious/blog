@@ -22,14 +22,16 @@ export default class Web3Donation extends PureComponent {
     address: PropTypes.string
   }
 
-  web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
+  web3 = null
   interval = null
   networkInterval = null
 
   componentDidMount() {
-    const { web3 } = this
-
-    if (web3 && web3.eth) {
+    if (typeof window.web3 === 'undefined') {
+      // no web3
+      this.setState({ web3Connected: false })
+    } else {
+      this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
       this.setState({ web3Connected: true })
 
       this.fetchAccounts()
@@ -64,16 +66,14 @@ export default class Web3Donation extends PureComponent {
       web3.eth &&
       web3.eth.net.getId((err, netId) => {
         if (err) {
+          this.setState({ networkError: err })
+        }
+
+        if (netId != this.state.networkId) {
           this.setState({
-            networkError: err
+            networkError: null,
+            networkId: netId
           })
-        } else {
-          if (netId != this.state.networkId) {
-            this.setState({
-              networkError: null,
-              networkId: netId
-            })
-          }
         }
       })
   }
@@ -85,15 +85,13 @@ export default class Web3Donation extends PureComponent {
       web3.eth &&
       web3.eth.getAccounts((err, accounts) => {
         if (err) {
-          this.setState({
-            accountsError: err
-          })
-        } else {
-          this.setState({
-            accounts,
-            selectedAccount: accounts[0]
-          })
+          this.setState({ accountsError: err })
         }
+
+        this.setState({
+          accounts,
+          selectedAccount: accounts[0]
+        })
       })
   }
 
@@ -117,64 +115,60 @@ export default class Web3Donation extends PureComponent {
   }
 
   render() {
-    if (this.state.web3Connected) {
-      return (
-        <div className={styles.web3}>
-          <h4>web3</h4>
-          <p>Send a donation with your MetaMask or Mist account.</p>
+    return (
+      <div className={styles.web3}>
+        <h4>web3</h4>
+        <p>Send a donation with MetaMask or Mist.</p>
 
-          {this.state.web3Connected && (
-            <div>
-              {this.state.loading ? (
-                'Hang on...'
-              ) : (
-                <button
-                  className="btn btn-primary"
-                  onClick={this.handleWeb3Button}
-                  disabled={
-                    !(this.state.networkId === 1) || !this.state.selectedAccount
-                  }
+        {this.state.web3Connected ? (
+          <div>
+            {this.state.loading ? (
+              'Hang on...'
+            ) : (
+              <button
+                className="btn btn-primary"
+                onClick={this.handleWeb3Button}
+                disabled={
+                  !(this.state.networkId === 1) || !this.state.selectedAccount
+                }
+              >
+                Make it rain 0.01 Ξ
+              </button>
+            )}
+
+            {this.state.accounts.length === 0 && (
+              <div className={styles.alert}>
+                Web3 detected, but no account. Are you logged into your MetaMask
+                account?
+              </div>
+            )}
+
+            {this.state.networkId !== 1 && (
+              <div className={styles.alert}>Please connect to Main network</div>
+            )}
+
+            {this.state.error && (
+              <div className={styles.alert}>{this.state.error.message}</div>
+            )}
+
+            {this.state.receipt.status && (
+              <div className={styles.success}>
+                You are awesome, thanks!
+                <br />
+                <a
+                  href={`https://etherscan.io/tx/${
+                    this.state.receipt.transactionHash
+                  }`}
                 >
-                  Make it rain 0.01 Ξ
-                </button>
-              )}
-
-              {this.state.accounts.length === 0 && (
-                <div className={styles.alert}>
-                  Web3 detected, but no account. Are you logged into your
-                  MetaMask account?
-                </div>
-              )}
-
-              {this.state.networkId !== 1 && (
-                <div className={styles.alert}>
-                  Please connect to Main network
-                </div>
-              )}
-
-              {this.state.error && (
-                <div className={styles.alert}>{this.state.error.message}</div>
-              )}
-
-              {this.state.receipt.status && (
-                <div className={styles.success}>
-                  You are awesome, thanks!
-                  <br />
-                  <a
-                    href={`https://etherscan.io/tx/${
-                      this.state.receipt.transactionHash
-                    }`}
-                  >
-                    See your transaction on etherscan.io.
-                  </a>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      )
-    } else {
-      return null
-    }
+                  See your transaction on etherscan.io.
+                </a>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className={styles.alert}>No Web3 capable browser detected.</div>
+        )}
+      </div>
+    )
   }
 }

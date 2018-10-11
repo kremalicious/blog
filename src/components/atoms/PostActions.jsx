@@ -35,6 +35,7 @@ export default class PostActions extends PureComponent {
             >
               @kremalicious
             </a>
+            .
           </p>
         </article>
         <article className={styles.action}>
