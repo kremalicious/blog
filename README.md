@@ -163,7 +163,7 @@ npm run format:css
 npm run new "Hello"
 ```
 
-...
+- [`scripts/new.js`](scripts/new.js)
 
 ## 🚚 Deployment
 
