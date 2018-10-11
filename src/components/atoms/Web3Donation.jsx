@@ -13,7 +13,8 @@ export default class Web3Donation extends PureComponent {
     networkId: null,
     accounts: [],
     selectedAccount: null,
-    receipt: '',
+    receipt: null,
+    transactionHash: null,
     loading: false,
     error: null
   }
@@ -31,7 +32,8 @@ export default class Web3Donation extends PureComponent {
       // no web3
       this.setState({ web3Connected: false })
     } else {
-      this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
+      // this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
+      this.web3 = new Web3(window.web3.currentProvider)
       this.setState({ web3Connected: true })
 
       this.fetchAccounts()
@@ -64,7 +66,8 @@ export default class Web3Donation extends PureComponent {
 
     web3 &&
       web3.eth &&
-      web3.eth.net.getId((err, netId) => {
+      //web3.eth.net.getId((err, netId) => {
+      web3.version.getNetwork((err, netId) => {
         if (err) {
           this.setState({ networkError: err })
         }
@@ -100,18 +103,31 @@ export default class Web3Donation extends PureComponent {
 
     this.setState({ loading: true })
 
-    web3.eth
-      .sendTransaction({
+    // web3.eth
+    //   .sendTransaction({
+    //     from: this.state.selectedAccount,
+    //     to: this.props.address,
+    //     value: '10000000000000000'
+    //   })
+    //   .then(receipt => {
+    //     this.setState({ receipt, loading: false })
+    //   })
+    //   .catch(error => {
+    //     this.setState({ error, loading: false })
+    //   })
+
+    web3.eth.sendTransaction(
+      {
         from: this.state.selectedAccount,
         to: this.props.address,
         value: '10000000000000000'
-      })
-      .then(receipt => {
-        this.setState({ receipt, loading: false })
-      })
-      .catch(error => {
-        this.setState({ error, loading: false })
-      })
+      },
+      (error, transactionHash) => {
+        if (error) this.setState({ error, loading: false })
+        if (!transactionHash) this.setState({ loading: true })
+        this.setState({ transactionHash, loading: false })
+      }
+    )
   }
 
   render() {
@@ -129,7 +145,7 @@ export default class Web3Donation extends PureComponent {
                 className="btn btn-primary"
                 onClick={this.handleWeb3Button}
                 disabled={
-                  !(this.state.networkId === 1) || !this.state.selectedAccount
+                  !(this.state.networkId === '1') || !this.state.selectedAccount
                 }
               >
                 Make it rain 0.01 Ξ
@@ -143,7 +159,7 @@ export default class Web3Donation extends PureComponent {
               </div>
             )}
 
-            {this.state.networkId !== 1 && (
+            {this.state.networkId !== '1' && (
               <div className={styles.alert}>Please connect to Main network</div>
             )}
 
@@ -151,14 +167,12 @@ export default class Web3Donation extends PureComponent {
               <div className={styles.alert}>{this.state.error.message}</div>
             )}
 
-            {this.state.receipt.status && (
+            {this.state.transactionHash && (
               <div className={styles.success}>
                 You are awesome, thanks!
                 <br />
                 <a
-                  href={`https://etherscan.io/tx/${
-                    this.state.receipt.transactionHash
-                  }`}
+                  href={`https://etherscan.io/tx/${this.state.transactionHash}`}
                 >
                   See your transaction on etherscan.io.
                 </a>
