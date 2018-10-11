@@ -4,6 +4,7 @@
     @media (min-width: $screen-sm) {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 }
 

@@ -35,6 +35,7 @@ export default class PostActions extends PureComponent {
             >
               @kremalicious
             </a>
+            .
           </p>
         </article>
         <article className={styles.action}>
@@ -48,10 +49,12 @@ export default class PostActions extends PureComponent {
           </p>
         </article>
 
-        <ModalThanks
-          isOpen={this.state.showModal}
-          handleCloseModal={this.toggleModal}
-        />
+        {this.state.showModal && (
+          <ModalThanks
+            isOpen={this.state.showModal}
+            handleCloseModal={this.toggleModal}
+          />
+        )}
       </aside>
     )
   }

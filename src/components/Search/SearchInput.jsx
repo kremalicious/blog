@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Input from './Input'
+import Input from '../atoms/Input'
 import styles from './SearchInput.module.scss'
 
 const SearchInput = props => (

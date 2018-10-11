@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'gatsby'
 import Container from '../atoms/Container'
-import Search from '../molecules/Search'
+import Search from '../Search/Search'
 import Menu from '../molecules/Menu'
 
 import styles from './Header.module.scss'

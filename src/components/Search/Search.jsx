@@ -2,9 +2,9 @@ import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
-import SearchInput from '../atoms/SearchInput'
-import SearchButton from '../atoms/SearchButton'
-import SearchResults from '../atoms/SearchResults'
+import SearchInput from './SearchInput'
+import SearchButton from './SearchButton'
+import SearchResults from './SearchResults'
 
 import styles from './Search.module.scss'
 
