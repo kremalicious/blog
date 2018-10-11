@@ -18,10 +18,12 @@
 
 - [🎉 Features](#-features)
   - [🎆 EXIF extraction](#-exif-extraction)
+  - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3-metamask)
   - [🕸 Related Posts](#-related-posts)
+  - [🐝 Coinhive](#-coinhive)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
-  - [gatsby-redirect-from](#-gatsby-redirect-from)
+  - [gatsby-redirect-from](#gatsby-redirect-from)
   - [💎 Importing SVG assets](#-importing-svg-assets)
   - [🍬 Typekit component](#-typekit-component)
 - [✨ Development](#-development)
@@ -46,27 +48,67 @@ In the end looks like this, including location display with [pigeon-maps](https:
 
 <img width="878" alt="screen shot 2018-10-09 at 23 59 39" src="https://user-images.githubusercontent.com/90316/46701262-6ed05680-cc1f-11e8-81c4-f4ea18b89bc0.png">
 
-If you want to know how, have a look at the respective component under [`src/components/atoms/Exif.jsx`](src/components/atoms/Exif.jsx) and the EXIF node fields creation in [`gatsby-node.js`](gatsby-node.js).
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/atoms/Exif.jsx`](src/components/atoms/Exif.jsx)
+- the EXIF node fields creation in [`gatsby-node.js`](gatsby-node.js)
+
+### 💰 Cryptocurrency donation via Web3/MetaMask
+
+Lets visitors say thanks with Bitcoin or Ether. Includes full Web3 client for sending Ether via MetaMask or Mist.
+
+As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
+
+<img width="743" alt="screen shot 2018-10-11 at 21 01 37" src="https://user-images.githubusercontent.com/90316/46827443-e1187680-cd98-11e8-9daf-00a37c0ee13a.png">
+
+If you want to know how this works, have a look at the respective components under
+
+- [`src/components/atoms/Web3Donation.jsx`](src/components/atoms/Web3Donation.jsx)
+- [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
 
 ### 🕸 Related Posts
 
 Under each post a list of related posts is displayed which are based on the tags of the currently viewed post. Also allows loading more related posts in place.
 
-If you want to know how, have a look at the respective component under [`src/components/molecules/Pagination.jsx`](src/components/molecules/Pagination.jsx)
+<img width="691" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png">
+
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/molecules/RelatedPosts.jsx`](src/components/molecules/RelatedPosts.jsx)
+
+### 🐝 Coinhive
+
+Includes a component for mining Monero with JavaScript via [Coinhive](https://coinhive.com).
+
+<img width="166" alt="screen shot 2018-10-11 at 21 09 49" src="https://user-images.githubusercontent.com/90316/46827858-03f75a80-cd9a-11e8-84f1-65b7d0027124.png">
+
+Functionality is opt-in on a post basis. Simply add this to any post's frontmatter to activate it for this post:
+
+```yaml
+coinhive: true
+```
+
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/atoms/Coinhive.jsx`](src/components/atoms/Coinhive.jsx)
 
 ### 🏆 SEO component
 
 Includes a SEO component which automatically switches all required `meta` tags for search engines, Twitter Cards, and Facebook OpenGraph tags based on the browsed route/page.
 
-If you want to know how, have a look at the respective component under [`src/components/atoms/SEO.jsx`](src/components/atoms/SEO.jsx)
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/atoms/SEO.jsx`](src/components/atoms/SEO.jsx)
 
 ### 📈 Matomo (formerly Piwik) analytics tracking
 
-Site sends usage statistics to my own [Matomo](https://matomo.org) installation. To make this work in Gatsby, I created and open sourced a plugin, [gatsby-plugin-matomo](https://github.com/kremalicious/gatsby-plugin-matomo), which is in use on this site.
+Site sends usage statistics to my own [Matomo](https://matomo.org) installation. To make this work in Gatsby, I created and open sourced a plugin which is in use on this site.
+
+- [gatsby-plugin-matomo](https://github.com/kremalicious/gatsby-plugin-matomo)
 
 ### gatsby-redirect-from
 
-https://github.com/kremalicious/gatsby-redirect-from
+- [gatsby-redirect-from](https://github.com/kremalicious/gatsby-redirect-from)
 
 ### 💎 Importing SVG assets
 
@@ -82,7 +124,9 @@ import { ReactComponent as Logo } from './components/svg/Logo'
 
 Includes a component for adding the Typekit snippet.
 
-If you want to know how, have a look at the respective component under [`src/components/atoms/Typekit.jsx`](src/components/atoms/Typekit.jsx)
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/atoms/Typekit.jsx`](src/components/atoms/Typekit.jsx)
 
 ## ✨ Development
 
