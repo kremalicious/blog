@@ -212,11 +212,16 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/page/*', '/tag/*']
+      }
+    },
     'gatsby-plugin-webpack-size',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
