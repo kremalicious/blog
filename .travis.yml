@@ -7,7 +7,9 @@ cache:
     - public
 
 install:
+  - npm install -g scrypt
   - npm i
+  - ln -s ./node_modules/scrypt /usr/local/lib/node_modules/scrypt/build
 
 script:
   - npm test
