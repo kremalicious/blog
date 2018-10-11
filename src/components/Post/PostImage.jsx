@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Image from './Image'
+import Image from '../atoms/Image'
 import styles from './PostImage.module.scss'
 
 const PostImage = ({ title, fluid, fixed, alt }) => (
