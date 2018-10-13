@@ -43,7 +43,7 @@ pre {
     border-radius: $border-radius;
 
     // make 'em scrollable
-    overflow: scroll;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
     max-height: 300px;
 

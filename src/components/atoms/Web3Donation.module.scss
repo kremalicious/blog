@@ -10,17 +10,15 @@
     margin-bottom: $spacer;
     padding-bottom: $spacer * 1.5;
 
-    h4 {
-        font-size: $font-size-large;
-        margin-top: 0;
-        margin-bottom: $spacer / 4;
-        color: $brand-grey;
-        text-align: center;
+    small {
+        color: darken($alert-info, 60%);
+        margin-top: -($spacer / 2);
+        display: block;
     }
+}
 
-    p {
-        color: $brand-grey-light;
-    }
+.web3Row {
+    min-height: 58px;
 }
 
 .inputGroup {
@@ -30,17 +28,17 @@
 
     @media (min-width: $screen-sm) {
         display: flex;
-        max-width: 20rem;
+        max-width: 18rem;
     }
 
     button {
         width: 100%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-color: lighten($brand-grey-light, 20%);
+        border-color: lighten($brand-grey-light, 10%);
 
         @media (min-width: $screen-sm) {
-            width: 45%;
+            width: 50%;
             border-top-right-radius: $border-radius;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
@@ -53,25 +51,28 @@
     position: relative;
 
     @media (min-width: $screen-sm) {
-        width: 55%;
+        width: 50%;
     }
 
     input {
         text-align: center;
         border: 1px solid lighten($brand-grey-light, 20%);
-        font-size: $font-size-h3;
-        padding: $spacer / 3 $spacer / 3 $spacer / 3 $spacer * 1.9;
+        font-size: $font-size-large;
+        padding: $spacer / 3 $spacer / 3 $spacer / 3 $spacer * 1.7;
         border-bottom: 0;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
 
         @media (min-width: $screen-sm) {
-            padding: $spacer / 4 0 $spacer / 3 $spacer * 1.9;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: $border-radius;
             border-bottom: 1px solid lighten($brand-grey-light, 20%);
             border-right: 0;
+        }
+
+        &::-webkit-inner-spin-button {
+            margin-left: -($spacer / 2);
         }
     }
 }
@@ -81,7 +82,7 @@
     top: 1px;
     bottom: 1px;
     left: 1px;
-    font-size: $font-size-base;
+    font-size: $font-size-small;
     padding: $spacer / 3;
     color: $brand-grey-light;
     background: $brand-light;

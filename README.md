@@ -18,7 +18,7 @@
 
 - [🎉 Features](#-features)
   - [🎆 EXIF extraction](#-exif-extraction)
-  - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3-metamask)
+  - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🕸 Related Posts](#-related-posts)
   - [🐝 Coinhive](#-coinhive)
   - [🏆 SEO component](#-seo-component)
@@ -55,11 +55,11 @@ If you want to know how this works, have a look at the respective component unde
 
 ### 💰 Cryptocurrency donation via Web3/MetaMask
 
-Lets visitors say thanks with Bitcoin or Ether. Includes full Web3 client for sending Ether via MetaMask or Mist.
+Lets visitors say thanks with Bitcoin or Ether. Uses [web3.js](https://github.com/ethereum/web3.js) for sending Ether transactions via MetaMask, Brave or Mist. Component listens to account & network changes and adapts accordingly.
 
 As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
 
-<img width="743" alt="screen shot 2018-10-11 at 21 01 37" src="https://user-images.githubusercontent.com/90316/46827443-e1187680-cd98-11e8-9daf-00a37c0ee13a.png">
+<img width="1091" alt="screen shot 2018-10-13 at 18 40 56" src="https://user-images.githubusercontent.com/90316/46907751-907b5780-cf17-11e8-902d-6c520b388292.png" />
 
 If you want to know how this works, have a look at the respective components under
 
@@ -70,7 +70,7 @@ If you want to know how this works, have a look at the respective components und
 
 Under each post a list of related posts is displayed which are based on the tags of the currently viewed post. Also allows loading more related posts in place.
 
-<img width="691" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png">
+<img width="691" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png" />
 
 If you want to know how this works, have a look at the respective component under
 
@@ -80,7 +80,7 @@ If you want to know how this works, have a look at the respective component unde
 
 Includes a component for mining Monero with JavaScript via [Coinhive](https://coinhive.com).
 
-<img width="166" alt="screen shot 2018-10-11 at 21 09 49" src="https://user-images.githubusercontent.com/90316/46827858-03f75a80-cd9a-11e8-84f1-65b7d0027124.png">
+<img width="166" alt="screen shot 2018-10-11 at 21 09 49" src="https://user-images.githubusercontent.com/90316/46827858-03f75a80-cd9a-11e8-84f1-65b7d0027124.png" />
 
 Functionality is opt-in on a post basis. Simply add this to any post's frontmatter to activate it for this post:
 

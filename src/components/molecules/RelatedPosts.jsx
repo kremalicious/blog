@@ -103,7 +103,7 @@ class RelatedPosts extends PureComponent {
                 className={`${styles.button} btn`}
                 onClick={this.shufflePosts}
               >
-                More Related Posts
+                Refresh Related Posts
               </button>
             </aside>
           )

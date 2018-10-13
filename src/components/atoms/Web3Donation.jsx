@@ -7,6 +7,79 @@ import styles from './Web3Donation.module.scss'
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
 
+const InputGroup = ({
+  networkId,
+  selectedAccount,
+  amount,
+  onAmountChange,
+  handleWeb3Button
+}) => (
+  <div className={styles.inputGroup}>
+    <div className={styles.input}>
+      <Input
+        type="number"
+        disabled={!(networkId === '1') || !selectedAccount}
+        value={amount}
+        onChange={onAmountChange}
+        min="0"
+        step="0.01"
+      />
+      <div className={styles.currency}>
+        <span>ETH</span>
+      </div>
+    </div>
+    <button
+      className="btn btn-primary"
+      onClick={handleWeb3Button}
+      disabled={!(networkId === '1') || !selectedAccount}
+    >
+      Make it rain
+    </button>
+  </div>
+)
+
+InputGroup.propTypes = {
+  networkId: PropTypes.string,
+  selectedAccount: PropTypes.string,
+  amount: PropTypes.number,
+  onAmountChange: PropTypes.func,
+  handleWeb3Button: PropTypes.func
+}
+
+const Alerts = ({ accounts, networkId, error, transactionHash }) => {
+  if (error || accounts.length === 0) {
+    return (
+      <div className={styles.alert}>
+        {accounts.length === 0 &&
+          'Web3 detected, but no account. Are you logged into your MetaMask account?'}
+        {networkId !== '1' && 'Please connect to Main network'}
+        {error && error.message}
+      </div>
+    )
+  }
+
+  if (transactionHash) {
+    return (
+      <div className={styles.success}>
+        You are awesome, thanks!
+        <br />
+        <a href={`https://etherscan.io/tx/${transactionHash}`}>
+          See your transaction on etherscan.io.
+        </a>
+      </div>
+    )
+  }
+
+  return null
+}
+
+Alerts.propTypes = {
+  accounts: PropTypes.array,
+  networkId: PropTypes.string,
+  error: PropTypes.object,
+  transactionHash: PropTypes.string
+}
+
 export default class Web3Donation extends PureComponent {
   state = {
     web3Connected: false,
@@ -139,73 +212,38 @@ export default class Web3Donation extends PureComponent {
   render() {
     return (
       <div className={styles.web3}>
-        <h4>web3</h4>
-        <p>Send Ether with MetaMask, Brave, or Mist.</p>
+        <header>
+          <h4>web3</h4>
+          <p>Send Ether with MetaMask, Brave, or Mist.</p>
+        </header>
 
         {this.state.web3Connected ? (
-          <div>
+          <div className={styles.web3Row}>
             {this.state.loading ? (
               'Hang on...'
             ) : (
-              <div className={styles.inputGroup}>
-                <div className={styles.input}>
-                  <Input
-                    type="number"
-                    disabled={
-                      !(this.state.networkId === '1') ||
-                      !this.state.selectedAccount
-                    }
-                    value={this.state.amount}
-                    onChange={this.onAmountChange}
-                    min="0"
-                    step="0.01"
-                  />
-                  <div className={styles.currency}>
-                    <span>ETH</span>
-                  </div>
-                </div>
-                <button
-                  className="btn btn-primary"
-                  onClick={this.handleWeb3Button}
-                  disabled={
-                    !(this.state.networkId === '1') ||
-                    !this.state.selectedAccount
-                  }
-                >
-                  Make it rain
-                </button>
-              </div>
+              <InputGroup
+                networkId={this.state.networkId}
+                selectedAccount={this.state.selectedAccount}
+                amount={this.state.amount}
+                onAmountChange={this.onAmountChange}
+                handleWeb3Button={this.handleWeb3Button}
+              />
             )}
 
-            {this.state.accounts.length === 0 && (
-              <div className={styles.alert}>
-                Web3 detected, but no account. Are you logged into your MetaMask
-                account?
-              </div>
-            )}
-
-            {this.state.networkId !== '1' && (
-              <div className={styles.alert}>Please connect to Main network</div>
-            )}
-
-            {this.state.error && (
-              <div className={styles.alert}>{this.state.error.message}</div>
-            )}
-
-            {this.state.transactionHash && (
-              <div className={styles.success}>
-                You are awesome, thanks!
-                <br />
-                <a
-                  href={`https://etherscan.io/tx/${this.state.transactionHash}`}
-                >
-                  See your transaction on etherscan.io.
-                </a>
-              </div>
-            )}
+            <Alerts
+              accounts={this.state.accounts}
+              networkId={this.state.networkId}
+              error={this.state.error}
+              transactionHash={this.state.transactionHash}
+            />
           </div>
         ) : (
-          <div className={styles.alert}>No Web3 capable browser detected.</div>
+          <small>
+            No Web3 detected. Install <a href="https://metamask.io">MetaMask</a>
+            , <a href="https://brave.com">Brave</a>, or{' '}
+            <a href="https://github.com/ethereum/mist">Mist</a>.
+          </small>
         )}
       </div>
     )
