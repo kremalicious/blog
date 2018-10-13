@@ -10,10 +10,6 @@
     margin-bottom: $spacer;
     padding-bottom: $spacer * 1.5;
 
-    button {
-        margin: auto;
-    }
-
     h4 {
         font-size: $font-size-large;
         margin-top: 0;
@@ -25,6 +21,75 @@
     p {
         color: $brand-grey-light;
     }
+}
+
+.inputGroup {
+    max-width: 17rem;
+    margin: auto;
+    position: relative;
+
+    @media (min-width: $screen-sm) {
+        display: flex;
+        max-width: 20rem;
+    }
+
+    button {
+        width: 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-color: lighten($brand-grey-light, 20%);
+
+        @media (min-width: $screen-sm) {
+            width: 45%;
+            border-top-right-radius: $border-radius;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 0;
+        }
+    }
+}
+
+.input {
+    position: relative;
+
+    @media (min-width: $screen-sm) {
+        width: 55%;
+    }
+
+    input {
+        text-align: center;
+        border: 1px solid lighten($brand-grey-light, 20%);
+        font-size: $font-size-h3;
+        padding: $spacer / 3 $spacer / 3 $spacer / 3 $spacer * 1.9;
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        @media (min-width: $screen-sm) {
+            padding: $spacer / 4 0 $spacer / 3 $spacer * 1.9;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: $border-radius;
+            border-bottom: 1px solid lighten($brand-grey-light, 20%);
+            border-right: 0;
+        }
+    }
+}
+
+.currency {
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 1px;
+    font-size: $font-size-base;
+    padding: $spacer / 3;
+    color: $brand-grey-light;
+    background: $brand-light;
+    border-right: 1px solid rgba($brand-grey-light, .4);
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    display: flex;
+    align-items: center;
 }
 
 .alert {

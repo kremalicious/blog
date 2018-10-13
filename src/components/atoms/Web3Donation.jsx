@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Web3 from 'web3'
+import Input from '../atoms/Input'
 import styles from './Web3Donation.module.scss'
 
 const ONE_SECOND = 1000
@@ -13,6 +14,7 @@ export default class Web3Donation extends PureComponent {
     networkId: null,
     accounts: [],
     selectedAccount: null,
+    amount: 0.01,
     receipt: null,
     transactionHash: null,
     loading: false,
@@ -120,7 +122,7 @@ export default class Web3Donation extends PureComponent {
       {
         from: this.state.selectedAccount,
         to: this.props.address,
-        value: '10000000000000000'
+        value: this.state.amount * 1e18 // ETH -> Wei
       },
       (error, transactionHash) => {
         if (error) this.setState({ error, loading: false })
@@ -130,26 +132,49 @@ export default class Web3Donation extends PureComponent {
     )
   }
 
+  onAmountChange = ({ target }) => {
+    this.setState({ amount: target.value })
+  }
+
   render() {
     return (
       <div className={styles.web3}>
         <h4>web3</h4>
-        <p>Send a donation with MetaMask or Mist.</p>
+        <p>Send Ether with MetaMask, Brave, or Mist.</p>
 
         {this.state.web3Connected ? (
           <div>
             {this.state.loading ? (
               'Hang on...'
             ) : (
-              <button
-                className="btn btn-primary"
-                onClick={this.handleWeb3Button}
-                disabled={
-                  !(this.state.networkId === '1') || !this.state.selectedAccount
-                }
-              >
-                Make it rain 0.01 Ξ
-              </button>
+              <div className={styles.inputGroup}>
+                <div className={styles.input}>
+                  <Input
+                    type="number"
+                    disabled={
+                      !(this.state.networkId === '1') ||
+                      !this.state.selectedAccount
+                    }
+                    value={this.state.amount}
+                    onChange={this.onAmountChange}
+                    min="0"
+                    step="0.01"
+                  />
+                  <div className={styles.currency}>
+                    <span>ETH</span>
+                  </div>
+                </div>
+                <button
+                  className="btn btn-primary"
+                  onClick={this.handleWeb3Button}
+                  disabled={
+                    !(this.state.networkId === '1') ||
+                    !this.state.selectedAccount
+                  }
+                >
+                  Make it rain
+                </button>
+              </div>
             )}
 
             {this.state.accounts.length === 0 && (
