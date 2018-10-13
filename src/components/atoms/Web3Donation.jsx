@@ -46,29 +46,41 @@ InputGroup.propTypes = {
   handleWeb3Button: PropTypes.func
 }
 
-const Alerts = ({ accounts, networkId, error, transactionHash }) => {
-  if (error || accounts.length === 0) {
-    return (
-      <div className={styles.alert}>
-        {accounts.length === 0 &&
-          'Web3 detected, but no account. Are you logged into your MetaMask account?'}
-        {networkId !== '1' && 'Please connect to Main network'}
-        {error && error.message}
-      </div>
-    )
-  }
+const Alerts = ({
+  accounts,
+  networkId,
+  networkName,
+  error,
+  transactionHash
+}) => {
+  const isCorrectNetwork = networkId === '1'
+  const hasAccount = accounts.length !== 0
 
-  if (transactionHash) {
-    return (
-      <div className={styles.success}>
-        You are awesome, thanks!
-        <br />
-        <a href={`https://etherscan.io/tx/${transactionHash}`}>
-          See your transaction on etherscan.io.
-        </a>
-      </div>
-    )
-  }
+  if (error || hasAccount || isCorrectNetwork)
+    <div className={styles.alert}>
+      {!hasAccount && (
+        <div>
+          Web3 detected, but no account. Are you logged into your MetaMask
+          account?
+        </div>
+      )}
+      {!isCorrectNetwork && (
+        <div>
+          Please connect to <strong>Main</strong> network. You are on{' '}
+          <strong>{networkName}</strong> right now.
+        </div>
+      )}
+      {error && <div>{error.message}</div>}
+    </div>
+
+  if (transactionHash)
+    <div className={styles.success}>
+      You are awesome, thanks!
+      <br />
+      <a href={`https://etherscan.io/tx/${transactionHash}`}>
+        See your transaction on etherscan.io.
+      </a>
+    </div>
 
   return null
 }
@@ -76,6 +88,7 @@ const Alerts = ({ accounts, networkId, error, transactionHash }) => {
 Alerts.propTypes = {
   accounts: PropTypes.array,
   networkId: PropTypes.string,
+  networkName: PropTypes.string,
   error: PropTypes.object,
   transactionHash: PropTypes.string
 }
@@ -85,6 +98,7 @@ export default class Web3Donation extends PureComponent {
     web3Connected: false,
     networkError: null,
     networkId: null,
+    networkName: null,
     accounts: [],
     selectedAccount: null,
     amount: 0.01,
@@ -103,28 +117,67 @@ export default class Web3Donation extends PureComponent {
   networkInterval = null
 
   componentDidMount() {
-    if (typeof window.web3 === 'undefined') {
-      // no web3
-      this.setState({ web3Connected: false })
-    } else {
+    this.initAllTheTings()
+  }
+
+  componentWillUnmount() {
+    this.resetAllTheThings()
+  }
+
+  // getPermissions = async ethereum => {
+  //   try {
+  //     // Request account access if needed
+  //     await ethereum.enable()
+  //   } catch (error) {
+  //     // User denied account access...
+  //     console.log(error)
+  //   }
+  // }
+
+  initAllTheTings() {
+    // Modern dapp browsers...
+    // if (window.ethereum) {
+    //   this.web3 = new Web3(window.ethereum)
+    //   this.setState({ web3Connected: true })
+    //   this.getPermissions(this.web3.eth)
+    // }
+
+    // Legacy dapp browsers...
+    if (window.web3) {
       // this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
       this.web3 = new Web3(window.web3.currentProvider)
       this.setState({ web3Connected: true })
 
       this.fetchAccounts()
       this.fetchNetwork()
-      this.initPoll()
+      this.initAccountsPoll()
       this.initNetworkPoll()
+    }
+    // Non-dapp browsers...
+    else {
+      this.setState({ web3Connected: false })
     }
   }
 
-  componentWillUnmount() {
+  resetAllTheThings() {
     clearInterval(this.interval)
     clearInterval(this.networkInterval)
-    this.setState({ web3Connected: false })
+    this.setState({
+      web3Connected: false,
+      networkError: null,
+      networkId: null,
+      networkName: null,
+      accounts: [],
+      selectedAccount: null,
+      amount: 0.01,
+      receipt: null,
+      transactionHash: null,
+      loading: false,
+      error: null
+    })
   }
 
-  initPoll() {
+  initAccountsPoll() {
     if (!this.interval) {
       this.interval = setInterval(this.fetchAccounts, ONE_SECOND)
     }
@@ -143,14 +196,35 @@ export default class Web3Donation extends PureComponent {
       web3.eth &&
       //web3.eth.net.getId((err, netId) => {
       web3.version.getNetwork((err, netId) => {
-        if (err) {
-          this.setState({ networkError: err })
-        }
+        if (err) this.setState({ networkError: err })
 
         if (netId != this.state.networkId) {
+          let networkName
+
+          switch (netId) {
+            case '1':
+              networkName = 'Main'
+              break
+            case '2':
+              networkName = 'Morden'
+              break
+            case '3':
+              networkName = 'Ropsten'
+              break
+            case '4':
+              networkName = 'Rinkeby'
+              break
+            case '42':
+              networkName = 'Kovan'
+              break
+            default:
+              networkName = 'Private'
+          }
+
           this.setState({
             networkError: null,
-            networkId: netId
+            networkId: netId,
+            networkName: networkName
           })
         }
       })
@@ -234,6 +308,7 @@ export default class Web3Donation extends PureComponent {
             <Alerts
               accounts={this.state.accounts}
               networkId={this.state.networkId}
+              networkName={this.state.networkName}
               error={this.state.error}
               transactionHash={this.state.transactionHash}
             />

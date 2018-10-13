@@ -25,4 +25,8 @@
         border-color: $input-border-focus;
         outline: 0;
     }
+
+    &[disabled] {
+        color: $brand-grey-dimmed;
+    }
 }
