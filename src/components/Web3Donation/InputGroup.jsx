@@ -5,20 +5,20 @@ import styles from './InputGroup.module.scss'
 
 export default class InputGroup extends PureComponent {
   static propTypes = {
-    networkId: PropTypes.string,
-    selectedAccount: PropTypes.string,
+    hasCorrectNetwork: PropTypes.bool,
+    hasAccount: PropTypes.bool,
     amount: PropTypes.number,
     onAmountChange: PropTypes.func,
-    handleWeb3Button: PropTypes.func
+    handleButton: PropTypes.func
   }
 
   render() {
     const {
-      networkId,
-      selectedAccount,
+      hasCorrectNetwork,
+      hasAccount,
       amount,
       onAmountChange,
-      handleWeb3Button
+      handleButton
     } = this.props
 
     return (
@@ -26,7 +26,7 @@ export default class InputGroup extends PureComponent {
         <div className={styles.input}>
           <Input
             type="number"
-            disabled={!(networkId === '1') || !selectedAccount}
+            disabled={!hasCorrectNetwork || !hasAccount}
             value={amount}
             onChange={onAmountChange}
             min="0"
@@ -38,8 +38,8 @@ export default class InputGroup extends PureComponent {
         </div>
         <button
           className="btn btn-primary"
-          onClick={handleWeb3Button}
-          disabled={!(networkId === '1') || !selectedAccount}
+          onClick={handleButton}
+          disabled={!hasCorrectNetwork || !hasAccount}
         >
           Make it rain
         </button>

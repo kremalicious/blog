@@ -4,6 +4,7 @@ import Web3 from 'web3'
 import InputGroup from './InputGroup'
 import Alerts from './Alerts'
 import styles from './index.module.scss'
+import { getNetworkName } from './utils'
 
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
@@ -11,13 +12,11 @@ const ONE_MINUTE = ONE_SECOND * 60
 export default class Web3Donation extends PureComponent {
   state = {
     web3Connected: false,
-    networkError: null,
     networkId: null,
     networkName: null,
     accounts: [],
     selectedAccount: null,
     amount: 0.01,
-    receipt: null,
     transactionHash: null,
     loading: false,
     error: null
@@ -77,19 +76,7 @@ export default class Web3Donation extends PureComponent {
   resetAllTheThings() {
     clearInterval(this.interval)
     clearInterval(this.networkInterval)
-    this.setState({
-      web3Connected: false,
-      networkError: null,
-      networkId: null,
-      networkName: null,
-      accounts: [],
-      selectedAccount: null,
-      amount: 0.01,
-      receipt: null,
-      transactionHash: null,
-      loading: false,
-      error: null
-    })
+    this.setState({ web3Connected: false })
   }
 
   initAccountsPoll() {
@@ -111,35 +98,16 @@ export default class Web3Donation extends PureComponent {
       web3.eth &&
       //web3.eth.net.getId((err, netId) => {
       web3.version.getNetwork((err, netId) => {
-        if (err) this.setState({ networkError: err })
+        if (err) this.setState({ error: err })
 
         if (netId != this.state.networkId) {
-          let networkName
-
-          switch (netId) {
-            case '1':
-              networkName = 'Main'
-              break
-            case '2':
-              networkName = 'Morden'
-              break
-            case '3':
-              networkName = 'Ropsten'
-              break
-            case '4':
-              networkName = 'Rinkeby'
-              break
-            case '42':
-              networkName = 'Kovan'
-              break
-            default:
-              networkName = 'Private'
-          }
-
           this.setState({
-            networkError: null,
-            networkId: netId,
-            networkName: networkName
+            error: null,
+            networkId: netId
+          })
+
+          getNetworkName(netId).then(networkName => {
+            this.setState({ networkName: networkName })
           })
         }
       })
@@ -151,18 +119,17 @@ export default class Web3Donation extends PureComponent {
     web3 &&
       web3.eth &&
       web3.eth.getAccounts((err, accounts) => {
-        if (err) {
-          this.setState({ accountsError: err })
-        }
+        if (err) this.setState({ error: err })
 
         this.setState({
+          error: null,
           accounts,
           selectedAccount: accounts[0]
         })
       })
   }
 
-  handleWeb3Button = () => {
+  handleButton = () => {
     const { web3 } = this
 
     this.setState({ loading: true })
@@ -199,6 +166,9 @@ export default class Web3Donation extends PureComponent {
   }
 
   render() {
+    const hasCorrectNetwork = this.state.networkId === '1'
+    const hasAccount = this.state.accounts.length !== 0
+
     return (
       <div className={styles.web3}>
         <header>
@@ -206,35 +176,30 @@ export default class Web3Donation extends PureComponent {
           <p>Send Ether with MetaMask, Brave, or Mist.</p>
         </header>
 
-        {this.state.web3Connected ? (
+        {this.state.web3Connected && (
           <div className={styles.web3Row}>
             {this.state.loading ? (
               'Hang on...'
             ) : (
               <InputGroup
-                networkId={this.state.networkId}
-                selectedAccount={this.state.selectedAccount}
+                hasCorrectNetwork={hasCorrectNetwork}
+                hasAccount={hasAccount}
                 amount={this.state.amount}
                 onAmountChange={this.onAmountChange}
-                handleWeb3Button={this.handleWeb3Button}
+                handleButton={this.handleButton}
               />
             )}
-
-            <Alerts
-              accounts={this.state.accounts}
-              networkId={this.state.networkId}
-              networkName={this.state.networkName}
-              error={this.state.error}
-              transactionHash={this.state.transactionHash}
-            />
           </div>
-        ) : (
-          <small>
-            No Web3 detected. Install <a href="https://metamask.io">MetaMask</a>
-            , <a href="https://brave.com">Brave</a>, or{' '}
-            <a href="https://github.com/ethereum/mist">Mist</a>.
-          </small>
         )}
+
+        <Alerts
+          hasCorrectNetwork={hasCorrectNetwork}
+          hasAccount={hasAccount}
+          networkName={this.state.networkName}
+          error={this.state.error}
+          transactionHash={this.state.transactionHash}
+          web3Connected={this.state.web3Connected}
+        />
       </div>
     )
   }
