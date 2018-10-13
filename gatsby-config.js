@@ -91,22 +91,18 @@ module.exports = {
         // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
         fields: [
           { name: 'title', store: true, attributes: { boost: 20 } },
-          { name: 'content' },
           { name: 'excerpt', attributes: { boost: 10 } },
-          { name: 'category', store: true, attributes: { boost: 5 } },
-          { name: 'tags', store: true },
-          { name: 'url', store: true }
+          { name: 'tags', store: true, attributes: { boost: 5 } },
+          { name: 'content' }
         ],
         // How to resolve each field's value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields' values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            content: node => node.rawMarkdownBody,
-            excerpt: node => node.frontmatter.excerpt,
-            category: node => node.frontmatter.category,
+            excerpt: node => node.excerpt,
             tags: node => node.frontmatter.tags,
-            url: node => node.fields.slug
+            content: node => node.rawMarkdownBody
           }
         }
       }

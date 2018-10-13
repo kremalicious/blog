@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Web3Donation from '../atoms/Web3Donation'
+import Web3Donation from '../Web3Donation'
 import Qr from '../atoms/Qr'
 import Modal from '../atoms/Modal'
 import styles from './ModalThanks.module.scss'

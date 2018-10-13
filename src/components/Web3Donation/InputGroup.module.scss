@@ -1,26 +1,6 @@
 @import 'variables';
 @import 'mixins';
 
-.web3 {
-    @include divider;
-
-    width: 100%;
-    text-align: center;
-    margin-top: $spacer / 2;
-    margin-bottom: $spacer;
-    padding-bottom: $spacer * 1.5;
-
-    small {
-        color: darken($alert-info, 60%);
-        margin-top: -($spacer / 2);
-        display: block;
-    }
-}
-
-.web3Row {
-    min-height: 58px;
-}
-
 .inputGroup {
     max-width: 17rem;
     margin: auto;
@@ -91,15 +71,4 @@
     border-bottom-left-radius: $border-radius;
     display: flex;
     align-items: center;
-}
-
-.alert {
-    margin-top: $spacer / 2;
-    font-size: $font-size-small;
-    color: darken($alert-error, 60%);
-}
-
-.success {
-    composes: alert;
-    color: darken($alert-success, 60%);
 }
