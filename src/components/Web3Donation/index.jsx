@@ -1,97 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Web3 from 'web3'
-import Input from '../atoms/Input'
-import styles from './Web3Donation.module.scss'
+import InputGroup from './InputGroup'
+import Alerts from './Alerts'
+import styles from './index.module.scss'
 
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
-
-const InputGroup = ({
-  networkId,
-  selectedAccount,
-  amount,
-  onAmountChange,
-  handleWeb3Button
-}) => (
-  <div className={styles.inputGroup}>
-    <div className={styles.input}>
-      <Input
-        type="number"
-        disabled={!(networkId === '1') || !selectedAccount}
-        value={amount}
-        onChange={onAmountChange}
-        min="0"
-        step="0.01"
-      />
-      <div className={styles.currency}>
-        <span>ETH</span>
-      </div>
-    </div>
-    <button
-      className="btn btn-primary"
-      onClick={handleWeb3Button}
-      disabled={!(networkId === '1') || !selectedAccount}
-    >
-      Make it rain
-    </button>
-  </div>
-)
-
-InputGroup.propTypes = {
-  networkId: PropTypes.string,
-  selectedAccount: PropTypes.string,
-  amount: PropTypes.number,
-  onAmountChange: PropTypes.func,
-  handleWeb3Button: PropTypes.func
-}
-
-const Alerts = ({
-  accounts,
-  networkId,
-  networkName,
-  error,
-  transactionHash
-}) => {
-  const isCorrectNetwork = networkId === '1'
-  const hasAccount = accounts.length !== 0
-
-  if (error || hasAccount || isCorrectNetwork)
-    <div className={styles.alert}>
-      {!hasAccount && (
-        <div>
-          Web3 detected, but no account. Are you logged into your MetaMask
-          account?
-        </div>
-      )}
-      {!isCorrectNetwork && (
-        <div>
-          Please connect to <strong>Main</strong> network. You are on{' '}
-          <strong>{networkName}</strong> right now.
-        </div>
-      )}
-      {error && <div>{error.message}</div>}
-    </div>
-
-  if (transactionHash)
-    <div className={styles.success}>
-      You are awesome, thanks!
-      <br />
-      <a href={`https://etherscan.io/tx/${transactionHash}`}>
-        See your transaction on etherscan.io.
-      </a>
-    </div>
-
-  return null
-}
-
-Alerts.propTypes = {
-  accounts: PropTypes.array,
-  networkId: PropTypes.string,
-  networkName: PropTypes.string,
-  error: PropTypes.object,
-  transactionHash: PropTypes.string
-}
 
 export default class Web3Donation extends PureComponent {
   state = {

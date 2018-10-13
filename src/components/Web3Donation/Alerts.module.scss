@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+
+.alert {
+    margin-top: $spacer / 2;
+    font-size: $font-size-small;
+    color: darken($alert-error, 60%);
+}
+
+.success {
+    composes: alert;
+    color: darken($alert-success, 60%);
+}

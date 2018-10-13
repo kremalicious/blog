@@ -63,7 +63,7 @@ As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no2
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/atoms/Web3Donation.jsx`](src/components/atoms/Web3Donation.jsx)
+- [`src/components/Web3Donation/index.jsx`](src/components/Web3Donation/index.jsx)
 - [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
 
 ### 🕸 Related Posts
