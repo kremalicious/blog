@@ -10,14 +10,15 @@
     bottom: 0;
     z-index: 10;
     background: rgba($body-background-color, .9);
-    backdrop-filter: blur(5px);
+    // backdrop-filter: blur(5px);
     animation: fadein .3s;
-    padding: $spacer / 2;
+    padding: $spacer;
 
     @media (min-width: $screen-sm) {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        padding-top: 6vh;
     }
 }
 
@@ -42,20 +43,31 @@
     cursor: pointer;
     background: transparent;
     border: 0;
-    -webkit-appearance: none;
+    appearance: none;
     line-height: 1;
-    font-size: $font-size-large;
-    padding: 3px;
+    font-size: $font-size-h2;
+    padding: 4px;
     position: absolute;
     top: 0;
     right: ($spacer/4);
-    color: $brand-grey;
+    color: $brand-grey-light;
     font-weight: 500;
+
+    &:hover,
+    &:focus {
+        color: $brand-grey;
+    }
 }
 
-// Prevent background scrolling when modal is open
 .isModalOpen {
+    // Prevent background scrolling when modal is open
     overflow: hidden;
+
+    // more cross-browser backdrop-filter
+    body > div:first-child {
+        transition: filter .85s ease-out;
+        filter: blur(5px);
+    }
 }
 
 .modal__title {

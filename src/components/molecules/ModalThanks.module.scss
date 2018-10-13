@@ -6,6 +6,30 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
+    h4 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: $spacer / 2;
+        color: $brand-grey;
+        text-transform: capitalize;
+    }
+
+    header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: $spacer;
+
+        h4 {
+            font-size: $font-size-large;
+            margin-top: 0;
+            margin-bottom: $spacer / 6;
+        }
+
+        p {
+            color: $brand-grey-light;
+        }
+    }
 }
 
 .coin {
@@ -14,14 +38,6 @@
     @media (min-width: $screen-sm) {
         width: 48%;
         margin-top: 0;
-    }
-
-    h4 {
-        font-size: $font-size-large;
-        margin-top: 0;
-        margin-bottom: $spacer / 2;
-        color: $brand-grey;
-        text-align: center;
     }
 
     > svg {
