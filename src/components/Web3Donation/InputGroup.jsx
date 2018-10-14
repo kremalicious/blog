@@ -47,10 +47,13 @@ export default class InputGroup extends PureComponent {
         >
           Make it rain
         </button>
-        <div className={styles.infoline}>
-          <Conversion amount={amount} />
-          {selectedAccount && <Account account={selectedAccount} />}
-        </div>
+        {hasCorrectNetwork &&
+          hasAccount && (
+            <div className={styles.infoline}>
+              <Conversion amount={amount} />
+              {selectedAccount && <Account account={selectedAccount} />}
+            </div>
+          )}
       </div>
     )
   }
