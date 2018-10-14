@@ -2,13 +2,13 @@
 @import 'mixins';
 
 .inputGroup {
-    max-width: 17rem;
+    max-width: 18rem;
     margin: auto;
     position: relative;
 
     @media (min-width: $screen-sm) {
         display: flex;
-        max-width: 18rem;
+        flex-wrap: wrap;
     }
 
     button {
@@ -71,4 +71,12 @@
     border-bottom-left-radius: $border-radius;
     display: flex;
     align-items: center;
+}
+
+.infoline {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: $spacer / 4;
 }

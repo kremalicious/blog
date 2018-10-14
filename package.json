@@ -63,6 +63,7 @@
     "pigeon-maps": "^0.11.2",
     "pigeon-marker": "^0.3.4",
     "react": "^16.5.2",
+    "react-blockies": "^1.4.0",
     "react-clipboard.js": "^2.0.1",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",

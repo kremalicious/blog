@@ -8,12 +8,12 @@ const Message = ({ message, ...props }) => (
 
 export default class Alerts extends PureComponent {
   static propTypes = {
-    hasCorrectNetwork: PropTypes.bool,
-    hasAccount: PropTypes.bool,
+    hasCorrectNetwork: PropTypes.bool.isRequired,
+    hasAccount: PropTypes.bool.isRequired,
     networkName: PropTypes.string,
     error: PropTypes.object,
     transactionHash: PropTypes.string,
-    web3Connected: PropTypes.bool
+    web3Connected: PropTypes.bool.isRequired
   }
 
   alertMessages = (networkName, transactionHash) => ({

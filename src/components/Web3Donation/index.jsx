@@ -16,7 +16,7 @@ export default class Web3Donation extends PureComponent {
     networkName: null,
     accounts: [],
     selectedAccount: null,
-    amount: 0.01,
+    amount: '0.01',
     transactionHash: null,
     loading: false,
     error: null
@@ -44,7 +44,7 @@ export default class Web3Donation extends PureComponent {
   //     await ethereum.enable()
   //   } catch (error) {
   //     // User denied account access...
-  //     console.log(error)
+  //     Logger.error(error)
   //   }
   // }
 
@@ -107,7 +107,7 @@ export default class Web3Donation extends PureComponent {
           })
 
           getNetworkName(netId).then(networkName => {
-            this.setState({ networkName: networkName })
+            this.setState({ networkName })
           })
         }
       })
@@ -166,8 +166,19 @@ export default class Web3Donation extends PureComponent {
   }
 
   render() {
-    const hasCorrectNetwork = this.state.networkId === '1'
-    const hasAccount = this.state.accounts.length !== 0
+    const {
+      networkId,
+      accounts,
+      selectedAccount,
+      web3Connected,
+      loading,
+      amount,
+      networkName,
+      error,
+      transactionHash
+    } = this.state
+    const hasCorrectNetwork = networkId === '1'
+    const hasAccount = accounts.length !== 0
 
     return (
       <div className={styles.web3}>
@@ -176,15 +187,16 @@ export default class Web3Donation extends PureComponent {
           <p>Send Ether with MetaMask, Brave, or Mist.</p>
         </header>
 
-        {this.state.web3Connected && (
+        {web3Connected && (
           <div className={styles.web3Row}>
-            {this.state.loading ? (
+            {loading ? (
               'Hang on...'
             ) : (
               <InputGroup
                 hasCorrectNetwork={hasCorrectNetwork}
                 hasAccount={hasAccount}
-                amount={this.state.amount}
+                selectedAccount={selectedAccount}
+                amount={amount}
                 onAmountChange={this.onAmountChange}
                 handleButton={this.handleButton}
               />
@@ -195,10 +207,10 @@ export default class Web3Donation extends PureComponent {
         <Alerts
           hasCorrectNetwork={hasCorrectNetwork}
           hasAccount={hasAccount}
-          networkName={this.state.networkName}
-          error={this.state.error}
-          transactionHash={this.state.transactionHash}
-          web3Connected={this.state.web3Connected}
+          networkName={networkName}
+          error={error}
+          transactionHash={transactionHash}
+          web3Connected={web3Connected}
         />
       </div>
     )

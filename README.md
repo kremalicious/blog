@@ -10,7 +10,6 @@
 <p align="center">
   <a href="https://travis-ci.com/kremalicious/blog"><img src="https://travis-ci.com/kremalicious/blog.svg?branch=master" /></a>
   <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" /></a>
-  <a href="https://www.codacy.com/app/kremalicious/blog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kremalicious/blog&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/63a594f4e2324b22986068ef2400ed87"/></a>
   <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/kremalicious/blog.svg" /></a>
 </p>
 
@@ -48,7 +47,7 @@ This way, EXIF data is only extracted at build time and can be simply queried wi
 
 In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
 
-<img width="878" alt="screen shot 2018-10-09 at 23 59 39" src="https://user-images.githubusercontent.com/90316/46701262-6ed05680-cc1f-11e8-81c4-f4ea18b89bc0.png">
+<img width="1098" alt="screen shot 2018-10-14 at 20 27 39" src="https://user-images.githubusercontent.com/90316/46920507-9d6b7a00-cfef-11e8-84c8-a1997f471cae.png">
 
 If you want to know how this works, have a look at the respective component under
 
@@ -61,11 +60,16 @@ Lets visitors say thanks with Bitcoin or Ether. Uses [web3.js](https://github.co
 
 As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
 
-<img width="1091" alt="screen shot 2018-10-13 at 18 40 56" src="https://user-images.githubusercontent.com/90316/46907751-907b5780-cf17-11e8-902d-6c520b388292.png" />
+<img width="1082" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 
 If you want to know how this works, have a look at the respective components under
 
 - [`src/components/Web3Donation/index.jsx`](src/components/Web3Donation/index.jsx)
+- [`src/components/Web3Donation/Account.jsx`](src/components/Web3Donation/Account.jsx)
+- [`src/components/Web3Donation/InputGroup.jsx`](src/components/Web3Donation/InputGroup.jsx)
+- [`src/components/Web3Donation/Conversion.jsx`](src/components/Web3Donation/Conversion.jsx)
+- [`src/components/Web3Donation/Alerts.jsx`](src/components/Web3Donation/Alerts.jsx)
+- [`src/components/Web3Donation/utils.jsx`](src/components/Web3Donation/utils.jsx)
 - [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
 
 ### 🕸 Related Posts
