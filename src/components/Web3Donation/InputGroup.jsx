@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Input from '../atoms/Input'
+import Conversion from './Conversion'
 import styles from './InputGroup.module.scss'
 
 export default class InputGroup extends PureComponent {
   static propTypes = {
-    hasCorrectNetwork: PropTypes.bool,
-    hasAccount: PropTypes.bool,
-    amount: PropTypes.number,
-    onAmountChange: PropTypes.func,
-    handleButton: PropTypes.func
+    hasCorrectNetwork: PropTypes.bool.isRequired,
+    hasAccount: PropTypes.bool.isRequired,
+    amount: PropTypes.string.isRequired,
+    onAmountChange: PropTypes.func.isRequired,
+    handleButton: PropTypes.func.isRequired
   }
 
   render() {
@@ -43,6 +44,7 @@ export default class InputGroup extends PureComponent {
         >
           Make it rain
         </button>
+        <Conversion amount={amount} />
       </div>
     )
   }

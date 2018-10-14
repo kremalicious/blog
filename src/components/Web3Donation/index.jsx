@@ -16,7 +16,7 @@ export default class Web3Donation extends PureComponent {
     networkName: null,
     accounts: [],
     selectedAccount: null,
-    amount: 0.01,
+    amount: '0.01',
     transactionHash: null,
     loading: false,
     error: null
@@ -44,7 +44,7 @@ export default class Web3Donation extends PureComponent {
   //     await ethereum.enable()
   //   } catch (error) {
   //     // User denied account access...
-  //     console.log(error)
+  //     Logger.error(error)
   //   }
   // }
 

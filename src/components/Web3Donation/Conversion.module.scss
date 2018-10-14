@@ -1,0 +1,18 @@
+@import 'variables';
+
+.conversion {
+    font-size: $font-size-mini;
+    color: $brand-grey-light;
+    text-align: center;
+
+    @media (min-width: $screen-sm) {
+        position: absolute;
+        bottom: -($spacer / 1.5);
+        right: 51%;
+        text-align: right;
+    }
+
+    span {
+        margin-left: $spacer / 2;
+    }
+}
