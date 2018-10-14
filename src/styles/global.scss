@@ -74,6 +74,7 @@ button {
     background: transparent;
     border: 0;
     -webkit-appearance: none;
+    outline: 0;
 
     &:active {
         transition: none;
@@ -178,12 +179,12 @@ a {
     &:hover,
     &:focus {
         outline: 0;
-        color: lighten($link-color, 10%);
+        color: $link-color-hover;
     }
 
     &:active {
         transition: none;
-        color: darken($link-color, 10%);
+        color: $link-color-active;
     }
 }
 

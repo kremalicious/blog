@@ -4,8 +4,9 @@
 /////////////////////////////////////
 
 .entryMeta {
-    font-size: $font-size-small;
+    font-size: $font-size-base;
     margin-top: $spacer * 2;
+    color: $brand-grey-light;
 }
 
 .byline,
@@ -72,6 +73,9 @@
     color: $text-color;
     margin-left: $spacer / 2;
     margin-right: $spacer / 2;
+    margin-bottom: $spacer / 2;
+    white-space: nowrap;
+    display: inline-block;
 
     &::before {
         color: $brand-grey-light;

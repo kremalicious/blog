@@ -38,8 +38,6 @@ pre {
     line-height: $line-height;
     color: $code-color;
     background-color: $code-bg;
-    margin-left: -($spacer);
-    margin-right: -($spacer);
     border-radius: $border-radius;
 
     // make 'em scrollable
@@ -49,6 +47,8 @@ pre {
 
     @media (min-width: $screen-sm) {
         max-height: 500px;
+        margin-left: -($spacer);
+        margin-right: -($spacer);
     }
 
     @media (min-width: $screen-md) {
@@ -71,6 +71,10 @@ pre {
         overflow-wrap: normal;
         word-wrap: normal;
         word-break: normal;
+
+        > span {
+            padding-right: $spacer;
+        }
     }
 }
 

@@ -1,12 +1,10 @@
 @import 'variables';
-@import 'mixins';
 
 .actions {
-    @include divider;
-    @include divider-top;
-
     margin-top: $spacer * 3;
-    padding: $spacer * $line-height 0;
+    padding: ($spacer * $line-height) 0 ($spacer * $line-height) 100%;
+    background: rgba(#fff, .5);
+    margin-left: -100%;
 
     @media (min-width: $screen-xs) {
         display: flex;
@@ -14,39 +12,69 @@
     }
 }
 
+.link {
+    transition: .2s ease-out;
+    color: $link-color;
+}
+
+.actionTitle {
+    font-size: $font-size-h4;
+    line-height: $line-height;
+    color: $text-color;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color .2s ease-out;
+}
+
+.actionText {
+    font-size: $font-size-base;
+    color: $brand-grey-light;
+    margin-bottom: 0;
+    transition: color .2s ease-out;
+}
+
 .action {
+    display: block;
+    margin: 0;
     padding-left: 1.75rem;
+    padding-right: $spacer / 2;
     position: relative;
+    text-align: left;
 
     &:first-child {
-        margin-bottom: $spacer * 2;
+        margin-bottom: $spacer * $line-height;
     }
 
     @media (min-width: $screen-xs) {
-        flex: 1 1 48%;
+        flex: 1 1 50%;
 
         &:first-child {
             margin-bottom: 0;
         }
     }
 
+    &:hover,
+    &:focus {
+        .link,
+        .actionTitle,
+        .actionText {
+            color: $link-color-hover;
+        }
+    }
+
+    &:active {
+        .link,
+        .actionTitle,
+        .actionText {
+            transition: none;
+            color: $link-color-active;
+        }
+    }
+
     svg {
         position: absolute;
         left: 0;
-        top: .2rem;
+        top: .4rem;
         fill: $brand-grey-light;
     }
-}
-
-.actionTitle {
-    font-size: $font-size-base;
-    line-height: $line-height;
-    color: $text-color;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.actionText {
-    font-size: $font-size-small;
-    margin-bottom: 0;
 }

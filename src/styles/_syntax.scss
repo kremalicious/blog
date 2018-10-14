@@ -1,4 +1,5 @@
 /* stylelint-disable */
+@import 'variables';
 
 /*
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -11,8 +12,11 @@ copyright  Copyright (C) 2017                                  +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 */
 .nord {
-    margin-left: -($spacer);
-    margin-right: -($spacer);
+    @media (min-width: $screen-sm) {
+        max-height: 500px;
+        margin-left: -($spacer);
+        margin-right: -($spacer);
+    }
 
     > pre {
         margin-left: 0;
