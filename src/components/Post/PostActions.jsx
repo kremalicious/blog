@@ -25,29 +25,24 @@ export default class PostActions extends PureComponent {
 
     return (
       <aside className={styles.actions}>
-        <article className={styles.action}>
+        <a
+          className={styles.action}
+          href={`https://twitter.com/intent/tweet?text=@kremalicious&url=${url}${slug}`}
+        >
           <Twitter />
           <h1 className={styles.actionTitle}>Have a comment?</h1>
           <p className={styles.actionText}>
-            Hit me up{' '}
-            <a
-              href={`https://twitter.com/intent/tweet?text=@kremalicious&url=${url}${slug}`}
-            >
-              @kremalicious
-            </a>
-            .
+            Hit me up <span className={styles.link}>@kremalicious</span>.
           </p>
-        </article>
-        <article className={styles.action}>
+        </a>
+        <button className={styles.action} onClick={this.toggleModal}>
           <Bitcoin />
           <h1 className={styles.actionTitle}>Found something useful?</h1>
           <p className={styles.actionText}>
             Say thanks{' '}
-            <button className="link" onClick={this.toggleModal}>
-              with Bitcoins or Ether.
-            </button>
+            <span className={styles.link}>with Bitcoins or Ether</span>.
           </p>
-        </article>
+        </button>
 
         {this.state.showModal && (
           <ModalThanks

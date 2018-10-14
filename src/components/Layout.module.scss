@@ -9,7 +9,7 @@
 }
 
 .content {
-    padding: 0 $spacer;
+    padding: 0 $spacer / $line-height;
     width: 100%;
 
     @media (min-width: $screen-sm) {
