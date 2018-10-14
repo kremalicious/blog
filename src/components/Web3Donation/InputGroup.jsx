@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Input from '../atoms/Input'
+import Account from './Account'
 import Conversion from './Conversion'
 import styles from './InputGroup.module.scss'
 
@@ -10,7 +11,8 @@ export default class InputGroup extends PureComponent {
     hasAccount: PropTypes.bool.isRequired,
     amount: PropTypes.string.isRequired,
     onAmountChange: PropTypes.func.isRequired,
-    handleButton: PropTypes.func.isRequired
+    handleButton: PropTypes.func.isRequired,
+    selectedAccount: PropTypes.string
   }
 
   render() {
@@ -19,7 +21,8 @@ export default class InputGroup extends PureComponent {
       hasAccount,
       amount,
       onAmountChange,
-      handleButton
+      handleButton,
+      selectedAccount
     } = this.props
 
     return (
@@ -44,7 +47,10 @@ export default class InputGroup extends PureComponent {
         >
           Make it rain
         </button>
-        <Conversion amount={amount} />
+        <div className={styles.infoline}>
+          <Conversion amount={amount} />
+          {selectedAccount && <Account account={selectedAccount} />}
+        </div>
       </div>
     )
   }

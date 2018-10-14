@@ -60,7 +60,7 @@ Lets visitors say thanks with Bitcoin or Ether. Uses [web3.js](https://github.co
 
 As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
 
-<img width="1186" alt="screen shot 2018-10-14 at 21 47 47" src="https://user-images.githubusercontent.com/90316/46921378-d0673b00-cffa-11e8-9d55-e954e9a56433.png" />
+<img width="1082" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 
 If you want to know how this works, have a look at the respective components under
 

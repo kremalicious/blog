@@ -4,14 +4,9 @@
     font-size: $font-size-mini;
     color: $brand-grey-light;
     max-width: 8rem;
-    margin: auto;
-    margin-bottom: $spacer / 2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 1px solid $brand-grey-dimmed;
-    padding: $spacer / 10 $spacer / 2 $spacer / 6 $spacer / 2;
-    border-radius: $border-radius;
 }
 
 .identicon {
@@ -19,5 +14,6 @@
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    margin-right: $spacer / 4;
+    margin-right: $spacer / 8;
+    margin-left: $spacer;
 }

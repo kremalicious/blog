@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Web3 from 'web3'
-import Account from './Account'
 import InputGroup from './InputGroup'
 import Alerts from './Alerts'
 import styles from './index.module.scss'
@@ -188,8 +187,6 @@ export default class Web3Donation extends PureComponent {
           <p>Send Ether with MetaMask, Brave, or Mist.</p>
         </header>
 
-        {selectedAccount && <Account account={selectedAccount} />}
-
         {web3Connected && (
           <div className={styles.web3Row}>
             {loading ? (
@@ -198,6 +195,7 @@ export default class Web3Donation extends PureComponent {
               <InputGroup
                 hasCorrectNetwork={hasCorrectNetwork}
                 hasAccount={hasAccount}
+                selectedAccount={selectedAccount}
                 amount={amount}
                 onAmountChange={this.onAmountChange}
                 handleButton={this.handleButton}
