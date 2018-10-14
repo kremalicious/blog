@@ -4,12 +4,10 @@
     font-size: $font-size-mini;
     color: $brand-grey-light;
     text-align: center;
+    margin-top: $spacer / 4;
 
     @media (min-width: $screen-sm) {
-        position: absolute;
-        bottom: -($spacer / 1.5);
-        right: 51%;
-        text-align: right;
+        flex-basis: 100%;
     }
 
     span {
