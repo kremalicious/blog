@@ -6,11 +6,21 @@
     right: 0;
     z-index: 10;
     font-size: $font-size-mini;
-    padding: ($spacer / 3) ($spacer / 2);
+    padding: ($spacer / 3) ($spacer / 2) ($spacer / 3) $spacer;
     background: rgba($page-background-color, .5);
     border-top-left-radius: 4px;
     line-height: 1.2;
     cursor: pointer;
+
+    svg {
+        fill: $brand-grey-light;
+        margin-bottom: .1rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -1rem;
+        margin-right: .2rem;
+        margin-top: -.1rem;
+    }
 }
 
 .hashrate {

@@ -1,10 +1,10 @@
-/* global CoinHive */
-
 import React, { PureComponent } from 'react'
 import loadScript from 'load-script'
 import posed, { PoseGroup } from 'react-pose'
 import { fadeIn } from './Transitions'
 import styles from './Coinhive.module.scss'
+import { ReactComponent as Play } from '../../images/play.svg'
+import { ReactComponent as Pause } from '../../images/pause.svg'
 
 const config = {
   threads: 2,
@@ -37,7 +37,7 @@ export default class CoinHiveClient extends PureComponent {
           return
         }
         resolve(
-          CoinHive.Anonymous(config.siteKey, {
+          window.CoinHive.Anonymous(config.siteKey, {
             throttle: config.throttle,
             threads: config.threads,
             autoThreads: config.autoThreads
@@ -114,6 +114,7 @@ export default class CoinHiveClient extends PureComponent {
             onClick={this.toggleMiner}
           >
             <div title="Toggle mining">
+              {this.state.started ? <Pause /> : <Play />}
               Mining {this.state.started ? 'enabled' : 'disabled'}
             </div>
             <div className={styles.hashrate}>
