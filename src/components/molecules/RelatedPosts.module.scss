@@ -39,19 +39,19 @@
         }
     }
 
+    img {
+        margin-bottom: 0;
+    }
+
     a {
         display: block;
 
         > div {
-            @include media-frame;
+            margin-bottom: 0;
         }
 
         &:hover,
         &:focus {
-            > div {
-                border-color: $link-color;
-            }
-
             h4 {
                 color: $link-color;
             }

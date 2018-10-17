@@ -68,16 +68,8 @@
     }
 
     a {
-        > div {
-            @include media-frame();
-        }
-
         &:hover,
         &:focus {
-            > div {
-                border-color: $link-color !important;
-            }
-
             .featuredTitle {
                 opacity: 1;
                 transform: translate3d(0, 0, 0);

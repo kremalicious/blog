@@ -30,33 +30,15 @@
     margin-top: $spacer * 1.5;
     margin-bottom: $spacer * 1.5;
 
-    > div {
-        @include media-frame();
-
-        border-radius: 0;
-
-        @media (min-width: $screen-sm) {
-            border-radius: $border-radius;
-        }
-    }
-
     a & {
         position: relative;
         display: block;
     }
 
     a:hover & {
-        > div {
-            border-color: $link-color !important;
-        }
-
         .postImageTitle {
             opacity: 1;
             transform: translate3d(0, 0, 0);
         }
-    }
-
-    img {
-        border-radius: 0;
     }
 }
