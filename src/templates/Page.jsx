@@ -16,7 +16,7 @@ const Page = ({ title, location, section, children }) => {
 Page.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.any.isRequired,
-  section: PropTypes.object,
+  section: PropTypes.string,
   location: PropTypes.object
 }
 

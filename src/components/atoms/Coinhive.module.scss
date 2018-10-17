@@ -11,6 +11,8 @@
     border-top-left-radius: 4px;
     line-height: 1.2;
     cursor: pointer;
+    white-space: nowrap;
+    min-width: 7rem;
 
     svg {
         fill: $brand-grey-light;

