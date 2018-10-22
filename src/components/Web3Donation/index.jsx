@@ -177,7 +177,7 @@ export default class Web3Donation extends PureComponent {
       message
     } = this.state
 
-    const hasCorrectNetwork = networkId === 42
+    const hasCorrectNetwork = networkId === 1
     const hasAccount = accounts.length !== 0
 
     return (
