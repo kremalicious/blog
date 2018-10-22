@@ -4,7 +4,7 @@ import Web3 from 'web3'
 import InputGroup from './InputGroup'
 import Alerts from './Alerts'
 import styles from './index.module.scss'
-import { getNetworkName } from './utils'
+import { getNetworkName, Logger } from './utils'
 
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
@@ -31,46 +31,49 @@ export default class Web3Donation extends PureComponent {
   networkInterval = null
 
   componentDidMount() {
-    this.initAllTheTings()
+    this.initWeb3()
   }
 
   componentWillUnmount() {
     this.resetAllTheThings()
   }
 
-  // getPermissions = async ethereum => {
-  //   try {
-  //     // Request account access if needed
-  //     await ethereum.enable()
-  //   } catch (error) {
-  //     // User denied account access...
-  //     Logger.error(error)
-  //   }
-  // }
-
-  initAllTheTings() {
+  async initWeb3() {
     // Modern dapp browsers...
-    // if (window.ethereum) {
-    //   this.web3 = new Web3(window.ethereum)
-    //   this.setState({ web3Connected: true })
-    //   this.getPermissions(this.web3.eth)
-    // }
+    if (window.ethereum) {
+      this.web3 = new Web3(window.ethereum)
 
+      try {
+        // Request account access
+        await window.ethereum.enable()
+        this.setState({ web3Connected: true })
+
+        this.initAllTheTings()
+      } catch (error) {
+        // User denied account access...
+        Logger.error(error)
+        this.setState({ error })
+      }
+    }
     // Legacy dapp browsers...
-    if (window.web3) {
+    else if (window.web3) {
       // this.web3 = new Web3(Web3.givenProvider || 'ws://localhost:8546')
       this.web3 = new Web3(window.web3.currentProvider)
       this.setState({ web3Connected: true })
 
-      this.fetchAccounts()
-      this.fetchNetwork()
-      this.initAccountsPoll()
-      this.initNetworkPoll()
+      this.initAllTheTings()
     }
     // Non-dapp browsers...
     else {
       this.setState({ web3Connected: false })
     }
+  }
+
+  initAllTheTings() {
+    this.fetchAccounts()
+    this.fetchNetwork()
+    this.initAccountsPoll()
+    this.initNetworkPoll()
   }
 
   resetAllTheThings() {
@@ -177,6 +180,7 @@ export default class Web3Donation extends PureComponent {
       error,
       transactionHash
     } = this.state
+
     const hasCorrectNetwork = networkId === '1'
     const hasAccount = accounts.length !== 0
 
