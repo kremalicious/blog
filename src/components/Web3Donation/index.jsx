@@ -127,18 +127,13 @@ export default class Web3Donation extends PureComponent {
         this.setState({
           error: null,
           accounts,
-          selectedAccount: accounts[0]
+          selectedAccount: accounts[0].toLowerCase()
         })
       })
   }
 
-  handleButton = () => {
+  sendTransaction() {
     const { web3 } = this
-
-    this.setState({
-      loading: true,
-      message: 'Waiting for your confirmation...'
-    })
 
     web3.eth
       .sendTransaction({
@@ -156,6 +151,15 @@ export default class Web3Donation extends PureComponent {
       .then(() => {
         this.setState({ message: 'Confirmed. You are awesome, thanks!' })
       })
+  }
+
+  handleButton = () => {
+    this.setState({
+      loading: true,
+      message: 'Waiting for your confirmation...'
+    })
+
+    this.sendTransaction()
   }
 
   onAmountChange = ({ target }) => {
