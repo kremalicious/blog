@@ -8,8 +8,9 @@
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "npm run rename:scrypt && gatsby build",
     "ssr": "npm run build && serve -s public/",
+    "rename:scrypt": "sed -i -e 's|./build/Release/scrypt|scrypt|g' node_modules/scrypt/index.js",
     "format": "run-p format:js format:css format:md format:yaml",
     "format:js": "prettier-eslint --write 'src/**/*.{js,jsx}'",
     "format:css": "prettier-stylelint --write",
@@ -72,7 +73,7 @@
     "react-qr-svg": "^2.1.0",
     "react-time": "^4.3.0",
     "react-transition-group": "^2.5.0",
-    "slugify": "^1.3.1",
+    "slugify": "^1.3.2",
     "web3": "^1.0.0-beta.36"
   },
   "devDependencies": {
