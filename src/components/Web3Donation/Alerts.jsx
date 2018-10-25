@@ -13,6 +13,8 @@ export default class Alerts extends PureComponent {
     networkName: PropTypes.string,
     error: PropTypes.object,
     transactionHash: PropTypes.string,
+    confirmationNumber: PropTypes.number,
+    receipt: PropTypes.object,
     web3Connected: PropTypes.bool.isRequired
   }
 
@@ -22,10 +24,7 @@ export default class Alerts extends PureComponent {
     noCorrectNetwork: `Please connect to <strong>Main</strong> network. You are on <strong>${networkName}</strong> right now.`,
     noWeb3:
       'No Web3 detected. Install <a href="https://metamask.io">MetaMask</a>, <a href="https://brave.com">Brave</a>, or <a href="https://github.com/ethereum/mist">Mist</a>.',
-    success: `You are awesome, thanks!<br />
-        <a href="https://etherscan.io/tx/${transactionHash}">
-          See your transaction on etherscan.io.
-        </a>`
+    transaction: `<a href="https://etherscan.io/tx/${transactionHash}" target="_blank">See your transaction on etherscan.io.</a>`
   })
 
   render() {
@@ -56,8 +55,7 @@ export default class Alerts extends PureComponent {
 
             {transactionHash && (
               <Message
-                className={styles.success}
-                message={this.alertMessages(transactionHash).success}
+                message={this.alertMessages(null, transactionHash).transaction}
               />
             )}
           </Fragment>
