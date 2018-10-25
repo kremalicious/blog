@@ -7,7 +7,6 @@ import styles from './Image.module.scss'
 const Image = ({ fluid, fixed, alt }) => (
   <Img
     className={styles.imageWrap}
-    imgStyle={styles.image}
     backgroundColor="#dfe8ef"
     fluid={fluid ? fluid : null}
     fixed={fixed ? fixed : null}

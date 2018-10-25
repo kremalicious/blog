@@ -107,7 +107,8 @@ export default class CoinHiveClient extends PureComponent {
 
   render() {
     return (
-      this.state.miner && (
+      this.state.miner &&
+      !this.state.miner.isMobile() && (
         <PoseGroup animateOnMount={true}>
           <Animation
             key="coinhive"
