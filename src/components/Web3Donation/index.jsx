@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Web3 from 'web3'
 import InputGroup from './InputGroup'
 import Alerts from './Alerts'
 import styles from './index.module.scss'
-import { getNetworkName, Logger } from './utils'
+import { getWeb3, getAccounts, getNetwork } from './utils'
 
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
@@ -12,7 +11,7 @@ const ONE_MINUTE = ONE_SECOND * 60
 export default class Web3Donation extends PureComponent {
   state = {
     web3Connected: false,
-    networkId: null,
+    netId: null,
     networkName: null,
     accounts: [],
     selectedAccount: null,
@@ -41,31 +40,13 @@ export default class Web3Donation extends PureComponent {
   }
 
   async initWeb3() {
-    // Modern dapp browsers...
-    if (window.ethereum) {
-      this.web3 = new Web3(window.ethereum)
+    try {
+      this.web3 = await getWeb3()
 
-      try {
-        // Request account access
-        await window.ethereum.enable()
-        this.setState({ web3Connected: true })
-
-        this.initAllTheTings()
-      } catch (error) {
-        // User denied account access...
-        Logger.error(error)
-        this.setState({ error })
-      }
-    }
-    // Legacy dapp browsers...
-    else if (window.web3) {
-      this.web3 = new Web3(window.web3.currentProvider)
-      this.setState({ web3Connected: true })
-
-      this.initAllTheTings()
-    }
-    // Non-dapp browsers...
-    else {
+      this.setState({ web3Connected: this.web3 ? true : false })
+      this.web3 && this.initAllTheTings()
+    } catch (error) {
+      this.setState({ error })
       this.setState({ web3Connected: false })
     }
   }
@@ -95,41 +76,36 @@ export default class Web3Donation extends PureComponent {
     }
   }
 
-  fetchNetwork = () => {
+  fetchNetwork = async () => {
     const { web3 } = this
 
-    web3 &&
-      web3.eth &&
-      web3.eth.net.getId((err, netId) => {
-        if (err) this.setState({ error: err })
+    try {
+      const { netId, networkName } = await getNetwork(web3)
 
-        if (netId !== this.state.networkId) {
-          this.setState({
-            error: null,
-            networkId: netId
-          })
-
-          getNetworkName(netId).then(networkName => {
-            this.setState({ networkName })
-          })
-        }
+      this.setState({
+        error: null,
+        netId,
+        networkName
       })
+    } catch (error) {
+      this.setState({ error })
+    }
   }
 
-  fetchAccounts = () => {
+  fetchAccounts = async () => {
     const { web3 } = this
 
-    web3 &&
-      web3.eth &&
-      web3.eth.getAccounts((err, accounts) => {
-        if (err) this.setState({ error: err })
+    try {
+      const accounts = await getAccounts(web3)
 
-        this.setState({
-          error: null,
-          accounts,
-          selectedAccount: accounts[0].toLowerCase()
-        })
+      this.setState({
+        error: null,
+        accounts,
+        selectedAccount: accounts[0] ? accounts[0].toLowerCase() : null
       })
+    } catch (error) {
+      this.setState({ error })
+    }
   }
 
   sendTransaction() {
@@ -168,7 +144,7 @@ export default class Web3Donation extends PureComponent {
 
   render() {
     const {
-      networkId,
+      netId,
       accounts,
       selectedAccount,
       web3Connected,
@@ -181,7 +157,7 @@ export default class Web3Donation extends PureComponent {
       message
     } = this.state
 
-    const hasCorrectNetwork = networkId === 1
+    const hasCorrectNetwork = netId === 1
     const hasAccount = accounts.length !== 0
 
     return (
