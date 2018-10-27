@@ -12,7 +12,9 @@ export default class InputGroup extends PureComponent {
     amount: PropTypes.string.isRequired,
     onAmountChange: PropTypes.func.isRequired,
     handleButton: PropTypes.func.isRequired,
-    selectedAccount: PropTypes.string
+    selectedAccount: PropTypes.string,
+    inTransaction: PropTypes.bool,
+    message: PropTypes.string
   }
 
   render() {
@@ -22,10 +24,14 @@ export default class InputGroup extends PureComponent {
       amount,
       onAmountChange,
       handleButton,
-      selectedAccount
+      selectedAccount,
+      inTransaction,
+      message
     } = this.props
 
-    return (
+    return inTransaction ? (
+      <div className={styles.message}>{message}</div>
+    ) : (
       <div className={styles.inputGroup}>
         <div className={styles.input}>
           <Input

@@ -13,12 +13,14 @@ export default class Web3Donation extends PureComponent {
     web3Connected: false,
     netId: null,
     networkName: null,
+    isCorrectNetwork: false,
+    loading: true,
     accounts: [],
     selectedAccount: null,
     amount: '0.01',
     transactionHash: null,
     receipt: null,
-    loading: false,
+    inTransaction: false,
     error: null,
     message: 'Hang on...'
   }
@@ -39,21 +41,24 @@ export default class Web3Donation extends PureComponent {
     this.resetAllTheThings()
   }
 
-  async initWeb3() {
+  initWeb3 = async () => {
     try {
       this.web3 = await getWeb3()
 
       this.setState({ web3Connected: this.web3 ? true : false })
-      this.web3 && this.initAllTheTings()
+      this.web3 ? this.initAllTheTings() : this.setState({ loading: false })
     } catch (error) {
       this.setState({ error })
       this.setState({ web3Connected: false })
     }
   }
 
-  initAllTheTings() {
-    this.fetchAccounts()
-    this.fetchNetwork()
+  async initAllTheTings() {
+    await this.fetchAccounts()
+    await this.fetchNetwork()
+
+    this.setState({ loading: false })
+
     this.initAccountsPoll()
     this.initNetworkPoll()
   }
@@ -85,7 +90,8 @@ export default class Web3Donation extends PureComponent {
       this.setState({
         error: null,
         netId,
-        networkName
+        networkName,
+        isCorrectNetwork: netId === 1
       })
     } catch (error) {
       this.setState({ error })
@@ -123,7 +129,7 @@ export default class Web3Donation extends PureComponent {
           message: 'Waiting for network confirmation, hang on...'
         })
       })
-      .on('error', error => this.setState({ error, loading: false }))
+      .on('error', error => this.setState({ error, inTransaction: false }))
       .then(() => {
         this.setState({ message: 'Confirmed. You are awesome, thanks!' })
       })
@@ -131,7 +137,7 @@ export default class Web3Donation extends PureComponent {
 
   handleButton = () => {
     this.setState({
-      loading: true,
+      inTransaction: true,
       message: 'Waiting for your confirmation...'
     })
 
@@ -144,10 +150,11 @@ export default class Web3Donation extends PureComponent {
 
   render() {
     const {
-      netId,
+      isCorrectNetwork,
       accounts,
       selectedAccount,
       web3Connected,
+      inTransaction,
       loading,
       amount,
       networkName,
@@ -157,7 +164,6 @@ export default class Web3Donation extends PureComponent {
       message
     } = this.state
 
-    const hasCorrectNetwork = netId === 1
     const hasAccount = accounts.length !== 0
 
     return (
@@ -167,32 +173,36 @@ export default class Web3Donation extends PureComponent {
           <p>Send Ether with MetaMask, Brave, or Mist.</p>
         </header>
 
-        {web3Connected && (
-          <div className={styles.web3Row}>
-            {loading ? (
-              message
-            ) : (
+        <div className={styles.web3Row}>
+          {loading ? (
+            <div className={styles.message}>Checking...</div>
+          ) : (
+            web3Connected && (
               <InputGroup
-                hasCorrectNetwork={hasCorrectNetwork}
+                hasCorrectNetwork={isCorrectNetwork}
                 hasAccount={hasAccount}
                 selectedAccount={selectedAccount}
                 amount={amount}
                 onAmountChange={this.onAmountChange}
                 handleButton={this.handleButton}
+                inTransaction={inTransaction}
+                message={message}
               />
-            )}
-          </div>
-        )}
+            )
+          )}
+        </div>
 
-        <Alerts
-          hasCorrectNetwork={hasCorrectNetwork}
-          hasAccount={hasAccount}
-          networkName={networkName}
-          error={error}
-          transactionHash={transactionHash}
-          web3Connected={web3Connected}
-          confirmationNumber={confirmationNumber}
-        />
+        {!loading && (
+          <Alerts
+            hasCorrectNetwork={isCorrectNetwork}
+            hasAccount={hasAccount}
+            networkName={networkName}
+            error={error}
+            transactionHash={transactionHash}
+            web3Connected={web3Connected}
+            confirmationNumber={confirmationNumber}
+          />
+        )}
       </div>
     )
   }

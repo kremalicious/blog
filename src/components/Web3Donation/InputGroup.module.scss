@@ -5,6 +5,7 @@
     max-width: 18rem;
     margin: auto;
     position: relative;
+    animation: fadeIn .5s ease-out backwards;
 
     @media (min-width: $screen-sm) {
         display: flex;
@@ -79,4 +80,19 @@
     align-items: center;
     justify-content: center;
     margin-top: $spacer / 4;
+    animation: fadeIn .5s .8s ease-out backwards;
+}
+
+.message {
+    font-size: $font-size-small;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: .01;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

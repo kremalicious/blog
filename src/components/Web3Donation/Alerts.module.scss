@@ -5,6 +5,10 @@
     margin-top: $spacer / 2;
     font-size: $font-size-small;
     color: darken($alert-error, 60%);
+
+    &:empty {
+        display: none;
+    }
 }
 
 .success {

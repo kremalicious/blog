@@ -18,8 +18,16 @@
 }
 
 .web3Row {
-    min-height: 58px;
+    min-height: 77px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.message {
+    font-size: $font-size-small;
 }
