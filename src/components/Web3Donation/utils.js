@@ -74,9 +74,7 @@ export const getFiat = async amount => {
 
   try {
     const response = await fetch(url)
-    if (!response.ok) {
-      throw Error(response.statusText)
-    }
+    if (!response.ok) Logger.error(response.statusText)
     const data = await response.json()
     const { price_usd, price_eur } = data[0]
     const dollar = (amount * price_usd).toFixed(2)

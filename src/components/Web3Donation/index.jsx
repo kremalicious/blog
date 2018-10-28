@@ -22,7 +22,8 @@ export default class Web3Donation extends PureComponent {
     receipt: null,
     inTransaction: false,
     error: null,
-    message: 'Hang on...'
+    message: 'Hang on',
+    success: false
   }
 
   static propTypes = {
@@ -126,19 +127,22 @@ export default class Web3Donation extends PureComponent {
       .once('transactionHash', transactionHash => {
         this.setState({
           transactionHash,
-          message: 'Waiting for network confirmation, hang on...'
+          message: 'Waiting for network confirmation, hang on'
         })
       })
       .on('error', error => this.setState({ error, inTransaction: false }))
       .then(() => {
-        this.setState({ message: 'Confirmed. You are awesome, thanks!' })
+        this.setState({
+          message: 'Confirmed. You are awesome, thanks!',
+          success: true
+        })
       })
   }
 
   handleButton = () => {
     this.setState({
       inTransaction: true,
-      message: 'Waiting for your confirmation...'
+      message: 'Waiting for your confirmation'
     })
 
     this.sendTransaction()
@@ -161,7 +165,8 @@ export default class Web3Donation extends PureComponent {
       error,
       transactionHash,
       confirmationNumber,
-      message
+      message,
+      success
     } = this.state
 
     const hasAccount = accounts.length !== 0
@@ -175,17 +180,20 @@ export default class Web3Donation extends PureComponent {
 
         <div className={styles.web3Row}>
           {loading ? (
-            <div className={styles.message}>Checking...</div>
+            <div className={styles.message}>Checking</div>
+          ) : inTransaction ? (
+            <div className={success ? styles.success : styles.message}>
+              {message}
+            </div>
           ) : (
             web3Connected && (
               <InputGroup
-                hasCorrectNetwork={isCorrectNetwork}
+                isCorrectNetwork={isCorrectNetwork}
                 hasAccount={hasAccount}
                 selectedAccount={selectedAccount}
                 amount={amount}
                 onAmountChange={this.onAmountChange}
                 handleButton={this.handleButton}
-                inTransaction={inTransaction}
                 message={message}
               />
             )

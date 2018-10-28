@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Alerts.module.scss'
 
@@ -42,7 +42,7 @@ export default class Alerts extends PureComponent {
         {!web3Connected ? (
           <Message message={this.alertMessages().noWeb3} />
         ) : (
-          <Fragment>
+          <>
             {!hasAccount && (
               <Message message={this.alertMessages().noAccount} />
             )}
@@ -58,7 +58,7 @@ export default class Alerts extends PureComponent {
                 message={this.alertMessages(null, transactionHash).transaction}
               />
             )}
-          </Fragment>
+          </>
         )}
       </div>
     )

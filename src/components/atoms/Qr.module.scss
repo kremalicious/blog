@@ -1,0 +1,54 @@
+@import 'variables';
+
+.qr {
+    margin-bottom: $spacer / 2;
+}
+
+.code {
+    margin: 0;
+    position: relative;
+    padding: 0;
+    padding-right: 2rem;
+
+    code {
+        padding: $spacer / 2;
+        font-size: .65rem;
+        text-align: center;
+    }
+}
+
+.button {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 0;
+    box-shadow: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: rgba($brand-grey, .3);
+    padding: $spacer / 3;
+
+    svg {
+        width: 1rem;
+        height: 1rem;
+        fill: $brand-grey-light;
+        transition: .15s ease-out;
+    }
+
+    &:hover {
+        svg {
+            fill: $brand-grey-dimmed;
+        }
+    }
+}
+
+.copied {
+    background: green;
+
+    // stylelint-disable-next-line no-descending-specificity
+    svg {
+        fill: $brand-grey-dimmed;
+    }
+}
