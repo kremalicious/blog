@@ -2,12 +2,44 @@
 @import 'mixins';
 
 .alert {
-    margin-top: $spacer / 2;
     font-size: $font-size-small;
+    display: inline-block;
+
+    &:empty {
+        display: none;
+    }
+
+    &::after {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: bottom;
+        animation: ellipsis steps(4, end) 1s infinite;
+        content: '\2026'; // ascii code for the ellipsis character
+        width: 0;
+        position: absolute;
+    }
+}
+
+.error {
+    composes: alert;
     color: darken($alert-error, 60%);
+
+    &::after {
+        display: none;
+    }
 }
 
 .success {
     composes: alert;
     color: darken($alert-success, 60%);
+
+    &::after {
+        display: none;
+    }
+}
+
+@keyframes ellipsis {
+    to {
+        width: .75rem;
+    }
 }

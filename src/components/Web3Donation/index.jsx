@@ -1,27 +1,25 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Web3 from 'web3'
 import InputGroup from './InputGroup'
-import Alerts from './Alerts'
+import Alerts, { alertMessages } from './Alerts'
 import styles from './index.module.scss'
-import { getNetworkName, Logger } from './utils'
+import { getWeb3, getAccounts, getNetwork } from './utils'
 
 const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
+const correctNetwork = 1
 
 export default class Web3Donation extends PureComponent {
   state = {
-    web3Connected: false,
-    networkId: null,
+    netId: null,
     networkName: null,
     accounts: [],
     selectedAccount: null,
     amount: '0.01',
     transactionHash: null,
     receipt: null,
-    loading: false,
-    error: null,
-    message: 'Hang on...'
+    message: null,
+    inTransaction: false
   }
 
   static propTypes = {
@@ -40,39 +38,26 @@ export default class Web3Donation extends PureComponent {
     this.resetAllTheThings()
   }
 
-  async initWeb3() {
-    // Modern dapp browsers...
-    if (window.ethereum) {
-      this.web3 = new Web3(window.ethereum)
+  initWeb3 = async () => {
+    this.setState({ message: { text: 'Checking' } })
 
-      try {
-        // Request account access
-        await window.ethereum.enable()
-        this.setState({ web3Connected: true })
+    try {
+      this.web3 = await getWeb3()
 
-        this.initAllTheTings()
-      } catch (error) {
-        // User denied account access...
-        Logger.error(error)
-        this.setState({ error })
-      }
-    }
-    // Legacy dapp browsers...
-    else if (window.web3) {
-      this.web3 = new Web3(window.web3.currentProvider)
-      this.setState({ web3Connected: true })
-
-      this.initAllTheTings()
-    }
-    // Non-dapp browsers...
-    else {
-      this.setState({ web3Connected: false })
+      this.web3
+        ? this.initAllTheTings()
+        : this.setState({
+            message: { status: 'error', text: alertMessages().noWeb3 }
+          })
+    } catch (error) {
+      this.setState({ message: { status: 'error', text: error } })
     }
   }
 
-  initAllTheTings() {
+  async initAllTheTings() {
     this.fetchAccounts()
     this.fetchNetwork()
+
     this.initAccountsPoll()
     this.initNetworkPoll()
   }
@@ -80,7 +65,6 @@ export default class Web3Donation extends PureComponent {
   resetAllTheThings() {
     clearInterval(this.interval)
     clearInterval(this.networkInterval)
-    this.setState({ web3Connected: false })
   }
 
   initAccountsPoll() {
@@ -95,45 +79,45 @@ export default class Web3Donation extends PureComponent {
     }
   }
 
-  fetchNetwork = () => {
+  fetchNetwork = async () => {
     const { web3 } = this
+    const { netId, networkName } = await getNetwork(web3)
 
-    web3 &&
-      web3.eth &&
-      web3.eth.net.getId((err, netId) => {
-        if (err) this.setState({ error: err })
-
-        if (netId !== this.state.networkId) {
-          this.setState({
-            error: null,
-            networkId: netId
-          })
-
-          getNetworkName(netId).then(networkName => {
-            this.setState({ networkName })
-          })
+    if (netId === correctNetwork) {
+      this.setState({ netId, networkName })
+    } else {
+      this.setState({
+        message: {
+          status: 'error',
+          text: alertMessages(networkName).noCorrectNetwork
         }
       })
+    }
   }
 
-  fetchAccounts = () => {
+  fetchAccounts = async () => {
     const { web3 } = this
+    const accounts = await getAccounts(web3)
 
-    web3 &&
-      web3.eth &&
-      web3.eth.getAccounts((err, accounts) => {
-        if (err) this.setState({ error: err })
-
-        this.setState({
-          error: null,
-          accounts,
-          selectedAccount: accounts[0].toLowerCase()
-        })
+    if (accounts[0]) {
+      this.setState({
+        accounts,
+        selectedAccount: accounts[0].toLowerCase()
       })
+    } else {
+      this.setState({
+        message: { status: 'error', text: alertMessages().noAccount }
+      })
+    }
   }
 
-  sendTransaction() {
+  sendTransaction = () => {
     const { web3 } = this
+
+    this.setState({
+      inTransaction: true,
+      message: { text: alertMessages().waitingForUser }
+    })
 
     web3.eth
       .sendTransaction({
@@ -144,22 +128,17 @@ export default class Web3Donation extends PureComponent {
       .once('transactionHash', transactionHash => {
         this.setState({
           transactionHash,
-          message: 'Waiting for network confirmation, hang on...'
+          message: { text: alertMessages().waitingConfirmation }
         })
       })
-      .on('error', error => this.setState({ error, loading: false }))
+      .on('error', error =>
+        this.setState({ message: { status: 'error', text: error } })
+      )
       .then(() => {
-        this.setState({ message: 'Confirmed. You are awesome, thanks!' })
+        this.setState({
+          message: { status: 'success', text: alertMessages().success }
+        })
       })
-  }
-
-  handleButton = () => {
-    this.setState({
-      loading: true,
-      message: 'Waiting for your confirmation...'
-    })
-
-    this.sendTransaction()
   }
 
   onAmountChange = ({ target }) => {
@@ -168,21 +147,12 @@ export default class Web3Donation extends PureComponent {
 
   render() {
     const {
-      networkId,
-      accounts,
       selectedAccount,
-      web3Connected,
-      loading,
       amount,
-      networkName,
-      error,
       transactionHash,
-      confirmationNumber,
-      message
+      message,
+      inTransaction
     } = this.state
-
-    const hasCorrectNetwork = networkId === 1
-    const hasAccount = accounts.length !== 0
 
     return (
       <div className={styles.web3}>
@@ -191,32 +161,22 @@ export default class Web3Donation extends PureComponent {
           <p>Send Ether with MetaMask, Brave, or Mist.</p>
         </header>
 
-        {web3Connected && (
-          <div className={styles.web3Row}>
-            {loading ? (
-              message
-            ) : (
-              <InputGroup
-                hasCorrectNetwork={hasCorrectNetwork}
-                hasAccount={hasAccount}
-                selectedAccount={selectedAccount}
-                amount={amount}
-                onAmountChange={this.onAmountChange}
-                handleButton={this.handleButton}
-              />
-            )}
-          </div>
-        )}
-
-        <Alerts
-          hasCorrectNetwork={hasCorrectNetwork}
-          hasAccount={hasAccount}
-          networkName={networkName}
-          error={error}
-          transactionHash={transactionHash}
-          web3Connected={web3Connected}
-          confirmationNumber={confirmationNumber}
-        />
+        <div className={styles.web3Row}>
+          {selectedAccount &&
+          this.state.netId === correctNetwork &&
+          !inTransaction ? (
+            <InputGroup
+              selectedAccount={selectedAccount}
+              amount={amount}
+              onAmountChange={this.onAmountChange}
+              sendTransaction={this.sendTransaction}
+            />
+          ) : (
+            message && (
+              <Alerts message={message} transactionHash={transactionHash} />
+            )
+          )}
+        </div>
       </div>
     )
   }

@@ -33,9 +33,8 @@ export default class CoinHiveClient extends PureComponent {
 
     return new Promise(resolve => {
       loadScript(config.script, error => {
-        if (error) {
-          return
-        }
+        if (error) return
+
         resolve(
           window.CoinHive.Anonymous(config.siteKey, {
             throttle: config.throttle,

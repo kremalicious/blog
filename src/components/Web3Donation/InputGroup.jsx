@@ -7,21 +7,17 @@ import styles from './InputGroup.module.scss'
 
 export default class InputGroup extends PureComponent {
   static propTypes = {
-    hasCorrectNetwork: PropTypes.bool.isRequired,
-    hasAccount: PropTypes.bool.isRequired,
     amount: PropTypes.string.isRequired,
     onAmountChange: PropTypes.func.isRequired,
-    handleButton: PropTypes.func.isRequired,
+    sendTransaction: PropTypes.func.isRequired,
     selectedAccount: PropTypes.string
   }
 
   render() {
     const {
-      hasCorrectNetwork,
-      hasAccount,
       amount,
       onAmountChange,
-      handleButton,
+      sendTransaction,
       selectedAccount
     } = this.props
 
@@ -30,7 +26,6 @@ export default class InputGroup extends PureComponent {
         <div className={styles.input}>
           <Input
             type="number"
-            disabled={!hasCorrectNetwork || !hasAccount}
             value={amount}
             onChange={onAmountChange}
             min="0"
@@ -40,20 +35,13 @@ export default class InputGroup extends PureComponent {
             <span>ETH</span>
           </div>
         </div>
-        <button
-          className="btn btn-primary"
-          onClick={handleButton}
-          disabled={!hasCorrectNetwork || !hasAccount}
-        >
+        <button className="btn btn-primary" onClick={sendTransaction}>
           Make it rain
         </button>
-        {hasCorrectNetwork &&
-          hasAccount && (
-            <div className={styles.infoline}>
-              <Conversion amount={amount} />
-              {selectedAccount && <Account account={selectedAccount} />}
-            </div>
-          )}
+        <div className={styles.infoline}>
+          <Conversion amount={amount} />
+          {selectedAccount && <Account account={selectedAccount} />}
+        </div>
       </div>
     )
   }

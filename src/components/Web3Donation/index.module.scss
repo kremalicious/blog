@@ -18,8 +18,44 @@
 }
 
 .web3Row {
-    min-height: 58px;
+    min-height: 77px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.message {
+    font-size: $font-size-small;
+    position: relative;
+
+    &::after {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: bottom;
+        animation: ellipsis steps(4, end) 1s infinite;
+        content: '\2026'; // ascii code for the ellipsis character
+        width: 0;
+        position: absolute;
+        left: 100%;
+        bottom: 0;
+    }
+}
+
+.success {
+    composes: message;
+    color: green;
+
+    &::after {
+        display: none;
+    }
+}
+
+@keyframes ellipsis {
+    to {
+        width: .75rem;
+    }
 }
