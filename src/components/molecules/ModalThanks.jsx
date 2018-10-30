@@ -37,7 +37,7 @@ class ModalThanks extends PureComponent {
                 <Web3Donation address={author.ether} />
 
                 <header>
-                  <h4>Other wallets</h4>
+                  <h4>Any other wallets</h4>
                   <p>Send Bitcoin or Ether from any wallet.</p>
                 </header>
 
