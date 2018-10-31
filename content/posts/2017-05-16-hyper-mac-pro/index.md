@@ -6,6 +6,8 @@ updated: 2018-10-30T19:50:52.281Z
 title: Hyper Mac Pro
 image: hyper-mac-pro-teaser.png
 
+featured: true
+
 tags:
   - goodies
   - css
