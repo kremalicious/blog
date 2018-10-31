@@ -1,11 +1,13 @@
 @import 'variables';
 
 .postMore {
+    display: inline-block;
     font-family: $font-family-headings;
     font-weight: $font-weight-headings;
     font-size: $font-size-base * .9;
     color: $link-color;
     text-transform: uppercase;
+    margin-top: $spacer;
 
     svg {
         display: inline-block;
