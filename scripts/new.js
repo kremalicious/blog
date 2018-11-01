@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 import path from 'path'
 import slugify from 'slugify'
 import ora from 'ora'
@@ -21,12 +21,24 @@ const date = new Date().toISOString()
 const newContents = template
   .split('TITLE')
   .join(title)
+  .split('TITLE_SLUG')
+  .join(titleSlug)
   .split('DATE')
   .join(date)
 
 const datePath = date.slice(0, 10)
+const file = `${postsPath}/${datePath}-${titleSlug}/index.md`
 
-fs.appendFile(`${postsPath}/${datePath}-${titleSlug}.md`, newContents, err => {
-  if (err) spinner.fail(`Error creating post: ${err}`)
-  spinner.succeed(`New post '${title}' created.`)
-})
+fs.outputFile(file, newContents)
+  .then(() => fs.readFile(file, 'utf8'))
+  .then(() => {
+    spinner.succeed(`New post '${title}' created.`)
+  })
+  .catch(err => {
+    spinner.fail(`Error creating post: ${err}`)
+  })
+
+// fs.appendFile(`${postsPath}/${datePath}-${titleSlug}.md`, newContents, err => {
+//   if (err) spinner.fail(`Error creating post: ${err}`)
+//   spinner.succeed(`New post '${title}' created.`)
+// })
