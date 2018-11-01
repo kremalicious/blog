@@ -6,7 +6,7 @@ kbd,
 pre,
 samp {
     font-family: $font-family-monospace;
-    font-size: $font-size-small;
+    font-size: $font-size-mini;
 }
 
 code,
@@ -72,10 +72,6 @@ pre {
         overflow-wrap: normal;
         word-wrap: normal;
         word-break: normal;
-
-        > span {
-            padding-right: $spacer;
-        }
     }
 }
 

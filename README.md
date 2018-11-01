@@ -27,7 +27,7 @@
   - [🍬 Typekit component](#-typekit-component)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
-  - [🎈 Add a new project](#-add-a-new-project)
+  - [🎈 Add a new post](#-add-a-new-post)
 - [🚚 Deployment](#-deployment)
 - [🏛 Licenses](#-licenses)
   - [Posts](#-posts)
@@ -163,13 +163,14 @@ npm run format
 npm run format:css
 ```
 
-### 🎈 Add a new project
+### 🎈 Add a new post
 
 ```bash
-npm run new "Hello"
+npm run new "Hello World"
 ```
 
 - [`scripts/new.js`](scripts/new.js)
+- [`scripts/new.md`](scripts/new.md)
 
 ## 🚚 Deployment
 
