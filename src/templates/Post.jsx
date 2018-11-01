@@ -112,7 +112,7 @@ export const pageQuery = graphql`
       }
       fields {
         slug
-        date(formatString: "MMMM DD, YYYY")
+        date
       }
       rawMarkdownBody
     }
