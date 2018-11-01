@@ -121,6 +121,7 @@ export const pageQuery = graphql`
       siteMetadata {
         siteUrl
         author {
+          name
           uri
         }
       }
