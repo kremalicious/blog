@@ -37,6 +37,8 @@ If you're using `hpm`, from the command line:
 hpm install hyper-mac-pro
 ```
 
+![Hyper Mac Pro](./hyper-mac-pro.png)
+
 ## Check out & contribute
 
 Head over to GitHub to take a peek into the code or report some issues.
