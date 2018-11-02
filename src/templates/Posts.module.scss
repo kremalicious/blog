@@ -2,8 +2,6 @@
 @import 'mixins';
 
 .hentry {
-    composes: hentry from '../templates/Post.module.scss';
-
     @include divider;
 
     margin-top: 0;
