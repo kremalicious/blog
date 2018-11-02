@@ -8,9 +8,10 @@
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop",
-    "build": "npm run rename:scrypt && gatsby build",
+    "build": "npm run rename:scrypt && gatsby build && npm run copy",
     "ssr": "npm run build && serve -s public/",
     "rename:scrypt": "sed -i -e 's|./build/Release/scrypt|scrypt|g' node_modules/scrypt/index.js",
+    "copy": "cp -R content/media/ public",
     "format": "run-p format:js format:css format:md format:yaml",
     "format:js": "prettier-eslint --write 'src/**/*.{js,jsx}'",
     "format:css": "prettier-stylelint --write",
