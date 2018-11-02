@@ -54,5 +54,5 @@ plugins: [
 Head over to GitHub for more documentation, take a peek into the code, or to report some bugs.
 
 <p class="content-download">
-    <a class="icon-github btn-primary" href="https://github.com/kremalicious/hyper-mac-pro">GitHub</a>
+    <a class="icon-github btn-primary" href="https://github.com/kremalicious/gatsby-plugin-matomo">GitHub</a>
 </p>
