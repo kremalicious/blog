@@ -1,7 +1,7 @@
 ---
 type: photo
 title: Watching The Night Watch
-image: ../media/2017-02-28-watching-the-night-watch.jpg
+image: 2017-02-28-watching-the-night-watch.jpg
 author: Matthias Kretschmann
 date: 2017-02-28 14:45:08.139508000 +02:00
 ---
