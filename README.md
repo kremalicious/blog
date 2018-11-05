@@ -15,6 +15,7 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [🎉 Features](#-features)
   - [🎆 EXIF extraction](#-exif-extraction)
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
@@ -30,8 +31,8 @@
   - [🎈 Add a new post](#-add-a-new-post)
 - [🚚 Deployment](#-deployment)
 - [🏛 Licenses](#-licenses)
-  - [Posts](#-posts)
-  - [Photos &amp; images](#-photos-images)
+  - [Posts](#posts)
+  - [Photos & images](#photos--images)
 
 ---
 
@@ -167,6 +168,10 @@ npm run format:css
 
 ```bash
 npm run new "Hello World"
+```
+
+```bash
+npm run new "Hello World" photo
 ```
 
 - [`scripts/new.js`](scripts/new.js)

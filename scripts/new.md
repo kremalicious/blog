@@ -3,7 +3,7 @@ type: post
 date: DATE
 
 title: TITLE
-image: TITLE_SLUG-teaser.png
+image: SLUG-teaser.png
 
 tags:
   - tag
