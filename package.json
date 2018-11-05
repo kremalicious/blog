@@ -70,7 +70,7 @@
     "react-dom": "^16.6.0",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.6.1",
-    "react-pose": "^3.4.0",
+    "react-pose": "^4.0.0",
     "react-qr-svg": "^2.1.0",
     "react-time": "^4.3.0",
     "react-transition-group": "^2.5.0",
