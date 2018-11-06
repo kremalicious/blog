@@ -42,11 +42,14 @@ const Post = ({ data, location }) => {
         <article className={styles.hentry}>
           <PostTitle type={type} linkurl={linkurl} title={title} />
           {type === 'post' && <PostLead post={post} />}
+          {type === 'photo' && <PostContent post={post} />}
           {image && (
             <PostImage fluid={image.childImageSharp.fluid} alt={title} />
           )}
           {image && image.fields && <Exif exif={image.fields.exif} />}
-          <PostContent post={post} />
+
+          {type !== 'photo' && <PostContent post={post} />}
+
           {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
           <PostActions slug={slug} url={meta.siteUrl} />
           <PostMeta post={post} meta={meta} />

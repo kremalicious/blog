@@ -52,7 +52,12 @@ export const photosQuery = graphql`
             type
             image {
               childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 400, quality: 85) {
+                fluid(
+                  maxWidth: 400
+                  maxHeight: 400
+                  quality: 85
+                  cropFocus: CENTER
+                ) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
