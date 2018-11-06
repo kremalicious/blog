@@ -168,10 +168,12 @@ npm run format:css
 
 ```bash
 npm run new "Hello World"
+npm run new "Hello World" 2017-12-27
 ```
 
 ```bash
 npm run new "Hello World" photo
+npm run new "Hello World" photo 2017-12-27
 ```
 
 - [`scripts/new.js`](scripts/new.js)

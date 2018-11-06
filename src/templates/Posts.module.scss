@@ -12,6 +12,14 @@
     @media (min-width: $screen-sm) {
         padding-top: $spacer * 3;
         padding-bottom: $spacer * 3;
+
+        &:first-of-type {
+            padding-top: $spacer * 4;
+        }
+    }
+
+    :global(.gatsby-image-wrapper) {
+        max-height: 100vh;
     }
 }
 

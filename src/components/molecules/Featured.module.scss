@@ -68,6 +68,8 @@
     }
 
     a {
+        display: block;
+
         &:hover,
         &:focus {
             .featuredTitle {
@@ -75,5 +77,9 @@
                 transform: translate3d(0, 0, 0);
             }
         }
+    }
+
+    :global(.gatsby-image-wrapper) {
+        margin-bottom: 0;
     }
 }
