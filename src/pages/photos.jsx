@@ -6,7 +6,14 @@ import Page from '../templates/Page'
 
 import styles from './photos.module.scss'
 
-const Photos = ({ data }) => {
+const page = {
+  frontmatter: {
+    title: 'Photos',
+    description: 'Personal photos of designer & developer Matthias Kretschmann.'
+  }
+}
+
+const Photos = ({ data, location }) => {
   const edges = data.photos.edges
 
   const PhotoThumbs = edges.map(({ node }) => {
@@ -25,7 +32,12 @@ const Photos = ({ data }) => {
   })
 
   return (
-    <Page title="Photos" section={styles.photos}>
+    <Page
+      title={page.frontmatter.title}
+      post={page}
+      location={location}
+      section={styles.photos}
+    >
       {PhotoThumbs}
     </Page>
   )

@@ -149,12 +149,14 @@ const SEO = ({ post, slug, postSEO }) => (
         const postMeta = post.frontmatter
         title = `${postMeta.title} ¦ ${siteMeta.siteTitle}`
         description = postMeta.description ? postMeta.description : post.excerpt
-        image = postMeta.image ? postMeta.image.childImageSharp.fluid.src : logo
+        image = postMeta.image
+          ? postMeta.image.childImageSharp.fluid.src
+          : `/${logo}`
         postURL = `${siteMeta.siteUrl}${slug}`
       } else {
         title = `${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
         description = siteMeta.siteDescription
-        image = logo
+        image = `/${logo}`
       }
 
       image = `${siteMeta.siteUrl}${image}`

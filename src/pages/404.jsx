@@ -4,8 +4,14 @@ import { Link } from 'gatsby'
 import Page from '../templates/Page'
 import styles from './404.module.scss'
 
-const NotFound = () => (
-  <Page title="404 - Not Found">
+const page = {
+  frontmatter: {
+    title: '404 - Not Found'
+  }
+}
+
+const NotFound = ({ location }) => (
+  <Page title={page.frontmatter.title} post={page} location={location}>
     <div className={styles.hal9000} />
 
     <div className={styles.wrapper}>

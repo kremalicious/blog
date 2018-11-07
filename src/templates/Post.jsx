@@ -32,13 +32,13 @@ const Post = ({ data, location }) => {
 
   return (
     <Fragment>
+      <Helmet title={title}>
+        {style && <link rel="stylesheet" href={style.publicURL} />}
+      </Helmet>
+
+      <SEO slug={slug} post={post} postSEO />
+
       <Layout location={location}>
-        <Helmet title={title}>
-          {style && <link rel="stylesheet" href={style.publicURL} />}
-        </Helmet>
-
-        <SEO slug={slug} post={post} postSEO />
-
         <article className={styles.hentry}>
           <PostTitle type={type} linkurl={linkurl} title={title} />
           {type === 'post' && <PostLead post={post} />}
