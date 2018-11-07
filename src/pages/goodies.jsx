@@ -3,10 +3,17 @@ import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import PostImage from '../components/Post/PostImage'
 import Page from '../templates/Page'
-
 import styles from './goodies.module.scss'
 
-const Goodies = ({ data }) => {
+const page = {
+  frontmatter: {
+    title: 'Goodies',
+    description:
+      'Goodies released by designer & developer Matthias Kretschmann.'
+  }
+}
+
+const Goodies = ({ data, location }) => {
   const edges = data.goodies.edges
 
   const GoodiesThumbs = edges.map(({ node }) => {
@@ -25,7 +32,11 @@ const Goodies = ({ data }) => {
     )
   })
 
-  return <Page title="Goodies">{GoodiesThumbs}</Page>
+  return (
+    <Page title={page.frontmatter.title} post={page} location={location}>
+      {GoodiesThumbs}
+    </Page>
+  )
 }
 
 Goodies.propTypes = {

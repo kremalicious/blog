@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Container from './atoms/Container'
 import Typekit from './atoms/Typekit'
@@ -7,7 +7,7 @@ import Footer from './organisms/Footer'
 import styles from './Layout.module.scss'
 
 const Layout = ({ children }) => (
-  <Fragment>
+  <>
     <Typekit />
     <Header />
 
@@ -18,7 +18,7 @@ const Layout = ({ children }) => (
     </main>
 
     <Footer />
-  </Fragment>
+  </>
 )
 
 Layout.propTypes = {

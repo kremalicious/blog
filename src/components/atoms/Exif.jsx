@@ -30,7 +30,7 @@ const providers = {
 }
 
 class ExifMap extends PureComponent {
-  state = { zoom: 6 }
+  state = { zoom: 12 }
 
   static propTypes = {
     gps: PropTypes.object
@@ -38,7 +38,7 @@ class ExifMap extends PureComponent {
 
   zoomIn = () => {
     this.setState({
-      zoom: Math.min(this.state.zoom + 3, 18)
+      zoom: Math.min(this.state.zoom + 4, 20)
     })
   }
 
