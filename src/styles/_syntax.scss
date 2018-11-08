@@ -721,8 +721,7 @@ copyright  Copyright (C) 2017                                  +
     color: #8fbcbb;
 }
 
-.source.json
-.meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
     color: #d8dee9;
 }
 
@@ -731,16 +730,13 @@ copyright  Copyright (C) 2017                                  +
     color: #81a1c1;
 }
 
-.source.json
-.meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
 .source.json .meta.structure.array.json > .value.json > .string.quoted.json {
     color: #a3be8c;
 }
 
-.source.json
-.meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
-.source.json
-.meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
     color: #d8dee9;
 }
 
@@ -970,13 +966,10 @@ copyright  Copyright (C) 2017                                  +
     color: #4c566a;
 }
 
-.theme-nord-atom-syntax-accessibility-custom-comment-contrast
-.comment
-.markup.link {
+.theme-nord-atom-syntax-accessibility-custom-comment-contrast .comment .markup.link {
     color: #4c566a;
 }
 
-.theme-nord-atom-syntax-accessibility-custom-comment-contrast
-.punctuation.comment {
+.theme-nord-atom-syntax-accessibility-custom-comment-contrast .punctuation.comment {
     color: #4c566a;
 }

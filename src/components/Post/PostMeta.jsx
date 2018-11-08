@@ -32,12 +32,11 @@ const PostMeta = ({ post, meta }) => {
         )}
       </div>
 
-      {type &&
-        type === 'photo' && (
-          <div className={styles.type}>
-            <Link to={`/${slugify(type)}s/`}>{type}s</Link>
-          </div>
-        )}
+      {type && type === 'photo' && (
+        <div className={styles.type}>
+          <Link to={`/${slugify(type)}s/`}>{type}s</Link>
+        </div>
+      )}
 
       {tags && (
         <div className={styles.tags}>
