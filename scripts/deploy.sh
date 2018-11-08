@@ -12,9 +12,9 @@ SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap.xml"
 set -e;
 
 function s3sync {
-  aws s3 sync ./public s3://"$1" --exclude "*.html" --exclude "*.xml" --cache-control max-age=31536000,public,immutable --delete --acl public-read
+  aws s3 sync ./public s3://"$1" --exclude "*.html" --exclude "*.xml" --cache-control max-age=31536000,public,immutable --delete --acl public-read --quiet
 
-  aws s3 sync ./public s3://"$1" --exclude "*" --include "*.html" --include "*.xml" --cache-control max-age=0,no-cache,no-store,must-revalidate --delete --acl public-read
+  aws s3 sync ./public s3://"$1" --exclude "*" --include "*.html" --include "*.xml" --cache-control max-age=0,no-cache,no-store,must-revalidate --delete --acl public-read --quiet
 }
 
 ##
