@@ -1,7 +1,7 @@
 import React, { Fragment, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Map from 'pigeon-maps'
-import Marker from 'pigeon-marker/react'
+import Marker from 'pigeon-marker'
 import styles from './Exif.module.scss'
 
 const MAPBOX_ACCESS_TOKEN =
