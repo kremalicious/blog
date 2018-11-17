@@ -26,7 +26,7 @@ This first preserved photograph _View from the Window at Le Gras_ is the one you
 
 Either just download the icons or read the exciting story about the First Photograph.
 
-![](../media/cameraobscura11_all.png)
+![Icon Overview](../media/cameraobscura11_all.png)
 
 ## The story behind these icons
 
@@ -34,7 +34,7 @@ There's a fascinating story behind these icons which is nothing more than the st
 
 ### Nicéphore Niépce and The First Photograph
 
-<img src="../media/nicephore-niepce.jpg" alt="Nicéphore Niépce, ca. 1795" title="Nicéphore Niépce, ca. 1795">
+![Nicéphore Niépce, ca. 1795](../media/nicephore-niepce.jpg "Nicéphore Niépce, ca. 1795")
 
 Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
@@ -46,7 +46,7 @@ In 1822 he created a first non-fading negative contact print by utilizing a bitu
 
 After some more tries and combining other elements in his procedure he was able to produce the famous First Photograph "View from the Window at Le Gras" in 1826 or 1827 by utilizing a bitumen of Judea-coated pewter plate and improved lenses from the Paris optician, Charles Chevalier. He called this procedure Heliography and the bitumen-coated pewter plate needed an exposure of eight or more hours!
 
-<img src="../media/view_from_the_window_at_le_gras_nicephore_niepce.jpg" alt="View from the Window at Le Gras" title="View from the Window at Le Gras">
+![View from the Window at Le Gras](../media/view_from_the_window_at_le_gras_nicephore_niepce.jpg "View from the Window at Le Gras")
 
 By the way, in 2002 another picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", _View from the Window at Le Gras_ remains the first "real" photograph.
 

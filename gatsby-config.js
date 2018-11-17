@@ -37,6 +37,8 @@ module.exports = {
         path: path.join(__dirname, 'src', 'images')
       }
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -45,11 +47,11 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 940,
+              maxWidth: 630,
               quality: 80,
               withWebp: true,
               linkImagesToOriginal: false,
-              // sizeByPixelDensity: true,
+              sizeByPixelDensity: true,
               showCaptions: true,
               backgroundColor: '#e7eef4'
             }
@@ -223,8 +225,6 @@ module.exports = {
     },
     'gatsby-plugin-webpack-size',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',

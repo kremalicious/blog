@@ -6,6 +6,11 @@ import Header from './organisms/Header'
 import Footer from './organisms/Footer'
 import styles from './Layout.module.scss'
 
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update')
+//   whyDidYouUpdate(React)
+// }
+
 const Layout = ({ children }) => (
   <>
     <Typekit />
