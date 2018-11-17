@@ -206,12 +206,12 @@ a.btn-primary {
     .icon-eye {
         &::before {
             content: '';
-            width: 18px;
-            height: 18px;
+            width: $font-size-large;
+            height: $font-size-large;
             display: inline-block;
-            margin-right: 5px;
-            margin-bottom: -3px;
-            opacity: .35;
+            margin-right: .3rem;
+            margin-bottom: -.25rem;
+            opacity: .5;
             background: url('../images/arrow-with-circle-down.svg') no-repeat
                 left center;
         }
