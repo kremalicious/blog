@@ -5,15 +5,17 @@
     @include breakoutviewport;
 
     margin-top: $spacer * 3;
-    border-top: 1px dashed $brand-grey-dimmed;
-    border-bottom: 1px dashed $brand-grey-dimmed;
+    background: rgba(#fff, .5);
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+    border-radius: $border-radius;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
     > div {
         flex: 0 0 100%;
-        border-bottom: 1px dashed $brand-grey-dimmed;
+        border-bottom: 1px dashed rgba($brand-grey-light, .3);
 
         &:last-child {
             border-bottom: 0;
@@ -22,7 +24,7 @@
         @media (min-width: $screen-sm) {
             flex: 0 0 33.33333%;
             border-bottom: 0;
-            border-left: 1px dashed $brand-grey-dimmed;
+            border-left: 1px dashed rgba($brand-grey-light, .3);
 
             &:first-child {
                 border-left: 0;
@@ -54,8 +56,8 @@
 .action {
     display: block;
     margin: 0;
-    padding-top: $spacer * $line-height;
-    padding-bottom: $spacer * $line-height;
+    padding-top: $spacer;
+    padding-bottom: $spacer;
     padding-left: $spacer * 2;
     padding-right: $spacer;
     position: relative;
@@ -83,7 +85,7 @@
     svg {
         position: absolute;
         left: $spacer;
-        top: $spacer * $line-height;
+        top: $spacer;
         fill: $brand-grey-light;
     }
 }
