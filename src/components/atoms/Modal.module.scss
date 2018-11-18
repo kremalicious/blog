@@ -9,8 +9,8 @@
     right: 0;
     bottom: 0;
     z-index: 9;
-    background: rgba($body-background-color, .9);
-    // backdrop-filter: blur(5px);
+    background: rgba($body-background-color, .95);
+    backdrop-filter: blur(5px);
     animation: fadein .3s;
     padding: $spacer;
 
@@ -65,10 +65,10 @@
     overflow: hidden;
 
     // more cross-browser backdrop-filter
-    body > div:first-child {
-        transition: filter .85s ease-out;
-        filter: blur(5px);
-    }
+    // body > div:first-child {
+    //     transition: filter .85s ease-out;
+    //     filter: blur(5px);
+    // }
 }
 
 .modal__title {

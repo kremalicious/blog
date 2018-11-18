@@ -1,7 +1,7 @@
-import React, { Fragment, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import Image from '../atoms/Image'
+import { graphql, StaticQuery } from 'gatsby'
+import PostTeaser from '../Post/PostTeaser'
 import styles from './RelatedPosts.module.scss'
 
 const query = graphql`
@@ -45,32 +45,6 @@ const postsWithDataFilter = (postsArray, key, valuesToFind) => {
   return newArray
 }
 
-const PostItem = ({ post }) => {
-  return (
-    <li>
-      <Link to={post.node.fields.slug}>
-        {post.node.frontmatter.image ? (
-          <Fragment>
-            <Image
-              fluid={post.node.frontmatter.image.childImageSharp.fluid}
-              alt={post.node.frontmatter.title}
-            />
-            <h4 className={styles.postTitle}>{post.node.frontmatter.title}</h4>
-          </Fragment>
-        ) : (
-          <div className={styles.empty}>
-            <h4 className={styles.postTitle}>{post.node.frontmatter.title}</h4>
-          </div>
-        )}
-      </Link>
-    </li>
-  )
-}
-
-PostItem.propTypes = {
-  post: PropTypes.object.isRequired
-}
-
 class RelatedPosts extends PureComponent {
   shufflePosts = () => {
     this.forceUpdate()
@@ -95,8 +69,8 @@ class RelatedPosts extends PureComponent {
                 {filteredPosts
                   .sort(() => 0.5 - Math.random())
                   .slice(0, 6)
-                  .map(post => (
-                    <PostItem key={post.node.id} post={post} />
+                  .map(({ node }) => (
+                    <PostTeaser key={node.id} post={node} />
                   ))}
               </ul>
               <button

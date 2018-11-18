@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styles from './Image.module.scss'
 
-const Image = ({ fluid, fixed, alt }) => (
-  <Img
-    className={styles.imageWrap}
-    backgroundColor="#dfe8ef"
-    fluid={fluid ? fluid : null}
-    fixed={fixed ? fixed : null}
-    alt={alt}
-  />
-)
+export default class Image extends PureComponent {
+  static propTypes = {
+    fluid: PropTypes.object,
+    fixed: PropTypes.object,
+    alt: PropTypes.string.isRequired
+  }
 
-Image.propTypes = {
-  fluid: PropTypes.object,
-  fixed: PropTypes.object,
-  alt: PropTypes.string.isRequired
+  render() {
+    const { fluid, fixed, alt } = this.props
+
+    return (
+      <Img
+        className={styles.imageWrap}
+        backgroundColor="#dfe8ef"
+        fluid={fluid ? fluid : null}
+        fixed={fixed ? fixed : null}
+        alt={alt}
+      />
+    )
+  }
 }
 
 export const imageSizeDefault = graphql`
@@ -35,5 +41,3 @@ export const imageSizeThumb = graphql`
     }
   }
 `
-
-export default Image

@@ -8,26 +8,68 @@
     z-index: 10;
     top: 0;
     bottom: 0;
-    background: $body-background-color;
+    background: rgba($body-background-color, .95);
+    backdrop-filter: blur(5px);
+    animation: fadein .3s;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 91vh;
 
     ul {
         @include breakoutviewport;
 
-        margin-top: $spacer;
+        padding: $spacer $spacer / 2;
+        margin-bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
-        li {
-            margin-left: $spacer;
-            margin-right: $spacer;
+        @media (min-width: $screen-md) {
+            padding-left: 0;
+            padding-right: 0;
         }
 
-        li::before {
-            top: $spacer / 7;
+        li {
+            display: block;
+            flex: 0 0 48%;
+            margin-bottom: $spacer;
+
+            @media (min-width: $screen-sm) {
+                flex-basis: 31%;
+            }
+
+            &::before {
+                display: none;
+            }
         }
     }
 
+    img {
+        margin-bottom: 0;
+    }
+
     a {
-        padding-top: $spacer / 6;
-        padding-bottom: $spacer / 6;
-        display: inline-block;
+        display: block;
+
+        > div {
+            margin-bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+            h4 {
+                color: $link-color;
+            }
+        }
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

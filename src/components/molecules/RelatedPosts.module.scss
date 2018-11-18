@@ -1,18 +1,6 @@
 @import 'variables';
 @import 'mixins';
 
-.empty {
-    height: 100%;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    padding: $spacer / 4;
-
-    h4 {
-        margin-top: 0;
-    }
-}
-
 .relatedPosts {
     margin-top: -($spacer * 2);
     margin-bottom: $spacer;
@@ -63,22 +51,6 @@
     @include heading-band;
 
     font-size: $font-size-h3;
-}
-
-.postTitle {
-    display: inline-block;
-    margin-top: $spacer / 4;
-    margin-bottom: 0;
-    font-size: $font-size-small;
-    line-height: $line-height-small;
-    color: $brand-grey-light;
-    padding-left: .2rem;
-    padding-right: .2rem;
-    transition: color .2s ease-out;
-
-    @media (min-width: $screen-md) {
-        font-size: $font-size-base;
-    }
 }
 
 .button {

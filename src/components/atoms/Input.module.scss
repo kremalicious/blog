@@ -14,7 +14,7 @@
     border-radius: $input-border-radius;
     box-shadow: none;
     transition: all ease-in-out .15s;
-    -webkit-appearance: none; // screw you, iOS default inset box-shadow
+    appearance: none;
 
     &:hover {
         background: lighten($input-bg, 30%);

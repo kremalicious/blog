@@ -1,14 +1,26 @@
-import React, { Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import Input from '../atoms/Input'
 import styles from './SearchInput.module.scss'
 
-const SearchInput = props => (
-  <Fragment>
-    <Input type="search" placeholder="Search everything" {...props} />
-    <button className={styles.searchInputClose} onClick={props.onToggle}>
-      &times;
-    </button>
-  </Fragment>
-)
-
-export default SearchInput
+export default class SearchInput extends PureComponent {
+  render() {
+    return (
+      <>
+        <Input
+          className={styles.searchInput}
+          type="search"
+          placeholder="Search everything"
+          autoFocus // eslint-disable-line
+          {...this.props}
+        />
+        <button
+          className={styles.searchInputClose}
+          onClick={this.props.onToggle}
+          title="Close search"
+        >
+          &times;
+        </button>
+      </>
+    )
+  }
+}
