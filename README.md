@@ -19,8 +19,8 @@
 - [🎉 Features](#-features)
   - [🎆 EXIF extraction](#-exif-extraction)
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
-  - [🕸 Related Posts](#-related-posts)
   - [🔍 Search](#-search)
+  - [🕸 Related Posts](#-related-posts)
   - [🐝 Coinhive](#-coinhive)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
@@ -62,7 +62,7 @@ Lets visitors say thanks with Bitcoin or Ether. Uses [web3.js](https://github.co
 
 As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
 
-<img width="1082" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
+<img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 
 If you want to know how this works, have a look at the respective components under
 
@@ -74,19 +74,27 @@ If you want to know how this works, have a look at the respective components und
 - [`src/components/Web3Donation/utils.jsx`](src/components/Web3Donation/utils.jsx)
 - [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
 
+### 🔍 Search
+
+A global search is provided with [gatsby-plugin-lunr](https://github.com/humanseelabs/gatsby-plugin-lunr). That plugin creates a [Lunr](https://lunrjs.com) search index file of all posts on build time which is then queried against when the search field is used.
+
+<img width="700" alt="screen shot 2018-11-18 at 19 44 30" src="https://user-images.githubusercontent.com/90316/48676679-634f4400-eb6a-11e8-936d-293505d5c5d9.png">
+
+If you want to know how this works, have a look at the respective components under
+
+- [`src/components/Search/Search.jsx`](src/components/Search/Search.jsx)
+- [`src/components/Search/SearchResults.jsx`](src/components/Search/SearchResults.jsx)
+- more in [`src/components/Search/`](src/components/Search/)
+
 ### 🕸 Related Posts
 
 Under each post a list of related posts is displayed which are based on the tags of the currently viewed post. Also allows loading more related posts in place.
 
-<img width="691" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png" />
+<img width="700" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png" />
 
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/molecules/RelatedPosts.jsx`](src/components/molecules/RelatedPosts.jsx)
-
-### 🔍 Search
-
-[gatsby-plugin-lunr](https://github.com/humanseelabs/gatsby-plugin-lunr)
 
 ### 🐝 Coinhive
 

@@ -4,26 +4,8 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import Container from '../atoms/Container'
 import PostTeaser from '../Post/PostTeaser'
+import SearchResultsEmpty from './SearchResultsEmpty'
 import styles from './SearchResults.module.scss'
-
-const SearchEmpty = ({ searchQuery, results }) => (
-  <div className={styles.empty}>
-    <header className={styles.emptyMessage}>
-      <p className={styles.emptyMessageText}>
-        {searchQuery.length > 1 && results.length === 0
-          ? 'No results found'
-          : searchQuery.length === 1
-          ? 'Just one more character'
-          : 'Awaiting your input'}
-      </p>
-    </header>
-  </div>
-)
-
-SearchEmpty.propTypes = {
-  results: PropTypes.array.isRequired,
-  searchQuery: PropTypes.string.isRequired
-}
 
 const query = graphql`
   query {
@@ -84,7 +66,10 @@ export default class SearchResults extends PureComponent {
                     )}
                   </ul>
                 ) : (
-                  <SearchEmpty searchQuery={searchQuery} results={results} />
+                  <SearchResultsEmpty
+                    searchQuery={searchQuery}
+                    results={results}
+                  />
                 )}
               </Container>
             </div>,

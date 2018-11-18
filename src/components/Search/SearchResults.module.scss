@@ -24,6 +24,11 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
+        @media (min-width: $screen-md) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         li {
             display: block;
             flex: 0 0 48%;
@@ -59,33 +64,6 @@
     }
 }
 
-.empty {
-    padding-top: 15vh;
-    display: flex;
-    justify-content: center;
-}
-
-.emptyMessage {
-    color: $brand-grey-light;
-}
-
-.emptyMessageText {
-    margin-bottom: 0;
-    position: relative;
-
-    &::after {
-        overflow: hidden;
-        display: inline-block;
-        vertical-align: bottom;
-        animation: ellipsis steps(4, end) 1s infinite;
-        content: '\2026'; // ascii code for the ellipsis character
-        width: 0;
-        position: absolute;
-        left: 101%;
-        bottom: 0;
-    }
-}
-
 @keyframes fadein {
     0% {
         opacity: 0;
@@ -93,11 +71,5 @@
 
     100% {
         opacity: 1;
-    }
-}
-
-@keyframes ellipsis {
-    to {
-        width: 1rem;
     }
 }
