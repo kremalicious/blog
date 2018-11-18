@@ -9,33 +9,80 @@
     top: 0;
     bottom: 0;
     background: rgba($body-background-color, .95);
-    // backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     animation: fadein .3s;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 91vh;
 
     ul {
         @include breakoutviewport;
 
-        padding-top: $spacer;
-        padding-bottom: $spacer;
+        padding: $spacer $spacer / 2;
         margin-bottom: 0;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        max-height: 81vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
 
         li {
-            margin-left: $spacer;
-            margin-right: $spacer;
-        }
+            display: block;
+            flex: 0 0 48%;
+            margin-bottom: $spacer;
 
-        li::before {
-            top: $spacer / 7;
+            @media (min-width: $screen-sm) {
+                flex-basis: 31%;
+            }
+
+            &::before {
+                display: none;
+            }
         }
     }
 
+    img {
+        margin-bottom: 0;
+    }
+
     a {
-        padding-top: $spacer / 6;
-        padding-bottom: $spacer / 6;
+        display: block;
+
+        > div {
+            margin-bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+            h4 {
+                color: $link-color;
+            }
+        }
+    }
+}
+
+.empty {
+    padding-top: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.emptyMessage {
+    color: $brand-grey-light;
+}
+
+.emptyMessageText {
+    margin-bottom: 0;
+    position: relative;
+
+    &::after {
+        overflow: hidden;
         display: inline-block;
+        vertical-align: bottom;
+        animation: ellipsis steps(4, end) 1s infinite;
+        content: '\2026'; // ascii code for the ellipsis character
+        width: 0;
+        position: absolute;
+        left: 101%;
+        bottom: 0;
     }
 }
 
@@ -46,5 +93,11 @@
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes ellipsis {
+    to {
+        width: 1rem;
     }
 }

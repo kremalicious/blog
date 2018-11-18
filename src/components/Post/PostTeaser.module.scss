@@ -1,0 +1,29 @@
+@import 'variables';
+
+.postTitle {
+    display: inline-block;
+    margin-top: $spacer / 4;
+    margin-bottom: 0;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+    color: $brand-grey-light;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    transition: color .2s ease-out;
+
+    @media (min-width: $screen-md) {
+        font-size: $font-size-base;
+    }
+}
+
+.empty {
+    height: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    padding: $spacer / 4;
+
+    .postTitle {
+        margin-top: 0;
+    }
+}

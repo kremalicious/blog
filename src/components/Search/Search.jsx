@@ -34,7 +34,9 @@ export default class Search extends PureComponent {
 
   search = event => {
     const query = event.target.value
-    const results = this.getSearchResults(query)
+    // wildcard search https://lunrjs.com/guides/searching.html#wildcards
+    const results = query.length > 1 ? this.getSearchResults(`${query}*`) : []
+
     this.setState({
       results,
       query
@@ -53,6 +55,7 @@ export default class Search extends PureComponent {
             <Helmet>
               <body className="hasSearchOpen" />
             </Helmet>
+
             <CSSTransition
               appear={searchOpen}
               in={searchOpen}
@@ -67,7 +70,12 @@ export default class Search extends PureComponent {
                 />
               </section>
             </CSSTransition>
-            <SearchResults results={results} onClose={this.toggleSearch} />
+
+            <SearchResults
+              searchQuery={query}
+              results={results}
+              toggleSearch={this.toggleSearch}
+            />
           </>
         )}
       </>
