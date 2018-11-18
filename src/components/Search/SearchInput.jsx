@@ -1,14 +1,24 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Input from '../atoms/Input'
 import styles from './SearchInput.module.scss'
 
-const SearchInput = props => (
-  <Fragment>
-    <Input type="search" placeholder="Search everything" {...props} />
-    <button className={styles.searchInputClose} onClick={props.onToggle}>
+const SearchInput = ({ onToggle, ...props }) => (
+  <>
+    <Input
+      className={styles.searchInput}
+      type="search"
+      placeholder="Search everything"
+      autoFocus // eslint-disable-line
+      {...props}
+    />
+    <button
+      className={styles.searchInputClose}
+      onClick={onToggle}
+      title="Close search"
+    >
       &times;
     </button>
-  </Fragment>
+  </>
 )
 
 export default SearchInput

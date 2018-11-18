@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
@@ -25,16 +25,6 @@ export default class Search extends PureComponent {
     }))
   }
 
-  closeSearch = () => {
-    this.setState({
-      searchOpen: false,
-      query: '',
-      results: []
-    })
-  }
-
-  isSearchOpen = () => this.state.searchOpen === true
-
   getSearchResults(query) {
     if (!query || !window.__LUNR__) return []
     const lunrIndex = window.__LUNR__[this.props.lng]
@@ -55,34 +45,32 @@ export default class Search extends PureComponent {
     const { searchOpen, query, results } = this.state
 
     return (
-      <Fragment>
-        <Helmet>
-          <body className={this.isSearchOpen() ? 'has-search-open' : null} />
-        </Helmet>
-
+      <>
         <SearchButton onClick={this.toggleSearch} />
 
         {searchOpen && (
-          <CSSTransition
-            appear={searchOpen}
-            in={searchOpen}
-            timeout={200}
-            classNames={styles}
-          >
-            <section className={styles.search}>
-              <SearchInput
-                value={query}
-                onChange={this.search}
-                onToggle={this.closeSearch}
-              />
-            </section>
-          </CSSTransition>
+          <>
+            <Helmet>
+              <body className="hasSearchOpen" />
+            </Helmet>
+            <CSSTransition
+              appear={searchOpen}
+              in={searchOpen}
+              timeout={200}
+              classNames={styles}
+            >
+              <section className={styles.search}>
+                <SearchInput
+                  value={query}
+                  onChange={this.search}
+                  onToggle={this.toggleSearch}
+                />
+              </section>
+            </CSSTransition>
+            <SearchResults results={results} onClose={this.toggleSearch} />
+          </>
         )}
-
-        {query && (
-          <SearchResults results={results} onClose={this.closeSearch} />
-        )}
-      </Fragment>
+      </>
     )
   }
 }

@@ -10,13 +10,14 @@ const SearchResults = ({ results, onClose }) =>
     <div className={styles.searchResults}>
       <Container>
         <ul>
-          {results.map(page => (
-            <li key={page.url}>
-              <Link to={page.url} onClick={onClose}>
-                {page.title}
-              </Link>
-            </li>
-          ))}
+          {results.length > 0 &&
+            results.map(page => (
+              <li key={page.slug}>
+                <Link to={page.slug} onClick={onClose}>
+                  {page.title}
+                </Link>
+              </li>
+            ))}
         </ul>
       </Container>
     </div>,

@@ -20,6 +20,7 @@
   - [🎆 EXIF extraction](#-exif-extraction)
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🕸 Related Posts](#-related-posts)
+  - [🔍 Search](#-search)
   - [🐝 Coinhive](#-coinhive)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
@@ -82,6 +83,10 @@ Under each post a list of related posts is displayed which are based on the tags
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/molecules/RelatedPosts.jsx`](src/components/molecules/RelatedPosts.jsx)
+
+### 🔍 Search
+
+[gatsby-plugin-lunr](https://github.com/humanseelabs/gatsby-plugin-lunr)
 
 ### 🐝 Coinhive
 
@@ -198,20 +203,18 @@ The deploymeng script can be used locally too, the branch checks are only happen
 
 The MIT License (MIT)
 
-except for:
+EXCEPT FOR:
 
 ### Posts
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-  <img alt="Creative Commons License" style="border-width:0;" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" />
-</a>
+[![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-All post content under `./content/posts` is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+All post content under `./content/posts` is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ### Photos & images
 
-All photos & image assets under `./content/media`, `./src/images`, and `assets sheet.psd` are plain ol' copyright.
+All photos & image assets are plain ol' copyright.
 
 Copyright (c) 2008–2018 Matthias Kretschmann
 
-Don't care if you fork & play with it, but you're not allowed to publish anything from it as a whole without my written permission.
+Don't care if you fork & play with it, but you're not allowed to publish anything from it as a whole without my written permission. Also please be aware, the combination of typography, colors & layout makes up my brand identity. So please don't just clone everything, but rather do a remix!

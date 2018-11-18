@@ -4,7 +4,7 @@
     position: absolute;
     left: $spacer / 2;
     right: $spacer / 2;
-    top: 0;
+    top: -($spacer / 4);
     z-index: 10;
 
     input {
@@ -38,5 +38,15 @@
         opacity: .01;
         transition: .2s ease-in;
         transform: translate3d(0, -100px, 0);
+    }
+}
+
+:global(.hasSearchOpen) {
+    overflow: hidden;
+
+    // more cross-browser backdrop-filter
+    main > div:first-child {
+        transition: filter .85s ease-out;
+        filter: blur(5px);
     }
 }

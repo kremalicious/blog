@@ -8,12 +8,19 @@
     z-index: 10;
     top: 0;
     bottom: 0;
-    background: $body-background-color;
+    background: rgba($body-background-color, .95);
+    // backdrop-filter: blur(5px);
+    animation: fadein .3s;
 
     ul {
         @include breakoutviewport;
 
-        margin-top: $spacer;
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+        margin-bottom: 0;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+        max-height: 81vh;
 
         li {
             margin-left: $spacer;
@@ -29,5 +36,15 @@
         padding-top: $spacer / 6;
         padding-bottom: $spacer / 6;
         display: inline-block;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
