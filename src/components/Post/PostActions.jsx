@@ -24,7 +24,7 @@ const ActionTwitter = ({ url, slug }) => (
     <Twitter />
     <ActionContent
       title="Have a comment?"
-      text="Hit me up on Twitter"
+      text="Hit me up"
       textLink="@kremalicious"
     />
   </a>

@@ -13,6 +13,12 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
+    @media (min-width: $screen-md) {
+        margin-left: -100%;
+        margin-right: -18%;
+        padding-left: 80%;
+    }
+
     > div {
         flex: 0 0 100%;
         border-bottom: 1px dashed rgba($brand-grey-light, .3);
@@ -62,7 +68,6 @@
     padding-right: $spacer;
     position: relative;
     text-align: left;
-    height: 100%;
 
     &:hover,
     &:focus {

@@ -5,6 +5,10 @@
     margin-top: -($spacer * 2);
     margin-bottom: $spacer;
 
+    @media (min-width: $screen-md) {
+        @include breakoutviewport;
+    }
+
     ul {
         display: flex;
         flex-wrap: wrap;
