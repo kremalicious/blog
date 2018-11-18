@@ -1,19 +1,20 @@
 ---
 type: post
 title: Finally... a universal scanner driver for the Canon CanoScan LiDE 500F for Intel Macs
-author: Matthias Kretschmann
+image: ../media/canoscanlide500f.jpg
 date: 2007-06-11 18:44:28+00:00
 
 tags:
 - photography
 - tutorial
 - macos
+- scanner
 
 redirect_from:
   - /2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/
 ---
 
-At the end of last year I watched out for a new scanner and the CanoScan LiDE 500f from Canon was the choice. But finding a suitable driver wasn't that simple cause everywhere around was only the horribly old PowerPC-driver. As long as I had my old G4 in the house it wasn't that problem. But at this time all Macs were already Intel-powered and also my new MacBook which replaced the G4 was Intel-Powered and i had a problem.
+At the end of last year I watched out for a new scanner and the CanoScan LiDE 500f from Canon was the choice. But finding a suitable driver wasn't that simple cause everywhere around was only the horribly old PowerPC-driver. As long as I had my old G4 in the house it wasn't that problem. But at this time all Macs were already Intel-powered and also my new MacBook which replaced the G4 was Intel-Powered and I had a problem.
 
 **UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
 [Using the CanoScan LiDE 500F scanner with Mac OS X Leopard](/using-the-canoscan-lide-500f-with-mac-os-x-leopard/)**
