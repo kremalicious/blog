@@ -1,5 +1,5 @@
-const { createMarkdownFields } = require('./gatsby/onCreateNode')
-const { createExifFields } = require('./gatsby/exif')
+const { createMarkdownFields } = require('./gatsby/createMarkdownFields')
+const { createExifFields } = require('./gatsby/createExifFields')
 const {
   generatePostPages,
   generateTagPages,

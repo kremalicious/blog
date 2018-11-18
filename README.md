@@ -54,7 +54,7 @@ In the end looks like this, including location display with [pigeon-maps](https:
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/atoms/Exif.jsx`](src/components/atoms/Exif.jsx)
-- the EXIF node fields creation [`gatsby/exif.js`](gatsby/exif.js) running in [`gatsby-node.js`](gatsby-node.js)
+- the EXIF node fields creation [`gatsby/createExifFields.js`](gatsby/createExifFields.js) running in [`gatsby-node.js`](gatsby-node.js)
 
 ### 💰 Cryptocurrency donation via Web3/MetaMask
 
