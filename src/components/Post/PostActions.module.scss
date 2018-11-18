@@ -1,14 +1,33 @@
 @import 'variables';
+@import 'mixins';
 
 .actions {
-    margin-top: $spacer * 3;
-    padding: ($spacer * $line-height) 0 ($spacer * $line-height) 100%;
-    background: rgba(#fff, .5);
-    margin-left: -100%;
+    @include breakoutviewport;
 
-    @media (min-width: $screen-xs) {
-        display: flex;
-        justify-content: space-between;
+    margin-top: $spacer * 3;
+    border-top: 1px dashed $brand-grey-dimmed;
+    border-bottom: 1px dashed $brand-grey-dimmed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > div {
+        flex: 0 0 100%;
+        border-bottom: 1px dashed $brand-grey-dimmed;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        @media (min-width: $screen-sm) {
+            flex: 0 0 33.33333%;
+            border-bottom: 0;
+            border-left: 1px dashed $brand-grey-dimmed;
+
+            &:first-child {
+                border-left: 0;
+            }
+        }
     }
 }
 
@@ -18,16 +37,15 @@
 }
 
 .actionTitle {
-    font-size: $font-size-h4;
-    line-height: $line-height;
+    font-size: $font-size-base;
     color: $text-color;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: $spacer / 4;
     transition: color .2s ease-out;
 }
 
 .actionText {
-    font-size: $font-size-base;
+    font-size: $font-size-small;
     color: $brand-grey-light;
     margin-bottom: 0;
     transition: color .2s ease-out;
@@ -36,22 +54,13 @@
 .action {
     display: block;
     margin: 0;
-    padding-left: 1.75rem;
-    padding-right: $spacer / 2;
+    padding-top: $spacer * $line-height;
+    padding-bottom: $spacer * $line-height;
+    padding-left: $spacer * 2;
+    padding-right: $spacer;
     position: relative;
     text-align: left;
-
-    &:first-child {
-        margin-bottom: $spacer * $line-height;
-    }
-
-    @media (min-width: $screen-xs) {
-        flex: 1 1 50%;
-
-        &:first-child {
-            margin-bottom: 0;
-        }
-    }
+    height: 100%;
 
     &:hover,
     &:focus {
@@ -73,8 +82,8 @@
 
     svg {
         position: absolute;
-        left: 0;
-        top: .4rem;
+        left: $spacer;
+        top: $spacer * $line-height;
         fill: $brand-grey-light;
     }
 }

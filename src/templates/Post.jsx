@@ -28,7 +28,7 @@ const Post = ({ data, location }) => {
     coinhive,
     tags
   } = post.frontmatter
-  const { slug } = post.fields
+  const { slug, githubLink } = post.fields
 
   return (
     <Fragment>
@@ -51,7 +51,7 @@ const Post = ({ data, location }) => {
           {type !== 'photo' && <PostContent post={post} />}
 
           {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-          <PostActions slug={slug} url={meta.siteUrl} />
+          <PostActions slug={slug} url={meta.siteUrl} githubLink={githubLink} />
           <PostMeta post={post} meta={meta} />
         </article>
 
@@ -116,6 +116,7 @@ export const pageQuery = graphql`
       fields {
         slug
         date
+        githubLink
       }
       rawMarkdownBody
     }

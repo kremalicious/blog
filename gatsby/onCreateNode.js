@@ -1,5 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const { repoContentPath } = require('../config')
 
 // Create slug & date for posts from file path values
 exports.createMarkdownFields = (node, createNodeField, getNode) => {
@@ -35,5 +36,16 @@ exports.createMarkdownFields = (node, createNodeField, getNode) => {
     node,
     name: 'date',
     value: date
+  })
+
+  // github file link
+  const type = fileNode.sourceInstanceName
+  const file = fileNode.relativePath
+  const githubLink = `${repoContentPath}/${type}/${file}`
+
+  createNodeField({
+    node,
+    name: 'githubLink',
+    value: githubLink
   })
 }
