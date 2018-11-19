@@ -4,7 +4,6 @@ type: post
 title: Adiumeetie. Tweetie Style Adium Icon
 image: ../media/Teaser-Adiumeetie.jpg
 download: ../media/adiumeetie-by-kremalicious.zip
-author: Matthias Kretschmann
 
 date: 2009-06-24 21:00:38+00:00
 
@@ -23,7 +22,6 @@ While the Tweetie Mac icon (and it's UI) was discussed quite controversial (whic
 The icon comes in various formats (iContainer, icns, png) in sizes from 512px-16px and as an Adium dock icon package. This icon package uses some more icons (just 128px each) for the different states of Adium (online, offline, alert etc.) and includes the application icon too.
 
 ![Adiumeetie States](../media/Adiumeetie-Teaser-AdiumIcon.png)
-
 
 ## Download
 

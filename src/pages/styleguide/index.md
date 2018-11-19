@@ -5,6 +5,8 @@ title: Style Guide
 sitemap: false
 ---
 
+<!-- markdownlint-disable -->
+
 The main page title of this guide is an `h1` element.
 
 ## Colors

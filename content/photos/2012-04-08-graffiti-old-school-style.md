@@ -8,4 +8,4 @@ author: Matthias Kretschmann
 date: 2012-04-08 20:14:49+00:00
 ---
 
-from [Instagram](http://instagr.am), posted with [Instagrate to WordPress](http://www.polevaultweb.com/plugins/instagrate-to-wordpress/)
+from [Instagram](http://instagr.am)

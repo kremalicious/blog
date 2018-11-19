@@ -1,13 +1,12 @@
 ---
 type: post
 
-title: Ultimate Share Link Bonanza For Coda, Wordpress And Everything Else
+title: Ultimate Share Link Bonanza For Coda, WordPress And Everything Else
 download: ../media/share-link-bonanza-coda-clips.zip
-author: Matthias Kretschmann
 
 date: 2009-03-29 23:12:15+00:00
 
-category: 
+category:
 tags:
   - design
   - goodies
@@ -21,7 +20,6 @@ coinhive: true
 Ever wanted to include those sharing links to social or bookmarking sites so users can easily submit your content to these sites in a Wordpress site or any other platform? Then you might have experienced a rather time consuming search odyssey to get those links. But fear no more! In this article I've provided a huge collection of all the links to your favorite social sites compiled in two handy Coda Clip files in a plain and a Wordpress version. And the non-Coda users can download an html file with all the links included.
 
 Additionally you'll find a huge list within this article with the separated links in two versions for each site. And finally I've put together a quick tutorial for using buttons or icons with these links. This way you can easily add content submit/sharing links to your sites in no time.
-
 
 <!-- more -->
 
@@ -84,7 +82,6 @@ Apart from that some sites allow you to add and submit more informations than ju
 
 Anyway, as I've said above some sites allow more to submit here and you'll find this also in capital letters. You have to adjust them manually too.
 
-
 ## 3. Quick Tutorial For Using Icons With These Links
 
 ![Tutorial icon by kremalicious](../media/tutorial-icon.png)I've also written a quick tutorial in case you want to use little images as icons beside your links. To achieve this these two solution provided here should fit every need for this. You can do this by using one of these two techniques realized with HTML and CSS:
@@ -103,11 +100,7 @@ And if you want to just use an icon with no text use just an img element without
 <a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>
 ```
 
-
-
 ## 3.2 Use CSS Background Images
-
-
 
 To me a more cleaner solution is to use the css background-image property to include the icon images. Just add a class or an id to every share link like so:
 
@@ -117,14 +110,12 @@ To me a more cleaner solution is to use the css background-image property to inc
 
 And in your CSS select this class and style it with a background image. Assuming you want the site icon to appear left beside the link text you would also have to add some padding so the text won't overlap the icons:
 
-
 ```css
 .delicious {
     background: url(delicious.png) no-repeat center center;
     padding-left: 20px;
 }
 ```
-
 
 If you want to use just icons and no text you should provide a link text anyway but hide it with css. This is a good practice for accessibility and search engine optimization. Also you would have to provide the dimensions of the icon:
 
@@ -155,12 +146,9 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 `<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"></a>`
 
 **Wordpress**
-`<a href="http://del.icio.us/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;notes=YOUR NOTES" title="Save To Delicious"></a>
-`
+`<a href="http://del.icio.us/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;notes=YOUR NOTES" title="Save To Delicious"></a>`
 
 ## StumbleUpon
-
-
 
 **Plain**
 `<a href="http://www.stumbleupon.com/submit?url=http://YOUR URL&amp;title=YOUR TITLE" title="Stumble It!">StumbleUpon</a>`
@@ -168,11 +156,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.stumbleupon.com/submit?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Stumble It!">StumbleUpon</a>`
 
-
-
 ## Facebook
-
-
 
 **Plain**
 `<a href="http://www.facebook.com/sharer.php?u=http://YOUR URL?t=YOUR TITLE" title="Share On Facebook">Facebook</a>`
@@ -180,11 +164,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>?t=<?php the_title(); ?>" title="Share On Facebook">Facebook</a>`
 
-
-
 ## Twitter
-
-
 
 **Plain**
 `<a href="http://twitter.com/home?status=YOUR MESSAGE ALONG WITH YOUR URL" title="Tweet This">Twitter</a>`
@@ -192,47 +172,37 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://twitter.com/home?status=YOUR MESSAGE <?php the_title(); ?> <?php the_permalink();?>" title="Tweet This">Twitter</a>`
 
-
-
 ## Digg
 
+### Plain
 
-
-**Plain**
-
-
+```html
     <code class="html"><!-- Digg This Link
 
-    	Usage:
-    	--------------------------------------------------
-    	url		: URL-encode all strings as appropriate.
-    			  For example:
-    			  http%3A%2F%2Fyourwebsite%2Fyourstoryurl.html
-    			  Maximum length is 255 characters
-    	title	: Also URL-encode the story title
-    			  Maximum length 75 characters
-    	bodytext	: Also URL-encode the body text
-    			  Maximum length is 350 characters
-    	media	: default is news, choices are news, video or image
-    	topic	: only one category
+      Usage:
+      --------------------------------------------------
+      url: URL-encode all strings as appropriate.
+            For example:
+            http%3A%2F%2Fyourwebsite%2Fyourstoryurl.html
+            Maximum length is 255 characters
+      title: Also URL-encode the story title
+            Maximum length 75 characters
+      bodytext: Also URL-encode the body text
+            Maximum length is 350 characters
+      media: default is news, choices are news, video or image
+      topic: only one category
     -->
     <a href="http://digg.com/submit?url=YOUR URL&
     title=YOUR TITLE&
     bodytext=YOUR DESCRIPTION&
     media=NEWS, VIDEO or IMAGES&
     topic=TOPIC&thumbnails=1" title="Digg This">Digg</a></code>
-
-
+```
 
 **Wordpress**
 `<a href="http://digg.com/submit?url=<?php the_permalink();?>&title=<?php the_title(); ?>&amp;bodytext=YOUR DESCRIPTION&amp;media=NEWS, VIDEO or IMAGES&amp;topic=TOPIC&amp;thumbnails=1" title="Digg This">Digg</a>`
 
-
-
-
 ## Design Float
-
-
 
 **Plain**
 `<a href="http://www.designfloat.com/submit.php?url=http://YOUR URL&amp;title=YOUR TITLE" title="Float This!">Design Float</a>`
@@ -240,11 +210,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.designfloat.com/submit.php?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Float This!">Design Float</a>`
 
-
-
 ## Reddit
-
-
 
 **Plain**
 `<a href="http://www.reddit.com/submit?url=http://YOUR URL&amp;title=YOUR TITLE" title="Reddit">Reddit</a>`
@@ -252,12 +218,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.reddit.com/submit?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Reddit">Reddit</a>`
 
-
-
-
 ## Technorati
-
-
 
 **Plain**
 `<a href="http://www.technorati.com/faves/?add=http://YOUR URL" title="Technorati">Technorati</a>`
@@ -265,12 +226,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.technorati.com/faves/?add=<?php the_permalink();?>" title="Technorati">Technorati</a>`
 
-
-
-
 ## Yahoo Buzz
-
-
 
 **Plain**
 `<a href="http://buzz.yahoo.com/submit/?submitUrl=http://YOUR URL&amp;submitHeadline=YOUR TITLE" title="Buzz Up!">Yahoo Buzz</a>`
@@ -278,12 +234,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://buzz.yahoo.com/submit/?submitUrl=<?php the_permalink();?>&amp;submitHeadline=<?php the_title(); ?>" title="Buzz Up!">Yahoo Buzz</a>`
 
-
-
-
 ## Newsvine
-
-
 
 **Plain**
 `<a href="http://www.newsvine.com/_tools/seed&amp;save?u=http://YOUR URL&amp;h=YOUR TITLE" title="Newsvine">Newsvine</a>`
@@ -291,12 +242,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.newsvine.com/_tools/seed&amp;save?u=<?php the_permalink();?>&amp;h=<?php the_title(); ?>" title="Newsvine">Newsvine</a>`
 
-
-
-
 ## Magnolia
-
-
 
 **Plain**
 `<a href="http://ma.gnolia.com/bookmarklet/add?url=http://YOUR URL&amp;title=YOUR TITLE" title="Magnolia">Magnolia</a>`
@@ -304,12 +250,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://ma.gnolia.com/bookmarklet/add?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Magnolia">Magnolia</a>`
 
-
-
-
 ## Google Bookmarks
-
-
 
 **Plain**
 `<a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=http://YOUR URL&amp;title=YOUR TITLE" title="Save To Google Bookmarks">Google Bookmarks</a>`
@@ -317,12 +258,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.google.com/bookmarks/mark?op=edit&bkmk=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Save To Google Bookmarks">Google Bookmarks</a>`
 
-
-
-
 ## FriendFeed
-
-
 
 **Plain**
 `<a href="http://friendfeed.com/share?url=http://YOUR URL&amp;title=YOUR TITLE" title="Share ON FriendFeed">FriendFeed</a>`
@@ -330,12 +266,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://friendfeed.com/share?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Share ON FriendFeed">FriendFeed</a>`
 
-
-
-
 ## Blogmarks
-
-
 
 **Plain**
 `<a href="http://blogmarks.net/my/new.php?mini=1&amp;url=http://YOUR URL&amp;title=YOUR TITLE" title="Save To Blogmarks">Blogmarks</a>`
@@ -343,12 +274,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://blogmarks.net/my/new.php?mini=1&amp;url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Save To Blogmarks">Blogmarks</a>`
 
-
-
-
 ## MySpace
-
-
 
 **Plain**
 `<a href="http://www.myspace.com/Modules/PostTo/Pages/?l=3&amp;u=http://YOUR URL&amp;t=YOUR TITLE&amp;c=YOUR COMMENT" title="MySpace">MySpace</a>`
@@ -356,12 +282,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.myspace.com/Modules/PostTo/Pages/?l=3&amp;u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>&amp;c=YOUR COMMENT" title="MySpace">MySpace</a>`
 
-
-
-
 ## Script & Style
-
-
 
 **Plain**
 `<a href="http://scriptandstyle.com/submit?url=http://>YOUR URL&amp;title=YOUR TITLE" title="Script &amp; Style">Script & Style</a>`
@@ -369,12 +290,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://scriptandstyle.com/submit?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Script &amp; Style">Script & Style</a>`
 
-
-
-
 ## Blinklist
-
-
 
 **Plain**
 `<a href="http://blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=http://YOUR URL&amp;Title=YOUR TITLE" title="Blinklist">Blinklist</a>`
@@ -382,12 +298,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://blinklist.com/index.php?Action=Blink/addblink.php&amp;Url=<?php the_permalink();?>&amp;Title=<?php the_title(); ?>" title="Blinklist">Blinklist</a>`
 
-
-
-
 ## Slashdot
-
-
 
 **Plain**
 `<a href="http://slashdot.org/bookmark.pl?url=http://YOUR URL&amp;title=YOUR TITLE" title="Slashdot">Slashdot</a>`
@@ -395,12 +306,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://slashdot.org/bookmark.pl?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Slashdot">Slashdot</a>`
 
-
-
-
 ## LinkedIn
-
-
 
 **Plain**
 `<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://YOUR URL&amp;title=YOUR TITLE&amp;summary=YOUR SUMMARY&amp;source=" title="LinkedIn">LinkedIn</a>`
@@ -408,12 +314,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;summary=YOUR SUMMARY&amp;source=" title="LinkedIn">LinkedIn</a>`
 
-
-
-
 ## Windows Live
-
-
 
 **Plain**
 `<a href="https://favorites.live.com/quickadd.aspx?marklet=1&amp;mkt=en-us&amp;url=http://YOUR URL&amp;title=YOUR TITLE&amp;top=1" title="Windows Live">Windows Live</a>`
@@ -421,12 +322,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="https://favorites.live.com/quickadd.aspx?marklet=1&amp;mkt=en-us&amp;url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;top=1" title="Windows Live">Windows Live</a>`
 
-
-
-
 ## Furl
-
-
 
 **Plain**
 `<a href="http://furl.net/storeIt.jsp?u=http://YOUR URL&amp;t=YOUR TITLE" title="Furl">Furl</a>`
@@ -434,12 +330,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://furl.net/storeIt.jsp?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Furl">Furl</a>`
 
-
-
-
 ## Yahoo Bookmarks
-
-
 
 **Plain**
 `<a href="http://bookmarks.yahoo.com/toolbar/savebm?opener=tb&amp;u=http://YOUR URL&amp;t=YOUR TILE" title="Yahoo! Bookmarks">Yahoo Bookmarks</a>`
@@ -447,12 +338,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://bookmarks.yahoo.com/toolbar/savebm?opener=tb&amp;u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Yahoo! Bookmarks">Yahoo Bookmarks</a>`
 
-
-
-
 ## Mixx
-
-
 
 **Plain**
 `<a href="http://www.mixx.com/submit?page_url=http://YOUR URL" title="Mixx">Mixx</a>`
@@ -460,12 +346,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.mixx.com/submit?page_url=<?php the_permalink();?>" title="Mixx">Mixx</a>`
 
-
-
-
 ## Propeller
-
-
 
 **Plain**
 `<a href="http://www.propeller.com/submit/?U=http://YOUR URL&amp;T=YOUR TITLE" title="Propeller">Propeller</a>`
@@ -473,12 +354,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.propeller.com/submit/?U=<?php the_permalink();?>&amp;T=<?php the_title(); ?>" title="Propeller">Propeller</a>`
 
-
-
-
 ## Yigg
-
-
 
 **Plain**
 `<a href="http://www.yigg.de/neu?exturl=http://YOUR URL&amp;exttitle=YOUR TITLE" title="Yigg">Yigg</a>`
@@ -486,12 +362,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.yigg.de/neu?exturl=<?php the_permalink();?>&amp;exttitle=<?php the_title(); ?>" title="Yigg">Yigg</a>`
 
-
-
-
 ## Mr Wong
-
-
 
 **Plain**
 `<a href="http://www.mister-wong.com/index.php?action=addurl&amp;bm_url=http://YOUR URL&amp;bm_description=YOUR TITLE" title="Mr Wong">Mr Wong</a>`
@@ -499,12 +370,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.mister-wong.com/index.php?action=addurl&amp;bm_url=<?php the_permalink();?>&amp;bm_description=<?php the_title(); ?>" title="Mr Wong">Mr Wong</a>`
 
-
-
-
 ## Diigo
-
-
 
 **Plain**
 `<a href="http://secure.diigo.com/post?url=http://YOUR URL&amp;title=YOUR TITLE" title="Diigo">Diigo</a>`
@@ -512,12 +378,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://secure.diigo.com/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Diigo">Diigo</a>`
 
-
-
-
 ## N4G
-
-
 
 **Plain**
 `<a href="http://www.n4g.com/tips.aspx?url=http://YOUR URL&amp;title=YOUR TITLE" title="N4G">N4G</a>`
@@ -525,12 +386,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.n4g.com/tips.aspx?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="N4G">N4G</a>`
 
-
-
-
 ## Current
-
-
 
 **Plain**
 `<a href="http://current.com/clipper.htm?url=http://YOUR URL&amp;title=YOUR TITLE&amp;src=st" title="Current">Current</a>`
@@ -538,12 +394,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://current.com/clipper.htm?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>&amp;src=st" title="Current">Current</a>`
 
-
-
-
 ## Simpy
-
-
 
 **Plain**
 `<a href="http://www.simpy.com/simpy/LinkAdd.do?href=http://YOUR URL&amp;title=YOUR TITLE" title="Simpy">Simpy</a>`
@@ -551,12 +402,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.simpy.com/simpy/LinkAdd.do?href=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Simpy">Simpy</a>`
 
-
-
-
 ## Oknotizie
-
-
 
 **Plain**
 `<a href="http://oknotizie.alice.it/post?url=http://YOUR URL&amp;title=YOUR TITLE" title="Oknotizie">Oknotizie</a>`
@@ -564,12 +410,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://oknotizie.alice.it/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Oknotizie">Oknotizie</a>`
 
-
-
-
 ## Care2
-
-
 
 **Plain**
 `<a href="http://www.care2.com/news/compose?share[link_url]=http://YOUR URL&amp;share[title]=YOUR TITLE" title="Care2">Care2</a>`
@@ -577,12 +418,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.care2.com/news/compose?share[link_url]=<?php the_permalink();?>&amp;share[title]=<?php the_title(); ?>" title="Care2">Care2</a>`
 
-
-
-
 ## Faves
-
-
 
 **Plain**
 `<a href="http://www.faves.com/Authoring.aspx?u=http://YOUR URL&amp;t=YOUR TITLE" title="Faves">Faves</a>`
@@ -590,12 +426,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.faves.com/Authoring.aspx?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" title="Faves">Faves</a>`
 
-
-
-
 ## Meneame
-
-
 
 **Plain**
 `<a href="http://meneame.net/submit.php?url=http://YOUR URL" title="Meneame">Meneame</a>`
@@ -603,12 +434,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://meneame.net/submit.php?url=<?php the_permalink();?>" title="Meneame">Meneame</a>`
 
-
-
-
 ## Fresqui
-
-
 
 **Plain**
 `<a href="http://ocio.fresqui.com/post?url=http://YOUR URL&amp;title=YOUR TITLE" title="Fresqui">Fresqui</a>`
@@ -616,12 +442,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://ocio.fresqui.com/post?url=<?php the_permalink();?>&amp;title=<?php the_title(); ?>" title="Fresqui">Fresqui</a>`
 
-
-
-
 ## Funp
-
-
 
 **Plain**
 `<a href="http://funp.com/pages/submit/add.php?title=YOUR TITLE&amp;url=http://YOUR URL&amp;via=tools" title="Funp">Funp</a>`
@@ -629,12 +450,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://funp.com/pages/submit/add.php?title=<?php the_title(); ?>&amp;url=<?php the_permalink();?>&amp;via=tools" title="Funp">Funp</a>`
 
-
-
-
 ## Kirtsy
-
-
 
 **Plain**
 `<a href="http://www.kirtsy.com/submit.php?url=http://YOUR URL" title="Kirtsy">Kirtsy</a>`
@@ -642,12 +458,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.kirtsy.com/submit.php?url=<?php the_permalink();?>" title="Kirtsy">Kirtsy</a>`
 
-
-
-
 ## Dealspl.us
-
-
 
 **Plain**
 `<a href="http://dealspl.us/add.php?ibm=1&amp;url=http://YOUR URL" title="Dealspl.us">Dealspl.us</a>`
@@ -655,12 +466,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://dealspl.us/add.php?ibm=1&amp;url=<?php the_permalink();?>" title="Dealspl.us">Dealspl.us</a>`
 
-
-
-
 ## Xanga
-
-
 
 **Plain**
 `<a href="http://www.xanga.com/private/editorx.aspx?t=YOUR TITLE&amp;u=http://YOUR URL&amp;s=" title="Xanga">Xanga</a>`
@@ -668,12 +474,7 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 **Wordpress**
 `<a href="http://www.xanga.com/private/editorx.aspx?t=<?php the_title(); ?>&amp;u=<?php the_permalink();?>&amp;s=" title="Xanga">Xanga</a>`
 
-
-
-
 ## Sphinn
-
-
 
 **Plain**
 `<a href="http://sphinn.com/submit.php?url=http://YOUR URL" title="Sphinn">Sphinn</a>`
@@ -687,6 +488,4 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 
 If you ever wanted or had to include such sharing links manually in your sites and searched hours for those you should already have recognized the value of this article and if not already happened you can now jump around to express your enjoyment. After this you should immediately bookmark or share this site on your favorite social site. And while you're at it [I could use another coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krema%40jpberlin%2ede&item_name=kremalicious%2ecom%20%2d%20Buy%20me%20a%20coffee%20or%20two%20or%20three%20or%20more&no_shipping=1&return=http%3a%2f%2fwww%2ekremalicious%2ecom%2fthank%2dyou%2f&tax=0&currency_code=EUR&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8).
 
-And that's it. If you think there should be another site added feel free to post them in the comments or shoot me a note [via my contact form](http://www.kremalicious.com/about/contact). Also possible errors or any additions are much appreciated. If useful I will add your additions or more site links to the codaclips files and will update the article.
-
-Also I would like to provide these links as [Espresso](http://macrabbit.com/espresso/) snippets probably as part of the HTML-(or PHP?)-Sugar but this seems to be rather complicated at the moment. As soon as this becomes more straightforward I will add these to this article. But if you're already advanced in creating Espresso sugars and would like to help me with this [please contact me!](http://www.kremalicious.com/about/contact)
+And that's it.

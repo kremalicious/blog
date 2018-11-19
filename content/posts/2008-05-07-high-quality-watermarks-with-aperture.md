@@ -2,7 +2,6 @@
 type: post
 
 title: 'HowTo: Use high-quality watermarks in your images with Aperture 2.1'
-author: Matthias Kretschmann
 image: ../media/watermark_aperture.jpg
 
 date: 2008-05-07 03:27:25+00:00
@@ -22,10 +21,10 @@ Since version 1.0 Aperture is able to render images on export with a graphic ove
 
 The steps for this magic involves 4 simple steps:
 
-1.  Create a watermark image in Photoshop
-2.  Render different sizes of the watermark image
-3.  Define the watermark image inside an export preset in Aperture
-4.  Make even more...
+1. Create a watermark image in Photoshop
+2. Render different sizes of the watermark image
+3. Define the watermark image inside an export preset in Aperture
+4. Make even more...
 
 ## 1. Create a watermark image in Photoshop
 
@@ -109,7 +108,7 @@ Or use a subtle colorful spectrum:
 
 ![Aperture Watermark example v3](../media/watermarkexample_v3.jpg)
 
-## 4. Make even more...
+## 4. Make even more
 
 You can also use this feature to add borders or a whole new style to your images without the use of a plugin like [BorderFX](http://web.mac.com/reinharduebel/BorderFX/).
 

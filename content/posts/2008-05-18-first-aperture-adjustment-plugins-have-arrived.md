@@ -19,8 +19,6 @@ coinhive: true
 
 ## Dfx digital filters plugin from Tiffen
 
-
-
 The first one is the [Dfx digital filters plug-in from Tiffen](http://www.tiffen.com/products.html?tablename=dfx) which was already available as an image editing plugin for Photoshop on Windows and Mac. It's an award winning set of [94 individual filters](http://www.tiffen.com/dfx_filter_effects_ig.html) for adjusting and altering your images in Aperture 2.1 and above.
 
 [![Tiffen Dfx digital filters plugin Tiffen](../media/tiffen_aperture.jpg)](../media/tiffen_aperture.jpg)
@@ -44,7 +42,6 @@ Digital Film Tools [released three plugins](http://www.digitalfilmtools.com/aper
 [Ozone 2.5](http://www.digitalfilmtools.com/ozone/) is an adjustment plugin for selective adjustments of colors. It' based on the Digital Zone System, which divides a picture into 11 discrete zones where you can adjust each zone separately.
 
 [![Ozone 2.5](../media/dft-ozone_ui.jpg)](../media/dft-ozone_ui.jpg)
-
 
 All plugins are available now and can be [purchased fom the Digital Film Tools website](http://www.digitalfilmtools.com/buy/home.php?cat=38) as a Super Bundle with all three plugins included for US$ 175 or separately for US$ 50 (Light and Ozone) or US$ 120 (Power Stroke). There are also trial versions for the [Power Stroke](http://www.digitalfilmtools.com/powerstroke/media.htm), [Light](http://www.digitalfilmtools.com/light/media.htm) and [Ozone](http://www.digitalfilmtools.com/ozone/media.htm) plugin available from DFT's website which will watermark the edited images in demo mode.
 
@@ -114,7 +111,7 @@ Tiffen website
 [www.tiffen.com](http://www.tiffen.com)
 
 Digital Film Tools website
-[www.digitalfilmtools.com ](http://www.digitalfilmtools.com)
+[www.digitalfilmtools.com](http://www.digitalfilmtools.com)
 
 Nik Software website
 [www.niksoftware.com](http://www.niksoftware.com)

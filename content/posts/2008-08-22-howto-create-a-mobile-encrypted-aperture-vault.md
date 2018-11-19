@@ -27,7 +27,7 @@ First you have to create the encrypted disk image where the Aperture Vault will 
 
 Be sure there is no device or volume selected in the sidebar and click on the New Image icon in the toolbar. Set a file name of the disk image and the Volume Name (the name of the mounted disk image on your desktop). Change all the settings as seen in the following screenshot. Be sure to select sparse bundle disk image as the Image Format before changing the volume size. This way you can set a bigger volume size than your physical disk space available on your hard drive. After creation the disk image won't be as big as you have set it with volume size. It will grow as you write files to it. For maximum security (but slower performance) select 256-bit AES encryption in the Encryption drop down menu:
 
-![](../media/securevault3.png)
+![secure vault](../media/securevault3.png)
 
 Finally set the destination where you want to have the disk image created. To make it all mobile choose your mobile hard drive as destination. After clicking Create you will be asked to provide a password for encrypting the disk image. Be sure to click on the little key icon to use Mac OS X built in password generator. Generate a new extra long password. Type in your new password manually in the Verify field and be sure to check "Remember password in my keychain". This is the only time you have to provide the password since it will be saved in your keychain after clicking OK.
 
@@ -37,15 +37,15 @@ Now your newly created sparse bundle disk image ahould be mounted on your deskto
 
 Now go to Aperture, choose the Projects tab and click on the little gear wheel at the bottom of the sidebar and choose "Add Vault" from the opened menu.
 
-![](../media/securevault2.png)
+![secure vault 2](../media/securevault2.png)
 
 In the opened dialogue select your mounted disk image under the devices section in your sidebar, give it a name and click Add.
 
-![](../media/securevault4.png)
+![secure vault 3](../media/securevault4.png)
 
 The new Vault will be added to your Vault list and is now to ready to be updated.
 
-![](../media/securevault5.png)
+![secure vault 4](../media/securevault5.png)
 
 Just click the little iSync-style arrow beside your Vault and the Vault be written to your encrypted disk image. When finished you can eject the disk image. It can now be mounted again just with the correct password which is stored in your keychain so won't even recognize the encryption. Of course, when you try to mount this disk image on another mac you have to type in the password or import the entry from your keychain.
 

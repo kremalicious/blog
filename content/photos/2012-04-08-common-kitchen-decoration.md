@@ -7,5 +7,3 @@ author: Matthias Kretschmann
 
 date: 2012-04-08 19:29:33+00:00
 ---
-
-
