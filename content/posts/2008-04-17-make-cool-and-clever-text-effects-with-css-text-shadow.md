@@ -2,9 +2,7 @@
 type: post
 
 title: 'Text-Shadow Exposed: Make cool and clever text effects with css text-shadow'
-author: Matthias Kretschmann
-
-date: "2008-04-17 01:32:13+00:00"
+date: 2008-04-17 01:32:13+00:00
 
 category:
 tags:
@@ -38,13 +36,11 @@ Here's an overview of the headlines in this article. As you can see it's rather 
 
 ## 1. What text-shadow is good for
 
-![kremalicious navbar](../media/navbar-kremalicious.png)
-subtle glow in my navigation
+![kremalicious navbar](../media/navbar-kremalicious.png "subtle glow in my navigation")
 
 The main goal of this property is to give designers and css coders a tool to make text effects, which could only be done before by rendering text as images with all the side effects. Text rendered as an image isn't searchable and therefore very undelicious for search engines. Another side effect is the fact that images can be way more bigger as one small line of code in terms of file size. As you may know most css-files, which contain the whole layout of a website, are smaller than one image on most websites. So it's really clever to use a css function instead of images for reducing unnecessary traffic.
 
-![text-shadow used on apple.com](../media/textshadow-apple.png)
-text-shadow on Apple.com
+![text-shadow used on apple.com](../media/textshadow-apple.png "text-shadow on apple.com")
 
 Utilizing text-shadow to simulate engraved or stenciled text is widely used on websites. Apple did it everywhere in Mac OS X not just since Leopard (just look at the titlebars). So if you design a website for Mac users you can increase the sexyness of your website, because this particular usage of text-shadow integrates very well with the overall look of Mac OS X. I will explain how to achieve this engraved-text-on-metal effect later on in this article.
 
