@@ -22,8 +22,6 @@ There are already some lists like this available on the web and they are always 
 
 A handy dropdown icon with the most common create tasks you can do in Aperture 2. This causes Aperture 2 to have a delightful clean toolbar by default.
 
-
-
 ## 14. Skimming through your projects
 
 [![Skimming](../media/aperture15_2.png)](../media/aperture15_2.png)
@@ -54,8 +52,6 @@ The behavior of double clicking on images can now be set in Aperture's preferenc
 
 The photobook layout capabilities of Aperture became much powerful with version 2. Now you can create your own book templates where you have much freedom for lay-outing it. In fact you have a powerful Desktop Publishing Program built right into Aperture. Be sure to listen to the [Inside Aperture Podcast about the book layout tool in Aperture](http://digitalmedia.oreilly.com/2008/05/06/aperture-layout-application-schorr.html).
 
-
-
 ## 9. The V- and W-cycle
 
 [![HUD](../media/aperture15_8.png)](../media/aperture15_8.png)
@@ -63,8 +59,6 @@ The photobook layout capabilities of Aperture became much powerful with version 
 By pressing V on your keyboard you can quickly cycle through different viewer modes. In previous versions of Aperture the V-key just showed/hid the big viewer.
 
 By pressing W on your keyboard you can cycle through the tabbed Inspector on the left and quickly access either your Projects, Metadata or the Adjustments.
-
-
 
 ## 8. The tabbed Inspector/HUD
 

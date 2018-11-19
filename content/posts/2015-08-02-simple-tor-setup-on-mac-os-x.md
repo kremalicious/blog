@@ -22,12 +22,10 @@ There are many reasons you might want to browse anonymously which can be accompl
 
 I'm using macOS High Sierra (10.13) for the following instructions but it should work on almost any macOS version.
 
-## Table of Contents
-
 - [Tor Browser](#tor-browser)
 - [Install Tor](#install-tor)
 - [Set network proxy settings via System Preferences](#set-network-proxy-settings-via-system-preferences)
-- [All in one go: start Tor &amp; set network proxy settings automatically](#all-in-one-go-start-tor-set-network-proxy-settings-automatically)
+- [All in one go: start Tor & set network proxy settings automatically](#all-in-one-go-start-tor--set-network-proxy-settings-automatically)
 - [Non-standard apps](#non-standard-apps)
 
 ---
@@ -71,8 +69,8 @@ In order for all your system traffic being routed through Tor you need to adjust
 You can do this under *System Preferences > Network* by creating a specific Tor network location for it:
 
 1. From Location dropdown at the top, select *Edit Locations...*
-1. Create a new location by hitting the plus button and name it *Tor*. Hitting Done will select the new location which is now ready to be configured.
-1. Go to *Advanced > Proxies* and activate *SOCKS Proxy* and add those values:
+2. Create a new location by hitting the plus button and name it *Tor*. Hitting Done will select the new location which is now ready to be configured.
+3. Go to *Advanced > Proxies* and activate *SOCKS Proxy* and add those values:
 
 - *SOCKS proxy server*: `localhost`
 - *Port*: `9050`
@@ -149,4 +147,3 @@ Always [check](https://check.torproject.org) your Tor connection with whatever a
 
 - *SOCKS proxy server*: `localhost`
 - *Port*: `9050`
-

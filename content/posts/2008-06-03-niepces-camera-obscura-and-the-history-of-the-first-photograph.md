@@ -4,7 +4,6 @@ type: post
 title: Niépce's Camera Obscura And The History Of The First Photograph
 image: ../media/Teaser-Camera-Obscura-Icons.jpg
 download: ../media/niepces_camera_obscura_by_kremalicious.zip
-author: Matthias Kretschmann
 
 date: 2008-06-03 14:34:03+00:00
 

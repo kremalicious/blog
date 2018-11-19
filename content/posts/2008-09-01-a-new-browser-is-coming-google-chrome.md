@@ -2,7 +2,6 @@
 type: post
 
 title: 'A New Browser Is Coming: Google Chrome'
-author: Matthias Kretschmann
 image: ../media/googlechrome.png
 
 date: 2008-09-01 20:40:38+00:00
@@ -32,8 +31,8 @@ Update 3: Google Chrome seems to have problems with some of my transparent PNGs:
 
 Update 4: There are some nice articles about various aspects of Chrome available in the web:
 
-  * Matt Cutts tries to prevent paranoia and [explains when Google Chrome talk home](http://www.mattcutts.com/blog/google-chrome-communication/).
-  * Gina from lifehacker.com dissects [Google Chrome's Full List of Special about: Pages](http://lifehacker.com/5045164/).
-  * Google [explains their priorities regarding different Platforms](http://googlemac.blogspot.com/2008/09/platforms-and-priorities.html).
-  * The [Chromium Developer Documentation](http://dev.chromium.org/Home) is available too.
-  * And it seems Google [cut out some features of WebKit like text-shadow](http://www.flickr.com/photos/kurafire/2822606444/).
+* Matt Cutts tries to prevent paranoia and [explains when Google Chrome talk home](http://www.mattcutts.com/blog/google-chrome-communication/).
+* Gina from lifehacker.com dissects [Google Chrome's Full List of Special about: Pages](http://lifehacker.com/5045164/).
+* Google [explains their priorities regarding different Platforms](http://googlemac.blogspot.com/2008/09/platforms-and-priorities.html).
+* The [Chromium Developer Documentation](http://dev.chromium.org/Home) is available too.
+* And it seems Google [cut out some features of WebKit like text-shadow](http://www.flickr.com/photos/kurafire/2822606444/).

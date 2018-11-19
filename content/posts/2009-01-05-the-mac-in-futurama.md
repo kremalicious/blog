@@ -2,10 +2,8 @@
 type: post
 
 title: The Mac in Futurama
-author: Matthias Kretschmann
-date: 2009-01-05 03:14:45+00:00
-
 image: ../media/futurama-mac-teaser.png
+date: 2009-01-05 03:14:45+00:00
 
 tags:
   - design
@@ -34,7 +32,7 @@ The moon farmer introduces his three robot daughters. One of them is named "Dais
 
 Indeed the episode with the most Mac references. The Planet Express crew have to deliver a package to a planet settled by separatist robots. And guess what their favorite OS is?
 
-The sound to start the daily human hunt is the [Mac startup chime](http://musicthing.blogspot.com/2005/05/tiny-music-makers-pt-4-mac-startup.html) composed by [Jim Reekes ](http://en.wikipedia.org/wiki/Jim_Reekes) and first used in 1991 on the [Macintosh Quadra 700](http://en.wikipedia.org/wiki/Macintosh_Quadra_700). Maybe the [Chime of Death](http://en.wikipedia.org/wiki/Chimes_of_Death) would be more suitable for that.
+The sound to start the daily human hunt is the [Mac startup chime](http://musicthing.blogspot.com/2005/05/tiny-music-makers-pt-4-mac-startup.html) composed by [Jim Reekes](http://en.wikipedia.org/wiki/Jim_Reekes) and first used in 1991 on the [Macintosh Quadra 700](http://en.wikipedia.org/wiki/Macintosh_Quadra_700). Maybe the [Chime of Death](http://en.wikipedia.org/wiki/Chimes_of_Death) would be more suitable for that.
 ![Mac startup chime](../media/futurama-mac-02.png)
 
 The judge is a not so friendly Macintosh 128k with a classic Mac OS Finder face. It uses Mac OS interface elements while judging and freezing at it.

@@ -2,7 +2,6 @@
 type: post
 
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
-author: Matthias Kretschmann
 image: ../media/ubuntu_mac_feature.jpg
 
 date: 2008-06-19 03:08:11+00:00
@@ -45,7 +44,15 @@ Here are the steps involved in setting up your Ubuntu box as a Mac file server:
 - [5. Configure Avahi and advertise services](#5-configure-avahi-and-advertise-services)
 - [6. Configure Time Machine](#6-configure-time-machine)
 - [7. Conclusion, Problems and more informations](#7-conclusion-problems-and-more-informations)
+  - [Problems with creating the backup disk image](#problems-with-creating-the-backup-disk-image)
+  - [Firewall Settings](#firewall-settings)
+- ["Connection Failed"](#connection-failed)
+  - [-5014 error](#-5014-error)
+  - [Time Machine Full System Restore](#time-machine-full-system-restore)
+  - [Netatalk backup disk reaching maximum capacity](#netatalk-backup-disk-reaching-maximum-capacity)
+  - [More Articles](#more-articles)
 - [8. Downloading and using the Server Display Icons](#8-downloading-and-using-the-server-display-icons)
+  - [How to use the icons](#how-to-use-the-icons)
 - [9. Translations Of This Article](#9-translations-of-this-article)
 
 ## 1. Modify and install Netatalk

@@ -45,7 +45,7 @@ Leopard included a new version of Preview, the pdf and image-viewing application
 
 But the best thing with the new Image Capture is the feature of setting the bit depth of the scanner to 16 bits. This was just possible before through the Canon software ScanGear in Photoshop.
 
-### Scanning right into Apple Aperture?
+### Scanning right into Apple Aperture
 
 ![Aperture Scanning](../media/aperturescan.png)
 

@@ -2,7 +2,6 @@
 type: post
 
 title: Enterprise Software Sucks
-author: Matthias Kretschmann
 date: 2013-07-13 13:19:44+00:00
 
 tags:
@@ -44,7 +43,7 @@ While being human and friendly sounds like a no-brainer, in the corporate softwa
 
 Creating this layer of delight on top of the functional layers is especially crucial in printing. Good design helps making users more forgiving about errors no matter who’s responsible for them. Printers – the little autistic beings they are – just tend to not work from time to time, and a failing device immediately reflects back on our service. If that’s the case the least we can do is make the experience beautiful.
 
-![](../media/buddha-printer.png)
+![Buddha printer](../media/buddha-printer.png)
 
 Paired with helpful and to-the-point copy, this creates a friendly and unifying atmosphere across the whole product, ranging from the web to native apps on Mac, Windows, iOS and Android.
 

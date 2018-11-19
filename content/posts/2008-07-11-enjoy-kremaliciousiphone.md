@@ -2,8 +2,6 @@
 type: post
 
 title: Enjoy Kremalicious{iPhone}
-author: Matthias Kretschmann
-
 date: 2008-07-11 00:20:22+00:00
 
 tags:
@@ -11,7 +9,9 @@ tags:
 - wordpress
 ---
 
-![](../media/kremaliciousiphone_thumb.png)I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
+![kremalicious iPhone](../media/kremaliciousiphone_thumb.png)
+
+I'm thrilled to announce that kremalicious.com now uses an iPhone optimized theme. When you browse this website with your iPhone everything will automagically switch to the new kremalicious iPhone theme which is simply called kremalicious{iPhone}. See those hip brackets?
 
 <!-- more -->
 
@@ -53,21 +53,20 @@ And finally many thanks to [cschock](http://www.cschock.de) for continuously tes
 
 ## Resources for you to do the same and even more
 
-  * [iWPhone by ContentRobot](http://iwphone.contentrobot.com/): The plug-in I use for kremalicious.iPhone. It detects an iPhone or iPod Touch and switches to another simple theme. You can easily adjust the plugin to point it to your own theme.
+* [iWPhone by ContentRobot](http://iwphone.contentrobot.com/): The plug-in I use for kremalicious.iPhone. It detects an iPhone or iPod Touch and switches to another simple theme. You can easily adjust the plugin to point it to your own theme.
 
-  * [WPTouch - Wordpress iPhonified](http://www.bravenewcode.com/wptouch/): If you don't want to digg into html, css and iPhone specific properties this plug-in will help you. Once activated it automatically switches to an iPhone like theme with lots of eyecandy. You can customize some colors and a lot of different icons all from the Wordpress admin panel
+* [WPTouch - Wordpress iPhonified](http://www.bravenewcode.com/wptouch/): If you don't want to digg into html, css and iPhone specific properties this plug-in will help you. Once activated it automatically switches to an iPhone like theme with lots of eyecandy. You can customize some colors and a lot of different icons all from the Wordpress admin panel
 
-  * [Tutorial: Building a website for the iPhone](http://www.engageinteractive.co.uk/blog/2008/06/19/tutorial-building-a-website-for-the-iphone/): Amazing tutorial for changing content based on the orientation of the iPhone or iPod Touch. Just browse their website with your iPhone or iPod Touch to see it in action.
+* [Tutorial: Building a website for the iPhone](http://www.engageinteractive.co.uk/blog/2008/06/19/tutorial-building-a-website-for-the-iphone/): Amazing tutorial for changing content based on the orientation of the iPhone or iPod Touch. Just browse their website with your iPhone or iPod Touch to see it in action.
 
-  * [iPhone Native Looking Skin](http://ajaxian.com/archives/iphone-native-looking-skin): Sort of a template based on css and javascript which simulates the iPhone UI. ([Final look](http://joehewitt.com/files/iphone/navigation.html))
+* [iPhone Native Looking Skin](http://ajaxian.com/archives/iphone-native-looking-skin): Sort of a template based on css and javascript which simulates the iPhone UI. ([Final look](http://joehewitt.com/files/iphone/navigation.html))
 
-  * [Touching and Gesturing on the iPhone](http://ajaxian.com/archives/iphone-native-looking-skin): Build your websites with some touch gesture features! Here's the javascript code for it.
-
+* [Touching and Gesturing on the iPhone](http://ajaxian.com/archives/iphone-native-looking-skin): Build your websites with some touch gesture features! Here's the javascript code for it.
 
 ## THE Apple resources for iPhone & Web Content
 
-  * [Safari Web Content Guide for iPhone](http://developer.apple.com/documentation/AppleApplications/Reference/SafariWebContent/Introduction/chapter_1_section_1.html)
+* [Safari Web Content Guide for iPhone](http://developer.apple.com/documentation/AppleApplications/Reference/SafariWebContent/Introduction/chapter_1_section_1.html)
 
-  * [iPhone Human Interface Guidelines for Web Applications](http://developer.apple.com/documentation/iPhone/Conceptual/iPhoneHIG/Introduction/chapter_1_section_1.html)
+* [iPhone Human Interface Guidelines for Web Applications](http://developer.apple.com/documentation/iPhone/Conceptual/iPhoneHIG/Introduction/chapter_1_section_1.html)
 
-  * [iPhone Human Interface Guidelines](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/Introduction/chapter_1_section_1.html) (free developer account required)
+* [iPhone Human Interface Guidelines](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/Introduction/chapter_1_section_1.html) (free developer account required)

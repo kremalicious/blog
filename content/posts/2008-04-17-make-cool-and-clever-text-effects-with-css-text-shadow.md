@@ -48,7 +48,7 @@ text-shadow on Apple.com
 
 Utilizing text-shadow to simulate engraved or stenciled text is widely used on websites. Apple did it everywhere in Mac OS X not just since Leopard (just look at the titlebars). So if you design a website for Mac users you can increase the sexyness of your website, because this particular usage of text-shadow integrates very well with the overall look of Mac OS X. I will explain how to achieve this engraved-text-on-metal effect later on in this article.
 
-## 2. Which browsers support it?
+## 2. Which browsers support it
 
 In fact, text-shadow is not a new property since it was first defined with [CSS2 in 1998](http://www.w3.org/TR/REC-CSS2/text.html#text-shadow-props) but it was just implemented by the KHTML/WebKit-folks. But it's available in [Safari](http://www.apple.com/safari/) since version 1.1 (2003), in [Konqueror](http://www.konqueror.org/features/browser.php) since version 3.4 (I believe, not sure) and [Opera](http://www.opera.com/) 9.5. Furthermore it's also supported by [Firefox](http://www.mozilla.com/en-US/firefox/firefox.html) 3.1/3.5 and finally [Google Chrome](http://www.google.com/chrome) 2 adds full support for the text-shadow property after they had stripped this from the first version of Chrome.
 
@@ -58,7 +58,7 @@ But with Safari 3.1, the beta release of Opera 9.5, Firefox 3.1 and Google Chrom
 
 But wait, regarding Safari on Mac OS X there's one more (bad) thing to remember. The Mac OS X 10.5.2 update [resulted in minor changes of the WebKit text-shadow rendering](http://www.islayer.com/blog/?p=255). It seems that with this update text-shadow is finally rendered correctly as WebKit added one extra pixel to the shadow offset on 10.4.11 and 10.5.1.
 
-## 3. Any chance of cross-browser compatibility?
+## 3. Any chance of cross-browser compatibility
 
 So the major browser Internet Explorer doesn't support it yet but just don't count on Internet Explorer. I guess they are happy with [coding their own non-standard version of CSS for IE9](http://blogs.msdn.com/ie/archive/2008/04/01/announcing-css-2012.aspx) and making shadows with those [DXImageTransform.Microsoft.Shadow-stuff](<http://msdn2.microsoft.com/en-us/library/ms532985(VS.85).aspx>) which in the end just [looks horrible](http://kilianvalkhof.com/2008/design/almost-cross-browser-text-shadow/). So even IE 9 won't have it included.
 
@@ -80,10 +80,10 @@ p {
 
 The first two values specify the length of the shadow offset. The first value specifies the horizontal distance and the second specifies the vertical distance of the shadow. The third value specifies the blur radius and the last value describes the color of the shadow:
 
-1.  value = The X-ccordinate
-2.  value = The Y-coordinate
-3.  value = The blur radius
-4.  value = The color of the shadow
+1. value = The X-ccordinate
+2. value = The Y-coordinate
+3. value = The blur radius
+4. value = The color of the shadow
 
 Using positive numbers as the first two values ends up with placing the shadow to the right of the text horizontically (first value) and placing the shadow below the text vertically (second value).
 

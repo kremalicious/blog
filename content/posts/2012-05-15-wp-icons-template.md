@@ -3,7 +3,6 @@ type: post
 
 title: WordPress Admin Icons Template
 image: ../media/kremalicious-Teaser-WP-Icon-Template.png
-author: Matthias Kretschmann
 
 date: 2012-05-15 16:00:44+00:00
 
@@ -24,8 +23,8 @@ Here’s a template for designing your own icons for the admin area of WordPress
 
 There are basically two scenarios where you really need custom icons for WordPress’ admin area: when creating custom post types and when creating option pages for a plugin/theme. No matter what case, at least 3 icons are needed if you want to get it right:
 
-  * two 16px icons for the admin menu, one non-colored and one colored icon for the hover state
-  * one 32px icon for the actual screen
+* two 16px icons for the admin menu, one non-colored and one colored icon for the hover state
+* one 32px icon for the actual screen
 
 And since the admin area gets constantly optimized for devices which happen to have high-dpi screens (like 3rd generation iPad’s Retina screen) it’s a very good idea to include double sized @2x assets for all the icons mentioned above.
 
@@ -33,7 +32,7 @@ So if you value quality and want pixel perfect icons in your admin area you need
 
 ## The Template
 
-![](../media/WordPress-Admin-Icons-Template-Filled.png)
+![WordPress Admin Icons Template](../media/WordPress-Admin-Icons-Template-Filled.png)
 
 I’ve put the template along with the implementation examples from the next section on [github](https://github.com/kremalicious/wp-icons-template). You can just download the whole package right away:
 
@@ -57,8 +56,8 @@ While `register_post_type()` and `add_menu_page()` let you define a URL for an i
 
 So when using this template with all those icons, I suggest you use the following snippets in your functions.php instead. Yes, I’m telling you to ignore the codex. But this is the only way to get what we want:
 
-  * hover state consistent to WordPress default menu behavior
-  * control the display of the various image sizes for high-dpi devices with css media queries
+* hover state consistent to WordPress default menu behavior
+* control the display of the various image sizes for high-dpi devices with css media queries
 
 So the following code just injects a stylesheet snippet into the `<head>` of all admin pages. This is a modification of [Randy Jensen’s code idea](http://randyjensenonline.com/thoughts/wordpress-custom-post-type-fugue-icons/).
 
@@ -68,7 +67,6 @@ You can always refer to the inline commented versions of these snippets in the [
 
 WordPress automatically puts an ID around your new menu item which contains the name of your custom post type (the $post_type parameter in `register_post_type()`). Just change this to your own post type name:
 
-
 ```php
 <?php
 /**
@@ -77,44 +75,43 @@ WordPress automatically puts an ID around your new menu item which contains the 
 add_action( 'admin_head', 'custom_post_type_icon' );
 
 function custom_post_type_icon() {
-    ?>
-    <style>
-        /* Admin Menu - 16px */
-        #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
-            background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
-        }
-        #menu-posts-YOUR_POSTTYPE_NAME:hover .wp-menu-image, #menu-posts-YOUR_POSTTYPE_NAME.wp-has-current-submenu .wp-menu-image {
-            background-position: 6px -26px !important;
-        }
-        /* Post Screen - 32px */
-        .icon32-posts-YOUR_POSTTYPE_NAME {
-            background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
-        }
-        @media
-        only screen and (-webkit-min-device-pixel-ratio: 1.5),
-        only screen and (   min--moz-device-pixel-ratio: 1.5),
-        only screen and (     -o-min-device-pixel-ratio: 3/2),
-        only screen and (        min-device-pixel-ratio: 1.5),
-        only screen and (                min-resolution: 1.5dppx) {
+  ?>
+  <style>
+    /* Admin Menu - 16px */
+    #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
+      background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
+    }
+    #menu-posts-YOUR_POSTTYPE_NAME:hover .wp-menu-image, #menu-posts-YOUR_POSTTYPE_NAME.wp-has-current-submenu .wp-menu-image {
+      background-position: 6px -26px !important;
+    }
+    /* Post Screen - 32px */
+    .icon32-posts-YOUR_POSTTYPE_NAME {
+      background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
+    }
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (   min--moz-device-pixel-ratio: 1.5),
+    only screen and (     -o-min-device-pixel-ratio: 3/2),
+    only screen and (        min-device-pixel-ratio: 1.5),
+    only screen and (                min-resolution: 1.5dppx) {
 
-            /* Admin Menu - 16px @2x */
-            #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
-                background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
-                -webkit-background-size: 16px 48px;
-                -moz-background-size: 16px 48px;
-                background-size: 16px 48px;
-            }
-            /* Post Screen - 32px @2x */
-            .icon32-posts-YOUR_POSTTYPE_NAME {
-                background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
-                -webkit-background-size: 32px 32px;
-                -moz-background-size: 32px 32px;
-                background-size: 32px 32px;
-            }
-        }
-    </style>
+      /* Admin Menu - 16px @2x */
+      #menu-posts-YOUR_POSTTYPE_NAME .wp-menu-image {
+        background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+        -webkit-background-size: 16px 48px;
+        -moz-background-size: 16px 48px;
+        background-size: 16px 48px;
+      }
+      /* Post Screen - 32px @2x */
+      .icon32-posts-YOUR_POSTTYPE_NAME {
+        background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+        -webkit-background-size: 32px 32px;
+        -moz-background-size: 32px 32px;
+        background-size: 32px 32px;
+      }
+    }
+  </style>
 <?php }
-
 ?>
 ```
 
@@ -145,52 +142,52 @@ So all this combined leads to this snippet:
 add_action( 'admin_head', 'option_page_icon' );
 
 function option_page_icon() {
-    ?>
-    <style>
-        /* Admin Menu - 16px
-           Use only if you put your plugin or option page in the top level via add_menu_page()
+  ?>
+  <style>
+    /* Admin Menu - 16px
+        Use only if you put your plugin or option page in the top level via add_menu_page()
+    */
+    #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
+      background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
+    }
+    /* We need to hide the generic.png img element inserted by default */
+    #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image img {
+      display: none;
+    }
+    #toplevel_page_PLUGINNAME-FILENAME:hover .wp-menu-image, #toplevel_page_PLUGINNAME-FILENAME.wp-has-current-submenu .wp-menu-image {
+      background-position: 6px -26px !important;
+    }
+
+    /* Option Screen - 32px */
+    #PLUGINNAME.icon32 {
+      background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
+    }
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (   min--moz-device-pixel-ratio: 1.5),
+    only screen and (     -o-min-device-pixel-ratio: 3/2),
+    only screen and (        min-device-pixel-ratio: 1.5),
+    only screen and (                min-resolution: 1.5dppx) {
+        /* Admin Menu - 16px @2x
+            Use only if you put your plugin or option page in the top level via add_menu_page()
         */
         #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
-            background: url(<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite.png) no-repeat 6px 6px !important;
-        }
-        /* We need to hide the generic.png img element inserted by default */
-        #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image img {
-            display: none;
-        }
-        #toplevel_page_PLUGINNAME-FILENAME:hover .wp-menu-image, #toplevel_page_PLUGINNAME-FILENAME.wp-has-current-submenu .wp-menu-image {
-            background-position: 6px -26px !important;
+          background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
+          -webkit-background-size: 16px 48px;
+          -moz-background-size: 16px 48px;
+          background-size: 16px 48px;
         }
 
-        /* Option Screen - 32px */
+        /* Option Screen - 32px @2x */
         #PLUGINNAME.icon32 {
-            background: url(<?php bloginfo('template_url') ?>/images/icon-adminpage32.png) no-repeat left top !important;
+          background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
+          -webkit-background-size: 32px 32px;
+          -moz-background-size: 32px 32px;
+          background-size: 32px 32px;
         }
-
-        @media
-        only screen and (-webkit-min-device-pixel-ratio: 1.5),
-        only screen and (   min--moz-device-pixel-ratio: 1.5),
-        only screen and (     -o-min-device-pixel-ratio: 3/2),
-        only screen and (        min-device-pixel-ratio: 1.5),
-        only screen and (                min-resolution: 1.5dppx) {
-            /* Admin Menu - 16px @2x
-               Use only if you put your plugin or option page in the top level via add_menu_page()
-            */
-               #toplevel_page_PLUGINNAME-FILENAME .wp-menu-image {
-                   background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminmenu16-sprite_2x.png') !important;
-                   -webkit-background-size: 16px 48px;
-                   -moz-background-size: 16px 48px;
-                   background-size: 16px 48px;
-               }
-
-               /* Option Screen - 32px @2x */
-               #PLUGINNAME.icon32 {
-                   background-image: ../media/url('<?php bloginfo('template_url') ?>/images/icon-adminpage32_2x.png') !important;
-                   -webkit-background-size: 32px 32px;
-                   -moz-background-size: 32px 32px;
-                   background-size: 32px 32px;
-               }
-        }
-    </style>
+    }
+  </style>
 <?php }
 
 ?>
@@ -204,9 +201,9 @@ Please note these snippets are just suggestions. I tried to make them as much un
 
 But there are a lot of ways to improve on that:
 
-  * add these css rules to your own stylesheet if you’re using a custom admin area css file for your theme or plugin
-  * enqueue the snippets with `wp_enqueue_style()` and the `admin_enqueue_scripts()` action hook
-  * better yet, put them in a single stylesheet and enqueue them only on pages where they’re actually needed
+* add these css rules to your own stylesheet if you’re using a custom admin area css file for your theme or plugin
+* enqueue the snippets with `wp_enqueue_style()` and the `admin_enqueue_scripts()` action hook
+* better yet, put them in a single stylesheet and enqueue them only on pages where they’re actually needed
 
 ## License
 
@@ -218,4 +215,4 @@ But if you’re super cool and want to catch some karma you place a link back to
 
 If you need some inspiration for nicely consistent icons you should check out [these great admin icons from Laura Kalbag](http://laurakalbag.com/wordpress-admin-icons/).
 
-And Julien Chaumond wrote a great piece, in his own words "less about the sizes, more about the style". It's a must-read: [How to design a good native-looking WordPress Admin icon](http://julien-c.fr/2012/07/wordpress-admin-icons/)
+And Julien Chaumond wrote a great piece, in his own words "less about the sizes, more about the style". It's a must-read: [How to design a good native-looking WordPress Admin icon](http://julien-c.fr/2012/07/wordpress-admin-icons/).

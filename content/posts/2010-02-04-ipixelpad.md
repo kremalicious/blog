@@ -4,13 +4,13 @@ type: post
 title: iPixelPad - Tongue Twisting But Crisp iPad Icons
 image: ../media/Teaser-iPixelPad.png
 download: ../media/ipixelpad_by_kremalicious.zip
-author: Matthias Kretschmann
-
 date: 2010-02-04 15:21:42+00:00
- 
+
 tags:
 - goodies
 - icon
+- ios
+- ipad
 
 coinhive: true
 ---
@@ -34,7 +34,6 @@ The icons come in various formats: iContainer, ICNS, ICO and PNG files for each 
 </p>
 
 ## License
-
 
 [![Creative Commons License](http://i.creativecommons.org/l/by-nc/3.0/de/88x31.png)](http://creativecommons.org/licenses/by-nc/3.0/de/)
 iPixelPad by [Matthias Kretschmann](http://kremalicious.com) is licensed under a [Creative Commons Attribution-Noncommercial 3.0 Germany License](http://creativecommons.org/licenses/by-nc/3.0/de/).

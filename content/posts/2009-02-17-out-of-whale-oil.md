@@ -4,7 +4,6 @@ type: post
 title: We Are Out Of Whale Oil
 image: ../media/Teaser-Out-Of-Whale-Oil.jpg
 download: ../media/out-of-whale-oil-wall-by-kremalicious.zip
-author: Matthias Kretschmann
 
 date: 2009-02-17 20:11:55+00:00
 
@@ -23,11 +22,11 @@ Simple, high-resolution Futurama tribute wallpaper pack inspired by the latest F
 
 ![Futurama: Out Of Whale Oil Wallpaper Detail](../media/out_of_whale_oil_detail.png)Here're the details for the whole pack:
 
-  * 2 high-rez widescreen desktop versions with empty and full whale oil indicator (2560x1600)
-  * 2 iPhone versions with empty and full whale oil indicator (320x480)
-  * 2 Feminista versions high-rez widescreen desktop versions with empty and full whale oil indicator (2560x1600)
-  * 2 Feminista iPhone versions with empty and full whale oil indicator (320x480)
-  * Icon folder files for this wallpaper release
+* 2 high-rez widescreen desktop versions with empty and full whale oil indicator (2560x1600)
+* 2 iPhone versions with empty and full whale oil indicator (320x480)
+* 2 Feminista versions high-rez widescreen desktop versions with empty and full whale oil indicator (2560x1600)
+* 2 Feminista iPhone versions with empty and full whale oil indicator (320x480)
+* Icon folder files for this wallpaper release
 
 [![Futurama: Out Of Whale Oil Wallpaper Pack by kremalicious](../media/out-of-whale-oil-overview.png)](http://www.kremalicious.com/goodies/#wall)
 
