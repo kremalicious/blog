@@ -1,3 +1,15 @@
+require('dotenv').config()
+
+if (!process.env.GITHUB_TOKEN) {
+  // eslint-disable-next-line
+  console.warn(`
+
+      ⚠️  A GitHub token is required to build some parts of the blog.
+      ⚠️  Check the README https://github.com/kremalicious/blog#-development.
+
+  `)
+}
+
 const path = require('path')
 const siteConfig = require('./config')
 
@@ -35,6 +47,20 @@ module.exports = {
       options: {
         name: 'images',
         path: path.join(__dirname, 'src', 'images')
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
+        headers: {
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+        },
+        // Additional options to pass to node-fetch
+        fetchOptions: {},
+        refetchInterval: 300 // 5 min.
       }
     },
     'gatsby-plugin-sharp',

@@ -112,6 +112,7 @@ export const pageQuery = graphql`
         style {
           publicURL
         }
+        changelog
       }
       fields {
         slug

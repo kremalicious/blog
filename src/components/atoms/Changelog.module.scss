@@ -1,0 +1,68 @@
+@import 'variables';
+
+.changelogTitle {
+    margin-bottom: 0;
+}
+
+.changelogContent {
+    padding-top: $spacer * 2;
+    padding-left: $spacer / 2;
+    margin-left: $spacer / 2;
+    border-left: 1px solid $brand-grey-dimmed;
+
+    h2 {
+        position: relative;
+
+        &::before {
+            content: '';
+            width: .4rem;
+            height: .4rem;
+            border-radius: 50%;
+            display: inline-block;
+            background: $color-headings;
+            position: absolute;
+            left: -($spacer / 1.5);
+            top: $font-size-large / 3;
+        }
+    }
+
+    h2,
+    h3 {
+        font-size: $font-size-large;
+        background: none;
+        padding: 0;
+        margin-left: 0;
+        margin-top: $spacer / 8;
+        margin-bottom: $spacer / $line-height;
+    }
+
+    ul {
+        font-size: $font-size-small;
+        margin-left: $spacer / 8;
+    }
+}
+
+.changelogSource {
+    font-size: $font-size-mini;
+    font-family: $font-family-base;
+    font-weight: $font-weight-base;
+    padding-top: $spacer / 2;
+    padding-bottom: $spacer / 2;
+
+    &,
+    a {
+        color: $brand-grey-light;
+    }
+
+    a {
+        margin-left: $spacer / 8;
+
+        code {
+            font-size: ($font-size-mini * .9);
+        }
+
+        &:hover {
+            color: $link-color;
+        }
+    }
+}
