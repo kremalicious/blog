@@ -10,8 +10,8 @@ if (!process.env.GITHUB_TOKEN) {
   `)
 }
 
-const path = require('path')
 const siteConfig = require('./config')
+const sources = require('./gatsby/sources')
 
 // required for gatsby-plugin-meta-redirect
 require('regenerator-runtime/runtime')
@@ -21,48 +21,7 @@ module.exports = {
     ...siteConfig
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: path.join(__dirname, 'content', 'posts')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'photos',
-        path: path.join(__dirname, 'content', 'photos')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'media',
-        path: path.join(__dirname, 'content', 'media')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: path.join(__dirname, 'src', 'images')
-      }
-    },
-    {
-      resolve: 'gatsby-source-graphql',
-      options: {
-        typeName: 'GitHub',
-        fieldName: 'github',
-        url: 'https://api.github.com/graphql',
-        headers: {
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
-        },
-        // Additional options to pass to node-fetch
-        fetchOptions: {},
-        refetchInterval: 300 // 5 min.
-      }
-    },
+    ...sources,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
