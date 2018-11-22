@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import Changelog from '../atoms/Changelog'
 
 // Remove lead paragraph from content
 const PostContent = ({ post }) => {
-  let content
   const separator = '<!-- more -->'
+  const changelog = post.frontmatter.changelog
 
-  content = post.html
+  let content = post.html
 
   if (post.frontmatter.type === 'post') {
     if (content.includes(separator)) {
@@ -17,7 +18,12 @@ const PostContent = ({ post }) => {
     }
   }
 
-  return <div dangerouslySetInnerHTML={{ __html: content }} />
+  return (
+    <Fragment>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+      {changelog && <Changelog repo={changelog} />}
+    </Fragment>
+  )
 }
 
 PostContent.propTypes = {

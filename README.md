@@ -13,15 +13,15 @@
   <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/kremalicious/blog.svg" /></a>
 </p>
 
-## Table of Contents
+---
 
-- [Table of Contents](#table-of-contents)
 - [🎉 Features](#-features)
   - [🎆 EXIF extraction](#-exif-extraction)
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
   - [🐝 Coinhive](#-coinhive)
+  - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
   - [gatsby-redirect-from](#gatsby-redirect-from)
@@ -112,6 +112,26 @@ If you want to know how this works, have a look at the respective component unde
 
 - [`src/components/atoms/Coinhive.jsx`](src/components/atoms/Coinhive.jsx)
 
+### 📝 GitHub changelog rendering
+
+Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API via [gatsby-source-graphql](https://www.gatsbyjs.org/packages/gatsby-source-graphql/).
+
+Adding this to a post's YAML frontmatter:
+
+```yaml
+changelog: gatsby-plugin-matomo
+```
+
+will render this at the end of the post:
+
+<img width="700" alt="screen shot 2018-11-21 at 23 03 38" src="https://user-images.githubusercontent.com/90316/48870593-bc74dd00-ede1-11e8-9051-df55ab7b48d1.png">
+
+See it live on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-plugin-matomo#changelog).
+
+If you want to know how this works, have a look at the respective component under
+
+- [`src/components/atoms/Changelog.jsx`](src/components/atoms/Changelog.jsx)
+
 ### 🏆 SEO component
 
 Includes a SEO component which automatically switches all required `meta` tags for search engines, Twitter Cards, and Facebook OpenGraph tags based on the browsed route/page.
@@ -159,6 +179,11 @@ Then install dependencies and start everything up:
 
 ```bash
 npm i
+
+# GITHUB_TOKEN is required for some parts
+cp .env.sample .env
+vi .env
+
 npm start
 ```
 

@@ -1,5 +1,17 @@
-const path = require('path')
+require('dotenv').config()
+
+if (!process.env.GITHUB_TOKEN) {
+  // eslint-disable-next-line
+  console.warn(`
+
+      ⚠️  A GitHub token is required to build some parts of the blog.
+      ⚠️  Check the README https://github.com/kremalicious/blog#-development.
+
+  `)
+}
+
 const siteConfig = require('./config')
+const sources = require('./gatsby/sources')
 
 // required for gatsby-plugin-meta-redirect
 require('regenerator-runtime/runtime')
@@ -9,34 +21,7 @@ module.exports = {
     ...siteConfig
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: path.join(__dirname, 'content', 'posts')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'photos',
-        path: path.join(__dirname, 'content', 'photos')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'media',
-        path: path.join(__dirname, 'content', 'media')
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: path.join(__dirname, 'src', 'images')
-      }
-    },
+    ...sources,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
