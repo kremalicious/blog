@@ -28,7 +28,7 @@ const Posts = ({ data, location, pageContext }) => {
         )}
 
         {image && (
-          <Link to={slug}>
+          <Link to={slug} title={title}>
             <PostImage
               title={type === 'photo' ? title : null}
               fluid={image.childImageSharp.fluid}
