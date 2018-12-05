@@ -24,6 +24,7 @@ Plugin for [Gatsby](https://www.gatsbyjs.org) to add tracking with the open-sour
 * don't load anything in non-production environments
 * consent mode for privacy
 * allow loading tracking script locally
+* define paths to be excluded from tracking
 * dev mode for local development
 
 ## Usage
