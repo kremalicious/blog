@@ -207,7 +207,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/page/*', '/tag/*']
+        exclude: ['/page/*', '/tags/*']
       }
     },
     'gatsby-plugin-webpack-size',
@@ -215,7 +215,6 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-offline'
   ]
 }
