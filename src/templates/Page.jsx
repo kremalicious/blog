@@ -24,7 +24,7 @@ Page.propTypes = {
   children: PropTypes.any.isRequired,
   section: PropTypes.string,
   location: PropTypes.object,
-  page: PropTypes.object
+  post: PropTypes.object
 }
 
 export default Page

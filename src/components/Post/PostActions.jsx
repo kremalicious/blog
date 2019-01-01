@@ -16,6 +16,12 @@ const ActionContent = ({ title, text, textLink }) => (
   </>
 )
 
+ActionContent.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  textLink: PropTypes.string
+}
+
 const ActionTwitter = ({ url, slug }) => (
   <a
     className={styles.action}

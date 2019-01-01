@@ -18,7 +18,8 @@ export default class Conversion extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { amount } = this.state
+    const { amount } = this.props
+
     if (amount !== prevProps.amount) {
       this.getFiatResponse()
     }
