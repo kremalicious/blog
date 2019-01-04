@@ -21,51 +21,39 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
-              edges {
-                node {
-                  fields {
-                    slug
-                    date
-                  }
-                  frontmatter {
-                    type
-                    tags
-                  }
-                }
-              }
+  const result = await graphql(`
+    {
+      allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
+        edges {
+          node {
+            fields {
+              slug
+              date
+            }
+            frontmatter {
+              type
+              tags
             }
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          /* eslint no-console: "off" */
-          console.log(result.errors)
-          reject(result.errors)
         }
+      }
+    }
+  `)
 
-        const posts = result.data.allMarkdownRemark.edges
-        const numPages = Math.ceil(posts.length / itemsPerPage)
+  if (result.errors) throw result.errors
 
-        // Generate posts & posts index
-        generatePostPages(createPage, posts, numPages)
+  const posts = result.data.allMarkdownRemark.edges
+  const numPages = Math.ceil(posts.length / itemsPerPage)
 
-        // Generate Tag Pages
-        generateTagPages(createPage, posts, numPages)
+  // Generate posts & posts index
+  generatePostPages(createPage, posts, numPages)
 
-        // create manual redirects
-        generateRedirectPages(createRedirect)
+  // Generate Tag Pages
+  generateTagPages(createPage, posts, numPages)
 
-        resolve()
-      })
-    )
-  })
+  // create manual redirects
+  generateRedirectPages(createRedirect)
 }
