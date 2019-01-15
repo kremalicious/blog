@@ -58,7 +58,7 @@
     "gatsby-source-graphql": "^2.0.8",
     "gatsby-transformer-remark": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.10",
-    "graphql": "^0.13.2",
+    "graphql": "^14.1.0",
     "intersection-observer": "^0.5.1",
     "js-scrypt": "^0.2.0",
     "load-script": "^1.0.0",
