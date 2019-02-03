@@ -24,12 +24,11 @@ exports.createMarkdownFields = (node, createNodeField, getNode) => {
   })
 
   // date
-  let date
+  // grab date from file path
+  let date = new Date(slugOriginal.substring(1, 11)).toISOString() // grab date from file path
 
   if (node.frontmatter.date) {
-    date = `${node.frontmatter.date}`
-  } else {
-    date = `${slugOriginal.substring(1, 10)}` // grab date from file path
+    date = new Date(node.frontmatter.date).toISOString()
   }
 
   createNodeField({
