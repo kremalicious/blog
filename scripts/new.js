@@ -45,7 +45,9 @@ if (isPhoto) {
 
   fs.appendFile(filePhoto, newContentsPhoto, err => {
     if (err) spinner.fail(`Error creating photo post: ${err}`)
-    spinner.succeed(`New post '${title}' created.`)
+    spinner.succeed(
+      `New photo post '${title}' created.\n\n  Use ${dateShort}-${titleSlug}.jpg as the photo file name.`
+    )
   })
 } else {
   if (process.argv[3]) {
