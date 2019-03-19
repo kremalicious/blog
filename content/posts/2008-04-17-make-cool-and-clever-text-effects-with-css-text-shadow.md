@@ -10,8 +10,6 @@ tags:
   - css
   - tutorial
 
-coinhive: true
-
 redirect_from:
     - /2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/
 ---

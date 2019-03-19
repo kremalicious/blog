@@ -20,7 +20,6 @@
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
-  - [🐝 Coinhive](#-coinhive)
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
@@ -96,22 +95,6 @@ If you want to know how this works, have a look at the respective component unde
 
 - [`src/components/molecules/RelatedPosts.jsx`](src/components/molecules/RelatedPosts.jsx)
 
-### 🐝 Coinhive
-
-Includes a component for mining Monero with JavaScript via [Coinhive](https://coinhive.com).
-
-<img width="166" alt="screen shot 2018-10-11 at 21 09 49" src="https://user-images.githubusercontent.com/90316/46827858-03f75a80-cd9a-11e8-84f1-65b7d0027124.png" />
-
-Functionality is opt-in on a post basis. Simply add this to any post's frontmatter to activate it for this post:
-
-```yaml
-coinhive: true
-```
-
-If you want to know how this works, have a look at the respective component under
-
-- [`src/components/atoms/Coinhive.jsx`](src/components/atoms/Coinhive.jsx)
-
 ### 📝 GitHub changelog rendering
 
 Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API via [gatsby-source-graphql](https://www.gatsbyjs.org/packages/gatsby-source-graphql/).
@@ -154,10 +137,10 @@ Site sends usage statistics to my own [Matomo](https://matomo.org) installation.
 
 All SVG assets under `src/images/` will be converted to React components with the help of [gatsby-plugin-svgr](https://github.com/zabute/gatsby-plugin-svgr). Makes use of [SVGR](https://github.com/smooth-code/svgr) so SVG assets can be imported like so:
 
-```js
+```jsx
 import { ReactComponent as Logo } from './components/svg/Logo'
 
-<Logo />
+;<Logo />
 ```
 
 ### 🍬 Typekit component

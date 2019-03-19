@@ -11,8 +11,6 @@ tags:
   - aperture
   - tutorial
   - macos
-
-coinhive: true
 ---
 
 ![Niepce's Aperture Vault](../media/niepces_aperture_vault256.png)When on the road I always take a little mobile hard drive with me where all my referenced Aperture Masters from the past years and my mobile Aperture Vault (backing up the un-referenced Masters from the current year) reside. But being little and mobile also means the external hard drive can easily be lost or stolen exposing all my pictures to the thief. To avoid that you can use encryption so in the case of a lost or theft the data is not accessible by the thief. This can easily be done with [sparse bundle disk images](http://db.tidbits.com/article/9673) so you won't have to encrypt the whole hard drive with additional software.

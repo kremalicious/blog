@@ -6,13 +6,11 @@ image: ../media/Teaser-Mars-U.jpg
 author: Matthias Kretschmann
 
 date: 2008-09-23 23:22:16+00:00
-  
+
 tags:
   - goodies
   - wallpaper
   - futurama
-
-coinhive: true
 
 redirect_from:
 - /new-goodie-futurama-mars-university-wallpaper/

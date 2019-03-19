@@ -14,8 +14,6 @@ tags:
   - tor
   - macos
   - goodies
-
-coinhive: true
 ---
 
 There are many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here are some steps to setup Tor on macOS with a simple automated script at the end.

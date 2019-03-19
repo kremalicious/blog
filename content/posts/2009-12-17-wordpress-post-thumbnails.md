@@ -10,8 +10,6 @@ tags:
   - tutorial
   - wordpress
 
-coinhive: true
-
 redirect_from:
     - /2009/12/wordpress-post-thumbnails/
 ---

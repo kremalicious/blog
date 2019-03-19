@@ -12,8 +12,6 @@ tags:
   - goodies
   - tutorial
   - wordpress
-
-coinhive: true
 ---
 
 ![Coda Clips Teaser](../media/codaclips-teaser.png)

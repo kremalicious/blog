@@ -6,8 +6,6 @@ download: ../media/aperturefiletypes_by_kremalicious.zip
 author: Matthias Kretschmann
 date: 2008-04-04T01:55:54.000Z
 
-category:
-coinhive: true
 tags:
   - goodies
   - icon

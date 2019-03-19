@@ -10,7 +10,6 @@ import PostContent from '../components/Post/PostContent'
 import PostActions from '../components/Post/PostActions'
 import PostLinkActions from '../components/Post/PostLinkActions'
 import SEO from '../components/atoms/SEO'
-import Coinhive from '../components/atoms/Coinhive'
 import PostMeta from '../components/Post/PostMeta'
 import Exif from '../components/atoms/Exif'
 import RelatedPosts from '../components/molecules/RelatedPosts'
@@ -19,15 +18,7 @@ import styles from './Post.module.scss'
 const Post = ({ data, location }) => {
   const { markdownRemark: post } = data
   const meta = data.site.siteMetadata
-  const {
-    title,
-    image,
-    type,
-    linkurl,
-    style,
-    coinhive,
-    tags
-  } = post.frontmatter
+  const { title, image, type, linkurl, style, tags } = post.frontmatter
   const { slug, githubLink } = post.fields
 
   return (
@@ -57,7 +48,6 @@ const Post = ({ data, location }) => {
 
         {type === 'post' && <RelatedPosts tags={tags} />}
       </Layout>
-      {coinhive && <Coinhive />}
     </Fragment>
   )
 }
@@ -108,7 +98,6 @@ export const pageQuery = graphql`
         updated
         tags
         linkurl
-        coinhive
         style {
           publicURL
         }

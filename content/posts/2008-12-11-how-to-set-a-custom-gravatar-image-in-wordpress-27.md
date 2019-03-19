@@ -11,8 +11,6 @@ tags:
 - tutorial
 - wordpress
 
-coinhive: true
-
 redirect_from:
     - /2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/
 ---

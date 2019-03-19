@@ -11,8 +11,6 @@ date: 2012-07-16 14:36:58+00:00
 tags:
 - design
 - css
-
-coinhive: true
 ---
 
 There's this HTML element meant for marking up keyboard keys named `<kbd>`. Obviously it can be styled with CSS so why not use it to make those elements look a bit more like hardware or the iOS and Android software keys.
