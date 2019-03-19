@@ -12,8 +12,6 @@ tags:
   - wallpaper
   - futurama
 
-coinhive: true
-
 redirect_from:
     - /2009/02/out-of-whale-oil/
 ---

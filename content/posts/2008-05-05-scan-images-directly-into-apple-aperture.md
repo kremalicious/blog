@@ -7,7 +7,6 @@ image: ../media/aperturescan.png
 
 date: 2008-05-05 04:15:11+00:00
 
-coinhive: true
 tags:
   - photography
   - aperture

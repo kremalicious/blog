@@ -6,7 +6,6 @@ image: ../media/canoscanlide500f.jpg
 
 date: 2008-05-04 16:04:48+00:00
 
-coinhive: true
 tags:
   - photography
   - tutorial

@@ -10,8 +10,6 @@ tags:
 - design
 - tutorial
 - wordpress
-
-coinhive: true
 ---
 
 ![Wordpress Logo by kremalicious](../media/wordpress-logo.png)

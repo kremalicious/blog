@@ -11,8 +11,6 @@ tags:
 - goodies
 - icon
 
-coinhive: true
-
 redirect_from:
     - /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-photograph/
     - /4-more-icons-niepces-camera-obscura-v11/
