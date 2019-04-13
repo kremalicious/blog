@@ -1,7 +1,7 @@
 module.exports = {
   siteTitle: 'kremalicious',
   siteTitleShort: 'krlc',
-  siteDescription: 'Blog of designer & developer Matthias Kretschmann.',
+  siteDescription: 'Blog of designer & developer Matthias Kretschmann',
   siteUrl: 'https://kremalicious.com',
   themeColor: '#88bec8',
   backgroundColor: '#e7eef4',
