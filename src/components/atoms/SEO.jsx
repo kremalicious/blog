@@ -120,6 +120,13 @@ const MetaTags = ({
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+
+    <link
+      rel="alternate"
+      title="JSON Feed"
+      type="application/json"
+      href={`${siteMeta.siteUrl}/feed.json`}
+    />
   </Helmet>
 )
 

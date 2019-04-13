@@ -6,6 +6,7 @@ const {
   generateTagPages,
   generateRedirectPages
 } = require('./gatsby/createPages')
+const { generateJsonFeed } = require('./gatsby/feeds')
 const { itemsPerPage } = require('./config')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -50,11 +51,50 @@ exports.createPages = async ({ graphql, actions }) => {
   // Generate posts & posts index
   generatePostPages(createPage, posts, numPages)
 
-  // Generate Tag Pages
+  // Generate tag pages
   generateTagPages(createPage, posts, numPages)
 
-  // create manual redirects
+  // Create manual redirects
   generateRedirectPages(createRedirect)
+}
+
+exports.onPostBuild = async ({ graphql }) => {
+  // JSON Feed query
+  const result = await graphql(`
+    {
+      allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+        edges {
+          node {
+            html
+            fields {
+              slug
+              date
+            }
+            excerpt
+            frontmatter {
+              title
+              tags
+              updated
+              image {
+                childImageSharp {
+                  resize(width: 940, quality: 85) {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  // Generate json feed
+  await generateJsonFeed(result.data.allMarkdownRemark.edges)
+
+  return Promise.resolve()
 }
 
 // Fix web3

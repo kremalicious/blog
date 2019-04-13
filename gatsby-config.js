@@ -12,6 +12,7 @@ if (!process.env.GITHUB_TOKEN) {
 
 const siteConfig = require('./config')
 const sources = require('./gatsby/sources')
+const { feedContent } = require('./gatsby/feeds')
 
 // required for gatsby-plugin-meta-redirect
 require('regenerator-runtime/runtime')
@@ -164,15 +165,18 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => ({
-                title: edge.node.frontmatter.title,
-                date: edge.node.fields.date,
-                description: feedContent(edge),
-                url: siteConfig.siteUrl + edge.node.fields.slug,
-                categories: edge.node.frontmatter.tags,
-                author: siteConfig.author.name,
-                guid: siteConfig.siteUrl + edge.node.fields.slug
-              }))
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  title: edge.node.frontmatter.title,
+                  date: edge.node.fields.date,
+                  description: edge.node.excerpt,
+                  url: siteConfig.siteUrl + edge.node.fields.slug,
+                  categories: edge.node.frontmatter.tags,
+                  author: siteConfig.author.name,
+                  guid: siteConfig.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': feedContent(edge) }]
+                })
+              })
             },
             query: `
               {
@@ -184,6 +188,7 @@ module.exports = {
                     node {
                       html
                       fields { slug, date }
+                      excerpt
                       frontmatter {
                         title
                         image {
@@ -217,15 +222,4 @@ module.exports = {
     'gatsby-plugin-meta-redirect',
     'gatsby-plugin-offline'
   ]
-}
-
-const feedContent = edge => {
-  const { image } = edge.node.frontmatter
-  const { html } = edge.node
-  const footer =
-    '<hr />This post was published on <a href="https://kremalicious.com">kremalicious.com</a>'
-
-  return image
-    ? `<img src="${image.childImageSharp.resize.src}" /><br />${html}${footer}`
-    : `${html}${footer}`
 }
