@@ -1,5 +1,7 @@
+dist: xenial
 language: node_js
-node_js: node
+node_js:
+  - '11'
 
 git:
   depth: 10
@@ -9,8 +11,12 @@ cache:
     - node_modules
     - public
 
-install:
-  - npm i
+# will run `npm install` automatically here
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install python3-pip
+  - sudo -H pip3 install --upgrade pip
 
 script:
   - npm test
