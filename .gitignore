@@ -6,3 +6,4 @@ public
 .cache
 src/components/svg
 plugins/gatsby-redirect-from
+coverage
