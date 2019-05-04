@@ -10,6 +10,7 @@
 <p align="center">
   <a href="https://travis-ci.com/kremalicious/blog"><img src="https://travis-ci.com/kremalicious/blog.svg?branch=master" /></a>
   <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" /></a>
+  <a href="https://codeclimate.com/github/kremalicious/blog/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/test_coverage" /></a>
   <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/kremalicious/blog.svg" /></a>
 </p>
 
@@ -28,6 +29,7 @@
   - [🍬 Typekit component](#-typekit-component)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
+  - [👩‍🔬 Testing](#-testing)
   - [🎈 Add a new post](#-add-a-new-post)
 - [🚚 Deployment](#-deployment)
 - [🏛 Licenses](#-licenses)
@@ -139,7 +141,6 @@ All SVG assets under `src/images/` will be converted to React components with th
 
 ```jsx
 import { ReactComponent as Logo } from './components/svg/Logo'
-
 ;<Logo />
 ```
 
@@ -183,6 +184,24 @@ To automatically format all code files:
 ```bash
 npm run format
 npm run format:css
+```
+
+### 👩‍🔬 Testing
+
+Test suite is setup with [Jest](https://jestjs.io) and [react-testing-library](https://github.com/kentcdodds/react-testing-library).
+
+To run all tests, including all linting tests:
+
+```bash
+npm test
+```
+
+All test files live beside the respective component. Testing setup, fixtures, and mocks can be found in `./jest.config.js` and `./jest` folder.
+
+For local development, run the test watcher:
+
+```bash
+npm run test:watch
 ```
 
 ### 🎈 Add a new post
