@@ -65,7 +65,7 @@
     "load-script": "^1.0.0",
     "node-sass": "^4.12.0",
     "nord": "^0.2.1",
-    "pigeon-maps": "^0.12.1",
+    "pigeon-maps": "^0.13.0",
     "pigeon-marker": "^0.3.4",
     "react": "^16.8.6",
     "react-blockies": "^1.4.1",
