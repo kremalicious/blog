@@ -60,7 +60,7 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
     "graphql": "^14.2.1",
-    "intersection-observer": "^0.6.0",
+    "intersection-observer": "^0.7.0",
     "js-scrypt": "^0.2.0",
     "load-script": "^1.0.0",
     "node-sass": "^4.12.0",
