@@ -9,8 +9,8 @@ author: Matthias Kretschmann
 date: 2009-06-04 00:16:40+00:00
 
 tags:
-- goodies
-- icon
+  - goodies
+  - icon
 ---
 
 Here's a quick twitter icon for use on your websites which is kind of a by-product from one of my last projects. But I would consider it a waste to just bury this deep in my filesystem so I think it's best I'm throwing this out to you.

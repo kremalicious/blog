@@ -8,7 +8,7 @@ image: ../media/coffee-cup-icon-kremalicious.png
 date: 2008-10-23 02:23:39+00:00
 
 tags:
-- design
+  - design
 ---
 
 In this article I present you the finest icons of the fuel of a lot of designers and students (and other people too) available on the web. I've just released [my own coffee cup icon](/coffee-cup-icon) but this beverage seem to have inspired a lot of other beautiful icons especially for Mac OS X.
@@ -151,11 +151,11 @@ Not a coffee cup but also very coffee related is this awesome Cappuccino machine
 
 Finally here're some nice high quality tutorials for you to help you build your own coffee cup.
 
-* ![Using Gradients to Make Light and Shadow - and a Coffee Cup](../media/coffee-showcase-tut-psdtuts.png)
+- ![Using Gradients to Make Light and Shadow - and a Coffee Cup](../media/coffee-showcase-tut-psdtuts.png)
   [Using Gradients to Make Light and Shadow - and a Coffee Cup!](http://psdtuts.com/tutorials-effects/using-gradients-to-make-light-and-shadow-and-a-coffee-cup/): Collis from [psdtuts](http://psdtuts.com) made a nice tutorial with a similar perspective as found in [my Coffee Cup Icon](http://www.kremalicious.com/goodies/).
-* ![Design A Coffee Mug Icon](../media/coffee-showcase-tut-houle.png)
+- ![Design A Coffee Mug Icon](../media/coffee-showcase-tut-houle.png)
   [Design A Coffee Mug Icon](http://www.myinkblog.com/2008/08/02/design-a-coffee-mug-icon/): Photoshop tutorial by Andrew Houle for creating a coffee cup icon.
-* ![Creating a Coffee Cup with Inkscape](../media/coffee-showcase-tut-vectuts.png)
+- ![Creating a Coffee Cup with Inkscape](../media/coffee-showcase-tut-vectuts.png)
   [Creating a Coffee Cup with Inkscape](http://vectortuts.com/illustration/creating-a-coffee-cup-with-inkscape/): Peter Anglea with a nice vector tutorial using the open source vector app Inkscape.
-* ![Amazing Photoshop Light Effect In 10 Steps](../media/coffee-showcase-tut-abduzeedo.png)
+- ![Amazing Photoshop Light Effect In 10 Steps](../media/coffee-showcase-tut-abduzeedo.png)
   [Amazing Photoshop Light Effect In 10 Steps](http://abduzeedo.com/amazing-photoshop-light-effect-10-steps): Not an icon tutorial but Fabio Sasso achieves some awesome light effects combined with the coffee cup from the [Office Space icon set](http://www.visualpharm.com/office_space.html).

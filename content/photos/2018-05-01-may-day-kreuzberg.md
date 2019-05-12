@@ -2,7 +2,7 @@
 type: photo
 date: 2018-05-01T00:00:00.000Z
 
-title: "May Day, Kreuzberg"
+title: 'May Day, Kreuzberg'
 image: 2018-05-01-may-day-kreuzberg.jpg
 ---
 

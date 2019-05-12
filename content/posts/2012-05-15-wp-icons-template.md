@@ -7,22 +7,22 @@ image: ../media/kremalicious-Teaser-WP-Icon-Template.png
 date: 2012-05-15 16:00:44+00:00
 
 tags:
-- design
-- goodies
-- boilerplate
-- tutorial
-- wordpress
+  - design
+  - goodies
+  - boilerplate
+  - tutorial
+  - wordpress
 
 redirect_from:
-    - /2012/05/wp-icons-template/
+  - /2012/05/wp-icons-template/
 ---
 
 Here’s a template for designing your own icons for the admin area of WordPress including icons ready for Retina screens and some recommendations for the workflow of implementing these.
 
 There are basically two scenarios where you really need custom icons for WordPress’ admin area: when creating custom post types and when creating option pages for a plugin/theme. No matter what case, at least 3 icons are needed if you want to get it right:
 
-* two 16px icons for the admin menu, one non-colored and one colored icon for the hover state
-* one 32px icon for the actual screen
+- two 16px icons for the admin menu, one non-colored and one colored icon for the hover state
+- one 32px icon for the actual screen
 
 And since the admin area gets constantly optimized for devices which happen to have high-dpi screens (like 3rd generation iPad’s Retina screen) it’s a very good idea to include double sized @2x assets for all the icons mentioned above.
 
@@ -54,8 +54,8 @@ While `register_post_type()` and `add_menu_page()` let you define a URL for an i
 
 So when using this template with all those icons, I suggest you use the following snippets in your functions.php instead. Yes, I’m telling you to ignore the codex. But this is the only way to get what we want:
 
-* hover state consistent to WordPress default menu behavior
-* control the display of the various image sizes for high-dpi devices with css media queries
+- hover state consistent to WordPress default menu behavior
+- control the display of the various image sizes for high-dpi devices with css media queries
 
 So the following code just injects a stylesheet snippet into the `<head>` of all admin pages. This is a modification of [Randy Jensen’s code idea](http://randyjensenonline.com/thoughts/wordpress-custom-post-type-fugue-icons/).
 
@@ -63,7 +63,7 @@ You can always refer to the inline commented versions of these snippets in the [
 
 ### Custom Post Type Icons
 
-WordPress automatically puts an ID around your new menu item which contains the name of your custom post type (the $post_type parameter in `register_post_type()`). Just change this to your own post type name:
+WordPress automatically puts an ID around your new menu item which contains the name of your custom post type (the \$post_type parameter in `register_post_type()`). Just change this to your own post type name:
 
 ```php
 <?php
@@ -193,15 +193,15 @@ function option_page_icon() {
 
 Just replace the bits in the ID selectors with your stuff. If you have problems finding the correct ID selector just inspect element in the admin area.
 
-* * *
+---
 
 Please note these snippets are just suggestions. I tried to make them as much universal as possible and tested them but depending on your project this could need adjustments. And obviously the css rules for high-dpi assets depend on a browser capable of CSS media queries but I guess all devices with such screens have modern browsers handling this.
 
 But there are a lot of ways to improve on that:
 
-* add these css rules to your own stylesheet if you’re using a custom admin area css file for your theme or plugin
-* enqueue the snippets with `wp_enqueue_style()` and the `admin_enqueue_scripts()` action hook
-* better yet, put them in a single stylesheet and enqueue them only on pages where they’re actually needed
+- add these css rules to your own stylesheet if you’re using a custom admin area css file for your theme or plugin
+- enqueue the snippets with `wp_enqueue_style()` and the `admin_enqueue_scripts()` action hook
+- better yet, put them in a single stylesheet and enqueue them only on pages where they’re actually needed
 
 ## License
 

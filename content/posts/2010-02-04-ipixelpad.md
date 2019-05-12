@@ -7,10 +7,10 @@ download: ../media/ipixelpad_by_kremalicious.zip
 date: 2010-02-04 15:21:42+00:00
 
 tags:
-- goodies
-- icon
-- ios
-- ipad
+  - goodies
+  - icon
+  - ios
+  - ipad
 ---
 
 So, what to do when [everyone seem](http://www.littleboxofideas.com/blog/design-resources/5-very-useful-free-ipad-icon-sets-for-designers) [to release iPad icons](http://line25.com/articles/free-apple-ipad-icon-set-for-your-website-designs) but fail to include some crisp small size icons? Pushing the pixels for yourself of course. So here's my take on the smaller sizes of an [Apple iPad](http://www.apple.com/ipad/) icon, called iPixelPad in the sizes 48px, 32px and 16px. Everything drawn pixel-perfect from scratch. Heck, even the wallpaper.

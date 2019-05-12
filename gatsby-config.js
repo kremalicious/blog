@@ -37,7 +37,6 @@ module.exports = {
               quality: 80,
               withWebp: true,
               linkImagesToOriginal: true,
-              sizeByPixelDensity: true,
               showCaptions: true,
               backgroundColor: '#e7eef4'
             }

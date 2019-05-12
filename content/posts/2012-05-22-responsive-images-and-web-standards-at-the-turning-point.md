@@ -8,10 +8,10 @@ author: Matthias Kretschmann
 date: 2012-05-22 06:23:26+00:00
 
 tags:
-- design
-- mobile
-- responsive
-- retina
+  - design
+  - mobile
+  - responsive
+  - retina
 ---
 
 Good overview about the patterns currently being discussed:

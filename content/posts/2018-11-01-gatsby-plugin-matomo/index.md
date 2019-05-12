@@ -16,16 +16,16 @@ Plugin for [Gatsby](https://www.gatsbyjs.org) to add tracking with the open-sour
 
 ## Features
 
-* include tracking code in all server-side rendered routes
-* track all route views as custom events
-* load tracking scripts at end of body tag
-* use image tracking fallback for `<noscript>`
-* don't load anything when visitor has Do Not Track enabled
-* don't load anything in non-production environments
-* consent mode for privacy
-* allow loading tracking script locally
-* define paths to be excluded from tracking
-* dev mode for local development
+- include tracking code in all server-side rendered routes
+- track all route views as custom events
+- load tracking scripts at end of body tag
+- use image tracking fallback for `<noscript>`
+- don't load anything when visitor has Do Not Track enabled
+- don't load anything in non-production environments
+- consent mode for privacy
+- allow loading tracking script locally
+- define paths to be excluded from tracking
+- dev mode for local development
 
 ## Usage
 

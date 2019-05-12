@@ -8,7 +8,7 @@ author: Matthias Kretschmann
 date: 2010-07-18 20:28:33+00:00
 
 tags:
-- typography
+  - typography
 ---
 
 Burg Giebichenstein Hochschule für Kunst & Design Halle Jahresausstellung 2010, Campus Design

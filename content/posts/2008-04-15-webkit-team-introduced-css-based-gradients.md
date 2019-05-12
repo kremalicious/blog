@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-04-15 17:36:34+00:00
 
 tags:
-- design
-- css
+  - design
+  - css
 ---
 
 ![WebKit](../media/webkit.png)

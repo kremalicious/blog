@@ -7,7 +7,7 @@ author: Matthias Kretschmann
 date: 2008-04-08 15:48:14+00:00
 
 tags:
-- photography
+  - photography
 ---
 
 ![Pulitzer Price](../media/pulitzer.png)

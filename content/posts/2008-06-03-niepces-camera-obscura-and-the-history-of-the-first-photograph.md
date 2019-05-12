@@ -8,13 +8,13 @@ download: ../media/niepces_camera_obscura_by_kremalicious.zip
 date: 2008-06-03 14:34:03+00:00
 
 tags:
-- goodies
-- icon
+  - goodies
+  - icon
 
 redirect_from:
-    - /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-photograph/
-    - /4-more-icons-niepces-camera-obscura-v11/
-    - /2008/06/niepces-camera-obscura-and-the-history-of-the-first-photograph/
+  - /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-photograph/
+  - /4-more-icons-niepces-camera-obscura-v11/
+  - /2008/06/niepces-camera-obscura-and-the-history-of-the-first-photograph/
 ---
 
 These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography.
@@ -31,7 +31,7 @@ There's a fascinating story behind these icons which is nothing more than the st
 
 ### Nicéphore Niépce and The First Photograph
 
-![Nicéphore Niépce, ca. 1795](../media/nicephore-niepce.jpg "Nicéphore Niépce, ca. 1795")
+![Nicéphore Niépce, ca. 1795](../media/nicephore-niepce.jpg 'Nicéphore Niépce, ca. 1795')
 
 Niépce was a multitasking French inventor who became famous for his experiments trying to preserve the projected image inside of the Camera Obscura. The Camera Obscura uses a well known optical phenomenon which is known to mankind for quite a long time.
 
@@ -43,7 +43,7 @@ In 1822 he created a first non-fading negative contact print by utilizing a bitu
 
 After some more tries and combining other elements in his procedure he was able to produce the famous First Photograph "View from the Window at Le Gras" in 1826 or 1827 by utilizing a bitumen of Judea-coated pewter plate and improved lenses from the Paris optician, Charles Chevalier. He called this procedure Heliography and the bitumen-coated pewter plate needed an exposure of eight or more hours!
 
-![View from the Window at Le Gras](../media/view_from_the_window_at_le_gras_nicephore_niepce.jpg "View from the Window at Le Gras")
+![View from the Window at Le Gras](../media/view_from_the_window_at_le_gras_nicephore_niepce.jpg 'View from the Window at Le Gras')
 
 By the way, in 2002 another picture made by Niépce was discovered which dates back to 1825. It was made in a process he called Heliogravure and it was an image of an (engraving) image (showing a man leading a horse). But since the scientific definition of the First Photograph is "the world's first permanent photograph from nature", _View from the Window at Le Gras_ remains the first "real" photograph.
 

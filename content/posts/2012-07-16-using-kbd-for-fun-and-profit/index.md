@@ -9,8 +9,8 @@ author: Matthias Kretschmann
 date: 2012-07-16 14:36:58+00:00
 
 tags:
-- design
-- css
+  - design
+  - css
 ---
 
 There's this HTML element meant for marking up keyboard keys named `<kbd>`. Obviously it can be styled with CSS so why not use it to make those elements look a bit more like hardware or the iOS and Android software keys.
@@ -33,14 +33,14 @@ They are completely styled with CSS3 so they're sharp on all screens no matter h
 Just drop in the `kbdftw.css` in your `head`:
 
 ```html
-<link rel="stylesheet" href="kbdfun.css">
+<link rel="stylesheet" href="kbdfun.css" />
 ```
 
 If you want to use the Android key style, include roboto.css before:
 
 ```html
-<link rel="stylesheet" href="roboto.css">
-<link rel="stylesheet" href="kbdfun.css">
+<link rel="stylesheet" href="roboto.css" />
+<link rel="stylesheet" href="kbdfun.css" />
 ```
 
 You also need to add all the Roboto font files from assets/fonts to your project.

@@ -6,8 +6,8 @@ linkurl: http://www.faz.net/aktuell/feuilleton/debatten/the-internet-ideology-wh
 author: Matthias Kretschmann
 
 tags:
-- 'silicon valley'
-- google
+  - 'silicon valley'
+  - google
 ---
 
 Don't fully agree with Evgeny Morozov's culture pessimism but he makes some good points in this article:

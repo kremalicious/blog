@@ -7,9 +7,9 @@ image: ../media/watermark_aperture.jpg
 date: 2008-05-07 03:27:25+00:00
 
 tags:
-- photography
-- aperture
-- tutorial
+  - photography
+  - aperture
+  - tutorial
 
 redirect_from:
   - /2008/05/high-quality-watermarks-with-aperture/

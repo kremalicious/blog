@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2012-05-21 21:18:17+00:00
 
 tags:
-- design
-- typography
+  - design
+  - typography
 ---
 
 The creator of Comic Sans, Vincent Connare, [revealing the irony of it](http://www.connare.com/whycomic.htm):

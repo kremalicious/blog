@@ -7,9 +7,9 @@ author: Matthias Kretschmann
 date: 2013-07-13 12:49:39+00:00
 
 tags:
-- design
-- ezeep
-- personal
+  - design
+  - ezeep
+  - personal
 ---
 
 Was one of the people interviewed by Charmaine Li from VentureVillage about relaunching a startup's website where I talk a bit about [ezeep's relaunch](https://www.ezeep.com/blog/hip-hip-have-a-look-at-ezeeps-hot-new-home-page/).

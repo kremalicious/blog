@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-07-01 16:39:02+00:00
 
 tags:
-- personal
-- wordpress
+  - personal
+  - wordpress
 ---
 
 ![Server screwed](../media/xserve_screwed.png)As you may have noticed, kremalicious.com was a bit screwed in the last week and some of you have asked me via mail and twitter what exactly was wrong. So to satisfy the curious geek in you I will provide some informations about it.

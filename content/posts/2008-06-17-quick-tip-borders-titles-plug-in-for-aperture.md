@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-06-17 15:21:57+00:00
 
 tags:
-- photography
-- aperture
+  - photography
+  - aperture
 ---
 
 ![Aperture](../media/aperture128.png)Have you ever looked for a way to quickly add text to your images [without photoshopping a watermark image](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) first?

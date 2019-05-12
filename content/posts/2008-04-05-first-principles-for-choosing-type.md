@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2008-04-05 14:01:51+00:00
 
 tags:
-- design
-- typography
+  - design
+  - typography
 ---
 
 Nice article over at [i love typography](http://ilovetypography.com) about what to have in mind when choosing a typeface for your project, whether it's for web or print.

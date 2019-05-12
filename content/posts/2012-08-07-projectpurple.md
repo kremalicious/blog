@@ -10,9 +10,9 @@ featured: true
 date: 2012-08-07 13:15:44+00:00
 
 tags:
-- goodies
-- iphone
-- wallpaper
+  - goodies
+  - iphone
+  - wallpaper
 ---
 
 It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstall-fight-club-day-three-apple-samsung-trial/in/2971889) the original iPhone was developed in a locked down building under the name "Project Purple". Because of the secrecy involved, the team decorated the building with [Fight Club](http://www.imdb.com/title/tt0137523/) references. If you don't think this demands a wallpaper, you're weird.
@@ -35,10 +35,10 @@ Download the whole package with all the sizes included or grab the individual on
     <a class="icon-download" href="../media/project-purple-kremalicious.zip">Download <span> zip</span></a>
 </p>
 
-* [Desktop/rMBP/iPad 3 (3200x2048)](../media/project-purple-kremalicious.png)
-* [Laptop/Nexus 7/Galaxy Nexus (1280x800)](../media/project-purple-nexus-kremalicious.png)
-* [iPad (1024x1024)](../media/project-purple-ipad-kremalicious.png)
-* [iPhone (640x960)](../media/project-purple-iphone4-kremalicious.png)
+- [Desktop/rMBP/iPad 3 (3200x2048)](../media/project-purple-kremalicious.png)
+- [Laptop/Nexus 7/Galaxy Nexus (1280x800)](../media/project-purple-nexus-kremalicious.png)
+- [iPad (1024x1024)](../media/project-purple-ipad-kremalicious.png)
+- [iPhone (640x960)](../media/project-purple-iphone4-kremalicious.png)
 
 ## License
 

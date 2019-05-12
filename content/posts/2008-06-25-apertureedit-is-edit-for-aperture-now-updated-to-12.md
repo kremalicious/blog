@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-06-25 15:29:22+00:00
 
 tags:
-- photography
-- aperture
+  - photography
+  - aperture
 ---
 
 ![Edit for Aperture logo](../media/apertureedit_logo2.png)The All-in-one Aperture adjustment plugin bundle from [Human Software](http://www.humansoftware.com) is now called Edit for Aperture or just [Edit](http://www.humansoftware.com/pages1200/ApertureEdit/HSapertureedit11.html). The new version 1.2 can now apply multiple layers of curves correction at once and the interface gets a new split image view. Also "different compatibility issues for PowerPC users" were fixed according to the release notes.

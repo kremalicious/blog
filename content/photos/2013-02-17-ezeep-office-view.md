@@ -6,7 +6,7 @@ image: ../media/8450618380_83c64006c6_o.jpg
 author: Matthias Kretschmann
 
 tags:
-- ezeep
+  - ezeep
 ---
 
 Can't complain about the new [ezeep](http://ezeep.com) office view

@@ -8,8 +8,8 @@ image: ../media/aperture15_7.png
 date: 2008-05-07 19:22:49+00:00
 
 tags:
-- photography
-- aperture
+  - photography
+  - aperture
 ---
 
 There are already some lists like this available on the web and they are always very subjective so I thought I should add my subjective list too. While Aperture was released I was coding this website and had not much time for writing about it. So although a bit late here is my absolutely biased list of my favorite 15 new features included in Apple's Aperture since version 2.0. It's in a nice countdown order ending with the best new feature (to me) at the bottom. Just click on the little screenshots to smoothly zoom to the full version of them.

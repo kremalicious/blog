@@ -8,7 +8,7 @@ author: Matthias Kretschmann
 date: 2012-06-30 18:17:33+00:00
 
 tags:
-- design
+  - design
 ---
 
 [This](http://blog.filepicker.io/post/26157006600/why-files-exist) has been said many times, but it bears repeating:
@@ -23,6 +23,6 @@ But the solution can't be throwing a full file system at the user:
 
 Just applying the PC concept of a file system to post-PC devices, like Android and Dropbox did, makes only geeks happy but not the majority of users. While useful it's still too abstract for most users. That's why even Android kind of hides the file system, there's no built in app to browse it directly. But at least Android has [Intents](http://developer.android.com/guide/components/intents-filters.html), allowing users to send any data between different apps.
 
-Apple already solved the problem of a file system being too abstract for users a long time ago, but without any app lock in. The [Newton OS on MessagePads](http://en.wikipedia.org/wiki/Newton_(platform)) stored everything in object-oriented databases called [soups](http://www.canicula.com/newton/prog/soups.htm). The "union soup" could be accessed by any app ("packages" to be exactly) on the system. Today, this is happening  only rudimentarily on iOS, like when you start typing a recipient in Mail and it gets auto-completed from the Address Book data which obviously is only possible with Apple's apps.
+Apple already solved the problem of a file system being too abstract for users a long time ago, but without any app lock in. The [Newton OS on MessagePads](<http://en.wikipedia.org/wiki/Newton_(platform)>) stored everything in object-oriented databases called [soups](http://www.canicula.com/newton/prog/soups.htm). The "union soup" could be accessed by any app ("packages" to be exactly) on the system. Today, this is happening only rudimentarily on iOS, like when you start typing a recipient in Mail and it gets auto-completed from the Address Book data which obviously is only possible with Apple's apps.
 
 Soups took away the need of manual file management without cutting access to the content. iCloud needs to be the new soup.

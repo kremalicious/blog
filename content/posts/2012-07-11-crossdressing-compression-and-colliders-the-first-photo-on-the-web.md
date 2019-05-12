@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2012-07-11 21:00:07+00:00
 
 tags:
-- photography
-- history
+  - photography
+  - history
 ---
 
 Great piece about the first photo on the web, not only interesting from a technical point of view:

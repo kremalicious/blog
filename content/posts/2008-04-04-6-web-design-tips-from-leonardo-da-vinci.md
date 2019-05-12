@@ -8,7 +8,7 @@ author: Matthias Kretschmann
 date: 2008-04-04 18:43:05+00:00
 
 tags:
-- design
+  - design
 ---
 
 An awesome creative idea for a blog post about Web-Design from Joshua Clanton:

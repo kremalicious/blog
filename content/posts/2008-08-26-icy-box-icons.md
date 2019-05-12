@@ -8,8 +8,8 @@ download: ../media/icybox_by_kremalicious.zip
 date: 2008-08-26 19:16:38+00:00
 
 tags:
-- goodies
-- icon
+  - goodies
+  - icon
 
 redirect_from:
   - /new-goodie-icy-box-icons/
@@ -25,9 +25,9 @@ The whole package includes 7 icons either packed in a nice tagged iContainer for
     <a class="icon-download" href="../media/icybox_by_kremalicious.zip">Download Icy Box Icons <span>zip</span></a>
 </p>
 
-* Replacement icons for the silver and black Icy Box external aluminium case with USB interface
-* Mac + Win + Linux + iContainer
-* Leopard ready (512x512)
-* including 7 icons with 2 Time Machine versions
+- Replacement icons for the silver and black Icy Box external aluminium case with USB interface
+- Mac + Win + Linux + iContainer
+- Leopard ready (512x512)
+- including 7 icons with 2 Time Machine versions
 
 [![Icy Box Icons](../media/icybox_teaser2_small.png)](../media/icybox_teaser2.jpg)

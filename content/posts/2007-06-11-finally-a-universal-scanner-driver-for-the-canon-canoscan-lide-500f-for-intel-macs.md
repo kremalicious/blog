@@ -5,10 +5,10 @@ image: ../media/canoscanlide500f.jpg
 date: 2007-06-11 18:44:28+00:00
 
 tags:
-- photography
-- tutorial
-- macos
-- scanner
+  - photography
+  - tutorial
+  - macos
+  - scanner
 
 redirect_from:
   - /2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/
@@ -19,9 +19,9 @@ At the end of last year I watched out for a new scanner and the CanoScan LiDE 50
 **UPDATE: I wrote a follow up article describing how to use this scanner with the newest Mac operating system Leopard. Feel free to head over to this article to get the freshest facts about using this scanner with Mac OS X:
 [Using the CanoScan LiDE 500F scanner with Mac OS X Leopard](/using-the-canoscan-lide-500f-with-mac-os-x-leopard/)**
 
-So there were two choices for using the scanner on an Intel-Mac: installing the PowerPC-driver and using [VueScan](http://www.hamrick.com/) for scanning. But, man, was that slow! And i couldn't get the 16bit per channel scanning to function, which is an essential function for me. Also they want to have 40$ for this app, which isn't that much but after spending money for the scanner and for Photoshop I didn't want to buy another component for using the scanner. On the other hand you could use the [Preview.app](http://www.apple.com/macosx/features/pdf/) built into MAC OS X with Image > Import Image. But this last solution only offers rudimentary functions for scanning. Good to scan a document but not for scanning photos in high quality and for archive purposes. And nevertheless none of these solutions worked for scanning directly in the new Adobe Photoshop CS3.
+So there were two choices for using the scanner on an Intel-Mac: installing the PowerPC-driver and using [VueScan](http://www.hamrick.com/) for scanning. But, man, was that slow! And i couldn't get the 16bit per channel scanning to function, which is an essential function for me. Also they want to have 40\$ for this app, which isn't that much but after spending money for the scanner and for Photoshop I didn't want to buy another component for using the scanner. On the other hand you could use the [Preview.app](http://www.apple.com/macosx/features/pdf/) built into MAC OS X with Image > Import Image. But this last solution only offers rudimentary functions for scanning. Good to scan a document but not for scanning photos in high quality and for archive purposes. And nevertheless none of these solutions worked for scanning directly in the new Adobe Photoshop CS3.
 
-So I called the Canon Support two months ago but they could only say sorry and advertise for their new scanner LiDE 600f which has a new Universal-driver and so on. But it hasn't really any new functions. And spending 100$ or so just for a new driver? So what??! They really wanted me to replace my scanner, which isn't a year old. Damn Canon-Support! So I had to keep on searching on all Canon-websites and finally...
+So I called the Canon Support two months ago but they could only say sorry and advertise for their new scanner LiDE 600f which has a new Universal-driver and so on. But it hasn't really any new functions. And spending 100\$ or so just for a new driver? So what??! They really wanted me to replace my scanner, which isn't a year old. Damn Canon-Support! So I had to keep on searching on all Canon-websites and finally...
 
 ## The solution
 

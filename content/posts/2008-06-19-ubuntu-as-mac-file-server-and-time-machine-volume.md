@@ -14,8 +14,8 @@ tags:
   - ubuntu
 
 redirect_from:
-    - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
-    - 2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
+  - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
+  - 2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/
 ---
 
 For quite some time I use my Ubuntu machine as a file and backup server for all Macs in my network which is perfectly accessible from the Finder in Mac OS X. There are some instructions available in the web for this task but all failed in my case so I wrote my own tutorial with all the steps needed for it to work properly.
@@ -221,7 +221,7 @@ A blank document should open in vim. Now paste the following into the document a
 </service-group>
 ```
 
-update: The last part is used to assign a specific (Apple) hardware model to your Linux box. In this example your server will be advertised as an XServe and will be shown with this icon in the Finder sidebar. This will come in handy when you want to use your own icon for it or the one's made by me provided within this article. Thanks to  [Simon Wheatley](http://www.simonwheatley.co.uk/2008/04/06/avahi-finder-icons/trackback/) for figuring this out. Additionally you can use these models in this file: RackMac (same as Xserve), PowerBook, PowerMac, Macmini, iMac, MacBook, MacBookPro, MacBookAir, MacPro, AppleTV1,1, AirPort
+update: The last part is used to assign a specific (Apple) hardware model to your Linux box. In this example your server will be advertised as an XServe and will be shown with this icon in the Finder sidebar. This will come in handy when you want to use your own icon for it or the one's made by me provided within this article. Thanks to [Simon Wheatley](http://www.simonwheatley.co.uk/2008/04/06/avahi-finder-icons/trackback/) for figuring this out. Additionally you can use these models in this file: RackMac (same as Xserve), PowerBook, PowerMac, Macmini, iMac, MacBook, MacBookPro, MacBookAir, MacPro, AppleTV1,1, AirPort
 
 Finally restart the avahi daemon to activate all changes:
 

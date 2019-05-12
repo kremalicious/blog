@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-05-21 13:02:00+00:00
 
 tags:
-- design
-- css
+  - design
+  - css
 ---
 
 ![Parallax](../media/parallax_illusion_css.png)As you may know there's a nice parallax effect implemented on this website. Just resize your browser window and you can see the black polaroids in my header flying on different layers. As I stated in an [earlier post](http://www.kremalicious.com/2008/03/love-the-parallax/) there is already some usage for it around the web while this effect seems to be first used by the guys from [Silverback](http://www.silverbackapp.com/). If you don't know what this effect is about head over to [thinkvitamin](http://www.thinkvitamin.com/features/design/how-to-recreate-silverbacks-parallax/trackback/) to get to know what it is and how you can achieve it.

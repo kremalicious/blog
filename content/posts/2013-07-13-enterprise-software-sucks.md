@@ -5,8 +5,8 @@ title: Enterprise Software Sucks
 date: 2013-07-13 13:19:44+00:00
 
 tags:
-- design
-- ezeep
+  - design
+  - ezeep
 ---
 
 When asking people about printing there’s one common ground – namely, that it sucks. This sentiment comes from the experience with connecting printers with the devices to print, and the act of printing itself with a plethora of print settings to chose from.
