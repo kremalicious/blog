@@ -8,9 +8,9 @@ author: Matthias Kretschmann
 date: 2015-09-13 18:55:18.418548000 +02:00
 
 tags:
-- goodies
-- css
-- svg
+  - goodies
+  - css
+  - svg
 ---
 
 The badges provided by all app store providers just don't play well together with their varying typography and different sizing. So let's make them all visually unified, infinitely scalable, with pure text for easier localization and some web interaction styles. And while we’re at it: different sizes with the same markup by using some modifier classes.
@@ -29,7 +29,8 @@ So all buttons are just set in Apple’s San Francisco UI font with this funky f
 
 ```css
 .badge {
-    font-family: system, -apple-system, '.SFNSDisplay-Regular', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: system, -apple-system, '.SFNSDisplay-Regular', 'San Francisco', 'Helvetica Neue',
+    'Helvetica', 'Arial', sans-serif;
 }
 ```
 
@@ -54,7 +55,10 @@ bower install appstorebadges --save
 Or just directly link to the css file in the [GitHub repo](https://github.com/kremalicious/appstorebadges):
 
 ```html
-<link rel="stylesheet" href="https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css">
+<link
+  rel="stylesheet"
+  href="https://rawgit.com/kremalicious/appstorebadges/master/dist/appstorebadges.min.css"
+/>
 ```
 
 ### HTML Markup
@@ -63,9 +67,9 @@ This is the basic markup for all badges:
 
 ```html
 <a class="badge" href="#">
-    <svg class="badge__icon">[…]</svg>
-    <span class="badge__text">Download on the</span>
-    <span class="badge__storename">App Store</span>
+  <svg class="badge__icon">[…]</svg>
+  <span class="badge__text">Download on the</span>
+  <span class="badge__storename">App Store</span>
 </a>
 ```
 

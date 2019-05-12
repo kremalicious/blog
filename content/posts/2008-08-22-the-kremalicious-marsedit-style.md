@@ -7,7 +7,7 @@ author: Matthias Kretschmann
 date: 2008-08-22 17:04:19+00:00
 
 tags:
-- goodies
+  - goodies
 ---
 
 ![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious.png)Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.
@@ -27,49 +27,81 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-      <title>#weblogName#: #title#</title>
-      <style>
-        body { margin: 0; background-color: #000;}
+  <head>
+    <title>#weblogName#: #title#</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #000;
+      }
 
-        a { color: #778caa; text-decoration: none;}
+      a {
+        color: #778caa;
+        text-decoration: none;
+      }
 
-        a:hover { background-color: #778caa; color: #000; text-shadow: 0px 1px 1px #ddd;}
+      a:hover {
+        background-color: #778caa;
+        color: #000;
+        text-shadow: 0px 1px 1px #ddd;
+      }
 
-        #title { color: #778caa; background-color: #333; margin: 0; font: normal 2.1em "HelveticaNeue-UltraLight", Helvetica, sans-serif;}
+      #title {
+        color: #778caa;
+        background-color: #333;
+        margin: 0;
+        font: normal 2.1em 'HelveticaNeue-UltraLight', Helvetica, sans-serif;
+      }
 
-        #title a {display: block; position: relative; padding: 10px 20px;}
+      #title a {
+        display: block;
+        position: relative;
+        padding: 10px 20px;
+      }
 
-        #title a:hover {text-shadow: 0px 1px 1px #B3B3B3;}
+      #title a:hover {
+        text-shadow: 0px 1px 1px #b3b3b3;
+      }
 
-        #content {font: 1em "Lucida Grande", Lucida, Verdana, sans-serif; color: #ddd; padding: 10px 20px;}
+      #content {
+        font: 1em 'Lucida Grande', Lucida, Verdana, sans-serif;
+        color: #ddd;
+        padding: 10px 20px;
+      }
 
-        #meta {margin-top: 20px; padding: 5px; background-color: #333; -webkit-border-radius: 5px;}
+      #meta {
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #333;
+        -webkit-border-radius: 5px;
+      }
 
-        #credit {font: italic 0.8em/12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif; text-align: center; margin-top:20px;}
-      </style>
-    </head>
-    <body>
+      #credit {
+        font: italic 0.8em/12px 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="title">
+      <a href="#url#">#title#</a>
+    </div>
 
-      <div id="title">
-        <a href="#url#">#title#</a>
+    <div id="content">
+      #body# #extended#
+
+      <div id="meta">
+        <b>url</b> : <a href="#url#">#url#</a><br />
+        <b>tags</b> : #tags#
       </div>
-
-      <div id="content">
-        #body#
-        #extended#
-
-        <div id="meta">
-          <b>url</b>  : <a href="#url#">#url#</a><br />
-          <b>tags</b> : #tags#
-        </div>
-        <div id="credit">
-          The Kremalicious MarsEdit Style<br />
-          <a href="http://www.kremalicious.com">www.kremalicious.com</a>
-        </div>
-      </div> <-- end content -->
-
-    </body>
+      <div id="credit">
+        The Kremalicious MarsEdit Style<br />
+        <a href="http://www.kremalicious.com">www.kremalicious.com</a>
+      </div>
+    </div>
+    <-- end content -->
+  </body>
 </html>
 ```
 

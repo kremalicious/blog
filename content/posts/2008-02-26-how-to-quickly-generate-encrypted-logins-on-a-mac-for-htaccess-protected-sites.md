@@ -6,12 +6,12 @@ title: How to quickly generate encrypted .htpasswd passwords
 date: 2008-02-26 23:24:17+00:00
 
 tags:
-- design
-- tutorial
-- macos
+  - design
+  - tutorial
+  - macos
 
 redirect_from:
-    - /2008/02/how-to-quickly-generate-encrypted-logins-on-a-mac-for-htaccess-protected-sites/
+  - /2008/02/how-to-quickly-generate-encrypted-logins-on-a-mac-for-htaccess-protected-sites/
 ---
 
 Easily generate `.htpasswd` credentials for use in `.htaccess` files on macOS.

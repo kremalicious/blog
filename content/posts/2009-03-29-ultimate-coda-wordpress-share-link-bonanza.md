@@ -51,7 +51,9 @@ If you download the above Coda Clip files this icon is already applied on the cl
 That's because both collections have their placeholder selection (the ![Coda Clips Placeholder](../media/codaclips-placeholder.png)) located where the link text would be:
 
 ```html
-<a href="" title="">![Coda Clips Placeholder](../media/codaclips-placeholder.png)</a>
+<a href="" title=""
+  >![Coda Clips Placeholder](../media/codaclips-placeholder.png)</a
+>
 ```
 
 As you can see I've also included the link title value usually with the name of the specific social site. Also I've already encoded all the entities so there shouldn't be any (X)HTML validation errors when using these links in your projects.
@@ -74,9 +76,9 @@ Apart from that some sites allow you to add and submit more informations than ju
 
 ![Wordpress logo by kremalicious](../media/wordpress-logo.png)The Wordpress edition of these share link collection includes some Wordpress php bits for dynamically creating the whole submit URL so there's no need to manually edit most of the links. The Wordpress template tags used are:
 
-* `<?php the_permalink();?>` to create the URL dynamically depending on the article under which you have included the share and submit links.
+- `<?php the_permalink();?>` to create the URL dynamically depending on the article under which you have included the share and submit links.
 
-* `<?php the_title(); ?>` to dynamically create the title which is used when your content gets submitted to one of the sites.
+- `<?php the_title(); ?>` to dynamically create the title which is used when your content gets submitted to one of the sites.
 
 Anyway, as I've said above some sites allow more to submit here and you'll find this also in capital letters. You have to adjust them manually too.
 
@@ -89,13 +91,21 @@ Anyway, as I've said above some sites allow more to submit here and you'll find 
 Just include an img element wrapped inside the link tag, like so:
 
 ```html
-<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /> Delicious</a>
+<a
+  href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES"
+  title="Save To Delicious"
+  ><img src="delicious.png" /> Delicious</a
+>
 ```
 
 And if you want to just use an icon with no text use just an img element without providing any link text:
 
 ```html
-<a href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious"><img src="delicious.png" /></a>
+<a
+  href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES"
+  title="Save To Delicious"
+  ><img src="delicious.png"
+/></a>
 ```
 
 ## 3.2 Use CSS Background Images
@@ -103,15 +113,20 @@ And if you want to just use an icon with no text use just an img element without
 To me a more cleaner solution is to use the css background-image property to include the icon images. Just add a class or an id to every share link like so:
 
 ```html
-<a class="delicious" href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES" title="Save To Delicious">Delicious</a>
+<a
+  class="delicious"
+  href="http://del.icio.us/post?url=http://YOUR URL&amp;title=YOUR TITLE&amp;notes=YOUR NOTES"
+  title="Save To Delicious"
+  >Delicious</a
+>
 ```
 
 And in your CSS select this class and style it with a background image. Assuming you want the site icon to appear left beside the link text you would also have to add some padding so the text won't overlap the icons:
 
 ```css
 .delicious {
-    background: url(delicious.png) no-repeat center center;
-    padding-left: 20px;
+  background: url(delicious.png) no-repeat center center;
+  padding-left: 20px;
 }
 ```
 
@@ -119,10 +134,10 @@ If you want to use just icons and no text you should provide a link text anyway 
 
 ```css
 .delicious {
-    width: 16px;
-    height: 16px;
-    background: url(delicious.png) no-repeat center center;
-    text-indent: -999999px;
+  width: 16px;
+  height: 16px;
+  background: url(delicious.png) no-repeat center center;
+  text-indent: -999999px;
 }
 ```
 
@@ -175,7 +190,8 @@ Just click the Toggle All Links button to reveal them and click it again to hide
 ### Plain
 
 ```html
-    <code class="html"><!-- Digg This Link
+<code class="html"
+  ><!-- Digg This Link
 
       Usage:
       --------------------------------------------------
@@ -190,11 +206,16 @@ Just click the Toggle All Links button to reveal them and click it again to hide
       media: default is news, choices are news, video or image
       topic: only one category
     -->
-    <a href="http://digg.com/submit?url=YOUR URL&
+  <a
+    href="http://digg.com/submit?url=YOUR URL&
     title=YOUR TITLE&
     bodytext=YOUR DESCRIPTION&
     media=NEWS, VIDEO or IMAGES&
-    topic=TOPIC&thumbnails=1" title="Digg This">Digg</a></code>
+    topic=TOPIC&thumbnails=1"
+    title="Digg This"
+    >Digg</a
+  ></code
+>
 ```
 
 **Wordpress**

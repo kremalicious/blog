@@ -7,12 +7,12 @@ author: Matthias Kretschmann
 date: 2008-12-11 22:59:06+00:00
 
 tags:
-- design
-- tutorial
-- wordpress
+  - design
+  - tutorial
+  - wordpress
 
 redirect_from:
-    - /2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/
+  - /2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/
 ---
 
 ![Wordpress Logo by kremalicious](../media/wordpress-logo.png)

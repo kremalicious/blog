@@ -7,8 +7,8 @@ linkurl: http://www.bohemiancoding.com/about/blog/announcing-sketch-2-0/
 date: 2012-04-30 12:37:05+00:00
 
 tags:
-- design
-- sketch
+  - design
+  - sketch
 ---
 
 Remarkable update to Bohemian Coding's [Sketch](http://bohemiancoding.com/sketch) app. It's like Photoshop but with only the UI design related features included:

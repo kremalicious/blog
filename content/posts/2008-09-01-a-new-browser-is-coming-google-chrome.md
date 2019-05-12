@@ -7,8 +7,8 @@ image: ../media/googlechrome.png
 date: 2008-09-01 20:40:38+00:00
 
 tags:
-- design
-- google
+  - design
+  - google
 ---
 
 Today some informations about Google's new open source browser called Google Chrome came up. First published as a comic on [Blogoscoped.com](http://blogoscoped.com/google-chrome/) and [confirmed by Kara Swisher](http://kara.allthingsd.com/20080901/google-ignites-a-new-browser-war-with-microsoft-by-unveiling-one-of-its-own/), Google Chrome will be a [WebKit](http://webkit.org/)-based browser with a new JavaScript Virtual Machine called V8 and with [Google Gears](http://gears.google.com/) included.
@@ -31,8 +31,8 @@ Update 3: Google Chrome seems to have problems with some of my transparent PNGs:
 
 Update 4: There are some nice articles about various aspects of Chrome available in the web:
 
-* Matt Cutts tries to prevent paranoia and [explains when Google Chrome talk home](http://www.mattcutts.com/blog/google-chrome-communication/).
-* Gina from lifehacker.com dissects [Google Chrome's Full List of Special about: Pages](http://lifehacker.com/5045164/).
-* Google [explains their priorities regarding different Platforms](http://googlemac.blogspot.com/2008/09/platforms-and-priorities.html).
-* The [Chromium Developer Documentation](http://dev.chromium.org/Home) is available too.
-* And it seems Google [cut out some features of WebKit like text-shadow](http://www.flickr.com/photos/kurafire/2822606444/).
+- Matt Cutts tries to prevent paranoia and [explains when Google Chrome talk home](http://www.mattcutts.com/blog/google-chrome-communication/).
+- Gina from lifehacker.com dissects [Google Chrome's Full List of Special about: Pages](http://lifehacker.com/5045164/).
+- Google [explains their priorities regarding different Platforms](http://googlemac.blogspot.com/2008/09/platforms-and-priorities.html).
+- The [Chromium Developer Documentation](http://dev.chromium.org/Home) is available too.
+- And it seems Google [cut out some features of WebKit like text-shadow](http://www.flickr.com/photos/kurafire/2822606444/).

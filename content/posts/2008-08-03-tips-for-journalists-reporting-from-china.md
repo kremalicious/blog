@@ -6,7 +6,7 @@ image: jingjing_chacha_kremalicious.jpg
 date: 2008-08-03 17:10:25+00:00
 
 tags:
-- photography
+  - photography
 ---
 
 As you may know there's a huge Internet censorship going on in China. Contrary to promises made by chinese authorities and the International Olympic Committee (IOC) this Internet censorship is active during the Olympic Games [even in the international media centre](http://news.bbc.co.uk/2/hi/asia-pacific/7532338.stm). And the [IOC shares the current ideas of censorship in China](http://www.rsf.org/article.php3?id_article=26461).

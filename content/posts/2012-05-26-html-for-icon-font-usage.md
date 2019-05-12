@@ -8,7 +8,7 @@ author: Matthias Kretschmann
 date: 2012-05-26 05:13:58+00:00
 
 tags:
-- design
+  - design
 ---
 
 Chris Coyier on an accessible implementation for icon fonts:
@@ -17,8 +17,8 @@ Chris Coyier on an accessible implementation for icon fonts:
 
 And our major goals here are:
 
->   1. As good of semantics as we can get
->   2. As little awkwardness for screen readers as possible
+> 1. As good of semantics as we can get
+> 2. As little awkwardness for screen readers as possible
 
 Spoiler: the key is to map the icons to the _Private Use Area_ instead of "real" characters in the font files and injecting them with pseudo elements.
 

@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2012-05-14 19:33:22+00:00
 
 tags:
-- personal
-- wordpress
+  - personal
+  - wordpress
 ---
 
 It finally happened. After so many rejected revisions, so many pauses, so much coffee: kremalicious2 is here.

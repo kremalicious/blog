@@ -8,9 +8,9 @@ author: Matthias Kretschmann
 date: 2012-05-12 13:19:02+00:00
 
 tags:
-- design
-- mobile
-- responsive
+  - design
+  - mobile
+  - responsive
 ---
 
 Great middle ground arguments from Jason Mark in this recent controversy about mobile web experiences:

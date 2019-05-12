@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2012-07-19 12:30:56+00:00
 
 tags:
-- design
-- history
+  - design
+  - history
 ---
 
 From the [AT&T; Archives](http://techchannel.att.com/play-video.cfm/2012/7/18/AT&T-Archives-First-Computer-Generated-Graphics-Film):

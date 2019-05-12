@@ -5,9 +5,9 @@ title: Canon updates photographic software to work with Leopard
 author: Matthias Kretschmann
 
 date: 2008-05-14 10:01:15+00:00
-  
+
 tags:
-- photography
+  - photography
 ---
 
 Canon has posted some updates for their photographic software on the Canon USA website:

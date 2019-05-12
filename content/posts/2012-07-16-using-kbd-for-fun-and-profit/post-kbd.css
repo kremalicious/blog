@@ -1,7 +1,7 @@
 kbd {
     font-size: 18px;
-    color: #444444;
-    font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+    color: #444;
+    font-family: 'Lucida Grande', Lucida, Verdana, sans-serif;
     font-weight: normal;
     font-style: normal;
     text-align: center;
@@ -13,61 +13,76 @@ kbd {
     background-clip: padding-box;
     border: 1px solid #bbb;
     background-color: #f7f7f7;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .1),
+        rgba(0, 0, 0, 0)
+    );
     background-repeat: repeat-x;
-    box-shadow: 0px 2px 0 #bbbbbb, 0 3px 1px #999999, 0 3px 0 #bbbbbb, inset 0 1px 1px #ffffff, inset 0 -1px 3px #cccccc;
+    box-shadow: 0 2px 0 #bbb, 0 3px 1px #999, 0 3px 0 #bbb, inset 0 1px 1px #fff,
+        inset 0 -1px 3px #ccc;
 }
 
 kbd.dark {
-    color: #eeeeee;
-    text-shadow: 0 -1px 0 #000000;
+    color: #eee;
+    text-shadow: 0 -1px 0 #000;
     border-color: #000;
     background-color: #4d4c4c;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0));
+    background-image: linear-gradient(
+        rgba(0, 0, 0, .5),
+        rgba(0, 0, 0, 0) 80%,
+        rgba(0, 0, 0, 0)
+    );
     background-repeat: no-repeat;
-    box-shadow: 0px 2px 0 #000000, 0 3px 1px #999999, inset 0 1px 1px #aaaaaa, inset 0 -1px 3px #272727;
+    box-shadow: 0 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa,
+        inset 0 -1px 3px #272727;
 }
 
-
 kbd.ios {
-    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     color: #000;
-    border-color: rgba(0, 0, 0, 0.6);
-    border-top-color: rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 0, 0, .6);
+    border-top-color: rgba(0, 0, 0, .4);
     background-color: #b7b7bc;
     background-image: linear-gradient(to bottom, #efeff0, #b7b7bc);
     background-repeat: repeat-x;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 2px 3px rgba(0, 0, 0, 0.1), inset 0 1px 0 #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .6), 0 2px 3px rgba(0, 0, 0, .1),
+        inset 0 1px 0 #fff;
 }
 
-
 kbd.android {
-    font-family: 'RobotoRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #ffffff;
+    font-family: 'RobotoRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
     text-shadow: none;
     padding: .3em;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, .05);
     border-radius: 3px;
     background-clip: padding-box;
     background: #5e5e5e;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 1px 0 #444444, inset 0 1px 0 #868686;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .3), 0 1px 0 #444,
+        inset 0 1px 0 #868686;
 }
 
-
 kbd.android.dark {
-    background: #222222;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7), 0 1px 0 #444444, inset 0 1px 0 #505050;
+    background: #222;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .7), 0 1px 0 #444,
+        inset 0 1px 0 #505050;
 }
 
 kbd.android.color {
     background: #083c5b;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7), 0 1px 0 #444444, inset 0 1px 0 #36647b;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .7), 0 1px 0 #444,
+        inset 0 1px 0 #36647b;
 }
 
 @font-face {
     font-family: 'RobotoRegular';
     src: url('/media/Roboto-Regular-webfont.eot');
-    src: url('/media/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('/media/Roboto-Regular-webfont.woff') format('woff'), url('/media/Roboto-Regular-webfont.ttf') format('truetype'), url('/media/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    src: url('/media/Roboto-Regular-webfont.eot?#iefix')
+        format('embedded-opentype'),
+        url('/media/Roboto-Regular-webfont.woff') format('woff'),
+        url('/media/Roboto-Regular-webfont.ttf') format('truetype'),
+        url('/media/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }

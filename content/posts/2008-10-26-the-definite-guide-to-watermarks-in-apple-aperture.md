@@ -8,8 +8,8 @@ image: ../media/watermark_aperture.jpg
 date: 2008-10-26 16:05:58+00:00
 
 tags:
-- photography
-- aperture
+  - photography
+  - aperture
 
 redirect_from:
   - /2008/10/the-definite-guide-to-watermarks-in-apple-aperture/
@@ -59,7 +59,7 @@ But it has some powerful features in terms of watermarking: It can read out some
 
 ![Aperture BorderFX](../media/aperture_borderfx.png)
 
-This plug-in gives you a lot of flexibility about your watermark look without firing up a graphical editor like Photoshop. Also you're not leaving a non-destructive workflow with this plug-in since all the changes are just rendered on your exported images. With the combination of using the plug-in presets  and the capability of opening several images at once with the plug-in you can have different watermarks on different images very quickly.
+This plug-in gives you a lot of flexibility about your watermark look without firing up a graphical editor like Photoshop. Also you're not leaving a non-destructive workflow with this plug-in since all the changes are just rendered on your exported images. With the combination of using the plug-in presets and the capability of opening several images at once with the plug-in you can have different watermarks on different images very quickly.
 
 But you can't see your changes made in the plug-in on the images in your library. But Reinhard [stated in his blog](http://web.mac.com/reinharduebel/Site/Aperture_BorderFX_Blog/Entries/2008/8/26_BorderFX_Edit_Plug-in%2C_coming_soon..html) he's working on an edit plug-in based on the new Aperture 2.1 SDK where the changes will be rendered (destructively) in a psd file.
 
@@ -92,6 +92,6 @@ And, except for the export plug-ins, you will leave a non-destructive workflow s
 
 So to stay within a non-destructive workflow and to avoid unnecessary big file sizes you should try to use either [Aperture's built-in watermarking feature](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) or [Reinhard's BorderFX plug-in](http://web.mac.com/reinharduebel/BorderFX/) in your workflow.
 
-But if you want e.g. different text on just a few images and want to have your watermarked image within Aperture you should try using the Edit plug-ins or your external editor. Also if you don't care about big file sizes for rather minor changes you can use the Edit plug-ins for watermarking although you'll slightly leave Aperture's non-destructive workflow design  with this. This by the way is the case with all the Edit plug-ins. But that's another story...
+But if you want e.g. different text on just a few images and want to have your watermarked image within Aperture you should try using the Edit plug-ins or your external editor. Also if you don't care about big file sizes for rather minor changes you can use the Edit plug-ins for watermarking although you'll slightly leave Aperture's non-destructive workflow design with this. This by the way is the case with all the Edit plug-ins. But that's another story...
 
 And that's it folks. I hope this article helps you finding the right method for watermarking your images in an Aperture workflow. Feel free to post in the comments about your experiences or any additions you have. Also don't forget to spread the word about this article on your favorite social bookmarking site.

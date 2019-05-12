@@ -7,8 +7,8 @@ image: ../media/wp34_retina_icons.png
 date: 2012-06-13 19:01:20+00:00
 
 tags:
-- design
-- wordpress
+  - design
+  - wordpress
 ---
 
 Apart from a nicely responsive admin area, WordPress 3.4 now [includes retina assets](http://core.trac.wordpress.org/ticket/20293) for all the icons in the admin area to make them look crisp on devices with high-dpi screens like the iPhone or iPad 3, most flagship Android devices and of course the new ÜberMacBookPro.

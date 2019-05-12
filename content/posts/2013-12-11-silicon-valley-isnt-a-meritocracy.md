@@ -5,7 +5,7 @@ title: Silicon Valley Isn't a Meritocracy
 linkurl: http://www.wired.com/opinion/2013/11/silicon-valley-isnt-a-meritocracy-and-the-cult-of-the-entrepreneur-holds-people-back/
 
 tags:
-- 'silicon valley'
+  - 'silicon valley'
 ---
 
 From [Silicon Valley Isn't a Meritocracy — And It's Dangerous to Hero-Worship Entrepreneurs](http://www.wired.com/opinion/2013/11/silicon-valley-isnt-a-meritocracy-and-the-cult-of-the-entrepreneur-holds-people-back/):

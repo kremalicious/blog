@@ -8,9 +8,9 @@ author: Matthias Kretschmann
 date: 2012-07-04 01:19:17+00:00
 
 tags:
-- design
-- apple
-- newton
+  - design
+  - apple
+  - newton
 ---
 
 Skeuomorphism on mobile devices has come a long way:

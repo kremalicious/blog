@@ -7,8 +7,8 @@ author: Matthias Kretschmann
 date: 2008-05-07 19:21:34+00:00
 
 tags:
-- photography
-- aperture
+  - photography
+  - aperture
 ---
 
 ![Viveza](../media/viveza.png)Today [Nik Software](http://www.niksoftware.com) announced the availability of it's U-point-technology based editing plugin for Apple's Aperture 2.1 called [Viveza](http://www.niksoftware.com/viveza).
@@ -17,7 +17,7 @@ tags:
 
 With Viveza photographers are able to select areas from their images and adjust them separately from the rest of the picture by defining so called Color Control Points.
 
-A 15 day trial is available from the website of the plugin. The whole plugin will cost you US$ 249.
+A 15 day trial is available from the website of the plugin. The whole plugin will cost you US\$ 249.
 
 [Nik Software Viveza Website](http://www.niksoftware.com/viveza)
 

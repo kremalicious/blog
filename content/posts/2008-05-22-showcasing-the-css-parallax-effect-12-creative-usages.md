@@ -12,7 +12,7 @@ tags:
   - css
 
 redirect_from:
-    - /2008/05/showcasing-the-css-parallax-effect-12-creative-usages/
+  - /2008/05/showcasing-the-css-parallax-effect-12-creative-usages/
 ---
 
 Been so in love with the parallax effect that I have to post another article about it. It's time for a first showcase of websites using this effect. At the end of this article you'll find some tutorials for making this effect too.

@@ -6,7 +6,7 @@ linkurl: http://www.danielmiessler.com/blog/9-lesser-known-safari-features-worth
 author: Matthias Kretschmann
 
 tags:
-- design
+  - design
 
 date: 2008-04-06 21:21:22+00:00
 ---

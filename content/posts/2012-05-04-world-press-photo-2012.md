@@ -8,8 +8,8 @@ author: Matthias Kretschmann
 date: 2012-05-04 13:12:54+00:00
 
 tags:
-- photography
-- photojournalism
+  - photography
+  - photojournalism
 ---
 
 The winners of the 2012 contest were announced and the [winner gallery](http://www.worldpressphoto.org/gallery/2012-world-press-photo) is worth checking out.

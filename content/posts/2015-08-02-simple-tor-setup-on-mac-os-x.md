@@ -64,18 +64,18 @@ In order for all your system traffic being routed through Tor you need to adjust
 
 ## Set network proxy settings via System Preferences
 
-You can do this under *System Preferences > Network* by creating a specific Tor network location for it:
+You can do this under _System Preferences > Network_ by creating a specific Tor network location for it:
 
-1. From Location dropdown at the top, select *Edit Locations...*
-2. Create a new location by hitting the plus button and name it *Tor*. Hitting Done will select the new location which is now ready to be configured.
-3. Go to *Advanced > Proxies* and activate *SOCKS Proxy* and add those values:
+1. From Location dropdown at the top, select _Edit Locations..._
+2. Create a new location by hitting the plus button and name it _Tor_. Hitting Done will select the new location which is now ready to be configured.
+3. Go to _Advanced > Proxies_ and activate _SOCKS Proxy_ and add those values:
 
-- *SOCKS proxy server*: `localhost`
-- *Port*: `9050`
+- _SOCKS proxy server_: `localhost`
+- _Port_: `9050`
 
 ![Network Settings](../media/tor-osx-proxy.png)
 
-After hitting *OK* & *Apply* at the initial network screen, you can easily switch to this newly created location from your menu bar under * > Location* whenever you start up Tor.
+After hitting _OK_ & _Apply_ at the initial network screen, you can easily switch to this newly created location from your menu bar under _ > Location_ whenever you start up Tor.
 
 Switching to the Tor location routes all network traffic on your system through Tor. Note that you have to repeat those steps for every other network interface if you use, say, Wi-Fi and Ethernet interchangeably.
 
@@ -143,5 +143,5 @@ But the most recent Chrome version automatically picks up macOS's native proxy s
 
 Always [check](https://check.torproject.org) your Tor connection with whatever app you're using and if needed set the proxy preferences manually in the respective app with:
 
-- *SOCKS proxy server*: `localhost`
-- *Port*: `9050`
+- _SOCKS proxy server_: `localhost`
+- _Port_: `9050`
