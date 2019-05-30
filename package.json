@@ -104,7 +104,7 @@
     "pify": "^4.0.1",
     "prettier": "^1.17.0",
     "prettier-stylelint": "^0.4.2",
-    "react-testing-library": "^7.0.0",
+    "react-testing-library": "^8.0.0",
     "stylelint": "^10.0.1",
     "stylelint-config-css-modules": "^1.4.0",
     "stylelint-config-standard": "^18.3.0",
