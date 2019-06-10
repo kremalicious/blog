@@ -112,36 +112,16 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-favicon',
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        logo: './src/images/apple-touch-icon.png',
-
-        // WebApp Manifest Configuration
-        appName: siteConfig.siteTitle.toLowerCase(),
-        appDescription: siteConfig.siteDescription,
-        developerName: siteConfig.author.name,
-        developerURL: siteConfig.author.uri,
-        dir: 'auto',
-        lang: 'en-US',
-        background: siteConfig.backgroundColor,
+        name: siteConfig.siteTitle.toLowerCase(),
+        short_name: 'mk',
+        start_url: '/',
+        background_color: siteConfig.backgroundColor,
         theme_color: siteConfig.themeColor,
+        icon: 'src/images/apple-touch-icon.png',
         display: 'minimal-ui',
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: '1.0',
-
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
+        cache_busting_mode: 'name'
       }
     },
     {
