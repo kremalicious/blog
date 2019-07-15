@@ -11,25 +11,22 @@ cache:
     - node_modules
     - public
 
-# will run `npm install` automatically here
-
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install python3-pip
   - sudo -H pip3 install --upgrade pip
 
 before_script:
-  # https://docs.codeclimate.com/docs/travis-ci-test-coverage
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  - "./cc-test-reporter before-build"
 
 script:
   - npm test
   - travis_wait 60 npm run build
 
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 
 after_success:
   - pip install --user awscli
@@ -38,4 +35,5 @@ after_success:
 
 notifications:
   email: false
-  slack: kremalicious:LXLUCjkY5yaZaC9vHl9vIORr
+  slack:
+    secure: C5ZRKCMgwypPc765q2JvisCWfxou5x31hKNrSwRhWW6b5WurdWPvc0t/XigF94bCAMDlNjXfUrHZVJCjcnRuNTRZz7pzzNzEt1rmn2haQ5HRyydcW0ToKERUwBDazgng6hhde+2I4RH7H8cLOKGCPnh7DFBWOYXOoiPne5mnLlI=
