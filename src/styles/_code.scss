@@ -1,5 +1,4 @@
 @import 'variables';
-@import 'nord/src/sass/nord';
 
 code,
 kbd,
@@ -17,7 +16,7 @@ kbd {
 code,
 samp {
     white-space: normal;
-    background: $nord4;
+    background: #444;
     color: inherit;
     background-color: rgba($code-bg, .05);
     border-radius: $border-radius;
@@ -34,7 +33,7 @@ kbd {
 
 pre {
     display: block;
-    padding: $spacer / 1.5 $spacer;
+    padding: 0;
     margin-bottom: $spacer;
     line-height: $line-height;
     color: $code-color;
@@ -47,17 +46,14 @@ pre {
     max-height: 300px;
 
     @media (min-width: $screen-sm) {
-        max-height: 500px;
+        max-height: 80vh;
         margin-left: -($spacer);
         margin-right: -($spacer);
     }
 
-    @media (min-width: $screen-md) {
-        border-radius: $border-radius;
-    }
-
     code {
-        padding: 0;
+        font-size: .8rem;
+        padding: 0 $spacer / 2;
         white-space: pre;
         display: block;
         color: inherit;
@@ -65,28 +61,31 @@ pre {
         word-wrap: normal;
         word-break: normal;
         overflow: auto;
-    }
 
-    .line {
-        white-space: pre;
-        overflow-wrap: normal;
-        word-wrap: normal;
-        word-break: normal;
+        @media (min-width: $screen-sm) {
+            padding-left: $spacer;
+            padding-right: $spacer;
+
+            &:first-child {
+                padding-top: $spacer;
+            }
+
+            &:last-child {
+                padding-bottom: $spacer;
+            }
+        }
     }
 }
 
-pre .line:only-child .source.shell,
-pre .line:only-child .source.bash {
-    padding-left: $spacer / 2;
+pre[data-language='bash'] .vscode-highlight-line:only-child {
+    padding-left: .5rem;
     display: block;
 
     &::before {
         content: '$';
-        opacity: .4;
+        opacity: .5;
         display: inline-block;
         margin-left: -.5rem;
         margin-right: .5rem;
     }
 }
-
-@import 'syntax';

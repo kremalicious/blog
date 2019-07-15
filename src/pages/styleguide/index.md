@@ -473,7 +473,7 @@ console.log('Hello, world!')
 
 #### Shell
 
-```shell
+```bash
 echo 'Hello, world!'
 ```
 
