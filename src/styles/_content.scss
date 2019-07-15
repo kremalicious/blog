@@ -5,4 +5,28 @@
 
 .anchor {
     margin-top: $spacer / 3;
+    font-size: $font-size-large;
+    color: $brand-grey-light;
+    font-weight: 700;
+
+    span {
+        transition: opacity .2s ease-out;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .anchor span {
+        opacity: 0;
+    }
+
+    &:hover {
+        .anchor span {
+            opacity: 1;
+        }
+    }
 }
