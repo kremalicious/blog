@@ -2,10 +2,10 @@
 type: post
 
 title: Simple Tor setup on macOS
-image: ../media/teaser-tor.png
+image: teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
-updated: 2018-07-11 00:52:46+02:00
+updated: 2019-07-15 00:52:46+02:00
 
 featured: true
 
@@ -18,23 +18,25 @@ tags:
 
 There are many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here are some steps to setup Tor on macOS with a simple automated script at the end.
 
-I'm using macOS High Sierra (10.13) for the following instructions but it should work on almost any macOS version.
+I'm using macOS Mojave (10.14) for the following instructions but it should work on almost any macOS version.
 
-- [Tor Browser](#tor-browser)
-- [Install Tor](#install-tor)
-- [Set network proxy settings via System Preferences](#set-network-proxy-settings-via-system-preferences)
-- [All in one go: start Tor & set network proxy settings automatically](#all-in-one-go-start-tor--set-network-proxy-settings-automatically)
-- [Non-standard apps](#non-standard-apps)
+---
+
+- [Tor Browser](#Tor-Browser)
+- [Install Tor](#Install-Tor)
+- [Set network proxy settings via System Preferences](#Set-network-proxy-settings-via-System-Preferences)
+- [All in one go: start Tor & set network proxy settings automatically](#All-in-one-go-start-Tor--set-network-proxy-settings-automatically)
+- [Non-standard apps](#Non-standard-apps)
 
 ---
 
 ## Tor Browser
 
-![Tor Browser](../media/tor-browser.png)
+![Tor Browser](tor-browser.png)
 
 The most simple way to surf anonymously with Tor is to just grab [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). It's a modified version of [Firefox Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/) with Tor and some extensions (Torbutton, TorLauncher, NoScript, and HTTPS-Everywhere) built right in. Upon start, Tor Browser automatically starts the required Tor background processes and routes traffic through the Tor network. That's the way to go if you want the highest level of protection without much further configuration.
 
-But it's based on an old version of Firefox and there might be more you want to do anonymously on your machine than just browsing the web, like accessing resources via the Terminal or any other app. Or just use the browser you're used to.
+But it's based on an older version of Firefox and there might be more you want to do anonymously on your machine than just browsing the web, like accessing resources via the Terminal or any other app. Or just use the browser you're used to.
 
 For this you need to have Tor installed on your system and additionally set specific proxy values in your network preferences after you've started Tor.
 
@@ -73,7 +75,7 @@ You can do this under _System Preferences > Network_ by creating a specific Tor 
 - _SOCKS proxy server_: `localhost`
 - _Port_: `9050`
 
-![Network Settings](../media/tor-osx-proxy.png)
+![Network Settings](tor-osx-proxy.png)
 
 After hitting _OK_ & _Apply_ at the initial network screen, you can easily switch to this newly created location from your menu bar under _ > Location_ whenever you start up Tor.
 
@@ -129,7 +131,7 @@ tor.sh
 
 and Tor should run smoothly on your system without additional configuration:
 
-![Tor running in Terminal](../media/tor-osx-terminal.png)
+![Tor running in Terminal](tor-osx-terminal.png)
 
 Verify you're indeed browsing over the Tor network by going to [check.torproject.org](https://check.torproject.org).
 

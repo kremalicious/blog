@@ -47,16 +47,29 @@ module.exports = {
               destinationDir: 'media'
             }
           },
+          'gatsby-remark-smartypants',
           {
-            resolve: 'gatsby-remark-highlights',
+            resolve: 'gatsby-remark-autolink-headers',
             options: {
-              codeWrap: {
-                className: 'nord'
-              }
+              maintainCase: true,
+              icon: '<span>#</span>'
             }
           },
-          'gatsby-remark-smartypants',
-          'gatsby-remark-autolink-headers'
+          {
+            // https://github.com/andrewbranch/gatsby-remark-vscode
+            resolve: 'gatsby-remark-vscode',
+            options: {
+              colorTheme: 'Nord',
+              injectStyles: false,
+              extensions: [
+                {
+                  identifier: 'arcticicestudio.nord-visual-studio-code',
+                  version: '0.10.0'
+                }
+              ],
+              languageAliases: {}
+            }
+          }
         ]
       }
     },

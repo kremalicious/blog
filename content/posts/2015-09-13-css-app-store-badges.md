@@ -42,13 +42,13 @@ Because of varying copy resulting in different badge widths, the only way to mak
 
 Install with npm:
 
-```shell
+```bash
 npm i appstorebadges --save
 ```
 
 Or install with Bower:
 
-```shell
+```bash
 bower install appstorebadges --save
 ```
 
