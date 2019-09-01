@@ -60,7 +60,7 @@
     "intersection-observer": "^0.7.0",
     "js-scrypt": "^0.2.0",
     "load-script": "^1.0.0",
-    "pigeon-maps": "^0.13.0",
+    "pigeon-maps": "^0.14.0",
     "pigeon-marker": "^0.3.4",
     "react": "^16.9.0",
     "react-blockies": "^1.4.1",
