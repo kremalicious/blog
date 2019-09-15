@@ -104,7 +104,7 @@
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^10.1.0",
     "stylelint-config-css-modules": "^1.4.0",
-    "stylelint-config-standard": "^18.3.0",
+    "stylelint-config-standard": "^19.0.0",
     "stylelint-scss": "^3.10.1",
     "why-did-you-update": "^1.0.6"
   },
