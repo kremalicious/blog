@@ -2,84 +2,84 @@
 @import 'mixins';
 
 .featured {
-    @include breakoutviewport;
-    @include divider;
+  @include breakoutviewport;
+  @include divider;
 
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-left: $spacer;
-    padding-right: $spacer;
-    margin-bottom: -($spacer);
-    padding-bottom: $spacer * $line-height;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: $spacer;
+  padding-right: $spacer;
+  margin-bottom: -($spacer);
+  padding-bottom: $spacer * $line-height;
 
-    @media (min-width: $screen-xs) {
-        padding-bottom: $spacer * 3;
-        margin-top: $spacer * $line-height;
-    }
+  @media (min-width: $screen-xs) {
+    padding-bottom: $spacer * 3;
+    margin-top: $spacer * $line-height;
+  }
 
-    @media (min-width: $screen-md) {
-        padding-left: 0;
-        padding-right: 0;
-        justify-content: initial;
-    }
+  @media (min-width: $screen-md) {
+    padding-left: 0;
+    padding-right: 0;
+    justify-content: initial;
+  }
 }
 
 .featuredTitle {
-    transition: .1s ease-out;
-    font-size: $font-size-base;
-    margin: 0;
-    position: absolute;
-    top: 25%;
-    min-width: 45%;
-    text-align: right;
-    padding: $spacer / 3;
-    background: rgba($link-color, .85);
-    color: #fff;
-    text-shadow: 0 1px 0 #000;
-    left: 0;
-    opacity: 0;
-    transform: translate3d(0, -20px, 0);
+  transition: 0.1s ease-out;
+  font-size: $font-size-base;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  min-width: 45%;
+  text-align: right;
+  padding: $spacer / 3;
+  background: rgba($link-color, 0.85);
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  left: 0;
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
 }
 
 .featuredItem {
-    position: relative;
-    max-width: 12rem;
-    flex: 0 0 48%;
-    margin-bottom: $spacer / 2;
+  position: relative;
+  max-width: 12rem;
+  flex: 0 0 48%;
+  margin-bottom: $spacer / 2;
+
+  &:last-child {
+    margin-bottom: 0;
+    display: none;
+  }
+
+  @media (min-width: $screen-xs) {
+    flex: 1;
+    max-width: none;
+    margin-left: $spacer / 2;
 
     &:last-child {
-        margin-bottom: 0;
-        display: none;
+      display: block;
     }
 
-    @media (min-width: $screen-xs) {
-        flex: 1;
-        max-width: none;
-        margin-left: $spacer / 2;
-
-        &:last-child {
-            display: block;
-        }
-
-        &:first-child {
-            margin-left: 0;
-        }
+    &:first-child {
+      margin-left: 0;
     }
+  }
 
-    a {
-        display: block;
+  a {
+    display: block;
 
-        &:hover,
-        &:focus {
-            .featuredTitle {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
+    &:hover,
+    &:focus {
+      .featuredTitle {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
     }
+  }
 
-    :global(.gatsby-image-wrapper) {
-        margin-bottom: 0;
-    }
+  :global(.gatsby-image-wrapper) {
+    margin-bottom: 0;
+  }
 }

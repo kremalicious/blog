@@ -1,5 +1,5 @@
 $imageMaxWidth: 940px;
-$easing: cubic-bezier(.75, 0, .08, 1);
+$easing: cubic-bezier(0.75, 0, 0.08, 1);
 
 // Colors
 /////////////////////////////////////
@@ -45,8 +45,8 @@ $font-size-root: 18px;
 
 $font-size-base: 1rem;
 $font-size-large: 1.15rem;
-$font-size-small: .85rem;
-$font-size-mini: .7rem;
+$font-size-small: 0.85rem;
+$font-size-mini: 0.7rem;
 
 $font-size-h1: 2.5rem;
 $font-size-h2: 2rem;
@@ -59,18 +59,18 @@ $line-height: 1.5;
 $line-height-small: 1.1428571429;
 
 $font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
-    Helvetica, Arial, sans-serif;
+  Helvetica, Arial, sans-serif;
 $font-weight-base: 400;
 $font-color-base: $text-color;
 
 $font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
-    'Courier New', monospace;
+  'Courier New', monospace;
 
 // Headings
 /////////////////////////////////////
 
 $font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
-    Helvetica, Arial, sans-serif;
+  Helvetica, Arial, sans-serif;
 $font-weight-headings: 500;
 $line-height-headings: 1.1;
 
@@ -81,7 +81,7 @@ $color-headings--dark: $brand-main-light;
 /////////////////////////////////////
 
 $spacer: ($font-size-base * $line-height);
-$padding-base-vertical: .75rem;
+$padding-base-vertical: 0.75rem;
 $padding-base-horizontal: 1.25rem;
 
 $border-radius: 3px;
@@ -105,7 +105,7 @@ $screen-lg: 87.5em;
 // Forms
 /////////////////////////////////////
 
-$input-bg: rgba(#fff, .85);
+$input-bg: rgba(#fff, 0.85);
 $input-bg-focus: #fff;
 $input-bg-disabled: $brand-grey-light;
 
@@ -113,7 +113,7 @@ $input-font-size: $font-size-base;
 $input-font-weight: $font-weight-base;
 
 $input-color: $font-color-base;
-$input-color-placeholder: rgba(46, 79, 92, .3);
+$input-color-placeholder: rgba(46, 79, 92, 0.3);
 
 $input-border: $brand-grey-light;
 $input-border-radius: $border-radius;

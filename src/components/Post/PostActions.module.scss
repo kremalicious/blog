@@ -2,95 +2,95 @@
 @import 'mixins';
 
 .actions {
-    @include breakoutviewport;
+  @include breakoutviewport;
 
-    margin-top: $spacer * 3;
-    background: rgba(#fff, .5);
-    padding-top: $spacer;
-    padding-bottom: $spacer;
-    border-radius: $border-radius;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  margin-top: $spacer * 3;
+  background: rgba(#fff, 0.5);
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  border-radius: $border-radius;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-    @media (min-width: $screen-md) {
-        margin-left: -100%;
-        margin-right: -18%;
-        padding-left: 80%;
+  @media (min-width: $screen-md) {
+    margin-left: -100%;
+    margin-right: -18%;
+    padding-left: 80%;
+  }
+
+  > div {
+    flex: 0 0 100%;
+    border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
+
+    &:last-child {
+      border-bottom: 0;
     }
 
-    > div {
-        flex: 0 0 100%;
-        border-bottom: 1px dashed rgba($brand-grey-light, .3);
+    @media (min-width: $screen-sm) {
+      flex: 0 0 33.33333%;
+      border-bottom: 0;
+      border-left: 1px dashed rgba($brand-grey-light, 0.3);
 
-        &:last-child {
-            border-bottom: 0;
-        }
-
-        @media (min-width: $screen-sm) {
-            flex: 0 0 33.33333%;
-            border-bottom: 0;
-            border-left: 1px dashed rgba($brand-grey-light, .3);
-
-            &:first-child {
-                border-left: 0;
-            }
-        }
+      &:first-child {
+        border-left: 0;
+      }
     }
+  }
 }
 
 .link {
-    transition: .2s ease-out;
-    color: $link-color;
+  transition: 0.2s ease-out;
+  color: $link-color;
 }
 
 .actionTitle {
-    font-size: $font-size-base;
-    color: $text-color;
-    margin-top: 0;
-    margin-bottom: $spacer / 4;
-    transition: color .2s ease-out;
+  font-size: $font-size-base;
+  color: $text-color;
+  margin-top: 0;
+  margin-bottom: $spacer / 4;
+  transition: color 0.2s ease-out;
 }
 
 .actionText {
-    font-size: $font-size-small;
-    color: $brand-grey-light;
-    margin-bottom: 0;
-    transition: color .2s ease-out;
+  font-size: $font-size-small;
+  color: $brand-grey-light;
+  margin-bottom: 0;
+  transition: color 0.2s ease-out;
 }
 
 .action {
-    display: block;
-    margin: 0;
-    padding-top: $spacer;
-    padding-bottom: $spacer;
-    padding-left: $spacer * 2;
-    padding-right: $spacer;
-    position: relative;
-    text-align: left;
+  display: block;
+  margin: 0;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  padding-left: $spacer * 2;
+  padding-right: $spacer;
+  position: relative;
+  text-align: left;
 
-    &:hover,
-    &:focus {
-        .link,
-        .actionTitle,
-        .actionText {
-            color: $link-color-hover;
-        }
+  &:hover,
+  &:focus {
+    .link,
+    .actionTitle,
+    .actionText {
+      color: $link-color-hover;
     }
+  }
 
-    &:active {
-        .link,
-        .actionTitle,
-        .actionText {
-            transition: none;
-            color: $link-color-active;
-        }
+  &:active {
+    .link,
+    .actionTitle,
+    .actionText {
+      transition: none;
+      color: $link-color-active;
     }
+  }
 
-    svg {
-        position: absolute;
-        left: $spacer;
-        top: $spacer;
-        fill: $brand-grey-light;
-    }
+  svg {
+    position: absolute;
+    left: $spacer;
+    top: $spacer;
+    fill: $brand-grey-light;
+  }
 }

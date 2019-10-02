@@ -1,27 +1,27 @@
 @import 'variables';
 
 .searchInput {
-    composes: input from '../atoms/Input.module.scss';
+  composes: input from '../atoms/Input.module.scss';
+  background: $input-bg-focus;
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  &:hover {
     background: $input-bg-focus;
-
-    &::-webkit-search-cancel-button {
-        display: none;
-    }
-
-    &:hover {
-        background: $input-bg-focus;
-    }
+  }
 }
 
 .searchInputClose {
-    position: absolute;
-    right: $spacer / 2;
-    top: $spacer / 5;
-    font-size: $font-size-h3;
-    color: $brand-grey-light;
+  position: absolute;
+  right: $spacer / 2;
+  top: $spacer / 5;
+  font-size: $font-size-h3;
+  color: $brand-grey-light;
 
-    &:hover,
-    &:focus {
-        color: $link-color;
-    }
+  &:hover,
+  &:focus {
+    color: $link-color;
+  }
 }

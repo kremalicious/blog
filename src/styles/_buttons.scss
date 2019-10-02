@@ -3,229 +3,229 @@
 
 .btn,
 a.btn {
-    text-align: center;
-    display: block;
-    margin-bottom: 0;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style
-    white-space: nowrap;
-    user-select: none;
-    transition: .2s ease-in-out;
+  text-align: center;
+  display: block;
+  margin-bottom: 0;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style
+  white-space: nowrap;
+  user-select: none;
+  transition: 0.2s ease-in-out;
 
-    // Default Button
-    @include button-size(
-        $padding-base-vertical,
-        $padding-base-horizontal,
-        $font-size-small,
-        $line-height,
-        $border-radius
-    );
+  // Default Button
+  @include button-size(
+    $padding-base-vertical,
+    $padding-base-horizontal,
+    $font-size-small,
+    $line-height,
+    $border-radius
+  );
 
-    background-color: rgba(255, 255, 255, .1);
-    border: 1px solid rgba(94, 131, 162, .3);
-    border-bottom-color: rgba(94, 131, 162, .4);
-    font-family: $font-family-headings;
-    font-weight: $font-weight-headings;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(94, 131, 162, 0.3);
+  border-bottom-color: rgba(94, 131, 162, 0.4);
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+  color: $brand-grey;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba($brand-grey-light, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  @media (min-width: $screen-sm) {
+    max-width: 20rem;
+  }
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:active {
     color: $brand-grey;
-    text-transform: uppercase;
-    box-shadow: 0 1px 3px rgba($brand-grey-light, .1),
-        inset 0 1px 0 rgba(255, 255, 255, .7);
+    border-color: rgba(94, 131, 162, 0.3);
+    background-color: transparent;
+    box-shadow: 0 1px 0 #fff;
+    transition: none;
+    outline: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  // Disabled State
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+
+  // grid buttons
+  &.col2,
+  &.col3 {
+    margin-bottom: $spacer / 2;
 
     @media (min-width: $screen-sm) {
-        max-width: 20rem;
+      margin-bottom: 0;
     }
+  }
 
-    &:hover,
-    &:focus {
-        outline: 0;
-        background-color: rgba(255, 255, 255, .5);
-    }
-
-    &:active {
-        color: $brand-grey;
-        border-color: rgba(94, 131, 162, .3);
-        background-color: transparent;
-        box-shadow: 0 1px 0 #fff;
-        transition: none;
-        outline: 0;
-    }
-
-    &:focus {
-        outline: 0;
-    }
-
-    // Disabled State
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-        cursor: not-allowed;
-        pointer-events: none;
-        opacity: .6;
-        box-shadow: none;
-    }
-
-    // grid buttons
-    &.col2,
-    &.col3 {
-        margin-bottom: $spacer / 2;
-
-        @media (min-width: $screen-sm) {
-            margin-bottom: 0;
-        }
-    }
-
-    span {
-        font-size: .9rem;
-        color: rgba(19, 56, 50, .6);
-        margin-left: .3em;
-    }
+  span {
+    font-size: 0.9rem;
+    color: rgba(19, 56, 50, 0.6);
+    margin-left: 0.3em;
+  }
 }
 
 button.link {
-    color: $link-color;
+  color: $link-color;
 
-    &:hover,
-    &:focus {
-        outline: 0;
-        color: lighten($link-color, 10%);
-    }
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: lighten($link-color, 10%);
+  }
 
-    &:active {
-        transition: none;
-        color: darken($link-color, 10%);
-    }
+  &:active {
+    transition: none;
+    color: darken($link-color, 10%);
+  }
 }
 
 // Primary Button
 .btn-primary,
 a.btn-primary {
-    @extend .btn;
+  @extend .btn;
 
+  color: darken($link-color, 50%);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: lighten($link-color, 15%);
+  border-color: $link-color;
+  box-shadow: 0 1px 3px rgba($brand-grey-light, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  &:hover,
+  &:focus {
     color: darken($link-color, 50%);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
-    background: lighten($link-color, 15%);
-    border-color: $link-color;
-    box-shadow: 0 1px 3px rgba($brand-grey-light, .4),
-        inset 0 1px 0 rgba(255, 255, 255, .4);
+    background-color: lighten($link-color, 25%);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
 
-    &:hover,
-    &:focus {
-        color: darken($link-color, 50%);
-        background-color: lighten($link-color, 25%);
-        text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
-    }
-
-    &:active {
-        color: darken($link-color, 50%);
-        border-color: darken($link-color, 10%);
-        background-color: lighten($link-color, 15%);
-    }
+  &:active {
+    color: darken($link-color, 50%);
+    border-color: darken($link-color, 10%);
+    background-color: lighten($link-color, 15%);
+  }
 }
 
 .btn-block {
-    display: block;
+  display: block;
 }
 
 // Close button
 /////////////////////////////////////
 
 .close {
-    text-align: center;
-    display: block;
-    color: lighten($brand-grey-light, 50%);
-    line-height: 1;
-    font-size: $font-size-large;
-    padding: 3px;
+  text-align: center;
+  display: block;
+  color: lighten($brand-grey-light, 50%);
+  line-height: 1;
+  font-size: $font-size-large;
+  padding: 3px;
+  cursor: pointer;
+
+  &button {
     cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
 
-    &button {
-        cursor: pointer;
-        background: transparent;
-        border: 0;
-        -webkit-appearance: none;
-    }
+  &:hover,
+  &:focus {
+    color: lighten($brand-grey-light, 20%);
+    cursor: pointer;
+    outline: 0;
+  }
 
-    &:hover,
-    &:focus {
-        color: lighten($brand-grey-light, 20%);
-        cursor: pointer;
-        outline: 0;
-    }
-
-    &:active {
-        background: none;
-        color: $brand-grey-light;
-        transition: none;
-    }
+  &:active {
+    background: none;
+    color: $brand-grey-light;
+    transition: none;
+  }
 }
 
 // some helper classes for old content
 /////////////////////////////////////
 
 .content-download {
-    text-align: center;
-    display: block;
-    margin-top: $spacer;
-    margin-bottom: $spacer;
+  text-align: center;
+  display: block;
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+
+  @media (min-width: $screen-xs) {
+    display: flex;
+  }
+
+  a {
+    @extend .btn;
+
+    margin-bottom: $spacer / 2;
 
     @media (min-width: $screen-xs) {
-        display: flex;
+      flex: 1;
+      margin-left: $spacer / 2;
+      margin-bottom: 0;
     }
 
-    a {
-        @extend .btn;
-
-        margin-bottom: $spacer / 2;
-
-        @media (min-width: $screen-xs) {
-            flex: 1;
-            margin-left: $spacer / 2;
-            margin-bottom: 0;
-        }
-
-        &:first-child {
-            margin-left: 0;
-        }
-
-        &:only-child {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        span {
-            font-size: $font-size-mini;
-            color: $text-color-light;
-        }
+    &:first-child {
+      margin-left: 0;
     }
 
-    .icon-download,
-    .icon-heart,
-    .icon-wordpress,
-    .icon-github,
-    .icon-eye {
-        &::before {
-            content: '';
-            width: $font-size-large;
-            height: $font-size-large;
-            display: inline-block;
-            margin-right: .3rem;
-            margin-bottom: -.25rem;
-            opacity: .5;
-            background: url('../images/arrow-with-circle-down.svg') no-repeat
-                left center;
-        }
+    &:only-child {
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .icon-heart::before {
-        background-image: url('../images/heart.svg');
+    span {
+      font-size: $font-size-mini;
+      color: $text-color-light;
     }
+  }
 
-    .icon-github::before {
-        background-image: url('../images/github.svg');
+  .icon-download,
+  .icon-heart,
+  .icon-wordpress,
+  .icon-github,
+  .icon-eye {
+    &::before {
+      content: '';
+      width: $font-size-large;
+      height: $font-size-large;
+      display: inline-block;
+      margin-right: 0.3rem;
+      margin-bottom: -0.25rem;
+      opacity: 0.5;
+      background: url('../images/arrow-with-circle-down.svg') no-repeat left
+        center;
     }
+  }
 
-    .icon-eye::before {
-        background-image: url('../images/eye.svg');
-    }
+  .icon-heart::before {
+    background-image: url('../images/heart.svg');
+  }
+
+  .icon-github::before {
+    background-image: url('../images/github.svg');
+  }
+
+  .icon-eye::before {
+    background-image: url('../images/eye.svg');
+  }
 }

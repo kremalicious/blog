@@ -1,34 +1,36 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["react", "graphql", "prettier", "jsx-a11y"],
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "env": { "browser": true, "node": true, "es6": true, "jest": true },
+  "settings": { "react": { "version": "detect" } },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jsx-a11y/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+        "plugin:react/recommended"
+      ],
+      "plugins": ["@typescript-eslint", "react", "graphql", "jsx-a11y"],
+      "rules": {
+        "object-curly-spacing": ["error", "always"],
+        "react/prop-types": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+      },
+      "parserOptions": {
+        "ecmaFeatures": { "jsx": true },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+      }
     }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true,
-    "jest": true
-  },
-  "rules": {
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "object-curly-spacing": ["error", "always"],
-    "prettier/prettier": "error"
-  },
-  "settings": {
-    "react": {
-      "version": "16"
-    }
-  }
+  ]
 }

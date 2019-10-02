@@ -1,19 +1,19 @@
 @import 'variables';
 
 .account {
-    font-size: $font-size-mini;
-    color: $brand-grey-light;
-    max-width: 8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: $font-size-mini;
+  color: $brand-grey-light;
+  max-width: 8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .identicon {
-    border-radius: 50%;
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: $spacer / 8;
-    margin-left: $spacer;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: $spacer / 8;
+  margin-left: $spacer;
 }

@@ -2,57 +2,57 @@
 @import 'mixins';
 
 * {
-    &,
-    &::before,
-    &::after {
-        box-sizing: border-box;
-    }
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    background: $body-background-color;
+  margin: 0;
+  padding: 0;
+  background: $body-background-color;
 }
 
 html {
-    font-size: $font-size-root;
+  font-size: $font-size-root;
 }
 
 body {
-    font-family: $font-family-base;
-    font-weight: $font-weight-base;
-    font-size: $font-size-base;
-    line-height: $line-height;
-    color: $font-color-base;
-    text-rendering: optimizeLegibility;
-    letter-spacing: -.01em;
-    font-feature-settings: 'liga', 'kern';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    transition: background .6s $easing;
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  line-height: $line-height;
+  color: $font-color-base;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+  font-feature-settings: 'liga', 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  transition: background 0.6s $easing;
 
-    // handling long text, like URLs
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+  // handling long text, like URLs
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 
-    &.dark {
-        background-color: $body-background-color--dark;
-        color: $text-color--dark;
-    }
+  &.dark {
+    background-color: $body-background-color--dark;
+    color: $text-color--dark;
+  }
 }
 
 p,
 ul,
 ol {
-    margin: 0 0 $spacer;
+  margin: 0 0 $spacer;
 }
 
 p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 // Reset fonts for relevant elements
@@ -62,24 +62,24 @@ input,
 button,
 select,
 textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 // Reset default button element
 button {
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-    outline: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  outline: 0;
 
-    &:active {
-        transition: none;
-        text-shadow: none;
-    }
+  &:active {
+    transition: none;
+    text-shadow: none;
+  }
 }
 
 // Headings
@@ -87,62 +87,62 @@ button {
 
 h1,
 h2 {
-    margin-top: $spacer * $line-height;
-    margin-bottom: $spacer * 2;
+  margin-top: $spacer * $line-height;
+  margin-bottom: $spacer * 2;
 }
 
 h3,
 h4,
 h5,
 h6 {
-    margin-top: $spacer * $line-height;
-    margin-bottom: $spacer;
+  margin-top: $spacer * $line-height;
+  margin-bottom: $spacer;
 }
 
 h1 {
-    font-size: $font-size-h2;
+  font-size: $font-size-h2;
 
-    @media (min-width: $screen-xs) {
-        font-size: $font-size-h1;
-    }
+  @media (min-width: $screen-xs) {
+    font-size: $font-size-h1;
+  }
 }
 
 h2 {
-    @include heading-band();
+  @include heading-band();
 
-    font-size: $font-size-h3;
+  font-size: $font-size-h3;
 
-    @media (min-width: $screen-xs) {
-        font-size: $font-size-h2;
-    }
+  @media (min-width: $screen-xs) {
+    font-size: $font-size-h2;
+  }
 }
 
 h3 {
-    font-size: $font-size-h4;
+  font-size: $font-size-h4;
 
-    @media (min-width: $screen-xs) {
-        font-size: $font-size-h3;
-    }
+  @media (min-width: $screen-xs) {
+    font-size: $font-size-h3;
+  }
 }
 
 h4 {
-    font-size: $font-size-h5;
+  font-size: $font-size-h5;
 
-    @media (min-width: $screen-xs) {
-        font-size: $font-size-h4;
-    }
+  @media (min-width: $screen-xs) {
+    font-size: $font-size-h4;
+  }
 }
 
 h5 {
-    font-size: $font-size-h6;
+  font-size: $font-size-h6;
 
-    @media (min-width: $screen-xs) {
-        font-size: $font-size-h5;
-    }
+  @media (min-width: $screen-xs) {
+    font-size: $font-size-h5;
+  }
 }
 
 h6 {
-    font-size: $font-size-h6;
+  font-size: $font-size-h6;
 }
 
 h1,
@@ -151,41 +151,41 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-family-headings;
-    line-height: $line-height-headings;
-    color: $color-headings;
-    font-weight: $font-weight-headings;
-    letter-spacing: -.02em;
+  font-family: $font-family-headings;
+  line-height: $line-height-headings;
+  color: $color-headings;
+  font-weight: $font-weight-headings;
+  letter-spacing: -0.02em;
 
-    .dark & {
-        color: $color-headings--dark;
-    }
+  .dark & {
+    color: $color-headings--dark;
+  }
 }
 
 // Links
 /////////////////////////////////////
 
 a {
-    color: $link-color;
-    text-decoration: none;
-    transition: .2s ease-out;
+  color: $link-color;
+  text-decoration: none;
+  transition: 0.2s ease-out;
 
-    h1 &,
-    h2 &,
-    h3 & {
-        color: $color-headings;
-    }
+  h1 &,
+  h2 &,
+  h3 & {
+    color: $color-headings;
+  }
 
-    &:hover,
-    &:focus {
-        outline: 0;
-        color: $link-color-hover;
-    }
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $link-color-hover;
+  }
 
-    &:active {
-        transition: none;
-        color: $link-color-active;
-    }
+  &:active {
+    transition: none;
+    color: $link-color-active;
+  }
 }
 
 // Responsive Media
@@ -199,75 +199,75 @@ audio,
 embed,
 canvas,
 picture {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 figcaption {
-    font-size: $font-size-small;
-    color: $brand-grey;
-    font-style: italic;
-    text-align: center;
-    margin-top: -($spacer / $line-height);
+  font-size: $font-size-small;
+  color: $brand-grey;
+  font-style: italic;
+  text-align: center;
+  margin-top: -($spacer / $line-height);
 }
 
 // Lists
 /////////////////////////////////////
 
 ul {
-    li {
-        &::before {
-            content: ' \2015'; // horizontal bar: ― &#8213;
-        }
+  li {
+    &::before {
+      content: ' \2015'; // horizontal bar: ― &#8213;
     }
+  }
 }
 
 ol {
-    counter-reset: ol-counter;
+  counter-reset: ol-counter;
 
-    li {
-        &::before {
-            content: counter(ol-counter) '.';
-            counter-increment: ol-counter;
-        }
+  li {
+    &::before {
+      content: counter(ol-counter) '.';
+      counter-increment: ol-counter;
     }
+  }
 
-    ul li::before {
-        display: none;
-    }
+  ul li::before {
+    display: none;
+  }
 }
 
 ul,
 ol {
-    margin-top: 0;
-    margin-bottom: $spacer;
-    padding-left: $spacer;
-    list-style: none;
+  margin-top: 0;
+  margin-bottom: $spacer;
+  padding-left: $spacer;
+  list-style: none;
 
-    li {
-        position: relative;
+  li {
+    position: relative;
 
-        // stylelint-disable no-descending-specificity
-        &::before {
-            position: absolute;
-            left: -($spacer);
-            top: -1px;
-            color: $text-color-light;
-            user-select: none;
-        }
-        // stylelint-enable no-descending-specificity
+    // stylelint-disable no-descending-specificity
+    &::before {
+      position: absolute;
+      left: -($spacer);
+      top: -1px;
+      color: $text-color-light;
+      user-select: none;
     }
+    // stylelint-enable no-descending-specificity
+  }
 
-    ul,
-    ol {
-        margin-bottom: 0;
-    }
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
 }
 
 // Inline typography
@@ -276,92 +276,92 @@ ol {
 b,
 strong,
 .bold {
-    font-weight: 700;
-    font-style: normal;
+  font-weight: 700;
+  font-style: normal;
 }
 
 em,
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 abbr[title],
 dfn {
-    text-transform: none;
-    font-style: normal;
-    font-size: inherit;
-    border-bottom: 1px dashed $brand-grey-dimmed;
-    cursor: help;
-    font-feature-settings: inherit;
+  text-transform: none;
+  font-style: normal;
+  font-size: inherit;
+  border-bottom: 1px dashed $brand-grey-dimmed;
+  cursor: help;
+  font-feature-settings: inherit;
 }
 
 mark {
-    background: #fffaab;
-    color: $text-color;
+  background: #fffaab;
+  color: $text-color;
 }
 
 hr {
-    margin: 0;
-    border: 0;
+  margin: 0;
+  border: 0;
 
-    @include divider();
+  @include divider();
 }
 
 // Quotes
 /////////////////////////////////////
 
 q {
-    font-style: italic;
+  font-style: italic;
 }
 
 cite {
-    font-style: normal;
-    text-transform: uppercase;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 // stylelint-disable no-descending-specificity
 blockquote,
 blockquote > p {
-    font-style: italic;
-    color: $brand-grey-light;
+  font-style: italic;
+  color: $brand-grey-light;
 }
 // stylelint-enable no-descending-specificity
 
 blockquote {
-    margin: 0 0 $spacer;
-    position: relative;
-    padding-left: $spacer * 1.25;
+  margin: 0 0 $spacer;
+  position: relative;
+  padding-left: $spacer * 1.25;
 
-    // quotation marks
-    &::before {
-        content: '“';
-        font-size: 300%;
-        color: lighten($brand-grey-light, 20%);
-        position: absolute;
-        left: -10px;
-        top: -20px;
+  // quotation marks
+  &::before {
+    content: '“';
+    font-size: 300%;
+    color: lighten($brand-grey-light, 20%);
+    position: absolute;
+    left: -10px;
+    top: -20px;
 
-        @media (min-width: $screen-xs) {
-            left: 0;
-        }
-
-        @media (min-width: $screen-lg) {
-            top: -30px;
-        }
+    @media (min-width: $screen-xs) {
+      left: 0;
     }
+
+    @media (min-width: $screen-lg) {
+      top: -30px;
+    }
+  }
 }
 
 // Selection
 /////////////////////////////////////
 
 ::-moz-selection {
-    background: #2e4f5c;
-    color: #fff;
+  background: #2e4f5c;
+  color: #fff;
 }
 
 ::selection {
-    background: #2e4f5c;
-    color: #fff;
+  background: #2e4f5c;
+  color: #fff;
 }
 
 // More basic elements

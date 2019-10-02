@@ -1,43 +1,43 @@
 @import 'variables';
 
 .pagination {
-    display: flex;
-    margin-top: $spacer * 2;
-    margin-bottom: $spacer;
-    justify-content: center;
+  display: flex;
+  margin-top: $spacer * 2;
+  margin-bottom: $spacer;
+  justify-content: center;
 
-    > div {
-        &:first-child {
-            margin-right: $spacer;
-        }
-
-        &:last-child {
-            margin-left: $spacer;
-            text-align: right;
-        }
+  > div {
+    &:first-child {
+      margin-right: $spacer;
     }
+
+    &:last-child {
+      margin-left: $spacer;
+      text-align: right;
+    }
+  }
 }
 
 .number {
-    text-align: center;
-    width: 2rem;
-    height: 2rem;
-    line-height: 1.7;
-    display: inline-block;
-    border-radius: 50%;
-    border: 1px solid transparent;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1.7;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid transparent;
 
-    &:hover,
-    &:focus {
-        background: rgba(255, 255, 255, .3);
-        border-color: darken($brand-grey-dimmed, 5%);
-    }
+  &:hover,
+  &:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: darken($brand-grey-dimmed, 5%);
+  }
 }
 
 .current {
-    composes: number;
-    cursor: default;
-    pointer-events: none;
-    border: 1px solid darken($brand-grey-dimmed, 5%);
-    color: $brand-grey-light;
+  composes: number;
+  cursor: default;
+  pointer-events: none;
+  border: 1px solid darken($brand-grey-dimmed, 5%);
+  color: $brand-grey-light;
 }

@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/jest/jest-preprocess.js'
+    '^.+\\.tsx?$': '<rootDir>/jest/jest-preprocess.js'
   },
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
@@ -15,5 +15,6 @@ module.exports = {
   },
   testURL: 'http://localhost',
   setupFiles: ['<rootDir>/jest/loadershim.js'],
-  setupFilesAfterEnv: ['<rootDir>/jest/setup-test-env.js']
+  setupFilesAfterEnv: ['<rootDir>/jest/setup-test-env.js'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/@types/**/*']
 }
