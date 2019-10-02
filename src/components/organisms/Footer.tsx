@@ -1,6 +1,4 @@
-import React, { PureComponent } from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-
+import React, { useState } from 'react'
 import Container from '../atoms/Container'
 import Vcard from '../molecules/Vcard'
 import Subscribe from '../molecules/Subscribe'
@@ -10,85 +8,48 @@ import { ReactComponent as Github } from '../../images/github.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 
 import styles from './Footer.module.scss'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        author {
-          name
-          uri
-          bitcoin
-          github
-        }
-      }
-    }
-  }
-`
+export default function Footer() {
+  const { name, uri, bitcoin, github } = useSiteMetadata()
+  const year = new Date().getFullYear()
+  const [showModal, setShowModal] = useState(false)
 
-export default class Footer extends PureComponent<
-  {},
-  { year: number; showModal: boolean }
-> {
-  state = {
-    year: null,
-    showModal: false
+  const toggleModal = () => {
+    setShowModal(!showModal)
   }
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal })
-  }
+  return (
+    <footer role="contentinfo" className={styles.footer}>
+      <Container>
+        <Vcard />
+        <Subscribe />
 
-  componentDidMount() {
-    const year = new Date().getFullYear()
-    this.setState({ year })
-  }
+        <section className={styles.copyright}>
+          <p>
+            &copy; 2005&ndash;
+            {year + ' '}
+            <a href={uri} rel="me">
+              {name}
+            </a>
+          </p>
 
-  render() {
-    return (
-      <StaticQuery
-        query={query}
-        render={data => {
-          const { name, uri, bitcoin, github } = data.site.siteMetadata.author
+          <p>
+            <a href={`${github}/blog`}>
+              <Github />
+              View source
+            </a>
+            <button className={styles.btc} onClick={toggleModal}>
+              <Bitcoin />
+              <code>{bitcoin}</code>
+            </button>
+          </p>
 
-          return (
-            <footer role="contentinfo" className={styles.footer}>
-              <Container>
-                <Vcard />
-                <Subscribe />
-
-                <section className={styles.copyright}>
-                  <p>
-                    &copy; 2005&ndash;
-                    {this.state.year + ' '}
-                    <a href={uri} rel="me">
-                      {name}
-                    </a>
-                  </p>
-
-                  <p>
-                    <a href={`${github}/blog`}>
-                      <Github />
-                      View source
-                    </a>
-                    <button className={styles.btc} onClick={this.toggleModal}>
-                      <Bitcoin />
-                      <code>{bitcoin}</code>
-                    </button>
-                  </p>
-
-                  {this.state.showModal && (
-                    <ModalThanks
-                      isOpen={this.state.showModal}
-                      handleCloseModal={this.toggleModal}
-                    />
-                  )}
-                </section>
-              </Container>
-            </footer>
-          )
-        }}
-      />
-    )
-  }
+          {showModal && (
+            <ModalThanks isOpen={showModal} handleCloseModal={toggleModal} />
+          )}
+        </section>
+      </Container>
+    </footer>
+  )
 }

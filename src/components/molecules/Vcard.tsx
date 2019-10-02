@@ -3,21 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import IconLinks from './IconLinks'
 import styles from './Vcard.module.scss'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const query = graphql`
   query {
-    site {
-      siteMetadata {
-        author {
-          name
-          uri
-          twitter
-          github
-          facebook
-        }
-      }
-    }
-
     avatar: allFile(filter: { name: { eq: "avatar" } }) {
       edges {
         node {
@@ -34,7 +23,7 @@ const query = graphql`
 
 export default function Vcard() {
   const data = useStaticQuery(query)
-  const { twitter, github, facebook, name, uri } = data.site.siteMetadata.author
+  const { twitter, github, facebook, name, uri } = useSiteMetadata().author
   const avatar = data.avatar.edges[0].node.childImageSharp.fixed
   const links = [twitter, github, facebook]
 

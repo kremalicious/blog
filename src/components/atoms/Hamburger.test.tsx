@@ -5,5 +5,5 @@ import testRender from '../../../jest/testRender'
 import Hamburger from './Hamburger'
 
 describe('Hamburger', () => {
-  testRender(<Hamburger />)
+  testRender(<Hamburger onClick={() => null} />)
 })

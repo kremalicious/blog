@@ -5,6 +5,7 @@ import styles from './PostActions.module.scss'
 import { ReactComponent as Twitter } from '../../images/twitter.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as GitHub } from '../../images/github.svg'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const ActionContent = ({
   title,
@@ -23,19 +24,23 @@ const ActionContent = ({
   </>
 )
 
-const ActionTwitter = ({ url, slug }: { url: string; slug: string }) => (
-  <a
-    className={styles.action}
-    href={`https://twitter.com/intent/tweet?text=@kremalicious&url=${url}${slug}`}
-  >
-    <Twitter />
-    <ActionContent
-      title="Have a comment?"
-      text="Hit me up"
-      textLink="@kremalicious"
-    />
-  </a>
-)
+const ActionTwitter = ({ slug }: { slug: string }) => {
+  const { siteUrl } = useSiteMetadata()
+
+  return (
+    <a
+      className={styles.action}
+      href={`https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`}
+    >
+      <Twitter />
+      <ActionContent
+        title="Have a comment?"
+        text="Hit me up"
+        textLink="@kremalicious"
+      />
+    </a>
+  )
+}
 
 const ActionCrypto = ({ toggleModal }: { toggleModal(): void }) => (
   <button className={styles.action} onClick={toggleModal}>
@@ -61,11 +66,9 @@ const ActionGitHub = ({ githubLink }: { githubLink: string }) => (
 
 export default function PostActions({
   slug,
-  url,
   githubLink
 }: {
   slug: string
-  url: string
   githubLink: string
 }) {
   const [showModal, setShowModal] = useState(false)
@@ -77,7 +80,7 @@ export default function PostActions({
   return (
     <aside className={styles.actions}>
       <div>
-        <ActionTwitter url={url} slug={slug} />
+        <ActionTwitter slug={slug} />
       </div>
 
       <div>

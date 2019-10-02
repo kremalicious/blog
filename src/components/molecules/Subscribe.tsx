@@ -1,22 +1,10 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import IconLinks from './IconLinks'
 import styles from './Subscribe.module.scss'
-
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        rss
-        jsonfeed
-      }
-    }
-  }
-`
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 export default function Subscribe() {
-  const data = useStaticQuery(query)
-  const { rss, jsonfeed } = data.site.siteMetadata
+  const { rss, jsonfeed } = useSiteMetadata()
   const links = [rss, jsonfeed]
 
   return (

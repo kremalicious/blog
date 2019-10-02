@@ -15,8 +15,8 @@ const feedContent = edge => {
     : `${html}${footer}`
 }
 
-const generateJsonFeed = async posts => {
-  const jsonItems = await posts.map(edge => {
+async function jsonItems(posts) {
+  return await posts.map(edge => {
     const { frontmatter, fields, excerpt } = edge.node
     const { slug, date } = fields
 
@@ -33,27 +33,29 @@ const generateJsonFeed = async posts => {
       content_html: feedContent(edge)
     }
   })
+}
 
-  const jsonFeed = {
-    version: 'https://jsonfeed.org/version/1',
-    title: siteTitle,
-    description: siteDescription,
-    home_page_url: siteUrl,
-    feed_url: path.join(siteUrl, 'feed.json'),
-    user_comment:
-      'This feed allows you to read the posts from this site in any feed reader that supports the JSON Feed format. To add this feed to your reader, copy the following URL — https://kremalicious.com/feed.json — and add it your reader.',
-    favicon: path.join(siteUrl, 'favicon.ico'),
-    icon: path.join(siteUrl, 'apple-touch-icon.png'),
-    author: {
-      name: author.name,
-      url: author.uri
-    },
-    items: jsonItems
-  }
+const createJsonFeed = posts => ({
+  version: 'https://jsonfeed.org/version/1',
+  title: siteTitle,
+  description: siteDescription,
+  home_page_url: siteUrl,
+  feed_url: path.join(siteUrl, 'feed.json'),
+  user_comment:
+    'This feed allows you to read the posts from this site in any feed reader that supports the JSON Feed format. To add this feed to your reader, copy the following URL — https://kremalicious.com/feed.json — and add it your reader.',
+  favicon: path.join(siteUrl, 'favicon.ico'),
+  icon: path.join(siteUrl, 'apple-touch-icon.png'),
+  author: {
+    name: author.name,
+    url: author.uri
+  },
+  items: jsonItems(posts)
+})
 
+const generateJsonFeed = async posts => {
   await writeFile(
     path.join('./public', 'feed.json'),
-    JSON.stringify(jsonFeed),
+    JSON.stringify(createJsonFeed(posts)),
     'utf8'
   ).catch(err => {
     throw Error('\nFailed to write JSON Feed file: ', err)

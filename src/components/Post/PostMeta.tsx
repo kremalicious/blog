@@ -3,17 +3,19 @@ import { Link } from 'gatsby'
 import Time from 'react-time'
 import slugify from 'slugify'
 import styles from './PostMeta.module.scss'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-const PostMeta = ({ post, meta }: { post: any; meta: any }) => {
+const PostMeta = ({ post }: { post: any }) => {
   const { author, updated, tags, type } = post.frontmatter
+  const siteMeta = useSiteMetadata()
   const { date } = post.fields
 
   return (
     <footer className={styles.entryMeta}>
       <div className={styles.byline}>
         <span className={styles.by}>by</span>
-        <a className="fn" rel="author" href={meta.author.uri}>
-          {author || meta.author.name}
+        <a className="fn" rel="author" href={siteMeta.author.uri}>
+          {author || siteMeta.author.name}
         </a>
       </div>
 

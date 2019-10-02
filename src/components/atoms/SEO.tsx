@@ -1,21 +1,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const query = graphql`
   query {
-    site {
-      siteMetadata {
-        siteTitle
-        siteDescription
-        siteUrl
-        author {
-          name
-          twitter
-        }
-      }
-    }
-
     logo: allFile(filter: { name: { eq: "apple-touch-icon" } }) {
       edges {
         node {
@@ -29,7 +18,6 @@ const query = graphql`
 const createSchemaOrg = (
   blogURL: string,
   title: string,
-  siteMeta: any,
   postSEO: boolean,
   postURL: string,
   image: string,
@@ -40,8 +28,7 @@ const createSchemaOrg = (
       '@context': 'http://schema.org',
       '@type': 'WebSite',
       url: blogURL,
-      name: title,
-      alternateName: siteMeta.titleAlt ? siteMeta.titleAlt : ''
+      name: title
     }
   ]
 
@@ -67,7 +54,6 @@ const createSchemaOrg = (
         '@type': 'BlogPosting',
         url: blogURL,
         name: title,
-        alternateName: siteMeta.titleAlt ? siteMeta.titleAlt : '',
         headline: title,
         image: {
           '@type': 'ImageObject',
@@ -86,8 +72,7 @@ const MetaTags = ({
   url,
   schema,
   postSEO,
-  title,
-  siteMeta
+  title
 }: {
   description: string
   image: string
@@ -95,47 +80,50 @@ const MetaTags = ({
   schema: string
   postSEO: boolean
   title: string
-  siteMeta: any
-}) => (
-  <Helmet
-    defaultTitle={`${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`}
-    titleTemplate={`%s ¦ ${siteMeta.siteTitle}`}
-  >
-    <html lang="en" />
+}) => {
+  const { siteTitle, siteDescription, siteUrl, author } = useSiteMetadata()
 
-    {/* General tags */}
-    <meta name="description" content={description} />
-    <meta name="image" content={image} />
-    <link rel="canonical" href={url} />
+  return (
+    <Helmet
+      defaultTitle={`${siteTitle} ¦ ${siteDescription}`}
+      titleTemplate={`%s ¦ ${siteTitle}`}
+    >
+      <html lang="en" />
 
-    {/* Schema.org tags */}
-    <script type="application/ld+json">{schema}</script>
+      {/* General tags */}
+      <meta name="description" content={description} />
+      <meta name="image" content={image} />
+      <link rel="canonical" href={url} />
 
-    {/* OpenGraph tags */}
-    <meta property="og:url" content={url} />
-    {postSEO && <meta property="og:type" content="article" />}
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+      {/* Schema.org tags */}
+      <script type="application/ld+json">{schema}</script>
 
-    {/* Twitter Card tags */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:creator"
-      content={siteMeta.author.twitter ? siteMeta.author.twitter : ''}
-    />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+      {/* OpenGraph tags */}
+      <meta property="og:url" content={url} />
+      {postSEO && <meta property="og:type" content="article" />}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
 
-    <link
-      rel="alternate"
-      title="JSON Feed"
-      type="application/json"
-      href={`${siteMeta.siteUrl}/feed.json`}
-    />
-  </Helmet>
-)
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:creator"
+        content={author.twitter ? author.twitter : ''}
+      />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+
+      <link
+        rel="alternate"
+        title="JSON Feed"
+        type="application/json"
+        href={`${siteUrl}/feed.json`}
+      />
+    </Helmet>
+  )
+}
 
 export default function SEO({
   post,
@@ -147,8 +135,8 @@ export default function SEO({
   postSEO?: boolean
 }) {
   const data = useStaticQuery(query)
-  const siteMeta = data.site.siteMetadata
   const logo = data.logo.edges[0].node.relativePath
+  const { siteTitle, siteUrl, siteDescription } = useSiteMetadata()
 
   let title
   let description
@@ -157,26 +145,25 @@ export default function SEO({
 
   if (postSEO) {
     const postMeta = post.frontmatter
-    title = `${postMeta.title} ¦ ${siteMeta.siteTitle}`
+    title = `${postMeta.title} ¦ ${siteTitle}`
     description = postMeta.description ? postMeta.description : post.excerpt
     image = postMeta.image
       ? postMeta.image.childImageSharp.fluid.src
       : `/${logo}`
-    postURL = `${siteMeta.siteUrl}${slug}`
+    postURL = `${siteUrl}${slug}`
   } else {
-    title = `${siteMeta.siteTitle} ¦ ${siteMeta.siteDescription}`
-    description = siteMeta.siteDescription
+    title = `${siteTitle} ¦ ${siteDescription}`
+    description = siteDescription
     image = `/${logo}`
   }
 
-  image = `${siteMeta.siteUrl}${image}`
-  const blogURL = siteMeta.siteUrl
+  image = `${siteUrl}${image}`
+  const blogURL = siteUrl
   const url = postSEO ? postURL : blogURL
 
   let schema = createSchemaOrg(
     blogURL,
     title,
-    siteMeta,
     postSEO,
     postURL,
     image,
@@ -193,7 +180,6 @@ export default function SEO({
       schema={schema}
       postSEO={postSEO}
       title={title}
-      siteMeta={siteMeta}
     />
   )
 }

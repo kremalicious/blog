@@ -22,7 +22,6 @@ export default function Post({
   location: Location
 }) {
   const { markdownRemark: post } = data
-  const meta = data.site.siteMetadata
   const { title, image, type, linkurl, style, tags } = post.frontmatter
   const { slug, githubLink } = post.fields
 
@@ -47,8 +46,8 @@ export default function Post({
           {type !== 'photo' && <PostContent post={post} />}
 
           {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-          <PostActions slug={slug} url={meta.siteUrl} githubLink={githubLink} />
-          <PostMeta post={post} meta={meta} />
+          <PostActions slug={slug} githubLink={githubLink} />
+          <PostMeta post={post} />
         </article>
 
         {type === 'post' && <RelatedPosts tags={tags} />}
@@ -99,16 +98,6 @@ export const pageQuery = graphql`
         githubLink
       }
       rawMarkdownBody
-    }
-
-    site {
-      siteMetadata {
-        siteUrl
-        author {
-          name
-          uri
-        }
-      }
     }
   }
 `

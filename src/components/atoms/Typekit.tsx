@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import Helmet from 'react-helmet'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const TypekitScript = (typekitID: string) => (
   <script>
@@ -17,19 +17,8 @@ const TypekitScript = (typekitID: string) => (
   </script>
 )
 
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        typekitID
-      }
-    }
-  }
-`
-
 export default function Typekit() {
-  const data = useStaticQuery(query)
-  const { typekitID } = data.site.siteMetadata
+  const { typekitID } = useSiteMetadata()
 
   return (
     typekitID && (
