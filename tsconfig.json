@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "strict": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "noEmit": true
+  },
+  "exclude": ["node_modules", "public", ".cache", "*.js"],
+  "include": ["./src/**/*"]
+}

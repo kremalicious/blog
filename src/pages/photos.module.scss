@@ -2,25 +2,25 @@
 @import 'mixins';
 
 .photos {
-    @include breakoutviewport;
+  @include breakoutviewport;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: $spacer;
-    padding-right: $spacer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: $spacer;
+  padding-right: $spacer;
 
-    @media (min-width: $screen-md) {
-        padding-left: 0;
-        padding-right: 0;
-    }
+  @media (min-width: $screen-md) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .photo {
-    flex: 0 0 48%;
-    margin-bottom: 4%;
+  flex: 0 0 48%;
+  margin-bottom: 4%;
 
-    a {
-        display: block;
-    }
+  a {
+    display: block;
+  }
 }

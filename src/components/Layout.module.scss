@@ -2,19 +2,19 @@
 @import 'mixins';
 
 #___gatsby {
-    // display: flex;
-    // min-height: 100vh;
-    // flex-direction: column;
-    position: relative;
+  // display: flex;
+  // min-height: 100vh;
+  // flex-direction: column;
+  position: relative;
 }
 
 .content {
-    padding: 0 $spacer / $line-height;
-    width: 100%;
+  padding: 0 $spacer / $line-height;
+  width: 100%;
 
-    @media (min-width: $screen-sm) {
-        padding: 0 ($spacer * 2);
-    }
+  @media (min-width: $screen-sm) {
+    padding: 0 ($spacer * 2);
+  }
 }
 
 // topbar and footer as fixed
@@ -22,27 +22,27 @@
 /////////////////////////////////////
 
 .document {
-    @include transition;
+  @include transition;
 
-    width: 100%;
-    padding-top: ($spacer * 2);
-    background-color: $page-background-color;
-    border-top: 1px solid rgba(255, 255, 255, .7);
-    border-bottom: 1px solid rgba(255, 255, 255, .7);
-    padding-bottom: $spacer * 2;
-    box-shadow: 0 1px 4px rgba($brand-main, .1),
-        0 -1px 4px rgba($brand-main, .2);
-    transform: translate3d(0, 0, 0);
+  width: 100%;
+  padding-top: ($spacer * 2);
+  background-color: $page-background-color;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  padding-bottom: $spacer * 2;
+  box-shadow: 0 1px 4px rgba($brand-main, 0.1),
+    0 -1px 4px rgba($brand-main, 0.2);
+  transform: translate3d(0, 0, 0);
 
-    :global(.has-menu-open) & {
-        transform: translate3d(0, ($spacer * 3), 0);
-    }
+  :global(.has-menu-open) & {
+    transform: translate3d(0, ($spacer * 3), 0);
+  }
 
-    @media (min-width: $screen-sm) and (min-height: 500px) {
-        margin-top: $spacer * 2.65;
-        margin-bottom: $spacer * 19; // height of footer
-        position: relative;
-        z-index: 2;
-        min-height: 500px;
-    }
+  @media (min-width: $screen-sm) and (min-height: 500px) {
+    margin-top: $spacer * 2.65;
+    margin-bottom: $spacer * 19; // height of footer
+    position: relative;
+    z-index: 2;
+    min-height: 500px;
+  }
 }

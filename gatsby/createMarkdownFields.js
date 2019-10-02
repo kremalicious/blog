@@ -2,13 +2,7 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { repoContentPath } = require('../config')
 
-// Create slug, date & github file link for posts from file path values
-exports.createMarkdownFields = (node, createNodeField, getNode) => {
-  const fileNode = getNode(node.parent)
-  const parsedFilePath = path.parse(fileNode.relativePath)
-  const slugOriginal = createFilePath({ node, getNode })
-
-  // slug
+function createSlug(node, createNodeField, slugOriginal, parsedFilePath) {
   let slug
 
   if (parsedFilePath.name === 'index') {
@@ -22,8 +16,9 @@ exports.createMarkdownFields = (node, createNodeField, getNode) => {
     name: 'slug',
     value: slug
   })
+}
 
-  // date
+function createDate(node, createNodeField, slugOriginal) {
   // grab date from file path
   let date = new Date(slugOriginal.substring(1, 11)).toISOString() // grab date from file path
 
@@ -36,6 +31,16 @@ exports.createMarkdownFields = (node, createNodeField, getNode) => {
     name: 'date',
     value: date
   })
+}
+
+// Create slug, date & github file link for posts from file path values
+exports.createMarkdownFields = (node, createNodeField, getNode) => {
+  const fileNode = getNode(node.parent)
+  const parsedFilePath = path.parse(fileNode.relativePath)
+  const slugOriginal = createFilePath({ node, getNode })
+
+  createSlug(node, createNodeField, slugOriginal, parsedFilePath)
+  createDate(node, createNodeField, slugOriginal)
 
   // github file link
   const type = fileNode.sourceInstanceName

@@ -2,57 +2,57 @@
 @import 'mixins';
 
 .footer {
-    text-align: center;
-    padding-top: $spacer * 2;
-    color: $text-color-light;
-    line-height: $spacer;
+  text-align: center;
+  padding-top: $spacer * 2;
+  color: $text-color-light;
+  line-height: $spacer;
 
-    @media (min-width: $screen-sm) and (min-height: 500px) {
-        position: fixed;
-        width: 100%;
-        border: 0;
-        will-change: transform;
-        z-index: 0;
-        bottom: 0;
-        box-shadow: none;
-    }
+  @media (min-width: $screen-sm) and (min-height: 500px) {
+    position: fixed;
+    width: 100%;
+    border: 0;
+    will-change: transform;
+    z-index: 0;
+    bottom: 0;
+    box-shadow: none;
+  }
 
-    svg {
-        fill: $brand-grey-light;
-    }
+  svg {
+    fill: $brand-grey-light;
+  }
 }
 
 .copyright {
-    padding-top: $spacer;
-    padding-bottom: $spacer;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
 
-    p {
-        margin-bottom: 0;
-        font-size: $font-size-mini;
-    }
+  p {
+    margin-bottom: 0;
+    font-size: $font-size-mini;
+  }
 
-    svg {
-        width: 15px;
-        height: 15px;
-        margin-right: .2em;
-        margin-bottom: -2px;
-        display: inline-block;
-    }
+  svg {
+    width: 15px;
+    height: 15px;
+    margin-right: 0.2em;
+    margin-bottom: -2px;
+    display: inline-block;
+  }
 }
 
 .btc {
-    margin-left: ($spacer / 2);
+  margin-left: ($spacer / 2);
 
-    // stylelint-disable-next-line
-    svg {
-        width: 10px;
-        margin-right: 0;
-    }
+  // stylelint-disable-next-line
+  svg {
+    width: 10px;
+    margin-right: 0;
+  }
 
-    code {
-        font-size: .6rem;
-        background: none;
-        color: $link-color;
-        padding: 0;
-    }
+  code {
+    font-size: 0.6rem;
+    background: none;
+    color: $link-color;
+    padding: 0;
+  }
 }

@@ -1,17 +1,17 @@
 .gatsby-resp-image-figure,
 .gatsby-resp-image-wrapper {
-    margin-bottom: $spacer;
+  margin-bottom: $spacer;
 }
 
 .anchor {
-    margin-top: $spacer / 3;
-    font-size: $font-size-large;
-    color: $brand-grey-light;
-    font-weight: 700;
+  margin-top: $spacer / 3;
+  font-size: $font-size-large;
+  color: $brand-grey-light;
+  font-weight: 700;
 
-    span {
-        transition: opacity .2s ease-out;
-    }
+  span {
+    transition: opacity 0.2s ease-out;
+  }
 }
 
 h1,
@@ -20,13 +20,13 @@ h3,
 h4,
 h5,
 h6 {
-    .anchor span {
-        opacity: 0;
-    }
+  .anchor span {
+    opacity: 0;
+  }
 
-    &:hover {
-        .anchor span {
-            opacity: 1;
-        }
+  &:hover {
+    .anchor span {
+      opacity: 1;
     }
+  }
 }

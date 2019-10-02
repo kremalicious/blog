@@ -2,11 +2,11 @@
 @import 'mixins';
 
 .hentry {
-    width: 100%;
-    padding-top: $spacer;
-    padding-bottom: $spacer * 3;
+  width: 100%;
+  padding-top: $spacer;
+  padding-bottom: $spacer * 3;
 
-    &:only-child {
-        padding-bottom: $spacer;
-    }
+  &:only-child {
+    padding-bottom: $spacer;
+  }
 }

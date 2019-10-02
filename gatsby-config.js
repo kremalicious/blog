@@ -212,6 +212,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    'gatsby-plugin-typescript'
   ]
 }

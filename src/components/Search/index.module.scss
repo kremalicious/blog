@@ -1,0 +1,46 @@
+@import 'variables';
+
+.search {
+  position: absolute;
+  left: $spacer / 2;
+  right: $spacer / 2;
+  top: -($spacer / 4);
+  z-index: 10;
+
+  input {
+    width: 100%;
+  }
+
+  @media (min-width: $screen-md) {
+    left: 0;
+    right: 0;
+  }
+}
+
+.appear,
+.enter {
+  opacity: 0.01;
+  transform: translate3d(0, -100px, 0);
+
+  &.appearActive,
+  &.enterActive {
+    opacity: 1;
+    transition: 0.2s ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.exit {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  &.exitActive {
+    opacity: 0.01;
+    transition: 0.2s ease-in;
+    transform: translate3d(0, -100px, 0);
+  }
+}
+
+:global(.hasSearchOpen) {
+  overflow: hidden;
+}

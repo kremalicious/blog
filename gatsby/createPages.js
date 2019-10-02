@@ -1,5 +1,5 @@
 const path = require('path')
-const postsTemplate = path.resolve('src/templates/Posts.jsx')
+const postsTemplate = path.resolve('src/templates/Posts.tsx')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
@@ -7,7 +7,7 @@ const redirects = [
 ]
 
 exports.generatePostPages = (createPage, posts, numPages) => {
-  const postTemplate = path.resolve('src/templates/Post.jsx')
+  const postTemplate = path.resolve('src/templates/Post.tsx')
 
   // Create Post pages
   posts.forEach(post => {

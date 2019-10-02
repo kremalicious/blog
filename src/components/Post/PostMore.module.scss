@@ -1,29 +1,29 @@
 @import 'variables';
 
 .postMore {
+  display: inline-block;
+  font-family: $font-family-headings;
+  font-weight: $font-weight-headings;
+  font-size: $font-size-base * 0.9;
+  color: $link-color;
+  text-transform: uppercase;
+  margin-top: $spacer;
+
+  svg {
     display: inline-block;
-    font-family: $font-family-headings;
-    font-weight: $font-weight-headings;
-    font-size: $font-size-base * .9;
-    color: $link-color;
-    text-transform: uppercase;
-    margin-top: $spacer;
+    margin: 0;
+    top: 0.2rem;
+    position: relative;
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: $text-color-light;
+    transition: 0.2s ease-out;
+  }
 
+  &:hover,
+  &:focus {
     svg {
-        display: inline-block;
-        margin: 0;
-        top: .2rem;
-        position: relative;
-        width: 1.1rem;
-        height: 1.1rem;
-        fill: $text-color-light;
-        transition: .2s ease-out;
+      transform: translate3d(0.2rem, 0, 0);
     }
-
-    &:hover,
-    &:focus {
-        svg {
-            transform: translate3d(.2rem, 0, 0);
-        }
-    }
+  }
 }

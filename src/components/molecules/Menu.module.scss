@@ -2,46 +2,46 @@
 @import 'mixins';
 
 .menu {
-    @include divider-top;
+  @include divider-top;
 
-    margin-top: 0;
-    padding-top: $spacer / 2;
-    position: absolute;
-    top: calc(100% + #{$spacer / 2});
-    left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+  margin-top: 0;
+  padding-top: $spacer / 2;
+  position: absolute;
+  top: calc(100% + #{$spacer / 2});
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 
-    li {
-        list-style: none;
-        flex: 0 0 50%;
+  li {
+    list-style: none;
+    flex: 0 0 50%;
 
-        @media (min-width: $screen-xs) {
-            flex-basis: 33%;
-        }
-
-        &::before {
-            display: none;
-        }
+    @media (min-width: $screen-xs) {
+      flex-basis: 33%;
     }
 
-    opacity: 0;
-
-    :global(.has-menu-open) & {
-        opacity: 1;
+    &::before {
+      display: none;
     }
+  }
 
-    a {
-        color: $text-color;
-        line-height: 1;
-        text-transform: uppercase;
-        margin: 0;
-        font-size: $font-size-small;
-        text-shadow: 0 1px 0 rgba(#fff, .5);
-        padding: $padding-base-horizontal;
-        display: block;
-        text-align: center;
-    }
+  opacity: 0;
+
+  :global(.has-menu-open) & {
+    opacity: 1;
+  }
+
+  a {
+    color: $text-color;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: $font-size-small;
+    text-shadow: 0 1px 0 rgba(#fff, 0.5);
+    padding: $padding-base-horizontal;
+    display: block;
+    text-align: center;
+  }
 }

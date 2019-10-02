@@ -2,60 +2,60 @@
 @import 'mixins';
 
 .web3 {
-    @include divider;
+  @include divider;
 
-    width: 100%;
-    text-align: center;
-    margin-top: $spacer / 2;
-    margin-bottom: $spacer;
-    padding-bottom: $spacer * 1.5;
+  width: 100%;
+  text-align: center;
+  margin-top: $spacer / 2;
+  margin-bottom: $spacer;
+  padding-bottom: $spacer * 1.5;
 
-    small {
-        color: darken($alert-info, 60%);
-        margin-top: -($spacer / 2);
-        display: block;
-    }
+  small {
+    color: darken($alert-info, 60%);
+    margin-top: -($spacer / 2);
+    display: block;
+  }
 }
 
 .web3Row {
-    min-height: 77px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 77px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &:empty {
-        display: none;
-    }
+  &:empty {
+    display: none;
+  }
 }
 
 .message {
-    font-size: $font-size-small;
-    position: relative;
+  font-size: $font-size-small;
+  position: relative;
 
-    &::after {
-        overflow: hidden;
-        display: inline-block;
-        vertical-align: bottom;
-        animation: ellipsis steps(4, end) 1s infinite;
-        content: '\2026'; // ascii code for the ellipsis character
-        width: 0;
-        position: absolute;
-        left: 100%;
-        bottom: 0;
-    }
+  &::after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis steps(4, end) 1s infinite;
+    content: '\2026'; // ascii code for the ellipsis character
+    width: 0;
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+  }
 }
 
 .success {
-    composes: message;
-    color: green;
+  composes: message;
+  color: green;
 
-    &::after {
-        display: none;
-    }
+  &::after {
+    display: none;
+  }
 }
 
 @keyframes ellipsis {
-    to {
-        width: .75rem;
-    }
+  to {
+    width: 0.75rem;
+  }
 }

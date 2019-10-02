@@ -1,33 +1,33 @@
 @import 'variables';
 
 .searchButton {
-    padding: .65rem .85rem;
-    text-align: center;
-    line-height: 1;
-    vertical-align: middle;
-    display: inline-block;
-    margin-right: $spacer / 4;
+  padding: 0.65rem 0.85rem;
+  text-align: center;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: $spacer / 4;
 
-    &:focus {
-        outline: 0;
-    }
+  &:focus {
+    outline: 0;
+  }
 
+  svg {
+    fill: $text-color-light;
+    width: 21px;
+    height: 21px;
+  }
+
+  &:hover,
+  &:focus {
     svg {
-        fill: $text-color-light;
-        width: 21px;
-        height: 21px;
+      fill: $brand-cyan;
     }
+  }
 
-    &:hover,
-    &:focus {
-        svg {
-            fill: $brand-cyan;
-        }
+  &:active {
+    svg {
+      fill: darken($brand-cyan, 30%);
     }
-
-    &:active {
-        svg {
-            fill: darken($brand-cyan, 30%);
-        }
-    }
+  }
 }

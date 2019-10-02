@@ -2,12 +2,12 @@
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-css-modules",
-    "./node_modules/prettier-stylelint/config.js"
+    "stylelint-prettier/recommended"
   ],
+  "plugins": ["stylelint-prettier"],
   "syntax": "scss",
   "rules": {
-      "indentation": 4,
-      "number-leading-zero": "never",
+      "prettier/prettier": true,
       "at-rule-no-unknown": null
   }
 }

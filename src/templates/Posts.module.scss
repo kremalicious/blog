@@ -2,35 +2,35 @@
 @import 'mixins';
 
 .hentry {
-    @include divider;
+  @include divider;
 
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: $spacer * 2;
-    padding-bottom: $spacer * 2;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: $spacer * 2;
+  padding-bottom: $spacer * 2;
 
-    @media (min-width: $screen-sm) {
-        padding-top: $spacer * 3;
-        padding-bottom: $spacer * 3;
+  @media (min-width: $screen-sm) {
+    padding-top: $spacer * 3;
+    padding-bottom: $spacer * 3;
 
-        &:first-of-type {
-            padding-top: $spacer * 4;
-        }
+    &:first-of-type {
+      padding-top: $spacer * 4;
     }
+  }
 
-    :global(.gatsby-image-wrapper) {
-        max-height: 100vh;
-    }
+  :global(.gatsby-image-wrapper) {
+    max-height: 100vh;
+  }
 }
 
 .archiveTitle {
-    @include heading-band();
+  @include heading-band();
 
-    font-size: $font-size-h3;
-    margin-top: 0;
-    margin-bottom: 0;
+  font-size: $font-size-h3;
+  margin-top: 0;
+  margin-bottom: 0;
 
-    @media (min-width: $screen-md) {
-        margin-left: -117%;
-    }
+  @media (min-width: $screen-md) {
+    margin-left: -117%;
+  }
 }
