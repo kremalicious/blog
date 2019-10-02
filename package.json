@@ -15,7 +15,7 @@
     "rename:scrypt": "sed -i -e 's|./build/Release/scrypt|scrypt|g' node_modules/scrypt/index.js",
     "copy": "cp -R content/media/ public",
     "lint": "run-p --continue-on-error lint:js lint:css lint:md",
-    "lint:js": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.jsx,.ts,.tsx .",
+    "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "lint:css": "stylelint 'src/**/*.{css,scss}'",
     "lint:md": "markdownlint './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,.git,coverage}/**/*'",
     "format": "npm run lint:js -- --fix && npm run lint:css -- --fix",

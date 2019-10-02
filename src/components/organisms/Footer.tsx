@@ -10,9 +10,45 @@ import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import styles from './Footer.module.scss'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-export default function Footer() {
-  const { name, uri, bitcoin, github } = useSiteMetadata()
+function Copyright({
+  toggleModal,
+  showModal
+}: {
+  toggleModal(): void
+  showModal: boolean
+}) {
+  const { name, uri, bitcoin, github } = useSiteMetadata().author
   const year = new Date().getFullYear()
+
+  return (
+    <section className={styles.copyright}>
+      <p>
+        &copy; 2005&ndash;
+        {year + ' '}
+        <a href={uri} rel="me">
+          {name}
+        </a>
+      </p>
+
+      <p>
+        <a href={`${github}/blog`}>
+          <Github />
+          View source
+        </a>
+        <button className={styles.btc} onClick={toggleModal}>
+          <Bitcoin />
+          <code>{bitcoin}</code>
+        </button>
+      </p>
+
+      {showModal && (
+        <ModalThanks isOpen={showModal} handleCloseModal={toggleModal} />
+      )}
+    </section>
+  )
+}
+
+export default function Footer() {
   const [showModal, setShowModal] = useState(false)
 
   const toggleModal = () => {
@@ -24,31 +60,7 @@ export default function Footer() {
       <Container>
         <Vcard />
         <Subscribe />
-
-        <section className={styles.copyright}>
-          <p>
-            &copy; 2005&ndash;
-            {year + ' '}
-            <a href={uri} rel="me">
-              {name}
-            </a>
-          </p>
-
-          <p>
-            <a href={`${github}/blog`}>
-              <Github />
-              View source
-            </a>
-            <button className={styles.btc} onClick={toggleModal}>
-              <Bitcoin />
-              <code>{bitcoin}</code>
-            </button>
-          </p>
-
-          {showModal && (
-            <ModalThanks isOpen={showModal} handleCloseModal={toggleModal} />
-          )}
-        </section>
+        <Copyright showModal={showModal} toggleModal={toggleModal} />
       </Container>
     </footer>
   )

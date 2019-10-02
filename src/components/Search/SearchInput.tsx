@@ -9,7 +9,7 @@ export default function SearchInput({
 }: {
   value: string
   onToggle(): void
-  onChange(): void
+  onChange(e: Event): void
 }) {
   return (
     <>

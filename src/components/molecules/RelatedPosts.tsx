@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from '../Post/PostTeaser'
 import styles from './RelatedPosts.module.scss'
@@ -51,7 +51,13 @@ const postsWithDataFilter = (
 export default function RelatedPosts({ tags }: { tags: string[] }) {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
-  const filteredPosts = postsWithDataFilter(posts, 'tags', tags)
+  const [filteredPosts, setFilteredPosts] = useState(
+    postsWithDataFilter(posts, 'tags', tags)
+  )
+
+  function refreshPosts() {
+    setFilteredPosts(postsWithDataFilter(posts, 'tags', tags))
+  }
 
   return (
     <aside className={styles.relatedPosts}>
@@ -64,7 +70,9 @@ export default function RelatedPosts({ tags }: { tags: string[] }) {
             <PostTeaser key={node.id} post={node} />
           ))}
       </ul>
-      <button className={`${styles.button} btn`}>Refresh Related Posts</button>
+      <button className={`${styles.button} btn`} onClick={refreshPosts}>
+        Refresh Related Posts
+      </button>
     </aside>
   )
 }
