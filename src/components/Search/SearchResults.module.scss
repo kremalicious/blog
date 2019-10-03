@@ -15,6 +15,10 @@
   -webkit-overflow-scrolling: touch;
   height: 91vh;
 
+  :global(.dark) & {
+    background: rgba($body-background-color--dark, 0.95);
+  }
+
   ul {
     @include breakoutviewport;
 

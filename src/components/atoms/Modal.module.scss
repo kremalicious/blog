@@ -14,6 +14,10 @@
   animation: fadein 0.3s;
   padding: $spacer;
 
+  :global(.dark) & {
+    background: rgba($body-background-color--dark, 0.95);
+  }
+
   @media (min-width: $screen-sm) {
     display: flex;
     align-items: flex-start;
@@ -24,13 +28,18 @@
 
 .modal__content {
   outline: 0;
-  background: transparent;
+  background: $body-background-color;
   position: relative;
   border-radius: $border-radius;
   border: 1px solid rgba($brand-grey-light, 0.4);
   box-shadow: 0 5px 30px rgba($brand-grey-light, 0.2);
   padding: 0 $spacer / 2 $spacer / 2;
   max-width: 100%;
+
+  :global(.dark) & {
+    background: $body-background-color--dark;
+    box-shadow: 0 5px 30px rgba(darken($brand-main, 20%), 0.5);
+  }
 
   @media (min-width: $screen-md) {
     max-width: $screen-sm;

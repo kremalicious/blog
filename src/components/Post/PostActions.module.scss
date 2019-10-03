@@ -13,6 +13,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
 
+  :global(.dark) & {
+    background: darken($body-background-color--dark, 2%);
+  }
+
   @media (min-width: $screen-md) {
     margin-left: -100%;
     margin-right: -18%;

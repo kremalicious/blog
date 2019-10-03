@@ -28,6 +28,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "classnames": "^2.2.6",
     "dms2dec": "^1.1.0",
     "fast-exif": "^1.0.1",
     "fraction.js": "^4.0.12",
@@ -46,6 +47,7 @@
     "gatsby-plugin-sitemap": "^2.2.16",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-typescript": "^2.1.11",
+    "gatsby-plugin-use-dark-mode": "^1.1.2",
     "gatsby-plugin-webpack-size": "^1.0.0",
     "gatsby-redirect-from": "^0.2.1",
     "gatsby-remark-autolink-headers": "^2.1.13",
@@ -76,6 +78,7 @@
     "remark": "^11.0.1",
     "remark-react": "^6.0.0",
     "slugify": "^1.3.4",
+    "use-dark-mode": "^2.3.1",
     "web3": "^1.2.1"
   },
   "devDependencies": {
@@ -85,6 +88,7 @@
     "@svgr/webpack": "^4.3.3",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.2.0",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.8",
     "@types/react": "^16.9.4",

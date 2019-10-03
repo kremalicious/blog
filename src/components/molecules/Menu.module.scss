@@ -43,5 +43,9 @@
     padding: $padding-base-horizontal;
     display: block;
     text-align: center;
+
+    :global(.dark) & {
+      text-shadow: 0 -1px 0 rgba(#000, 0.5);
+    }
   }
 }

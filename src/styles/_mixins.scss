@@ -97,6 +97,14 @@
     width: 100%;
     border-bottom: 1px dashed #fff;
   }
+
+  :global(.dark) & {
+    border-bottom-color: darken($brand-main, 25%);
+
+    &::before {
+      border-bottom-color: darken($brand-grey, 12%);
+    }
+  }
 }
 
 @mixin divider-top() {
@@ -114,6 +122,14 @@
     width: 100%;
     border-bottom: 1px dashed #fff;
   }
+
+  :global(.dark) & {
+    border-top-color: darken($brand-main, 25%);
+
+    &::after {
+      border-bottom-color: darken($brand-grey, 12%);
+    }
+  }
 }
 
 // Heading band
@@ -124,6 +140,10 @@
   background: rgba(255, 255, 255, 0.5);
   padding: ($spacer/2) $spacer ($spacer/2) 100%;
   margin-left: -100%;
+
+  :global(.dark) & {
+    background: darken($body-background-color--dark, 2%);
+  }
 }
 
 // Layout breakout
@@ -223,6 +243,11 @@
   border-bottom: 2px solid transparent;
   border-radius: $border-radius;
   box-shadow: 0 1px 3px rgba($brand-grey, 0.2);
+
+  :global(.dark) & {
+    box-shadow: 0 3px 5px rgba(darken($brand-main, 20%), 0.15),
+      0 5px 16px rgba(darken($brand-main, 20%), 0.15);
+  }
 
   @media (min-width: $screen-sm) {
     border: 2px solid transparent;

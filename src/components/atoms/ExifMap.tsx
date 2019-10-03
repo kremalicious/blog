@@ -8,6 +8,9 @@ const MAPBOX_ACCESS_TOKEN =
 const retina =
   typeof window !== 'undefined' && window.devicePixelRatio >= 2 ? '@2x' : ''
 
+const isDarkMode =
+  typeof window !== 'undefined' && document.body.classList.contains('dark')
+
 const mapbox = (mapboxId: string, accessToken: string) => (
   x: string,
   y: string,
@@ -50,7 +53,7 @@ export default function ExifMap({
       zoom={zoom}
       height={160}
       attribution={false}
-      provider={providers['light']}
+      provider={isDarkMode ? providers['dark'] : providers['light']}
       metaWheelZoom={true}
       metaWheelZoomWarning={'META+wheel to zoom'}
     >

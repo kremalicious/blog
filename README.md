@@ -22,6 +22,7 @@
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
+  - [🌗 Theme Switcher](#-theme-switcher)
   - [🏆 SEO component](#-seo-component)
   - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
   - [gatsby-redirect-from](#gatsby-redirect-from)
@@ -116,6 +117,14 @@ See it live on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-plugin
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/atoms/Changelog.jsx`](src/components/atoms/Changelog.jsx)
+
+### 🌗 Theme Switcher
+
+Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences utilizing [use-dark-mode](https://github.com/donavon/use-dark-mode).
+
+If you want to know how, have a look at the respective components:
+
+- [`src/components/molecules/ThemeSwitch.jsx`](src/components/molecules/ThemeSwitch.jsx)
 
 ### 🏆 SEO component
 

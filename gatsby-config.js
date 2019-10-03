@@ -38,7 +38,8 @@ module.exports = {
               withWebp: true,
               linkImagesToOriginal: true,
               showCaptions: true,
-              backgroundColor: '#e7eef4'
+              backgroundColor: 'transparent',
+              disableBgImageOnAlpha: true
             }
           },
           {
@@ -206,6 +207,14 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         exclude: ['/page/*', '/tags/*']
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-use-dark-mode',
+      options: {
+        classNameDark: 'dark',
+        classNameLight: 'light',
+        minify: true
       }
     },
     'gatsby-plugin-webpack-size',

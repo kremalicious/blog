@@ -13,7 +13,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: $body-background-color;
 }
 
 html {
@@ -32,7 +31,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  transition: background 0.6s $easing;
+  transition: background 0.4s $easing;
+  background: $body-background-color;
 
   // handling long text, like URLs
   overflow-wrap: break-word;
@@ -79,6 +79,26 @@ button {
   &:active {
     transition: none;
     text-shadow: none;
+  }
+}
+
+// Links
+/////////////////////////////////////
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $link-color-hover;
+  }
+
+  &:active {
+    transition: none;
+    color: $link-color-active;
   }
 }
 
@@ -153,38 +173,19 @@ h5,
 h6 {
   font-family: $font-family-headings;
   line-height: $line-height-headings;
-  color: $color-headings;
   font-weight: $font-weight-headings;
   letter-spacing: -0.02em;
 
-  .dark & {
-    color: $color-headings--dark;
-  }
-}
-
-// Links
-/////////////////////////////////////
-
-a {
-  color: $link-color;
-  text-decoration: none;
-  transition: 0.2s ease-out;
-
-  h1 &,
-  h2 &,
-  h3 & {
+  // stylelint-disable no-descending-specificity
+  &,
+  a {
     color: $color-headings;
   }
+  // stylelint-enable no-descending-specificity
 
-  &:hover,
-  &:focus {
-    outline: 0;
-    color: $link-color-hover;
-  }
-
-  &:active {
-    transition: none;
-    color: $link-color-active;
+  .dark &,
+  .dark & a {
+    color: $color-headings--dark;
   }
 }
 
@@ -215,6 +216,10 @@ figcaption {
   font-style: italic;
   text-align: center;
   margin-top: -($spacer / $line-height);
+
+  .dark & {
+    color: $brand-grey-light;
+  }
 }
 
 // Lists

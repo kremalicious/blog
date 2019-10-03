@@ -15,7 +15,7 @@
   }
 }
 
-.header__content {
+.headerContent {
   @include breakoutviewport;
 
   position: relative;
@@ -31,56 +31,28 @@
 // Logo
 /////////////////////////////////////
 
-.logo {
-  display: block;
-  background-image: url('../../images/logo.png');
-  background-repeat: no-repeat;
-  background-position: left top;
-  width: 47px;
-  height: 31px;
-
-  @media (min-width: $screen-sm) {
-    width: 183px;
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-    background-image: url('../../images/logo@2x.png');
-    background-size: 183px 62px;
-  }
-
-  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 344dpi) {
-    background-image: url('../../images/logo@3x.png');
-    background-size: 183px 62px;
-  }
-}
-
 .title {
   margin-top: $spacer / 5;
   margin-bottom: 0;
-  // display toned down logo
-  // by default
-  @extend .logo;
-}
 
-.header__logo {
-  @include hide-text;
-  // repeat logo
-  // but display hover version
-  @extend .logo;
-
-  background-position: left bottom;
-
-  // hide by default
-  opacity: 0;
-  // show smooooothly on hover
-  &:hover {
-    opacity: 1;
-    transform: none;
+  svg {
+    fill: $brand-grey-light;
+    width: 160px;
+    height: 30px;
+    margin: 0;
+    transition: 0.2s $easing;
   }
 
-  &:active {
-    top: 0;
-    box-shadow: none;
+  a {
+    display: block;
+    @include hide-text;
+
+    &:hover,
+    &:focus {
+      svg {
+        fill: $brand-cyan;
+      }
+    }
   }
 }
 

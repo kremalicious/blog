@@ -23,15 +23,13 @@ $alert-error: #f2dede;
 $body-background-color: $brand-light;
 $body-background-color--dark: darken($brand-grey, 22%);
 
-$page-background-color: $brand-light;
-
 // Text Colors
 /////////////////////////////////////
 
 $text-color: $brand-grey;
 $text-color-light: $brand-grey-light;
 
-$text-color--dark: lighten($brand-grey-light, 5%);
+$text-color--dark: lighten($brand-grey-light, 10%);
 $text-color-light--dark: lighten($brand-grey-light, 5%);
 
 $link-color: $brand-cyan;

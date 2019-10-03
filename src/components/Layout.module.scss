@@ -22,20 +22,29 @@
 /////////////////////////////////////
 
 .document {
-  @include transition;
-
   width: 100%;
   padding-top: ($spacer * 2);
-  background-color: $page-background-color;
+  background-color: $body-background-color;
   border-top: 1px solid rgba(255, 255, 255, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   padding-bottom: $spacer * 2;
   box-shadow: 0 1px 4px rgba($brand-main, 0.1),
     0 -1px 4px rgba($brand-main, 0.2);
   transform: translate3d(0, 0, 0);
+  transition: 0.4s $easing;
+  transition-property: transform, background;
 
   :global(.has-menu-open) & {
     transform: translate3d(0, ($spacer * 3), 0);
+  }
+
+  :global(.dark) & {
+    background-color: $body-background-color--dark;
+    color: $text-color--dark;
+    border-top-color: darken($brand-grey, 15%);
+    border-bottom-color: darken($brand-grey, 15%);
+    box-shadow: 0 1px 4px darken($brand-main, 10%),
+      0 -1px 4px darken($brand-main, 15%);
   }
 
   @media (min-width: $screen-sm) and (min-height: 500px) {

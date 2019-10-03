@@ -11,6 +11,10 @@
   margin-left: $spacer / 2;
   border-left: 1px solid $brand-grey-dimmed;
 
+  :global(.dark) & {
+    border-left-color: darken($body-background-color--dark, 5%);
+  }
+
   h2 {
     position: relative;
 
