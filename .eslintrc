@@ -15,10 +15,10 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
         "prettier/@typescript-eslint",
+        "prettier/react",
         "plugin:prettier/recommended",
         "plugin:react/recommended"
       ],
-      "plugins": ["@typescript-eslint", "react", "graphql", "jsx-a11y"],
       "rules": {
         "object-curly-spacing": ["error", "always"],
         "react/prop-types": "off",
@@ -26,9 +26,11 @@
         "@typescript-eslint/no-explicit-any": "off"
       },
       "parserOptions": {
-        "ecmaFeatures": { "jsx": true },
         "ecmaVersion": 2018,
         "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        },
         "project": "./tsconfig.json"
       }
     }
