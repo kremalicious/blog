@@ -22,10 +22,14 @@
     flex: 1 1 20%;
     white-space: nowrap;
     padding: $spacer / 1.5;
-    border-bottom: 1px solid $brand-grey-dimmed;
+    border-bottom: 1px dashed $brand-grey-dimmed;
 
     &:first-child {
       flex-basis: 100%;
+    }
+
+    :global(.dark) & {
+      border-bottom-color: $brand-grey;
     }
   }
 
@@ -33,7 +37,7 @@
     margin-bottom: 0;
 
     span {
-      border-left: 1px solid $brand-grey-dimmed;
+      border-left: 1px dashed $brand-grey-dimmed;
       border-bottom: 0;
       padding: $spacer;
 
@@ -44,6 +48,10 @@
 
       &:first-child {
         border-left: 0;
+      }
+
+      :global(.dark) & {
+        border-left-color: $brand-grey;
       }
     }
   }

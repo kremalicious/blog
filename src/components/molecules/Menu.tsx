@@ -24,7 +24,7 @@ export default function Menu() {
   return (
     <>
       <Helmet>
-        <body className={menuOpen ? 'has-menu-open' : null} />
+        <html className={menuOpen ? 'has-menu-open' : null} lang="en" />
       </Helmet>
       <Hamburger onClick={toggleMenu} />
       <ul className={styles.menu}>{MenuItems}</ul>

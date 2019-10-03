@@ -9,6 +9,10 @@
   color: $color-headings;
   margin-top: 0;
   margin-bottom: $spacer;
+
+  :global(.dark) & {
+    color: $color-headings--dark;
+  }
 }
 
 .hentry__title__link {

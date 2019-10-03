@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import Container from '../atoms/Container'
 import Search from '../Search'
 import Menu from '../molecules/Menu'
+import ThemeSwitch from '../molecules/ThemeSwitch'
+import { ReactComponent as Logo } from '../../images/logo.svg'
 
 import styles from './Header.module.scss'
 
@@ -10,14 +12,15 @@ export default function Header() {
   return (
     <header role="banner" className={styles.header}>
       <Container>
-        <div className={styles.header__content}>
+        <div className={styles.headerContent}>
           <h1 className={styles.title}>
-            <Link className={styles.header__logo} to="/">
-              kremalicious
+            <Link to="/">
+              <Logo /> kremalicious
             </Link>
           </h1>
 
           <nav role="navigation" className={styles.nav}>
+            <ThemeSwitch />
             <Search lng="en" />
             <Menu />
           </nav>

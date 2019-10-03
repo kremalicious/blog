@@ -38,7 +38,7 @@ export default function Search({ lng }: { lng: string }) {
       {searchOpen && (
         <>
           <Helmet>
-            <body className="hasSearchOpen" />
+            <html className="hasSearchOpen" lang="en" />
           </Helmet>
 
           <CSSTransition
