@@ -28,7 +28,9 @@ export default function Exif({ exif }: { exif: ExifProps }) {
         {iso && <span title="ISO">{iso}</span>}
         {focalLength && <span title="Focal length">{focalLength}</span>}
       </div>
-      <div className={styles.map}>{gps && <ExifMap gps={gps} />}</div>
+      {gps.latitude && (
+        <div className={styles.map}>{gps && <ExifMap gps={gps} />}</div>
+      )}
     </aside>
   )
 }
