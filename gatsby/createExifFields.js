@@ -55,10 +55,10 @@ const constructExifFields = (exifData, createNodeField, node) => {
     ExposureTime,
     FocalLength,
     ExposureBiasValue,
-    ExposureMode
+    ExposureMode,
+    LensModel
   } = exifData.exif
 
-  const model = `${Model}`
   const iso = `ISO ${ISO}`
   const fstop = `ƒ ${FNumber}`
   const focalLength = `${FocalLength}mm`
@@ -81,10 +81,11 @@ const constructExifFields = (exifData, createNodeField, node) => {
     name: 'exif',
     value: {
       iso,
-      model,
+      model: Model,
       fstop,
       shutterspeed,
       focalLength,
+      lensModel: LensModel,
       exposure,
       gps: { latitude, longitude }
     }

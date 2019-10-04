@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Container from '../atoms/Container'
 import Vcard from '../molecules/Vcard'
-import Subscribe from '../molecules/Subscribe'
+import ThemeSwitch from '../molecules/ThemeSwitch'
 import ModalThanks from '../molecules/ModalThanks'
 
 import { ReactComponent as Github } from '../../images/github.svg'
@@ -28,9 +28,6 @@ function Copyright({
         <a href={uri} rel="me">
           {name}
         </a>
-      </p>
-
-      <p>
         <a href={`${github}/blog`}>
           <Github />
           View source
@@ -58,8 +55,9 @@ export default function Footer() {
   return (
     <footer role="contentinfo" className={styles.footer}>
       <Container>
+        <ThemeSwitch />
         <Vcard />
-        <Subscribe />
+
         <Copyright showModal={showModal} toggleModal={toggleModal} />
       </Container>
     </footer>

@@ -8,6 +8,7 @@ interface ExifProps {
   fstop: string
   shutterspeed: string
   focalLength: string
+  lensModel: string
   exposure: string
   gps: {
     latitude: string
@@ -18,15 +19,17 @@ interface ExifProps {
 export default function Exif({ exif }: { exif: ExifProps }) {
   const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } = exif
 
+  // iPhone lenses
+
   return (
     <aside className={styles.exif}>
       <div className={styles.data}>
         {model && <span title="Camera model">{model}</span>}
+        {focalLength && <span title="Focal length">{focalLength}</span>}
         {fstop && <span title="Aperture">{fstop}</span>}
         {shutterspeed && <span title="Shutter speed">{shutterspeed}</span>}
         {exposure && <span title="Exposure">{exposure}</span>}
         {iso && <span title="ISO">{iso}</span>}
-        {focalLength && <span title="Focal length">{focalLength}</span>}
       </div>
       {gps.latitude && (
         <div className={styles.map}>{gps && <ExifMap gps={gps} />}</div>

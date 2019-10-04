@@ -23,12 +23,13 @@ const query = graphql`
 
 export default function Vcard() {
   const data = useStaticQuery(query)
-  const { twitter, github, facebook, name, uri } = useSiteMetadata().author
+  const { author, rss, jsonfeed } = useSiteMetadata()
+  const { twitter, github, name, uri } = author
   const avatar = data.avatar.edges[0].node.childImageSharp.fixed
-  const links = [twitter, github, facebook]
+  const links = [twitter, github, rss, jsonfeed]
 
   return (
-    <div className="vcard author">
+    <div className={styles.vcard}>
       <Img
         className={styles.avatar}
         fixed={avatar}

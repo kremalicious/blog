@@ -51,7 +51,7 @@ export default function ExifMap({
     <Map
       center={[latitude, longitude]}
       zoom={zoom}
-      height={160}
+      height={200}
       attribution={false}
       provider={isDarkMode ? providers['dark'] : providers['light']}
       metaWheelZoom={true}

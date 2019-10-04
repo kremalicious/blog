@@ -4,9 +4,7 @@
 .themeSwitch {
   position: relative;
   display: inline-block;
-  margin-right: $spacer;
-  opacity: 0.75;
-  bottom: -0.1rem;
+  margin-bottom: $spacer * $line-height;
 
   svg {
     width: 0.8rem;
