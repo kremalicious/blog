@@ -6,4 +6,4 @@ title: TITLE
 image: DATE_SHORT-SLUG.jpg
 ---
 
-Beep Boop.
+DESCRIPTION

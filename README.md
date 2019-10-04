@@ -220,13 +220,15 @@ npm run new "Hello World"
 npm run new "Hello World" 2017-12-27
 ```
 
+Create a new photo post with date, title & description pre-filled from EXIF/IPTC data of a given image file:
+
 ```bash
-npm run new "Hello World" photo
-npm run new "Hello World" photo 2017-12-27
+npm run new photo /path/to/photo.jpg
 ```
 
 - [`scripts/new.js`](scripts/new.js)
 - [`scripts/new.md`](scripts/new.md)
+- [`scripts/new-photo.md`](scripts/new-photo.md)
 
 ## 🚚 Deployment
 

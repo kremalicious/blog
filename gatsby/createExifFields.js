@@ -54,6 +54,7 @@ const constructExifFields = (exifData, createNodeField, node) => {
     FNumber,
     ExposureTime,
     FocalLength,
+    FocalLengthIn35mmFormat,
     ExposureBiasValue,
     ExposureMode,
     LensModel
@@ -61,7 +62,7 @@ const constructExifFields = (exifData, createNodeField, node) => {
 
   const iso = `ISO ${ISO}`
   const fstop = `ƒ ${FNumber}`
-  const focalLength = `${FocalLength}mm`
+  const focalLength = `${FocalLengthIn35mmFormat || FocalLength}mm`
 
   // Shutter speed
   const { n, d } = new Fraction(ExposureTime)

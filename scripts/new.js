@@ -2,6 +2,8 @@ import fs from 'fs-extra'
 import path from 'path'
 import slugify from 'slugify'
 import ora from 'ora'
+import fastExif from 'fast-exif'
+import iptc from 'node-iptc'
 
 const templatePath = path.join(__dirname, 'new.md')
 const templatePathPhoto = path.join(__dirname, 'new-photo.md')
@@ -14,24 +16,55 @@ if (!process.argv[2]) {
   spinner.fail('Use the format `npm run new "Title of post"`')
 }
 
-const title = process.argv[2]
-const isPhoto = process.argv[3] === 'photo'
+let title = process.argv[2]
+const isPhoto = process.argv[2] === 'photo'
 
 spinner.text = `Adding '${title}'.`
 
-const titleSlug = slugify(title, { lower: true })
+let titleSlug = slugify(title, { lower: true })
 const postsPath = path.join('.', 'content', 'posts')
 const photosPath = path.join('.', 'content', 'photos')
 
 let date = new Date().toISOString()
 
-if (isPhoto) {
-  if (process.argv[4]) {
-    date = new Date(process.argv[4]).toISOString()
+async function getIptc(imagePath) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(imagePath, (err, data) => {
+      if (err) reject(err)
+      const iptcData = iptc(data)
+      return resolve(iptcData)
+    })
+  })
+}
+
+async function getExif(imagePath) {
+  let exifData
+  try {
+    exifData = await fastExif.read(imagePath, true)
+  } catch (error) {
+    return null
   }
 
+  let iptcData
+  try {
+    iptcData = await getIptc(imagePath)
+  } catch (error) {
+    return null
+  }
+
+  return { ...exifData, iptc: { ...iptcData } }
+}
+
+async function createPhotoPost() {
+  const photo = process.argv[3]
+  const exifData = await getExif(photo)
+  title = exifData.iptc.object_name || exifData.iptc.title
+  titleSlug = slugify(title, { lower: true })
+  date = new Date(exifData.exif.DateTimeOriginal).toISOString()
   const dateShort = date.slice(0, 10)
-  const filePhoto = `${photosPath}/${dateShort}-${titleSlug}.md`
+  const description = exifData.iptc.caption
+  const fileName = `${dateShort}-${titleSlug}`
+  const postPhoto = `${photosPath}/${fileName}.md`
 
   const newContentsPhoto = templatePhoto
     .split('TITLE')
@@ -42,13 +75,23 @@ if (isPhoto) {
     .join(date)
     .split('DATE_SHORT')
     .join(dateShort)
+    .split('DESCRIPTION')
+    .join(description)
 
-  fs.appendFile(filePhoto, newContentsPhoto, err => {
-    if (err) spinner.fail(`Error creating photo post: ${err}`)
-    spinner.succeed(
-      `New photo post '${title}' created.\n\n  Use ${dateShort}-${titleSlug}.jpg as the photo file name.`
-    )
+  // copy photo file in place
+  fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, err => {
+    if (err) spinner.fail(`Error copying photo file: ${err}`)
   })
+
+  // create photo post file
+  fs.appendFile(postPhoto, newContentsPhoto, err => {
+    if (err) spinner.fail(`Error creating photo post: ${err}`)
+    spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
+  })
+}
+
+if (isPhoto) {
+  createPhotoPost()
 } else {
   if (process.argv[3]) {
     date = new Date(process.argv[3]).toISOString()
