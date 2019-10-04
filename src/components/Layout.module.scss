@@ -35,7 +35,7 @@
   transition-property: transform, background;
 
   :global(.has-menu-open) & {
-    transform: translate3d(0, ($spacer * 3), 0);
+    transform: translate3d(0, ($spacer * 3.5), 0);
   }
 
   :global(.dark) & {

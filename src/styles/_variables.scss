@@ -59,7 +59,6 @@ $line-height-small: 1.1428571429;
 $font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
   Helvetica, Arial, sans-serif;
 $font-weight-base: 400;
-$font-color-base: $text-color;
 
 $font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
   'Courier New', monospace;
@@ -103,15 +102,17 @@ $screen-lg: 87.5em;
 // Forms
 /////////////////////////////////////
 
-$input-bg: rgba(#fff, 0.85);
-$input-bg-focus: #fff;
+$input-bg: darken($body-background-color, 5%);
+$input-bg--dark: darken($body-background-color--dark, 5%);
 $input-bg-disabled: $brand-grey-light;
 
 $input-font-size: $font-size-base;
 $input-font-weight: $font-weight-base;
 
-$input-color: $font-color-base;
-$input-color-placeholder: rgba(46, 79, 92, 0.3);
+$input-color: $text-color;
+$input-color--dark: $text-color--dark;
+$input-color-placeholder: $brand-grey-light;
+$input-color-placeholder--dark: $brand-grey;
 
 $input-border: $brand-grey-light;
 $input-border-radius: $border-radius;

@@ -2,14 +2,9 @@
 
 .searchInput {
   composes: input from '../atoms/Input.module.scss';
-  background: $input-bg-focus;
 
   &::-webkit-search-cancel-button {
     display: none;
-  }
-
-  &:hover {
-    background: $input-bg-focus;
   }
 }
 

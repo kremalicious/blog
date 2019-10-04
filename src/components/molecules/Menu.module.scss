@@ -44,8 +44,19 @@
     display: block;
     text-align: center;
 
+    &:hover,
+    &:focus {
+      color: $link-color-hover;
+    }
+
     :global(.dark) & {
+      color: $text-color--dark;
       text-shadow: 0 -1px 0 rgba(#000, 0.5);
+
+      &:hover,
+      &:focus {
+        color: $link-color-hover;
+      }
     }
   }
 }
