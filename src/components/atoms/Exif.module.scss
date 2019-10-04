@@ -21,7 +21,7 @@
     display: block;
     flex: 1 1 20%;
     white-space: nowrap;
-    padding: $spacer / 1.5;
+    padding: $spacer $spacer / 1.5;
     border-bottom: 1px dashed $brand-grey-dimmed;
 
     &:first-child {
@@ -29,17 +29,18 @@
     }
 
     :global(.dark) & {
-      border-bottom-color: $brand-grey;
+      border-bottom-color: rgba($brand-grey, 0.6);
     }
   }
 
   @media (min-width: $screen-sm) {
     margin-bottom: 0;
+    font-size: $font-size-small;
 
     span {
       border-left: 1px dashed $brand-grey-dimmed;
       border-bottom: 0;
-      padding: $spacer;
+      padding: $spacer * 1.5 $spacer;
 
       &,
       &:first-child {
@@ -51,7 +52,7 @@
       }
 
       :global(.dark) & {
-        border-left-color: $brand-grey;
+        border-left-color: rgba($brand-grey, 0.6);
       }
     }
   }
@@ -62,5 +63,5 @@
   @include media-frame;
 
   overflow: hidden;
-  height: 160px;
+  height: 200px;
 }

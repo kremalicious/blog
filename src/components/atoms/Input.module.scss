@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .input {
   display: block;
@@ -16,12 +17,15 @@
   transition: all ease-in-out 0.15s;
   appearance: none;
 
-  &:hover {
-    background: lighten($input-bg, 30%);
+  @include placeholder();
+
+  :global(.dark) & {
+    color: $input-color--dark;
+    background-color: $input-bg--dark;
+    @include placeholder($input-color-placeholder--dark);
   }
 
   &:focus {
-    background-color: $input-bg-focus;
     border-color: $input-border-focus;
     outline: 0;
   }

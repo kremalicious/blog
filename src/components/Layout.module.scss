@@ -35,21 +35,21 @@
   transition-property: transform, background;
 
   :global(.has-menu-open) & {
-    transform: translate3d(0, ($spacer * 3), 0);
+    transform: translate3d(0, ($spacer * 3.5), 0);
   }
 
   :global(.dark) & {
     background-color: $body-background-color--dark;
     color: $text-color--dark;
     border-top-color: darken($brand-grey, 15%);
-    border-bottom-color: darken($brand-grey, 15%);
-    box-shadow: 0 1px 4px darken($brand-main, 10%),
+    border-bottom-color: darken($body-background-color--dark, 3%);
+    box-shadow: 0 1px 8px rgba(darken($brand-main, 15%), 0.1),
       0 -1px 4px darken($brand-main, 15%);
   }
 
   @media (min-width: $screen-sm) and (min-height: 500px) {
     margin-top: $spacer * 2.65;
-    margin-bottom: $spacer * 19; // height of footer
+    margin-bottom: $spacer * 18; // height of footer
     position: relative;
     z-index: 2;
     min-height: 500px;

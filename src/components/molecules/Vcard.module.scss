@@ -1,10 +1,14 @@
 @import 'variables';
 @import 'mixins';
 
+.vcard {
+  margin-bottom: $spacer * 2;
+}
+
 .avatar {
   @include media-frame;
 
-  margin-bottom: ($spacer / 2);
+  margin-bottom: $spacer / 3;
 
   &,
   img {
@@ -16,7 +20,7 @@
 .description {
   font-size: $font-size-h5;
   margin-top: 0;
-  margin-bottom: ($spacer / 4);
+  margin-bottom: ($spacer / $line-height);
 
   a {
     display: block;

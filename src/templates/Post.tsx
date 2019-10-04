@@ -75,6 +75,7 @@ export const pageQuery = graphql`
               fstop
               shutterspeed
               focalLength
+              lensModel
               exposure
               gps {
                 latitude

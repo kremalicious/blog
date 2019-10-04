@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import Container from '../atoms/Container'
 import Search from '../Search'
 import Menu from '../molecules/Menu'
-import ThemeSwitch from '../molecules/ThemeSwitch'
 import { ReactComponent as Logo } from '../../images/logo.svg'
 
 import styles from './Header.module.scss'
@@ -20,7 +19,6 @@ export default function Header() {
           </h1>
 
           <nav role="navigation" className={styles.nav}>
-            <ThemeSwitch />
             <Search lng="en" />
             <Menu />
           </nav>
