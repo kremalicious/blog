@@ -7,20 +7,10 @@ import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as GitHub } from '../../images/github.svg'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-const ActionContent = ({
-  title,
-  text,
-  textLink
-}: {
-  title: string
-  text: string
-  textLink: string
-}) => (
+const ActionContent = ({ title, text }: { title: string; text: string }) => (
   <>
     <h1 className={styles.actionTitle}>{title}</h1>
-    <p className={styles.actionText}>
-      {text} <span className={styles.link}>{textLink}</span>
-    </p>
+    <p className={styles.actionText}>{text}</p>
   </>
 )
 
@@ -33,11 +23,7 @@ const ActionTwitter = ({ slug }: { slug: string }) => {
       href={`https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`}
     >
       <Twitter />
-      <ActionContent
-        title="Have a comment?"
-        text="Hit me up"
-        textLink="@kremalicious"
-      />
+      <ActionContent title="Have a comment?" text="Hit me up @kremalicious" />
     </a>
   )
 }
@@ -47,8 +33,7 @@ const ActionCrypto = ({ toggleModal }: { toggleModal(): void }) => (
     <Bitcoin />
     <ActionContent
       title="Found something useful?"
-      text="Say thanks with"
-      textLink="Bitcoins or Ether"
+      text="Say thanks with Bitcoins or Ether"
     />
   </button>
 )
@@ -58,8 +43,7 @@ const ActionGitHub = ({ githubLink }: { githubLink: string }) => (
     <GitHub />
     <ActionContent
       title="Edit on GitHub"
-      text="Contribute to this post on"
-      textLink="GitHub"
+      text="Contribute to this post on GitHub"
     />
   </a>
 )

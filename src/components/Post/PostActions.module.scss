@@ -17,14 +17,8 @@
     background: darken($body-background-color--dark, 2%);
   }
 
-  @media (min-width: $screen-md) {
-    margin-left: -100%;
-    margin-right: -18%;
-    padding-left: 80%;
-  }
-
   > div {
-    flex: 0 0 100%;
+    flex: 1 1 100%;
     border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
 
     &:last-child {
@@ -32,7 +26,7 @@
     }
 
     @media (min-width: $screen-sm) {
-      flex: 0 0 33.33333%;
+      flex: 0 0 33%;
       border-bottom: 0;
       border-left: 1px dashed rgba($brand-grey-light, 0.3);
 

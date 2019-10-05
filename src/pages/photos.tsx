@@ -14,15 +14,18 @@ const page = {
 }
 
 interface PhotoNode {
-  id: string
-  fields: { slug: string }
-  frontmatter: {
-    title: string
-    image: { childImageSharp: { fluid: FluidObject } }
+  node: {
+    id: string
+    fields: { slug: string }
+    frontmatter: {
+      title: string
+      type: string
+      image: { childImageSharp: { fluid: FluidObject } }
+    }
   }
 }
 
-const PhotoThumbs = ({ edges }: { edges: [{ node: PhotoNode }] }) =>
+const PhotoThumbs = ({ edges }: { edges: PhotoNode[] }) =>
   edges.map(({ node }) => {
     const { title, image } = node.frontmatter
     const { slug } = node.fields
@@ -42,7 +45,7 @@ export default function Photos({
   data,
   location
 }: {
-  data: { photos: { edges: [{ node: PhotoNode }] } }
+  data: { photos: { edges: PhotoNode[] } }
   location: Location
 }) {
   return (

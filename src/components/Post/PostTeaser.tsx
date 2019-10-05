@@ -17,15 +17,11 @@ export default function PostTeaser({
     <li>
       <Link to={slug} onClick={toggleSearch && toggleSearch}>
         {image ? (
-          <>
-            <Image fluid={image.childImageSharp.fluid} alt={title} />
-            <h4 className={styles.postTitle}>{title}</h4>
-          </>
+          <Image fluid={image.childImageSharp.fluid} alt={title} />
         ) : (
-          <div className={styles.empty}>
-            <h4 className={styles.postTitle}>{title}</h4>
-          </div>
+          <div className={styles.empty} />
         )}
+        <h4 className={styles.postTitle}>{title}</h4>
       </Link>
     </li>
   )

@@ -82,4 +82,12 @@
     content: '#';
     margin-right: 1px;
   }
+
+  :global(.dark) & {
+    color: $brand-grey-light;
+
+    &::before {
+      color: $brand-grey;
+    }
+  }
 }
