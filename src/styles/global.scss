@@ -257,6 +257,7 @@ ol {
 
   li {
     position: relative;
+    margin-bottom: $spacer / 4;
 
     // stylelint-disable no-descending-specificity
     &::before {

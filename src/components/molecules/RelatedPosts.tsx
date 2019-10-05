@@ -9,6 +9,7 @@ const query = graphql`
       edges {
         node {
           id
+          fileAbsolutePath
           frontmatter {
             title
             type
@@ -30,12 +31,8 @@ const query = graphql`
   }
 `
 
-const postsWithDataFilter = (
-  postsArray: [],
-  key: string,
-  valuesToFind: string[]
-) => {
-  const newArray = postsArray.filter((post: any) => {
+function postsWithDataFilter(posts: [], key: string, valuesToFind: string[]) {
+  const newArray = posts.filter((post: any) => {
     const frontmatterKey = post.node.frontmatter[key]
 
     if (
@@ -48,20 +45,42 @@ const postsWithDataFilter = (
   return newArray
 }
 
-export default function RelatedPosts({ tags }: { tags: string[] }) {
+function photosWithDataFilter(posts: []) {
+  const newArray = posts.filter((post: any) => {
+    const { fileAbsolutePath } = post.node
+
+    if (fileAbsolutePath.includes('content/photos')) {
+      return post
+    }
+  })
+  return newArray
+}
+
+export default function RelatedPosts({
+  tags,
+  photos
+}: {
+  tags: string[]
+  photos?: boolean
+}) {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
-  const [filteredPosts, setFilteredPosts] = useState(
-    postsWithDataFilter(posts, 'tags', tags)
-  )
+
+  function getPosts() {
+    return photos
+      ? photosWithDataFilter(posts)
+      : postsWithDataFilter(posts, 'tags', tags)
+  }
+
+  const [filteredPosts, setFilteredPosts] = useState(getPosts())
 
   function refreshPosts() {
-    setFilteredPosts(postsWithDataFilter(posts, 'tags', tags))
+    setFilteredPosts(getPosts())
   }
 
   return (
     <aside className={styles.relatedPosts}>
-      <h1 className={styles.title}>Related Posts</h1>
+      <h1 className={styles.title}>Related {photos ? 'Photos' : 'Posts'}</h1>
       <ul>
         {filteredPosts
           .sort(() => 0.5 - Math.random())
@@ -71,7 +90,7 @@ export default function RelatedPosts({ tags }: { tags: string[] }) {
           ))}
       </ul>
       <button className={`${styles.button} btn`} onClick={refreshPosts}>
-        Refresh Related Posts
+        Refresh Related {photos ? 'Photos' : 'Posts'}
       </button>
     </aside>
   )

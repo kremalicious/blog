@@ -22,15 +22,15 @@ a.btn {
     $border-radius
   );
 
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(94, 131, 162, 0.3);
-  border-bottom-color: rgba(94, 131, 162, 0.4);
+  background-color: rgba(#fff, 0.1);
+  border: 1px solid rgba($brand-grey-light, 0.3);
+  border-bottom-color: rgba($brand-grey-light, 0.4);
   font-family: $font-family-headings;
   font-weight: $font-weight-headings;
   color: $brand-grey;
   text-transform: uppercase;
-  box-shadow: 0 1px 3px rgba($brand-grey-light, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba($brand-grey-light, 0.15),
+    inset 0 1px 0 rgba(#fff, 0.7);
 
   @media (min-width: $screen-sm) {
     max-width: 20rem;
@@ -39,26 +39,39 @@ a.btn {
   &:hover,
   &:focus {
     outline: 0;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(#fff, 0.5);
   }
 
   &:active {
     color: $brand-grey;
-    border-color: rgba(94, 131, 162, 0.3);
+    border-color: rgba($brand-grey-light, 0.3);
     background-color: transparent;
     box-shadow: 0 1px 0 #fff;
     transition: none;
     outline: 0;
   }
 
-  &:focus {
-    outline: 0;
+  :global(.dark) &:not(.btn-primary) {
+    color: $brand-grey-light;
+    background-color: darken($body-background-color--dark, 3%);
+    border: 1px solid darken($body-background-color--dark, 10%);
+    box-shadow: 0 1px 3px rgba(darken($body-background-color--dark, 10%), 0.5),
+      inset 0 1px 0 rgba(#fff, 0.1);
+
+    &:hover,
+    &:focus {
+      background-color: darken($body-background-color--dark, 1%);
+    }
+
+    &:active {
+      background-color: darken($body-background-color--dark, 5%);
+      box-shadow: 0 1px 0 rgba(#fff, 0.1);
+    }
   }
 
   // Disabled State
   &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
+  &[disabled] {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.6;
@@ -76,8 +89,8 @@ a.btn {
   }
 
   span {
-    font-size: 0.9rem;
-    color: rgba(19, 56, 50, 0.6);
+    font-size: $font-size-mini;
+    color: $text-color-light;
     margin-left: 0.3em;
   }
 }
@@ -103,23 +116,44 @@ a.btn-primary {
   @extend .btn;
 
   color: darken($link-color, 50%);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 0 rgba(#fff, 0.3);
   background: lighten($link-color, 15%);
   border-color: $link-color;
   box-shadow: 0 1px 3px rgba($brand-grey-light, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    inset 0 1px 0 rgba(#fff, 0.4);
 
   &:hover,
   &:focus {
     color: darken($link-color, 50%);
     background-color: lighten($link-color, 25%);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 0 rgba(#fff, 0.3);
   }
 
   &:active {
     color: darken($link-color, 50%);
     border-color: darken($link-color, 10%);
     background-color: lighten($link-color, 15%);
+  }
+
+  .dark &,
+  &:global(.dark) & {
+    border-color: darken($body-background-color--dark, 10%);
+    background: $link-color;
+    box-shadow: 0 1px 3px darken($body-background-color--dark, 10%),
+      inset 0 1px 0 rgba(#fff, 0.4);
+
+    // stylelint-disable no-descending-specificity
+    &:hover,
+    &:focus {
+      background-color: lighten($link-color, 10%);
+      text-shadow: 0 1px 0 rgba(#fff, 0.3);
+    }
+
+    &:active {
+      background-color: darken($link-color, 5%);
+      box-shadow: 0 1px 0 rgba(#fff, 0.2);
+    }
+    // stylelint-enable no-descending-specificity
   }
 }
 
@@ -166,8 +200,8 @@ a.btn-primary {
 .content-download {
   text-align: center;
   display: block;
-  margin-top: $spacer;
-  margin-bottom: $spacer;
+  margin-top: $spacer * 2;
+  margin-bottom: $spacer * 2;
 
   @media (min-width: $screen-xs) {
     display: flex;
@@ -197,24 +231,38 @@ a.btn-primary {
       font-size: $font-size-mini;
       color: $text-color-light;
     }
+
+    &[class*='icon-'] {
+      &::before {
+        content: '';
+        width: $font-size-large;
+        height: $font-size-large;
+        display: inline-block;
+        margin-right: 0.3rem;
+        margin-bottom: -0.25rem;
+        opacity: 0.75;
+        background-repeat: no-repeat;
+        background-position: left center;
+
+        .dark &,
+        :global(.dark) & {
+          filter: invert(0.75);
+        }
+      }
+    }
+
+    &[class*='btn-primary'] {
+      &::before {
+        .dark &,
+        :global(.dark) & {
+          filter: invert(0);
+        }
+      }
+    }
   }
 
-  .icon-download,
-  .icon-heart,
-  .icon-wordpress,
-  .icon-github,
-  .icon-eye {
-    &::before {
-      content: '';
-      width: $font-size-large;
-      height: $font-size-large;
-      display: inline-block;
-      margin-right: 0.3rem;
-      margin-bottom: -0.25rem;
-      opacity: 0.5;
-      background: url('../images/arrow-with-circle-down.svg') no-repeat left
-        center;
-    }
+  .icon-download::before {
+    background-image: url('../images/arrow-with-circle-down.svg');
   }
 
   .icon-heart::before {
