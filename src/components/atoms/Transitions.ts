@@ -7,24 +7,25 @@ export const fadeIn = {
   }
 }
 
+const transition = { type: 'spring' }
+
+const enter = {
+  y: 0,
+  ...transition
+}
+
 export const moveInTop = {
-  enter: {
-    y: 0,
-    transition: { type: 'spring' }
-  },
+  ...enter,
   exit: {
     y: '-2rem',
-    transition: { type: 'spring' }
+    ...transition
   }
 }
 
 export const moveInBottom = {
-  enter: {
-    y: 0,
-    transition: { type: 'spring' }
-  },
+  ...enter,
   exit: {
     y: '2rem',
-    transition: { type: 'spring' }
+    ...transition
   }
 }

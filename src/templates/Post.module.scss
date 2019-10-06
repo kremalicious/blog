@@ -6,7 +6,21 @@
   padding-top: $spacer;
   padding-bottom: $spacer * 3;
 
+  > a {
+    display: block;
+  }
+
   &:only-child {
     padding-bottom: $spacer;
+  }
+}
+
+.postImageWrap {
+  @include breakoutviewport();
+
+  figure {
+    max-width: none;
+    margin-top: $spacer * 1.5;
+    margin-bottom: 0;
   }
 }

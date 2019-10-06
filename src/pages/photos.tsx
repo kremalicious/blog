@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Image from '../components/atoms/Image'
-import Page from '../templates/Page'
-
-import styles from './photos.module.scss'
 import { FluidObject } from 'gatsby-image'
+import Page from '../templates/Page'
+import PostImage from '../components/Post/PostImage'
+import styles from './photos.module.scss'
 
 const page = {
   frontmatter: {
@@ -34,7 +33,11 @@ const PhotoThumbs = ({ edges }: { edges: PhotoNode[] }) =>
       <article className={styles.photo} key={node.id}>
         {image && (
           <Link to={slug}>
-            <Image fluid={image.childImageSharp.fluid} alt={title} />
+            <PostImage
+              title={title}
+              fluid={image.childImageSharp.fluid}
+              alt={title}
+            />
           </Link>
         )}
       </article>
