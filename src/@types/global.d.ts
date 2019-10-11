@@ -1,23 +1,18 @@
-interface CSSModule {
-  [className: string]: string
-}
-
-// type shims for CSS modules
-declare module '*.module.scss' {
-  const cssModule: CSSModule
-  export = cssModule
-}
-
 declare module '*.module.css' {
-  const cssModule: CSSModule
-  export = cssModule
+  const classes: { [key: string]: string }
+  export default classes
 }
 
-/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-interface SvgrComponent
-  extends React.StatelessComponent<React.SVGAttributes<SVGElement>> {}
+declare module '*.module.scss' {
+  const classes: { [key: string]: string }
+  export default classes
+}
 
 declare module '*.svg' {
-  const value: SvgrComponent
-  export default value
+  import * as React from 'react'
+  export const ReactComponent: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement>
+  >
+  const src: string
+  export default src
 }

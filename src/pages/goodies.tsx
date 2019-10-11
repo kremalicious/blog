@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby'
 import PostImage from '../components/Post/PostImage'
 import Page from '../templates/Page'
 import styles from './goodies.module.scss'
-import { FluidObject } from 'gatsby-image'
 
 const page = {
   frontmatter: {
@@ -13,42 +12,43 @@ const page = {
   }
 }
 
-interface GoodieNode {
+interface Post {
   id: string
   fields: { slug: string }
   frontmatter: {
     title: string
-    image: { childImageSharp: { fluid: FluidObject } }
+    image: { childImageSharp: any }
   }
 }
 
-const GoodiesThumbs = ({ edges }: { edges: [{ node: GoodieNode }] }) =>
-  edges.map(({ node }: { node: GoodieNode }) => {
-    const { title, image } = node.frontmatter
-    const { slug } = node.fields
+const GoodiesThumb = ({ post }: { post: Post }) => {
+  const { title, image } = post.frontmatter
+  const { slug } = post.fields
 
-    return (
-      <article className={styles.goodie} key={node.id}>
-        {image && (
-          <Link to={slug}>
-            <h1 className={styles.title}>{title}</h1>
-            <PostImage fluid={image.childImageSharp.fluid} alt={title} />
-          </Link>
-        )}
-      </article>
-    )
-  })
+  return (
+    <article className={styles.goodie}>
+      {image && (
+        <Link to={slug}>
+          <h1 className={styles.title}>{title}</h1>
+          <PostImage fluid={image.childImageSharp.fluid} alt={title} />
+        </Link>
+      )}
+    </article>
+  )
+}
 
 export default function Goodies({
   data,
   location
 }: {
-  data: { goodies: { edges: [{ node: GoodieNode }] } }
+  data: { goodies: { edges: [{ node: Post }] } }
   location: Location
 }) {
   return (
     <Page title={page.frontmatter.title} post={page} location={location}>
-      <GoodiesThumbs edges={data.goodies.edges} />
+      {data.goodies.edges.map(({ node }) => (
+        <GoodiesThumb key={node.id} post={node} />
+      ))}
     </Page>
   )
 }

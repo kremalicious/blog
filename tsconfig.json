@@ -1,18 +1,16 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
     "module": "commonjs",
     "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
-    "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true
+    "allowJs": true
   },
   "exclude": ["node_modules", "public", ".cache", "*.js"],
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./jest/**/*"]
 }

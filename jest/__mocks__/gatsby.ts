@@ -1,13 +1,13 @@
-const React = require('react')
+import React from 'react'
 const gatsby = jest.requireActual('gatsby')
 
-module.exports = {
+export default {
   ...gatsby,
   graphql: jest.fn(),
   Link: jest.fn().mockImplementation(
     // these props are invalid for an `a` tag
     ({
-      /* eslint-disable no-unused-vars */
+      /* eslint-disable @typescript-eslint/no-unused-vars */
       activeClassName,
       activeStyle,
       getProps,
@@ -15,7 +15,7 @@ module.exports = {
       ref,
       replace,
       to,
-      /* eslint-enable no-unused-vars */
+      /* eslint-enable @typescript-eslint/no-unused-vars */
       ...rest
     }) =>
       React.createElement('a', {

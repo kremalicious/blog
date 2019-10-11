@@ -5,6 +5,7 @@ import Container from '../atoms/Container'
 import PostTeaser from '../Post/PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
 import styles from './SearchResults.module.scss'
+import { GatsbyImageProps } from 'gatsby-image'
 
 const query = graphql`
   query {
@@ -29,6 +30,22 @@ const query = graphql`
   }
 `
 
+interface Page {
+  slug: string
+}
+
+interface PostNode {
+  node: {
+    id: string
+    fields: { slug: string }
+    frontmatter: {
+      title: string
+      type: string
+      image: { childImageSharp: GatsbyImageProps }
+    }
+  }
+}
+
 export default function SearchResults({
   searchQuery,
   results,
@@ -48,13 +65,13 @@ export default function SearchResults({
       <Container>
         {results.length > 0 ? (
           <ul>
-            {results.map(page =>
+            {results.map((page: Page) =>
               posts
-                .filter(post => post.node.fields.slug === page.slug)
-                .map(({ node }: { node: any }) => (
+                .filter((post: PostNode) => post.node.fields.slug === page.slug)
+                .map((post: PostNode) => (
                   <PostTeaser
                     key={page.slug}
-                    post={node}
+                    post={post.node}
                     toggleSearch={toggleSearch}
                   />
                 ))

@@ -1,11 +1,25 @@
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
+import lunr from 'lunr'
 import SearchInput from './SearchInput'
 import SearchButton from './SearchButton'
 import SearchResults from './SearchResults'
 
 import styles from './index.module.scss'
+
+declare global {
+  interface Window {
+    __LUNR__: {
+      readonly [language: string]: {
+        readonly index: lunr.Index
+        readonly store: {
+          readonly [key: string]: any
+        }
+      }
+    }
+  }
+}
 
 function getSearchResults(query: string, lng: string) {
   if (!query || !window.__LUNR__) return []
