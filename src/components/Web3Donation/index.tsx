@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import Web3 from 'web3'
 import InputGroup from './InputGroup'
 import Alerts, { alertMessages } from './Alerts'
 import styles from './index.module.scss'
@@ -9,26 +9,40 @@ const ONE_SECOND = 1000
 const ONE_MINUTE = ONE_SECOND * 60
 const correctNetwork = 1
 
-export default class Web3Donation extends PureComponent {
+interface Web3DonationState {
+  netId: number
+  networkName: string
+  accounts: string[]
+  selectedAccount: string
+  amount: number
+  transactionHash: string
+  receipt: string
+  message: {
+    status?: string
+    text?: string
+  }
+  inTransaction: boolean
+}
+
+export default class Web3Donation extends PureComponent<
+  { address: string },
+  Web3DonationState
+> {
   state = {
-    netId: null,
-    networkName: null,
-    accounts: [],
-    selectedAccount: null,
-    amount: '0.01',
-    transactionHash: null,
-    receipt: null,
-    message: null,
+    netId: 0,
+    networkName: '',
+    accounts: [''],
+    selectedAccount: '',
+    amount: 0.01,
+    transactionHash: '',
+    receipt: '',
+    message: {},
     inTransaction: false
   }
 
-  static propTypes = {
-    address: PropTypes.string
-  }
-
-  web3 = null
-  interval = null
-  networkInterval = null
+  web3: Web3 = null
+  interval: any = null
+  networkInterval: any = null
 
   componentDidMount() {
     this.initWeb3()
@@ -47,10 +61,15 @@ export default class Web3Donation extends PureComponent {
       this.web3
         ? this.initAllTheTings()
         : this.setState({
-            message: { status: 'error', text: alertMessages().noWeb3 }
+            message: {
+              status: 'error',
+              text: alertMessages().noWeb3
+            }
           })
     } catch (error) {
-      this.setState({ message: { status: 'error', text: error } })
+      this.setState({
+        message: { status: 'error', text: error }
+      })
     }
   }
 
@@ -106,7 +125,10 @@ export default class Web3Donation extends PureComponent {
       })
     } else {
       this.setState({
-        message: { status: 'error', text: alertMessages().noAccount }
+        message: {
+          status: 'error',
+          text: alertMessages().noAccount
+        }
       })
     }
   }
@@ -132,16 +154,21 @@ export default class Web3Donation extends PureComponent {
         })
       })
       .on('error', error =>
-        this.setState({ message: { status: 'error', text: error } })
+        this.setState({
+          message: { status: 'error', text: error.message }
+        })
       )
       .then(() => {
         this.setState({
-          message: { status: 'success', text: alertMessages().success }
+          message: {
+            status: 'success',
+            text: alertMessages().success
+          }
         })
       })
   }
 
-  onAmountChange = ({ target }) => {
+  onAmountChange = ({ target }: { target: any }) => {
     this.setState({ amount: target.value })
   }
 

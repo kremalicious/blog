@@ -21,7 +21,7 @@ export default function Alerts({
   message
 }: {
   transactionHash: string | null
-  message: { text: MessageChannel; status: string } | null
+  message: { text?: MessageChannel; status?: string } | null
 }) {
   const constructMessage = () => {
     let messageOutput
@@ -53,7 +53,7 @@ export default function Alerts({
   return (
     <div
       className={classes()}
-      dangerouslySetInnerHTML={{ __html: constructMessage() }}
+      dangerouslySetInnerHTML={{ __html: `${constructMessage()}` }}
     />
   )
 }

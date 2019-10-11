@@ -3,7 +3,7 @@ import { getFiat } from './utils'
 import styles from './Conversion.module.scss'
 
 export default class Conversion extends PureComponent<
-  { amount: string },
+  { amount: number },
   { euro: string; dollar: string }
 > {
   state = {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
 import styles from './Menu.module.scss'

@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Image from '../components/atoms/Image'
 import Page from '../templates/Page'
-
+import PostImage from '../components/Post/PostImage'
 import styles from './photos.module.scss'
-import { FluidObject } from 'gatsby-image'
 
 const page = {
   frontmatter: {
@@ -13,39 +11,47 @@ const page = {
   }
 }
 
-interface PhotoNode {
-  node: {
-    id: string
-    fields: { slug: string }
-    frontmatter: {
-      title: string
-      type: string
-      image: { childImageSharp: { fluid: FluidObject } }
-    }
+interface Photo {
+  id: string
+  fields: { slug: string }
+  frontmatter: {
+    title: string
+    type: string
+    image: { childImageSharp: any }
   }
 }
 
-const PhotoThumbs = ({ edges }: { edges: PhotoNode[] }) =>
-  edges.map(({ node }) => {
-    const { title, image } = node.frontmatter
-    const { slug } = node.fields
+const PhotoThumb = ({ photo }: { photo: Photo }) => {
+  const { title, image } = photo.frontmatter
+  const { slug } = photo.fields
+  const { fluid } = image.childImageSharp
 
-    return (
-      <article className={styles.photo} key={node.id}>
-        {image && (
-          <Link to={slug}>
-            <Image fluid={image.childImageSharp.fluid} alt={title} />
-          </Link>
-        )}
-      </article>
-    )
-  })
+  return (
+    <article className={styles.photo}>
+      {image && (
+        <Link to={slug}>
+          <PostImage title={title} fluid={fluid} alt={title} />
+        </Link>
+      )}
+    </article>
+  )
+}
+
+interface PhotosData {
+  photos: {
+    edges: [
+      {
+        node: Photo
+      }
+    ]
+  }
+}
 
 export default function Photos({
   data,
   location
 }: {
-  data: { photos: { edges: PhotoNode[] } }
+  data: PhotosData
   location: Location
 }) {
   return (
@@ -55,7 +61,9 @@ export default function Photos({
       location={location}
       section={styles.photos}
     >
-      <PhotoThumbs edges={data.photos.edges} />
+      {data.photos.edges.map(({ node }) => (
+        <PhotoThumb key={node.id} photo={node} />
+      ))}
     </Page>
   )
 }

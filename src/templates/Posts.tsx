@@ -11,6 +11,7 @@ import SEO from '../components/atoms/SEO'
 import Pagination from '../components/molecules/Pagination'
 import Featured from '../components/molecules/Featured'
 import styles from './Posts.module.scss'
+import stylesPost from './Post.module.scss'
 
 export default function Posts({
   data,
@@ -36,11 +37,13 @@ export default function Posts({
 
         {image && (
           <Link to={slug} title={title}>
-            <PostImage
-              title={type === 'photo' ? title : null}
-              fluid={image.childImageSharp.fluid}
-              alt={title}
-            />
+            <div className={stylesPost.postImageWrap}>
+              <PostImage
+                title={type === 'photo' ? title : null}
+                fluid={image.childImageSharp.fluid}
+                alt={title}
+              />
+            </div>
           </Link>
         )}
 

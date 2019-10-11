@@ -30,13 +30,7 @@ export default function Vcard() {
 
   return (
     <div className={styles.vcard}>
-      <Img
-        className={styles.avatar}
-        fixed={avatar}
-        alt="avatar"
-        width="80"
-        height="80"
-      />
+      <Img className={styles.avatar} fixed={avatar} alt="avatar" />
       <p className={styles.description}>
         Blog of designer &amp; developer{' '}
         <a className="fn" rel="author" href={uri}>

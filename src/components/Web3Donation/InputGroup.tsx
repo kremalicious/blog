@@ -10,7 +10,7 @@ export default function InputGroup({
   sendTransaction,
   selectedAccount
 }: {
-  amount: string
+  amount: number
   onAmountChange(target: any): void
   sendTransaction(): void
   selectedAccount?: string | null

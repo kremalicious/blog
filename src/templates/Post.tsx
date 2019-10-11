@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostImage from '../components/Post/PostImage'
@@ -39,7 +39,9 @@ export default function Post({
           {type === 'post' && <PostLead post={post} />}
           {type === 'photo' && <PostContent post={post} />}
           {image && (
-            <PostImage fluid={image.childImageSharp.fluid} alt={title} />
+            <div className={styles.postImageWrap}>
+              <PostImage fluid={image.childImageSharp.fluid} alt={title} />
+            </div>
           )}
           {image && image.fields && <Exif exif={image.fields.exif} />}
 

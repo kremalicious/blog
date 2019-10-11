@@ -10,6 +10,7 @@ const exif = {
   fstop: '7.2',
   shutterspeed: '200',
   focalLength: '200',
+  lensModel: 'Hello',
   exposure: '200',
   gps: { latitude: '52.4792516', longitude: '13.431609' }
 }
