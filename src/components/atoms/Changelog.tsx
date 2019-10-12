@@ -4,34 +4,7 @@ import remark from 'remark'
 import remarkReact from 'remark-react'
 import styles from './Changelog.module.scss'
 
-const queryGithub = graphql`
-  query GitHubReposInfo {
-    github {
-      viewer {
-        repositories(first: 100, privacy: PUBLIC, isFork: false) {
-          edges {
-            node {
-              name
-              url
-              owner {
-                login
-              }
-              object(expression: "master:CHANGELOG.md") {
-                id
-                ... on GitHub_Blob {
-                  text
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-export default function Changelog({ repo }: { repo: string }) {
-  const data = useStaticQuery(queryGithub)
+export function PureChangelog({ repo, data }: { repo: string; data: any }) {
   const repositoriesGitHub = data.github.viewer.repositories.edges
 
   const repoFilteredArray = repositoriesGitHub
@@ -72,4 +45,34 @@ export default function Changelog({ repo }: { repo: string }) {
       </div>
     </div>
   )
+}
+
+export default function Changelog({ repo }: { repo: string }) {
+  const queryGithub = graphql`
+    query GitHubReposInfo {
+      github {
+        viewer {
+          repositories(first: 100, privacy: PUBLIC, isFork: false) {
+            edges {
+              node {
+                name
+                url
+                owner {
+                  login
+                }
+                object(expression: "master:CHANGELOG.md") {
+                  id
+                  ... on GitHub_Blob {
+                    text
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+  const data = useStaticQuery(queryGithub)
+  return <PureChangelog repo={repo} data={data} />
 }

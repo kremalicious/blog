@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Time from 'react-time'
 import slugify from 'slugify'
-import styles from './PostMeta.module.scss'
+import Time from '../atoms/Time'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import styles from './PostMeta.module.scss'
 
-const PostMeta = ({ post }: { post: any }) => {
-  const { author, updated, tags, type } = post.frontmatter
+export default function PostMeta({ post }: { post: any }) {
   const siteMeta = useSiteMetadata()
+  const { author, updated, tags, type } = post.frontmatter
   const { date } = post.fields
 
   return (
@@ -21,16 +21,9 @@ const PostMeta = ({ post }: { post: any }) => {
 
       <div className={styles.time}>
         {updated && 'published '}
-        <Time value={new Date(date)} titleFormat="YYYY/MM/DD HH:mm" relative />
-
+        <Time date={date} />
         {updated && ' • updated '}
-        {updated && (
-          <Time
-            value={new Date(updated)}
-            titleFormat="YYYY/MM/DD HH:mm"
-            relative
-          />
-        )}
+        {updated && <Time date={updated} />}
       </div>
 
       {type && type === 'photo' && (
@@ -55,5 +48,3 @@ const PostMeta = ({ post }: { post: any }) => {
     </footer>
   )
 }
-
-export default PostMeta
