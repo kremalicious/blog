@@ -56,12 +56,12 @@ export default function Changelog({ repo }: { repo: string }) {
 
   return (
     <div className={styles.changelog}>
-      <h2 className={styles.changelogTitle} id="changelog">
+      <h2 className={styles.title} id="changelog">
         Changelog
       </h2>
-      <div className={styles.changelogContent}>
+      <div className={styles.content}>
         {changelogHtml}
-        <p className={styles.changelogSource}>
+        <p className={styles.source}>
           <em>
             sourced from{' '}
             <a href={filePathUrl}>

@@ -1,33 +1,49 @@
 @import 'variables';
 
-.changelogTitle {
+.title {
   margin-top: $spacer * 3;
   margin-bottom: 0;
 }
 
-.changelogContent {
+.content {
   padding-top: $spacer * 2;
   padding-left: $spacer / 2;
   margin-left: $spacer / 2;
   border-left: 1px solid $brand-grey-dimmed;
 
   :global(.dark) & {
-    border-left-color: darken($body-background-color--dark, 5%);
+    border-left-color: rgba($color-headings--dark, 0.2);
   }
 
-  h2 {
+  h2,
+  h3,
+  h4 {
     position: relative;
+    margin-bottom: $spacer / 4;
 
     &::before {
       content: '';
-      width: 0.4rem;
-      height: 0.4rem;
+      width: 0.5rem;
+      height: 0.5rem;
       border-radius: 50%;
       display: inline-block;
       background: $color-headings;
       position: absolute;
       left: -($spacer / 1.5);
       top: $font-size-large / 3;
+
+      :global(.dark) & {
+        background: $color-headings--dark;
+      }
+    }
+
+    + blockquote {
+      padding-left: 0;
+      font-size: $font-size-small;
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -47,7 +63,7 @@
   }
 }
 
-.changelogSource {
+.source {
   font-size: $font-size-mini;
   font-family: $font-family-base;
   font-weight: $font-weight-base;
