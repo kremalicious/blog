@@ -1,9 +1,9 @@
-import React, { ReactChildren } from 'react'
+import React from 'react'
 import ReactModal from 'react-modal'
 
 import styles from './Modal.module.scss'
 
-ReactModal.setAppElement('#___gatsby')
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#___gatsby')
 
 export default function Modal({
   title,
@@ -14,8 +14,8 @@ export default function Modal({
 }: {
   title?: string
   isOpen?: boolean
-  handleCloseModal: any
-  children: ReactChildren
+  handleCloseModal(): void
+  children: any
 }) {
   if (!isOpen) return null
 

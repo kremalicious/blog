@@ -25,7 +25,7 @@ const providers = {
   // },
   // wikimedia: (x, y, z) =>
   //   `https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}${retina}.png`,
-  // stamen: (x, y, z) =>
+  // stamen: (x: string, y: string, z: string) =>
   //   `https://stamen-tiles.a.ssl.fastly.net/terrain/${z}/${x}/${y}${retina}.jpg`,
   // streets: mapbox('streets-v10', MAPBOX_ACCESS_TOKEN),
   // satellite: mapbox('satellite-streets-v10', MAPBOX_ACCESS_TOKEN),

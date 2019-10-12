@@ -1,6 +1,5 @@
 import React from 'react'
-// import { render } from '@testing-library/react'
-import testRender from '../../../jest/testRender'
+import { render } from '@testing-library/react'
 
 import Exif from './Exif'
 
@@ -12,9 +11,13 @@ const exif = {
   focalLength: '200',
   lensModel: 'Hello',
   exposure: '200',
-  gps: { latitude: '52.4792516', longitude: '13.431609' }
+  gps: { latitude: '41.89007222222222', longitude: '12.491516666666666' }
 }
 
 describe('Exif', () => {
-  testRender(<Exif exif={exif} />)
+  it('renders without crashing', () => {
+    const { container } = render(<Exif exif={exif} />)
+
+    expect(container.firstChild).toBeInTheDocument()
+  })
 })
