@@ -1,23 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import shortid from 'shortid'
 import styles from './Pagination.module.scss'
 
-const PageNumber = ({ i, current }: { i: number; current?: boolean }) => (
-  <Link
-    className={current ? styles.current : styles.number}
-    to={i === 0 ? '' : `/page/${i + 1}`}
-  >
-    {i + 1}
-  </Link>
-)
+function PageNumber({ i, current }: { i: number; current?: boolean }) {
+  const classes = current ? styles.current : styles.number
+  const link = i === 0 ? '' : `/page/${i + 1}`
 
-const PrevNext = ({
+  return (
+    <Link className={classes} to={link}>
+      {i + 1}
+    </Link>
+  )
+}
+
+function PrevNext({
   prevPagePath,
   nextPagePath
 }: {
   prevPagePath?: string
   nextPagePath?: string
-}) => {
+}) {
   const link = prevPagePath || nextPagePath
   const rel = prevPagePath ? 'prev' : 'next'
   const title = prevPagePath ? 'Newer Posts' : 'Older Posts'
@@ -45,13 +48,13 @@ export default function Pagination({
   const prevPagePath = currentPageNumber === 2 ? '/' : `/page/${prevPage}`
   const nextPagePath = `/page/${nextPage}`
 
-  return nextPage && nextPage > 1 ? (
+  return (
     <div className={styles.pagination}>
       <div>{!isFirst && <PrevNext prevPagePath={prevPagePath} />}</div>
       <div>
         {Array.from({ length: numPages }, (_, i) => (
           <PageNumber
-            key={`pagination-number${i + 1}`}
+            key={shortid.generate()}
             i={i}
             current={currentPageNumber === i + 1}
           />
@@ -59,5 +62,5 @@ export default function Pagination({
       </div>
       <div>{!isLast && <PrevNext nextPagePath={nextPagePath} />}</div>
     </div>
-  ) : null
+  )
 }

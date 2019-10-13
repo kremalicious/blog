@@ -1,0 +1,20 @@
+{
+  "edges": [
+    {
+      "node": {
+        "childImageSharp": {
+          "fixed": {
+            "aspectRatio": 1,
+            "width": 80,
+            "height": 80,
+            "src": "/static/b61a09d5f4cbd9d8b2844091590ddea4/fce1d/avatar.jpg",
+            "srcSet": "/static/b61a09d5f4cbd9d8b2844091590ddea4/fce1d/avatar.jpg 1x,\n/static/b61a09d5f4cbd9d8b2844091590ddea4/c4de8/avatar.jpg 1.5x,\n/static/b61a09d5f4cbd9d8b2844091590ddea4/c3234/avatar.jpg 2x",
+            "srcWebp": "/static/b61a09d5f4cbd9d8b2844091590ddea4/ad6b8/avatar.webp",
+            "srcSetWebp": "/static/b61a09d5f4cbd9d8b2844091590ddea4/ad6b8/avatar.webp 1x,\n/static/b61a09d5f4cbd9d8b2844091590ddea4/5c322/avatar.webp 1.5x,\n/static/b61a09d5f4cbd9d8b2844091590ddea4/5bf6b/avatar.webp 2x",
+            "originalName": "avatar.jpg"
+          }
+        }
+      }
+    }
+  ]
+}

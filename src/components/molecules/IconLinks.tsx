@@ -20,6 +20,8 @@ function NetworkIcon({ link }: { link: string }) {
     Icon = <Rss className={styles.rss} />
   } else if (link.includes('feed.json')) {
     Icon = <Jsonfeed className={styles.json} />
+  } else {
+    return null
   }
 
   return Icon

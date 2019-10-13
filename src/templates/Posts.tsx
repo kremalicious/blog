@@ -20,10 +20,15 @@ export default function Posts({
 }: {
   data: any
   location: Location
-  pageContext: { tag: string; currentPageNumber: number; numPages: number }
+  pageContext: {
+    tag: string
+    currentPageNumber: number
+    numPages: number
+    nextPage: number
+  }
 }) {
   const edges = data.allMarkdownRemark.edges
-  const { tag, currentPageNumber, numPages } = pageContext
+  const { tag, currentPageNumber, numPages, nextPage } = pageContext
 
   const PostsList = edges.map(({ node }: { node: any }) => {
     const { type, linkurl, title, image } = node.frontmatter
@@ -75,7 +80,7 @@ export default function Posts({
         >{`Page ${currentPageNumber} / ${numPages}`}</h1>
       )}
       {PostsList}
-      <Pagination pageContext={pageContext} />
+      {nextPage && nextPage > 1 && <Pagination pageContext={pageContext} />}
     </Layout>
   )
 }

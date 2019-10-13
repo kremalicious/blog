@@ -9,7 +9,8 @@
     "lib": ["dom", "esnext"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "public", ".cache", "*.js"],
   "include": ["./src/**/*", "./jest/**/*"]
