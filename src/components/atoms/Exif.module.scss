@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .exif {
-  margin-top: -($spacer * 1.5);
+  margin-top: -($spacer);
   margin-bottom: $spacer * 2;
 }
 
@@ -15,7 +15,6 @@
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  margin-bottom: -3px;
 
   span {
     display: block;
@@ -63,5 +62,5 @@
   @include media-frame;
 
   overflow: hidden;
-  height: 200px;
+  height: 220px;
 }
