@@ -15,7 +15,7 @@ export default function Image({
   return (
     <Img
       className={styles.imageWrap}
-      backgroundColor="#dfe8ef"
+      backgroundColor="transparent"
       fluid={fluid}
       fixed={fixed}
       alt={alt}
