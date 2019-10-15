@@ -4,8 +4,9 @@ import slugify from 'slugify'
 import Time from '../atoms/Time'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './PostMeta.module.scss'
+import { PostMetadata } from '../../@types/PostMetadata'
 
-export default function PostMeta({ post }: { post: any }) {
+export default function PostMeta({ post }: { post: PostMetadata }) {
   const siteMeta = useSiteMetadata()
   const { author, updated, tags, type } = post.frontmatter
   const { date } = post.fields

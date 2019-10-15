@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './SearchResultsEmpty.module.scss'
+import { Results } from './SearchResults'
 
 const SearchResultsEmpty = ({
   searchQuery,
   results
 }: {
   searchQuery: string
-  results: []
+  results: Results[]
 }) => (
   <div className={styles.empty}>
     <header className={styles.emptyMessage}>

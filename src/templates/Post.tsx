@@ -13,15 +13,16 @@ import PostMeta from '../components/Post/PostMeta'
 import Exif from '../components/atoms/Exif'
 import RelatedPosts from '../components/molecules/RelatedPosts'
 import styles from './Post.module.scss'
+import { PostMetadata } from '../@types/PostMetadata'
 
 export default function Post({
   data,
   location
 }: {
-  data: any
+  data: { post: PostMetadata }
   location: Location
 }) {
-  const { markdownRemark: post } = data
+  const { post } = data
   const { title, image, type, linkurl, style, tags } = post.frontmatter
   const { slug, githubLink } = post.fields
 
@@ -62,7 +63,7 @@ export default function Post({
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
       frontmatter {

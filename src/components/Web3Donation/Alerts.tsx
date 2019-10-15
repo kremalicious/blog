@@ -21,7 +21,7 @@ export default function Alerts({
   message
 }: {
   transactionHash: string | null
-  message: { text?: MessageChannel; status?: string } | null
+  message: { text?: string; status?: string } | null
 }) {
   const constructMessage = () => {
     let messageOutput

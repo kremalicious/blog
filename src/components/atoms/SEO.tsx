@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { PostMetadata } from '../../@types/PostMetadata'
 
 const query = graphql`
   query {
@@ -116,7 +117,7 @@ export default function SEO({
   slug,
   postSEO
 }: {
-  post?: any
+  post?: PostMetadata
   slug?: string
   postSEO?: boolean
 }) {

@@ -5,7 +5,11 @@ import Container from '../atoms/Container'
 import PostTeaser from '../Post/PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
 import styles from './SearchResults.module.scss'
-import { GatsbyImageProps } from 'gatsby-image'
+import { PostMetadata } from '../../@types/PostMetadata'
+
+export interface Results {
+  slug: string
+}
 
 const query = graphql`
   query {
@@ -30,48 +34,32 @@ const query = graphql`
   }
 `
 
-interface Page {
-  slug: string
-}
-
-interface PostNode {
-  node: {
-    id: string
-    fields: { slug: string }
-    frontmatter: {
-      title: string
-      type: string
-      image: { childImageSharp: GatsbyImageProps }
-    }
-  }
-}
-
-export default function SearchResults({
+function SearchResultsPure({
   searchQuery,
   results,
-  toggleSearch
+  toggleSearch,
+  posts
 }: {
+  posts: [{ node: PostMetadata }]
   searchQuery: string
-  results: any
+  results: Results[]
   toggleSearch(): void
 }) {
-  const data = useStaticQuery(query)
-  const posts = data.allMarkdownRemark.edges
-
-  // creating portal to break out of DOM node we're in
-  // and render the results in content container
-  return ReactDOM.createPortal(
+  return (
     <div className={styles.searchResults}>
       <Container>
         {results.length > 0 ? (
           <ul>
-            {results.map((page: Page) =>
+            {results.map((page: { slug: string }) =>
               posts
-                .filter((post: PostNode) => post.node.fields.slug === page.slug)
-                .map((post: PostNode) => (
+                .filter(
+                  ({ node }: { node: PostMetadata }) =>
+                    node.fields.slug === page.slug
+                )
+                .map(({ node }: { node: PostMetadata }) => (
                   <PostTeaser
                     key={page.slug}
-                    post={post.node}
+                    post={node}
                     toggleSearch={toggleSearch}
                   />
                 ))
@@ -81,7 +69,31 @@ export default function SearchResults({
           <SearchResultsEmpty searchQuery={searchQuery} results={results} />
         )}
       </Container>
-    </div>,
+    </div>
+  )
+}
+
+export default function SearchResults({
+  searchQuery,
+  results,
+  toggleSearch
+}: {
+  searchQuery: string
+  results: Results[]
+  toggleSearch(): void
+}) {
+  const data = useStaticQuery(query)
+  const posts = data.allMarkdownRemark.edges
+
+  // creating portal to break out of DOM node we're in
+  // and render the results in content container
+  return ReactDOM.createPortal(
+    <SearchResultsPure
+      posts={posts}
+      results={results}
+      searchQuery={searchQuery}
+      toggleSearch={toggleSearch}
+    />,
     document.getElementById('document')
   )
 }

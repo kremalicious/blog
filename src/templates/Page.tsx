@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import SEO from '../components/atoms/SEO'
 import Layout from '../components/Layout'
 import styles from './Page.module.scss'
+import { PostMetadata } from '../@types/PostMetadata'
 
 export default function Page({
   title,
@@ -14,8 +15,8 @@ export default function Page({
   title: string
   children: any
   section?: string
-  location?: any
-  post?: any
+  location?: Location
+  post?: PostMetadata
 }) {
   return (
     <>

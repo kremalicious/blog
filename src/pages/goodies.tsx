@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import PostImage from '../components/Post/PostImage'
 import Page from '../templates/Page'
 import styles from './goodies.module.scss'
+import { PostMetadata } from '../@types/PostMetadata'
 
 const page = {
   frontmatter: {
@@ -12,16 +13,7 @@ const page = {
   }
 }
 
-interface Post {
-  id: string
-  fields: { slug: string }
-  frontmatter: {
-    title: string
-    image: { childImageSharp: any }
-  }
-}
-
-const GoodiesThumb = ({ post }: { post: Post }) => {
+const GoodiesThumb = ({ post }: { post: PostMetadata }) => {
   const { title, image } = post.frontmatter
   const { slug } = post.fields
 
@@ -41,7 +33,7 @@ export default function Goodies({
   data,
   location
 }: {
-  data: { goodies: { edges: [{ node: Post }] } }
+  data: { goodies: { edges: [{ node: PostMetadata }] } }
   location: Location
 }) {
   return (

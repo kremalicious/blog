@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from '../Post/PostTeaser'
 import styles from './RelatedPosts.module.scss'
+import {
+  PostMetadata,
+  PostMetadataFrontmatter
+} from '../../@types/PostMetadata'
 
 const query = graphql`
   query {
@@ -31,22 +35,26 @@ const query = graphql`
   }
 `
 
-function postsWithDataFilter(posts: [], key: string, valuesToFind: string[]) {
-  const newArray = posts.filter((post: any) => {
-    const frontmatterKey = post.node.frontmatter[key]
+function postsWithDataFilter(
+  posts: [{ node: PostMetadata }],
+  key: keyof PostMetadataFrontmatter,
+  valuesToFind: string[]
+) {
+  const newArray = posts.filter(({ node }: { node: PostMetadata }) => {
+    const frontmatterKey = node.frontmatter[key] as []
 
     if (
       frontmatterKey !== null &&
       frontmatterKey.some((r: string) => valuesToFind.includes(r))
     ) {
-      return post
+      return node
     }
   })
   return newArray
 }
 
 function photosWithDataFilter(posts: []) {
-  const newArray = posts.filter((post: any) => {
+  const newArray = posts.filter((post: { node: PostMetadata }) => {
     const { fileAbsolutePath } = post.node
 
     if (fileAbsolutePath.includes('content/photos')) {
@@ -85,7 +93,7 @@ export default function RelatedPosts({
         {filteredPosts
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
-          .map(({ node }: { node: any }) => (
+          .map(({ node }: { node: PostMetadata }) => (
             <PostTeaser key={node.id} post={node} />
           ))}
       </ul>

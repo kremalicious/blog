@@ -1,15 +1,10 @@
 import React from 'react'
 import styles from './PostLead.module.scss'
+import { PostMetadata } from '../../@types/PostMetadata'
 
 // Extract lead paragraph from content
 // Grab everything before more tag, or just first paragraph
-const PostLead = ({
-  post,
-  index
-}: {
-  post: { html: string }
-  index?: boolean
-}) => {
+const PostLead = ({ post, index }: { post: PostMetadata; index?: boolean }) => {
   let lead
   const content = post.html
   const separator = '<!-- more -->'

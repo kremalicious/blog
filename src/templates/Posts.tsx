@@ -12,13 +12,14 @@ import Pagination from '../components/molecules/Pagination'
 import Featured from '../components/molecules/Featured'
 import styles from './Posts.module.scss'
 import stylesPost from './Post.module.scss'
+import { PostMetadata } from '../@types/PostMetadata'
 
 export default function Posts({
   data,
   location,
   pageContext
 }: {
-  data: any
+  data: { allMarkdownRemark: { edges: [{ node: PostMetadata }] } }
   location: Location
   pageContext: {
     tag: string
@@ -30,7 +31,7 @@ export default function Posts({
   const edges = data.allMarkdownRemark.edges
   const { tag, currentPageNumber, numPages, nextPage } = pageContext
 
-  const PostsList = edges.map(({ node }: { node: any }) => {
+  const PostsList = edges.map(({ node }: { node: PostMetadata }) => {
     const { type, linkurl, title, image } = node.frontmatter
     const { slug } = node.fields
 

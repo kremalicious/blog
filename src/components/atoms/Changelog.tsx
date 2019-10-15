@@ -3,12 +3,17 @@ import { graphql, useStaticQuery } from 'gatsby'
 import remark from 'remark'
 import remarkReact from 'remark-react'
 import styles from './Changelog.module.scss'
+import { GitHub, GitHubRepo } from '../../@types/GitHub'
 
-export function PureChangelog({ repo, data }: { repo: string; data: any }) {
-  const repositoriesGitHub = data.github.viewer.repositories.edges
-
-  const repoFilteredArray = repositoriesGitHub
-    .map(({ node }: { node: any }) => {
+export function PureChangelog({
+  repo,
+  repos
+}: {
+  repo: string
+  repos: [{ node: GitHubRepo }]
+}) {
+  const repoFilteredArray = repos
+    .map(({ node }: { node: GitHubRepo }) => {
       if (node.name === repo) return node
     })
     .filter((n: any) => n)
@@ -73,6 +78,7 @@ export default function Changelog({ repo }: { repo: string }) {
       }
     }
   `
-  const data = useStaticQuery(queryGithub)
-  return <PureChangelog repo={repo} data={data} />
+  const data: GitHub = useStaticQuery(queryGithub)
+  const repos: [{ node: GitHubRepo }] = data.github.viewer.repositories.edges
+  return <PureChangelog repo={repo} repos={repos} />
 }

@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Image from '../atoms/Image'
 import styles from './PostTeaser.module.scss'
+import { PostMetadata } from '../../@types/PostMetadata'
 
 export default function PostTeaser({
   post,
   toggleSearch
 }: {
-  post: { fields: { slug: string }; frontmatter: { image: any; title: string } }
+  post: PostMetadata
   toggleSearch?: () => void
 }) {
   const { image, title } = post.frontmatter

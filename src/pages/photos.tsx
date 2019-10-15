@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Page from '../templates/Page'
 import PostImage from '../components/Post/PostImage'
 import styles from './photos.module.scss'
+import { PostMetadata } from '../@types/PostMetadata'
 
 const page = {
   frontmatter: {
@@ -11,17 +12,7 @@ const page = {
   }
 }
 
-interface Photo {
-  id: string
-  fields: { slug: string }
-  frontmatter: {
-    title: string
-    type: string
-    image: { childImageSharp: any }
-  }
-}
-
-const PhotoThumb = ({ photo }: { photo: Photo }) => {
+const PhotoThumb = ({ photo }: { photo: PostMetadata }) => {
   const { title, image } = photo.frontmatter
   const { slug } = photo.fields
   const { fluid } = image.childImageSharp
@@ -37,21 +28,11 @@ const PhotoThumb = ({ photo }: { photo: Photo }) => {
   )
 }
 
-interface PhotosData {
-  photos: {
-    edges: [
-      {
-        node: Photo
-      }
-    ]
-  }
-}
-
 export default function Photos({
   data,
   location
 }: {
-  data: PhotosData
+  data: { photos: { edges: [{ node: PostMetadata }] } }
   location: Location
 }) {
   return (

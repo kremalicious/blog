@@ -1,22 +1,9 @@
 import React from 'react'
 import ExifMap from './ExifMap'
 import styles from './Exif.module.scss'
+import { PostMetadataImageExif } from '../../@types/PostMetadata'
 
-interface ExifProps {
-  iso: string
-  model: string
-  fstop: string
-  shutterspeed: string
-  focalLength: string
-  lensModel: string
-  exposure: string
-  gps: {
-    latitude: string
-    longitude: string
-  }
-}
-
-export default function Exif({ exif }: { exif: ExifProps }) {
+export default function Exif({ exif }: { exif: PostMetadataImageExif }) {
   const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } = exif
 
   return (

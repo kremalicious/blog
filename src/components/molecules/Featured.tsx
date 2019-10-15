@@ -2,39 +2,16 @@ import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Image from '../atoms/Image'
 import styles from './Featured.module.scss'
+import { PostMetadata } from '../../@types/PostMetadata'
 
-const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { frontmatter: { featured: { eq: true } } }
-      sort: { fields: [fields___date], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                ...ImageFluidThumb
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
-
-export default function Featured() {
-  const data = useStaticQuery(query)
-
+function FeaturedPure({
+  data
+}: {
+  data: { allMarkdownRemark: { edges: [{ node: PostMetadata }] } }
+}) {
   return (
     <div className={styles.featured}>
-      {data.allMarkdownRemark.edges.map(({ node }: { node: any }) => {
+      {data.allMarkdownRemark.edges.map(({ node }: { node: PostMetadata }) => {
         const { title, image } = node.frontmatter
         const { slug } = node.fields
 
@@ -49,4 +26,35 @@ export default function Featured() {
       })}
     </div>
   )
+}
+
+export default function Featured() {
+  const query = graphql`
+    query {
+      allMarkdownRemark(
+        filter: { frontmatter: { featured: { eq: true } } }
+        sort: { fields: [fields___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              image {
+                childImageSharp {
+                  ...ImageFluidThumb
+                }
+              }
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const data = useStaticQuery(query)
+  return <FeaturedPure data={data} />
 }
