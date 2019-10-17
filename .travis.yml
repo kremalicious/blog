@@ -1,7 +1,6 @@
 dist: xenial
 language: node_js
-node_js:
-  - '12'
+node_js: node
 
 git:
   depth: 10

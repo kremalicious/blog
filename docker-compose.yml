@@ -1,0 +1,10 @@
+version: '3'
+services:
+  blog:
+    build: .
+    command: npm run start:docker
+    volumes:
+      - .:/blog
+      - /blog/node_modules
+    ports:
+      - '8000:8000'

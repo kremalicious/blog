@@ -163,20 +163,21 @@ If you want to know how this works, have a look at the respective component unde
 
 ## ✨ Development
 
-You need to have the following tools installed on your development machine before moving on:
-
-- [Node.js](http://nodejs.org/)
-- [npm](https://npmjs.org/)
-
-Then install dependencies and start everything up:
+You can simply use [Docker](https://www.docker.com) & [Docker Compose](https://docs.docker.com/compose/) or install and run dependencies on your local system.
 
 ```bash
-npm i
+git clone git@github.com:kremalicious/blog.git
+cd blog/
 
 # GITHUB_TOKEN is required for some parts
 cp .env.sample .env
 vi .env
 
+# use Docker
+docker-compose up
+
+# or go with local system
+npm i
 npm start
 ```
 

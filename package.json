@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop",
+    "start:docker": "gatsby develop --host 0.0.0.0",
     "build": "gatsby build && npm run copy",
     "ssr": "npm run build && serve -s public/",
     "test": "npm run lint && jest --coverage",
