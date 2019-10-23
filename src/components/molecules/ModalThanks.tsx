@@ -25,9 +25,9 @@ export default function ModalThanks(props: any) {
 
         {Object.keys(author)
           .filter(key => key === 'bitcoin' || key === 'ether')
-          .map((address, i) => (
+          .map((address: string, i: number) => (
             <div key={i} className={styles.coin}>
-              <Qr title={address} address={author[address]} />
+              <Qr title={address} address={(author as any)[address]} />
             </div>
           ))}
       </div>
