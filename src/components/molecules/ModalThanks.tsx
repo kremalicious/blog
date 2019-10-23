@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-import Web3Donation from '../Web3Donation'
-import Qr from '../atoms/Qr'
 import Modal from '../atoms/Modal'
 import styles from './ModalThanks.module.scss'
+
+const Web3Donation = lazy(() => import('../Web3Donation'))
+const Qr = lazy(() => import('../atoms/Qr'))
 
 export default function ModalThanks(props: any) {
   const { author } = useSiteMetadata()
@@ -16,7 +17,9 @@ export default function ModalThanks(props: any) {
       title="Say thanks"
     >
       <div className={styles.modalThanks}>
-        <Web3Donation address={author.ether} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Web3Donation address={author.ether} />
+        </Suspense>
 
         <header>
           <h4>Any other wallets</h4>
@@ -27,7 +30,9 @@ export default function ModalThanks(props: any) {
           .filter(key => key === 'bitcoin' || key === 'ether')
           .map((address: string, i: number) => (
             <div key={i} className={styles.coin}>
-              <Qr title={address} address={(author as any)[address]} />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Qr title={address} address={(author as any)[address]} />
+              </Suspense>
             </div>
           ))}
       </div>

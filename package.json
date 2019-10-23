@@ -81,7 +81,7 @@
     "remark-react": "^6.0.0",
     "slugify": "^1.3.4",
     "use-dark-mode": "^2.3.1",
-    "web3": "^1.2.1"
+    "web3": "^1.2.2"
   },
   "devDependencies": {
     "@babel/node": "^7.6.3",
@@ -132,9 +132,6 @@
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.4",
     "why-did-you-update": "^1.0.6"
-  },
-  "engines": {
-    "node": ">=10.0.0"
   },
   "repository": {
     "type": "git",

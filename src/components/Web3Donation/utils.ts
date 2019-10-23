@@ -100,19 +100,14 @@ export const getNetwork = async (web3: Web3) => {
 
 export const getFiat = async (amount: number) => {
   const url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=EUR'
+  const response = await fetch(url)
+  if (!response.ok) Logger.error(response.statusText)
+  const data = await response.json()
+  /* eslint-disable @typescript-eslint/camelcase */
+  const { price_usd, price_eur } = data[0]
+  const dollar = (amount * price_usd).toFixed(2)
+  const euro = (amount * price_eur).toFixed(2)
+  /* eslint-enable @typescript-eslint/camelcase */
 
-  try {
-    const response = await fetch(url)
-    if (!response.ok) Logger.error(response.statusText)
-    const data = await response.json()
-    /* eslint-disable @typescript-eslint/camelcase */
-    const { price_usd, price_eur } = data[0]
-    const dollar = (amount * price_usd).toFixed(2)
-    const euro = (amount * price_eur).toFixed(2)
-    /* eslint-enable @typescript-eslint/camelcase */
-
-    return { dollar, euro }
-  } catch (error) {
-    Logger.error(error)
-  }
+  return { dollar, euro }
 }

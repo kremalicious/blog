@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { getFiat } from './utils'
+import { getFiat, Logger } from './utils'
 import styles from './Conversion.module.scss'
 
 export default class Conversion extends PureComponent<
@@ -24,20 +24,21 @@ export default class Conversion extends PureComponent<
   }
 
   async getFiatResponse() {
-    const { dollar, euro } = await getFiat(this.props.amount)
-    this.setState({
-      euro: euro,
-      dollar: dollar
-    })
+    try {
+      const { dollar, euro } = await getFiat(this.props.amount)
+      this.setState({ euro, dollar })
+    } catch (error) {
+      Logger.error(error.message)
+    }
   }
 
   render() {
+    const { dollar, euro } = this.state
+
     return (
       <div className={styles.conversion}>
-        <span>
-          {this.state.dollar !== '0.00' && `= $ ${this.state.dollar}`}
-        </span>
-        <span>{this.state.euro !== '0.00' && `= € ${this.state.euro}`}</span>
+        <span>{dollar !== '0.00' && `= $ ${dollar}`}</span>
+        <span>{euro !== '0.00' && `= € ${euro}`}</span>
       </div>
     )
   }
