@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Image from '../atoms/Image'
+import { Image } from '../../components/atoms/Image'
 import styles from './PostTeaser.module.scss'
-import { PostMetadata } from '../../@types/PostMetadata'
+import { Post } from '../../@types/Post'
 
 export default function PostTeaser({
   post,
   toggleSearch
 }: {
-  post: PostMetadata
+  post: Post
   toggleSearch?: () => void
 }) {
   const { image, title } = post.frontmatter

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ModalThanks from '../molecules/ModalThanks'
+import ModalThanks from '../../components/organisms/ModalThanks'
 import styles from './PostActions.module.scss'
 
 import { ReactComponent as Twitter } from '../../images/twitter.svg'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Container from '../atoms/Container'
 import Vcard from '../molecules/Vcard'
 import ThemeSwitch from '../molecules/ThemeSwitch'
-import ModalThanks from '../molecules/ModalThanks'
+import ModalThanks from './ModalThanks'
 
 import { ReactComponent as Github } from '../../images/github.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'

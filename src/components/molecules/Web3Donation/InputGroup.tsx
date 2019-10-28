@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../atoms/Input'
+import Input from '../../atoms/Input'
 import Account from './Account'
 import Conversion from './Conversion'
 import styles from './InputGroup.module.scss'

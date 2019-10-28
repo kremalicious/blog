@@ -14,7 +14,7 @@ export interface Author {
   ether: string
 }
 
-export interface SiteMetadata {
+export interface Site {
   siteTitle: string
   siteTitleShort: string
   siteDescription: string

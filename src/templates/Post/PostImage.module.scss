@@ -1,7 +1,7 @@
 @import 'variables';
 @import 'mixins';
 
-.postImageTitle {
+.imageTitle {
   transition: 0.1s ease-out;
   font-size: $font-size-h3;
   font-family: $font-family-headings;
@@ -9,7 +9,6 @@
   font-weight: $font-weight-headings;
   font-style: normal;
   text-align: left;
-  letter-spacing: -0.02em;
   margin: 0;
   position: absolute;
   top: 10%;
@@ -22,7 +21,7 @@
   transform: translate3d(0, -20px, 0);
 }
 
-.postImage {
+.image {
   display: block;
 
   a & {
@@ -31,7 +30,7 @@
   }
 
   a:hover & {
-    .postImageTitle {
+    .imageTitle {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }

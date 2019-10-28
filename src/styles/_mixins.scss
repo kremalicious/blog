@@ -1,57 +1,5 @@
 @import 'variables';
 
-// Centering Blocks
-/////////////////////////////////////
-
-@mixin aligncenter() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Toggling content
-/////////////////////////////////////
-
-// Hide from both screenreaders and browsers: h5bp.com/u
-@mixin hide() {
-  display: none !important;
-  visibility: hidden;
-}
-
-@mixin show() {
-  display: block;
-  visibility: visible;
-}
-
-// Hide only visually, but have it available for screenreaders: h5bp.com/v
-@mixin visuallyhidden() {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-
-  // Extends the .visuallyhidden class to allow the
-  // element to be focusable when navigated to via the keyboard: h5bp.com/p
-  &.focusable:active,
-  &.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-  }
-}
-
-// Hide visually and from screenreaders, but maintain layout
-@mixin invisible() {
-  visibility: hidden;
-}
-
 // CSS image replacement
 /////////////////////////////////////
 
@@ -129,20 +77,6 @@
     &::after {
       border-bottom-color: darken($brand-grey, 12%);
     }
-  }
-}
-
-// Heading band
-/////////////////////////////////////
-
-@mixin heading-band() {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.5);
-  padding: ($spacer/2) $spacer ($spacer/2) 100%;
-  margin-left: -100%;
-
-  :global(.dark) & {
-    background: darken($body-background-color--dark, 2%);
   }
 }
 

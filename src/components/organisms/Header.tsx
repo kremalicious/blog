@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Container from '../atoms/Container'
-import Search from '../Search'
+import Search from '../molecules/Search'
 import Menu from '../molecules/Menu'
 import { ReactComponent as Logo } from '../../images/logo.svg'
 

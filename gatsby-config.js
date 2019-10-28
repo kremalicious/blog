@@ -35,7 +35,6 @@ module.exports = {
             options: {
               maxWidth: 630,
               quality: 80,
-              withWebp: true,
               linkImagesToOriginal: true,
               showCaptions: true,
               backgroundColor: 'none',

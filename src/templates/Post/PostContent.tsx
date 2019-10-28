@@ -1,9 +1,9 @@
 import React from 'react'
-import Changelog from '../atoms/Changelog'
-import { PostMetadata } from '../../@types/PostMetadata'
+import Changelog from '../../components/atoms/Changelog'
+import { Post } from '../../@types/Post'
 
 // Remove lead paragraph from content
-const PostContent = ({ post }: { post: PostMetadata }) => {
+const PostContent = ({ post }: { post: Post }) => {
   const separator = '<!-- more -->'
   const changelog = post.frontmatter.changelog
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../atoms/Input'
+import Input from '../../atoms/Input'
 import styles from './SearchInput.module.scss'
 
 export default function SearchInput({

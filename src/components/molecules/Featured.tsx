@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
-import Image from '../atoms/Image'
+import { Image } from '../atoms/Image'
 import styles from './Featured.module.scss'
-import { PostMetadata } from '../../@types/PostMetadata'
+import { Post } from '../../@types/Post'
 
 function FeaturedPure({
   data
 }: {
-  data: { allMarkdownRemark: { edges: [{ node: PostMetadata }] } }
+  data: { allMarkdownRemark: { edges: [{ node: Post }] } }
 }) {
   return (
     <div className={styles.featured}>
-      {data.allMarkdownRemark.edges.map(({ node }: { node: PostMetadata }) => {
+      {data.allMarkdownRemark.edges.map(({ node }: { node: Post }) => {
         const { title, image } = node.frontmatter
         const { slug } = node.fields
 

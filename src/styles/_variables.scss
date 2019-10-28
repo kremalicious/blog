@@ -68,7 +68,7 @@ $font-family-monospace: 'Fira Code', 'Fira Mono', Menlo, Monaco, Consolas,
 
 $font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
   Helvetica, Arial, sans-serif;
-$font-weight-headings: 500;
+$font-weight-headings: 700;
 $line-height-headings: 1.1;
 
 $color-headings: $brand-main;
@@ -81,7 +81,7 @@ $spacer: ($font-size-base * $line-height);
 $padding-base-vertical: 0.75rem;
 $padding-base-horizontal: 1.25rem;
 
-$border-radius: 3px;
+$border-radius: 0.25rem;
 
 // Code
 /////////////////////////////////////

@@ -10,6 +10,8 @@ tags:
   - goodies
   - gatsby
   - matomo
+
+featured: true
 ---
 
 Plugin for [Gatsby](https://www.gatsbyjs.org) to add tracking with the open-source analytics platform [Matomo](https://matomo.org) (formerly Piwik) onto a site, prioritizing user experience & privacy with sensible defaults.

@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
 import styles from './Menu.module.scss'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import { MenuItem } from '../../@types/SiteMetadata'
+import { MenuItem } from '../../@types/Site'
 
 export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false)

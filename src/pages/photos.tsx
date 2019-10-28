@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Page from '../templates/Page'
-import PostImage from '../components/Post/PostImage'
+import PostImage from '../templates/Post/PostImage'
 import styles from './photos.module.scss'
-import { PostMetadata } from '../@types/PostMetadata'
+import { Post } from '../@types/Post'
 
 const page = {
   frontmatter: {
@@ -12,7 +12,7 @@ const page = {
   }
 }
 
-const PhotoThumb = ({ photo }: { photo: PostMetadata }) => {
+const PhotoThumb = ({ photo }: { photo: Post }) => {
   const { title, image } = photo.frontmatter
   const { slug } = photo.fields
   const { fluid } = image.childImageSharp
@@ -32,7 +32,7 @@ export default function Photos({
   data,
   location
 }: {
-  data: { photos: { edges: [{ node: PostMetadata }] } }
+  data: { photos: { edges: [{ node: Post }] } }
   location: Location
 }) {
   return (

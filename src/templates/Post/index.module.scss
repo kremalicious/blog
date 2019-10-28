@@ -1,0 +1,63 @@
+@import 'variables';
+@import 'mixins';
+
+.hentry {
+  width: 100%;
+  padding-top: $spacer;
+  padding-bottom: $spacer * 3;
+
+  > a {
+    display: block;
+  }
+
+  &:only-child {
+    padding-bottom: $spacer;
+  }
+
+  .gatsby-resp-image-figure,
+  .gatsby-resp-image-wrapper {
+    margin-bottom: $spacer;
+  }
+
+  :global(.anchor) {
+    margin-top: $spacer / 3;
+    font-size: $font-size-large;
+    color: $brand-grey-light;
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+    }
+
+    span {
+      transition: opacity 0.2s ease-out;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    :global(.anchor) span {
+      opacity: 0;
+    }
+
+    &:hover {
+      :global(.anchor) span {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.imageWrap {
+  @include breakoutviewport();
+
+  figure {
+    max-width: none;
+    margin-top: $spacer * 1.5;
+    margin-bottom: 0;
+  }
+}

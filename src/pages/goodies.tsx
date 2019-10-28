@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import PostImage from '../components/Post/PostImage'
+import PostImage from '../templates/Post/PostImage'
 import Page from '../templates/Page'
 import styles from './goodies.module.scss'
-import { PostMetadata } from '../@types/PostMetadata'
+import { Post } from '../@types/Post'
 
 const page = {
   frontmatter: {
@@ -13,7 +13,7 @@ const page = {
   }
 }
 
-const GoodiesThumb = ({ post }: { post: PostMetadata }) => {
+const GoodiesThumb = ({ post }: { post: Post }) => {
   const { title, image } = post.frontmatter
   const { slug } = post.fields
 
@@ -33,7 +33,7 @@ export default function Goodies({
   data,
   location
 }: {
-  data: { goodies: { edges: [{ node: PostMetadata }] } }
+  data: { goodies: { edges: [{ node: Post }] } }
   location: Location
 }) {
   return (
