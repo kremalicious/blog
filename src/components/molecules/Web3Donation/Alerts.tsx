@@ -16,44 +16,34 @@ export const alertMessages = (
   success: 'Confirmed. You are awesome, thanks!'
 })
 
-export default function Alerts({
-  transactionHash,
-  message
-}: {
-  transactionHash: string | null
-  message: { text?: string; status?: string } | null
-}) {
-  const constructMessage = () => {
-    let messageOutput
+interface AlertProps {
+  transactionHash: string
+  message?: { text?: string; status?: string }
+}
 
-    if (transactionHash) {
-      messageOutput =
-        message &&
-        message.text +
-          '<br />' +
-          alertMessages(null, transactionHash).transaction
-    } else {
-      messageOutput = message && message.text
-    }
+const constructMessage = (
+  transactionHash: string,
+  message?: { text?: string }
+) =>
+  transactionHash
+    ? message &&
+      message.text + '<br />' + alertMessages(null, transactionHash).transaction
+    : message && message.text
 
-    return messageOutput
-  }
+const classes = (status: string) =>
+  status === 'success'
+    ? styles.success
+    : status === 'error'
+    ? styles.error
+    : styles.alert
 
-  const classes = () => {
-    const { status } = message
-
-    if (status === 'success') {
-      return styles.success
-    } else if (status === 'error') {
-      return styles.error
-    }
-    return styles.alert
-  }
-
+export default function Alerts({ transactionHash, message }: AlertProps) {
   return (
     <div
-      className={classes()}
-      dangerouslySetInnerHTML={{ __html: `${constructMessage()}` }}
+      className={classes(message.status)}
+      dangerouslySetInnerHTML={{
+        __html: `${constructMessage(transactionHash, message)}`
+      }}
     />
   )
 }

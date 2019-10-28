@@ -2,12 +2,11 @@ import React, { lazy, Suspense } from 'react'
 import shortid from 'shortid'
 import { Author } from '../../@types/Site'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-
+import Qr from '../atoms/Qr'
 import Modal from '../atoms/Modal'
 import styles from './ModalThanks.module.scss'
 
 const Web3Donation = lazy(() => import('../molecules/Web3Donation'))
-const Qr = lazy(() => import('../atoms/Qr'))
 
 const Coin = ({ address, author }: { address: string; author: Author }) => (
   <div className={styles.coin}>
