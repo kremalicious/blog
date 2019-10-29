@@ -68,12 +68,12 @@ As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no2
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/Web3Donation/index.jsx`](src/components/Web3Donation/index.jsx)
-- [`src/components/Web3Donation/Account.jsx`](src/components/Web3Donation/Account.jsx)
-- [`src/components/Web3Donation/InputGroup.jsx`](src/components/Web3Donation/InputGroup.jsx)
-- [`src/components/Web3Donation/Conversion.jsx`](src/components/Web3Donation/Conversion.jsx)
-- [`src/components/Web3Donation/Alerts.jsx`](src/components/Web3Donation/Alerts.jsx)
-- [`src/components/Web3Donation/utils.jsx`](src/components/Web3Donation/utils.jsx)
+- [`src/components/molecules/Web3Donation/index.jsx`](src/components/molecules/Web3Donation/index.jsx)
+- [`src/components/molecules/Web3Donation/Account.jsx`](src/components/molecules/Web3Donation/Account.jsx)
+- [`src/components/molecules/Web3Donation/InputGroup.jsx`](src/components/molecules/Web3Donation/InputGroup.jsx)
+- [`src/components/molecules/Web3Donation/Conversion.jsx`](src/components/molecules/Web3Donation/Conversion.jsx)
+- [`src/components/molecules/Web3Donation/Alerts.jsx`](src/components/molecules/Web3Donation/Alerts.jsx)
+- [`src/components/molecules/Web3Donation/utils.jsx`](src/components/molecules/Web3Donation/utils.jsx)
 - [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
 
 ### 🔍 Search
@@ -84,9 +84,9 @@ A global search is provided with [gatsby-plugin-lunr](https://github.com/humanse
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/Search/Search.jsx`](src/components/Search/Search.jsx)
-- [`src/components/Search/SearchResults.jsx`](src/components/Search/SearchResults.jsx)
-- more in [`src/components/Search/`](src/components/Search/)
+- [`src/components/molecules/Search/Search.jsx`](src/components/molecules/Search/Search.jsx)
+- [`src/components/molecules/Search/SearchResults.jsx`](src/components/molecules/Search/SearchResults.jsx)
+- more in [`src/components/molecules/Search/`](src/components/molecules/Search/)
 
 ### 🕸 Related Posts
 

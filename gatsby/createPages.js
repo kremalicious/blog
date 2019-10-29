@@ -7,7 +7,7 @@ const redirects = [
 ]
 
 exports.generatePostPages = (createPage, posts, numPages) => {
-  const postTemplate = path.resolve('src/templates/Post.tsx')
+  const postTemplate = path.resolve('src/templates/Post/index.tsx')
 
   // Create Post pages
   posts.forEach(post => {

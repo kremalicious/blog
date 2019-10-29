@@ -9,31 +9,15 @@
   padding-top: $spacer;
   padding-bottom: $spacer;
   border-radius: $border-radius;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  gap: $spacer / 2;
+
+  @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   :global(.dark) & {
     background: darken($body-background-color--dark, 2%);
-  }
-
-  > div {
-    flex: 1 1 100%;
-    border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
-
-    &:last-child {
-      border-bottom: 0;
-    }
-
-    @media (min-width: $screen-sm) {
-      flex: 0 0 33%;
-      border-bottom: 0;
-      border-left: 1px dashed rgba($brand-grey-light, 0.3);
-
-      &:first-child {
-        border-left: 0;
-      }
-    }
   }
 }
 
@@ -66,9 +50,25 @@
   padding-right: $spacer;
   position: relative;
   text-align: left;
+  border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @media (min-width: $screen-sm) {
+    border-bottom: 0;
+    border-left: 1px dashed rgba($brand-grey-light, 0.3);
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
 
   &:hover,
   &:focus {
+    cursor: pointer;
+
     .link,
     .actionTitle,
     .actionText {

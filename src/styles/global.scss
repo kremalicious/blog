@@ -26,10 +26,7 @@ body {
   line-height: $line-height;
   color: $text-color;
   text-rendering: optimizeLegibility;
-  letter-spacing: -0.01em;
   font-feature-settings: 'liga', 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   transition: background 0.4s $easing;
   background: $body-background-color;
@@ -105,20 +102,6 @@ a {
 // Headings
 /////////////////////////////////////
 
-h1,
-h2 {
-  margin-top: $spacer * $line-height;
-  margin-bottom: $spacer * 2;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  margin-top: $spacer * $line-height;
-  margin-bottom: $spacer;
-}
-
 h1 {
   font-size: $font-size-h2;
 
@@ -128,8 +111,6 @@ h1 {
 }
 
 h2 {
-  @include heading-band();
-
   font-size: $font-size-h3;
 
   @media (min-width: $screen-xs) {
@@ -174,7 +155,11 @@ h6 {
   font-family: $font-family-headings;
   line-height: $line-height-headings;
   font-weight: $font-weight-headings;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  margin-top: $spacer * $line-height;
+  margin-bottom: $spacer;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   // stylelint-disable no-descending-specificity
   &,
@@ -376,4 +361,3 @@ blockquote {
 @import 'code';
 @import 'buttons';
 @import 'alerts';
-@import 'content';

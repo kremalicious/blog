@@ -140,9 +140,9 @@ So it's a pretty good idea to make this backwards compatible with some quick if 
 if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) {
   the_post_thumbnail();
 } else {
-  $postimage = get_post_meta($post->ID, 'post-image', true);
-  if ($postimage) {
-    echo '<img src="'.$postimage.'" alt="" />';
+  $Image = get_post_meta($post->ID, 'post-image', true);
+  if ($Image) {
+    echo '<img src="'.$Image.'" alt="" />';
   }
 }
 ```

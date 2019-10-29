@@ -1,25 +1,25 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import PostImage from '../components/Post/PostImage'
-import PostTitle from '../components/Post/PostTitle'
-import PostLead from '../components/Post/PostLead'
-import PostContent from '../components/Post/PostContent'
-import PostMore from '../components/Post/PostMore'
-import PostLinkActions from '../components/Post/PostLinkActions'
+import PostImage from './Post/PostImage'
+import PostTitle from './Post/PostTitle'
+import PostLead from './Post/PostLead'
+import PostContent from './Post/PostContent'
+import PostMore from './Post/PostMore'
+import PostLinkActions from './Post/PostLinkActions'
 import SEO from '../components/atoms/SEO'
 import Pagination from '../components/molecules/Pagination'
 import Featured from '../components/molecules/Featured'
 import styles from './Posts.module.scss'
-import stylesPost from './Post.module.scss'
-import { PostMetadata } from '../@types/PostMetadata'
+import stylesPost from './Post/index.module.scss'
+import { Post } from '../@types/Post'
 
 export default function Posts({
   data,
   location,
   pageContext
 }: {
-  data: { allMarkdownRemark: { edges: [{ node: PostMetadata }] } }
+  data: { allMarkdownRemark: { edges: [{ node: Post }] } }
   location: Location
   pageContext: {
     tag: string
@@ -31,7 +31,7 @@ export default function Posts({
   const edges = data.allMarkdownRemark.edges
   const { tag, currentPageNumber, numPages, nextPage } = pageContext
 
-  const PostsList = edges.map(({ node }: { node: PostMetadata }) => {
+  const PostsList = edges.map(({ node }: { node: Post }) => {
     const { type, linkurl, title, image } = node.frontmatter
     const { slug } = node.fields
 
@@ -43,11 +43,12 @@ export default function Posts({
 
         {image && (
           <Link to={slug} title={title}>
-            <div className={stylesPost.postImageWrap}>
+            <div className={stylesPost.imageWrap}>
               <PostImage
                 title={type === 'photo' ? title : null}
                 fluid={image.childImageSharp.fluid}
                 alt={title}
+                original={image.childImageSharp.original}
               />
             </div>
           </Link>

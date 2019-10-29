@@ -1,7 +1,7 @@
 @import 'variables';
 
 .searchInput {
-  composes: input from '../atoms/Input.module.scss';
+  composes: input from '../../atoms/Input.module.scss';
 
   &::-webkit-search-cancel-button {
     display: none;

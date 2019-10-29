@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
-import Time from '../atoms/Time'
+import Time from '../../components/atoms/Time'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './PostMeta.module.scss'
-import { PostMetadata } from '../../@types/PostMetadata'
+import { Post } from '../../@types/Post'
 
-export default function PostMeta({ post }: { post: PostMetadata }) {
+export default function PostMeta({ post }: { post: Post }) {
   const siteMeta = useSiteMetadata()
   const { author, updated, tags, type } = post.frontmatter
   const { date } = post.fields

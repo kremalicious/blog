@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
-import Container from '../atoms/Container'
-import PostTeaser from '../Post/PostTeaser'
+import Container from '../../atoms/Container'
+import PostTeaser from '../../../templates/Post/PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
 import styles from './SearchResults.module.scss'
-import { PostMetadata } from '../../@types/PostMetadata'
+import { Post } from '../../../@types/Post'
 
 export interface Results {
   slug: string
@@ -40,7 +40,7 @@ function SearchResultsPure({
   toggleSearch,
   posts
 }: {
-  posts: [{ node: PostMetadata }]
+  posts: [{ node: Post }]
   searchQuery: string
   results: Results[]
   toggleSearch(): void
@@ -53,10 +53,9 @@ function SearchResultsPure({
             {results.map((page: { slug: string }) =>
               posts
                 .filter(
-                  ({ node }: { node: PostMetadata }) =>
-                    node.fields.slug === page.slug
+                  ({ node }: { node: Post }) => node.fields.slug === page.slug
                 )
-                .map(({ node }: { node: PostMetadata }) => (
+                .map(({ node }: { node: Post }) => (
                   <PostTeaser
                     key={page.slug}
                     post={node}
