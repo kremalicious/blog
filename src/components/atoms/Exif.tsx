@@ -4,7 +4,15 @@ import styles from './Exif.module.scss'
 import { Exif as ExifMeta } from '../../@types/Image'
 
 export default function Exif({ exif }: { exif: ExifMeta }) {
-  const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } = exif
+  const {
+    iso,
+    model,
+    fstop,
+    shutterspeed,
+    focalLength,
+    exposure,
+    gps
+  } = exif.formatted
 
   return (
     <aside className={styles.exif}>

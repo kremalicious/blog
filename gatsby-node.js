@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const { createMarkdownFields } = require('./gatsby/createMarkdownFields')
-const { createExifFields } = require('./gatsby/createExifFields')
+const { createExif } = require('./gatsby/createExif')
 const {
   generatePostPages,
   generateTagPages,
@@ -9,17 +9,15 @@ const {
 const { generateJsonFeed } = require('./gatsby/feeds')
 const { itemsPerPage } = require('./config')
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
+exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   // Markdown files
   if (node.internal.type === 'MarkdownRemark') {
-    createMarkdownFields(node, createNodeField, getNode)
+    createMarkdownFields(node, actions, getNode)
   }
 
   // Image files
   if (node.internal.mediaType === 'image/jpeg') {
-    createExifFields(node, createNodeField)
+    createExif(node, actions, createNodeId)
   }
 }
 
