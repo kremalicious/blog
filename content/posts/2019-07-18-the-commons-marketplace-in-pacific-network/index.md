@@ -49,11 +49,11 @@ But telling users to read some version numbers and act on it can’t be the solu
 
 We went back to the drawing board, created some [concepts and prototypes](https://github.com/oceanprotocol/commons/issues/139), and in the end [built a solution](https://github.com/oceanprotocol/commons/pull/176) providing the smoothest user experience by eliminating any setup: introducing the so-called [burner wallet concept](https://medium.com/gitcoin/ethereum-in-emerging-economies-b235f8dac2f2). If you just want to browse and download some assets, this solution is all you need and you don’t even have to think about it.
 
-### What Is a Burner Wallet?
+### What Is a Burner Wallet
 
 A burner wallet is a frictionless but disposable wallet, often used for signing transactions only, or to move small amounts of tokens around. They are usually [hierarchical deterministic wallets (HD wallet)](https://en.bitcoinwiki.org/wiki/Deterministic_wallet), generating a set of public/private keys from a random seed phrase. But the keys are not protected as much as in a “normal” wallet, and in our case the seed phrase is stored in your browser’s cache, hence the low-security aspect.
 
-![](message.gif)
+![It's not about money, it's about sending a message](message.gif)
 
 Luckily, this doesn’t matter for interactions in the Commons Marketplace, where all assets are free and don’t require any transfer of tokens. All that is required to interact with all Ocean Protocol features in Commons is a wallet for signing during the register & consume requests.
 
@@ -90,11 +90,11 @@ In the wallet selector you can switch to MetaMask:
 
 After selecting MetaMask, the UI switches to your first account in it. If you use MetaMask for the first time with Commons, you will be prompted by MetaMask to approve reading access to your accounts:
 
-![](wallet-metamask-approve.png)
+![MetaMask approval](wallet-metamask-approve.png)
 
 Approving this request results in your first MetaMask account being selected, displayed and ready to use in Commons:
 
-![](wallet-metamask.png)
+![Wallet status with MetaMask](wallet-metamask.png)
 
 We also store your selection and, on your next visit, we switch to MetaMask automatically.
 
@@ -118,7 +118,7 @@ With [Pacific](https://docs.oceanprotocol.com/concepts/pacific-network/) running
 
 This all provides much more helpful feedback in case of network & account misconfigurations, e.g. if you use MetaMask and are connected to the wrong network:
 
-![](wallet-wrongnetwork.png)
+![Wallet status with wrong network](wallet-wrongnetwork.png)
 
 For this check we fetch the network from the Brizo endpoint configured in Commons client, then check that against the network you’re connected to in MetaMask. This allows Ocean devs to deploy the front-end into any network, and it will figure out the correct network combination automatically, and show relevant help messages.
 
