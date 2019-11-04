@@ -1,6 +1,11 @@
 @import 'variables';
 @import 'mixins';
 
+.title {
+  font-size: $font-size-h3;
+  margin-bottom: $spacer * $line-height;
+}
+
 .relatedPosts {
   margin-top: -($spacer * 2);
   margin-bottom: $spacer;
@@ -10,21 +15,20 @@
   }
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    gap: $spacer;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0;
     margin: 0;
+
+    @media (min-width: $screen-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   li {
     display: block;
-    flex: 0 0 48%;
-    margin-bottom: $spacer;
-
-    @media (min-width: $screen-sm) {
-      flex-basis: 31%;
-    }
+    margin: 0;
 
     &::before {
       display: none;
@@ -42,6 +46,10 @@
       margin-bottom: 0;
     }
 
+    h4 {
+      color: $text-color-light;
+    }
+
     &:hover,
     &:focus {
       h4 {
@@ -51,12 +59,8 @@
   }
 }
 
-.title {
-  font-size: $font-size-h3;
-}
-
 .button {
   margin: auto;
   display: block;
-  margin-top: $spacer / 2;
+  margin-top: $spacer * 2;
 }

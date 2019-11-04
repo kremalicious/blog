@@ -1,8 +1,8 @@
 const fs = require('fs')
+const util = require('util')
 const path = require('path')
-const pify = require('pify')
 const { siteUrl, siteTitle, siteDescription, author } = require('../config')
-const writeFile = pify(fs.writeFile)
+const writeFile = util.promisify(fs.writeFile)
 
 const feedContent = edge => {
   const { image } = edge.node.frontmatter
