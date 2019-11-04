@@ -30,9 +30,9 @@ export interface ExifFormatted {
 }
 
 export interface Exif {
-  formatted: ExifFormatted
-  exif: any
-  image: any
+  formatted?: ExifFormatted
+  exif?: any
+  image?: any
   thumbnail?: any
   gps?: any
   iptc?: any

@@ -24,7 +24,7 @@ export default function Exif({ exif }: { exif: ExifMeta }) {
         {exposure && <span title="Exposure">{exposure}</span>}
         {iso && <span title="ISO">{iso}</span>}
       </div>
-      {gps.latitude && (
+      {gps && gps.latitude && (
         <div className={styles.map}>
           <ExifMap gps={gps} />
         </div>
