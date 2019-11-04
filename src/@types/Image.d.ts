@@ -15,7 +15,7 @@ export interface ImageNode {
   }
 }
 
-export interface Exif {
+export interface ExifFormatted {
   iso: string
   model: string
   fstop: string
@@ -27,4 +27,13 @@ export interface Exif {
     latitude: string
     longitude: string
   }
+}
+
+export interface Exif {
+  formatted?: ExifFormatted
+  exif?: any
+  image?: any
+  thumbnail?: any
+  gps?: any
+  iptc?: any
 }

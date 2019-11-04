@@ -4,7 +4,15 @@ import styles from './Exif.module.scss'
 import { Exif as ExifMeta } from '../../@types/Image'
 
 export default function Exif({ exif }: { exif: ExifMeta }) {
-  const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } = exif
+  const {
+    iso,
+    model,
+    fstop,
+    shutterspeed,
+    focalLength,
+    exposure,
+    gps
+  } = exif.formatted
 
   return (
     <aside className={styles.exif}>
@@ -16,7 +24,7 @@ export default function Exif({ exif }: { exif: ExifMeta }) {
         {exposure && <span title="Exposure">{exposure}</span>}
         {iso && <span title="ISO">{iso}</span>}
       </div>
-      {gps.latitude && (
+      {gps && gps.latitude && (
         <div className={styles.map}>
           <ExifMap gps={gps} />
         </div>

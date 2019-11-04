@@ -79,16 +79,18 @@ export const pageQuery = graphql`
           }
           fields {
             exif {
-              iso
-              model
-              fstop
-              shutterspeed
-              focalLength
-              lensModel
-              exposure
-              gps {
-                latitude
-                longitude
+              formatted {
+                iso
+                model
+                fstop
+                shutterspeed
+                focalLength
+                lensModel
+                exposure
+                gps {
+                  latitude
+                  longitude
+                }
               }
             }
           }
