@@ -200,7 +200,7 @@ figcaption {
   color: $brand-grey;
   font-style: italic;
   text-align: center;
-  margin-top: -($spacer / $line-height);
+  margin-top: ($spacer / 4);
 
   .dark & {
     color: $brand-grey-light;
