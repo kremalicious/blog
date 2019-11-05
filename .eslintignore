@@ -1,6 +1,0 @@
-plugins/gatsby-redirect-from
-node_modules/
-.cache/
-static/
-public/
-coverage/
