@@ -4,6 +4,7 @@ yarn.lock
 package-lock.json
 public
 .cache
-src/components/svg
 plugins/gatsby-redirect-from
 coverage
+.env
+.env.development

@@ -63,4 +63,12 @@
 
   overflow: hidden;
   height: 220px;
+
+  img {
+    border-radius: 0 !important;
+  }
+
+  > div:first-child {
+    background: none !important;
+  }
 }

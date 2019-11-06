@@ -3,10 +3,7 @@ import Map from 'pigeon-maps'
 import Marker from 'pigeon-marker'
 import useDarkMode from 'use-dark-mode'
 
-const MAPBOX_ACCESS_TOKEN =
-  'pk.eyJ1Ijoia3JlbWFsaWNpb3VzIiwiYSI6ImNqbTE2NHpkYjJmNm8zcHF4eDVqZzk3ejEifQ.1uwPzM6MSTgL2e1Hxcmuqw'
-
-const mapbox = (mapboxId: string, accessToken: string) => (
+const mapbox = (mapboxId: string) => (
   x: string,
   y: string,
   z: string,
@@ -14,11 +11,11 @@ const mapbox = (mapboxId: string, accessToken: string) => (
 ) =>
   `https://api.mapbox.com/styles/v1/mapbox/${mapboxId}/tiles/256/${z}/${x}/${y}${
     dpr >= 2 ? '@2x' : ''
-  }?access_token=${accessToken}`
+  }?access_token=${process.env.GATSBY_MAPBOX_ACCESS_TOKEN}`
 
 const providers = {
-  light: mapbox('light-v10', MAPBOX_ACCESS_TOKEN),
-  dark: mapbox('dark-v10', MAPBOX_ACCESS_TOKEN)
+  light: mapbox('light-v10'),
+  dark: mapbox('dark-v10')
 }
 
 export default function ExifMap({
