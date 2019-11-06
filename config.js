@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       title: 'Goodies',
-      link: '/goodies'
+      link: '/tags/goodies'
     }
   ]
 }
