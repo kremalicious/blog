@@ -15,7 +15,7 @@ IPFS is now integrated into the Ocean Protocol stack, allowing you to take advan
 
 ---
 
-> This article was [originally posted on Medium in the Ocean Protocol blog](https://medium.com/@kremalicious/ocean-ipfs-integration-store-asset-files-43c623c356d7).
+> This article was [originally posted on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/ocean-ipfs-integration-store-asset-files-43c623c356d7).
 
 ---
 

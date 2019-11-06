@@ -15,7 +15,7 @@ We’ve been busy over the last few months, further developing the Commons Marke
 
 ---
 
-> This article was [originally posted on Medium in the Ocean Protocol blog](https://medium.com/@kremalicious/the-commons-marketplace-in-pacific-network-4bcf2f595721).
+> This article was [originally posted on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-marketplace-in-pacific-network-4bcf2f595721).
 
 ---
 
