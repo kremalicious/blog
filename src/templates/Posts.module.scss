@@ -12,6 +12,11 @@
   :global(.gatsby-image-wrapper) {
     max-height: 100vh;
   }
+
+  @media (min-width: $screen-md) {
+    padding-top: $spacer * 4;
+    padding-bottom: $spacer * 4;
+  }
 }
 
 .archiveTitle {

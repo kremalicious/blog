@@ -14,9 +14,12 @@
     padding-bottom: $spacer;
   }
 
-  .gatsby-resp-image-figure,
-  .gatsby-resp-image-wrapper {
+  :global(.gatsby-resp-image-figure) {
     margin-bottom: $spacer;
+  }
+
+  img {
+    border-radius: $border-radius;
   }
 
   :global(.anchor) {

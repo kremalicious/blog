@@ -197,13 +197,13 @@ img {
 
 figcaption {
   font-size: $font-size-small;
-  color: $brand-grey;
+  color: $brand-grey-light;
   font-style: italic;
   text-align: center;
   margin-top: ($spacer / 4);
 
   .dark & {
-    color: $brand-grey-light;
+    color: $brand-grey;
   }
 }
 
