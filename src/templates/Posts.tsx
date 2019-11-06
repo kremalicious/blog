@@ -23,13 +23,13 @@ export default function Posts({
   location: Location
   pageContext: {
     tag: string
+    slug: string
     currentPageNumber: number
     numPages: number
-    nextPage: number
   }
 }) {
   const edges = data.allMarkdownRemark.edges
-  const { tag, currentPageNumber, numPages, nextPage } = pageContext
+  const { tag, currentPageNumber, numPages } = pageContext
 
   const PostsList = edges.map(({ node }: { node: Post }) => {
     const { type, linkurl, title, image } = node.frontmatter
@@ -75,19 +75,24 @@ export default function Posts({
     <Layout location={location}>
       <SEO />
       {location.pathname === '/' && <Featured />}
-      {tag && <h1 className={styles.archiveTitle}>#{tag}</h1>}
-      {currentPageNumber > 1 && (
-        <h1
-          className={styles.archiveTitle}
-        >{`Page ${currentPageNumber} / ${numPages}`}</h1>
+      {tag && (
+        <h1 className={styles.archiveTitle}>
+          <span>#</span>
+          {tag}
+        </h1>
+      )}
+      {numPages > 1 && currentPageNumber > 1 && (
+        <h2
+          className={styles.paginationTitle}
+        >{`Page ${currentPageNumber} / ${numPages}`}</h2>
       )}
       {PostsList}
-      {nextPage && nextPage > 1 && <Pagination pageContext={pageContext} />}
+      {numPages > 1 && <Pagination pageContext={pageContext} />}
     </Layout>
   )
 }
 
-export const indexQuery = graphql`
+export const postsQuery = graphql`
   query($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $tag } } }

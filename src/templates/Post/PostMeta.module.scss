@@ -70,7 +70,7 @@
 }
 
 .tag {
-  color: $text-color;
+  color: $brand-grey-light;
   margin-left: $spacer / 2;
   margin-right: $spacer / 2;
   margin-bottom: $spacer / 2;
@@ -78,16 +78,8 @@
   display: inline-block;
 
   &::before {
-    color: $brand-grey-light;
     content: '#';
     margin-right: 1px;
-  }
-
-  :global(.dark) & {
-    color: $brand-grey-light;
-
-    &::before {
-      color: $brand-grey;
-    }
+    opacity: 0.65;
   }
 }

@@ -7,7 +7,6 @@ const {
   generateRedirectPages
 } = require('./gatsby/createPages')
 const { generateJsonFeed } = require('./gatsby/feeds')
-const { itemsPerPage } = require('./config')
 
 exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   // Markdown files
@@ -26,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      posts: allMarkdownRemark {
         edges {
           node {
             fields {
@@ -38,19 +37,26 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+
+      tags: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
-  const posts = result.data.allMarkdownRemark.edges
-  const numPages = Math.ceil(posts.length / itemsPerPage)
+  const posts = result.data.posts.edges
+  const tags = result.data.tags.group
 
   // Generate posts & posts index
-  generatePostPages(createPage, posts, numPages)
+  generatePostPages(createPage, posts)
 
   // Generate tag pages
-  generateTagPages(createPage, posts, numPages)
+  generateTagPages(createPage, tags)
 
   // Create manual redirects
   generateRedirectPages(createRedirect)

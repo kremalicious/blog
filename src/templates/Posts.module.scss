@@ -15,7 +15,20 @@
 }
 
 .archiveTitle {
+  @include divider;
+
   font-size: $font-size-h3;
   margin-top: 0;
   margin-bottom: 0;
+  padding-bottom: $spacer * $line-height;
+
+  span {
+    color: $brand-grey-light;
+    padding-right: $spacer / 12;
+    font-size: $font-size-base;
+  }
+}
+
+.paginationTitle {
+  composes: archiveTitle;
 }

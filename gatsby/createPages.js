@@ -1,12 +1,29 @@
 const path = require('path')
 const postsTemplate = path.resolve('src/templates/Posts.tsx')
+const { itemsPerPage } = require('../config')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
-  { f: '/feed/', t: '/feed.xml' }
+  { f: '/feed/', t: '/feed.xml' },
+  { f: '/goodies/', t: '/tags/goodies/' }
 ]
 
-exports.generatePostPages = (createPage, posts, numPages) => {
+function getPaginationData(i, numPages, slug) {
+  const currentPage = i + 1
+  const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
+  const nextPageNumber = currentPage + 1 > numPages ? null : currentPage + 1
+  const prevPagePath = prevPageNumber
+    ? prevPageNumber === 1
+      ? slug
+      : `${slug}page/${prevPageNumber}/`
+    : null
+  const nextPagePath = nextPageNumber ? `${slug}page/${nextPageNumber}/` : null
+  const path = i === 0 ? slug : `${slug}page/${i + 1}`
+
+  return { prevPagePath, nextPagePath, path }
+}
+
+exports.generatePostPages = (createPage, posts) => {
   const postTemplate = path.resolve('src/templates/Post/index.tsx')
 
   // Create Post pages
@@ -21,33 +38,59 @@ exports.generatePostPages = (createPage, posts, numPages) => {
   })
 
   // Create paginated Blog index pages
+  const numPages = Math.ceil(posts.length / itemsPerPage)
+  const slug = `/`
+
   Array.from({ length: numPages }).forEach((_, i) => {
+    const { prevPagePath, nextPagePath, path } = getPaginationData(
+      i,
+      numPages,
+      slug
+    )
+
     createPage({
-      path: i === 0 ? '/' : `/page/${i + 1}`,
+      path,
       component: postsTemplate,
       context: {
-        limit: numPages,
-        skip: i * numPages,
+        slug,
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
         numPages,
         currentPageNumber: i + 1,
-        prevPage: i - 1,
-        nextPage: i + 2
+        prevPagePath,
+        nextPagePath
       }
     })
   })
 }
 
-exports.generateTagPages = (createPage, posts) => {
-  const tagList = arrayReducer(posts, 'tags')
+exports.generateTagPages = (createPage, tags) => {
+  tags.forEach(({ tag, totalCount }) => {
+    // Create paginated tag pages
+    const numPages = Math.ceil(totalCount / itemsPerPage)
+    const slug = `/tags/${tag}/`
 
-  tagList.forEach(tag => {
-    if (tag === 'goodies') return
+    Array.from({ length: numPages }).forEach((_, i) => {
+      const { prevPagePath, nextPagePath, path } = getPaginationData(
+        i,
+        numPages,
+        slug
+      )
 
-    // Create tag pages
-    createPage({
-      path: `/tags/${tag}/`,
-      component: postsTemplate,
-      context: { tag }
+      createPage({
+        path,
+        component: postsTemplate,
+        context: {
+          tag,
+          slug,
+          limit: itemsPerPage,
+          skip: i * itemsPerPage,
+          numPages,
+          currentPageNumber: i + 1,
+          prevPagePath,
+          nextPagePath
+        }
+      })
     })
   })
 }
@@ -60,22 +103,4 @@ exports.generateRedirectPages = createRedirect => {
       toPath: t
     })
   })
-}
-
-//
-// ----------------------
-//
-// https://www.adamjberkowitz.com/tags-and-categories-in-gatsby-js/
-const arrayReducer = (postsArray, type) => {
-  return (postsArray = postsArray
-    .map(({ node }) => {
-      return node.frontmatter[type]
-    })
-    .reduce((a, b) => {
-      return a.concat(b)
-    }, [])
-    .filter((type, index, array) => {
-      return array.indexOf(type) === index
-    })
-    .sort())
 }

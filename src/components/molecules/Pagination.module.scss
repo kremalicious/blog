@@ -4,7 +4,7 @@
   display: flex;
   margin-top: $spacer * 2;
   margin-bottom: $spacer;
-  justify-content: center;
+  justify-content: space-between;
 
   > div {
     &:first-child {
@@ -40,4 +40,8 @@
   pointer-events: none;
   border: 1px solid darken($brand-grey-dimmed, 5%);
   color: $brand-grey-light;
+
+  :global(.dark) & {
+    border-color: darken($brand-grey-light, 15%);
+  }
 }
