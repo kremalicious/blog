@@ -1,17 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import styles from './Image.module.scss'
 import { ImageProps } from '../../@types/Image'
+import styles from './Image.module.scss'
 
-export const Image = ({ fluid, fixed, alt }: ImageProps) => (
-  <Img
-    className={styles.imageWrap}
-    backgroundColor="transparent"
-    fluid={fluid}
-    fixed={fixed}
-    alt={alt}
-  />
+export const Image = ({ title, fluid, fixed, alt, original }: ImageProps) => (
+  <figure className={styles.image} data-original={original && original.src}>
+    <Img backgroundColor="transparent" fluid={fluid} fixed={fixed} alt={alt} />
+    {title && <figcaption className={styles.imageTitle}>{title}</figcaption>}
+  </figure>
 )
 
 export const imageSizeDefault = graphql`

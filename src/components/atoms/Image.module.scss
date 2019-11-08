@@ -1,20 +1,54 @@
+@import 'variables';
 @import 'mixins';
 
-.imageWrap {
+.imageTitle {
+  @include transition();
+
+  font-size: $font-size-h3;
+  font-family: $font-family-headings;
+  line-height: $line-height-headings;
+  font-weight: $font-weight-headings;
+  font-style: normal;
+  text-align: left;
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  padding: $spacer / 3 $spacer;
+  background: rgba($link-color, 0.85);
+  color: #fff !important;
+  text-shadow: 0 1px 0 #000;
+  left: 0;
+  opacity: 0;
+  transform: translate3d(0, -20px, 0);
+}
+
+.image {
   @include media-frame;
+  @include breakoutviewport;
 
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $spacer;
+  max-width: none;
+  margin: $spacer * $line-height auto;
   display: block;
+  border-radius: $border-radius;
 
-  @media (min-width: 940px) {
-    max-width: 940px;
-    border-radius: $border-radius;
-    overflow: hidden;
+  a & {
+    position: relative;
+    display: block;
   }
 
-  a:hover & {
+  // single photo post teasers
+  &:only-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  a:hover &,
+  a:focus & {
     border-color: $link-color !important;
+
+    .imageTitle {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 }

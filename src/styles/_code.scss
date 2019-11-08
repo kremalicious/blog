@@ -31,6 +31,8 @@ kbd {
 }
 
 pre {
+  @include breakoutviewport;
+
   position: relative;
   display: block;
   padding: 0;
@@ -44,11 +46,6 @@ pre {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   max-height: 800px;
-
-  @media (min-width: $screen-sm) {
-    margin-left: -($spacer);
-    margin-right: -($spacer);
-  }
 
   code {
     padding: $spacer / 2;

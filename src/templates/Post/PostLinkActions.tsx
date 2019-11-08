@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { ReactComponent as Forward } from '../../images/forward.svg'
 import { ReactComponent as Infinity } from '../../images/infinity.svg'
-import styles from './PostLinkActions.module.scss'
 import stylesPostMore from './PostMore.module.scss'
+import styles from './PostLinkActions.module.scss'
 
 const PostLinkActions = ({
   linkurl,

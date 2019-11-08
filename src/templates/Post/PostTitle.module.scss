@@ -8,7 +8,7 @@
   font-size: $font-size-h1;
   color: $color-headings;
   margin-top: 0;
-  margin-bottom: $spacer;
+  margin-bottom: $spacer * $line-height;
 
   :global(.dark) & {
     color: $color-headings--dark;

@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .exif {
-  margin-top: -($spacer);
+  margin-top: -($spacer * $line-height);
   margin-bottom: $spacer * 2;
 }
 

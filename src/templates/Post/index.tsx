@@ -1,19 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
+import { Post as PostMetadata } from '../../@types/Post'
 import Layout from '../../components/Layout'
-import PostImage from './PostImage'
+import Exif from '../../components/atoms/Exif'
+import SEO from '../../components/atoms/SEO'
+import RelatedPosts from '../../components/molecules/RelatedPosts'
 import PostTitle from './PostTitle'
 import PostLead from './PostLead'
 import PostContent from './PostContent'
 import PostActions from './PostActions'
 import PostLinkActions from './PostLinkActions'
-import SEO from '../../components/atoms/SEO'
 import PostMeta from './PostMeta'
-import Exif from '../../components/atoms/Exif'
-import RelatedPosts from '../../components/molecules/RelatedPosts'
 import styles from './index.module.scss'
-import { Post as PostMetadata } from '../../@types/Post'
+import { Image } from '../../components/atoms/Image'
 
 export default function Post({
   data,
@@ -40,13 +40,11 @@ export default function Post({
           {type === 'post' && <PostLead post={post} />}
           {type === 'photo' && <PostContent post={post} />}
           {image && (
-            <div className={styles.imageWrap}>
-              <PostImage
-                fluid={image.childImageSharp.fluid}
-                alt={title}
-                original={image.childImageSharp.original}
-              />
-            </div>
+            <Image
+              fluid={image.childImageSharp.fluid}
+              alt={title}
+              original={image.childImageSharp.original}
+            />
           )}
           {image && image.fields && <Exif exif={image.fields.exif} />}
 

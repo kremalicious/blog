@@ -1,9 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Post } from '../@types/Post'
 import SEO from '../components/atoms/SEO'
 import Layout from '../components/Layout'
 import styles from './Page.module.scss'
-import { Post } from '../@types/Post'
 
 export default function Page({
   title,

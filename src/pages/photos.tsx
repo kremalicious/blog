@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Page from '../templates/Page'
-import PostImage from '../templates/Post/PostImage'
-import styles from './photos.module.scss'
 import { Post } from '../@types/Post'
+import { Image } from '../components/atoms/Image'
+import styles from './photos.module.scss'
 
 const page = {
   frontmatter: {
@@ -21,7 +21,7 @@ const PhotoThumb = ({ photo }: { photo: Post }) => {
     <article className={styles.photo}>
       {image && (
         <Link to={slug}>
-          <PostImage title={title} fluid={fluid} alt={title} />
+          <Image title={title} fluid={fluid} alt={title} />
         </Link>
       )}
     </article>

@@ -2,9 +2,10 @@
 
 .lead {
   font-size: $font-size-large;
-  margin-bottom: $spacer;
+  margin-bottom: $spacer * $line-height;
 }
 
 .index {
   font-size: $font-size-base;
+  margin-top: $spacer * $line-height;
 }
