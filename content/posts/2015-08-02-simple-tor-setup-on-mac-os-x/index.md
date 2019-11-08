@@ -5,7 +5,7 @@ title: Simple Tor setup on macOS
 image: teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
-updated: 2019-07-15 00:52:46+02:00
+updated: 2019-11-08 00:52:46+02:00
 
 featured: true
 toc: true
@@ -20,7 +20,7 @@ tags:
 
 There are many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here are some steps to setup Tor on macOS with a simple automated script at the end.
 
-I'm using macOS Mojave (10.14) for the following instructions but it should work on almost any macOS version.
+I'm using macOS Catalina (10.15) for the following instructions but it should work on almost any macOS version.
 
 ## Tor Browser
 
