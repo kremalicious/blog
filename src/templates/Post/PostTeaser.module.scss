@@ -1,6 +1,12 @@
 @import 'variables';
 @import 'mixins';
 
+.post {
+  figure {
+    margin: 0;
+  }
+}
+
 .postTitle {
   display: inline-block;
   margin-top: $spacer / 4;

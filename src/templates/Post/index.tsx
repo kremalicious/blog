@@ -46,7 +46,9 @@ export default function Post({
               original={image.childImageSharp.original}
             />
           )}
-          {image && image.fields && <Exif exif={image.fields.exif} />}
+          {type === 'photo' && image && image.fields && (
+            <Exif exif={image.fields.exif} />
+          )}
 
           {type !== 'photo' && <PostContent post={post} />}
 
@@ -93,6 +95,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        toc
         author
         updated
         tags
@@ -108,6 +111,7 @@ export const pageQuery = graphql`
         githubLink
       }
       rawMarkdownBody
+      tableOfContents(maxDepth: 2)
     }
   }
 `

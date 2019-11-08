@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'mixins';
+
+.toc {
+  background: rgba(#fff, 0.5);
+  padding: $spacer;
+  border-radius: $border-radius;
+  margin-bottom: $spacer * $line-height;
+
+  :global(.dark) & {
+    background: darken($body-background-color--dark, 2%);
+  }
+
+  ul {
+    margin: 0;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Changelog from '../../components/atoms/Changelog'
 import { Post } from '../../@types/Post'
+import PostToc from './PostToc'
 
 // Remove lead paragraph from content
 const PostContent = ({ post }: { post: Post }) => {
@@ -20,6 +21,9 @@ const PostContent = ({ post }: { post: Post }) => {
 
   return (
     <>
+      {post.frontmatter.toc && (
+        <PostToc tableOfContents={post.tableOfContents} />
+      )}
       <div dangerouslySetInnerHTML={{ __html: content }} />
       {changelog && <Changelog repo={changelog} />}
     </>

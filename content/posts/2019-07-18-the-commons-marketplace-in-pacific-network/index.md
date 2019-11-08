@@ -10,13 +10,15 @@ tags:
   - blockchain
   - design
   - web3
+
+toc: true
 ---
 
 We’ve been busy over the last few months, further developing the Commons Marketplace alongside creating the Pacific PoA Network.
 
 ---
 
-> This article was [originally posted on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-marketplace-in-pacific-network-4bcf2f595721).
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-marketplace-in-pacific-network-4bcf2f595721).
 
 ---
 
@@ -166,3 +168,16 @@ If you are interested in sharing your data, you can use the Commons to publish d
 - [**Publish →**](https://commons.oceanprotocol.com/publish)
 
 If you have large amounts of data that you are interested in sharing, please contact us about supporting you to perform bulk data registration.
+
+---
+
+## Learn more about the Commons Marketplace
+
+- [**Ocean Protocol and IPFS, Sitting In The Merkle Tree**](/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree)
+- [**The Commons Data Marketplace**](/the-commons-data-marketplace)
+
+---
+
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-marketplace-in-pacific-network-4bcf2f595721).
+
+---

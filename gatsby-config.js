@@ -51,7 +51,6 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              maintainCase: true,
               icon: '<span>#</span>'
             }
           },

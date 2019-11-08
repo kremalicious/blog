@@ -12,6 +12,8 @@ tags:
   - macos
   - scanner
   - apple
+
+toc: true
 ---
 
 A while ago I [wrote about my problems](/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/) finding a universal scanner driver from Canon for my CanoScan LiDE 500F to use it under Mac OS X. The solution was the Canon Asia website where a universal driver version was available. But since then Apple released Mac OS X 10.5 Leopard in october 2007 and the Canon driver with the version 11.2.4.0X stopped working on this new operating system.

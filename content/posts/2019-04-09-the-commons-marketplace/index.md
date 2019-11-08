@@ -10,13 +10,15 @@ tags:
   - blockchain
   - design
   - web3
+
+toc: true
 ---
 
 Explore, download, and publish 1000+ open data sets in Ocean’s Nile Network.
 
 ---
 
-> This article was [originally posted on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-data-marketplace-c57a44288314).
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-data-marketplace-c57a44288314).
 
 ---
 
@@ -116,6 +118,13 @@ We hope you dive in and start enjoying this vast (**over 1k!**) selection of fre
 
 ---
 
-> A follow up is available: [The Commons Marketplace in Pacific Network →](/the-commons-marketplace-in-pacific-network)
+## Learn more about the Commons Marketplace
+
+- [**The Commons Marketplace in Pacific Network**](/the-commons-marketplace-in-pacific-network)
+- [**Ocean Protocol and IPFS, Sitting In The Merkle Tree**](/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree)
+
+---
+
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/the-commons-data-marketplace-c57a44288314).
 
 ---

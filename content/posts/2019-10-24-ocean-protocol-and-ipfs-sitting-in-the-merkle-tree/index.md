@@ -11,13 +11,15 @@ tags:
   - design
   - ipfs
   - web3
+
+toc: true
 ---
 
 IPFS is now integrated into the Ocean Protocol stack, allowing you to take advantage of decentralized asset file hosting.
 
 ---
 
-> This article was [originally posted on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/ocean-ipfs-integration-store-asset-files-43c623c356d7).
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/ocean-ipfs-integration-store-asset-files-43c623c356d7).
 
 ---
 
@@ -124,4 +126,10 @@ And finally, further work may be done to store files encrypted on IPFS and imple
 ## Learn more about the Commons Marketplace
 
 - [**The Commons Marketplace in Pacific Network**](/the-commons-marketplace-in-pacific-network)
-- [**The Commons Data Marketplace**](https://blog.oceanprotocol.com/the-commons-data-marketplace-c57a44288314)
+- [**The Commons Data Marketplace**](/the-commons-data-marketplace)
+
+---
+
+> This article was originally posted [on Medium in the Ocean Protocol blog](https://blog.oceanprotocol.com/ocean-ipfs-integration-store-asset-files-43c623c356d7).
+
+---

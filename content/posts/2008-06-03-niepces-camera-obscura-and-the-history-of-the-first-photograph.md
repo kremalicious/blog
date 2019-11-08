@@ -15,6 +15,8 @@ redirect_from:
   - /new-goodie-niepces-camera-obscura-and-the-history-of-the-first-photograph/
   - /4-more-icons-niepces-camera-obscura-v11/
   - /2008/06/niepces-camera-obscura-and-the-history-of-the-first-photograph/
+
+toc: true
 ---
 
 These two desktop icons show the Camera Obscura as it was used by Nicéphore Niépce in an Aperture and iPhoto style and are intended as an homage to him. Nicéphore Niépce made it first possible to preserve an image taken with a camera obscura in 1826 or 1827 by using a special mixture of bitumen on a pewter plate, naming it Heliography.

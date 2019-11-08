@@ -6,6 +6,7 @@ image: ../media/ubuntu_mac_feature.jpg
 
 date: 2008-06-19 03:08:11+00:00
 updated: 2016-06-12 14:29:11+00:00
+toc: true
 
 tags:
   - design
@@ -34,24 +35,6 @@ Personally I use a fresh installation of Ubuntu 8.04 Hardy Heron Desktop version
 [Rumors are](http://episteme.arstechnica.com/eve/forums/a/tpc/f/942005082731/m/370002065931?r=782005065931#782005065931) Apple will add some undocumented AFP commands with the Mac OS X 10.5.6 update which therefor won't be supported by the current Netatalk package (and maybe never will). So be sure to check the latest comments on this article when the 10.5.6 update is out to see if this rumor is true and if there are problems caused by that.
 
 Here are the steps involved in setting up your Ubuntu box as a Mac file server:
-
-- [1. Modify and install Netatalk](#1-modify-and-install-netatalk)
-- [2. Configure Netatalk](#2-configure-netatalk)
-- [3. Configure shared Volumes](#3-configure-shared-volumes)
-- [4. Install Avahi](#4-install-avahi)
-- [5. Configure Avahi and advertise services](#5-configure-avahi-and-advertise-services)
-- [6. Configure Time Machine](#6-configure-time-machine)
-- [7. Conclusion, Problems and more informations](#7-conclusion-problems-and-more-informations)
-  - [Problems with creating the backup disk image](#problems-with-creating-the-backup-disk-image)
-  - [Firewall Settings](#firewall-settings)
-- ["Connection Failed"](#connection-failed)
-  - [-5014 error](#-5014-error)
-  - [Time Machine Full System Restore](#time-machine-full-system-restore)
-  - [Netatalk backup disk reaching maximum capacity](#netatalk-backup-disk-reaching-maximum-capacity)
-  - [More Articles](#more-articles)
-- [8. Downloading and using the Server Display Icons](#8-downloading-and-using-the-server-display-icons)
-  - [How to use the icons](#how-to-use-the-icons)
-- [9. Translations Of This Article](#9-translations-of-this-article)
 
 ## 1. Modify and install Netatalk
 
@@ -301,7 +284,7 @@ As [Kevin points out in the comments](http://www.kremalicious.com/2008/06/ubuntu
 
 In short you have to allow communications over port 548 and 5353.
 
-## "Connection Failed"
+### "Connection Failed"
 
 If you get one of those errors:
 

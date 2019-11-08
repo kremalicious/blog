@@ -56,11 +56,9 @@ function SearchResultsPure({
                   ({ node }: { node: Post }) => node.fields.slug === page.slug
                 )
                 .map(({ node }: { node: Post }) => (
-                  <PostTeaser
-                    key={page.slug}
-                    post={node}
-                    toggleSearch={toggleSearch}
-                  />
+                  <li key={page.slug}>
+                    <PostTeaser post={node} toggleSearch={toggleSearch} />
+                  </li>
                 ))
             )}
           </ul>

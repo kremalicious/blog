@@ -19,6 +19,7 @@ export interface Frontmatter {
     publicURL?: string
   }
   changelog?: string
+  toc?: boolean
 }
 
 export interface Post {
@@ -29,4 +30,5 @@ export interface Post {
   fields?: Fields
   rawMarkdownBody?: string
   fileAbsolutePath?: string
+  tableOfContents?: string
 }

@@ -15,15 +15,17 @@ export default function PostTeaser({
   const { slug } = post.fields
 
   return (
-    <li>
-      <Link to={slug} onClick={toggleSearch && toggleSearch}>
-        {image ? (
-          <Image fluid={image.childImageSharp.fluid} alt={title} />
-        ) : (
-          <div className={styles.empty} />
-        )}
-        <h4 className={styles.postTitle}>{title}</h4>
-      </Link>
-    </li>
+    <Link
+      className={styles.post}
+      to={slug}
+      onClick={toggleSearch && toggleSearch}
+    >
+      {image ? (
+        <Image fluid={image.childImageSharp.fluid} alt={title} />
+      ) : (
+        <div className={styles.empty} />
+      )}
+      <h4 className={styles.postTitle}>{title}</h4>
+    </Link>
   )
 }

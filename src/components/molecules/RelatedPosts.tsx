@@ -91,7 +91,9 @@ export default function RelatedPosts({
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
           .map(({ node }: { node: Post }) => (
-            <PostTeaser key={node.id} post={node} />
+            <li key={node.id}>
+              <PostTeaser post={node} />
+            </li>
           ))}
       </ul>
       <button className={`${styles.button} btn`} onClick={refreshPosts}>
