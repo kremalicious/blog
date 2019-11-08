@@ -9,6 +9,7 @@ date: 2008-05-28 15:29:56+00:00
 tags:
   - photography
   - aperture
+  - apple
 ---
 
 ![ApertureEdit](../media/apertureedit_logo.png)Today [Human Software](http://www.humansoftware.com) released an exciting image editing plug-in for Apple's Aperture. It's called [ApertureEdit](http://www.humansoftware.com/pages1200/ApertureEdit/HSapertureedit11.html) and according to Human Software it offers more than 4000 professional effects which you can achieve right within Aperture.

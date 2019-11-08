@@ -1,6 +1,6 @@
 ---
 type: post
-title: Finally... a universal scanner driver for the Canon CanoScan LiDE 500F for Intel Macs
+title: 'Finally... a universal scanner driver for the Canon CanoScan LiDE 500F for Intel Macs'
 image: ../media/canoscanlide500f.jpg
 date: 2007-06-11 18:44:28+00:00
 
@@ -9,6 +9,7 @@ tags:
   - tutorial
   - macos
   - scanner
+  - apple
 
 redirect_from:
   - /2007/06/finally-a-universal-scanner-driver-for-the-canon-canoscan-lide-500f-for-intel-macs/

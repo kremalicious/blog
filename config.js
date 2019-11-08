@@ -29,6 +29,10 @@ module.exports = {
     {
       title: 'Goodies',
       link: '/tags/goodies'
+    },
+    {
+      title: 'Tags',
+      link: '/tags'
     }
   ]
 }

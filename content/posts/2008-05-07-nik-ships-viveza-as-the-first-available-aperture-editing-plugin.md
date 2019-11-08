@@ -9,6 +9,7 @@ date: 2008-05-07 19:21:34+00:00
 tags:
   - photography
   - aperture
+  - apple
 ---
 
 ![Viveza](../media/viveza.png)Today [Nik Software](http://www.niksoftware.com) announced the availability of it's U-point-technology based editing plugin for Apple's Aperture 2.1 called [Viveza](http://www.niksoftware.com/viveza).

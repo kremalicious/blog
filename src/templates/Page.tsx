@@ -15,7 +15,7 @@ export default function Page({
   title: string
   children: any
   section?: string
-  location?: Location
+  location: Location
   post?: Post
 }) {
   return (

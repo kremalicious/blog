@@ -68,18 +68,3 @@
 .tags {
   margin-top: $spacer / 2;
 }
-
-.tag {
-  color: $brand-grey-light;
-  margin-left: $spacer / 2;
-  margin-right: $spacer / 2;
-  margin-bottom: $spacer / 2;
-  white-space: nowrap;
-  display: inline-block;
-
-  &::before {
-    content: '#';
-    margin-right: 1px;
-    opacity: 0.65;
-  }
-}

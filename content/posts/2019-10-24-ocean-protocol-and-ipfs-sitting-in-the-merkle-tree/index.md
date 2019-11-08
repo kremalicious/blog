@@ -8,7 +8,9 @@ image: ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png
 tags:
   - oceanprotocol
   - blockchain
+  - design
   - ipfs
+  - web3
 ---
 
 IPFS is now integrated into the Ocean Protocol stack, allowing you to take advantage of decentralized asset file hosting.

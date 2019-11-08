@@ -9,6 +9,7 @@ tags:
   - oceanprotocol
   - blockchain
   - design
+  - web3
 ---
 
 Explore, download, and publish 1000+ open data sets in Ocean’s Nile Network.

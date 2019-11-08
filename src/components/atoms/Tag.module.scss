@@ -1,0 +1,22 @@
+@import 'variables';
+
+.tag {
+  color: $brand-grey-light;
+  margin-left: $spacer / 2;
+  margin-right: $spacer / 2;
+  margin-bottom: $spacer / 2;
+  white-space: nowrap;
+  display: inline-block;
+
+  &::before {
+    content: '#';
+    margin-right: 1px;
+    opacity: 0.65;
+  }
+}
+
+.count {
+  font-size: $font-size-small;
+  margin-left: $spacer / 6;
+  opacity: 0.65;
+}

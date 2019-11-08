@@ -9,7 +9,6 @@ date: 2012-05-09 09:48:19+00:00
 
 tags:
   - design
-  - responsive
   - retina
 ---
 

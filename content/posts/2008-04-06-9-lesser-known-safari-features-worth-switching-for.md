@@ -7,6 +7,7 @@ author: Matthias Kretschmann
 
 tags:
   - design
+  - apple
 
 date: 2008-04-06 21:21:22+00:00
 ---

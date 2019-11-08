@@ -9,6 +9,7 @@ tags:
   - oceanprotocol
   - blockchain
   - design
+  - web3
 ---
 
 We’ve been busy over the last few months, further developing the Commons Marketplace alongside creating the Pacific PoA Network.

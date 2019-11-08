@@ -10,6 +10,7 @@ date: 2008-10-26 16:05:58+00:00
 tags:
   - photography
   - aperture
+  - apple
 
 redirect_from:
   - /2008/10/the-definite-guide-to-watermarks-in-apple-aperture/

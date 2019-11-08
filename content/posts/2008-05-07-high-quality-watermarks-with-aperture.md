@@ -9,6 +9,7 @@ date: 2008-05-07 03:27:25+00:00
 tags:
   - photography
   - aperture
+  - apple
   - tutorial
 
 redirect_from:

@@ -7,6 +7,8 @@ date: 2008-07-11 00:20:22+00:00
 tags:
   - personal
   - wordpress
+  - apple
+  - iphone
 ---
 
 ![kremalicious iPhone](../media/kremaliciousiphone_thumb.png)

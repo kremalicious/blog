@@ -11,6 +11,7 @@ tags:
   - tutorial
   - macos
   - icon
+  - apple
 
 redirect_from:
   - /2008/04/changing-the-image-icons-in-mac-os-x-leopard/

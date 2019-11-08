@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
 import Time from '../../components/atoms/Time'
+import Tag from '../../components/atoms/Tag'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './PostMeta.module.scss'
 import { Post } from '../../@types/Post'
+import shortid from 'shortid'
 
 export default function PostMeta({ post }: { post: Post }) {
   const siteMeta = useSiteMetadata()
@@ -36,13 +38,8 @@ export default function PostMeta({ post }: { post: Post }) {
       {tags && (
         <div className={styles.tags}>
           {tags.map((tag: string) => {
-            const to = tag === 'goodies' ? '/goodies' : `/tags/${slugify(tag)}/`
-
-            return (
-              <Link key={tag} className={styles.tag} to={to}>
-                {tag}
-              </Link>
-            )
+            const url = `/tags/${slugify(tag)}/`
+            return <Tag key={shortid.generate()} name={tag} url={url} />
           })}
         </div>
       )}

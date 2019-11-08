@@ -11,6 +11,7 @@ tags:
   - icon
   - macos
   - aperture
+  - apple
 
 redirect_from:
   - '/new-goodies-aperture-file-types-icons/'

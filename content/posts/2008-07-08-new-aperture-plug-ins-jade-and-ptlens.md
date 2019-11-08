@@ -9,6 +9,7 @@ date: 2008-07-08 19:19:54+00:00
 tags:
   - photography
   - aperture
+  - apple
 ---
 
 ![image](../media/aperture-plugin128.png)

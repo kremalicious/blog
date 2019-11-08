@@ -14,6 +14,7 @@ tags:
   - tor
   - macos
   - goodies
+  - apple
 ---
 
 There are many reasons you might want to browse anonymously which can be accomplished by using [Tor](https://www.torproject.org). The setup instructions on Tor's website are quite scattered and outdated so here are some steps to setup Tor on macOS with a simple automated script at the end.
@@ -22,11 +23,11 @@ I'm using macOS Mojave (10.14) for the following instructions but it should work
 
 ---
 
-- [Tor Browser](#Tor-Browser)
-- [Install Tor](#Install-Tor)
-- [Set network proxy settings via System Preferences](#Set-network-proxy-settings-via-System-Preferences)
-- [All in one go: start Tor & set network proxy settings automatically](#All-in-one-go-start-Tor--set-network-proxy-settings-automatically)
-- [Non-standard apps](#Non-standard-apps)
+- [Tor Browser](#tor-browser)
+- [Install Tor](#install-tor)
+- [Set network proxy settings via System Preferences](#set-network-proxy-settings-via-system-preferences)
+- [All in one go: start Tor & set network proxy settings automatically](#all-in-one-go-start-tor--set-network-proxy-settings-automatically)
+- [Non-standard apps](#non-standard-apps)
 
 ---
 

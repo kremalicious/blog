@@ -10,6 +10,7 @@ featured: true
 date: 2012-08-07 13:15:44+00:00
 
 tags:
+  - apple
   - goodies
   - iphone
   - wallpaper
