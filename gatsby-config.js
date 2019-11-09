@@ -126,13 +126,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: siteConfig.siteTitle.toLowerCase(),
-        short_name: 'mk',
+        name: siteConfig.siteTitle,
+        short_name: siteConfig.siteTitle,
         start_url: '/',
         background_color: siteConfig.backgroundColor,
         theme_color: siteConfig.themeColor,
         icon: 'src/images/apple-touch-icon.png',
-        display: 'minimal-ui',
+        display: 'standalone',
         cache_busting_mode: 'name'
       }
     },
