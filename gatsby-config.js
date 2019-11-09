@@ -215,12 +215,12 @@ module.exports = {
         minify: true
       }
     },
-    'gatsby-plugin-webpack-size',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
     'gatsby-plugin-offline',
-    'gatsby-plugin-typescript'
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-webpack-size'
   ]
 }
