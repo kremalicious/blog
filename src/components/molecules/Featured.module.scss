@@ -5,13 +5,16 @@
   @include divider;
 
   display: grid;
-  gap: $spacer;
+  gap: $spacer / 2;
   grid-template-columns: 1fr 1fr;
-  padding-bottom: $spacer * 3;
+  padding-bottom: $spacer * $line-height;
   margin-bottom: -($spacer / 2);
 
   @media (min-width: $screen-md) {
     @include breakoutviewport;
+
+    gap: $spacer;
+    padding-bottom: $spacer * 3;
   }
 }
 

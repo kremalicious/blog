@@ -16,13 +16,14 @@
 
   ul {
     display: grid;
-    gap: $spacer;
+    gap: $spacer / 2;
     grid-template-columns: repeat(2, 1fr);
     padding: 0;
     margin: 0;
 
     @media (min-width: $screen-sm) {
       grid-template-columns: repeat(3, 1fr);
+      gap: $spacer;
     }
   }
 

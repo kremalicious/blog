@@ -63,6 +63,11 @@
 
   overflow: hidden;
   height: 220px;
+  margin-top: $spacer * 2;
+
+  @media (min-width: $screen-sm) {
+    margin-top: 0;
+  }
 
   img {
     border-radius: 0 !important;

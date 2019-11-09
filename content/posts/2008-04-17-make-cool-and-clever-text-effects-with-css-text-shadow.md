@@ -4,7 +4,6 @@ type: post
 title: 'Text-Shadow Exposed: Make cool and clever text effects with css text-shadow'
 date: 2008-04-17 01:32:13+00:00
 
-category:
 tags:
   - design
   - css

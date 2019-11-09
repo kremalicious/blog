@@ -36,8 +36,11 @@ export default function Post({
 
       <Layout location={location}>
         <article className={styles.hentry}>
-          <PostTitle type={type} linkurl={linkurl} title={title} />
-          {type === 'post' && <PostLead post={post} />}
+          <header>
+            <PostTitle type={type} linkurl={linkurl} title={title} />
+            {type === 'post' && <PostLead post={post} />}
+          </header>
+
           {type === 'photo' && <PostContent post={post} />}
           {image && (
             <Image

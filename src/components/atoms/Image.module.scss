@@ -27,9 +27,9 @@
   @include breakoutviewport;
 
   max-width: none;
-  margin: $spacer * $line-height auto;
+  margin-top: $spacer * $line-height;
+  margin-bottom: $spacer * $line-height;
   display: block;
-  border-radius: $border-radius;
 
   a & {
     position: relative;

@@ -23,7 +23,7 @@
 
 .document {
   width: 100%;
-  padding-top: ($spacer * 2);
+  padding-top: $spacer;
   background-color: $body-background-color;
   border-top: 1px solid rgba(255, 255, 255, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
@@ -45,6 +45,10 @@
     border-bottom-color: darken($body-background-color--dark, 3%);
     box-shadow: 0 1px 8px rgba(darken($brand-main, 15%), 0.1),
       0 -1px 4px darken($brand-main, 15%);
+  }
+
+  @media (min-width: $screen-md) {
+    padding-top: $spacer * 2;
   }
 
   @media (min-width: $screen-sm) and (min-height: 500px) {

@@ -6,7 +6,6 @@ download: ../media/share-link-bonanza-coda-clips.zip
 
 date: 2009-03-29 23:12:15+00:00
 
-category:
 tags:
   - design
   - goodies
