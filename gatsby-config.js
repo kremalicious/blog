@@ -127,13 +127,13 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: siteConfig.siteTitle,
-        short_name: siteConfig.siteTitle,
         start_url: '/',
         background_color: siteConfig.backgroundColor,
         theme_color: siteConfig.themeColor,
         icon: 'src/images/apple-touch-icon.png',
         display: 'standalone',
-        cache_busting_mode: 'name'
+        cache_busting_mode: 'name',
+        theme_color_in_head: false // dynamically set in ThemeSwitch
       }
     },
     {
