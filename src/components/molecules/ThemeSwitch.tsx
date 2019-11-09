@@ -41,7 +41,11 @@ export default function ThemeSwitch() {
   return (
     <>
       <Helmet>
-        <meta content={themeColor} name="theme-color" />
+        <meta name="theme-color" content={themeColor} />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
       </Helmet>
       <aside className={styles.themeSwitch}>
         <label
