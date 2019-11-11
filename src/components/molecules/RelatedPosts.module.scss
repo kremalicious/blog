@@ -3,12 +3,11 @@
 
 .title {
   font-size: $font-size-h3;
-  margin-bottom: $spacer * $line-height;
+  margin-bottom: $spacer;
 }
 
 .relatedPosts {
   margin-top: -($spacer * 2);
-  margin-bottom: $spacer;
 
   @media (min-width: $screen-md) {
     @include breakoutviewport;
@@ -65,7 +64,9 @@
 }
 
 .button {
-  margin: auto;
-  display: block;
-  margin-top: $spacer * 2;
+  font-size: $font-size-mini;
+  display: inline-block;
+  color: $brand-grey-light;
+  text-transform: uppercase;
+  margin-left: $spacer / 2;
 }

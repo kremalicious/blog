@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styles from './Pagination.module.scss'
+import shortid from 'shortid'
 
 const PageNumber = ({
   i,
@@ -65,7 +66,12 @@ export default function Pagination({
       <div>{!isFirst && <PrevNext prevPagePath={prevPagePath} />}</div>
       <div>
         {Array.from({ length: numPages }, (_, i) => (
-          <PageNumber i={i} slug={slug} current={currentPageNumber === i + 1} />
+          <PageNumber
+            key={shortid.generate()}
+            i={i}
+            slug={slug}
+            current={currentPageNumber === i + 1}
+          />
         ))}
       </div>
       <div>{!isLast && <PrevNext nextPagePath={nextPagePath} />}</div>

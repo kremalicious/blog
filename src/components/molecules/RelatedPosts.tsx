@@ -85,7 +85,12 @@ export default function RelatedPosts({
 
   return (
     <aside className={styles.relatedPosts}>
-      <h1 className={styles.title}>Related {photos ? 'Photos' : 'Posts'}</h1>
+      <h1 className={styles.title}>
+        Related {photos ? 'Photos' : 'Posts'}{' '}
+        <button className={styles.button} onClick={refreshPosts}>
+          Refresh
+        </button>
+      </h1>
       <ul>
         {filteredPosts
           .sort(() => 0.5 - Math.random())
@@ -96,9 +101,6 @@ export default function RelatedPosts({
             </li>
           ))}
       </ul>
-      <button className={`${styles.button} btn`} onClick={refreshPosts}>
-        Refresh Related {photos ? 'Photos' : 'Posts'}
-      </button>
     </aside>
   )
 }

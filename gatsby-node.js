@@ -25,14 +25,30 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      posts: allMarkdownRemark {
+      posts: allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
         edges {
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
           node {
             fields {
               slug
             }
             frontmatter {
               tags
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
@@ -66,7 +82,7 @@ exports.onPostBuild = async ({ graphql }) => {
   // JSON Feed query
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+      allMarkdownRemark {
         edges {
           node {
             html

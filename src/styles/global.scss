@@ -160,6 +160,7 @@ h6 {
   margin-bottom: $spacer;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: color 0.2s $easing;
 
   // stylelint-disable no-descending-specificity
   &,
@@ -171,6 +172,13 @@ h6 {
   .dark &,
   .dark & a {
     color: $color-headings--dark;
+  }
+
+  a:hover &,
+  a:focus &,
+  .dark a:hover &,
+  .dark a:focus & {
+    color: $link-color;
   }
 }
 

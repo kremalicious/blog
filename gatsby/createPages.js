@@ -32,7 +32,15 @@ exports.generatePostPages = (createPage, posts) => {
       path: `${post.node.fields.slug}`,
       component: postTemplate,
       context: {
-        slug: post.node.fields.slug
+        slug: post.node.fields.slug,
+        prev: post.previous && {
+          title: post.previous.frontmatter.title,
+          slug: post.previous.fields.slug
+        },
+        next: post.next && {
+          title: post.next.frontmatter.title,
+          slug: post.next.fields.slug
+        }
       }
     })
   })

@@ -12,15 +12,21 @@ import PostContent from './PostContent'
 import PostActions from './PostActions'
 import PostLinkActions from './PostLinkActions'
 import PostMeta from './PostMeta'
+import PrevNext from './PrevNext'
 import styles from './index.module.scss'
 import { Image } from '../../components/atoms/Image'
 
 export default function Post({
   data,
-  location
+  location,
+  pageContext: { next, prev }
 }: {
   data: { post: PostMetadata }
   location: Location
+  pageContext: {
+    next: { title: string; slug: string }
+    prev: { title: string; slug: string }
+  }
 }) {
   const { post } = data
   const { title, image, type, linkurl, style, tags } = post.frontmatter
@@ -63,6 +69,8 @@ export default function Post({
         {(type === 'post' || type === 'photo') && (
           <RelatedPosts photos={type === 'photo'} tags={tags} />
         )}
+
+        <PrevNext prev={prev} next={next} />
       </Layout>
     </>
   )
