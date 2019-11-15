@@ -23,7 +23,13 @@ module.exports = {
   },
   plugins: [
     ...sources,
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        stripMetadata: false,
+        defaultQuality: 75
+      }
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',

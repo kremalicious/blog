@@ -8,6 +8,11 @@ const {
 } = require('./gatsby/createPages')
 const { generateJsonFeed } = require('./gatsby/feeds')
 
+// https://github.com/gatsbyjs/gatsby/issues/6291#issuecomment-505097465
+const sharp = require('sharp')
+sharp.simd(false)
+sharp.cache(false)
+
 exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   // Markdown files
   if (node.internal.type === 'MarkdownRemark') {
