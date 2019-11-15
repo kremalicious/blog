@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import Container from '../atoms/Container'
+import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
 import ThemeSwitch from '../molecules/ThemeSwitch'
 import ModalThanks from './ModalThanks'
-
-import { ReactComponent as Github } from '../../images/github.svg'
-import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 
 import styles from './Footer.module.scss'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
@@ -29,11 +27,11 @@ function Copyright({
           {name}
         </a>
         <a href={`${github}/blog`}>
-          <Github />
+          <Icon name="GitHub" />
           View source
         </a>
         <button className={styles.btc} onClick={toggleModal}>
-          <Bitcoin />
+          <Icon name="Bitcoin" />
           <code>{bitcoin}</code>
         </button>
       </p>

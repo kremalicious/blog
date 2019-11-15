@@ -12,8 +12,8 @@
   grid-template-columns: 1fr 1fr;
 
   svg {
-    fill: $brand-grey-light;
-    margin-bottom: -0.1rem;
+    stroke: $brand-grey-light;
+    margin-top: -0.05rem;
     position: absolute;
     left: 0.1rem;
     top: $spacer * 1.1;

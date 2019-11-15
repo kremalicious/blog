@@ -87,7 +87,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        icon: true
+        icon: false,
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false
+          }
+        }
       }
     },
     {

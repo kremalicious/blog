@@ -27,7 +27,7 @@
 }
 
 .actionTitle {
-  font-size: $font-size-base;
+  font-size: $font-size-large;
   color: $text-color;
   margin-top: 0;
   margin-bottom: $spacer / 4;
@@ -46,8 +46,8 @@
   margin: 0;
   padding-top: $spacer;
   padding-bottom: $spacer;
-  padding-left: $spacer * 2;
-  padding-right: $spacer;
+  padding-left: $spacer * $line-height;
+  padding-right: $spacer / 2;
   position: relative;
   text-align: left;
   border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
@@ -86,9 +86,11 @@
   }
 
   svg {
+    width: 20px;
+    height: 20px;
     position: absolute;
-    left: $spacer;
-    top: $spacer;
-    fill: $brand-grey-light;
+    left: $spacer / $line-height;
+    top: $spacer / 1.05;
+    stroke: $brand-grey-light;
   }
 }

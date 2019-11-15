@@ -1,15 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import useDarkMode from 'use-dark-mode'
-import { ReactComponent as Day } from '../../images/day.svg'
-import { ReactComponent as Night } from '../../images/night.svg'
 import styles from './ThemeSwitch.module.scss'
+import Icon from '../atoms/Icon'
 
 const ThemeToggle = () => (
   <span id="toggle" className={styles.checkboxContainer} aria-live="assertive">
-    <Day />
+    <Icon name="Sun" />
     <span className={styles.checkboxFake} />
-    <Night />
+    <Icon name="Moon" />
   </span>
 )
 

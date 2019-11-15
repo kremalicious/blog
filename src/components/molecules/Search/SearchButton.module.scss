@@ -13,21 +13,21 @@
   }
 
   svg {
-    fill: $text-color-light;
-    width: 21px;
-    height: 21px;
+    stroke: $brand-grey-light;
+    width: 24px;
+    height: 24px;
   }
 
   &:hover,
   &:focus {
     svg {
-      fill: $brand-cyan;
+      stroke: $brand-cyan;
     }
   }
 
   &:active {
     svg {
-      fill: darken($brand-cyan, 30%);
+      stroke: darken($brand-cyan, 30%);
     }
   }
 }

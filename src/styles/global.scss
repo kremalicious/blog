@@ -162,6 +162,10 @@ h6 {
   -moz-osx-font-smoothing: grayscale;
   transition: color 0.2s $easing;
 
+  .wf-loading & {
+    font-weight: 600;
+  }
+
   // stylelint-disable no-descending-specificity
   &,
   a {

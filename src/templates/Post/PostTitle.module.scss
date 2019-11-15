@@ -16,8 +16,8 @@
     width: $font-size-base;
     height: $font-size-base;
     display: inline-block;
-    fill: $text-color-light;
-    vertical-align: baseline;
+    stroke: $text-color-light;
+    margin-bottom: -0.1rem;
   }
 }
 

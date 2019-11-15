@@ -66,9 +66,7 @@ export default function Post({
           <PostMeta post={post} />
         </article>
 
-        {(type === 'post' || type === 'photo') && (
-          <RelatedPosts photos={type === 'photo'} tags={tags} />
-        )}
+        <RelatedPosts photos={type === 'photo'} tags={tags} />
 
         <PrevNext prev={prev} next={next} />
       </Layout>

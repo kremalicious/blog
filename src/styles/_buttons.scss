@@ -78,16 +78,6 @@ a.btn {
     box-shadow: none;
   }
 
-  // grid buttons
-  &.col2,
-  &.col3 {
-    margin-bottom: $spacer / 2;
-
-    @media (min-width: $screen-sm) {
-      margin-bottom: 0;
-    }
-  }
-
   span {
     font-size: $font-size-mini;
     color: $text-color-light;
@@ -161,39 +151,6 @@ a.btn-primary {
   display: block;
 }
 
-// Close button
-/////////////////////////////////////
-
-.close {
-  text-align: center;
-  display: block;
-  color: lighten($brand-grey-light, 50%);
-  line-height: 1;
-  font-size: $font-size-large;
-  padding: 3px;
-  cursor: pointer;
-
-  &button {
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-  }
-
-  &:hover,
-  &:focus {
-    color: lighten($brand-grey-light, 20%);
-    cursor: pointer;
-    outline: 0;
-  }
-
-  &:active {
-    background: none;
-    color: $brand-grey-light;
-    transition: none;
-  }
-}
-
 // some helper classes for old content
 /////////////////////////////////////
 
@@ -235,14 +192,15 @@ a.btn-primary {
     &[class*='icon-'] {
       &::before {
         content: '';
-        width: $font-size-large;
-        height: $font-size-large;
+        width: 20px;
+        height: 20px;
         display: inline-block;
         margin-right: 0.3rem;
-        margin-bottom: -0.25rem;
+        margin-bottom: -0.2rem;
         opacity: 0.75;
         background-repeat: no-repeat;
-        background-position: left center;
+        background-position: center center;
+        background-size: 100%;
 
         .dark &,
         :global(.dark) & {
@@ -262,18 +220,18 @@ a.btn-primary {
   }
 
   .icon-download::before {
-    background-image: url('../images/arrow-with-circle-down.svg');
+    background-image: url('../../node_modules/feather-icons/dist/icons/arrow-down-circle.svg');
   }
 
   .icon-heart::before {
-    background-image: url('../images/heart.svg');
+    background-image: url('../../node_modules/feather-icons/dist/icons/heart.svg');
   }
 
   .icon-github::before {
-    background-image: url('../images/github.svg');
+    background-image: url('../../node_modules/feather-icons/dist/icons/github.svg');
   }
 
-  .icon-eye::before {
-    background-image: url('../images/eye.svg');
+  .icon-compass::before {
+    background-image: url('../../node_modules/feather-icons/dist/icons/compass.svg');
   }
 }
