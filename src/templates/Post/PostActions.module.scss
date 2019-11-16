@@ -27,7 +27,7 @@
 }
 
 .actionTitle {
-  font-size: $font-size-large;
+  font-size: $font-size-base;
   color: $text-color;
   margin-top: 0;
   margin-bottom: $spacer / 4;
@@ -46,7 +46,7 @@
   margin: 0;
   padding-top: $spacer;
   padding-bottom: $spacer;
-  padding-left: $spacer * $line-height;
+  padding-left: $spacer * 2;
   padding-right: $spacer / 2;
   position: relative;
   text-align: left;
@@ -89,7 +89,7 @@
     width: 20px;
     height: 20px;
     position: absolute;
-    left: $spacer / $line-height;
+    left: $spacer;
     top: $spacer / 1.05;
     stroke: $brand-grey-light;
   }

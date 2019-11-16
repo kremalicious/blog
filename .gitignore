@@ -1,7 +1,5 @@
 node_modules
-yarn.lock
 .yarnclean
-package-lock.json
 public
 .cache
 plugins/gatsby-redirect-from

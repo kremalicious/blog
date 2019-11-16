@@ -18,7 +18,7 @@ The badges provided by all app store providers just don't play well together wit
 <p class="content-download">
     <a class="btn-primary icon-compass" href="https://lab.kremalicious.com/appstorebadges/">Demo</a>
     <a class="icon-github" href="https://github.com/kremalicious/appstorebadges/">GitHub</a>
-    <a href="http://codepen.io/kremalicious/details/EVVraP/">Codepen</a>
+    <a class="icon-code" href="http://codepen.io/kremalicious/details/EVVraP/">Codepen</a>
 </p>
 
 ## Styling
