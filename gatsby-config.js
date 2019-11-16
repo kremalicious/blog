@@ -233,5 +233,11 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-typescript',
     'gatsby-plugin-webpack-size'
+    // {
+    //   resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    //   options: {
+    //     devMode: true
+    //   }
+    // }
   ]
 }

@@ -74,10 +74,11 @@ export default function RelatedPosts({
   function getPosts() {
     return photos
       ? photosWithDataFilter(posts)
-      : postsWithDataFilter(posts, 'tags', tags)
+      : tags && postsWithDataFilter(posts, 'tags', tags)
   }
 
   const [filteredPosts, setFilteredPosts] = useState(getPosts())
+  if (!filteredPosts) return null
 
   function refreshPosts() {
     setFilteredPosts(getPosts())

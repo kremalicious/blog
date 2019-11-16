@@ -7,15 +7,15 @@ import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import styles from './Icon.module.scss'
 
-const Icon = ({ name }: { name: string }) => {
-  const components: any = {
-    Download: Feather.ArrowDownCircle,
-    Blog: Feather.Edit,
-    Keybase: Feather.Key,
-    Jsonfeed,
-    Bitcoin
-  }
+const components: any = {
+  Download: Feather.ArrowDownCircle,
+  Blog: Feather.Edit,
+  Keybase: Feather.Key,
+  Jsonfeed,
+  Bitcoin
+}
 
+const Icon = ({ name }: { name: string }) => {
   const IconMapped = components[name]
   const Icon = (Feather as any)[name]
 
