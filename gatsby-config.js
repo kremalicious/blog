@@ -1,10 +1,10 @@
 require('dotenv').config()
 
-if (!process.env.GITHUB_TOKEN) {
+if (!process.env.GATSBY_GITHUB_TOKEN) {
   // eslint-disable-next-line
   console.warn(`
 
-      ⚠️  A GitHub token is required to build some parts of the blog.
+      ⚠️  A GitHub token as GATSBY_GITHUB_TOKEN is required to build some parts of the blog.
       ⚠️  Check the README https://github.com/kremalicious/blog#-development.
 
   `)

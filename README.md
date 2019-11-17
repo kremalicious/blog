@@ -169,7 +169,7 @@ You can simply use [Docker](https://www.docker.com) & [Docker Compose](https://d
 git clone git@github.com:kremalicious/blog.git
 cd blog/
 
-# GITHUB_TOKEN is required for some parts
+# GATSBY_GITHUB_TOKEN is required for some parts
 cp .env.sample .env
 vi .env
 
