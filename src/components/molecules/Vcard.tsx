@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img, { FixedObject } from 'gatsby-image'
-import IconLinks from './IconLinks'
+import IconLinks from './Networks'
 import styles from './Vcard.module.scss'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 

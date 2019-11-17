@@ -31,15 +31,13 @@
   padding: $spacer / 3;
 
   svg {
-    width: 1rem;
-    height: 1rem;
-    fill: $brand-grey-light;
+    stroke: $brand-grey-light;
     transition: 0.15s ease-out;
   }
 
   &:hover {
     svg {
-      fill: $brand-grey-dimmed;
+      stroke: $brand-grey-dimmed;
     }
   }
 }
@@ -49,6 +47,6 @@
 
   // stylelint-disable-next-line no-descending-specificity
   svg {
-    fill: $brand-grey-dimmed;
+    stroke: $brand-grey-dimmed;
   }
 }

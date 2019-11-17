@@ -80,7 +80,7 @@ function formatExif(exifData) {
   } = exifData.exif
 
   const iso = `ISO ${ISO}`
-  const fstop = `ƒ ${FNumber}`
+  const fstop = `ƒ/${FNumber}`
   const focalLength = `${FocalLengthIn35mmFormat || FocalLength}mm`
 
   // Shutter speed
@@ -126,7 +126,7 @@ function formatGps(gpsData) {
 }
 
 function formatExposure(exposureMode) {
-  if (!exposureMode) return
+  if (exposureMode === null || exposureMode === undefined) return
 
   const exposureShortened = parseFloat(exposureMode.toFixed(2))
   let exposure

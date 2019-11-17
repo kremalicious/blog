@@ -36,7 +36,7 @@ export default function Qr({
           onSuccess={e => onCopySuccess(e)}
           className={styles.button}
         >
-          <Icon name="Clipboard" />
+          <Icon name="Copy" />
         </Clipboard>
       </pre>
     </>

@@ -23,6 +23,12 @@
     padding: $spacer $spacer / 1.5;
     border-bottom: 1px dashed $brand-grey-dimmed;
 
+    svg {
+      display: block;
+      margin-bottom: $spacer / 8;
+      opacity: 0.65;
+    }
+
     &:first-child {
       flex-basis: 100%;
     }

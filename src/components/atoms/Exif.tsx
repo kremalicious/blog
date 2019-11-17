@@ -2,6 +2,22 @@ import React from 'react'
 import ExifMap from './ExifMap'
 import styles from './Exif.module.scss'
 import { Exif as ExifMeta } from '../../@types/Image'
+import Icon from './Icon'
+
+const ExifData = ({
+  title,
+  value,
+  icon
+}: {
+  title: string
+  value: string
+  icon: string
+}) => (
+  <span title={title}>
+    <Icon name={icon} />
+    {value}
+  </span>
+)
 
 export default function Exif({ exif }: { exif: ExifMeta }) {
   const {
@@ -17,12 +33,20 @@ export default function Exif({ exif }: { exif: ExifMeta }) {
   return (
     <aside className={styles.exif}>
       <div className={styles.data}>
-        {model && <span title="Camera model">{model}</span>}
-        {focalLength && <span title="Focal length">{focalLength}</span>}
-        {fstop && <span title="Aperture">{fstop}</span>}
-        {shutterspeed && <span title="Shutter speed">{shutterspeed}</span>}
-        {exposure && <span title="Exposure">{exposure}</span>}
-        {iso && <span title="ISO">{iso}</span>}
+        {model && <ExifData title="Camera model" value={model} icon="Camera" />}
+        {focalLength && (
+          <ExifData title="Focal length" value={focalLength} icon="Crosshair" />
+        )}
+        {fstop && <ExifData title="Aperture" value={fstop} icon="Aperture" />}
+        {shutterspeed && (
+          <ExifData
+            title="Shutter speed"
+            value={shutterspeed}
+            icon="Stopwatch"
+          />
+        )}
+        {exposure && <ExifData title="Exposure" value={exposure} icon="Sun" />}
+        {iso && <ExifData title="ISO" value={iso} icon="Maximize" />}
       </div>
       {gps && gps.latitude && (
         <div className={styles.map}>

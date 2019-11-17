@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './IconLinks.module.scss'
 import Icon from '../atoms/Icon'
+import styles from './Networks.module.scss'
 
 function NetworkIcon({ link }: { link: string }) {
   let IconComp

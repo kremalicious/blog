@@ -12,22 +12,28 @@ import {
   Moon,
   Compass,
   X,
-  Clipboard,
+  Copy,
   Search,
   ExternalLink,
   Link,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Camera,
+  Aperture,
+  Maximize,
+  Crosshair
 } from 'react-feather'
 // custom icons
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
+import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
 import styles from './Icon.module.scss'
 
 const components: any = {
   Download: ArrowDownCircle,
   Jsonfeed,
   Bitcoin,
+  Stopwatch,
   ArrowDownCircle,
   Edit,
   GitHub,
@@ -37,12 +43,16 @@ const components: any = {
   Moon,
   Compass,
   X,
-  Clipboard,
+  Copy,
   Search,
   ExternalLink,
   Link,
   ChevronRight,
-  ChevronLeft
+  ChevronLeft,
+  Camera,
+  Aperture,
+  Maximize,
+  Crosshair
 }
 
 const Icon = ({ name }: { name: string }) => {
