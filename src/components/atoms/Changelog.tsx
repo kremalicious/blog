@@ -19,9 +19,10 @@ export function PureChangelog({
     .filter((n: any) => n)
 
   const repoMatch = repoFilteredArray[0]
-  const { object, url, owner } = repoMatch
+  if (!repoMatch) return null
 
-  if (repoMatch === undefined || object === undefined) return null
+  const { object, url, owner } = repoMatch
+  if (!object) return null
 
   const changelogHtml =
     object &&
