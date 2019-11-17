@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Post } from '../@types/Post'
-import Layout from '../components/Layout'
 import Pagination from '../components/molecules/Pagination'
 import Featured from '../components/molecules/Featured'
 import PostTitle from './Post/PostTitle'
@@ -69,7 +68,7 @@ export default function Posts({
   })
 
   return (
-    <Layout location={location}>
+    <>
       <SEO />
       {location.pathname === '/' && <Featured />}
       {tag && (
@@ -85,7 +84,7 @@ export default function Posts({
       )}
       {PostsList}
       {numPages > 1 && <Pagination pageContext={pageContext} />}
-    </Layout>
+    </>
   )
 }
 

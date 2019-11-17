@@ -5,6 +5,9 @@ if (typeof window.IntersectionObserver === 'undefined') {
   import('intersection-observer')
 }
 
+import wrapPageElementWithLayout from './src/helpers/wrapPageElement'
+export const wrapPageElement = wrapPageElementWithLayout
+
 // Display a message when a service worker updates
 // https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/#displaying-a-message-when-a-service-worker-updates
 export const onServiceWorkerUpdateReady = () => {

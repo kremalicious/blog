@@ -1,11 +1,18 @@
 @import 'variables';
+@import 'mixins';
 
-.modalThanks {
-  @media (min-width: $screen-sm) {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.buttonBack {
+  svg {
+    stroke: $brand-grey-light;
+    display: inline-block;
+    margin-bottom: -0.15rem;
   }
+}
+
+.thanks {
+  @include breakoutviewport;
+
+  min-height: 100vh;
 
   h4 {
     text-align: center;
@@ -41,6 +48,22 @@
   }
 }
 
+.title {
+  margin-top: 0;
+  margin-bottom: $spacer * 2;
+  font-size: $font-size-h2;
+}
+
+.coins {
+  width: 100%;
+
+  @media (min-width: $screen-sm) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
 .coin {
   margin-top: $spacer;
 
@@ -48,4 +71,9 @@
     width: 48%;
     margin-top: 0;
   }
+}
+
+.loading {
+  width: 100%;
+  text-align: center;
 }
