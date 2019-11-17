@@ -11,9 +11,6 @@ describe('Icon', () => {
     rerender(<Icon name={'Download'} />)
     expect(container.firstChild.nodeName).toBe('svg')
 
-    rerender(<Icon name={'Blog'} />)
-    expect(container.firstChild.nodeName).toBe('svg')
-
     rerender(<Icon name={'Twitter'} />)
     expect(container.firstChild.nodeName).toBe('svg')
   })
