@@ -1,6 +1,6 @@
 import React from 'react'
-import { ReactComponent as SearchIcon } from '../../../images/magnifying-glass.svg'
 import styles from './SearchButton.module.scss'
+import Icon from '../../atoms/Icon'
 
 const SearchButton = (props: any) => (
   <button
@@ -9,7 +9,7 @@ const SearchButton = (props: any) => (
     className={styles.searchButton}
     {...props}
   >
-    <SearchIcon />
+    <Icon name="Search" />
   </button>
 )
 

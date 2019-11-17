@@ -1,30 +1,23 @@
 import React from 'react'
 import styles from './IconLinks.module.scss'
-
-import { ReactComponent as Twitter } from '../../images/twitter.svg'
-import { ReactComponent as Github } from '../../images/github.svg'
-import { ReactComponent as Facebook } from '../../images/facebook.svg'
-import { ReactComponent as Rss } from '../../images/rss.svg'
-import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
+import Icon from '../atoms/Icon'
 
 function NetworkIcon({ link }: { link: string }) {
-  let Icon
+  let IconComp
 
   if (link.includes('twitter')) {
-    Icon = <Twitter className={styles.twitter} />
+    IconComp = <Icon name="Twitter" />
   } else if (link.includes('github')) {
-    Icon = <Github className={styles.github} />
-  } else if (link.includes('facebook')) {
-    Icon = <Facebook className={styles.facebook} />
+    IconComp = <Icon name="GitHub" />
   } else if (link.includes('feed.xml')) {
-    Icon = <Rss className={styles.rss} />
+    IconComp = <Icon name="Rss" />
   } else if (link.includes('feed.json')) {
-    Icon = <Jsonfeed className={styles.json} />
+    IconComp = <Icon name="Jsonfeed" />
   } else {
     return null
   }
 
-  return Icon
+  return IconComp
 }
 
 export default function IconLinks({ links }: { links: string[] }) {

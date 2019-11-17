@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { ReactComponent as Forward } from '../../images/forward.svg'
 import styles from './PostTitle.module.scss'
+import Icon from '../../components/atoms/Icon'
 
 export default function PostTitle({
   type,
@@ -22,7 +22,7 @@ export default function PostTitle({
         className={[styles.hentry__title, styles.hentry__title__link].join(' ')}
       >
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
-          {title} <Forward />
+          {title} <Icon name="ExternalLink" />
         </a>
       </h1>
       <div className={styles.linkurl}>{linkHostname}</div>

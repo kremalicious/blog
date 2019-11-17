@@ -1,15 +1,24 @@
 @import 'variables';
 @import 'mixins';
 
+.hamburger {
+  width: 24px;
+  height: 24px;
+  display: block;
+  position: relative;
+  transform: rotate(0deg);
+  cursor: pointer;
+  margin-top: 6px;
+}
+
 .hamburgerLine {
   @include transition;
 
   display: block;
   position: absolute;
-  height: 3px;
+  height: 1px;
   width: 100%;
-  background: $text-color-light;
-  border-radius: 20px;
+  border-bottom: $stroke-width solid $brand-grey-light;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
@@ -20,12 +29,12 @@
   }
 
   &:nth-child(2) {
-    top: 5px;
+    top: 7px;
     transform-origin: left center;
   }
 
   &:nth-child(3) {
-    top: 10px;
+    top: 14px;
     transform-origin: left center;
   }
 
@@ -43,7 +52,7 @@
 
     &:nth-child(3) {
       transform: rotate(-45deg);
-      top: 12px;
+      top: 16px;
     }
   }
 }
@@ -62,17 +71,7 @@
     outline: 0;
 
     .hamburgerLine {
-      background: $brand-cyan;
+      border-color: $brand-cyan;
     }
   }
-}
-
-.hamburger {
-  width: 18px;
-  height: 18px;
-  display: block;
-  position: relative;
-  transform: rotate(0deg);
-  cursor: pointer;
-  margin-top: 6px;
 }

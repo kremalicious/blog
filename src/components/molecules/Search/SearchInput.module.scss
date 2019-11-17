@@ -11,12 +11,18 @@
 .searchInputClose {
   position: absolute;
   right: $spacer / 2;
-  top: $spacer / 5;
-  font-size: $font-size-h3;
-  color: $brand-grey-light;
+  top: $spacer / 2;
+
+  svg {
+    stroke: $brand-grey-light;
+    width: 24px;
+    height: 24px;
+  }
 
   &:hover,
   &:focus {
-    color: $link-color;
+    svg {
+      stroke: $link-color;
+    }
   }
 }

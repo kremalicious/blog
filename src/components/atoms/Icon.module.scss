@@ -1,0 +1,12 @@
+@import 'variables';
+
+.icon {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  stroke-width: $stroke-width;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  vertical-align: baseline;
+}

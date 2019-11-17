@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../../atoms/Input'
+import Icon from '../../atoms/Icon'
 import styles from './SearchInput.module.scss'
 
 export default function SearchInput({
@@ -26,7 +27,7 @@ export default function SearchInput({
         onClick={onToggle}
         title="Close search"
       >
-        &times;
+        <Icon name="X" />
       </button>
     </>
   )

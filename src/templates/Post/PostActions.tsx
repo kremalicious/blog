@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import ModalThanks from '../../components/organisms/ModalThanks'
-import styles from './PostActions.module.scss'
-
-import { ReactComponent as Twitter } from '../../images/twitter.svg'
-import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
-import { ReactComponent as GitHub } from '../../images/github.svg'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import styles from './PostActions.module.scss'
+import Icon from '../../components/atoms/Icon'
 
 interface ActionProps {
   title: string
@@ -14,19 +11,19 @@ interface ActionProps {
   onClick?(): void
 }
 
-const Icon = ({ text }: { text: string }) =>
+const IconComp = ({ text }: { text: string }) =>
   text.includes('GitHub') ? (
-    <GitHub />
+    <Icon name="GitHub" />
   ) : text.includes('Bitcoin') ? (
-    <Bitcoin />
+    <Icon name="Bitcoin" />
   ) : (
-    <Twitter />
+    <Icon name="Twitter" />
   )
 
 const Action = ({ title, text, url, onClick }: ActionProps) => {
   return (
     <a className={styles.action} href={url} onClick={onClick}>
-      <Icon text={text} />
+      <IconComp text={text} />
       <h1 className={styles.actionTitle}>{title}</h1>
       <p className={styles.actionText}>{text}</p>
     </a>
@@ -57,7 +54,7 @@ export default function PostActions({
       />
       <Action
         title="Found something useful?"
-        text="Say thanks with Bitcoins or Ether"
+        text="Say thanks with Bitcoin or Ether"
         onClick={toggleModal}
       />
       <Action

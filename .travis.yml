@@ -7,8 +7,8 @@ git:
   depth: 10
 
 cache:
+  npm: true
   directories:
-    - node_modules
     - public
 
 before_install:

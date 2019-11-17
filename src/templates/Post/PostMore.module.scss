@@ -12,12 +12,12 @@
   svg {
     display: inline-block;
     margin: 0;
-    top: 0.2rem;
+    top: 0.25rem;
     position: relative;
-    width: 1.1rem;
-    height: 1.1rem;
-    fill: $text-color-light;
+    stroke: $text-color-light;
     transition: 0.2s ease-out;
+    width: 20px;
+    height: 20px;
   }
 
   &:hover,

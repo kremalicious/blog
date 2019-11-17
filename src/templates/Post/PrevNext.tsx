@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Icon from '../../components/atoms/Icon'
 import styles from './PrevNext.module.scss'
-import { ReactComponent as Right } from '../../images/chevron-right.svg'
-import { ReactComponent as Left } from '../../images/chevron-left.svg'
 
 interface Node {
   title: string
@@ -19,8 +18,8 @@ const PrevNext = ({ prev, next }: PrevNextProps) => (
     <div>
       {prev && (
         <Link to={prev.slug}>
-          <Left />
-          <p className={styles.label}>Older</p>
+          <Icon name="ChevronLeft" />
+          <p className={styles.label}>Newer</p>
           <h3 className={styles.title}>{prev.title}</h3>
         </Link>
       )}
@@ -28,9 +27,9 @@ const PrevNext = ({ prev, next }: PrevNextProps) => (
     <div>
       {next && (
         <Link to={next.slug}>
-          <p className={styles.label}>Newer</p>
+          <p className={styles.label}>Older</p>
           <h3 className={styles.title}>{next.title}</h3>
-          <Right />
+          <Icon name="ChevronRight" />
         </Link>
       )}
     </div>

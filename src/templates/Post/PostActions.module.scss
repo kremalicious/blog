@@ -47,7 +47,7 @@
   padding-top: $spacer;
   padding-bottom: $spacer;
   padding-left: $spacer * 2;
-  padding-right: $spacer;
+  padding-right: $spacer / 2;
   position: relative;
   text-align: left;
   border-bottom: 1px dashed rgba($brand-grey-light, 0.3);
@@ -86,9 +86,11 @@
   }
 
   svg {
+    width: 20px;
+    height: 20px;
     position: absolute;
     left: $spacer;
-    top: $spacer;
-    fill: $brand-grey-light;
+    top: $spacer / 1.05;
+    stroke: $brand-grey-light;
   }
 }
