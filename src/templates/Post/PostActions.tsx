@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './PostActions.module.scss'
 import Icon from '../../components/atoms/Icon'

@@ -3,7 +3,6 @@ import shortid from 'shortid'
 import Helmet from 'react-helmet'
 import { Author } from '../@types/Site'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
-import Typekit from '../components/atoms/Typekit'
 import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
 import styles from './thanks.module.scss'
@@ -30,6 +29,7 @@ export default function Thanks() {
   const coins = Object.keys(author).filter(
     key => key === 'bitcoin' || key === 'ether'
   )
+  const isSSR = typeof window === 'undefined'
 
   return (
     <>
@@ -40,29 +40,29 @@ export default function Thanks() {
 
       <article className={styles.thanks}>
         <BackButton />
-
         <header>
           <h1 className={styles.title}>Say Thanks</h1>
         </header>
+        {!isSSR && (
+          <Suspense fallback={<div className={styles.loading}>Loading...</div>}>
+            <Web3Donation address={author.ether} />
 
-        <Suspense fallback={<div className={styles.loading}>Loading...</div>}>
-          <Web3Donation address={author.ether} />
+            <div className={styles.coins}>
+              <header>
+                <h4>Any other wallets</h4>
+                <p>Send Bitcoin or Ether from any wallet.</p>
+              </header>
 
-          <div className={styles.coins}>
-            <header>
-              <h4>Any other wallets</h4>
-              <p>Send Bitcoin or Ether from any wallet.</p>
-            </header>
-
-            {coins.map((address: string) => (
-              <Coin
-                key={shortid.generate()}
-                address={address}
-                author={author}
-              />
-            ))}
-          </div>
-        </Suspense>
+              {coins.map((address: string) => (
+                <Coin
+                  key={shortid.generate()}
+                  address={address}
+                  author={author}
+                />
+              ))}
+            </div>
+          </Suspense>
+        )}
       </article>
     </>
   )
