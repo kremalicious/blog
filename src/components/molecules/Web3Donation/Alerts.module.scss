@@ -24,6 +24,10 @@
   composes: alert;
   color: darken($alert-error, 60%);
 
+  :global(.dark) & {
+    color: darken($alert-error, 40%);
+  }
+
   &::after {
     display: none;
   }

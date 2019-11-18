@@ -5,10 +5,11 @@
 }
 
 .code {
-  margin: 0;
+  margin: 0 auto;
   position: relative;
   padding: 0;
   padding-right: 2rem;
+  width: fit-content;
 
   code {
     padding: $spacer / 2;

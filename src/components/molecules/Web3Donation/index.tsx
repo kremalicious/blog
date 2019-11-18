@@ -88,7 +88,7 @@ export default class Web3Donation extends PureComponent<
 
   initAccountsPoll() {
     if (!this.interval) {
-      this.interval = setInterval(this.fetchAccounts, ONE_SECOND)
+      this.interval = setInterval(this.fetchAccounts, ONE_SECOND * 10)
     }
   }
 
@@ -184,8 +184,8 @@ export default class Web3Donation extends PureComponent<
     return (
       <div className={styles.web3}>
         <header>
-          <h4>web3</h4>
-          <p>Send Ether with MetaMask, Brave, or Mist.</p>
+          <h4>Web3 Wallet</h4>
+          <p>Send Ether with MetaMask or Brave.</p>
         </header>
 
         <div className={styles.web3Row}>

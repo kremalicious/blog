@@ -1,14 +1,11 @@
 @import 'variables';
-@import 'mixins';
 
 .web3 {
-  @include divider;
-
   width: 100%;
   text-align: center;
   margin-top: $spacer / 2;
   margin-bottom: $spacer;
-  padding-bottom: $spacer * 1.5;
+  padding-bottom: $spacer;
 
   small {
     color: darken($alert-info, 60%);

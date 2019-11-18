@@ -2,7 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { Post as PostMetadata } from '../../@types/Post'
-import Layout from '../../components/Layout'
 import Exif from '../../components/atoms/Exif'
 import SEO from '../../components/atoms/SEO'
 import RelatedPosts from '../../components/molecules/RelatedPosts'
@@ -18,11 +17,9 @@ import { Image } from '../../components/atoms/Image'
 
 export default function Post({
   data,
-  location,
   pageContext: { next, prev }
 }: {
   data: { post: PostMetadata }
-  location: Location
   pageContext: {
     next: { title: string; slug: string }
     prev: { title: string; slug: string }
@@ -40,36 +37,34 @@ export default function Post({
 
       <SEO slug={slug} post={post} postSEO />
 
-      <Layout location={location}>
-        <article className={styles.hentry}>
-          <header>
-            <PostTitle type={type} linkurl={linkurl} title={title} />
-            {type === 'post' && <PostLead post={post} />}
-          </header>
+      <article className={styles.hentry}>
+        <header>
+          <PostTitle type={type} linkurl={linkurl} title={title} />
+          {type === 'post' && <PostLead post={post} />}
+        </header>
 
-          {type === 'photo' && <PostContent post={post} />}
-          {image && (
-            <Image
-              fluid={image.childImageSharp.fluid}
-              alt={title}
-              original={image.childImageSharp.original}
-            />
-          )}
-          {type === 'photo' && image && image.fields && (
-            <Exif exif={image.fields.exif} />
-          )}
+        {type === 'photo' && <PostContent post={post} />}
+        {image && (
+          <Image
+            fluid={image.childImageSharp.fluid}
+            alt={title}
+            original={image.childImageSharp.original}
+          />
+        )}
+        {type === 'photo' && image && image.fields && (
+          <Exif exif={image.fields.exif} />
+        )}
 
-          {type !== 'photo' && <PostContent post={post} />}
+        {type !== 'photo' && <PostContent post={post} />}
 
-          {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-          <PostActions slug={slug} githubLink={githubLink} />
-          <PostMeta post={post} />
-        </article>
+        {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
+        <PostActions slug={slug} githubLink={githubLink} />
+        <PostMeta post={post} />
+      </article>
 
-        <RelatedPosts photos={type === 'photo'} tags={tags} />
+      <RelatedPosts photos={type === 'photo'} tags={tags} />
 
-        <PrevNext prev={prev} next={next} />
-      </Layout>
+      <PrevNext prev={prev} next={next} />
     </>
   )
 }

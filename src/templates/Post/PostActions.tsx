@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import ModalThanks from '../../components/organisms/ModalThanks'
+import React from 'react'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './PostActions.module.scss'
 import Icon from '../../components/atoms/Icon'
@@ -38,12 +37,7 @@ export default function PostActions({
   githubLink: string
 }) {
   const { siteUrl } = useSiteMetadata()
-  const [showModal, setShowModal] = useState(false)
   const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
-
-  const toggleModal = () => {
-    setShowModal(!showModal)
-  }
 
   return (
     <aside className={styles.actions}>
@@ -55,17 +49,13 @@ export default function PostActions({
       <Action
         title="Found something useful?"
         text="Say thanks with Bitcoin or Ether"
-        onClick={toggleModal}
+        url="/thanks"
       />
       <Action
         title="Edit on GitHub"
         text="Contribute to this post on GitHub"
         url={githubLink}
       />
-
-      {showModal && (
-        <ModalThanks isOpen={showModal} handleCloseModal={toggleModal} />
-      )}
     </aside>
   )
 }

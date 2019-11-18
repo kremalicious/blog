@@ -9,7 +9,7 @@ export const alertMessages = (
     'Web3 detected, but no account. Are you logged into your MetaMask account?',
   noCorrectNetwork: `Please connect to <strong>Main</strong> network. You are on <strong>${networkName}</strong> right now.`,
   noWeb3:
-    'No Web3 detected. Install <a href="https://metamask.io">MetaMask</a>, <a href="https://brave.com">Brave</a>, or <a href="https://github.com/ethereum/mist">Mist</a>.',
+    'No Web3 detected. Install <a href="https://metamask.io">MetaMask</a> or <a href="https://brave.com">Brave</a>.',
   transaction: `<a href="https://etherscan.io/tx/${transactionHash}" target="_blank">See your transaction on etherscan.io.</a>`,
   waitingForUser: 'Waiting for your confirmation',
   waitingConfirmation: 'Waiting for network confirmation, hang on',
