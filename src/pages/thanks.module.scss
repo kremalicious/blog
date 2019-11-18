@@ -2,6 +2,13 @@
 @import 'mixins';
 
 .buttonBack {
+  margin-bottom: $spacer;
+  display: block;
+
+  @media (min-width: $screen-md) {
+    margin-top: -($spacer);
+  }
+
   svg {
     stroke: $brand-grey-light;
     display: inline-block;

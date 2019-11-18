@@ -1,0 +1,35 @@
+@import 'variables';
+
+.button {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 0;
+  box-shadow: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: rgba($brand-grey, 0.3);
+  padding: $spacer / 3;
+
+  svg {
+    stroke: $brand-grey-light;
+    transition: 0.15s ease-out;
+  }
+
+  &:hover {
+    svg {
+      stroke: $brand-grey-dimmed;
+    }
+  }
+}
+
+.copied {
+  background: green;
+
+  // stylelint-disable-next-line no-descending-specificity
+  svg {
+    stroke: $brand-grey-dimmed;
+  }
+}

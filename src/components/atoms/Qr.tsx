@@ -1,13 +1,7 @@
 import React from 'react'
 import { QRCode } from 'react-qr-svg'
-import Clipboard from 'react-clipboard.js'
-
 import styles from './Qr.module.scss'
-import Icon from './Icon'
-
-const onCopySuccess = (e: any) => {
-  e.trigger.classList.add(styles.copied)
-}
+import Copy from './Copy'
 
 export default function Qr({
   address,
@@ -30,14 +24,7 @@ export default function Qr({
 
       <pre className={styles.code}>
         <code>{address}</code>
-        <Clipboard
-          data-clipboard-text={address}
-          button-title="Copy to clipboard"
-          onSuccess={e => onCopySuccess(e)}
-          className={styles.button}
-        >
-          <Icon name="Copy" />
-        </Clipboard>
+        <Copy text={address} />
       </pre>
     </>
   )
