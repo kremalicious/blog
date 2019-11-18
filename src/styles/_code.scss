@@ -48,14 +48,13 @@ pre {
   max-height: 800px;
 
   code {
-    padding: $spacer / 2;
+    padding: $spacer $spacer / 2;
     white-space: pre;
     display: block;
     color: inherit;
     overflow-wrap: normal;
     word-wrap: normal;
     word-break: normal;
-    float: left;
 
     @media (min-width: $screen-sm) {
       padding: $spacer;
