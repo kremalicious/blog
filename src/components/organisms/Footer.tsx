@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'gatsby'
 import Container from '../atoms/Container'
 import Icon from '../atoms/Icon'
@@ -32,15 +32,17 @@ function Copyright() {
   )
 }
 
-export default function Footer() {
-  return (
-    <footer role="contentinfo" className={styles.footer}>
-      <Container>
-        <ThemeSwitch />
-        <Vcard />
+export default class Footer extends PureComponent {
+  render() {
+    return (
+      <footer role="contentinfo" className={styles.footer}>
+        <Container>
+          <ThemeSwitch />
+          <Vcard />
 
-        <Copyright />
-      </Container>
-    </footer>
-  )
+          <Copyright />
+        </Container>
+      </footer>
+    )
+  }
 }
