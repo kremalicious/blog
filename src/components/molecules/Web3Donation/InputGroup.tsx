@@ -29,7 +29,7 @@ export default function InputGroup({
           <span>ETH</span>
         </div>
       </div>
-      <button className="btn btn-primary" onClick={sendTransaction}>
+      <button className="btn btn-primary" onClick={() => sendTransaction()}>
         Make it rain
       </button>
       <div className={styles.infoline}>

@@ -61,6 +61,20 @@
   font-size: $font-size-h2;
 }
 
+.web3 {
+  width: 100%;
+  text-align: center;
+  margin-top: $spacer / 2;
+  margin-bottom: $spacer * 2;
+  padding-bottom: $spacer;
+
+  small {
+    color: darken($alert-info, 60%);
+    margin-top: -($spacer / 2);
+    display: block;
+  }
+}
+
 .coins {
   width: 100%;
 

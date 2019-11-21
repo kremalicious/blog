@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { getFiat, Logger } from './utils'
+import { getFiat } from './utils'
 import styles from './Conversion.module.scss'
 
 export default class Conversion extends PureComponent<
@@ -28,7 +28,7 @@ export default class Conversion extends PureComponent<
       const { dollar, euro } = await getFiat(this.props.amount)
       this.setState({ euro, dollar })
     } catch (error) {
-      Logger.error(error.message)
+      console.error(error.message)
     }
   }
 

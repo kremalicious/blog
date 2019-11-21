@@ -9,10 +9,14 @@ import Icon from '../components/atoms/Icon'
 import connectors from '../components/molecules/Web3Donation/connectors'
 import styles from './thanks.module.scss'
 
-const Web3Provider = loadable(() => import('web3-react'))
+<<<<<<< HEAD
 const Web3Donation = loadable(() =>
   import('../components/molecules/Web3Donation')
 )
+=======
+const Web3Provider = lazy(() => import('web3-react'))
+const Web3Donation = lazy(() => import('../components/molecules/Web3Donation'))
+>>>>>>> refactor web3
 
 const Coin = ({ address, author }: { address: string; author: Author }) => (
   <div className={styles.coin}>
@@ -47,15 +51,34 @@ export default function Thanks() {
         <header>
           <h1 className={styles.title}>Say Thanks</h1>
         </header>
-        
-        <Web3Provider connectors={connectors} libraryName={'ethers.js'}>
+<<<<<<< HEAD
+
+        <Web3Donation
+          fallback={<div className={styles.loading}>Loading...</div>}
+          address={author.ether}
+        />
+
+        <div className={styles.coins}>
+          <header>
+            <h4>Any other wallets</h4>
+            <p>Send Bitcoin or Ether from any wallet.</p>
+          </header>
+
+          {coins.map((address: string) => (
+            <Coin key={shortid.generate()} address={address} author={author} />
+          ))}
+        </div>
+=======
+        {!isSSR && (
+          <Suspense fallback={<div className={styles.loading}>Loading...</div>}>
+            <Web3Provider connectors={connectors} libraryName={'ethers.js'}>
               <div className={styles.web3}>
                 <header>
                   <h4>Web3 Wallet</h4>
                   <p>Send Ether with MetaMask or Brave.</p>
                 </header>
 
-                <Web3Donation fallback={<div className={styles.loading}>Loading...</div>} address={author.ether} />
+                <Web3Donation address={author.ether} />
               </div>
 
               <div className={styles.coins}>
@@ -73,6 +96,9 @@ export default function Thanks() {
                 ))}
               </div>
             </Web3Provider>
+          </Suspense>
+        )}
+>>>>>>> refactor web3
       </article>
     </>
   )
