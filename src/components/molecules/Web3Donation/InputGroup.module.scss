@@ -88,15 +88,6 @@
   }
 }
 
-.infoline {
-  flex-basis: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: $spacer / 4;
-  animation: fadeIn 0.5s 0.8s ease-out backwards;
-}
-
 .message {
   composes: message from './index.module.scss';
 }

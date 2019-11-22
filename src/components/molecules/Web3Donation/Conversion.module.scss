@@ -3,7 +3,10 @@
 .conversion {
   font-size: $font-size-mini;
   color: $brand-grey-light;
-  text-align: center;
+  text-align: left;
+  margin-top: $spacer / 4;
+  margin-left: $spacer * 1.4;
+  animation: fadeIn 0.5s 0.8s ease-out backwards;
 
   span {
     margin-left: $spacer / 2;

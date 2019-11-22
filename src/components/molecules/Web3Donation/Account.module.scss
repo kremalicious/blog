@@ -1,12 +1,11 @@
 @import 'variables';
 
-.account {
-  font-size: $font-size-mini;
+.accountWrap {
+  font-size: $font-size-small;
   color: $brand-grey-light;
-  max-width: 8rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: $spacer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .identicon {
@@ -15,5 +14,8 @@
   display: inline-block;
   vertical-align: middle;
   margin-right: $spacer / 8;
+}
+
+.balance {
   margin-left: $spacer;
 }
