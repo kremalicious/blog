@@ -184,7 +184,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   sort: { order: DESC, fields: [fields___date] },
-                  limit: 20
+                  limit: 40
                 ) {
                   edges {
                     node {
@@ -215,7 +215,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/page/*', '/tags/**/*', '/thanks/*']
+        exclude: ['/page/*', '/tags/**/*', '/thanks', '/tags']
       }
     },
     {
