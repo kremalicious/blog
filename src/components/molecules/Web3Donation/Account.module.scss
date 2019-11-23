@@ -1,19 +1,24 @@
 @import 'variables';
+@import 'mixins';
 
-.account {
-  font-size: $font-size-mini;
+.accountWrap {
+  font-size: $font-size-small;
   color: $brand-grey-light;
-  max-width: 8rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: $spacer;
+  display: flex;
+  justify-content: space-between;
 }
 
-.identicon {
+.blockies {
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50%;
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  margin-right: $spacer / 8;
+  margin-right: $spacer / 4;
+}
+
+.balance {
   margin-left: $spacer;
 }

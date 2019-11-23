@@ -121,6 +121,12 @@ exports.onPostBuild = async ({ graphql }) => {
 // https://github.com/ethereum/web3.js/issues/1105#issuecomment-446039296
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        // replace native `scrypt` module with pure js `js-scrypt`
+        scrypt: 'js-scrypt'
+      }
+    },
     plugins: [
       // ignore these plugins completely
       new webpack.IgnorePlugin(/^(?:electron|ws)$/)

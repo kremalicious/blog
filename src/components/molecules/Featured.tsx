@@ -28,33 +28,33 @@ function FeaturedPure({
   )
 }
 
-export default function Featured() {
-  const query = graphql`
-    query {
-      allMarkdownRemark(
-        filter: { frontmatter: { featured: { eq: true } } }
-        sort: { fields: [fields___date], order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              image {
-                childImageSharp {
-                  ...ImageFluidThumb
-                }
+const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { frontmatter: { featured: { eq: true } } }
+      sort: { fields: [fields___date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                ...ImageFluidThumb
               }
             }
-            fields {
-              slug
-            }
+          }
+          fields {
+            slug
           }
         }
       }
     }
-  `
+  }
+`
 
+export default function Featured() {
   const data = useStaticQuery(query)
   return <FeaturedPure data={data} />
 }

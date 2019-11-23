@@ -1,210 +1,70 @@
-import React, { PureComponent } from 'react'
-import Web3 from 'web3'
+import React, { useState, useEffect } from 'react'
+import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
-import Alerts, { alertMessages } from './Alerts'
+import Alert, { getTransactionMessage } from './Alert'
 import styles from './index.module.scss'
-import { getWeb3, getAccounts, getNetwork } from './utils'
 
-const ONE_SECOND = 1000
-const ONE_MINUTE = ONE_SECOND * 60
-const correctNetwork = 1
+export default function Web3Donation({ address }: { address: string }) {
+  const {
+    connector,
+    library,
+    chainId,
+    account,
+    activate,
+    active,
+    error
+  } = useWeb3()
+  const [message, setMessage] = useState()
 
-interface Web3DonationState {
-  netId: number
-  networkName: string
-  accounts: string[]
-  selectedAccount: string
-  amount: number
-  transactionHash: string
-  receipt: string
-  message: {
-    status?: string
-    text?: string
-  }
-  inTransaction: boolean
-}
+  useEffect(() => {
+    setMessage(undefined)
 
-export default class Web3Donation extends PureComponent<
-  { address: string },
-  Web3DonationState
-> {
-  state = {
-    netId: 0,
-    networkName: '',
-    accounts: [''],
-    selectedAccount: '',
-    amount: 0.01,
-    transactionHash: '',
-    receipt: '',
-    message: {},
-    inTransaction: false
-  }
-
-  web3: Web3 = null
-  interval: any = null
-  networkInterval: any = null
-
-  componentDidMount() {
-    this.initWeb3()
-  }
-
-  componentWillUnmount() {
-    this.resetAllTheThings()
-  }
-
-  initWeb3 = async () => {
-    this.setState({ message: { text: 'Checking' } })
-
-    try {
-      this.web3 = await getWeb3()
-
-      this.web3
-        ? this.initAllTheTings()
-        : this.setState({
-            message: {
-              status: 'error',
-              text: alertMessages().noWeb3
-            }
-          })
-    } catch (error) {
-      this.setState({
-        message: { status: 'error', text: error }
+    error &&
+      setMessage({
+        status: 'error',
+        text: getErrorMessage(error, chainId)
       })
-    }
-  }
+  }, [connector, account, library, chainId, active, error])
 
-  async initAllTheTings() {
-    this.fetchAccounts()
-    this.fetchNetwork()
+  const [transactionHash, setTransactionHash] = useState(undefined)
 
-    this.initAccountsPoll()
-    this.initNetworkPoll()
-  }
+  async function sendTransaction(amount: number) {
+    const signer = library.getSigner()
 
-  resetAllTheThings() {
-    clearInterval(this.interval)
-    clearInterval(this.networkInterval)
-  }
-
-  initAccountsPoll() {
-    if (!this.interval) {
-      this.interval = setInterval(this.fetchAccounts, ONE_SECOND * 10)
-    }
-  }
-
-  initNetworkPoll() {
-    if (!this.networkInterval) {
-      this.networkInterval = setInterval(this.fetchNetwork, ONE_MINUTE)
-    }
-  }
-
-  fetchNetwork = async () => {
-    const { web3 } = this
-    const { netId, networkName } = await getNetwork(web3)
-
-    if (netId === correctNetwork) {
-      this.setState({ netId, networkName })
-    } else {
-      this.setState({
-        message: {
-          status: 'error',
-          text: alertMessages(networkName).noCorrectNetwork
-        }
-      })
-    }
-  }
-
-  fetchAccounts = async () => {
-    const { web3 } = this
-    const accounts = await getAccounts(web3)
-
-    if (accounts[0]) {
-      this.setState({
-        accounts,
-        selectedAccount: accounts[0].toLowerCase()
-      })
-    } else {
-      this.setState({
-        message: {
-          status: 'error',
-          text: alertMessages().noAccount
-        }
-      })
-    }
-  }
-
-  sendTransaction = () => {
-    const { web3 } = this
-
-    this.setState({
-      inTransaction: true,
-      message: { text: alertMessages().waitingForUser }
+    setMessage({
+      status: 'loading',
+      text: getTransactionMessage().waitingForUser
     })
 
-    web3.eth
-      .sendTransaction({
-        from: this.state.selectedAccount,
-        to: this.props.address,
-        value: this.state.amount * 1e18 // ETH -> Wei
-      })
-      .once('transactionHash', transactionHash => {
-        this.setState({
-          transactionHash,
-          message: { text: alertMessages().waitingConfirmation }
-        })
-      })
-      .on('error', error =>
-        this.setState({
-          message: { status: 'error', text: error.message }
-        })
-      )
-      .then(() => {
-        this.setState({
-          message: {
-            status: 'success',
-            text: alertMessages().success
-          }
-        })
-      })
+    const tx = await signer.sendTransaction({
+      to: address,
+      value: amount * 1e18 // ETH -> Wei
+    })
+    setTransactionHash(tx.hash)
+    setMessage({
+      status: 'loading',
+      text: getTransactionMessage().waitingConfirmation
+    })
+
+    await tx.wait()
+
+    setMessage({
+      status: 'success',
+      text: getTransactionMessage().success
+    })
   }
 
-  onAmountChange = ({ target }: { target: any }) => {
-    this.setState({ amount: target.value })
-  }
-
-  render() {
-    const {
-      selectedAccount,
-      amount,
-      transactionHash,
-      message,
-      inTransaction
-    } = this.state
-
-    return (
-      <div className={styles.web3}>
-        <header>
-          <h4>Web3 Wallet</h4>
-          <p>Send Ether with MetaMask or Brave.</p>
-        </header>
-
-        <div className={styles.web3Row}>
-          {selectedAccount &&
-          this.state.netId === correctNetwork &&
-          !inTransaction ? (
-            <InputGroup
-              selectedAccount={selectedAccount}
-              amount={amount}
-              onAmountChange={this.onAmountChange}
-              sendTransaction={this.sendTransaction}
-            />
-          ) : (
-            message && (
-              <Alerts message={message} transactionHash={transactionHash} />
-            )
-          )}
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className={styles.web3}>
+      {!active && !message ? (
+        <button className="link" onClick={() => activate(connectors.MetaMask)}>
+          Activate Web3
+        </button>
+      ) : library && account && !message ? (
+        <InputGroup sendTransaction={sendTransaction} />
+      ) : (
+        message && <Alert message={message} transactionHash={transactionHash} />
+      )}
+    </div>
+  )
 }

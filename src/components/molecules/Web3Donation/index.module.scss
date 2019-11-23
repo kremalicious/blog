@@ -1,20 +1,6 @@
 @import 'variables';
 
 .web3 {
-  width: 100%;
-  text-align: center;
-  margin-top: $spacer / 2;
-  margin-bottom: $spacer;
-  padding-bottom: $spacer;
-
-  small {
-    color: darken($alert-info, 60%);
-    margin-top: -($spacer / 2);
-    display: block;
-  }
-}
-
-.web3Row {
   min-height: 77px;
   display: flex;
   align-items: center;

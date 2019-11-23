@@ -2,13 +2,15 @@ import React from 'react'
 import loadable from '@loadable/component'
 import shortid from 'shortid'
 import Helmet from 'react-helmet'
+import { Web3ReactProvider } from '@web3-react/core'
 import { Author } from '../@types/Site'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { getLibrary } from '../hooks/use-web3'
 import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
 import styles from './thanks.module.scss'
 
-const Web3Donation = loadable(() =>
+const LazyWeb3Donation = loadable(() =>
   import('../components/molecules/Web3Donation')
 )
 
@@ -46,10 +48,19 @@ export default function Thanks() {
           <h1 className={styles.title}>Say Thanks</h1>
         </header>
 
-        <Web3Donation
-          fallback={<div className={styles.loading}>Loading...</div>}
-          address={author.ether}
-        />
+        <div className={styles.web3}>
+          <header>
+            <h4>Web3 Wallet</h4>
+            <p>Send Ether with MetaMask or Brave.</p>
+          </header>
+
+          <Web3ReactProvider getLibrary={getLibrary}>
+            <LazyWeb3Donation
+              fallback={<div className={styles.loading}>Loading...</div>}
+              address={author.ether}
+            />
+          </Web3ReactProvider>
+        </div>
 
         <div className={styles.coins}>
           <header>
