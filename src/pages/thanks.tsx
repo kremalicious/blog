@@ -36,7 +36,7 @@ export default function Thanks() {
   )
 
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <>
       <Helmet>
         <title>Say thanks</title>
         <meta name="robots" content="noindex,nofollow" />
@@ -54,10 +54,12 @@ export default function Thanks() {
             <p>Send Ether with MetaMask or Brave.</p>
           </header>
 
-          <LazyWeb3Donation
-            fallback={<div className={styles.loading}>Loading...</div>}
-            address={author.ether}
-          />
+          <Web3ReactProvider getLibrary={getLibrary}>
+            <LazyWeb3Donation
+              fallback={<div className={styles.loading}>Loading...</div>}
+              address={author.ether}
+            />
+          </Web3ReactProvider>
         </div>
 
         <div className={styles.coins}>
@@ -71,6 +73,6 @@ export default function Thanks() {
           ))}
         </div>
       </article>
-    </Web3ReactProvider>
+    </>
   )
 }

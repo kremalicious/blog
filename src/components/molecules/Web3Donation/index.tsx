@@ -46,10 +46,12 @@ export default function Web3Donation({ address }: { address: string }) {
       text: getTransactionMessage().waitingConfirmation
     })
 
-    // setMessage({
-    //   status: 'success',
-    //   text: getTransactionMessage().success
-    // })
+    await tx.wait()
+
+    setMessage({
+      status: 'success',
+      text: getTransactionMessage().success
+    })
   }
 
   return (

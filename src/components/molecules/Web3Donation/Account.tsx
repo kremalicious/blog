@@ -1,5 +1,5 @@
 import React from 'react'
-import Blockies from 'react-blockies'
+import { toDataUrl } from 'ethereum-blockies'
 import { formatEther } from '@ethersproject/units'
 import styles from './Account.module.scss'
 import useWeb3, { getBalance } from '../../../hooks/use-web3'
@@ -7,6 +7,7 @@ import useWeb3, { getBalance } from '../../../hooks/use-web3'
 export default function Account() {
   const { library, account } = useWeb3()
   const ethBalance = account && getBalance(account, library)
+  const blockies = account && toDataUrl(account)
 
   const accountDisplay =
     account &&
@@ -17,12 +18,7 @@ export default function Account() {
   return (
     <div className={styles.accountWrap} title={account}>
       <span className={styles.account}>
-        <Blockies
-          seed={account}
-          scale={2}
-          size={8}
-          className={styles.identicon}
-        />
+        <img className={styles.blockies} src={blockies} alt="Blockies" />
         {accountDisplay}
       </span>
       <span className={styles.balance}>{balanceDisplay}</span>

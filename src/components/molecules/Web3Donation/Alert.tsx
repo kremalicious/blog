@@ -17,7 +17,7 @@ const constructMessage = (
   transactionHash
     ? message &&
       message.text +
-        '<br />' +
+        '<br /><br />' +
         getTransactionMessage(transactionHash).transaction
     : message && message.text
 
