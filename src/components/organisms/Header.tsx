@@ -20,7 +20,7 @@ export default class Header extends PureComponent {
             </h1>
 
             <nav role="navigation" className={styles.nav}>
-              <Search lng="en" />
+              <Search />
               <Menu />
             </nav>
           </div>
