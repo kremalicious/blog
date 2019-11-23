@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
 import SearchInput from './SearchInput'
@@ -7,28 +7,28 @@ import SearchResults from './SearchResults'
 
 import styles from './index.module.scss'
 
-function getSearchResults(query: string, lng: string) {
-  if (!query || !window.__LUNR__) return []
-  const lunrIndex = window.__LUNR__[lng]
-  const results = lunrIndex.index.search(query)
-  return results.map(({ ref }: { ref: string }) => lunrIndex.store[ref])
-}
-
-export default function Search({ lng }: { lng: string }) {
+export default function Search() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
 
+  useEffect(() => {
+    if (!query || !window.__LUNR__) {
+      setResults([])
+      return
+    }
+
+    const lunrIndex = window.__LUNR__['en']
+    const searchResults = lunrIndex.index.search(query)
+    setResults(
+      searchResults.map(({ ref }) => {
+        return lunrIndex.store[ref]
+      })
+    )
+  }, [query])
+
   const toggleSearch = () => {
     setSearchOpen(!searchOpen)
-  }
-
-  const search = (event: any) => {
-    const query = event.target.value
-    // wildcard search https://lunrjs.com/guides/searching.html#wildcards
-    const results = query.length > 1 ? getSearchResults(`${query}*`, lng) : []
-    setQuery(query)
-    setResults(results)
   }
 
   return (
@@ -50,7 +50,7 @@ export default function Search({ lng }: { lng: string }) {
             <section className={styles.search}>
               <SearchInput
                 value={query}
-                onChange={(e: Event) => search(e)}
+                onChange={(e: any) => setQuery(e.target.value)}
                 onToggle={toggleSearch}
               />
             </section>
