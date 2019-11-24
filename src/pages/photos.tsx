@@ -32,7 +32,7 @@ export default function Photos({
   data,
   location
 }: {
-  data: { photos: { edges: [{ node: Post }] } }
+  data: any
   location: Location
 }) {
   return (
@@ -42,7 +42,7 @@ export default function Photos({
       location={location}
       section={styles.photos}
     >
-      {data.photos.edges.map(({ node }) => (
+      {data.photos.edges.map(({ node }: { node: Post }) => (
         <PhotoThumb key={node.id} photo={node} />
       ))}
     </Page>

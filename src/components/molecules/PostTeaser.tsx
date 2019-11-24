@@ -1,8 +1,31 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { Image } from '../../components/atoms/Image'
+import { Link, graphql } from 'gatsby'
+import { Image } from '../atoms/Image'
 import styles from './PostTeaser.module.scss'
 import { Post } from '../../@types/Post'
+
+export const postTeaserQuery = graphql`
+  fragment PostTeaser on MarkdownRemark {
+    id
+    fileAbsolutePath
+    frontmatter {
+      title
+      type
+      linkurl
+      tags
+      featured
+      image {
+        childImageSharp {
+          ...ImageFluidThumb
+        }
+      }
+    }
+    fields {
+      slug
+      date(formatString: "MMMM DD, YYYY")
+    }
+  }
+`
 
 export default function PostTeaser({
   post,

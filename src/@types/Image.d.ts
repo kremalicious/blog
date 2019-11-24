@@ -4,7 +4,7 @@ export interface ImageProps {
   title?: string
   fluid?: FluidObject
   fixed?: FixedObject
-  alt: string
+  alt?: string
   original?: { src: string }
 }
 

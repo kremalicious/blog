@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import PostTeaser from '../../templates/Post/PostTeaser'
+import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.scss'
 import { Post, Frontmatter } from '../../@types/Post'
 
@@ -9,23 +9,7 @@ const query = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
       edges {
         node {
-          id
-          fileAbsolutePath
-          frontmatter {
-            title
-            type
-            linkurl
-            tags
-            image {
-              childImageSharp {
-                ...ImageFluidThumb
-              }
-            }
-          }
-          fields {
-            slug
-            date(formatString: "MMMM DD, YYYY")
-          }
+          ...PostTeaser
         }
       }
     }

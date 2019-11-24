@@ -2,7 +2,7 @@
   <a href="https://kremalicious.com"><img src="src/images/github-header.png" /></a>
  </p>
 <p align="center">
-  <strong>🍭 My blog built with <a href="http://gatsbyjs.org">Gatsby</a>. Neat.</strong>
+  <strong>🍭 My blog built with <a href="http://gatsbyjs.org">Gatsby</a> + TypeScript. Neat.</strong>
 </p>
 <p align="center">
   <a href="https://kremalicious.com">kremalicious.com</a>

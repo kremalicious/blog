@@ -10,7 +10,7 @@
     "start": "gatsby develop --host 0.0.0.0",
     "build": "gatsby build && npm run copy",
     "ssr": "npm run build && serve -s public/",
-    "test": "npm run lint && jest --coverage",
+    "test": "npm run lint && jest --coverage --silent",
     "test:watch": "npm run lint && jest --coverage --watch",
     "copy": "cp -R content/media/ public",
     "lint": "run-p --continue-on-error lint:js lint:css lint:md",

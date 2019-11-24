@@ -29,23 +29,26 @@ const ThemeToggleInput = ({
   />
 )
 
+const HeadMarkup = ({ themeColor }: { themeColor: string }) => (
+  <Helmet>
+    <meta name="theme-color" content={themeColor} />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+  </Helmet>
+)
+
 export default function ThemeSwitch() {
   const darkMode = useDarkMode(false, {
     classNameDark: 'dark',
     classNameLight: 'light'
   })
-
   const themeColor = darkMode.value ? '#1d2224' : '#e7eef4'
 
   return (
     <>
-      <Helmet>
-        <meta name="theme-color" content={themeColor} />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-      </Helmet>
+      <HeadMarkup themeColor={themeColor} />
       <aside className={styles.themeSwitch}>
         <label
           htmlFor="toggle"

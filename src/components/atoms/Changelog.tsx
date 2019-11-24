@@ -22,7 +22,6 @@ export function PureChangelog({
   if (!repoMatch) return null
 
   const { object, url, owner } = repoMatch
-  if (!object) return null
 
   const changelogHtml =
     object &&
@@ -53,24 +52,22 @@ export function PureChangelog({
   )
 }
 
-export default function Changelog({ repo }: { repo: string }) {
-  const queryGithub = graphql`
-    query GitHubReposInfo {
-      github {
-        viewer {
-          repositories(first: 100, privacy: PUBLIC, isFork: false) {
-            edges {
-              node {
-                name
-                url
-                owner {
-                  login
-                }
-                object(expression: "master:CHANGELOG.md") {
-                  id
-                  ... on GitHub_Blob {
-                    text
-                  }
+const queryGithub = graphql`
+  query GitHubReposInfo {
+    github {
+      viewer {
+        repositories(first: 100, privacy: PUBLIC, isFork: false) {
+          edges {
+            node {
+              name
+              url
+              owner {
+                login
+              }
+              object(expression: "master:CHANGELOG.md") {
+                id
+                ... on GitHub_Blob {
+                  text
                 }
               }
             }
@@ -78,7 +75,10 @@ export default function Changelog({ repo }: { repo: string }) {
         }
       }
     }
-  `
+  }
+`
+
+export default function Changelog({ repo }: { repo: string }) {
   const data: GitHub = useStaticQuery(queryGithub)
   const repos: [{ node: GitHubRepo }] = data.github.viewer.repositories.edges
   return <PureChangelog repo={repo} repos={repos} />

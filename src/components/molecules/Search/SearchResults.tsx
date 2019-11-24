@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from '../../atoms/Container'
-import PostTeaser from '../../../templates/Post/PostTeaser'
+import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
 import styles from './SearchResults.module.scss'
 import { Post } from '../../../@types/Post'
@@ -16,18 +16,7 @@ const query = graphql`
     allMarkdownRemark {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                ...ImageFluidThumb
-              }
-            }
-          }
-          fields {
-            slug
-          }
+          ...PostTeaser
         }
       }
     }

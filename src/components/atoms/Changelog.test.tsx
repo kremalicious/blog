@@ -1,23 +1,17 @@
 import React from 'react'
-import testRender from '../../../jest/testRender'
+import { render } from '@testing-library/react'
 
-import { PureChangelog as Changelog } from './Changelog'
-import { GitHubRepo } from '../../@types/GitHub'
-
-const repos: [{ node: GitHubRepo }] = [
-  {
-    node: {
-      name: 'gatsby-plugin-matomo',
-      url: 'https://hello.com',
-      owner: { login: 'kremalicious' },
-      object: {
-        id: 'hello',
-        text: 'hello'
-      }
-    }
-  }
-]
+import Changelog from './Changelog'
 
 describe('Changelog', () => {
-  testRender(<Changelog repo="gatsby-plugin-matomo" repos={repos} />)
+  it('renders without crashing', () => {
+    const { container, rerender } = render(
+      <Changelog repo="gatsby-plugin-matomo" />
+    )
+    expect(container.firstChild).toBeInTheDocument()
+
+    // return nothing when no match
+    rerender(<Changelog repo="nomatch" />)
+    expect(container.firstChild).not.toBeInTheDocument()
+  })
 })

@@ -1,0 +1,62 @@
+{
+  "photos": {
+    "edges": [
+      {
+        "node": {
+          "id": "6effe45d-0884-527c-9fba-6f7f567979fd",
+          "frontmatter": {
+            "title": "Országház II",
+            "type": "photo",
+            "image": {
+              "childImageSharp": {
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/2dbcf257b4bdf625c24fede935d32425/2423a/2019-11-03-orszaghaz-ii.jpg",
+                  "srcSet": "/static/2dbcf257b4bdf625c24fede935d32425/b7835/2019-11-03-orszaghaz-ii.jpg 100w,\n/static/2dbcf257b4bdf625c24fede935d32425/2de44/2019-11-03-orszaghaz-ii.jpg 200w,\n/static/2dbcf257b4bdf625c24fede935d32425/2423a/2019-11-03-orszaghaz-ii.jpg 400w,\n/static/2dbcf257b4bdf625c24fede935d32425/66039/2019-11-03-orszaghaz-ii.jpg 600w,\n/static/2dbcf257b4bdf625c24fede935d32425/ba820/2019-11-03-orszaghaz-ii.jpg 800w,\n/static/2dbcf257b4bdf625c24fede935d32425/d04d5/2019-11-03-orszaghaz-ii.jpg 3793w",
+                  "srcWebp": "/static/2dbcf257b4bdf625c24fede935d32425/33771/2019-11-03-orszaghaz-ii.webp",
+                  "srcSetWebp": "/static/2dbcf257b4bdf625c24fede935d32425/4f5da/2019-11-03-orszaghaz-ii.webp 100w,\n/static/2dbcf257b4bdf625c24fede935d32425/72345/2019-11-03-orszaghaz-ii.webp 200w,\n/static/2dbcf257b4bdf625c24fede935d32425/33771/2019-11-03-orszaghaz-ii.webp 400w,\n/static/2dbcf257b4bdf625c24fede935d32425/f12d8/2019-11-03-orszaghaz-ii.webp 600w,\n/static/2dbcf257b4bdf625c24fede935d32425/b975c/2019-11-03-orszaghaz-ii.webp 800w,\n/static/2dbcf257b4bdf625c24fede935d32425/f7332/2019-11-03-orszaghaz-ii.webp 3793w",
+                  "sizes": "(max-width: 400px) 100vw, 400px",
+                  "originalImg": "/static/2dbcf257b4bdf625c24fede935d32425/d04d5/2019-11-03-orszaghaz-ii.jpg",
+                  "originalName": "2019-11-03-orszaghaz-ii.jpg",
+                  "presentationWidth": 400,
+                  "presentationHeight": 300
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/orszaghaz-ii/"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "c80697e5-681d-5fcc-9dab-c3a3821ff0b1",
+          "frontmatter": {
+            "title": "Országház I",
+            "type": "photo",
+            "image": {
+              "childImageSharp": {
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/36d87329aeeda296ae923606e5a4a785/2423a/2019-11-02-orszaghaz-i.jpg",
+                  "srcSet": "/static/36d87329aeeda296ae923606e5a4a785/b7835/2019-11-02-orszaghaz-i.jpg 100w,\n/static/36d87329aeeda296ae923606e5a4a785/2de44/2019-11-02-orszaghaz-i.jpg 200w,\n/static/36d87329aeeda296ae923606e5a4a785/2423a/2019-11-02-orszaghaz-i.jpg 400w,\n/static/36d87329aeeda296ae923606e5a4a785/66039/2019-11-02-orszaghaz-i.jpg 600w,\n/static/36d87329aeeda296ae923606e5a4a785/ba820/2019-11-02-orszaghaz-i.jpg 800w,\n/static/36d87329aeeda296ae923606e5a4a785/c9c86/2019-11-02-orszaghaz-i.jpg 3708w",
+                  "srcWebp": "/static/36d87329aeeda296ae923606e5a4a785/33771/2019-11-02-orszaghaz-i.webp",
+                  "srcSetWebp": "/static/36d87329aeeda296ae923606e5a4a785/4f5da/2019-11-02-orszaghaz-i.webp 100w,\n/static/36d87329aeeda296ae923606e5a4a785/72345/2019-11-02-orszaghaz-i.webp 200w,\n/static/36d87329aeeda296ae923606e5a4a785/33771/2019-11-02-orszaghaz-i.webp 400w,\n/static/36d87329aeeda296ae923606e5a4a785/f12d8/2019-11-02-orszaghaz-i.webp 600w,\n/static/36d87329aeeda296ae923606e5a4a785/b975c/2019-11-02-orszaghaz-i.webp 800w,\n/static/36d87329aeeda296ae923606e5a4a785/262c1/2019-11-02-orszaghaz-i.webp 3708w",
+                  "sizes": "(max-width: 400px) 100vw, 400px",
+                  "originalImg": "/static/36d87329aeeda296ae923606e5a4a785/c9c86/2019-11-02-orszaghaz-i.jpg",
+                  "originalName": "2019-11-02-orszaghaz-i.jpg",
+                  "presentationWidth": 400,
+                  "presentationHeight": 297
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/orszaghaz-i/"
+          }
+        }
+      }
+    ]
+  }
+}
