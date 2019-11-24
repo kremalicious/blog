@@ -4,11 +4,23 @@ import { Image } from '../atoms/Image'
 import styles from './Featured.module.scss'
 import { Post } from '../../@types/Post'
 
-function FeaturedPure({
-  data
-}: {
-  data: { allMarkdownRemark: { edges: [{ node: Post }] } }
-}) {
+const query = graphql`
+  query {
+    allMarkdownRemark(
+      filter: { frontmatter: { featured: { eq: true } } }
+      sort: { fields: [fields___date], order: DESC }
+    ) {
+      edges {
+        node {
+          ...PostTeaser
+        }
+      }
+    }
+  }
+`
+
+export default function Featured() {
+  const data = useStaticQuery(query)
   return (
     <div className={styles.featured}>
       {data.allMarkdownRemark.edges.map(({ node }: { node: Post }) => {
@@ -26,35 +38,4 @@ function FeaturedPure({
       })}
     </div>
   )
-}
-
-const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { frontmatter: { featured: { eq: true } } }
-      sort: { fields: [fields___date], order: DESC }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                ...ImageFluidThumb
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
-
-export default function Featured() {
-  const data = useStaticQuery(query)
-  return <FeaturedPure data={data} />
 }

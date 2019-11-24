@@ -17,7 +17,7 @@ export default function Posts({
   location,
   pageContext
 }: {
-  data: { allMarkdownRemark: { edges: [{ node: Post }] } }
+  data: any
   location: Location
   pageContext: {
     tag: string

@@ -14,7 +14,7 @@ export default function Copy({ text }: { text: string }) {
     <Clipboard
       data-clipboard-text={text}
       button-title="Copy to clipboard"
-      onSuccess={e => onCopySuccess(e)}
+      onSuccess={(e: ClipboardJS.Event) => onCopySuccess(e)}
       className={styles.button}
     >
       <Icon name="Copy" />

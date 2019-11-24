@@ -1,0 +1,219 @@
+{
+  "github": {
+    "viewer": {
+      "repositories": {
+        "edges": [
+          {
+            "node": {
+              "name": "csspaperstack",
+              "url": "https://github.com/kremalicious/csspaperstack",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "hastuzeit",
+              "url": "https://github.com/kremalicious/hastuzeit",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "Badged",
+              "url": "https://github.com/kremalicious/Badged",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "hsresponsive",
+              "url": "https://github.com/kremalicious/hsresponsive",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "dribbble-chromeapp",
+              "url": "https://github.com/kremalicious/dribbble-chromeapp",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "krtmn",
+              "url": "https://github.com/kremalicious/krtmn",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": {
+                "id": "MDQ6QmxvYjM2MzA0MzQ6NDcwYWRiOTc5MWVjYzZkNmU0YzMzNDQ3ZmZhZjBhNjA0ZGE1NTBkNA==",
+                "text": "YOURLS Changelog\n================\n\n_This file lists the main changes through all versions of YOURLS.  \nFor a much more detailed list, simply refer to [commit messages](https://github.com/YOURLS/YOURLS/commits/master)._\n\n1.7\n---\n- added: support for PDO and MySQLi\n- added: social bookmarklets - share on Twitter, Facebook or Tumblr in a click\n- added: check api.yourls.org if a new version of YOURLS is available\n- added: proxy support - install YOURLS behind a firewall!\n- improved: security regarding SQL injections\n- improved: security regarding your credentials - now auto-encrypted\n- improved: external HTTP request handling\n- improved: ƒυηкƴ UTF-8 titles handling\n- fixed: compatibility with Apache mod_security blocking bookmarklets\n- fixed: lots of bugs\n\n1.6\n---\n- added: مرحبا العالم! Hej verden! 你好世界! Kumusta mundo! Ciao mondo! Hello world! Translation API.\n- added: custom API actions\n- added: support for URLs with common protocols\n- fixed: search and pagination in the admin interface\n- updated: third party libs jQuery, ezSQL, GeoIP\n- improved: sanitizing and escaping functions\n\n1.5.1\n-----\n- added: full jsonp support\n- added: ability to use encrypted passwords in the config file\n- fixed: support for http://www.sho.rt/bleh and http://sho.rt/bleh\n- added: support for any favicon dropped in the /user directory\n- updated: Google Visualization API instead of deprecated Google Charts\n- fixed: bugs, bugs, bugs\n- added: hooks, hooks, hooks\n- improved: things, things, things\n\n1.5\n---\n- added: plugin architecture! OMG plugins!!1!!1!\n- added: directory /user, config.php can be moved there\n- added: new \"instant bookmarklets\"\n- added: 1 click copy-to-clipboard a la bitly\n- change in logic: now all request are handled by PHP and don't rely on .htaccess\n- added: saving URL titles\n- added: support for prefix-n-shorten: sho.rt/http://example.com/\n- added: core plugin to allow hyphens in URLs\n- added: core sample plugin to wrap redirected URLs in a social toolbar\n- added: core sample plugin to show how to create administration page in plugins\n- added: core plugin to display a random pretty background\n- changed: layout now using a more consistent palette, see http://yourls.org/palette\n- added: anti XSS and anti CSRF measures\n- added: interactive map if possible in stat traffic by countries\n- fixed: lots of bugs\n\n1.4.3\n-----\n- fixed bug no-stats-showing-ffs due to inconsistency in DB schema\n- improve error reporting with API method url-stat\n\n1.4.2\n-----\n- fixed: bug in auth function\n- added: sample public API file\n- added: check in API requests for WordPress plugin when adding a new short URL\n- prettier sample public interface\n\n1.4.1\n-----\n- fixed: base 62 URLs (keywords with MiXeD CaSe)\n- new & secure auth method for API calls, with no need to use login & password combo\n- allow SSL enforcement for admin pages\n- new API method: stats for individual URL.\n- prevent internal redirection loops\n- filter and search URLs & short URLs by date\n\n1.4\n---\n- added: an upgrader from 1.3 to 1.4\n- change in logic: now using a global object $ydb for everything related to DB and other globally needed stuff\n- change in logic: include \"load-yourls.php\" instead of \"config.php\" to start engine\n- change in DB schema: now storing URLs with their keyword as used in shorturl, allowing for any keyword length\n- change in DB schema: new table for storing various options including next_id, dropping table of the same name\n- change in DB schema: new table for storing hits (for stats)\n- improved the installer, with .htaccess file creation\n- layout tweak: now prettier, isn't it?\n- stats! OMG stats!\n\n1.3-RC1\n-------\n- added bookmarklet and tools page\n- improved XSS filter when adding new URL\n- code cleanup in admin/index.php to separate code and display\n- added favicon\n- stricter coding to prevent notices with undefined indexes\n- hide PHP notices & SQL errors & warnings, unless YOURLS_DEBUG constant set to true\n\n1.2\n---\n- don't remember. A few tiny stuff for sure.\n\n1.1\n---\n- don't remember. Some little bugs I guess.\n\n1.0.1\n-----\n- don't remember. Trivial stuff probably.\n\n1.0\n---\n- initial release\n"
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "glassfruit",
+              "url": "https://github.com/kremalicious/glassfruit",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "kremalicious2",
+              "url": "https://github.com/kremalicious/kremalicious2",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "wp-icons-template",
+              "url": "https://github.com/kremalicious/wp-icons-template",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "kbdfun",
+              "url": "https://github.com/kremalicious/kbdfun",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "dotfiles",
+              "url": "https://github.com/kremalicious/dotfiles",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "kretschmann.io",
+              "url": "https://github.com/kremalicious/kretschmann.io",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "blog",
+              "url": "https://github.com/kremalicious/blog",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "files",
+              "url": "https://github.com/kremalicious/files",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "appstorebadges",
+              "url": "https://github.com/kremalicious/appstorebadges",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "hyper-mac-pro",
+              "url": "https://github.com/kremalicious/hyper-mac-pro",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "ipfs-hosting",
+              "url": "https://github.com/kremalicious/ipfs-hosting",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "gatsby-plugin-matomo",
+              "url": "https://github.com/kremalicious/gatsby-plugin-matomo",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": {
+                "id": "MDQ6QmxvYjEzMjQ5NDg4NTozNzMwOWUxMTc4MTA5YjJmZDQ3ZDg5YTZlZjIwNjM5NTNlNDNlZjA1",
+                "text": "### Changelog\n\nAll notable changes to this project will be documented in this file. Dates are displayed in UTC.\n\nGenerated by [`auto-changelog`](https://github.com/CookPete/auto-changelog).\n\n#### [v0.7.2](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.7.1...v0.7.2)\n\n> 13 June 2019\n\n- Fix missing tracking code in rendered HTML [`#18`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/18)\n- update changelog [`57092e5`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/57092e5b0f755867885d4877ba539e2e684eba3c)\n- Release 0.7.2 [`31cabd6`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/31cabd60afbf9da39bce3cbd9187ba203c8f6e93)\n\n#### [v0.7.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/0.7.0...v0.7.1)\n\n> 10 June 2019\n\n- preconnect to configured Matomo host url [`#17`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/17)\n- Add prettier [`#16`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/16)\n- add prettier [`858fc2e`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/858fc2eb8a58dc49cfe1fea77d2b71c7d2ac4888)\n- new release-it setup [`bbb5f19`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/bbb5f19f94b867b7f7f6959a201690c290ac0fe2)\n- bump packages [`e3479f6`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/e3479f6955f6324140e7243b0f680dd3771250f7)\n\n#### [0.7.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/0.6.1...0.7.0)\n\n> 30 March 2019\n\n- Page tracking improvements [`#15`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/15)\n- capture and send custom page title [`#11`](https://github.com/kremalicious/gatsby-plugin-matomo/issues/11)\n- better page url & referrer url tracking [`04b8ba1`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/04b8ba19038f49571a0f19099f9af4575739a8fb)\n- update changelog [`24f57da`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/24f57da352ee95781ed2c4268f31adaaa5aa1d82)\n- Release 0.7.0 [`4c36d9c`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/4c36d9c7c6212542fc1b3ebba977ee9c1e9bc526)\n\n#### [0.6.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.6.0...0.6.1)\n\n> 30 March 2019\n\n- package updates [`#14`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/14)\n- Update release-it to the latest version 🚀 [`#12`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/12)\n- Update release-it to the latest version 🚀 [`#10`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/10)\n- run changelog before release [`5da11a4`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/5da11a47609f48328d544bab07600576c6f060e0)\n- Release 0.6.1 [`f62c5bf`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/f62c5bf2926726bfc649d24b7fd555974c10482f)\n- chore(package): update release-it to version 10.0.0 [`d56c6c3`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/d56c6c3dba6607f5d67bf70a0953a8d922d84298)\n\n#### [v0.6.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.5.1...v0.6.0)\n\n> 5 December 2018\n\n- Path exclusion [`#9`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/9)\n- add changelog [`2b268a1`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2b268a1c6c0df2b4e344c1f965a665e7be8d9341)\n- allow exclusion of paths [`9464d47`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/9464d47ae1b191ef494148fab4af200e3ea9c85c)\n- make release-it work with conventional-changelog [`2dcd5a7`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2dcd5a7d02a2c35b95ddbec44d2319b0b25dc682)\n\n#### [v0.5.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.5.0...v0.5.1)\n\n> 21 November 2018\n\n- Update release-it to the latest version 🚀 [`#8`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/8)\n- bump packages [`cb26a40`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/cb26a40ece69e756862c5b6986eed60acca61bdd)\n- new Matomo logo [`64dd425`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/64dd4259ecda1fba49ac2bbfba7727bd5a544e3c)\n- Release 0.5.1 [`c442282`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/c44228275734a5edcf790a0bd8c91b9eec634891)\n\n#### [v0.5.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.4.1...v0.5.0)\n\n> 6 August 2018\n\n- Add consent mode [`#7`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/7)\n- Scoping js variables to avoid polluting global scope [`#6`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/6)\n- bump packages [`b08b4a5`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/b08b4a5a45c477898b53831e48109bd672e3e11d)\n- add codeclimate config [`a96e8ea`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/a96e8ea5f89fdc07f84bdd49b927c5c757cf4665)\n- Add disableCookies option [`ff9a2c7`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/ff9a2c755867e60964953c109ab382915b662279)\n\n#### [v0.4.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.4.0...v0.4.1)\n\n> 28 June 2018\n\n- Update eslint to the latest version 🚀 [`#5`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/5)\n- improvements for SPA tracking [`7d653d5`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/7d653d564cb0ca4ae05d6897d94185ea2198462e)\n- package updates [`347f951`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/347f951174ec6b9f31b91cbd7bce90178eb49a1a)\n- Release 0.4.1 [`b254c13`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/b254c130b9ee8c750e2dd3f69540537094eac235)\n\n#### [v0.4.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.3.2...v0.4.0)\n\n> 19 June 2018\n\n- Updates for Gatsby v2 [`#4`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/4)\n- updates for Gatsby v2 [`59e442a`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/59e442a31d85af27f8cdf65a2d15ed8601995fad)\n- package updates [`356e68f`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/356e68faf500baf4c69461fa8323995f30400e24)\n- Release 0.4.0 [`1173236`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/117323688af1963ca5602b13ddd6131aba70376c)\n\n#### [v0.3.2](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.3.1...v0.3.2)\n\n> 23 May 2018\n\n- save some lines [`5034a3b`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/5034a3b8e5201d976f7deb210b471caa50ea16cd)\n- Release 0.3.2 [`c531e47`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/c531e47cf5905acda149a637606ecfea9e2e40bc)\n- change repository field [`260273e`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/260273e0139db6d5bf76bc29c37d2f93fd254f05)\n\n#### [v0.3.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.3.0...v0.3.1)\n\n> 14 May 2018\n\n- package updates [`2acbd45`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2acbd450cb7dffe39c3cb57edbad5aeebe6d7799)\n- Release 0.3.1 [`f9050ce`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/f9050ceaa2b8d214d113ca78785bb7ba78f14d5a)\n- fix environment check [`dc574ab`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/dc574ab72c4ec01c4fa995ae9aa9a1469f04387a)\n\n#### [v0.3.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.2.0...v0.3.0)\n\n> 10 May 2018\n\n- allow local piwik.js path to be set [`a15146c`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/a15146c3dc6b692070e09b38646ad925fc92fb28)\n- Release 0.3.0 [`2e36f13`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/2e36f1383d39703d10405b9e82782a6efa54d56f)\n\n#### [v0.2.0](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.1.3...v0.2.0)\n\n> 8 May 2018\n\n- add dev mode [`5c05efe`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/5c05efe1815fb617e0153924696dc6350e2e753c)\n- Release 0.2.0 [`a3ef6d4`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/a3ef6d4c635a15d6cc64c7c3735f551737f3eff7)\n\n#### [v0.1.3](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.1.2...v0.1.3)\n\n> 8 May 2018\n\n- readme updates [`49640f4`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/49640f4d37b54728c5a80ae9f2c63cb103318386)\n- Release 0.1.3 [`0109e19`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/0109e19e106f8620056db2775205101bf4cc1c3b)\n\n#### [v0.1.2](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.1.1...v0.1.2)\n\n> 8 May 2018\n\n- Add Greenkeeper badge 🌴 [`#1`](https://github.com/kremalicious/gatsby-plugin-matomo/pull/1)\n- do nothing on route updates when piwik isn't loaded and in development [`6c0a840`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/6c0a840de21ce46f544b6ce9a7dd63e961e7ab6b)\n- move greenskeeper badge [`b361eef`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/b361eef43bc85c7acf8be73f3067686912ac49b3)\n- Release 0.1.2 [`370025f`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/370025f1ee733d8f87a70def3bf213e52a1125fa)\n\n#### [v0.1.1](https://github.com/kremalicious/gatsby-plugin-matomo/compare/v0.1.0...v0.1.1)\n\n> 7 May 2018\n\n- link up readme badges [`6793592`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/6793592ed28e23177ad0450874ebba055d912dc2)\n- Release 0.1.1 [`48c73ff`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/48c73ff2415dd25ce85924cdd53056b8f561face)\n- docs(readme): add Greenkeeper badge [`ec73329`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/ec73329dd2ad383aa380ed57667da7a7019824a1)\n\n#### v0.1.0\n\n> 7 May 2018\n\n- initial commit 🍹 [`49bffd3`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/49bffd3cf18f1ba9e099048f9a5591f9200f3296)\n- add Travis, add badges, add semi-auto releases [`fe823b7`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/fe823b76a18a5310e3cd19965b9f61e02774f7e0)\n- Release 0.1.0 [`09739a7`](https://github.com/kremalicious/gatsby-plugin-matomo/commit/09739a72c5c2e08b0a74faba8bc4cfb03fdac220)\n"
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "portfolio",
+              "url": "https://github.com/kremalicious/portfolio",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": null
+            }
+          },
+          {
+            "node": {
+              "name": "gatsby-redirect-from",
+              "url": "https://github.com/kremalicious/gatsby-redirect-from",
+              "owner": {
+                "login": "kremalicious"
+              },
+              "object": {
+                "id": "MDQ6QmxvYjE0NjY2ODk3NDo1YmVmMzg0N2ZlZThjMTk3NThiYThmMjBiMzE3NDFmN2I0YTcwZGU4",
+                "text": "### Changelog\n\nAll notable changes to this project will be documented in this file. Dates are displayed in UTC.\n\nGenerated by [`auto-changelog`](https://github.com/CookPete/auto-changelog).\n\n#### [v0.2.1](https://github.com/kremalicious/gatsby-redirect-from/compare/v0.2.0...v0.2.1)\n\n> 10 June 2019\n\n- fix auto changelog [`bba9f39`](https://github.com/kremalicious/gatsby-redirect-from/commit/bba9f3915511193384863b61b28b3c7f36d1007f)\n\n#### [v0.2.0](https://github.com/kremalicious/gatsby-redirect-from/compare/v0.1.1...v0.2.0)\n\n> 10 June 2019\n\n- Update docs & dependencies [`#12`](https://github.com/kremalicious/gatsby-redirect-from/pull/12)\n- specify node 8 instead of 10 as engine [`#11`](https://github.com/kremalicious/gatsby-redirect-from/pull/11)\n- Support alternative markdown queries (such as allMdx) [`#10`](https://github.com/kremalicious/gatsby-redirect-from/pull/10)\n- Update release-it to the latest version 🚀 [`#8`](https://github.com/kremalicious/gatsby-redirect-from/pull/8)\n- update docs, mention new options [`07835d8`](https://github.com/kremalicious/gatsby-redirect-from/commit/07835d8405854a4e5a190a6eeeb252604aaaddb7)\n- simplify release-it tasks, add changelog [`3ec4ccf`](https://github.com/kremalicious/gatsby-redirect-from/commit/3ec4ccfb8e19032068fd34c24929179a5237f0ca)\n- add prettier [`3f33f65`](https://github.com/kremalicious/gatsby-redirect-from/commit/3f33f65430126e634f498629e6be8437c6f1ed7b)\n\n#### [v0.1.1](https://github.com/kremalicious/gatsby-redirect-from/compare/v0.1.0...v0.1.1)\n\n> 30 August 2018\n\n- integrate with gatsby-plugin-meta-redirect, notes on server rendering [`2cd07ee`](https://github.com/kremalicious/gatsby-redirect-from/commit/2cd07ee33e2c267b3783630c6e5cfbdb6fb57c4b)\n- Release 0.1.1 [`e72d5ab`](https://github.com/kremalicious/gatsby-redirect-from/commit/e72d5aba5474104d34c99fcc5880a39c02696918)\n\n#### [v0.1.0](https://github.com/kremalicious/gatsby-redirect-from/compare/v0.0.3...v0.1.0)\n\n> 30 August 2018\n\n- babelify build [`#5`](https://github.com/kremalicious/gatsby-redirect-from/pull/5)\n- clarify prerequisites [`139a4af`](https://github.com/kremalicious/gatsby-redirect-from/commit/139a4afc1d81fee444a6bf0c4775c63aea4e7c09)\n- Release 0.1.0 [`9bd28a7`](https://github.com/kremalicious/gatsby-redirect-from/commit/9bd28a7e9cc3cfa83e3b5b7606b08d3cb26fafe0)\n- add npm badge [`53043c8`](https://github.com/kremalicious/gatsby-redirect-from/commit/53043c82f86dfd2e17c1ca0ec4580441baeb6d8d)\n\n#### [v0.0.3](https://github.com/kremalicious/gatsby-redirect-from/compare/v0.0.2...v0.0.3)\n\n> 29 August 2018\n\n- fix publish [`c91a362`](https://github.com/kremalicious/gatsby-redirect-from/commit/c91a3626390bfa632322007300818e58a25d75d0)\n- Release 0.0.3 [`f1d4982`](https://github.com/kremalicious/gatsby-redirect-from/commit/f1d4982d2424beb67119702a8181d4284ffe399e)\n\n#### v0.0.2\n\n> 29 August 2018\n\n- Add Greenkeeper badge 🌴 [`#1`](https://github.com/kremalicious/gatsby-redirect-from/pull/1)\n- initial commit 🍷 [`dfb3bb0`](https://github.com/kremalicious/gatsby-redirect-from/commit/dfb3bb0954b1933c4d9e36ebc8cb302a0dc70795)\n- Release 0.0.2 [`6924e7b`](https://github.com/kremalicious/gatsby-redirect-from/commit/6924e7b2d9d00a6eb6a03eeb328f29d561dbf904)\n- fix test [`b0129a5`](https://github.com/kremalicious/gatsby-redirect-from/commit/b0129a5ee73d292422a2f7746412aa55a0ce1097)\n"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
