@@ -9,7 +9,7 @@ exports.createMarkdownFields = (node, actions, getNode) => {
   const parsedFilePath = path.parse(fileNode.relativePath)
   const slugOriginal = createFilePath({ node, getNode })
 
-  createSlug(node, createNodeField, slugOriginal, parsedFilePath)
+  createSlug(node, createNodeField, parsedFilePath)
   createDate(node, createNodeField, slugOriginal)
 
   // github file link
@@ -24,13 +24,13 @@ exports.createMarkdownFields = (node, actions, getNode) => {
   })
 }
 
-function createSlug(node, createNodeField, slugOriginal, parsedFilePath) {
+function createSlug(node, createNodeField, parsedFilePath) {
   let slug
 
   if (parsedFilePath.name === 'index') {
     slug = `/${parsedFilePath.dir.substring(11)}` // remove date from file dir
   } else {
-    slug = `/${slugOriginal.substring(12)}` // remove first slash & date from file path
+    slug = `/${parsedFilePath.name.substring(11)}` // remove date from file path
   }
 
   createNodeField({
