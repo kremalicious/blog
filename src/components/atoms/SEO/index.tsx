@@ -60,6 +60,8 @@ export default function SEO({
       url={url}
       postSEO={postSEO}
       title={title}
+      datePublished={post && post.fields && post.fields.date}
+      dateModified={post && post.frontmatter.updated}
     />
   )
 }

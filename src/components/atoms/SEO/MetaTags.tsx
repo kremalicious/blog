@@ -19,13 +19,17 @@ export default function MetaTags({
   image,
   url,
   postSEO,
-  title
+  title,
+  datePublished,
+  dateModified
 }: {
   description: string
   image: string
   url: string
   postSEO: boolean
   title: string
+  datePublished: string
+  dateModified: string
 }) {
   const { siteTitle, siteDescription, siteUrl, author } = useSiteMetadata()
 
@@ -40,7 +44,17 @@ export default function MetaTags({
       <meta name="image" content={image} />
       <link rel="canonical" href={url} />
 
-      {schemaOrg(siteUrl, title, postSEO, url, image, description, author.name)}
+      {schemaOrg(
+        siteUrl,
+        title,
+        postSEO,
+        url,
+        image,
+        description,
+        author.name,
+        datePublished,
+        dateModified
+      )}
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

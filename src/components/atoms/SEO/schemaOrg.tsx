@@ -7,12 +7,14 @@ export default function schemaOrg(
   postURL: string,
   image: string,
   description: string,
-  author?: string
+  author: string,
+  datePublished: string,
+  dateModified: string
 ) {
   const schemaOrgJSONLD: any = [
     {
       '@context': 'http://schema.org',
-      '@type': 'WebSite',
+      '@type': 'Blog',
       url: blogURL,
       name: title
     }
@@ -22,8 +24,14 @@ export default function schemaOrg(
     schemaOrgJSONLD.push({
       '@context': 'http://schema.org',
       '@type': 'BlogPosting',
-      author,
-      publisher: author,
+      author: {
+        '@type': 'Person',
+        name: author
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: author
+      },
       url: postURL,
       name: title,
       headline: title,
@@ -31,7 +39,13 @@ export default function schemaOrg(
         '@type': 'ImageObject',
         url: image
       },
-      description
+      description,
+      datePublished,
+      dateModified: dateModified || datePublished,
+      mainEntityOfPage: {
+        '@type': 'Blog',
+        '@id': blogURL
+      }
     })
   }
 
