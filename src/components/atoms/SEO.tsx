@@ -16,55 +16,55 @@ const query = graphql`
   }
 `
 
-// const createSchemaOrg = (
-//   blogURL: string,
-//   title: string,
-//   postSEO: boolean,
-//   postURL: string,
-//   image: string,
-//   description: string,
-//   author?: string
-// ) => {
-//   const schemaOrgJSONLD: any = [
-//     {
-//       '@context': 'http://schema.org',
-//       '@type': 'WebSite',
-//       url: blogURL,
-//       name: title
-//     }
-//   ]
+const createSchemaOrg = (
+  blogURL: string,
+  title: string,
+  postSEO: boolean,
+  postURL: string,
+  image: string,
+  description: string,
+  author?: string
+) => {
+  const schemaOrgJSONLD: any = [
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      url: blogURL,
+      name: title
+    }
+  ]
 
-//   if (postSEO) {
-//     schemaOrgJSONLD.push({
-//       '@context': 'http://schema.org',
-//       '@type': 'BlogPosting',
-//       author,
-//       publisher: author,
-//       url: postURL,
-//       name: title,
-//       headline: title,
-//       image: {
-//         '@type': 'ImageObject',
-//         url: image
-//       },
-//       description
-//     })
-//   }
-//   return schemaOrgJSONLD
-// }
+  if (postSEO) {
+    schemaOrgJSONLD.push({
+      '@context': 'http://schema.org',
+      '@type': 'BlogPosting',
+      author,
+      publisher: author,
+      url: postURL,
+      name: title,
+      headline: title,
+      image: {
+        '@type': 'ImageObject',
+        url: image
+      },
+      description
+    })
+  }
+  return schemaOrgJSONLD
+}
 
 const MetaTags = ({
   description,
   image,
   url,
-  // schema,
+  schema,
   postSEO,
   title
 }: {
   description: string
   image: string
   url: string
-  // schema: string
+  schema: string
   postSEO: boolean
   title: string
 }) => {
@@ -83,7 +83,7 @@ const MetaTags = ({
       <link rel="canonical" href={url} />
 
       {/* Schema.org tags */}
-      {/* <script type="application/ld+json">{schema}</script> */}
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={url} />
@@ -123,7 +123,7 @@ export default function SEO({
 }) {
   const data = useStaticQuery(query)
   const logo = data.logo.edges[0].node.relativePath
-  const { siteTitle, siteUrl, siteDescription } = useSiteMetadata()
+  const { siteTitle, siteUrl, siteDescription, author } = useSiteMetadata()
 
   let title
   let description
@@ -148,22 +148,22 @@ export default function SEO({
   const blogURL = siteUrl
   const url = postSEO ? postURL : blogURL
 
-  // const schema = createSchemaOrg(
-  //   blogURL,
-  //   title,
-  //   postSEO,
-  //   postURL,
-  //   image,
-  //   description,
-  //   author
-  // )
+  const schema = createSchemaOrg(
+    blogURL,
+    title,
+    postSEO,
+    postURL,
+    image,
+    description,
+    author.name
+  )
 
   return (
     <MetaTags
       description={description}
       image={image}
       url={url}
-      // schema={(schema as unknown) as string}
+      schema={(schema as unknown) as string}
       postSEO={postSEO}
       title={title}
     />
