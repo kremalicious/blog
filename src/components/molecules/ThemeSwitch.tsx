@@ -54,6 +54,8 @@ export default function ThemeSwitch() {
           htmlFor="toggle"
           className={styles.checkbox}
           onClick={darkMode.toggle}
+          onKeyPress={darkMode.toggle}
+          role="presentation"
         >
           <span className={styles.label}>Toggle Dark Mode</span>
           <ThemeToggleInput
