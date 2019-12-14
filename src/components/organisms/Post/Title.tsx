@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './PostTitle.module.scss'
-import Icon from '../../components/atoms/Icon'
+import styles from './Title.module.scss'
+import Icon from '../../atoms/Icon'
 
 export default function PostTitle({
   type,

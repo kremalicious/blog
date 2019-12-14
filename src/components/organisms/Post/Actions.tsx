@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import styles from './PostActions.module.scss'
-import Icon from '../../components/atoms/Icon'
+import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import styles from './Actions.module.scss'
+import Icon from '../../atoms/Icon'
 
 interface ActionProps {
   title: string

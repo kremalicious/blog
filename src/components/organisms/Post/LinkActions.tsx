@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import stylesPostMore from './PostMore.module.scss'
-import styles from './PostLinkActions.module.scss'
-import Icon from '../../components/atoms/Icon'
+import stylesPostMore from './More.module.scss'
+import styles from './LinkActions.module.scss'
+import Icon from '../../atoms/Icon'
 
 const PostLinkActions = ({
   linkurl,

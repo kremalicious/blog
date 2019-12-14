@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './PostToc.module.scss'
+import styles from './Toc.module.scss'
 
 const PostToc = ({ tableOfContents }: { tableOfContents: string }) => {
   return (
