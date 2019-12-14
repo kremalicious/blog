@@ -24,7 +24,7 @@ function getPaginationData(i, numPages, slug) {
 }
 
 exports.generatePostPages = (createPage, posts) => {
-  const postTemplate = path.resolve('src/templates/Post/index.tsx')
+  const postTemplate = path.resolve('src/templates/Post.tsx')
 
   // Create Post pages
   posts.forEach(post => {

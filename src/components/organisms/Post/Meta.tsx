@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
-import Time from '../../components/atoms/Time'
-import Tag from '../../components/atoms/Tag'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import styles from './PostMeta.module.scss'
-import { Post } from '../../@types/Post'
+import Time from '../../atoms/Time'
+import Tag from '../../atoms/Tag'
+import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import styles from './Meta.module.scss'
+import { Post } from '../../../@types/Post'
 import shortid from 'shortid'
 
 export default function PostMeta({ post }: { post: Post }) {

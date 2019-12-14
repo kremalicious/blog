@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from './PostLead.module.scss'
-import { Post } from '../../@types/Post'
+import styles from './Lead.module.scss'
+import { Post } from '../../../@types/Post'
 
 // Extract lead paragraph from content
 // Grab everything before more tag, or just first paragraph

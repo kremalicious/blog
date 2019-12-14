@@ -26,4 +26,8 @@ export interface Site {
   jsonfeed: string
   itemsPerPage: number
   repoContentPath: string
+  darkModeConfig: {
+    classNameDark: string
+    classNameLight: string
+  }
 }

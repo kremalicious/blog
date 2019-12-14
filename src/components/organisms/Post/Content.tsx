@@ -1,7 +1,7 @@
 import React from 'react'
-import Changelog from '../../components/atoms/Changelog'
-import { Post } from '../../@types/Post'
-import PostToc from './PostToc'
+import Changelog from '../../atoms/Changelog'
+import { Post } from '../../../@types/Post'
+import PostToc from './Toc'
 
 // Remove lead paragraph from content
 const PostContent = ({ post }: { post: Post }) => {

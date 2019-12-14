@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import useDarkMode from 'use-dark-mode'
 import styles from './ThemeSwitch.module.scss'
 import Icon from '../atoms/Icon'
+import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const ThemeToggle = () => (
   <span id="toggle" className={styles.checkboxContainer} aria-live="assertive">
@@ -40,10 +41,8 @@ const HeadMarkup = ({ themeColor }: { themeColor: string }) => (
 )
 
 export default function ThemeSwitch() {
-  const darkMode = useDarkMode(false, {
-    classNameDark: 'dark',
-    classNameLight: 'light'
-  })
+  const { darkModeConfig } = useSiteMetadata()
+  const darkMode = useDarkMode(false, darkModeConfig)
   const themeColor = darkMode.value ? '#1d2224' : '#e7eef4'
 
   return (

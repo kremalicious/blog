@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Icon from '../../components/atoms/Icon'
+import Icon from '../../atoms/Icon'
 import styles from './PrevNext.module.scss'
 
 interface Node {

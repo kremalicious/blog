@@ -34,5 +34,9 @@ module.exports = {
       title: 'Tags',
       link: '/tags'
     }
-  ]
+  ],
+  darkModeConfig: {
+    classNameDark: 'dark',
+    classNameLight: 'light'
+  }
 }

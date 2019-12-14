@@ -1,10 +1,8 @@
 import React from 'react'
-import { render, fireEvent, cleanup } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import ThemeSwitch from './ThemeSwitch'
 
 describe('ThemeSwitch', () => {
-  afterEach(cleanup)
-
   it('renders correctly', () => {
     const { container } = render(<ThemeSwitch />)
     const switchContainer = container.querySelector('aside')

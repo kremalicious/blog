@@ -1,0 +1,25 @@
+{
+  "post": {
+    "html": "<p>An awesome creative idea for a blog post about Web-Design from Joshua Clanton:</p>\n<blockquote>\n<p>Leonardo Da Vinci was one of the greatest artists of the Renaissance, leaving behind a legacy that continues to inspire artists, scientists and others. Here are six things we can learn from him about web design.</p>\n</blockquote>",
+    "excerpt": "An awesome creative idea for a blog post about Web-Design from Joshua Clanton: Leonardo Da Vinci was one of the greatest artists of the…",
+    "frontmatter": {
+      "type": "link",
+      "title": "6 Web Design Tips from Leonardo da Vinci",
+      "image": null,
+      "toc": null,
+      "author": "Matthias Kretschmann",
+      "updated": null,
+      "tags": ["design"],
+      "linkurl": "http://designpepper.com/blog/6-web-design-tips-from-leonardo-da-vinci",
+      "style": null,
+      "changelog": null
+    },
+    "fields": {
+      "slug": "/6-web-design-tips-from-leonardo-da-vinci",
+      "date": "2008-04-04T18:43:05.000Z",
+      "githubLink": "https://github.com/kremalicious/blog/tree/master/content/posts/2008-04-04-6-web-design-tips-from-leonardo-da-vinci.md"
+    },
+    "rawMarkdownBody": "\nAn awesome creative idea for a blog post about Web-Design from Joshua Clanton:\n\n> Leonardo Da Vinci was one of the greatest artists of the Renaissance, leaving behind a legacy that continues to inspire artists, scientists and others. Here are six things we can learn from him about web design.\n",
+    "tableOfContents": ""
+  }
+}
