@@ -20,9 +20,11 @@
         "prettier/@typescript-eslint",
         "prettier/react",
         "plugin:prettier/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:testing-library/recommended",
+        "plugin:testing-library/react"
       ],
-      "plugins": ["@typescript-eslint", "react"],
+      "plugins": ["@typescript-eslint", "react", "testing-library"],
       "rules": {
         "object-curly-spacing": ["error", "always"],
         "react/prop-types": "off",
