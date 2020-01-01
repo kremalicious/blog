@@ -41,10 +41,16 @@ module.exports = {
             options: {
               maxWidth: 630,
               quality: 80,
-              linkImagesToOriginal: true,
+              linkImagesToOriginal: false,
               showCaptions: true,
               backgroundColor: 'none',
               disableBgImageOnAlpha: true
+            }
+          },
+          {
+            resolve: 'gatsby-remark-images-medium-zoom',
+            options: {
+              background: '#e7eef4'
             }
           },
           {

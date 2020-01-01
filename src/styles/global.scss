@@ -373,3 +373,7 @@ blockquote {
 @import 'code';
 @import 'buttons';
 @import 'alerts';
+
+.dark .medium-zoom-overlay {
+  background-color: $body-background-color--dark !important;
+}
