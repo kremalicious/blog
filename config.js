@@ -14,7 +14,7 @@ module.exports = {
     github: 'https://github.com/kremalicious',
     facebook: 'https://facebook.com/matthiaskretschmann',
     bitcoin: '171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V',
-    ether: '0x339dbC44d39bf1961E385ed0Ae88FC6069b87Ea1'
+    ether: '0xf50F267b5689b005FE107cfdb34619f24c014457'
   },
   rss: '/feed.xml',
   jsonfeed: '/feed.json',
