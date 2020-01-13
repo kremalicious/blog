@@ -37,22 +37,29 @@ export default function Web3Donation({ address }: { address: string }) {
       text: getTransactionMessage().waitingForUser
     })
 
-    const tx = await signer.sendTransaction({
-      to: address,
-      value: parseEther(amount.toString()) // ETH -> Wei
-    })
-    setTransactionHash(tx.hash)
-    setMessage({
-      status: 'loading',
-      text: getTransactionMessage().waitingConfirmation
-    })
+    try {
+      const tx = await signer.sendTransaction({
+        to: address,
+        value: parseEther(amount.toString()) // ETH -> Wei
+      })
+      setTransactionHash(tx.hash)
+      setMessage({
+        status: 'loading',
+        text: getTransactionMessage().waitingConfirmation
+      })
 
-    await tx.wait()
+      await tx.wait()
 
-    setMessage({
-      status: 'success',
-      text: getTransactionMessage().success
-    })
+      setMessage({
+        status: 'success',
+        text: getTransactionMessage().success
+      })
+    } catch (error) {
+      setMessage({
+        status: 'error',
+        text: error.message
+      })
+    }
   }
 
   return (
