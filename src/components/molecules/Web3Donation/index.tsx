@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { parseEther } from '@ethersproject/units'
 import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
@@ -38,7 +39,7 @@ export default function Web3Donation({ address }: { address: string }) {
 
     const tx = await signer.sendTransaction({
       to: address,
-      value: amount * 1e18 // ETH -> Wei
+      value: parseEther(amount.toString()) // ETH -> Wei
     })
     setTransactionHash(tx.hash)
     setMessage({
