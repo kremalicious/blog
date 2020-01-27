@@ -95,7 +95,7 @@
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.4.0",
     "@types/classnames": "^2.2.9",
-    "@types/jest": "^24.0.25",
+    "@types/jest": "^25.1.0",
     "@types/loadable__component": "^5.10.0",
     "@types/lunr": "^2.3.2",
     "@types/node": "^13.1.6",
