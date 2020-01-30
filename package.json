@@ -135,7 +135,7 @@
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-prettier": "^1.1.2",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.1.0",
     "typescript": "^3.7.4"
   },
   "repository": {
