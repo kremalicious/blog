@@ -72,7 +72,7 @@ export default function Posts({
       <SEO />
       {location.pathname === '/' && <Featured />}
       {tag && (
-        <h1 className={styles.archiveTitle}>
+        <h1 className={styles.archivetitle}>
           <span>#</span>
           {tag}
         </h1>

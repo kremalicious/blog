@@ -70,14 +70,9 @@ module.exports = {
             // https://github.com/andrewbranch/gatsby-remark-vscode
             resolve: 'gatsby-remark-vscode',
             options: {
-              colorTheme: 'Nord',
+              theme: 'Nord',
               injectStyles: false,
-              extensions: [
-                {
-                  identifier: 'arcticicestudio.nord-visual-studio-code',
-                  version: '0.10.0'
-                }
-              ],
+              extensions: ['nord-visual-studio-code'],
               languageAliases: {}
             }
           }

@@ -19,7 +19,7 @@
   }
 }
 
-.archiveTitle {
+.archivetitle {
   @include divider;
 
   font-size: $font-size-h3;
@@ -35,5 +35,5 @@
 }
 
 .paginationTitle {
-  composes: archiveTitle;
+  composes: archivetitle;
 }
