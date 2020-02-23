@@ -15,7 +15,7 @@ export default function Web3Donation({ address }: { address: string }) {
     active,
     error
   } = useWeb3()
-  const [message, setMessage] = useState()
+  const [message, setMessage] = useState({})
 
   useEffect(() => {
     setMessage(undefined)

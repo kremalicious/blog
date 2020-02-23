@@ -90,9 +90,7 @@ module.exports = {
       options: {
         icon: false,
         svgoConfig: {
-          plugins: {
-            removeViewBox: false
-          }
+          plugins: [{ removeViewBox: false }]
         }
       }
     },
