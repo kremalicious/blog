@@ -174,7 +174,7 @@ If you have large amounts of data that you are interested in sharing, please con
 ## Learn more about the Commons Marketplace
 
 - [**Ocean Protocol and IPFS, Sitting In The Merkle Tree**](/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree)
-- [**The Commons Data Marketplace**](/the-commons-data-marketplace)
+- [**The Commons Marketplace**](/the-commons-marketplace)
 
 ---
 

@@ -126,7 +126,7 @@ And finally, further work may be done to store files encrypted on IPFS and imple
 ## Learn more about the Commons Marketplace
 
 - [**The Commons Marketplace in Pacific Network**](/the-commons-marketplace-in-pacific-network)
-- [**The Commons Data Marketplace**](/the-commons-data-marketplace)
+- [**The Commons Marketplace**](/the-commons-marketplace)
 
 ---
 
