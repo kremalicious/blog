@@ -4,7 +4,8 @@
 .actions {
   @include breakoutviewport;
 
-  margin-top: $spacer * 3;
+  margin-top: $spacer * 2;
+  margin-bottom: $spacer * 2;
   background: rgba(#fff, 0.5);
   padding-top: $spacer;
   padding-bottom: $spacer;

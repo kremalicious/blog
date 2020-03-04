@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Post } from '../@types/Post'
-import SEO from '../components/atoms/SEO'
+import { Post } from '../../@types/Post'
+import SEO from '../atoms/SEO'
 import styles from './Page.module.scss'
 
 export default function Page({

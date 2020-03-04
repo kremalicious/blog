@@ -1,19 +1,20 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Post as PostMetadata } from '../@types/Post'
-import Exif from '../components/atoms/Exif'
-import SEO from '../components/atoms/SEO'
-import RelatedPosts from '../components/molecules/RelatedPosts'
-import PostTitle from '../components/organisms/Post/Title'
-import PostLead from '../components/organisms/Post/Lead'
-import PostContent from '../components/organisms/Post/Content'
-import PostActions from '../components/organisms/Post/Actions'
-import PostLinkActions from '../components/organisms/Post/LinkActions'
-import PostMeta from '../components/organisms/Post/Meta'
-import PrevNext from '../components/organisms/Post/PrevNext'
-import styles from './Post.module.scss'
-import { Image } from '../components/atoms/Image'
+import { Post as PostMetadata } from '../../../@types/Post'
+import Exif from '../../atoms/Exif'
+import SEO from '../../atoms/SEO'
+import RelatedPosts from '../../molecules/RelatedPosts'
+import PostTitle from './Title'
+import PostLead from './Lead'
+import PostContent from './Content'
+import PostActions from './Actions'
+import PostLinkActions from './LinkActions'
+import PostMeta from './Meta'
+import PostAd from '../../atoms/Ad'
+import PrevNext from './PrevNext'
+import styles from './index.module.scss'
+import { Image } from '../../atoms/Image'
 
 export default function Post({
   data,
@@ -58,8 +59,9 @@ export default function Post({
         {type !== 'photo' && <PostContent post={post} />}
 
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
-        <PostActions slug={slug} githubLink={githubLink} />
         <PostMeta post={post} />
+        <PostActions slug={slug} githubLink={githubLink} />
+        <PostAd />
       </article>
 
       <RelatedPosts photos={type === 'photo'} tags={tags} />

@@ -1,0 +1,21 @@
+@import 'variables';
+
+.ad {
+  font-style: italic;
+  display: block;
+  text-align: center;
+  position: relative;
+  margin-top: $spacer * 3;
+  margin-bottom: $spacer;
+
+  &::before {
+    content: 'AFFILIATE';
+    font-size: $font-size-mini;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    color: $text-color-light;
+    text-align: center;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Page from '../templates/Page'
+import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
 import styles from './tags.module.scss'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Page from '../templates/Page'
+import Page from '../components/templates/Page'
 import { Post } from '../@types/Post'
 import { Image } from '../components/atoms/Image'
 import styles from './photos.module.scss'

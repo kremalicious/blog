@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Page from '../templates/Page'
+import Page from '../components/templates/Page'
 import styles from './404.module.scss'
 
 const page = {

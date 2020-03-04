@@ -1,5 +1,5 @@
 const path = require('path')
-const postsTemplate = path.resolve('src/templates/Posts.tsx')
+const postsTemplate = path.resolve('src/components/templates/Posts.tsx')
 const { itemsPerPage } = require('../config')
 
 const redirects = [
@@ -24,7 +24,7 @@ function getPaginationData(i, numPages, slug) {
 }
 
 exports.generatePostPages = (createPage, posts) => {
-  const postTemplate = path.resolve('src/templates/Post.tsx')
+  const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
 
   // Create Post pages
   posts.forEach(post => {
