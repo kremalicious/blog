@@ -57,37 +57,41 @@ async function getExif(imagePath) {
 
 async function createPhotoPost() {
   const photo = process.argv[3]
-  const exifData = await getExif(photo)
-  title = exifData.iptc.object_name || exifData.iptc.title
-  titleSlug = slugify(title, { lower: true })
-  date = new Date(exifData.exif.DateTimeOriginal).toISOString()
-  const dateShort = date.slice(0, 10)
-  const description = exifData.iptc.caption
-  const fileName = `${dateShort}-${titleSlug}`
-  const postPhoto = `${photosPath}/${fileName}.md`
+  try {
+    const exifData = await getExif(photo)
+    title = exifData.iptc.object_name || exifData.iptc.title
+    titleSlug = slugify(title, { lower: true })
+    date = new Date(exifData.exif.DateTimeOriginal).toISOString()
+    const dateShort = date.slice(0, 10)
+    const description = exifData.iptc.caption
+    const fileName = `${dateShort}-${titleSlug}`
+    const postPhoto = `${photosPath}/${fileName}.md`
 
-  const newContentsPhoto = templatePhoto
-    .split('TITLE')
-    .join(title)
-    .split('SLUG')
-    .join(titleSlug)
-    .split('DATE_LONG')
-    .join(date)
-    .split('DATE_SHORT')
-    .join(dateShort)
-    .split('DESCRIPTION')
-    .join(description)
+    const newContentsPhoto = templatePhoto
+      .split('TITLE')
+      .join(title)
+      .split('SLUG')
+      .join(titleSlug)
+      .split('DATE_LONG')
+      .join(date)
+      .split('DATE_SHORT')
+      .join(dateShort)
+      .split('DESCRIPTION')
+      .join(description)
 
-  // copy photo file in place
-  fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, err => {
-    if (err) spinner.fail(`Error copying photo file: ${err}`)
-  })
+    // copy photo file in place
+    fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, err => {
+      if (err) spinner.fail(`Error copying photo file: ${err}`)
+    })
 
-  // create photo post file
-  fs.appendFile(postPhoto, newContentsPhoto, err => {
-    if (err) spinner.fail(`Error creating photo post: ${err}`)
-    spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
-  })
+    // create photo post file
+    fs.appendFile(postPhoto, newContentsPhoto, err => {
+      if (err) spinner.fail(`Error creating photo post: ${err}`)
+      spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
+    })
+  } catch (error) {
+    console.error(error.message)
+  }
 }
 
 if (isPhoto) {
