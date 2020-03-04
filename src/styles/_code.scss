@@ -5,20 +5,24 @@ kbd,
 pre,
 samp {
   font-family: $font-family-monospace;
-  font-size: $font-size-mini * 1.1;
+  font-size: $font-size-small;
 }
 
 code,
 kbd {
-  padding: 0.1rem;
+  padding: 0.2rem 0.3rem;
 }
 
 code,
 samp {
   white-space: normal;
   color: inherit;
-  background-color: rgba($code-bg, 0.05);
+  background-color: $brand-grey-dimmed;
   border-radius: $border-radius;
+
+  :global(.dark) & {
+    background-color: rgba($code-bg, 0.7);
+  }
 }
 
 kbd {
@@ -42,6 +46,12 @@ pre {
   background-color: $code-bg;
   border-radius: $border-radius;
 
+  // overwrite Nord theme background color
+  &,
+  &:global(.nord) {
+    background-color: $code-bg;
+  }
+
   // make 'em scrollable
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -55,6 +65,11 @@ pre {
     overflow-wrap: normal;
     word-wrap: normal;
     word-break: normal;
+
+    &,
+    :global(.dark) & {
+      background: none;
+    }
 
     @media (min-width: $screen-sm) {
       padding: $spacer;

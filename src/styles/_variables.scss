@@ -29,8 +29,8 @@ $body-background-color--dark: darken($brand-grey, 22%);
 $text-color: $brand-grey;
 $text-color-light: $brand-grey-light;
 
-$text-color--dark: lighten($brand-grey-light, 10%);
-$text-color-light--dark: lighten($brand-grey-light, 5%);
+$text-color--dark: lighten($brand-grey-light, 15%);
+$text-color-light--dark: darken($brand-grey-light, 5%);
 
 $link-color: $brand-cyan;
 $link-color-hover: lighten($link-color, 10%);
@@ -53,15 +53,14 @@ $font-size-h4: 1.2rem;
 $font-size-h5: $font-size-large;
 $font-size-h6: $font-size-base;
 
-$line-height: 1.5;
+$line-height: 1.6;
 $line-height-small: 1.1428571429;
 
 $font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
   'Helvetica', 'Arial', 'sans-serif';
 $font-weight-base: 400;
 
-$font-family-monospace: 'Fira Code', 'Fira Mono', 'Menlo', 'Monaco', 'Consolas',
-  'Courier New', 'monospace';
+$font-family-monospace: 'Menlo', 'Consolas', 'Courier New', monospace;
 
 // Headings
 /////////////////////////////////////
@@ -87,7 +86,7 @@ $stroke-width: 0.125rem;
 // Code
 /////////////////////////////////////
 
-$code-bg: #343642;
+$code-bg: darken($brand-grey, 15%);
 $code-color: $brand-light;
 $kbd-bg: $code-bg;
 $kbd-color: $code-color;
