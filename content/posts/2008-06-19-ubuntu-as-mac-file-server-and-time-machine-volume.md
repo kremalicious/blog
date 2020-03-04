@@ -13,6 +13,8 @@ tags:
   - tutorial
   - macos
   - ubuntu
+  - avahi
+  - linux
 
 redirect_from:
   - /ubuntu-as-mac-file-server-and-time-machine-volume/trackback/
