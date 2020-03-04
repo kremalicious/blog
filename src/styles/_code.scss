@@ -57,6 +57,7 @@ pre {
   -webkit-overflow-scrolling: touch;
   max-height: 800px;
 
+  // stylelint-disable no-descending-specificity
   code {
     padding: $spacer $spacer / 2;
     white-space: pre;
@@ -91,6 +92,7 @@ pre {
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
+  // stylelint-enable no-descending-specificity
 }
 
 pre[data-language]::before {
