@@ -36,6 +36,7 @@ module.exports = {
       options: {
         excerpt_separator: '<!-- more -->',
         plugins: [
+          'gatsby-remark-breaks',
           {
             resolve: 'gatsby-remark-images',
             options: {
