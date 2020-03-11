@@ -25,7 +25,7 @@ To make this work, macOS requires each service to be running and advertised to t
 
 This guide assumes your Raspberry Pi is already setup and connected to your local network. All command line instructions can either be executed directly on the Raspberry Pi, or remotely via SSH which you can achieve by simply following the [official SSH guide](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
 
-I'm using a Rasperry Pi 4, Model B, running [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/), and macOS Catalina. The Raspberry model shouldn't matter for the scope of this guide, and the instructions should also work some macOS versions down.
+I'm using a Raspberry Pi 4, Model B, running [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/), and macOS Catalina. The Raspberry model shouldn't matter for the scope of this guide, and the instructions should also work some macOS versions down.
 
 Furthermore, this guide should also work on any Linux distribution like Ubuntu or Debian itself. The principals to make a Raspberry Pi show up in macOS are applicable to any Linux distribution capable of running a VNC server, Samba, and Avahi.
 
@@ -91,7 +91,17 @@ To do so:
 sudo smbpasswd -a pi
 ```
 
-Where `pi` refers to the user account on the Raspberry Pi you want to connect to. After setting a new password, restart the Samba service:
+Where `pi` refers to the user account on the Raspberry Pi you want to connect to.
+
+By default, Samba exposes home folders as read-only. To change that, modify Samba's main config file `smb.conf`:
+
+```bash
+sudo nano /etc/samba/smb.conf
+```
+
+In there, scroll down to the `[homes]` section and set `read only = no` to make shared home folders writable.
+
+After setting a new password and modifying `smb.conf`, restart the Samba service:
 
 ```bash
 sudo service smbd restart
@@ -232,7 +242,7 @@ Make sure to use the port you use for SSH access on your server if you are not u
 sudo service avahi-daemon restart
 ```
 
-But to be absolutely sure, you should reboot your Rasperry Pi with:
+But to be absolutely sure, you should reboot your Raspberry Pi with:
 
 ```bash
 sudo reboot
@@ -254,4 +264,4 @@ As for screen sharing, you can use any VNC app on iPhone or iPad and it should w
 
 ![Raspberry Pi in Screens.app on iPadOS](raspberry-ipados-screens.jpg)
 
-There is also a way to make the Rasperry Pi available via [AirDrop](https://support.apple.com/en-us/HT204144). The [Open Wireless Link (OWL) project](https://owlink.org) set out to reverse engineer the protocol used for AirDrop, Apple Wireless Direct Link (AWDL). The setup is rather hacky and unstable but they provide a [tutorial for the Rasperry Pi 3](https://owlink.org/2019/05/16/howto-use-airdrop-on-raspberry-pi-3.html) if you want to try.
+There is also a way to make the Raspberry Pi available via [AirDrop](https://support.apple.com/en-us/HT204144). The [Open Wireless Link (OWL) project](https://owlink.org) set out to reverse engineer the protocol used for AirDrop, Apple Wireless Direct Link (AWDL). The setup is rather hacky and unstable but they provide a [tutorial for the Raspberry Pi 3](https://owlink.org/2019/05/16/howto-use-airdrop-on-raspberry-pi-3.html) if you want to try.
