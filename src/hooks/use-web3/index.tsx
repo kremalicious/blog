@@ -17,7 +17,7 @@ export function useEagerConnect() {
   const [tried, setTried] = useState(false)
 
   useEffect(() => {
-    MetaMask.isAuthorized().then(isAuthorized => {
+    MetaMask.isAuthorized().then((isAuthorized) => {
       if (isAuthorized) {
         activate(MetaMask, undefined, true).catch(() => {
           setTried(true)

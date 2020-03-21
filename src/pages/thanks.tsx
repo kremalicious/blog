@@ -32,7 +32,7 @@ const BackButton = () => (
 export default function Thanks() {
   const { author } = useSiteMetadata()
   const coins = Object.keys(author).filter(
-    key => key === 'bitcoin' || key === 'ether'
+    (key) => key === 'bitcoin' || key === 'ether'
   )
 
   return (
