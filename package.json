@@ -70,7 +70,7 @@
     "gatsby-source-graphql": "^2.2.0",
     "gatsby-transformer-remark": "^2.7.0",
     "gatsby-transformer-sharp": "^2.4.1",
-    "graphql": "^14.6.0",
+    "graphql": "^15.0.0",
     "intersection-observer": "^0.7.0",
     "node-fetch": "^2.6.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
