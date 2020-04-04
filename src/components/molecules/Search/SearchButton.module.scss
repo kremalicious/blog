@@ -1,9 +1,7 @@
 @import 'variables';
 
 .searchButton {
-  padding: 0.65rem 0.85rem;
-  text-align: center;
-  line-height: 1;
+  padding: $spacer / 2;
   vertical-align: middle;
   display: inline-block;
   margin-right: $spacer / 4;

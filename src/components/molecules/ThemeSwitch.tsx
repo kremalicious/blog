@@ -5,14 +5,6 @@ import styles from './ThemeSwitch.module.scss'
 import Icon from '../atoms/Icon'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-const ThemeToggle = () => (
-  <span id="toggle" className={styles.checkboxContainer} aria-live="assertive">
-    <Icon name="Sun" />
-    <span className={styles.checkboxFake} />
-    <Icon name="Moon" />
-  </span>
-)
-
 const ThemeToggleInput = ({
   isDark,
   toggleDark
@@ -48,7 +40,7 @@ export default function ThemeSwitch() {
   return (
     <>
       <HeadMarkup themeColor={themeColor} />
-      <aside className={styles.themeSwitch}>
+      <aside className={styles.themeSwitch} title="Toggle Dark Mode">
         <label
           htmlFor="toggle"
           className={styles.checkbox}
@@ -61,7 +53,9 @@ export default function ThemeSwitch() {
             isDark={darkMode.value}
             toggleDark={darkMode.toggle}
           />
-          <ThemeToggle />
+          <div aria-live="assertive">
+            {darkMode.value ? <Icon name="Sun" /> : <Icon name="Moon" />}
+          </div>
         </label>
       </aside>
     </>

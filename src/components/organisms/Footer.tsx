@@ -37,7 +37,6 @@ export default class Footer extends PureComponent {
     return (
       <footer role="contentinfo" className={styles.footer}>
         <Container>
-          <ThemeSwitch />
           <Vcard />
 
           <Copyright />
