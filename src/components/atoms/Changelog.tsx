@@ -24,7 +24,7 @@ export function PureChangelog({
   const { object, url, owner } = repoMatch
 
   const changelogHtml =
-    object && remark().use(remarkReact).processSync(object.text).contents
+    object && remark().use(remarkReact).processSync(object.text).result
 
   const filePathUrl = `${url}/tree/master/CHANGELOG.md`
   const filePathDisplay = `${owner.login}/${repo}:CHANGELOG.md`
