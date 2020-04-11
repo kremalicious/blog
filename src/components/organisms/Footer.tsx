@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import Container from '../atoms/Container'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
-import ThemeSwitch from '../molecules/ThemeSwitch'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './Footer.module.scss'
 

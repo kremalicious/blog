@@ -1,7 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import shortid from 'shortid'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Web3ReactProvider } from '@web3-react/core'
 import { Author } from '../@types/Site'
 import { useSiteMetadata } from '../hooks/use-site-metadata'

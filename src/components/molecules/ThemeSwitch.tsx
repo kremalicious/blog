@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import useDarkMode from 'use-dark-mode'
 import styles from './ThemeSwitch.module.scss'
 import Icon from '../atoms/Icon'
