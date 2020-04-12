@@ -117,11 +117,11 @@ module.exports = {
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields' values
           MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            excerpt: node => node.excerpt,
-            tags: node => node.frontmatter.tags,
-            content: node => node.rawMarkdownBody,
-            slug: node => node.fields.slug
+            title: (node) => node.frontmatter.title,
+            excerpt: (node) => node.excerpt,
+            tags: (node) => node.frontmatter.tags,
+            content: (node) => node.rawMarkdownBody,
+            slug: (node) => node.fields.slug
           }
         }
       }
@@ -131,7 +131,8 @@ module.exports = {
       options: {
         siteId: '1',
         matomoUrl: 'https://analytics.kremalicious.com',
-        siteUrl: `${siteConfig.siteUrl}`
+        siteUrl: `${siteConfig.siteUrl}`,
+        trackLoad: false
       }
     },
     {
@@ -167,7 +168,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   title: edge.node.frontmatter.title,
                   date: edge.node.fields.date,
