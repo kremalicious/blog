@@ -71,7 +71,7 @@
     "gatsby-transformer-remark": "^2.7.1",
     "gatsby-transformer-sharp": "^2.4.4",
     "graphql": "^14.6.0",
-    "intersection-observer": "^0.7.0",
+    "intersection-observer": "^0.8.0",
     "node-fetch": "^2.6.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
     "pigeon-maps": "^0.15.0",
