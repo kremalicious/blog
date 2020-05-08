@@ -80,12 +80,12 @@ async function createPhotoPost() {
       .join(description)
 
     // copy photo file in place
-    fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, err => {
+    fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, (err) => {
       if (err) spinner.fail(`Error copying photo file: ${err}`)
     })
 
     // create photo post file
-    fs.appendFile(postPhoto, newContentsPhoto, err => {
+    fs.appendFile(postPhoto, newContentsPhoto, (err) => {
       if (err) spinner.fail(`Error creating photo post: ${err}`)
       spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
     })
@@ -115,5 +115,5 @@ if (isPhoto) {
   fs.outputFile(file, newContents)
     .then(() => fs.readFile(file, 'utf8'))
     .then(() => spinner.succeed(`New post '${title}' created.`))
-    .catch(err => spinner.fail(`Error creating post: ${err}`))
+    .catch((err) => spinner.fail(`Error creating post: ${err}`))
 }

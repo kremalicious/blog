@@ -17,7 +17,7 @@
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "lint:css": "stylelint 'src/**/*.{css,scss}'",
     "lint:md": "markdownlint './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,.git,coverage}/**/*'",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,json,css,scss}'",
+    "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css,scss}'",
     "tsc": "tsc --noEmit",
     "deploy": "./scripts/deploy.sh",
     "new": "babel-node ./scripts/new.js"

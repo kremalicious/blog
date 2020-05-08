@@ -27,7 +27,7 @@ exports.generatePostPages = (createPage, posts) => {
   const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
 
   // Create Post pages
-  posts.forEach(post => {
+  posts.forEach((post) => {
     createPage({
       path: `${post.node.fields.slug}`,
       component: postTemplate,
@@ -103,7 +103,7 @@ exports.generateTagPages = (createPage, tags) => {
   })
 }
 
-exports.generateRedirectPages = createRedirect => {
+exports.generateRedirectPages = (createRedirect) => {
   redirects.forEach(({ f, t }) => {
     createRedirect({
       fromPath: f,

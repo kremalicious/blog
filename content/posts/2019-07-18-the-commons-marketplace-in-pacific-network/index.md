@@ -40,7 +40,7 @@ It is still not as fast as we would like it to be, and we will continue to make 
 
 ## 🔥 Burner Wallets: Commons Without Any Setup
 
-Since the launch of Commons, a Web3-capable browser with a wallet setup was required before full functionality became available. Without a wallet, and without a Web3-capable browser, the search feature *was *possible, but publishing or downloading data sets were not, because those processes require a cryptographic signing process — something which can only be done with a Web3 wallet.
+Since the launch of Commons, a Web3-capable browser with a wallet setup was required before full functionality became available. Without a wallet, and without a Web3-capable browser, the search feature _was_ possible, but publishing or downloading data sets were not, because those processes require a cryptographic signing process — something which can only be done with a Web3 wallet.
 
 We found this to be one of the main pain points users had when interacting with a marketplace providing free and publicly available data. Using the right browser, relying on a browser plugin, setting up a wallet, possibly managing crypto tokens, and connecting to the right network proved to be tricky for the target groups we’d like to have using Ocean.
 

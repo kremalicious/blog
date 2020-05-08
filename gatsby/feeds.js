@@ -4,7 +4,7 @@ const path = require('path')
 const { siteUrl, siteTitle, siteDescription, author } = require('../config')
 const writeFile = util.promisify(fs.writeFile)
 
-const feedContent = edge => {
+const feedContent = (edge) => {
   const { image } = edge.node.frontmatter
   const { html } = edge.node
   const footer =
@@ -16,7 +16,7 @@ const feedContent = edge => {
 }
 
 async function jsonItems(posts) {
-  return await posts.map(edge => {
+  return await posts.map((edge) => {
     const { frontmatter, fields, excerpt } = edge.node
     const { slug, date } = fields
 
@@ -35,7 +35,7 @@ async function jsonItems(posts) {
   })
 }
 
-const createJsonFeed = posts => ({
+const createJsonFeed = (posts) => ({
   version: 'https://jsonfeed.org/version/1',
   title: siteTitle,
   description: siteDescription,
@@ -52,12 +52,12 @@ const createJsonFeed = posts => ({
   items: jsonItems(posts)
 })
 
-const generateJsonFeed = async posts => {
+const generateJsonFeed = async (posts) => {
   await writeFile(
     path.join('./public', 'feed.json'),
     JSON.stringify(createJsonFeed(posts)),
     'utf8'
-  ).catch(err => {
+  ).catch((err) => {
     throw Error('\nFailed to write JSON Feed file: ', err)
   })
 
