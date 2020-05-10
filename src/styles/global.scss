@@ -49,10 +49,6 @@ ol {
   margin: 0 0 $spacer;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
 // Reset fonts for relevant elements
 /////////////////////////////////////
 
@@ -255,7 +251,7 @@ ol {
 
   li {
     position: relative;
-    margin-bottom: $spacer / 4;
+    margin-bottom: $spacer / 2;
 
     // stylelint-disable no-descending-specificity
     &::before {
@@ -266,11 +262,20 @@ ol {
       user-select: none;
     }
     // stylelint-enable no-descending-specificity
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   ul,
   ol {
+    margin-top: $spacer / 4;
     margin-bottom: 0;
+
+    li {
+      margin: 0;
+    }
   }
 }
 

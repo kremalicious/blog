@@ -14,4 +14,9 @@
   ul {
     margin: 0;
   }
+
+  li {
+    margin-top: $spacer / 6;
+    margin-bottom: $spacer / 6;
+  }
 }

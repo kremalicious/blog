@@ -117,7 +117,7 @@ export const pageQuery = graphql`
         githubLink
       }
       rawMarkdownBody
-      tableOfContents(maxDepth: 2)
+      tableOfContents(maxDepth: 3)
     }
   }
 `
