@@ -9,6 +9,7 @@ tags:
   - oceanprotocol
   - blockchain
   - design
+  - development
   - web3
 
 toc: true

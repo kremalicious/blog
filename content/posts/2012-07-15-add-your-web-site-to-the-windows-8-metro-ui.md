@@ -11,6 +11,7 @@ tags:
   - design
   - icon
   - windows
+  - development
 
 redirect_from:
   - /2012/07/add-your-web-site-to-the-windows-8-metro-ui/

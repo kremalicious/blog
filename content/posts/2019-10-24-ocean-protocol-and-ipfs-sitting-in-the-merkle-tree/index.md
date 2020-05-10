@@ -9,6 +9,7 @@ tags:
   - oceanprotocol
   - blockchain
   - design
+  - development
   - ipfs
   - web3
 

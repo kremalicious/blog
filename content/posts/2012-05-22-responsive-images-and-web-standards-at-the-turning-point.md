@@ -9,6 +9,7 @@ date: 2012-05-22 06:23:26+00:00
 
 tags:
   - design
+  - development
   - mobile
   - responsive
   - retina

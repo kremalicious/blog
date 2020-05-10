@@ -7,6 +7,7 @@ date: 2009-12-17 04:00:21+00:00
 
 tags:
   - design
+  - development
   - tutorial
   - wordpress
 
