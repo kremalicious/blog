@@ -33,6 +33,10 @@ module.exports = {
     {
       title: 'Tags',
       link: '/tags'
+    },
+    {
+      title: '/Uses',
+      link: '/uses'
     }
   ],
   darkModeConfig: {
