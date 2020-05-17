@@ -37,6 +37,8 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 ### Home Office Setup
 
+![The essentials at home.](uses-home.png)
+
 - **[Desk, East Indian rosewood](/office-desk), 200cm x 80cm**: massive wood dining table turned into a desk. Yearly bee wax polishing keeps it looking like new for more than a decade. [The monolith](/basically-the-monolith-is-on-my-desk) might had an effect on that too. Leaves more than enough space to run big display and MacBook screen side-by-side.
 - **[LG 32UL950](https://www.lg.com/de/monitore/lg-32UL950-W), 32" UltraFine 4K external display with Thunderbolt3/USB-C**: my main display being used when working from home. 4k and one cable to deliver power, video, audio, and further connectivity is the minimum. The image quality is bearable and on-par with the more Mac-optimized LG 5K UltraFine versions, but bigger, cheaper, more slim, and uses less energy. Still no Pro Display XDR image quality though.
 - **[Magic Mouse 2](https://www.apple.com/shop/product/MRME2/magic-mouse-2-space-gray), Space Gray**: always coming back to this mouse after trying a bunch of Logitech & Razer gaming mice. The combination of a mouse with a touch surface for gestures and scrolling in any direction is just unbeatable.
