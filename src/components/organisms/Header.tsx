@@ -16,7 +16,7 @@ export default class Header extends PureComponent {
           <div className={styles.headerContent}>
             <h1 className={styles.title}>
               <Link to="/">
-                <Logo /> kremalicious
+                <Logo className={styles.logo} /> kremalicious
               </Link>
             </h1>
 

@@ -2,9 +2,6 @@
 @import 'mixins';
 
 .header {
-  margin-top: ($spacer/2);
-  margin-bottom: ($spacer/2);
-
   @media (min-width: $screen-sm) and (min-height: 500px) {
     position: fixed;
     width: 100%;
@@ -21,6 +18,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 $spacer;
 
   @media (min-width: $screen-md) {
@@ -32,20 +30,18 @@
 /////////////////////////////////////
 
 .title {
-  margin-top: $spacer / 5;
-  margin-bottom: 0;
-
-  svg {
-    fill: $brand-grey-light;
-    width: 160px;
-    height: 30px;
-    margin: 0;
-    transition: 0.2s $easing;
-  }
+  margin: 0;
 
   a {
     display: block;
     @include hide-text;
+
+    width: 60px;
+    overflow: hidden;
+
+    @media (min-width: $screen-sm) {
+      width: 212px;
+    }
 
     &:hover,
     &:focus {
@@ -54,6 +50,15 @@
       }
     }
   }
+}
+
+.logo {
+  width: 191px;
+  height: 36px;
+  max-width: unset;
+  fill: $brand-grey-light;
+  margin: 0;
+  transition: 0.2s $easing;
 }
 
 .nav {

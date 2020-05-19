@@ -4,11 +4,11 @@
 .hamburger {
   width: 24px;
   height: 24px;
-  display: block;
+  display: inline-block;
   position: relative;
   transform: rotate(0deg);
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: $spacer / 2;
 }
 
 .hamburgerLine {
