@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { UnsupportedChainIdError } from '@web3-react/core'
 import {
   NoEthereumProviderError,
@@ -50,37 +49,4 @@ export function getErrorMessage(error: Error, chainId: number): string {
     console.error(error)
     return 'An unknown error occurred. Check the console for more details.'
   }
-}
-
-export function getBalance(
-  account: string,
-  library: Web3Provider
-): Promise<number> {
-  const [ethBalance, setEthBalance] = useState()
-
-  useEffect((): any => {
-    if (library && account) {
-      let stale = false
-
-      library
-        .getBalance(account)
-        .then((balance: any) => {
-          if (!stale) {
-            setEthBalance(balance)
-          }
-        })
-        .catch(() => {
-          if (!stale) {
-            setEthBalance(null)
-          }
-        })
-
-      return () => {
-        stale = true
-        setEthBalance(undefined)
-      }
-    }
-  }, [library, account])
-
-  return ethBalance
 }

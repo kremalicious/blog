@@ -1,13 +1,23 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 import { toDataUrl } from 'ethereum-blockies'
 import { formatEther } from '@ethersproject/units'
+import useWeb3 from '../../../hooks/use-web3'
 import styles from './Account.module.scss'
-import useWeb3, { getBalance } from '../../../hooks/use-web3'
 
-export default async function Account(): Promise<ReactElement> {
+export default function Account(): ReactElement {
   const { library, account } = useWeb3()
-  const ethBalance = account && (await getBalance(account, library))
+  const [ethBalance, setEthBalance] = useState(0)
   const blockies = account && toDataUrl(account)
+
+  useEffect(() => {
+    if (!library || !account) return
+
+    async function init() {
+      const balance = await library.getBalance(account)
+      setEthBalance(balance)
+    }
+    init()
+  }, [library, account])
 
   const accountDisplay =
     account &&

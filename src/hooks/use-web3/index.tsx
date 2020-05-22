@@ -2,14 +2,9 @@ import { useState, useEffect } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
 import * as connectors from './connectors'
-import {
-  getLibrary,
-  getNetworkName,
-  getErrorMessage,
-  getBalance
-} from './utils'
+import { getLibrary, getNetworkName, getErrorMessage } from './utils'
 
-export { connectors, getLibrary, getNetworkName, getErrorMessage, getBalance }
+export { connectors, getLibrary, getNetworkName, getErrorMessage }
 
 export function useEagerConnect(): boolean {
   const { MetaMask } = connectors
