@@ -35,7 +35,6 @@ export function PureChangelog({
         Changelog
       </h2>
       <div className={styles.content}>
-        {changelogHtml}
         <p className={styles.source}>
           <em>
             sourced from{' '}
@@ -44,6 +43,7 @@ export function PureChangelog({
             </a>
           </em>
         </p>
+        {changelogHtml}
       </div>
     </div>
   )

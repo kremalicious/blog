@@ -360,6 +360,33 @@ blockquote {
   }
 }
 
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  margin-bottom: $spacer;
+  border-top: 1px solid $brand-grey-dimmed;
+  border-bottom: 1px solid $brand-grey-dimmed;
+
+  th {
+    border-bottom: 1px solid $brand-grey-dimmed;
+  }
+
+  th,
+  td {
+    padding: $spacer / 2;
+    word-wrap: normal;
+    word-break: normal;
+  }
+
+  :global(.dark) & {
+    &,
+    th {
+      border-color: $brand-grey;
+    }
+  }
+}
+
 // Selection
 /////////////////////////////////////
 

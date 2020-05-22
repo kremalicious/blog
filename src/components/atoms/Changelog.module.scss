@@ -6,7 +6,7 @@
 }
 
 .content {
-  padding-top: $spacer * 2;
+  padding-top: $spacer;
   padding-left: $spacer / 2;
   margin-left: $spacer / 2;
   border-left: 1px solid $brand-grey-dimmed;
@@ -60,6 +60,10 @@
   ul {
     font-size: $font-size-small;
     margin-left: $spacer / 8;
+
+    li {
+      margin-bottom: $spacer / 8;
+    }
   }
 }
 
@@ -67,7 +71,6 @@
   font-size: $font-size-mini;
   font-family: $font-family-base;
   font-weight: $font-weight-base;
-  padding-top: $spacer / 2;
   padding-bottom: $spacer / 2;
 
   &,
