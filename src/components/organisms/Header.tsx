@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { ReactElement, PureComponent } from 'react'
 import { Link } from 'gatsby'
 import Container from '../atoms/Container'
 import Search from '../molecules/Search'
@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from '../../images/logo.svg'
 import styles from './Header.module.scss'
 
 export default class Header extends PureComponent {
-  render() {
+  render(): ReactElement {
     return (
       <header role="banner" className={styles.header}>
         <Container>

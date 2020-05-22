@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Image } from '../atoms/Image'
 import styles from './PostTeaser.module.scss'
@@ -33,7 +33,7 @@ export default function PostTeaser({
 }: {
   post: Post
   toggleSearch?: () => void
-}) {
+}): ReactElement {
   const { image, title } = post.frontmatter
   const { slug } = post.fields
 

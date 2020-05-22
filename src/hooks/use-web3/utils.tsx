@@ -4,15 +4,15 @@ import {
   NoEthereumProviderError,
   UserRejectedRequestError
 } from '@web3-react/injected-connector'
-import { Web3Provider } from '@ethersproject/providers'
+import { Web3Provider, ExternalProvider } from '@ethersproject/providers'
 
-export function getLibrary(provider: any): Web3Provider {
+export function getLibrary(provider: ExternalProvider): Web3Provider {
   const library = new Web3Provider(provider)
   library.pollingInterval = 10000
   return library
 }
 
-export function getNetworkName(netId: number) {
+export function getNetworkName(netId: number): string {
   let networkName
 
   switch (netId) {
@@ -38,7 +38,7 @@ export function getNetworkName(netId: number) {
   return networkName
 }
 
-export function getErrorMessage(error: Error, chainId: number) {
+export function getErrorMessage(error: Error, chainId: number): string {
   if (error instanceof NoEthereumProviderError) {
     return 'No Ethereum browser extension detected, install <a href="https://metamask.io">MetaMask</a> or <a href="https://brave.com">Brave</a>.'
   } else if (error instanceof UnsupportedChainIdError) {
@@ -52,7 +52,10 @@ export function getErrorMessage(error: Error, chainId: number) {
   }
 }
 
-export function getBalance(account: string, library: any) {
+export function getBalance(
+  account: string,
+  library: Web3Provider
+): Promise<number> {
   const [ethBalance, setEthBalance] = useState()
 
   useEffect((): any => {

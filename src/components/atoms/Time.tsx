@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import loadable from '@loadable/component'
 
 const LazyDate = loadable.lib(() => import('date-fns'))
@@ -24,7 +24,7 @@ function TimeMarkup({
   )
 }
 
-export default function Time({ date }: { date: string }) {
+export default function Time({ date }: { date: string }): ReactElement {
   const dateNew = new Date(date)
 
   return (

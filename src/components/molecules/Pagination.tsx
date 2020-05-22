@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import styles from './Pagination.module.scss'
 import shortid from 'shortid'
@@ -50,7 +50,7 @@ export default function Pagination({
     prevPagePath?: string
     nextPagePath?: string
   }
-}) {
+}): ReactElement {
   const {
     slug,
     currentPageNumber,

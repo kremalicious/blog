@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.scss'
@@ -51,7 +51,7 @@ export default function RelatedPosts({
 }: {
   tags: string[]
   photos?: boolean
-}) {
+}): ReactElement {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
 

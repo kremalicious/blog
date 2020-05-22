@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import remark from 'remark'
 import remarkReact from 'remark-react'
@@ -11,7 +11,7 @@ export function PureChangelog({
 }: {
   repo: string
   repos: [{ node: GitHubRepo }]
-}) {
+}): ReactElement {
   const repoFilteredArray = repos
     .map(({ node }: { node: GitHubRepo }) => {
       if (node.name === repo) return node
@@ -75,7 +75,7 @@ const queryGithub = graphql`
   }
 `
 
-export default function Changelog({ repo }: { repo: string }) {
+export default function Changelog({ repo }: { repo: string }): ReactElement {
   const data: GitHub = useStaticQuery(queryGithub)
   const repos: [{ node: GitHubRepo }] = data.github.viewer.repositories.edges
   return <PureChangelog repo={repo} repos={repos} />

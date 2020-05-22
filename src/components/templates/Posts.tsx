@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Post } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
@@ -25,7 +25,7 @@ export default function Posts({
     currentPageNumber: number
     numPages: number
   }
-}) {
+}): ReactElement {
   const edges = data.allMarkdownRemark.edges
   const { tag, currentPageNumber, numPages } = pageContext
 

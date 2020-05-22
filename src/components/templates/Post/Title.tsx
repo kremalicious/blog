@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import styles from './Title.module.scss'
 import Icon from '../../atoms/Icon'
@@ -13,7 +13,7 @@ export default function PostTitle({
   slug?: string
   linkurl?: string
   title: string
-}) {
+}): ReactElement {
   const linkHostname = linkurl ? new URL(linkurl).hostname : null
 
   return type === 'link' ? (

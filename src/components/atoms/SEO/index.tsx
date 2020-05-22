@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
@@ -25,7 +25,7 @@ export default function SEO({
   post?: Post
   slug?: string
   postSEO?: boolean
-}) {
+}): ReactElement {
   const data = useStaticQuery(query)
   const logo = data.logo.edges[0].node.relativePath
   const { siteTitle, siteUrl, siteDescription } = useSiteMetadata()

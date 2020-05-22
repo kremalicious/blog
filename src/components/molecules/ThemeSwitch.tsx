@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import useDarkMode from 'use-dark-mode'
 import styles from './ThemeSwitch.module.scss'
@@ -32,7 +32,7 @@ const HeadMarkup = ({ themeColor }: { themeColor: string }) => (
   </Helmet>
 )
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch(): ReactElement {
   const { darkModeConfig } = useSiteMetadata()
   const darkMode = useDarkMode(false, darkModeConfig)
   const themeColor = darkMode.value ? '#1d2224' : '#e7eef4'

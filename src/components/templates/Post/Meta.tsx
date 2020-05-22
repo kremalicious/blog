@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
 import Time from '../../atoms/Time'
@@ -8,7 +8,7 @@ import styles from './Meta.module.scss'
 import { Post } from '../../../@types/Post'
 import shortid from 'shortid'
 
-export default function PostMeta({ post }: { post: Post }) {
+export default function PostMeta({ post }: { post: Post }): ReactElement {
   const siteMeta = useSiteMetadata()
   const { author, updated, tags, type } = post.frontmatter
   const { date } = post.fields

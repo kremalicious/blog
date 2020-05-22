@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { QRCode } from 'react-qr-svg'
 import styles from './Qr.module.scss'
 import Copy from './Copy'
@@ -9,7 +9,7 @@ export default function Qr({
 }: {
   address: string
   title?: string
-}) {
+}): ReactElement {
   return (
     <>
       {title && <h4>{title}</h4>}

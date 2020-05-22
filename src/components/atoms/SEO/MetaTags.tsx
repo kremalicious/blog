@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 import schemaOrg from './schemaOrg'
@@ -30,7 +30,7 @@ export default function MetaTags({
   title: string
   datePublished: string
   dateModified: string
-}) {
+}): ReactElement {
   const { siteTitle, siteDescription, siteUrl, author } = useSiteMetadata()
 
   return (

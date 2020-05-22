@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from './Hamburger.module.scss'
 
-export default function Hamburger({ onClick }: { onClick(): void }) {
+export default function Hamburger({
+  onClick
+}: {
+  onClick(): void
+}): ReactElement {
   return (
     <button
       type="button"

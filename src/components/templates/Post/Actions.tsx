@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 import styles from './Actions.module.scss'
 import Icon from '../../atoms/Icon'
@@ -35,7 +35,7 @@ export default function PostActions({
 }: {
   slug: string
   githubLink: string
-}) {
+}): ReactElement {
   const { siteUrl } = useSiteMetadata()
   const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
 

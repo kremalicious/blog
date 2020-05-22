@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { Post as PostMetadata } from '../../../@types/Post'
@@ -25,7 +25,7 @@ export default function Post({
     next: { title: string; slug: string }
     prev: { title: string; slug: string }
   }
-}) {
+}): ReactElement {
   const { post } = data
   const { title, image, type, linkurl, style, tags } = post.frontmatter
   const { slug, githubLink } = post.fields

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 // https://featherstyles.com
 // import * as Feather from 'react-feather'
@@ -55,7 +55,7 @@ const components: any = {
   Crosshair
 }
 
-const Icon = ({ name }: { name: string }) => {
+const Icon = ({ name }: { name: string }): ReactElement => {
   const IconMapped = components[name]
   // const IconFeather = (Feather as any)[name]
   if (!IconMapped) return null

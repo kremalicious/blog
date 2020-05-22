@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Icon from '../atoms/Icon'
 import styles from './Networks.module.scss'
 
@@ -20,7 +20,11 @@ function NetworkIcon({ link }: { link: string }) {
   return IconComp
 }
 
-export default function IconLinks({ links }: { links: string[] }) {
+export default function IconLinks({
+  links
+}: {
+  links: string[]
+}): ReactElement {
   return (
     <p>
       {links.map((link: string) => (

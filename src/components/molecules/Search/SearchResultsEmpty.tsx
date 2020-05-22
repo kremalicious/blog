@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from './SearchResultsEmpty.module.scss'
 import { Results } from './SearchResults'
 
@@ -8,7 +8,7 @@ const SearchResultsEmpty = ({
 }: {
   searchQuery: string
   results: Results[]
-}) => (
+}): ReactElement => (
   <div className={styles.empty}>
     <header className={styles.emptyMessage}>
       <p className={styles.emptyMessageText}>

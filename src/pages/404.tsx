@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import Page from '../components/templates/Page'
 import styles from './404.module.scss'
@@ -9,7 +9,7 @@ const page = {
   }
 }
 
-const NotFound = ({ location }: { location: Location }) => (
+const NotFound = ({ location }: { location: Location }): ReactElement => (
   <Page title={page.frontmatter.title} post={page} location={location}>
     <div className={styles.hal9000} />
 

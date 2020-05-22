@@ -11,7 +11,7 @@ import {
 
 export { connectors, getLibrary, getNetworkName, getErrorMessage, getBalance }
 
-export function useEagerConnect() {
+export function useEagerConnect(): boolean {
   const { MetaMask } = connectors
   const { activate, active } = useWeb3React()
   const [tried, setTried] = useState(false)
@@ -38,7 +38,7 @@ export function useEagerConnect() {
   return tried
 }
 
-export function useInactiveListener(suppress = false) {
+export function useInactiveListener(suppress = false): void {
   const { active, error, activate } = useWeb3React()
   const { MetaMask } = connectors
 

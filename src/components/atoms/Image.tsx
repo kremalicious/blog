@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { ImageProps } from '../../@types/Image'
 import styles from './Image.module.scss'
 
-export const Image = ({ title, fluid, fixed, alt, original }: ImageProps) => (
+export const Image = ({
+  title,
+  fluid,
+  fixed,
+  alt,
+  original
+}: ImageProps): ReactElement => (
   <figure className={styles.image} data-original={original && original.src}>
     <Img backgroundColor="transparent" fluid={fluid} fixed={fixed} alt={alt} />
     {title && <figcaption className={styles.imageTitle}>{title}</figcaption>}

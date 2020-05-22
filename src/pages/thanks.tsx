@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import loadable from '@loadable/component'
 import shortid from 'shortid'
 import { Helmet } from 'react-helmet'
@@ -29,7 +29,7 @@ const BackButton = () => (
   </button>
 )
 
-export default function Thanks() {
+export default function Thanks(): ReactElement {
   const { author } = useSiteMetadata()
   const coins = Object.keys(author).filter(
     (key) => key === 'bitcoin' || key === 'ether'

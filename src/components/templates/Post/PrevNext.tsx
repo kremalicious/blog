@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import Icon from '../../atoms/Icon'
 import styles from './PrevNext.module.scss'
@@ -13,7 +13,7 @@ interface PrevNextProps {
   next: Node
 }
 
-const PrevNext = ({ prev, next }: PrevNextProps) => (
+const PrevNext = ({ prev, next }: PrevNextProps): ReactElement => (
   <nav className={styles.prevnext}>
     <div>
       {prev && (

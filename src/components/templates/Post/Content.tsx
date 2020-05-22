@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Changelog from '../../atoms/Changelog'
 import { Post } from '../../../@types/Post'
 import PostToc from './Toc'
 
 // Remove lead paragraph from content
-const PostContent = ({ post }: { post: Post }) => {
+const PostContent = ({ post }: { post: Post }): ReactElement => {
   const separator = '<!-- more -->'
   const changelog = post.frontmatter.changelog
 

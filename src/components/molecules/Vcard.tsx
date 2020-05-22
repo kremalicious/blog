@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import IconLinks from './Networks'
@@ -21,7 +21,7 @@ const query = graphql`
   }
 `
 
-export default function Vcard() {
+export default function Vcard(): ReactElement {
   const data = useStaticQuery(query)
   const { author, rss, jsonfeed } = useSiteMetadata()
   const { twitter, github, name, uri } = author

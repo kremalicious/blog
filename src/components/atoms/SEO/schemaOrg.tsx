@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 export default function schemaOrg(
   blogURL: string,
@@ -10,7 +10,7 @@ export default function schemaOrg(
   author: string,
   datePublished: string,
   dateModified: string
-) {
+): ReactElement {
   const schemaOrgJSONLD: any = [
     {
       '@context': 'http://schema.org',

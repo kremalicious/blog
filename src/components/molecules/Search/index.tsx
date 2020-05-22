@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
 import SearchInput from './SearchInput'
@@ -7,7 +7,7 @@ import SearchResults from './SearchResults'
 
 import styles from './index.module.scss'
 
-export default function Search() {
+export default function Search(): ReactElement {
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])

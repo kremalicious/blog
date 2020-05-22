@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql, Link } from 'gatsby'
 import Page from '../components/templates/Page'
 import { Post } from '../@types/Post'
@@ -12,7 +12,7 @@ const page = {
   }
 }
 
-const PhotoThumb = ({ photo }: { photo: Post }) => {
+const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   const { title, image } = photo.frontmatter
   const { slug } = photo.fields
   const { fluid } = image.childImageSharp
@@ -34,7 +34,7 @@ export default function Photos({
 }: {
   data: any
   location: Location
-}) {
+}): ReactElement {
   return (
     <Page
       title={page.frontmatter.title}

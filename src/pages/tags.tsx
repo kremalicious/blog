@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
@@ -23,7 +23,7 @@ interface TagsPageProps {
   location: Location
 }
 
-const TagsPage = ({ data, location }: TagsPageProps) => (
+const TagsPage = ({ data, location }: TagsPageProps): ReactElement => (
   <Page title={page.frontmatter.title} location={location} post={page}>
     <ul className={styles.tags}>
       {data.allMarkdownRemark.group

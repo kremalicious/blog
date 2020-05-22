@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { Post } from '../../@types/Post'
 import SEO from '../atoms/SEO'
@@ -16,7 +16,7 @@ export default function Page({
   section?: string
   location: Location
   post?: Post
-}) {
+}): ReactElement {
   return (
     <>
       <Helmet title={title} />

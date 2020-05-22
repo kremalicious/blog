@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
@@ -6,7 +6,7 @@ import styles from './Menu.module.scss'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import { MenuItem } from '../../@types/Site'
 
-export default function Menu() {
+export default function Menu(): ReactElement {
   const [menuOpen, setMenuOpen] = useState(false)
   const { menu } = useSiteMetadata()
 

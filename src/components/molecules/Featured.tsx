@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { Image } from '../atoms/Image'
 import styles from './Featured.module.scss'
@@ -19,7 +19,7 @@ const query = graphql`
   }
 `
 
-export default function Featured() {
+export default function Featured(): ReactElement {
   const data = useStaticQuery(query)
   return (
     <div className={styles.featured}>

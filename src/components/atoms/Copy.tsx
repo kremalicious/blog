@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import loadable from '@loadable/component'
 import styles from './Copy.module.scss'
 import Icon from './Icon'
@@ -9,7 +9,7 @@ const onCopySuccess = (e: any) => {
   e.trigger.classList.add(styles.copied)
 }
 
-export default function Copy({ text }: { text: string }) {
+export default function Copy({ text }: { text: string }): ReactElement {
   return (
     <Clipboard
       data-clipboard-text={text}

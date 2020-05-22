@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 import { parseEther } from '@ethersproject/units'
 import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import styles from './index.module.scss'
 
-export default function Web3Donation({ address }: { address: string }) {
+export default function Web3Donation({
+  address
+}: {
+  address: string
+}): ReactElement {
   const {
     connector,
     library,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import Input from '../../atoms/Input'
 import Account from './Account'
 import Conversion from './Conversion'
@@ -8,7 +8,7 @@ export default function InputGroup({
   sendTransaction
 }: {
   sendTransaction(amount: number): void
-}) {
+}): ReactElement {
   const [amount, setAmount] = useState(0.03)
 
   const onAmountChange = ({ target }: { target: any }) => {

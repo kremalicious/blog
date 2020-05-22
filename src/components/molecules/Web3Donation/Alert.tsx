@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from './Alert.module.scss'
 
-export function getTransactionMessage(transactionHash?: string) {
+export function getTransactionMessage(
+  transactionHash?: string
+): { [key: string]: string } {
   return {
     transaction: `<a href="https://etherscan.io/tx/${transactionHash}" target="_blank">See your transaction on etherscan.io.</a>`,
     waitingForUser: 'Waiting for your confirmation',
@@ -34,7 +36,7 @@ export default function Alert({
 }: {
   transactionHash: string
   message?: { text?: string; status?: string }
-}) {
+}): ReactElement {
   return (
     <div
       className={classes(message.status)}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
@@ -17,7 +17,7 @@ const TypekitScript = (typekitID: string) => (
   </script>
 )
 
-export default function Typekit() {
+export default function Typekit(): ReactElement {
   const { typekitID } = useSiteMetadata()
 
   return typekitID ? (

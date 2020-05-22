@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styles from './Toc.module.scss'
 
-const PostToc = ({ tableOfContents }: { tableOfContents: string }) => {
+const PostToc = ({
+  tableOfContents
+}: {
+  tableOfContents: string
+}): ReactElement => {
   return (
     <nav
       className={styles.toc}

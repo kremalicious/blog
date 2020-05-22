@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import stylesPostMore from './More.module.scss'
 import styles from './LinkActions.module.scss'
@@ -10,7 +10,7 @@ const PostLinkActions = ({
 }: {
   linkurl?: string
   slug: string
-}) => (
+}): ReactElement => (
   <aside className={styles.postLinkActions}>
     <a className={stylesPostMore.postMore} href={linkurl}>
       Go to source <Icon name="ExternalLink" />

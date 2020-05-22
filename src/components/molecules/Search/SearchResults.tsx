@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from '../../atoms/Container'
@@ -67,7 +67,7 @@ export default function SearchResults({
   searchQuery: string
   results: Results[]
   toggleSearch(): void
-}) {
+}): ReactElement {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
 

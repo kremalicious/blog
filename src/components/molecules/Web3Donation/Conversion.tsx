@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import fetch from 'node-fetch'
 import styles from './Conversion.module.scss'
 
-export async function getFiat(amount: number) {
+export async function getFiat(
+  amount: number
+): Promise<{ [key: string]: string }> {
   const url =
     'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur%2Cusd'
   const response = await fetch(url)
@@ -16,7 +18,11 @@ export async function getFiat(amount: number) {
   return { dollar, euro }
 }
 
-export default function Conversion({ amount }: { amount: number }) {
+export default function Conversion({
+  amount
+}: {
+  amount: number
+}): ReactElement {
   const [conversion, setConversion] = useState({
     euro: '0.00',
     dollar: '0.00'
