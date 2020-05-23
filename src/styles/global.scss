@@ -31,6 +31,7 @@ body {
   min-height: 100vh;
   transition: background 0.4s $easing;
   background: $body-background-color;
+  position: relative;
 
   // handling long text, like URLs
   overflow-wrap: break-word;
@@ -409,6 +410,7 @@ table {
 @import 'code';
 @import 'buttons';
 @import 'alerts';
+@import 'toast';
 
 .dark .medium-zoom-overlay {
   background-color: $body-background-color--dark !important;

@@ -1,0 +1,34 @@
+@import 'variables';
+
+#toast {
+  position: sticky;
+  z-index: 10;
+  bottom: $spacer / 2;
+  right: $spacer / 2;
+  left: $spacer / 2;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: $font-size-small;
+  padding: $spacer / 3 $spacer;
+  animation: animation 0.2s ease-out backwards;
+
+  button {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+
+    span {
+      color: $link-color;
+    }
+  }
+}
+
+@keyframes animation {
+  0% {
+    transform: translateY(3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

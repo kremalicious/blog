@@ -11,11 +11,9 @@ export const wrapPageElement = wrapPageElementWithLayout
 // Display a message when a service worker updates
 // https://www.gatsbyjs.org/docs/add-offline-support-with-a-service-worker/#displaying-a-message-when-a-service-worker-updates
 export const onServiceWorkerUpdateReady = () => {
-  const answer = window.confirm(
-    `This application has been updated. ` +
-      `Reload to display the latest version?`
-  )
-  if (answer === true) {
-    window.location.reload()
-  }
+  const div = document.createElement('div')
+  div.id = 'toast'
+  div.classList.add('alert', 'alert-info')
+  div.innerHTML = `<button onClick="window.location.reload()">This application has been updated. <span>Click to Reload</span>.</button>`
+  document.body.append(div)
 }
