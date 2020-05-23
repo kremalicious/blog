@@ -364,12 +364,13 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   display: block;
+  width: 100%;
+  overflow: auto;
   margin-bottom: $spacer;
-  border-top: 1px solid $brand-grey-dimmed;
-  border-bottom: 1px solid $brand-grey-dimmed;
 
   th {
-    border-bottom: 1px solid $brand-grey-dimmed;
+    text-align: left;
+    border-top: 1px solid $brand-grey-dimmed;
   }
 
   th,
@@ -377,11 +378,13 @@ table {
     padding: $spacer / 2;
     word-wrap: normal;
     word-break: normal;
+    overflow-wrap: normal;
+    border-bottom: 1px solid $brand-grey-dimmed;
   }
 
   :global(.dark) & {
-    &,
-    th {
+    th,
+    td {
       border-color: $brand-grey;
     }
   }

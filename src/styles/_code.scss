@@ -10,14 +10,14 @@ samp {
 
 code,
 kbd {
-  padding: 0.2rem 0.3rem;
+  padding: 0.1rem 0.3rem;
 }
 
 code,
 samp {
   white-space: normal;
   color: inherit;
-  background-color: $brand-grey-dimmed;
+  background-color: rgba($code-bg, 0.05);
   border-radius: $border-radius;
 
   :global(.dark) & {
