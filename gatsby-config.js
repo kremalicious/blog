@@ -71,9 +71,15 @@ module.exports = {
             // https://github.com/andrewbranch/gatsby-remark-vscode
             resolve: 'gatsby-remark-vscode',
             options: {
-              theme: 'Nord',
+              theme: {
+                default: 'Polar',
+                parentSelector: { 'body.dark': 'Nord' }
+              },
               injectStyles: false,
-              extensions: ['nord-visual-studio-code'],
+              extensions: [
+                'nord-visual-studio-code',
+                `${__dirname}/vendor/polar-0.0.6.vsix`
+              ],
               languageAliases: {}
             }
           }

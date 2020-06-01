@@ -52,6 +52,11 @@ pre {
     background-color: $code-bg;
   }
 
+  // overwrite Polar theme background color
+  &:global(.polar) {
+    background-color: lighten($body-background-color, 3%);
+  }
+
   // make 'em scrollable
   overflow: auto;
   -webkit-overflow-scrolling: touch;
