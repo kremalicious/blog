@@ -1,7 +1,7 @@
 ---
 type: post
 date: 2020-05-10T21:51:12Z
-updated: 2020-05-23T10:32:12+02:00
+updated: 2020-06-01T15:58:12+02:00
 
 title: /uses
 image: uses-teaser.png
@@ -51,7 +51,7 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[Beats Powerbeats](https://www.beatsbydre.com/earphones/powerbeats)**
   _Black_
-  Using the original ones during all sport activities for many years. Impossible to fall out, and way more robust like AirPods, but with similar features.
+  Using the original ones during all workout activities for many years. Impossible to fall out, and way more robust like AirPods, but with similar features.
 
 - **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**
   The best experience for long time reading. Almost all my non-technical books are Kindle books.
@@ -208,6 +208,9 @@ I live with **automatic dark mode** where all my devices have a light theme duri
 - **[xScope](https://xscopeapp.com)**
   When stuff on screen just has to be pixel-perfect. Always used to check for accessible colors in all UIs I create.
 
+- **[Typeface](https://typefaceapp.com)**
+  My font manager of choice. Nice and simple.
+
 - **[Sip](https://sipapp.io)**
   Use this to pick colors from everywhere on the screen.
 
@@ -248,7 +251,7 @@ I live with **automatic dark mode** where all my devices have a light theme duri
 ### Messaging
 
 - **Mail**
-  Apple's default email app has always just worked for me, on all devices, so I just stick to it.
+  Apple's default email app has always worked for me, on all devices, so I just stick to it.
 
 - **[GnuPG](https://gnupg.org)**
   Use it since I use email but its clunky and rarely anyone uses it. Interacting with it only in Terminal.app for decrypting and encrypting, and use it to sign Git commits. Yes, I'm aware of [GPG Suite](https://gpgtools.org) but the instability it introduces into the whole operating system is not worth the usage to me.
