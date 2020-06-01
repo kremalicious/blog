@@ -27,8 +27,8 @@ export default function Post({
   }
 }): ReactElement {
   const { post } = data
-  const { title, image, type, linkurl, style, tags } = post.frontmatter
-  const { slug, githubLink } = post.fields
+  const { title, image, type, linkurl, style, tags, updated } = post.frontmatter
+  const { slug, githubLink, date } = post.fields
 
   return (
     <>
@@ -40,7 +40,13 @@ export default function Post({
 
       <article className={styles.hentry}>
         <header>
-          <PostTitle type={type} linkurl={linkurl} title={title} />
+          <PostTitle
+            type={type}
+            linkurl={linkurl}
+            title={title}
+            date={date}
+            updated={updated}
+          />
           {type === 'post' && <PostLead post={post} />}
         </header>
 

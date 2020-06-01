@@ -2,17 +2,22 @@ import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import styles from './Title.module.scss'
 import Icon from '../../atoms/Icon'
+import Time from '../../atoms/Time'
 
 export default function PostTitle({
   type,
   slug,
   linkurl,
-  title
+  title,
+  date,
+  updated
 }: {
   type?: string
   slug?: string
   linkurl?: string
   title: string
+  date: string
+  updated?: string
 }): ReactElement {
   const linkHostname = linkurl ? new URL(linkurl).hostname : null
 
@@ -32,6 +37,14 @@ export default function PostTitle({
       <Link to={slug}>{title}</Link>
     </h1>
   ) : (
-    <h1 className={styles.hentry__title}>{title}</h1>
+    <>
+      <h1 className={styles.hentry__title}>{title}</h1>
+      <div className={styles.time}>
+        {updated && 'published '}
+        <Time date={date} />
+        {updated && ' • updated '}
+        {updated && <Time date={updated} />}
+      </div>
+    </>
   )
 }

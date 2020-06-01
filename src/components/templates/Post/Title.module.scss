@@ -6,7 +6,7 @@
 
 .hentry__title {
   margin-top: 0;
-  margin-bottom: $spacer;
+  margin-bottom: $spacer / $line-height;
 }
 
 .hentry__title__link {
@@ -31,4 +31,11 @@
   padding: ($spacer/4) 0;
   margin-top: -($spacer);
   margin-bottom: $spacer;
+}
+
+.time {
+  font-style: italic;
+  font-size: $font-size-small;
+  color: $text-color-light;
+  margin-bottom: $spacer / $line-height;
 }
