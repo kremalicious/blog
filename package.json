@@ -60,7 +60,7 @@
     "gatsby-redirect-from": "^0.2.4",
     "gatsby-remark-autolink-headers": "^2.3.4",
     "gatsby-remark-breaks": "^1.0.0",
-    "gatsby-remark-copy-linked-files": "^2.3.3",
+    "gatsby-remark-copy-linked-files": "^2.3.4",
     "gatsby-remark-images": "^3.3.9",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-remark-smartypants": "^2.3.2",
