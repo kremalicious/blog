@@ -68,7 +68,7 @@
     "gatsby-source-filesystem": "^2.3.12",
     "gatsby-source-graphql": "^2.5.5",
     "gatsby-transformer-remark": "^2.8.17",
-    "gatsby-transformer-sharp": "^2.5.5",
+    "gatsby-transformer-sharp": "^2.5.7",
     "graphql": "^14.6.0",
     "intersection-observer": "^0.10.0",
     "node-fetch": "^2.6.0",
