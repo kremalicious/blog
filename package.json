@@ -120,7 +120,7 @@
     "fs-extra": "^9.0.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "markdownlint-cli": "^0.23.1",
     "node-iptc": "^1.0.5",
     "node-sass": "^4.14.1",
