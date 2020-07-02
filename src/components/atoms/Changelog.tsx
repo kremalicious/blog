@@ -26,7 +26,7 @@ export function PureChangelog({
   const changelogHtml =
     object && remark().use(remarkReact).processSync(object.text).result
 
-  const filePathUrl = `${url}/tree/master/CHANGELOG.md`
+  const filePathUrl = `${url}/tree/main/CHANGELOG.md`
   const filePathDisplay = `${owner.login}/${repo}:CHANGELOG.md`
 
   return (
@@ -61,7 +61,7 @@ const queryGithub = graphql`
               owner {
                 login
               }
-              object(expression: "master:CHANGELOG.md") {
+              object(expression: "main:CHANGELOG.md") {
                 id
                 ... on GitHub_Blob {
                   text

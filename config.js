@@ -20,7 +20,7 @@ module.exports = {
   jsonfeed: '/feed.json',
   typekitID: 'msu4qap',
   itemsPerPage: 20,
-  repoContentPath: 'https://github.com/kremalicious/blog/tree/master/content',
+  repoContentPath: 'https://github.com/kremalicious/blog/tree/main/content',
   menu: [
     {
       title: 'Photos',

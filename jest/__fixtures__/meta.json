@@ -33,7 +33,7 @@
       "rss": "/feed.xml",
       "jsonfeed": "/feed.json",
       "itemsPerPage": 20,
-      "repoContentPath": "https://github.com/kremalicious/blog/tree/master/content",
+      "repoContentPath": "https://github.com/kremalicious/blog/tree/main/content",
       "ad": {
         "title": "",
         "link": ""

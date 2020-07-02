@@ -8,7 +8,7 @@
   <a href="https://kremalicious.com">kremalicious.com</a>
 </p>
 <p align="center">
-  <a href="https://travis-ci.com/kremalicious/blog"><img src="https://travis-ci.com/kremalicious/blog.svg?branch=master" /></a>
+  <a href="https://travis-ci.com/kremalicious/blog"><img src="https://travis-ci.com/kremalicious/blog.svg?branch=main" /></a>
   <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" /></a>
   <a href="https://codeclimate.com/github/kremalicious/blog/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/test_coverage" /></a>
   <a href="https://dependabot.com"><img src="https://badgen.net/dependabot/thepracticaldev/dev.to?icon=dependabot" /></a>
@@ -235,7 +235,7 @@ npm run new photo /path/to/photo.jpg
 
 Automatic deployments are triggered upon successful tests & builds on Travis:
 
-- push to `master` initiates a live deployment
+- push to `main` initiates a live deployment
 - any Pull Request, and subsequent pushes to it, initiates a beta deployment
 
 The deploy command simply calls the [`scripts/deploy.sh`](scripts/deploy.sh) script, syncing the contents of the `public/` folder to S3:
