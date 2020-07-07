@@ -1,5 +1,5 @@
 const path = require('path')
-const postsTemplate = path.resolve('src/components/templates/Posts.tsx')
+const archiveTemplate = path.resolve('src/components/templates/Posts.tsx')
 const { itemsPerPage } = require('../config')
 
 const redirects = [
@@ -45,9 +45,9 @@ exports.generatePostPages = (createPage, posts) => {
     })
   })
 
-  // Create paginated Blog index pages
+  // Create paginated Blog archive pages
   const numPages = Math.ceil(posts.length / itemsPerPage)
-  const slug = `/`
+  const slug = `/archive/`
 
   Array.from({ length: numPages }).forEach((_, i) => {
     const { prevPagePath, nextPagePath, path } = getPaginationData(
@@ -58,7 +58,7 @@ exports.generatePostPages = (createPage, posts) => {
 
     createPage({
       path,
-      component: postsTemplate,
+      component: archiveTemplate,
       context: {
         slug,
         limit: itemsPerPage,
@@ -87,7 +87,7 @@ exports.generateTagPages = (createPage, tags) => {
 
       createPage({
         path,
-        component: postsTemplate,
+        component: archiveTemplate,
         context: {
           tag,
           slug,

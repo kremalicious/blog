@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Post } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import Featured from '../molecules/Featured'
 import PostTitle from './Post/Title'
 import PostLead from './Post/Lead'
 import PostContent from './Post/Content'
@@ -12,7 +11,7 @@ import SEO from '../atoms/SEO'
 import styles from './Posts.module.scss'
 import { Image } from '../atoms/Image'
 
-export default function Posts({
+export default function Archive({
   data,
   location,
   pageContext
@@ -70,7 +69,6 @@ export default function Posts({
   return (
     <>
       <SEO />
-      {location.pathname === '/' && <Featured />}
       {tag && (
         <h1 className={styles.archivetitle}>
           <span>#</span>
@@ -88,7 +86,7 @@ export default function Posts({
   )
 }
 
-export const postsQuery = graphql`
+export const archiveQuery = graphql`
   query($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $tag } } }
@@ -103,6 +101,7 @@ export const postsQuery = graphql`
           excerpt(pruneLength: 250)
           frontmatter {
             title
+            updated
             type
             linkurl
             image {

@@ -16,7 +16,7 @@ export default function PostTitle({
   slug?: string
   linkurl?: string
   title: string
-  date: string
+  date?: string
   updated?: string
 }): ReactElement {
   const linkHostname = linkurl ? new URL(linkurl).hostname : null
@@ -39,12 +39,14 @@ export default function PostTitle({
   ) : (
     <>
       <h1 className={styles.hentry__title}>{title}</h1>
-      <div className={styles.time}>
-        {updated && 'published '}
-        <Time date={date} />
-        {updated && ' • updated '}
-        {updated && <Time date={updated} />}
-      </div>
+      {date && (
+        <div className={styles.time}>
+          {updated && 'published '}
+          <Time date={date} />
+          {updated && ' • updated '}
+          {updated && <Time date={updated} />}
+        </div>
+      )}
     </>
   )
 }

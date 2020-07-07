@@ -2,10 +2,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import { createHistory, createMemorySource } from '@reach/router'
 
-import Posts from './Posts'
+import Archive from './Archive'
 import data from '../../../jest/__fixtures__/posts.json'
 
-describe('Post', () => {
+describe('Archive', () => {
   const history = createHistory(createMemorySource('/photos'))
 
   const pageContext = {
@@ -17,7 +17,7 @@ describe('Post', () => {
 
   it('renders without crashing', () => {
     const { container } = render(
-      <Posts
+      <Archive
         data={data}
         pageContext={pageContext}
         location={history.location}
