@@ -1,11 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { createHistory, createMemorySource } from '@reach/router'
 
 import Tags from '../tags'
 
 describe('/tags', () => {
-  const history = createHistory(createMemorySource('/tags'))
   const data = {
     allMarkdownRemark: {
       group: [
@@ -16,9 +14,7 @@ describe('/tags', () => {
   }
 
   it('renders without crashing', () => {
-    const { container } = render(
-      <Tags data={data} location={history.location} />
-    )
+    const { container } = render(<Tags data={data} />)
     expect(container.firstChild).toBeInTheDocument()
   })
 })

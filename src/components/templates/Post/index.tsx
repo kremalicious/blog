@@ -46,7 +46,7 @@ export default function Post({
             date={date}
             updated={updated}
           />
-          {type === 'post' && <PostLead post={post} />}
+          {type === 'article' && <PostLead post={post} />}
         </header>
 
         {type === 'photo' && <PostContent post={post} />}

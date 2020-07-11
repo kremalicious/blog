@@ -28,10 +28,10 @@ const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   )
 }
 
-export default function Photos(props: PageProps): ReactElement {
+export default function Photos({ data }: { data: any }): ReactElement {
   return (
     <Page title={page.frontmatter.title} post={page} section={styles.photos}>
-      {(props.data as any).photos.edges.map(({ node }: { node: Post }) => (
+      {data.photos.edges.map(({ node }: { node: Post }) => (
         <PhotoThumb key={node.id} photo={node} />
       ))}
     </Page>

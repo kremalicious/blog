@@ -31,7 +31,7 @@ const TagsPage = ({ data }: TagsPageProps): ReactElement => (
           <li key={tag.fieldValue}>
             <Tag
               name={tag.fieldValue}
-              url={`/tags/${tag.fieldValue}/`}
+              url={`/archive/${tag.fieldValue}/`}
               count={tag.totalCount}
               style={{ fontSize: `${100 + tag.totalCount * 2}%` }}
             />

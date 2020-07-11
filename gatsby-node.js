@@ -53,6 +53,16 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
+      archive: allMarkdownRemark(
+        filter: { frontmatter: { type: { ne: "photo" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+
       tags: allMarkdownRemark {
         group(field: frontmatter___tags) {
           tag: fieldValue
@@ -65,10 +75,11 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) throw result.errors
 
   const posts = result.data.posts.edges
+  const archiveLength = result.data.archive.edges.length
   const tags = result.data.tags.group
 
   // Generate posts & posts index
-  generatePostPages(createPage, posts)
+  generatePostPages(createPage, posts, archiveLength)
 
   // Generate tag pages
   generateTagPages(createPage, tags)

@@ -32,9 +32,7 @@ export default function Archive({
 
     return (
       <article className={styles.hentry} key={node.id}>
-        {type !== 'photo' && (
-          <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
-        )}
+        <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
 
         {image && (
           <Link to={slug} title={title}>
@@ -47,7 +45,7 @@ export default function Archive({
           </Link>
         )}
 
-        {type === 'post' && (
+        {type === 'article' && (
           <>
             <PostLead post={node} index />
             <PostMore to={slug}>Continue Reading</PostMore>
@@ -87,7 +85,7 @@ export default function Archive({
 export const archiveQuery = graphql`
   query($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { eq: $tag } } }
+      filter: { frontmatter: { tags: { eq: $tag }, type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
       skip: $skip
       limit: $limit
@@ -96,10 +94,8 @@ export const archiveQuery = graphql`
         node {
           id
           html
-          excerpt(pruneLength: 250)
           frontmatter {
             title
-            updated
             type
             linkurl
             image {
@@ -107,11 +103,9 @@ export const archiveQuery = graphql`
                 ...ImageFluid
               }
             }
-            tags
           }
           fields {
             slug
-            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

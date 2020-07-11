@@ -25,7 +25,7 @@ function getPaginationData(i, numPages, slug) {
   return { prevPagePath, nextPagePath, path }
 }
 
-exports.generatePostPages = (createPage, posts) => {
+exports.generatePostPages = (createPage, posts, archiveLength) => {
   // Create Post pages
   posts.forEach((post) => {
     createPage({
@@ -45,8 +45,8 @@ exports.generatePostPages = (createPage, posts) => {
     })
   })
 
-  // Create paginated Blog archive pages
-  const numPages = Math.ceil(posts.length / itemsPerPage)
+  // Create paginated archive pages
+  const numPages = Math.ceil(archiveLength / itemsPerPage)
   const slug = `/archive/`
 
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -76,7 +76,7 @@ exports.generateTagPages = (createPage, tags) => {
   tags.forEach(({ tag, totalCount }) => {
     // Create paginated tag pages
     const numPages = Math.ceil(totalCount / itemsPerPage)
-    const slug = `/tags/${tag}/`
+    const slug = `/archive/${tag}/`
 
     Array.from({ length: numPages }).forEach((_, i) => {
       const { prevPagePath, nextPagePath, path } = getPaginationData(

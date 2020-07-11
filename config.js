@@ -23,12 +23,16 @@ module.exports = {
   repoContentPath: 'https://github.com/kremalicious/blog/tree/main/content',
   menu: [
     {
+      title: 'Articles & Links',
+      link: '/archive'
+    },
+    {
       title: 'Photos',
       link: '/photos'
     },
     {
       title: 'Goodies',
-      link: '/tags/goodies'
+      link: '/archive/goodies'
     },
     {
       title: 'Tags',

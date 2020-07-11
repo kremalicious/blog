@@ -224,7 +224,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/page/*', '/tags/**/*', '/thanks', '/tags']
+        exclude: ['/archive', '/archive/**/*', '/thanks', '/tags']
       }
     },
     {

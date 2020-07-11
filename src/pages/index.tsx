@@ -17,7 +17,7 @@ export default function Home(props: PageProps): ReactElement {
   return (
     <Page title={page.frontmatter.title} post={page} section={styles.home}>
       <Featured />
-      Latest Posts & Links
+      Latest Articles & Links
       <br />
       Latest Photos
     </Page>
@@ -26,8 +26,8 @@ export default function Home(props: PageProps): ReactElement {
 
 export const homeQuery = graphql`
   query {
-    latestPosts: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "post" } } }
+    latestArticles: allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "article" } } }
       sort: { order: DESC, fields: [fields___date] }
       limit: 5
     ) {
