@@ -1,6 +1,6 @@
 @import 'variables';
 
 .pageTitle {
-  composes: archivetitle from './Posts.module.scss';
+  composes: archivetitle from './Archive.module.scss';
   margin-bottom: $spacer * 2;
 }

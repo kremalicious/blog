@@ -81,7 +81,7 @@ exports.onPostBuild = async ({ graphql }) => {
   // JSON Feed query
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
         edges {
           node {
             html

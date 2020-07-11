@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import { Post } from '../@types/Post'
 import { Image } from '../components/atoms/Image'
@@ -28,21 +28,10 @@ const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   )
 }
 
-export default function Photos({
-  data,
-  location
-}: {
-  data: any
-  location: Location
-}): ReactElement {
+export default function Photos(props: PageProps): ReactElement {
   return (
-    <Page
-      title={page.frontmatter.title}
-      post={page}
-      location={location}
-      section={styles.photos}
-    >
-      {data.photos.edges.map(({ node }: { node: Post }) => (
+    <Page title={page.frontmatter.title} post={page} section={styles.photos}>
+      {(props.data as any).photos.edges.map(({ node }: { node: Post }) => (
         <PhotoThumb key={node.id} photo={node} />
       ))}
     </Page>

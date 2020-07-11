@@ -1,6 +1,8 @@
 const path = require('path')
-const archiveTemplate = path.resolve('src/components/templates/Posts.tsx')
 const { itemsPerPage } = require('../config')
+
+const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
+const archiveTemplate = path.resolve('src/components/templates/Archive.tsx')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
@@ -24,8 +26,6 @@ function getPaginationData(i, numPages, slug) {
 }
 
 exports.generatePostPages = (createPage, posts) => {
-  const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
-
   // Create Post pages
   posts.forEach((post) => {
     createPage({

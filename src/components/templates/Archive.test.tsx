@@ -1,13 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { createHistory, createMemorySource } from '@reach/router'
 
 import Archive from './Archive'
 import data from '../../../jest/__fixtures__/posts.json'
 
 describe('Archive', () => {
-  const history = createHistory(createMemorySource('/photos'))
-
   const pageContext = {
     tag: 'hello',
     slug: '/hello',
@@ -17,11 +14,7 @@ describe('Archive', () => {
 
   it('renders without crashing', () => {
     const { container } = render(
-      <Archive
-        data={data}
-        pageContext={pageContext}
-        location={history.location}
-      />
+      <Archive data={data} pageContext={pageContext} />
     )
     expect(container.firstChild).toBeInTheDocument()
   })

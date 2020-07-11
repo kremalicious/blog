@@ -10,10 +10,6 @@ export const postTeaserQuery = graphql`
     fileAbsolutePath
     frontmatter {
       title
-      type
-      linkurl
-      tags
-      featured
       image {
         childImageSharp {
           ...ImageFluidThumb
@@ -22,7 +18,6 @@ export const postTeaserQuery = graphql`
     }
     fields {
       slug
-      date(formatString: "MMMM DD, YYYY")
     }
   }
 `
@@ -31,7 +26,7 @@ export default function PostTeaser({
   post,
   toggleSearch
 }: {
-  post: Post
+  post: Partial<Post>
   toggleSearch?: () => void
 }): ReactElement {
   const { image, title } = post.frontmatter

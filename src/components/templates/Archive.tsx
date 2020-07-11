@@ -8,16 +8,14 @@ import PostContent from './Post/Content'
 import PostMore from './Post/More'
 import PostLinkActions from './Post/LinkActions'
 import SEO from '../atoms/SEO'
-import styles from './Posts.module.scss'
+import styles from './Archive.module.scss'
 import { Image } from '../atoms/Image'
 
 export default function Archive({
   data,
-  location,
   pageContext
 }: {
   data: any
-  location: Location
   pageContext: {
     tag: string
     slug: string

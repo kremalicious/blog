@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import { Post } from '../@types/Post'
 import { Image } from '../components/atoms/Image'
@@ -13,20 +13,9 @@ const page = {
   }
 }
 
-export default function Home({
-  data,
-  location
-}: {
-  data: any
-  location: Location
-}): ReactElement {
+export default function Home(props: PageProps): ReactElement {
   return (
-    <Page
-      title={page.frontmatter.title}
-      post={page}
-      location={location}
-      section={styles.home}
-    >
+    <Page title={page.frontmatter.title} post={page} section={styles.home}>
       <Featured />
       Latest Posts & Links
       <br />

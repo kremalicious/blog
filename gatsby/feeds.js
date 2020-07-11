@@ -35,7 +35,7 @@ async function jsonItems(posts) {
   })
 }
 
-const createJsonFeed = (posts) => ({
+const createJsonFeed = async (posts) => ({
   version: 'https://jsonfeed.org/version/1',
   title: siteTitle,
   description: siteDescription,
@@ -49,19 +49,18 @@ const createJsonFeed = (posts) => ({
     name: author.name,
     url: author.uri
   },
-  items: jsonItems(posts)
+  items: await jsonItems(posts)
 })
 
 const generateJsonFeed = async (posts) => {
   await writeFile(
     path.join('./public', 'feed.json'),
-    JSON.stringify(createJsonFeed(posts)),
+    JSON.stringify(await createJsonFeed(posts)),
     'utf8'
   ).catch((err) => {
     throw Error('\nFailed to write JSON Feed file: ', err)
   })
 
-  // eslint-disable-next-line no-console
   console.log('\nsuccess Generating JSON feed')
 }
 
