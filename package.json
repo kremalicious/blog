@@ -67,7 +67,7 @@
     "gatsby-remark-vscode": "^2.1.2",
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-source-graphql": "^2.6.1",
-    "gatsby-transformer-remark": "^2.8.23",
+    "gatsby-transformer-remark": "^2.8.25",
     "gatsby-transformer-sharp": "^2.5.10",
     "intersection-observer": "^0.11.0",
     "node-fetch": "^2.6.0",
