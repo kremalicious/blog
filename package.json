@@ -46,7 +46,7 @@
     "gatsby-plugin-catch-links": "^2.3.10",
     "gatsby-plugin-feed": "^2.5.10",
     "gatsby-plugin-lunr": "^1.5.2",
-    "gatsby-plugin-manifest": "^2.4.17",
+    "gatsby-plugin-manifest": "^2.4.18",
     "gatsby-plugin-matomo": "^0.8.3",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-offline": "^3.2.16",
