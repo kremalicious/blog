@@ -3,6 +3,7 @@ const { itemsPerPage } = require('../config')
 
 const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
 const archiveTemplate = path.resolve('src/components/templates/Archive.tsx')
+const photosTemplate = path.resolve('src/components/templates/Photos.tsx')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
@@ -25,7 +26,7 @@ function getPaginationData(i, numPages, slug) {
   return { prevPagePath, nextPagePath, path }
 }
 
-exports.generatePostPages = (createPage, posts, archiveLength) => {
+exports.generatePostPages = (createPage, posts) => {
   // Create Post pages
   posts.forEach((post) => {
     createPage({
@@ -44,26 +45,56 @@ exports.generatePostPages = (createPage, posts, archiveLength) => {
       }
     })
   })
+}
 
+exports.generateArchivePages = (createPage, archiveLength) => {
   // Create paginated archive pages
-  const numPages = Math.ceil(archiveLength / itemsPerPage)
-  const slug = `/archive/`
+  const numPagesArchive = Math.ceil(archiveLength / itemsPerPage)
+  const slugArchive = `/archive/`
 
-  Array.from({ length: numPages }).forEach((_, i) => {
+  Array.from({ length: numPagesArchive }).forEach((_, i) => {
     const { prevPagePath, nextPagePath, path } = getPaginationData(
       i,
-      numPages,
-      slug
+      numPagesArchive,
+      slugArchive
     )
 
     createPage({
       path,
       component: archiveTemplate,
       context: {
-        slug,
+        slug: slugArchive,
         limit: itemsPerPage,
         skip: i * itemsPerPage,
-        numPages,
+        numPages: numPagesArchive,
+        currentPageNumber: i + 1,
+        prevPagePath,
+        nextPagePath
+      }
+    })
+  })
+}
+
+exports.generatePhotosPages = (createPage, photosLength) => {
+  // Create paginated photos pages
+  const numPagesPhotos = Math.ceil(photosLength / itemsPerPage)
+  const slugPhotos = `/photos/`
+
+  Array.from({ length: numPagesPhotos }).forEach((_, i) => {
+    const { prevPagePath, nextPagePath, path } = getPaginationData(
+      i,
+      numPagesPhotos,
+      slugPhotos
+    )
+
+    createPage({
+      path,
+      component: photosTemplate,
+      context: {
+        slug: slugPhotos,
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
+        numPages: numPagesPhotos,
         currentPageNumber: i + 1,
         prevPagePath,
         nextPagePath

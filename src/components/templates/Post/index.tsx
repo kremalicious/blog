@@ -40,35 +40,38 @@ export default function Post({
       <article className={styles.hentry}>
         <header>
           <PostTitle
-            type={type}
             linkurl={linkurl}
             title={title}
             date={date}
             updated={updated}
           />
+
           {type === 'article' && <PostLead post={post} />}
+
+          {image && (
+            <Image
+              fluid={image.childImageSharp.fluid}
+              alt={title}
+              original={image.childImageSharp.original}
+            />
+          )}
         </header>
 
-        {type === 'photo' && <PostContent post={post} />}
-        {image && (
-          <Image
-            fluid={image.childImageSharp.fluid}
-            alt={title}
-            original={image.childImageSharp.original}
-          />
+        {type === 'photo' ? (
+          <>
+            <PostContent post={post} />
+            {image && image.fields && <Exif exif={image.fields.exif} />}
+          </>
+        ) : (
+          <PostContent post={post} />
         )}
-        {type === 'photo' && image && image.fields && (
-          <Exif exif={image.fields.exif} />
-        )}
-
-        {type !== 'photo' && <PostContent post={post} />}
 
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
         <PostMeta post={post} />
         <PostActions slug={slug} githubLink={githubLink} />
       </article>
 
-      <RelatedPosts photos={type === 'photo'} tags={tags} />
+      <RelatedPosts isPhotos={type === 'photo'} tags={tags} />
 
       <PrevNext prev={prev} next={next} />
     </>

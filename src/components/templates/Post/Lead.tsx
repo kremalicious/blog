@@ -6,10 +6,10 @@ import { Post } from '../../../@types/Post'
 // Grab everything before more tag, or just first paragraph
 const PostLead = ({
   post,
-  index
+  className
 }: {
-  post: Post
-  index?: boolean
+  post: Partial<Post>
+  className?: string
 }): ReactElement => {
   let lead
   const content = post.html
@@ -23,7 +23,7 @@ const PostLead = ({
 
   return (
     <div
-      className={index ? styles.index : styles.lead}
+      className={`${styles.lead} ${className && className}`}
       dangerouslySetInnerHTML={{ __html: lead }}
     />
   )

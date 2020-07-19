@@ -2,16 +2,14 @@
 @import 'mixins';
 
 .photos {
-  @include breakoutviewport--full;
+  @include breakoutviewport;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $spacer;
-  padding-left: $spacer;
-  padding-right: $spacer;
 
   @media (min-width: $screen-sm) {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 

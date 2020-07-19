@@ -1,57 +1,61 @@
 import React, { ReactElement } from 'react'
-import { graphql, Link, PageProps } from 'gatsby'
-import Page from '../components/templates/Page'
+import { graphql, PageProps } from 'gatsby'
 import { Post } from '../@types/Post'
-import { Image } from '../components/atoms/Image'
 import styles from './index.module.scss'
 import Featured from '../components/molecules/Featured'
-
-const page = {
-  frontmatter: {
-    title: 'home',
-    description: 'Blog of designer & developer Matthias Kretschmann.'
-  }
-}
+import { PhotoThumb } from '../components/templates/Photos'
+import PostTeaser from '../components/molecules/PostTeaser'
+import PostMore from '../components/templates/Post/More'
 
 export default function Home(props: PageProps): ReactElement {
   return (
-    <Page title={page.frontmatter.title} post={page} section={styles.home}>
-      <Featured />
-      Latest Articles & Links
-      <br />
-      Latest Photos
-    </Page>
+    <>
+      <section className={styles.section}>
+        <h2 className={styles.title}>Featured</h2>
+        <Featured />
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.title}>
+          Latest Articles <PostMore to="/archive">All Articles</PostMore>
+        </h2>
+
+        <div className={styles.articles}>
+          {(props.data as any).latestArticles.edges.map(
+            ({ node }: { node: Post }) => (
+              <PostTeaser key={node.id} post={node} />
+            )
+          )}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.title}>
+          Latest Photos <PostMore to="/photos">All Photos</PostMore>
+        </h2>
+
+        <div className={styles.photos}>
+          {(props.data as any).latestPhotos.edges.map(
+            ({ node }: { node: Post }) => (
+              <PhotoThumb key={node.id} photo={node} />
+            )
+          )}
+        </div>
+      </section>
+    </>
   )
 }
 
 export const homeQuery = graphql`
   query {
     latestArticles: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "article" } } }
+      filter: { frontmatter: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 5
+      limit: 6
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            type
-            image {
-              childImageSharp {
-                fluid(
-                  maxWidth: 400
-                  maxHeight: 400
-                  quality: 85
-                  cropFocus: CENTER
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-          fields {
-            slug
-          }
+          ...PostTeaser
         }
       }
     }
@@ -59,7 +63,7 @@ export const homeQuery = graphql`
     latestPhotos: allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 10
+      limit: 15
     ) {
       edges {
         node {
@@ -69,14 +73,7 @@ export const homeQuery = graphql`
             type
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 400
-                  maxHeight: 400
-                  quality: 85
-                  cropFocus: CENTER
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                ...PhotoFluidThumb
               }
             }
           }

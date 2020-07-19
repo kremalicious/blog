@@ -47,16 +47,16 @@ function photosWithDataFilter(posts: []) {
 
 export default function RelatedPosts({
   tags,
-  photos
+  isPhotos
 }: {
   tags: string[]
-  photos?: boolean
+  isPhotos?: boolean
 }): ReactElement {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
 
   function getPosts() {
-    return photos
+    return isPhotos
       ? photosWithDataFilter(posts)
       : tags && postsWithDataFilter(posts, 'tags', tags)
   }
@@ -71,7 +71,7 @@ export default function RelatedPosts({
   return (
     <aside className={styles.relatedPosts}>
       <h1 className={styles.title}>
-        Related {photos ? 'Photos' : 'Posts'}{' '}
+        Related {isPhotos ? 'Photos' : 'Posts'}{' '}
         <button className={styles.button} onClick={refreshPosts}>
           Refresh
         </button>

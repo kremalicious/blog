@@ -1,4 +1,44 @@
 @import 'variables';
+@import 'mixins';
 
-.home {
+.section {
+  @media (min-width: $screen-md) {
+    @include breakoutviewport;
+  }
+}
+
+.section:not(:first-child) {
+  margin-top: $spacer * 3;
+}
+
+.articles,
+.photos {
+  display: grid;
+  gap: $spacer;
+}
+
+.articles {
+  @media (min-width: $screen-sm) {
+    gap: $spacer * 2;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.photos {
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+.title {
+  composes: pagetitle from '../components/templates/Page.module.scss';
+  margin-left: 0;
+  margin-right: 0;
+
+  a {
+    margin: 0;
+    color: $text-color-light;
+  }
 }

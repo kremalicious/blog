@@ -1,84 +1,44 @@
 import React, { ReactElement } from 'react'
-import { Link, graphql } from 'gatsby'
-import { Post } from '../../@types/Post'
+import { graphql } from 'gatsby'
+import { Post, PageContext } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import PostTitle from './Post/Title'
-import PostLead from './Post/Lead'
-import PostContent from './Post/Content'
-import PostMore from './Post/More'
-import PostLinkActions from './Post/LinkActions'
-import SEO from '../atoms/SEO'
 import styles from './Archive.module.scss'
-import { Image } from '../atoms/Image'
+import PostTeaser from '../molecules/PostTeaser'
+import Page from './Page'
 
 export default function Archive({
   data,
   pageContext
 }: {
   data: any
-  pageContext: {
-    tag: string
-    slug: string
-    currentPageNumber: number
-    numPages: number
-  }
+  pageContext: PageContext
 }): ReactElement {
   const edges = data.allMarkdownRemark.edges
   const { tag, currentPageNumber, numPages } = pageContext
 
-  const PostsList = edges.map(({ node }: { node: Post }) => {
-    const { type, linkurl, title, image } = node.frontmatter
-    const { slug } = node.fields
+  const PostsList = edges.map(({ node }: { node: Post }) => (
+    <PostTeaser key={node.id} post={node} />
+  ))
 
-    return (
-      <article className={styles.hentry} key={node.id}>
-        <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
+  const title = tag ? `#${tag}` : 'Archive'
 
-        {image && (
-          <Link to={slug} title={title}>
-            <Image
-              title={type === 'photo' ? title : null}
-              fluid={image.childImageSharp.fluid}
-              alt={title}
-              original={image.childImageSharp.original}
-            />
-          </Link>
-        )}
+  const paginationTitle =
+    numPages > 1 && currentPageNumber > 1
+      ? `Page ${currentPageNumber} / ${numPages}`
+      : ''
 
-        {type === 'article' && (
-          <>
-            <PostLead post={node} index />
-            <PostMore to={slug}>Continue Reading</PostMore>
-          </>
-        )}
-
-        {type === 'link' && (
-          <>
-            <PostContent post={node} />
-            <PostLinkActions slug={slug} linkurl={linkurl} />
-          </>
-        )}
-      </article>
-    )
-  })
+  const page = {
+    frontmatter: {
+      title: `${title} ${paginationTitle}`,
+      description: 'All the articles & links.'
+    }
+  }
 
   return (
-    <>
-      <SEO />
-      {tag && (
-        <h1 className={styles.archivetitle}>
-          <span>#</span>
-          {tag}
-        </h1>
-      )}
-      {numPages > 1 && currentPageNumber > 1 && (
-        <h2
-          className={styles.paginationTitle}
-        >{`Page ${currentPageNumber} / ${numPages}`}</h2>
-      )}
-      {PostsList}
+    <Page title={page.frontmatter.title} post={page}>
+      <div className={styles.posts}>{PostsList}</div>
       {numPages > 1 && <Pagination pageContext={pageContext} />}
-    </>
+    </Page>
   )
 }
 
@@ -92,21 +52,7 @@ export const archiveQuery = graphql`
     ) {
       edges {
         node {
-          id
-          html
-          frontmatter {
-            title
-            type
-            linkurl
-            image {
-              childImageSharp {
-                ...ImageFluid
-              }
-            }
-          }
-          fields {
-            slug
-          }
+          ...PostTeaser
         }
       }
     }

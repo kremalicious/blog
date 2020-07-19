@@ -1,6 +1,19 @@
 @import 'variables';
+@import 'mixins';
 
-.pageTitle {
-  composes: archivetitle from './Archive.module.scss';
-  margin-bottom: $spacer * 2;
+.pagetitle {
+  @include divider;
+
+  @media (min-width: $screen-md) {
+    @include breakoutviewport;
+  }
+
+  font-size: $font-size-h3;
+  margin-top: 0;
+  margin-bottom: $spacer * $line-height;
+  padding-bottom: $spacer / $line-height;
+  color: $brand-grey-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }

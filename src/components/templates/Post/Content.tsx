@@ -10,7 +10,7 @@ const PostContent = ({ post }: { post: Post }): ReactElement => {
 
   let content = post.html
 
-  if (post.frontmatter.type === 'post') {
+  if (post.frontmatter.type === 'article') {
     if (content.includes(separator)) {
       content = content.split(separator)[1]
     } else {

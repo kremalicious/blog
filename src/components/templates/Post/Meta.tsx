@@ -38,7 +38,7 @@ export default function PostMeta({ post }: { post: Post }): ReactElement {
       {tags && (
         <div className={styles.tags}>
           {tags.map((tag: string) => {
-            const url = `/tags/${slugify(tag)}/`
+            const url = `/archive/${slugify(tag)}/`
             return <Tag key={shortid.generate()} name={tag} url={url} />
           })}
         </div>

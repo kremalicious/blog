@@ -2,59 +2,11 @@
 @import 'mixins';
 
 .featured {
-  @include divider;
-
   display: grid;
-  gap: $spacer / 2;
-  grid-template-columns: 1fr 1fr;
-  padding-bottom: $spacer * $line-height;
-  margin-bottom: -($spacer / 2);
+  gap: $spacer;
+  grid-template-columns: repeat(2, 1fr);
 
   @media (min-width: $screen-md) {
-    @include breakoutviewport;
-
-    gap: $spacer;
-    padding-bottom: $spacer * 3;
-  }
-}
-
-.featuredTitle {
-  transition: 0.1s ease-out;
-  font-size: $font-size-base;
-  margin: 0;
-  position: absolute;
-  top: 25%;
-  min-width: 45%;
-  text-align: right;
-  padding: $spacer / 3;
-  background: rgba($link-color, 0.85);
-  color: #fff !important;
-  text-shadow: 0 1px 0 #000;
-  left: 0;
-  opacity: 0;
-  transform: translate3d(0, -20px, 0);
-}
-
-.featuredItem {
-  position: relative;
-
-  a {
-    display: block;
-
-    &:hover,
-    &:focus {
-      .featuredTitle {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-  }
-
-  figure {
-    margin: 0;
-  }
-
-  :global(.gatsby-image-wrapper) {
-    margin-bottom: 0;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -23,7 +23,7 @@ export default function Page({
       <Helmet title={title} />
       <SEO slug={pathname} postSEO post={post} />
 
-      <h1 className={styles.pageTitle}>{title}</h1>
+      <h1 className={styles.pagetitle}>{title}</h1>
       {section ? <section className={section}>{children}</section> : children}
     </>
   )

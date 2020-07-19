@@ -1,25 +1,21 @@
 @import 'variables';
 @import 'mixins';
 
-.post {
-  figure {
-    margin: 0;
-  }
-}
-
-.postTitle {
-  display: inline-block;
-  margin-top: $spacer / 4;
-  margin-bottom: 0;
-  font-size: $font-size-small;
-  line-height: $line-height-small;
-  color: $brand-grey-light;
+.title {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
+  color: $brand-grey-light;
+  margin-top: $spacer / 2;
+  margin-bottom: 0;
+  font-size: $font-size-base;
   transition: color 0.2s ease-out;
+}
 
-  @media (min-width: $screen-md) {
-    font-size: $font-size-base;
+.post {
+  display: block;
+
+  figure {
+    margin: 0;
   }
 }
 

@@ -19,11 +19,11 @@ module.exports = {
   rss: '/feed.xml',
   jsonfeed: '/feed.json',
   typekitID: 'msu4qap',
-  itemsPerPage: 20,
+  itemsPerPage: 18,
   repoContentPath: 'https://github.com/kremalicious/blog/tree/main/content',
   menu: [
     {
-      title: 'Articles & Links',
+      title: 'Articles',
       link: '/archive'
     },
     {

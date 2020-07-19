@@ -33,7 +33,18 @@ export const imageSizeThumb = graphql`
     original {
       src
     }
-    fluid(maxWidth: 400, maxHeight: 170, quality: 85, cropFocus: CENTER) {
+    fluid(maxWidth: 420, maxHeight: 140, quality: 85, cropFocus: CENTER) {
+      ...GatsbyImageSharpFluid_withWebp_noBase64
+    }
+  }
+`
+
+export const photoSizeThumb = graphql`
+  fragment PhotoFluidThumb on ImageSharp {
+    original {
+      src
+    }
+    fluid(maxWidth: 300, maxHeight: 300, quality: 85, cropFocus: CENTER) {
       ...GatsbyImageSharpFluid_withWebp_noBase64
     }
   }
