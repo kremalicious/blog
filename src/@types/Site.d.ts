@@ -30,8 +30,4 @@ export interface Site {
     classNameDark: string
     classNameLight: string
   }
-  ad: {
-    title: string
-    link: string
-  }
 }

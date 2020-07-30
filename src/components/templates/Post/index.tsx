@@ -11,7 +11,6 @@ import PostContent from './Content'
 import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
-import PostAd from '../../atoms/Ad'
 import PrevNext from './PrevNext'
 import styles from './index.module.scss'
 import { Image } from '../../atoms/Image'
@@ -67,7 +66,6 @@ export default function Post({
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
         <PostMeta post={post} />
         <PostActions slug={slug} githubLink={githubLink} />
-        <PostAd />
       </article>
 
       <RelatedPosts photos={type === 'photo'} tags={tags} />

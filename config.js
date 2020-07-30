@@ -42,9 +42,5 @@ module.exports = {
   darkModeConfig: {
     classNameDark: 'dark',
     classNameLight: 'light'
-  },
-  ad: {
-    title: 'Ledger Nano X: Keep your crypto secure, everywhere.',
-    link: 'https://shop.ledger.com/pages/ledger-nano-x?r=3176d705002a'
   }
 }

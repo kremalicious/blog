@@ -32,10 +32,6 @@ const query = graphql`
           classNameDark
           classNameLight
         }
-        ad {
-          title
-          link
-        }
       }
     }
   }
