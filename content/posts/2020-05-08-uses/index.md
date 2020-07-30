@@ -1,7 +1,7 @@
 ---
 type: post
 date: 2020-05-10T21:51:12Z
-updated: 2020-06-01T15:58:12+02:00
+updated: 2020-07-30T15:58:12+02:00
 
 title: /uses
 image: uses-teaser.png
@@ -34,8 +34,8 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _Space Gray, 256GB_
   My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading and I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
 
-- **[AirPods](https://www.apple.com/airpods/)**
-  Still rocking the original AirPods since their introduction, one of the best products Apple has ever made. Used pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
+- **[AirPods Pro](https://www.apple.com/airpods-pro/)**
+  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
 
 - **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**
   _40mm, Space Gray Aluminium, Milanese Loop & Sport Band in black_
@@ -55,9 +55,6 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**
   The best experience for long time reading. Almost all my non-technical books are Kindle books.
-
-- **[Ledger Nano X](https://shop.ledger.com/pages/ledger-nano-x?r=3176d705002a)**, **[Ledger Nano S](https://shop.ledger.com/products/ledger-nano-s?r=3176d705002a)**
-  My cold storage wallet of choice for most crypto assets. The Nano X is always with me and a joy to use via Bluetooth with my iPhone while the Nano S is a pain to use with USB, but is just a copy of the Nano X holding the same private keys and stored in another physical location.
 
 ### Home Office Setup
 
