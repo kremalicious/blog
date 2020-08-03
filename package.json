@@ -117,7 +117,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-testing-library": "^3.4.0",
     "fs-extra": "^9.0.1",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.11",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.2.1",
     "markdownlint-cli": "^0.23.2",
