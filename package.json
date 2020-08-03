@@ -132,7 +132,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "repository": {
     "type": "git",
