@@ -66,7 +66,7 @@
     "gatsby-remark-smartypants": "^2.3.9",
     "gatsby-remark-vscode": "^2.1.2",
     "gatsby-source-filesystem": "^2.3.23",
-    "gatsby-source-graphql": "^2.6.1",
+    "gatsby-source-graphql": "^2.6.2",
     "gatsby-transformer-remark": "^2.8.27",
     "gatsby-transformer-sharp": "^2.5.12",
     "intersection-observer": "^0.11.0",
