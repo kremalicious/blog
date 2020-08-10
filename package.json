@@ -72,7 +72,7 @@
     "intersection-observer": "^0.11.0",
     "node-fetch": "^2.6.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
-    "pigeon-maps": "^0.15.0",
+    "pigeon-maps": "^0.16.0",
     "pigeon-marker": "^0.3.4",
     "react": "^16.13.1",
     "react-clipboard.js": "^2.0.16",
