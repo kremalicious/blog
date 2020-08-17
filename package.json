@@ -91,7 +91,7 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-typescript": "^7.10.4",
     "@svgr/webpack": "^5.4.0",
-    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.9",
