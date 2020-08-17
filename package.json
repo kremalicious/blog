@@ -68,7 +68,7 @@
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-source-graphql": "^2.7.0",
     "gatsby-transformer-remark": "^2.8.28",
-    "gatsby-transformer-sharp": "^2.5.12",
+    "gatsby-transformer-sharp": "^2.5.13",
     "intersection-observer": "^0.11.0",
     "node-fetch": "^2.6.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
