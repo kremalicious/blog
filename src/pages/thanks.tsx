@@ -10,8 +10,8 @@ import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
 import styles from './thanks.module.scss'
 
-const LazyWeb3Donation = loadable(() =>
-  import('../components/molecules/Web3Donation')
+const LazyWeb3Donation = loadable(
+  () => import('../components/molecules/Web3Donation')
 )
 
 const Coin = ({ address, author }: { address: string; author: Author }) => (
