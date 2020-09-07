@@ -127,7 +127,7 @@
     "ora": "^5.0.0",
     "prettier": "^2.1.1",
     "shortid": "^2.2.15",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.7.0",
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
