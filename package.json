@@ -92,7 +92,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@svgr/webpack": "^5.4.0",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^10.4.9",
+    "@testing-library/react": "^11.0.2",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.10",
     "@types/loadable__component": "^5.13.0",
