@@ -35,7 +35,7 @@
     "@web3-react/core": "^6.1.1",
     "@web3-react/injected-connector": "^6.0.7",
     "classnames": "^2.2.6",
-    "date-fns": "^2.16.0",
+    "date-fns": "^2.16.1",
     "dms2dec": "^1.1.0",
     "ethereum-blockies": "github:MyEtherWallet/blockies",
     "fast-exif": "^1.0.1",
