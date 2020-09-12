@@ -11,11 +11,6 @@ export default function Home(props: PageProps): ReactElement {
   return (
     <>
       <section className={styles.section}>
-        <h2 className={styles.title}>Featured</h2>
-        <Featured />
-      </section>
-
-      <section className={styles.section}>
         <h2 className={styles.title}>
           Latest Articles <PostMore to="/archive">All Articles</PostMore>
         </h2>
