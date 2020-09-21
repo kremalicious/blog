@@ -58,7 +58,7 @@
     "gatsby-plugin-use-dark-mode": "^1.1.2",
     "gatsby-plugin-webpack-size": "^1.0.0",
     "gatsby-redirect-from": "^0.2.4",
-    "gatsby-remark-autolink-headers": "^2.3.12",
+    "gatsby-remark-autolink-headers": "^2.3.13",
     "gatsby-remark-breaks": "^1.0.0",
     "gatsby-remark-copy-linked-files": "^2.3.14",
     "gatsby-remark-images": "^3.3.29",
