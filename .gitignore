@@ -6,3 +6,4 @@ plugins/gatsby-redirect-from
 coverage
 .env
 .env.development
+.nova
