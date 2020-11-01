@@ -64,7 +64,7 @@
     "gatsby-remark-images": "^3.3.36",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-remark-smartypants": "^2.3.13",
-    "gatsby-remark-vscode": "^3.1.0",
+    "gatsby-remark-vscode": "^3.2.0",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-source-graphql": "^2.7.6",
     "gatsby-transformer-remark": "^2.8.43",
