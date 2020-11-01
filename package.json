@@ -61,7 +61,7 @@
     "gatsby-remark-autolink-headers": "^2.3.13",
     "gatsby-remark-breaks": "^1.0.0",
     "gatsby-remark-copy-linked-files": "^2.3.19",
-    "gatsby-remark-images": "^3.3.36",
+    "gatsby-remark-images": "^3.3.40",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-remark-smartypants": "^2.3.13",
     "gatsby-remark-vscode": "^3.1.0",
