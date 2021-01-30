@@ -19,7 +19,7 @@
     "lint:md": "markdownlint './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,.git,coverage}/**/*'",
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css,scss}'",
     "tsc": "tsc --noEmit",
-    "deploy": "./scripts/deploy.sh",
+    "deploy:s3": "./scripts/deploy.sh",
     "new": "babel-node ./scripts/new.js"
   },
   "browserslist": [

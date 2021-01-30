@@ -5,7 +5,6 @@
 # AWS_SECRET_ACCESS_KEY
 # AWS_DEFAULT_REGION
 AWS_S3_BUCKET="kremalicious.com"
-AWS_S3_BUCKET_BETA="beta.kremalicious.com"
 SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap.xml"
 
 #
@@ -47,36 +46,10 @@ function s3sync {
     --acl public-read
 }
 
-##
-## check for pull request against main
-##
-if [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ "$TRAVIS_BRANCH" == "main" ]; then
+s3sync $AWS_S3_BUCKET
 
-  s3sync $AWS_S3_BUCKET_BETA
-
-##
-## check for main push which is no pull request
-##
-elif [ "$TRAVIS_BRANCH" == "main" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] || [ "$TRAVIS" != true ]; then
-
-  s3sync $AWS_S3_BUCKET
-
-  # ping search engines
-  # returns: HTTP_STATUSCODE URL
-  curl -sL -w "%{http_code} %{url_effective}\\n" \
-    "http://www.google.com/webmasters/tools/ping?sitemap=$SITEMAP_URL" -o /dev/null \
-    "http://www.bing.com/webmaster/ping.aspx?siteMap=$SITEMAP_URL" -o /dev/null
-
-  echo "---------------------------------------------"
-  echo "         ✓ done deployment "
-  echo "---------------------------------------------"
-
-  exit;
-
-else
-
-  echo "---------------------------------------------"
-  echo "          nothing to deploy "
-  echo "---------------------------------------------"
-
-fi
+# ping search engines
+# returns: HTTP_STATUSCODE URL
+curl -sL -w "%{http_code} %{url_effective}\\n" \
+  "http://www.google.com/webmasters/tools/ping?sitemap=$SITEMAP_URL" -o /dev/null \
+  "http://www.bing.com/webmaster/ping.aspx?siteMap=$SITEMAP_URL" -o /dev/null
