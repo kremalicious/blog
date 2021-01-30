@@ -77,7 +77,7 @@ module.exports = {
               },
               injectStyles: false,
               extensions: [
-                'nord-visual-studio-code',
+                `${__dirname}/vendor/nord-visual-studio-code-0.15.0.vsix`,
                 `${__dirname}/vendor/polar-0.0.6.vsix`
               ],
               languageAliases: {}
