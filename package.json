@@ -71,7 +71,7 @@
     "gatsby-transformer-sharp": "^2.11.0",
     "intersection-observer": "^0.12.0",
     "node-fetch": "^2.6.1",
-    "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
+    "nord-visual-studio-code": "arcticicestudio/nord-visual-studio-code#v0.13.0",
     "pigeon-maps": "^0.17.0",
     "pigeon-marker": "^0.3.4",
     "react": "^17.0.1",
