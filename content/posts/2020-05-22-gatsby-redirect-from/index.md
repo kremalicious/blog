@@ -53,7 +53,7 @@ redirect_from:
   - /goodie-updated-aperture-file-types-v11/
   - /aperture-file-types-v12-released/
   - /2008/04/aperture-file-types/
-  # note: traling slashes are required
+  # note: trailing slashes are required
 ---
 
 ```
