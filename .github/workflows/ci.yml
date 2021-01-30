@@ -81,8 +81,7 @@ jobs:
       - uses: actions/download-artifact@v1
         with:
           name: public
-      - name: Deploy to S3
-        run: ./scripts/deploy-s3.sh
+      - run: npm run deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

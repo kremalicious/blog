@@ -233,16 +233,14 @@ npm run new photo /path/to/photo.jpg
 
 ## 🚚 Deployment
 
-Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration. A link to a preview deployment will appear under each Pull Request.
-
-The latest deployment of the `main` branch is automatically aliased to `kremalicious.com`.
+Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration. A link to a preview deployment will appear under each Pull Request. Because of Vercel's maximum cache size of 500MB, Vercel is not used for the production deployment.
 
 ### S3 Deployment
 
-The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `public/` folder to S3:
+The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `public/` folder to S3:
 
 ```bash
-npm run deploy:s3
+npm run deploy
 ```
 
 ## 🏛 Licenses
