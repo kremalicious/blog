@@ -47,7 +47,7 @@
     "gatsby-plugin-feed": "^2.12.0",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^2.11.0",
-    "gatsby-plugin-matomo": "^0.8.3",
+    "gatsby-plugin-matomo": "^0.9.0",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-offline": "^3.9.0",
     "gatsby-plugin-react-helmet": "^3.9.0",
