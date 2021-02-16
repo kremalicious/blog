@@ -69,7 +69,6 @@
     "gatsby-source-graphql": "^2.13.0",
     "gatsby-transformer-remark": "^2.15.0",
     "gatsby-transformer-sharp": "^2.11.0",
-    "intersection-observer": "^0.12.0",
     "node-fetch": "^2.6.1",
     "pigeon-maps": "^0.17.0",
     "pigeon-marker": "^0.3.4",
