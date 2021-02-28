@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Simple Tor setup on macOS
 image: teaser-tor.png
 author: Matthias Kretschmann

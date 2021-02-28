@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Free Monkey Breath, Not Soylent Green
 image: ../media/Free-Monkey-Breath-Not-Soylent-Green.jpg
 author: Matthias Kretschmann

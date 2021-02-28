@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: CSS App Store Badges
 image: ../media/teaser-appstorebadges.png
 

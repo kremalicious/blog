@@ -26,8 +26,8 @@ export default function Post({
   }
 }): ReactElement {
   const { post } = data
-  const { title, image, type, linkurl, style, tags, updated } = post.frontmatter
-  const { slug, githubLink, date } = post.fields
+  const { title, image, linkurl, style, tags, updated } = post.frontmatter
+  const { slug, githubLink, date, type } = post.fields
 
   return (
     <>

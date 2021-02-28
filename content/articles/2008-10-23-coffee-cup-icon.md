@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Coffee Cup Icon
 image: ../media/Teaser-Coffee-Cup-Icon.jpg
 download: ../media/coffee_cup_by_kremalicious.zip

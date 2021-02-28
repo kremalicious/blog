@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Showcasing the CSS Parallax Effect: 12+1 Creative Usages'
 author: Matthias Kretschmann
 image: ../media/parallax-visualization_big.png

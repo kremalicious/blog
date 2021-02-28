@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Quick Tip: Borders & Titles Plug-In for Aperture'
 author: Matthias Kretschmann
 

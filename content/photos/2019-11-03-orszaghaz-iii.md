@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-11-03T12:34:11.000Z
 
 title: Országház III

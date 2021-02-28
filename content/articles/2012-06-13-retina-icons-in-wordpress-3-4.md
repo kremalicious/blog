@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Retina icons in WordPress 3.4
 image: ../media/wp34_retina_icons.png
 

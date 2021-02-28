@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Architect and Façade: Theming For Leopard'
 author: Matthias Kretschmann
 

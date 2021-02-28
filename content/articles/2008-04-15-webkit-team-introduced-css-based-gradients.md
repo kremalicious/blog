@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: WebKit team introduces CSS-based gradients
 author: Matthias Kretschmann
 

@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Floating Sky
 image: ../media/floating-sky-1.jpg
 author: Matthias Kretschmann

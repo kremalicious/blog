@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Icy Box Icons
 image: ../media/Teaser-Icy-Box.jpg
 download: ../media/icybox_by_kremalicious.zip

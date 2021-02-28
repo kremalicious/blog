@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Post } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import Featured from '../molecules/Featured'
 import PostTitle from './Post/Title'
 import PostLead from './Post/Lead'
 import PostContent from './Post/Content'
@@ -30,13 +29,13 @@ export default function Posts({
   const { tag, currentPageNumber, numPages } = pageContext
 
   const PostsList = edges.map(({ node }: { node: Post }) => {
-    const { type, linkurl, title, image } = node.frontmatter
-    const { slug } = node.fields
+    const { linkurl, title, image } = node.frontmatter
+    const { slug, type } = node.fields
 
     return (
       <article className={styles.hentry} key={node.id}>
         {type !== 'photo' && (
-          <PostTitle type={type} slug={slug} linkurl={linkurl} title={title} />
+          <PostTitle slug={slug} linkurl={linkurl} title={title} />
         )}
 
         {image && (
@@ -52,7 +51,7 @@ export default function Posts({
 
         {type === 'post' && (
           <>
-            <PostLead post={node} index />
+            <PostLead post={node} />
             <PostMore to={slug}>Continue Reading</PostMore>
           </>
         )}
@@ -115,6 +114,7 @@ export const postsQuery = graphql`
           fields {
             slug
             date(formatString: "MMMM DD, YYYY")
+            type
           }
         }
       }

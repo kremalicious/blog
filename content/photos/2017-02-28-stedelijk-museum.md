@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Stedelijk Museum
 image: 2017-02-28-stedelijk-museum.jpg
 author: Matthias Kretschmann

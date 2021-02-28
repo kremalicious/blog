@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Love the parallax
 author: Matthias Kretschmann
 

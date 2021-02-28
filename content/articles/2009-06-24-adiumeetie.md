@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Adiumeetie. Tweetie Style Adium Icon
 image: ../media/Teaser-Adiumeetie.jpg
 download: ../media/adiumeetie-by-kremalicious.zip

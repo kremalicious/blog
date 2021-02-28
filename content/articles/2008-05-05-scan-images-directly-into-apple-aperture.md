@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Scan images directly into Apple Aperture
 author: Matthias Kretschmann
 image: ../media/aperturescan.png

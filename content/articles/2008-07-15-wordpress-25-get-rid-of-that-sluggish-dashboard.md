@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Wordpress 2.5+: Get Rid of That Sluggish Dashboard'
 author: Matthias Kretschmann
 

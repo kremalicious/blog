@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'More awesomeness from the WebKit team: CSS Masks'
 author: Matthias Kretschmann
 

@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2020-01-05T18:33:44.000Z
 
 title: RAW Gelände

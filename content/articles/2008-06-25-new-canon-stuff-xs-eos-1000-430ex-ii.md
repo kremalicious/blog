@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'New Canon stuff: Digital Rebel XS/EOS 1000D/Kiss F And Speedlite 430EX II announced'
 author: Matthias Kretschmann
 

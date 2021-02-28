@@ -1,5 +1,4 @@
 ---
-type: photo
 title: EU Gotham City
 image: 2017-02-26-eu-gotham-city.jpg
 author: Matthias Kretschmann

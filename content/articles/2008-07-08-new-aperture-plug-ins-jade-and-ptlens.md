@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'New Aperture Plug-Ins: Jade And PTLens'
 author: Matthias Kretschmann
 

@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Update: First overview: Aperture 2.1 adjustment plugins have arrived'
 author: Matthias Kretschmann
 

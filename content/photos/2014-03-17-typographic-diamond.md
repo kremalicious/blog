@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Typographic diamond
 image: ../media/typographic-diamond.jpg
 author: Matthias Kretschmann

@@ -22,6 +22,12 @@ exports.createMarkdownFields = (node, actions, getNode) => {
     name: 'githubLink',
     value: githubLink
   })
+
+  createNodeField({
+    node,
+    name: 'type',
+    value: type.replace('s', '')
+  })
 }
 
 function createSlug(node, createNodeField, parsedFilePath) {

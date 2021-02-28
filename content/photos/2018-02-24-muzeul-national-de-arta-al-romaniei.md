@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2018-02-24T00:00:00.000Z
 
 title: Muzeul Național de Artă al României

@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-03-06T17:52:46.000Z
 
 title: Brazilian Museum of Sculpture and Ecology

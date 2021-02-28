@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Everything Back To Normal On Kremalicious.com (Almost)
 author: Matthias Kretschmann
 

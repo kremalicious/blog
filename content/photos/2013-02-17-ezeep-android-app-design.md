@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: ezeep Android App Design
 image: ../media/8455835942_a9b9100373_o.jpg
 author: Matthias Kretschmann

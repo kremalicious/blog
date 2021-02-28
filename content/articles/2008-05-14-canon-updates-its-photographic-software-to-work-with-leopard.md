@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Canon updates photographic software to work with Leopard
 author: Matthias Kretschmann
 

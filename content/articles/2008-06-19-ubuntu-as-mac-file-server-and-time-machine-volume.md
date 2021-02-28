@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume'
 image: ../media/ubuntu_mac_feature.jpg
 

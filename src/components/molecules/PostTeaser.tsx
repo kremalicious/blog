@@ -25,6 +25,7 @@ export const postTeaserQuery = graphql`
     fields {
       slug
       date
+      type
     }
   }
 `
@@ -38,8 +39,8 @@ export default function PostTeaser({
   toggleSearch?: () => void
   hideDate?: boolean
 }): ReactElement {
-  const { image, title, type, updated } = post.frontmatter
-  const { slug, date } = post.fields
+  const { image, title, updated } = post.frontmatter
+  const { slug, date, type } = post.fields
 
   return (
     <Link

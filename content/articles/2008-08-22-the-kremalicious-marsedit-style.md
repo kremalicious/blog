@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Kremalicious MarsEdit Style
 author: Matthias Kretschmann
 

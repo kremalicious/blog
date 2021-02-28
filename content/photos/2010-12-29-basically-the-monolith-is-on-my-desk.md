@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Basically, The Monolith Is On My Desk
 image: ../media/Basically-The-Monolith-Is-On-My-Desk.jpg
 author: Matthias Kretschmann

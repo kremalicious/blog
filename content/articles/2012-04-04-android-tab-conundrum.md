@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Android Tab Bar Conundrum. Again.
 image: ../media/tabs_overview.png
 date: 2012-04-04 14:24:30+00:00

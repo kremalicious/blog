@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: New automation helper for Apple's Aperture released
 author: Matthias Kretschmann
 

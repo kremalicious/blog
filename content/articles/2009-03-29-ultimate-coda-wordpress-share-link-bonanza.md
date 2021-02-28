@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Ultimate Share Link Bonanza For Coda, WordPress And Everything Else
 download: ../media/share-link-bonanza-coda-clips.zip
 

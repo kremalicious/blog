@@ -1,5 +1,4 @@
 ---
-type: article
 date: 2018-11-01T19:08:00.367Z
 
 title: Matomo plugin for Gatsby

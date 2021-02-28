@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Awesome parallax optical illusion: Make a horse move'
 author: Matthias Kretschmann
 

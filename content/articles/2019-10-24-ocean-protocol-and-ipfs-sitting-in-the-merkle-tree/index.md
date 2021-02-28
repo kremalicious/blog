@@ -1,5 +1,4 @@
 ---
-type: article
 date: 2019-10-24T00:00:00.000Z
 
 title: Ocean Protocol and IPFS, Sitting In The Merkle Tree

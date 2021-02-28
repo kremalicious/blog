@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Snail on a leaf
 image: ../media/schnecke_blatt.jpg
 author: Matthias Kretschmann

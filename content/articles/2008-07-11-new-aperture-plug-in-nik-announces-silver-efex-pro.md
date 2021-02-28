@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'New Aperture Plug-In: Nik announces Silver Efex Pro'
 author: Matthias Kretschmann
 

@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'HowTo: Use high-quality watermarks in your images with Aperture 2.1'
 image: ../media/watermark_aperture.jpg
 

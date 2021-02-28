@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'HowTo: Create A Mobile Encrypted Aperture Vault'
 author: Matthias Kretschmann
 

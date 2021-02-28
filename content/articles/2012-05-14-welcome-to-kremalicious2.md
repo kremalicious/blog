@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Welcome to kremalicious2
 image: ../media/kremalicious2-teaser.jpg
 author: Matthias Kretschmann

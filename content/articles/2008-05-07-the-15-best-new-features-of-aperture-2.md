@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The 15 best new features of Aperture 2
 author: Matthias Kretschmann
 image: ../media/aperture15_7.png

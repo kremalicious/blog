@@ -61,7 +61,7 @@ export default function Photos({
 export const photosQuery = graphql`
   query($skip: Int, $limit: Int) {
     allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "photo" } } }
+      filter: { fields: { type: { eq: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
       skip: $skip
       limit: $limit

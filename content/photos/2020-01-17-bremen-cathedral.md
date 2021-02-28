@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2020-01-17T13:43:47.000Z
 
 title: Bremen Cathedral

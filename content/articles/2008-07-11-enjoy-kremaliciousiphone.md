@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Enjoy Kremalicious{iPhone}
 date: 2008-07-11 00:20:22+00:00
 

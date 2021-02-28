@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Tweet! I'm on Twitter now.
 author: Matthias Kretschmann
 

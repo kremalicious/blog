@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: WordPress Admin Icons Template
 image: ../media/kremalicious-Teaser-WP-Icon-Template.png
 

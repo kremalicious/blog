@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-11-16T18:15:20.000Z
 
 title: Helmut Newton Foundation

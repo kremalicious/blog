@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Relaxing Cat
 image: ../media/7f9397a265d811e1b9f1123138140926_7.jpg
 author: Matthias Kretschmann

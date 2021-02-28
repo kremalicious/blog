@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Futurama Mars University Wallpaper
 image: ../media/Teaser-Mars-U.jpg
 author: Matthias Kretschmann

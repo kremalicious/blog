@@ -1,5 +1,4 @@
 ---
-type: article
 title: Aperture File Types
 image: ../media/Teaser-Aperture-File-Types.jpg
 download: ../media/aperturefiletypes_by_kremalicious.zip

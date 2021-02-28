@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: GDR Helvetica
 image: ../media/GDR-Helvetica.jpg
 author: Matthias Kretschmann

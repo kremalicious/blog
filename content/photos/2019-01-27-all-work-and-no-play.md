@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-01-27T00:00:00.000Z
 
 title: All Work And No Play

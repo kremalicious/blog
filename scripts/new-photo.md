@@ -1,5 +1,4 @@
 ---
-type: photo
 date: DATE_LONG
 
 title: TITLE

@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: I'm joining ezeep
 image: ../media/kremalicious-Teaser-ezeep.png
 author: Matthias Kretschmann

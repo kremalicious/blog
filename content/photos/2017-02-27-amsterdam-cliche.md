@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Amsterdam cliché
 image: 2017-02-27-amsterdam-cliche.jpg
 author: Matthias Kretschmann

@@ -55,9 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
 
-      photos: allMarkdownRemark(
-        filter: { frontmatter: { type: { eq: "photo" } } }
-      ) {
+      photos: allMarkdownRemark(filter: { fields: { type: { eq: "photo" } } }) {
         edges {
           node {
             id
@@ -66,7 +64,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
 
       archive: allMarkdownRemark(
-        filter: { frontmatter: { type: { ne: "photo" } } }
+        filter: { fields: { type: { ne: "photo" } } }
       ) {
         edges {
           node {

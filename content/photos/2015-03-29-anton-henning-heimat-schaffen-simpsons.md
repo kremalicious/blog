@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Anton Henning, Heimat schaffen, Simpsons
 image: 2015-03-29-anton-henning-heimat-schaffen-simpsons.jpg
 author: Matthias Kretschmann

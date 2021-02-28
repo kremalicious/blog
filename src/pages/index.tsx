@@ -50,7 +50,7 @@ export default function Home({ data }: PageProps): ReactElement {
 export const homeQuery = graphql`
   query {
     latestArticles: allMarkdownRemark(
-      filter: { frontmatter: { type: { ne: "photo" } } }
+      filter: { fields: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
       limit: 8
     ) {
@@ -62,7 +62,7 @@ export const homeQuery = graphql`
     }
 
     latestPhotos: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "photo" } } }
+      filter: { fields: { type: { eq: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
       limit: 12
     ) {

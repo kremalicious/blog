@@ -1,5 +1,4 @@
 ---
-type: article
 date: DATE
 
 title: TITLE

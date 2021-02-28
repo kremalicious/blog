@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Pulitzer Price Winners 2008 announced, various photographers awarded
 author: Matthias Kretschmann
 

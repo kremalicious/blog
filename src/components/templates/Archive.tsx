@@ -45,7 +45,10 @@ export default function Archive({
 export const archiveQuery = graphql`
   query($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
-      filter: { frontmatter: { tags: { eq: $tag }, type: { ne: "photo" } } }
+      filter: {
+        frontmatter: { tags: { eq: $tag } }
+        fields: { type: { ne: "photo" } }
+      }
       sort: { order: DESC, fields: [fields___date] }
       skip: $skip
       limit: $limit

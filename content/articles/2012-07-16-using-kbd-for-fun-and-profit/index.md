@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Using <kbd> for fun and profit
 image: ./kremalicious-kbdfun-teaser.png
 style: ./post-kbd.css

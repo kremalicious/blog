@@ -10,8 +10,8 @@ import shortid from 'shortid'
 
 export default function PostMeta({ post }: { post: Post }): ReactElement {
   const siteMeta = useSiteMetadata()
-  const { author, updated, tags, type } = post.frontmatter
-  const { date } = post.fields
+  const { author, updated, tags } = post.frontmatter
+  const { date, type } = post.fields
 
   return (
     <footer className={styles.entryMeta}>

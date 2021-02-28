@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Cat enjoying a good iPad game
 image: ../media/7838011c80ce11e19e4a12313813ffc0_7.jpg
 author: Matthias Kretschmann

@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Most surprising dog I know
 image: ../media/most-surprising-dog-i-know.jpg
 author: Matthias Kretschmann

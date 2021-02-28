@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: iPhone Coasters
 image: ../media/iPhone-Coasters-1-Version-2.jpg
 author: Matthias Kretschmann

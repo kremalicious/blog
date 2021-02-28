@@ -3,12 +3,12 @@ import { ImageNode } from './Image'
 export interface Fields {
   slug: string
   date: string
+  type: 'article' | 'photo'
   githubLink?: string
 }
 
 export interface Frontmatter {
   title: string
-  type?: string
   description?: string
   image?: ImageNode
   author?: string

@@ -1,5 +1,4 @@
 ---
-type: article
 date: 2020-03-04T18:35:26.815Z
 
 title: Setup Raspberry Pi File and Screen Sharing for macOS & iOS

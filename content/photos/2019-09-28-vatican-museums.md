@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-09-28T17:35:27.000Z
 
 title: Vatican Museums

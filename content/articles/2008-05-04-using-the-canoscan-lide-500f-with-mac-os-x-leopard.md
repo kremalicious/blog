@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Using the CanoScan LiDE 500F scanner with Mac OS X Leopard
 image: ../media/canoscanlide500f.jpg
 

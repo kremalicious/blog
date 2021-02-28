@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Hamburg's Elbphilharmonie
 image: 2017-04-16-hamburgs-elbphilharmonie.jpg
 author: Matthias Kretschmann

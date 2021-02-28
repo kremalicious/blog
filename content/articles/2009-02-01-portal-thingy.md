@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'Portal Thingy: matthiaskretschmann.com'
 image: ../media/vcardsite-mk.png
 author: Matthias Kretschmann

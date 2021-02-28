@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Enjoying Paper
 image: ../media/Enjoying-Paper.jpg
 author: Matthias Kretschmann

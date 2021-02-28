@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: How to quickly generate encrypted .htpasswd passwords
 
 date: 2008-02-26 23:24:17+00:00

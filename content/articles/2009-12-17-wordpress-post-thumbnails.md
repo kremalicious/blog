@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Using The New Post Thumbnail Feature In WordPress 2.9
 
 date: 2009-12-17 04:00:21+00:00

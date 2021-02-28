@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2017-04-29T00:00:00.000Z
 
 title: Palace scaffolding

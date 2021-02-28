@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Adjustment Tool Guide for Aperture 1.5.2
 date: 2007-03-01 20:50:32+00:00
 

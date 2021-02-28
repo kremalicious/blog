@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Office Desk
 image: ../media/Office-Desk.jpg
 author: Matthias Kretschmann

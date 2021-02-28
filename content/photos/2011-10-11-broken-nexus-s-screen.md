@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Broken Nexus S Screen
 image: ../media/Broken-Nexus-S-Screen.jpg
 author: Matthias Kretschmann

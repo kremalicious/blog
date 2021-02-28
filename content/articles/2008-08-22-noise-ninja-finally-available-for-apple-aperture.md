@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Noise Ninja finally available for Apple Aperture
 author: Matthias Kretschmann
 

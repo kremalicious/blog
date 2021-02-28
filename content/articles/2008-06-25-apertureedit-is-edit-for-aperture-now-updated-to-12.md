@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: ApertureEdit is Edit for Aperture now, updated to 1.2
 author: Matthias Kretschmann
 

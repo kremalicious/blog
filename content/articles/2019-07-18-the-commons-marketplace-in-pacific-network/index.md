@@ -1,5 +1,4 @@
 ---
-type: article
 date: 2019-07-18T00:00:00.000Z
 
 title: The Commons Marketplace in Pacific Network

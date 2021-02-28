@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Launch of kremalicious.com
 author: Matthias Kretschmann
 

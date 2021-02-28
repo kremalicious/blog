@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Mac in Futurama
 image: ../media/futurama-mac-teaser.png
 date: 2009-01-05 03:14:45+00:00

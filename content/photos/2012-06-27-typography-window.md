@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Typography window
 image: ../media/80a136dabff711e188131231381b5c25_7.jpg
 author: Matthias Kretschmann

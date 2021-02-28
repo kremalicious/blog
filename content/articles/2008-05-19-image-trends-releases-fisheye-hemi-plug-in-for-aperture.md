@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Image Trends releases Fisheye-Hemi plug-in for Apple Aperture
 date: 2008-05-19 13:05:23+00:00
 

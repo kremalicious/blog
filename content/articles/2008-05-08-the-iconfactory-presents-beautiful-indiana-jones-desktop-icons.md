@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Iconfactory presents beautiful Indiana Jones desktop icons
 author: Matthias Kretschmann
 

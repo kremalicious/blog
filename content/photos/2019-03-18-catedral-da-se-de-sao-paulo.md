@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-03-18T18:05:37.000Z
 
 title: Catedral da Sé de São Paulo

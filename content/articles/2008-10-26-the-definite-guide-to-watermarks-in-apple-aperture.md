@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Definite Guide To Watermarks In Apple Aperture
 author: Matthias Kretschmann
 image: ../media/watermark_aperture.jpg

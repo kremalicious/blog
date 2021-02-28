@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: The Finest Coffee Cups - Most Incredible Coffee Icons On The Web
 author: Matthias Kretschmann
 image: ../media/coffee-cup-icon-kremalicious.png

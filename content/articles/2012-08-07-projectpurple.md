@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Project Purple
 image: ../media/Teaser-Project-Purple.png
 download: ../media/project-purple-kremalicious.zip

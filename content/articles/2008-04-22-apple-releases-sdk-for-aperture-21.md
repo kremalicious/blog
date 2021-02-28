@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Apple releases plugin-SDK for Aperture 2.1
 date: 2008-04-22 05:58:41+00:00
 

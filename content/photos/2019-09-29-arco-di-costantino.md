@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-09-29T13:57:00.000Z
 
 title: Arco di Costantino

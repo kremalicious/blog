@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Canon EOS 50D And New Lens Officially Announced
 author: Matthias Kretschmann
 

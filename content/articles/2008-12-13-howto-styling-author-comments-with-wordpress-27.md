@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'HowTo: Styling Author Comments With Wordpress 2.7+'
 author: Matthias Kretschmann
 

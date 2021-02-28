@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: We Are Out Of Whale Oil
 image: ../media/Teaser-Out-Of-Whale-Oil.jpg
 download: ../media/out-of-whale-oil-wall-by-kremalicious.zip

@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'HowTo: Set A Custom Gravatar Image In Wordpress 2.7+'
 author: Matthias Kretschmann
 

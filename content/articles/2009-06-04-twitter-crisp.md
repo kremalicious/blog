@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: Twitter Crisp
 image: ../media/Teaser-Twitter-Crisp.jpg
 download: ../media/twitter-crisp-by-kremalicious.zip

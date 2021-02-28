@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Streets of El Raval
 image: ../media/streets-of-el-raval.jpg
 author: Matthias Kretschmann

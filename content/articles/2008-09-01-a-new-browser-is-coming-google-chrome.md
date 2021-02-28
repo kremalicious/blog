@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: 'A New Browser Is Coming: Google Chrome'
 image: ../media/googlechrome.png
 

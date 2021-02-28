@@ -1,5 +1,4 @@
 ---
-type: photo
 title: 'The art of hand painted typography'
 image: 2017-07-13-mumbai-hand-painted-typography.jpg
 author: Matthias Kretschmann

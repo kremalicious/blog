@@ -1,6 +1,4 @@
 ---
-type: article
-
 title: New all-in-one Aperture plug-in released
 author: Matthias Kretschmann
 
