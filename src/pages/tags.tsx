@@ -22,10 +22,14 @@ interface TagsPageProps extends PageProps {
   }
 }
 
-const TagsPage = ({ data }: TagsPageProps): ReactElement => (
-  <Page title={page.frontmatter.title} post={page}>
+const TagsPage = (props: TagsPageProps): ReactElement => (
+  <Page
+    title={page.frontmatter.title}
+    post={page}
+    pathname={props.location.pathname}
+  >
     <ul className={styles.tags}>
-      {data.allMarkdownRemark.group
+      {props.data.allMarkdownRemark.group
         .sort((a, b) => b.totalCount - a.totalCount)
         .map((tag: Tag) => (
           <li key={tag.fieldValue}>

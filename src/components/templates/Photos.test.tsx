@@ -13,7 +13,11 @@ describe('/photos', () => {
     }
 
     const { container } = render(
-      <Photos data={data} pageContext={pageContext} />
+      <Photos
+        data={data}
+        pageContext={pageContext}
+        location={{ pathname: '/photos' } as any}
+      />
     )
     expect(container.firstChild).toBeInTheDocument()
   })

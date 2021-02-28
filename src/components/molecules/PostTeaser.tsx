@@ -4,7 +4,6 @@ import { Image } from '../atoms/Image'
 import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
 import styles from './PostTeaser.module.scss'
-import Time from '../atoms/Time'
 import PostDate from './PostDate'
 
 export const postTeaserQuery = graphql`
@@ -40,7 +39,7 @@ export default function PostTeaser({
   hideDate?: boolean
 }): ReactElement {
   const { image, title, updated } = post.frontmatter
-  const { slug, date, type } = post.fields
+  const { slug, date } = post.fields
 
   return (
     <Link

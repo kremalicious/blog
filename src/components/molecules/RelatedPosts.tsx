@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.scss'

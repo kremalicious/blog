@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
+import { Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import styles from './404.module.scss'
 
@@ -9,8 +9,12 @@ const page = {
   }
 }
 
-const NotFound = (): ReactElement => (
-  <Page title={page.frontmatter.title} post={page}>
+const NotFound = (props: PageProps): ReactElement => (
+  <Page
+    title={page.frontmatter.title}
+    post={page}
+    pathname={props.location.pathname}
+  >
     <div className={styles.hal9000} />
 
     <div className={styles.wrapper}>

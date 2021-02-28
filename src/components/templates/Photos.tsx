@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, PageProps } from 'gatsby'
 import Page from './Page'
 import { Post, PageContext } from '../../@types/Post'
 import { Image } from '../atoms/Image'
@@ -22,15 +22,16 @@ export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   )
 }
 
-export default function Photos({
-  data,
-  pageContext
-}: {
-  data: any
+interface PhotosPageProps extends PageProps {
+  data: {
+    allMarkdownRemark: { edges: { node: Post }[] }
+  }
   pageContext: PageContext
-}): ReactElement {
-  const photos = data.allMarkdownRemark.edges
-  const { currentPageNumber, numPages } = pageContext
+}
+
+export default function Photos(props: PhotosPageProps): ReactElement {
+  const photos = props.data.allMarkdownRemark.edges
+  const { currentPageNumber, numPages } = props.pageContext
 
   const paginationTitle =
     numPages > 1 && currentPageNumber > 1
@@ -46,14 +47,18 @@ export default function Photos({
   }
 
   return (
-    <Page title={page.frontmatter.title} post={page}>
+    <Page
+      title={page.frontmatter.title}
+      post={page}
+      pathname={props.location.pathname}
+    >
       <section className={styles.photos}>
         {photos.map(({ node }: { node: Post }) => (
           <PhotoThumb key={node.id} photo={node} />
         ))}
       </section>
 
-      {numPages > 1 && <Pagination pageContext={pageContext} />}
+      {numPages > 1 && <Pagination pageContext={props.pageContext} />}
     </Page>
   )
 }
@@ -79,6 +84,7 @@ export const photosQuery = graphql`
           }
           fields {
             slug
+            type
           }
         }
       }

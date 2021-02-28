@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import styles from './Title.module.scss'
 import Icon from '../../atoms/Icon'
-import Time from '../../atoms/Time'
 import PostDate from '../../molecules/PostDate'
 
 export default function PostTitle({

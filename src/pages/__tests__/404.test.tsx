@@ -5,7 +5,9 @@ import NotFound from '../404'
 
 describe('/404', () => {
   it('renders without crashing', () => {
-    const { container } = render(<NotFound />)
+    const { container } = render(
+      <NotFound location={{ pathname: '/tags' } as any} />
+    )
     expect(container.firstChild).toBeInTheDocument()
   })
 })

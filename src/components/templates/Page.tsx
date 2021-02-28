@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
+import React, { ReactChildren, ReactElement, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
-import { useLocation } from '@reach/router'
 import { Post } from '../../@types/Post'
 import SEO from '../atoms/SEO'
 import styles from './Page.module.scss'
@@ -9,15 +8,15 @@ export default function Page({
   title,
   section,
   children,
+  pathname,
   post
 }: {
   title: string
-  children: any
+  children: ReactNode
+  pathname: string
   section?: string
   post?: Post
 }): ReactElement {
-  const { pathname } = useLocation()
-
   return (
     <>
       <Helmet title={title} />
