@@ -26,7 +26,7 @@
   :global(.dark) & {
     color: $brand-grey-dimmed;
     border-color: darken($body-background-color--dark, 5%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   &:hover,

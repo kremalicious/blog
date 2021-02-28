@@ -1,8 +1,6 @@
 ---
-type: link
-
 title: Why the world's best photo startup is going out of business
-linkurl: http://www.theverge.com/2013/11/5/5039216/everpix-life-and-death-inside-the-worlds-best-photo-startup
+linkurl: https://www.theverge.com/2013/11/5/5039216/everpix-life-and-death-inside-the-worlds-best-photo-startup
 
 tags:
   - photography

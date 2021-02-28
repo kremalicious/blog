@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: Why Comic Sans?
 linkurl: http://www.connare.com/whycomic.htm
-author: Matthias Kretschmann
 
 date: 2012-05-21 21:18:17+00:00
 

@@ -11,7 +11,6 @@ export const postTeaserQuery = graphql`
     id
     fileAbsolutePath
     frontmatter {
-      type
       title
       linkurl
       updated
@@ -63,6 +62,8 @@ export default function PostTeaser({
       {date && !hideDate && (
         <div className={styles.time}>
           <Time date={date} />
+          {updated && ' • updated '}
+          {updated && <Time date={updated} />}
         </div>
       )}
     </Link>

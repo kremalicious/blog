@@ -8,7 +8,7 @@ const photosTemplate = path.resolve('src/components/templates/Photos.tsx')
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
   { f: '/feed/', t: '/feed.xml' },
-  { f: '/goodies/', t: '/tags/goodies/' }
+  { f: '/goodies/', t: '/archive/goodies/' }
 ]
 
 function getPaginationData(i, numPages, slug) {

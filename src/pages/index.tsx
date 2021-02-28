@@ -71,7 +71,6 @@ export const homeQuery = graphql`
           id
           frontmatter {
             title
-            type
             image {
               childImageSharp {
                 ...PhotoFluidThumb
@@ -80,6 +79,7 @@ export const homeQuery = graphql`
           }
           fields {
             slug
+            type
           }
         }
       }

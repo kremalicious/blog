@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: Responsive Images and Web Standards at the Turning Point
-linkurl: http://www.alistapart.com/articles/responsive-images-and-web-standards-at-the-turning-point/
-author: Matthias Kretschmann
+linkurl: https://www.alistapart.com/articles/responsive-images-and-web-standards-at-the-turning-point/
 
 date: 2012-05-22 06:23:26+00:00
 

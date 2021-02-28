@@ -3,7 +3,7 @@ import { ImageNode } from './Image'
 export interface Fields {
   slug: string
   date: string
-  type: 'article' | 'photo'
+  type: 'article' | 'photo' | 'link'
   githubLink?: string
 }
 

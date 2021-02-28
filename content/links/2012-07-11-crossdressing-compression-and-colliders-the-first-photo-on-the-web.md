@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: 'Crossdressing, Compression and Colliders: The First Photo on the Web'
-linkurl: http://motherboard.vice.com/2012/7/10/crossdressing-compression-and-colliders-the-first-photo-on-the-web
-author: Matthias Kretschmann
+linkurl: https://www.vice.com/en/article/ezzza7/crossdressing-compression-and-colliders-the-first-photo-on-the-web
 
 date: 2012-07-11 21:00:07+00:00
 

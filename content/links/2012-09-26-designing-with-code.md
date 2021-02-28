@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: Designing with Code
-linkurl: http://www.teehanlax.com/blog/designing-with-code/
-author: Matthias Kretschmann
+linkurl: https://www.teehanlax.com/blog/designing-with-code/
 
 date: 2012-09-26 11:45:40+00:00
 

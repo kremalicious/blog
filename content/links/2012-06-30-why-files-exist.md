@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: Why Files exist
-linkurl: http://blog.filepicker.io/post/26157006600/why-files-exist
-author: Matthias Kretschmann
+linkurl: https://blog.filestack.com/thoughts-and-knowledge/why-files-exist/
 
 date: 2012-06-30 18:17:33+00:00
 
@@ -11,7 +8,7 @@ tags:
   - design
 ---
 
-[This](http://blog.filepicker.io/post/26157006600/why-files-exist) has been said many times, but it bears repeating:
+[This](https://blog.filestack.com/thoughts-and-knowledge/why-files-exist/) has been said many times, but it bears repeating:
 
 > Files are abstraction layers around content that are necessary for interoperability. Without the notion of a File or other similar shared content abstraction, the ability to use different applications with the same information grinds to a halt, which hampers innovation and user experience.
 

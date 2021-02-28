@@ -1,9 +1,6 @@
 ---
-type: link
-
 title: Newton, Reconsidered
 linkurl: http://techland.time.com/2012/06/01/newton-reconsidered/
-author: Matthias Kretschmann
 
 date: 2012-07-04 01:19:17+00:00
 

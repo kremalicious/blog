@@ -1,6 +1,4 @@
 ---
-type: link
-
 title: The origins of the <blink> tag
 linkurl: http://www.montulli.org/theoriginofthe%3Cblink%3Etag
 

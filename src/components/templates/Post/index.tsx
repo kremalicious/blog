@@ -84,7 +84,6 @@ export const pageQuery = graphql`
       html
       excerpt
       frontmatter {
-        type
         title
         image {
           childImageSharp {
@@ -119,6 +118,7 @@ export const pageQuery = graphql`
         changelog
       }
       fields {
+        type
         slug
         date
         githubLink

@@ -18,6 +18,13 @@ module.exports = [
   {
     resolve: 'gatsby-source-filesystem',
     options: {
+      name: 'links',
+      path: path.join(__dirname, '..', 'content', 'links')
+    }
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
       name: 'media',
       path: path.join(__dirname, '..', 'content', 'media')
     }

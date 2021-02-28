@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Generate archive pages
   generateArchivePages(createPage, archiveLength)
 
-  // Generate archive pages
+  // Generate photos archive pages
   generatePhotosPages(createPage, photosLength)
 
   // Generate tag pages
