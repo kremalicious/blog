@@ -14,14 +14,14 @@ export default function Home({ data }: PageProps): ReactElement {
       <section className={styles.section}>
         <div className={styles.articles}>
           {(data as any).latestArticles.edges
-            .slice(0, 4)
+            .slice(0, 2)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
         <div className={`${styles.articles} ${styles.articlesLast}`}>
           {(data as any).latestArticles.edges
-            .slice(4, 7)
+            .slice(2, 5)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
@@ -48,7 +48,7 @@ export const homeQuery = graphql`
     latestArticles: allMarkdownRemark(
       filter: { fields: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 8
+      limit: 5
     ) {
       edges {
         node {
