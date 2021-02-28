@@ -7,30 +7,16 @@
   font-size: $font-size-small;
   margin-top: $spacer * 2;
   color: $brand-grey-light;
-}
-
-.byline,
-.time,
-.tags,
-.categories {
   text-align: center;
-}
-
-.byline,
-.time {
-  font-style: italic;
 }
 
 .byline {
   margin-bottom: 0;
+  font-style: italic;
 }
 
 .by {
   display: block;
-}
-
-.time {
-  margin-bottom: $spacer * 2;
 }
 
 // Types & Tags

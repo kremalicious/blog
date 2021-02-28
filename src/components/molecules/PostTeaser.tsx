@@ -5,6 +5,7 @@ import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
 import styles from './PostTeaser.module.scss'
 import Time from '../atoms/Time'
+import PostDate from './PostDate'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -58,13 +59,7 @@ export default function PostTeaser({
       )}
 
       <PostTitle slug={slug} title={title} className={styles.title} />
-      {date && !hideDate && (
-        <div className={styles.time}>
-          <Time date={date} />
-          {updated && ' • updated '}
-          {updated && <Time date={updated} />}
-        </div>
-      )}
+      {date && !hideDate && <PostDate date={date} updated={updated} />}
     </Link>
   )
 }

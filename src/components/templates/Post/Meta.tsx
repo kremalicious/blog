@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
-import Time from '../../atoms/Time'
 import Tag from '../../atoms/Tag'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 import styles from './Meta.module.scss'
 import { Post } from '../../../@types/Post'
 import shortid from 'shortid'
+import PostDate from '../../molecules/PostDate'
 
 export default function PostMeta({ post }: { post: Post }): ReactElement {
   const siteMeta = useSiteMetadata()
@@ -22,12 +22,7 @@ export default function PostMeta({ post }: { post: Post }): ReactElement {
         </a>
       </div>
 
-      <div className={styles.time}>
-        {updated && 'published '}
-        <Time date={date} />
-        {updated && ' • updated '}
-        {updated && <Time date={updated} />}
-      </div>
+      <PostDate date={date} updated={updated} />
 
       {type && type === 'photo' && (
         <div className={styles.type}>

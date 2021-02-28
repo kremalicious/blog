@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import styles from './Title.module.scss'
 import Icon from '../../atoms/Icon'
 import Time from '../../atoms/Time'
+import PostDate from '../../molecules/PostDate'
 
 export default function PostTitle({
   slug,
@@ -42,14 +43,7 @@ export default function PostTitle({
       <h1 className={`${styles.hentry__title} ${className && className}`}>
         {title}
       </h1>
-      {date && (
-        <div className={styles.time}>
-          {updated && 'published '}
-          <Time date={date} />
-          {updated && ' • updated '}
-          {updated && <Time date={updated} />}
-        </div>
-      )}
+      {date && <PostDate date={date} updated={updated} />}
     </>
   )
 }

@@ -47,90 +47,51 @@ exports.generatePostPages = (createPage, posts) => {
   })
 }
 
+function generateIndexPages(createPage, length, slug, template) {
+  const numPages = Math.ceil(length / itemsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    const { prevPagePath, nextPagePath, path } = getPaginationData(
+      i,
+      numPages,
+      slug
+    )
+
+    createPage({
+      path,
+      component: template,
+      context: {
+        slug,
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
+        numPages: numPages,
+        currentPageNumber: i + 1,
+        prevPagePath,
+        nextPagePath
+      }
+    })
+  })
+}
+
+// Create paginated archive pages
 exports.generateArchivePages = (createPage, archiveLength) => {
-  // Create paginated archive pages
-  const numPagesArchive = Math.ceil(archiveLength / itemsPerPage)
-  const slugArchive = `/archive/`
-
-  Array.from({ length: numPagesArchive }).forEach((_, i) => {
-    const { prevPagePath, nextPagePath, path } = getPaginationData(
-      i,
-      numPagesArchive,
-      slugArchive
-    )
-
-    createPage({
-      path,
-      component: archiveTemplate,
-      context: {
-        slug: slugArchive,
-        limit: itemsPerPage,
-        skip: i * itemsPerPage,
-        numPages: numPagesArchive,
-        currentPageNumber: i + 1,
-        prevPagePath,
-        nextPagePath
-      }
-    })
-  })
+  generateIndexPages(createPage, archiveLength, `/archive/`, archiveTemplate)
 }
 
+// Create paginated photos pages
 exports.generatePhotosPages = (createPage, photosLength) => {
-  // Create paginated photos pages
-  const numPagesPhotos = Math.ceil(photosLength / itemsPerPage)
-  const slugPhotos = `/photos/`
-
-  Array.from({ length: numPagesPhotos }).forEach((_, i) => {
-    const { prevPagePath, nextPagePath, path } = getPaginationData(
-      i,
-      numPagesPhotos,
-      slugPhotos
-    )
-
-    createPage({
-      path,
-      component: photosTemplate,
-      context: {
-        slug: slugPhotos,
-        limit: itemsPerPage,
-        skip: i * itemsPerPage,
-        numPages: numPagesPhotos,
-        currentPageNumber: i + 1,
-        prevPagePath,
-        nextPagePath
-      }
-    })
-  })
+  generateIndexPages(createPage, photosLength, `/photos/`, photosTemplate)
 }
 
+// Create paginated tag pages
 exports.generateTagPages = (createPage, tags) => {
   tags.forEach(({ tag, totalCount }) => {
-    // Create paginated tag pages
-    const numPages = Math.ceil(totalCount / itemsPerPage)
-    const slug = `/archive/${tag}/`
-
-    Array.from({ length: numPages }).forEach((_, i) => {
-      const { prevPagePath, nextPagePath, path } = getPaginationData(
-        i,
-        numPages,
-        slug
-      )
-
-      createPage({
-        path,
-        component: archiveTemplate,
-        context: {
-          tag,
-          slug,
-          limit: itemsPerPage,
-          skip: i * itemsPerPage,
-          numPages,
-          currentPageNumber: i + 1,
-          prevPagePath,
-          nextPagePath
-        }
-      })
-    })
+    generateIndexPages(
+      createPage,
+      totalCount,
+      `/archive/${tag}/`,
+      archiveTemplate
+    )
   })
 }
 
