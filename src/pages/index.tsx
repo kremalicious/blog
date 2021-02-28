@@ -1,26 +1,34 @@
-import React, { ReactElement } from 'react'
 import { graphql, PageProps } from 'gatsby'
+import React, { ReactElement } from 'react'
 import { Post } from '../@types/Post'
-import styles from './index.module.scss'
-import Featured from '../components/molecules/Featured'
-import { PhotoThumb } from '../components/templates/Photos'
+import SEO from '../components/atoms/SEO'
 import PostTeaser from '../components/molecules/PostTeaser'
+import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
+import styles from './index.module.scss'
 
 export default function Home(props: PageProps): ReactElement {
   return (
     <>
+      <SEO />
       <section className={styles.section}>
         <h2 className={styles.title}>
           Latest Articles <PostMore to="/archive">All Articles</PostMore>
         </h2>
 
         <div className={styles.articles}>
-          {(props.data as any).latestArticles.edges.map(
-            ({ node }: { node: Post }) => (
+          {(props.data as any).latestArticles.edges
+            .slice(0, 2)
+            .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} />
-            )
-          )}
+            ))}
+        </div>
+        <div className={`${styles.articles} ${styles.articlesLast}`}>
+          {(props.data as any).latestArticles.edges
+            .slice(2, 8)
+            .map(({ node }: { node: Post }) => (
+              <PostTeaser key={node.id} post={node} />
+            ))}
         </div>
       </section>
 
@@ -46,7 +54,7 @@ export const homeQuery = graphql`
     latestArticles: allMarkdownRemark(
       filter: { frontmatter: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 6
+      limit: 8
     ) {
       edges {
         node {
@@ -58,7 +66,7 @@ export const homeQuery = graphql`
     latestPhotos: allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 15
+      limit: 12
     ) {
       edges {
         node {

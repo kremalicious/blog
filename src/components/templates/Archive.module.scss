@@ -11,3 +11,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.posts h1 {
+  font-size: $font-size-h3;
+}

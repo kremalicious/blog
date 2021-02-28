@@ -4,6 +4,7 @@ import { Image } from '../atoms/Image'
 import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
 import styles from './PostTeaser.module.scss'
+import Time from '../atoms/Time'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -13,6 +14,7 @@ export const postTeaserQuery = graphql`
       type
       title
       linkurl
+      updated
       image {
         childImageSharp {
           ...ImageFluidThumb
@@ -22,6 +24,7 @@ export const postTeaserQuery = graphql`
     }
     fields {
       slug
+      date
     }
   }
 `
@@ -33,8 +36,8 @@ export default function PostTeaser({
   post: Partial<Post>
   toggleSearch?: () => void
 }): ReactElement {
-  const { image, title, type } = post.frontmatter
-  const { slug } = post.fields
+  const { image, title, type, updated } = post.frontmatter
+  const { slug, date } = post.fields
 
   return (
     <Link
@@ -42,16 +45,23 @@ export default function PostTeaser({
       to={slug}
       onClick={toggleSearch && toggleSearch}
     >
-      {image && (
+      {image ? (
         <Image
           title={type === 'photo' ? title : null}
           fluid={image.childImageSharp.fluid}
           alt={title}
           original={image.childImageSharp.original}
         />
+      ) : (
+        <span className={styles.empty} />
       )}
 
       <PostTitle slug={slug} title={title} className={styles.title} />
+      {date && (
+        <div className={styles.time}>
+          <Time date={date} />
+        </div>
+      )}
     </Link>
   )
 }

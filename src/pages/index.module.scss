@@ -24,11 +24,25 @@
   }
 }
 
+.articles:first-of-type h1 {
+  font-size: $font-size-h3;
+}
+
+.articlesLast {
+  margin-top: $spacer * 1.5;
+
+  @media (min-width: $screen-sm) {
+    gap: $spacer * 1.5;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .photos {
   grid-template-columns: repeat(2, 1fr);
 
   @media (min-width: $screen-sm) {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: $spacer * 1.5;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
