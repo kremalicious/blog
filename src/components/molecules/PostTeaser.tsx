@@ -31,10 +31,12 @@ export const postTeaserQuery = graphql`
 
 export default function PostTeaser({
   post,
-  toggleSearch
+  toggleSearch,
+  hideDate
 }: {
   post: Partial<Post>
   toggleSearch?: () => void
+  hideDate?: boolean
 }): ReactElement {
   const { image, title, type, updated } = post.frontmatter
   const { slug, date } = post.fields
@@ -57,7 +59,7 @@ export default function PostTeaser({
       )}
 
       <PostTitle slug={slug} title={title} className={styles.title} />
-      {date && (
+      {date && !hideDate && (
         <div className={styles.time}>
           <Time date={date} />
         </div>

@@ -5,7 +5,7 @@ import ora from 'ora'
 import fastExif from 'fast-exif'
 import iptc from 'node-iptc'
 
-const templatePath = path.join(__dirname, 'new.md')
+const templatePath = path.join(__dirname, 'new-article.md')
 const templatePathPhoto = path.join(__dirname, 'new-photo.md')
 const template = fs.readFileSync(templatePath).toString()
 const templatePhoto = fs.readFileSync(templatePathPhoto).toString()
@@ -22,12 +22,12 @@ const isPhoto = process.argv[2] === 'photo'
 spinner.text = `Adding '${title}'.`
 
 let titleSlug = slugify(title, { lower: true })
-const postsPath = path.join('.', 'content', 'posts')
+const postsPath = path.join('.', 'content', 'articles')
 const photosPath = path.join('.', 'content', 'photos')
 
 let date = new Date().toISOString()
 
-async function getIptc(imagePath) {
+async function getIptc(imagePath: string) {
   return new Promise((resolve, reject) => {
     fs.readFile(imagePath, (err, data) => {
       if (err) reject(err)
@@ -37,7 +37,7 @@ async function getIptc(imagePath) {
   })
 }
 
-async function getExif(imagePath) {
+async function getExif(imagePath: string) {
   let exifData
   try {
     exifData = await fastExif.read(imagePath, true)
@@ -45,7 +45,7 @@ async function getExif(imagePath) {
     return null
   }
 
-  let iptcData
+  let iptcData = {}
   try {
     iptcData = await getIptc(imagePath)
   } catch (error) {
@@ -115,5 +115,5 @@ if (isPhoto) {
   fs.outputFile(file, newContents)
     .then(() => fs.readFile(file, 'utf8'))
     .then(() => spinner.succeed(`New post '${title}' created.`))
-    .catch((err) => spinner.fail(`Error creating post: ${err}`))
+    .catch((err: Error) => spinner.fail(`Error creating post: ${err.message}`))
 }

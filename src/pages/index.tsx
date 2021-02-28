@@ -7,7 +7,7 @@ import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
 import styles from './index.module.scss'
 
-export default function Home(props: PageProps): ReactElement {
+export default function Home({ data }: PageProps): ReactElement {
   return (
     <>
       <SEO />
@@ -17,17 +17,17 @@ export default function Home(props: PageProps): ReactElement {
         </h2>
 
         <div className={styles.articles}>
-          {(props.data as any).latestArticles.edges
+          {(data as any).latestArticles.edges
             .slice(0, 2)
             .map(({ node }: { node: Post }) => (
-              <PostTeaser key={node.id} post={node} />
+              <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
         <div className={`${styles.articles} ${styles.articlesLast}`}>
-          {(props.data as any).latestArticles.edges
+          {(data as any).latestArticles.edges
             .slice(2, 8)
             .map(({ node }: { node: Post }) => (
-              <PostTeaser key={node.id} post={node} />
+              <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
       </section>
@@ -38,11 +38,9 @@ export default function Home(props: PageProps): ReactElement {
         </h2>
 
         <div className={styles.photos}>
-          {(props.data as any).latestPhotos.edges.map(
-            ({ node }: { node: Post }) => (
-              <PhotoThumb key={node.id} photo={node} />
-            )
-          )}
+          {(data as any).latestPhotos.edges.map(({ node }: { node: Post }) => (
+            <PhotoThumb key={node.id} photo={node} />
+          ))}
         </div>
       </section>
     </>

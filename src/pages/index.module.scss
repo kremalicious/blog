@@ -19,13 +19,13 @@
 
 .articles {
   @media (min-width: $screen-sm) {
-    gap: $spacer * 2;
+    gap: $spacer * 1.5;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .articles:first-of-type h1 {
-  font-size: $font-size-h3;
+  font-size: $font-size-h4;
 }
 
 .articlesLast {

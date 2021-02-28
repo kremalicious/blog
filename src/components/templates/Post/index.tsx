@@ -59,8 +59,8 @@ export default function Post({
 
         {type === 'photo' ? (
           <>
-            <PostContent post={post} />
             {image && image.fields && <Exif exif={image.fields.exif} />}
+            <PostContent post={post} />
           </>
         ) : (
           <PostContent post={post} />

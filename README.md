@@ -228,7 +228,7 @@ npm run new photo /path/to/photo.jpg
 ```
 
 - [`scripts/new.js`](scripts/new.js)
-- [`scripts/new.md`](scripts/new.md)
+- [`scripts/new-article.md`](scripts/new-article.md)
 - [`scripts/new-photo.md`](scripts/new-photo.md)
 
 ## 🚚 Deployment

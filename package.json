@@ -20,7 +20,7 @@
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css,scss}'",
     "tsc": "tsc --noEmit",
     "deploy": "./scripts/deploy-s3.sh",
-    "new": "babel-node ./scripts/new.js"
+    "new": "ts-node ./scripts/new.ts"
   },
   "browserslist": [
     ">0.2%",
@@ -86,12 +86,11 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
-    "@babel/node": "^7.12.16",
-    "@babel/preset-typescript": "^7.12.16",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@types/classnames": "^2.2.11",
+    "@types/fs-extra": "^9.0.7",
     "@types/jest": "^26.0.20",
     "@types/loadable__component": "^5.13.3",
     "@types/lunr": "^2.3.3",
@@ -129,6 +128,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.5"
   },
   "repository": {
