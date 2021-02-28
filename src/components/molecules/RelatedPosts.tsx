@@ -1,8 +1,9 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.scss'
 import { Post, Frontmatter } from '../../@types/Post'
+import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
   query {
@@ -61,30 +62,35 @@ export default function RelatedPosts({
       : tags && postsWithDataFilter(posts, 'tags', tags)
   }
 
-  const [filteredPosts, setFilteredPosts] = useState(getPosts())
-  if (!filteredPosts) return null
+  const [filteredPosts, setFilteredPosts] = useState(
+    getPosts()
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 6)
+  )
 
   function refreshPosts() {
-    setFilteredPosts(getPosts())
+    const newPosts = getPosts()
+    setFilteredPosts(newPosts.sort(() => 0.5 - Math.random()).slice(0, 6))
   }
 
   return (
     <aside className={styles.relatedPosts}>
       <h1 className={styles.title}>
         Related {isPhotos ? 'Photos' : 'Posts'}{' '}
-        <button className={styles.button} onClick={refreshPosts}>
+        <button className={styles.button} onClick={() => refreshPosts()}>
           Refresh
         </button>
       </h1>
       <ul>
-        {filteredPosts
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 6)
-          .map(({ node }: { node: Post }) => (
-            <li key={node.id}>
-              <PostTeaser post={node} />
-            </li>
-          ))}
+        {filteredPosts?.map(({ node }: { node: Post }) => (
+          <li key={node.id}>
+            {isPhotos ? (
+              <PhotoThumb photo={node} />
+            ) : (
+              <PostTeaser post={node} hideDate />
+            )}
+          </li>
+        ))}
       </ul>
     </aside>
   )

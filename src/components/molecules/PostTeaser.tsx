@@ -49,7 +49,6 @@ export default function PostTeaser({
     >
       {image ? (
         <Image
-          title={type === 'photo' ? title : null}
           fluid={image.childImageSharp.fluid}
           alt={title}
           original={image.childImageSharp.original}
