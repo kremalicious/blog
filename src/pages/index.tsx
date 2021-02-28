@@ -12,36 +12,32 @@ export default function Home({ data }: PageProps): ReactElement {
     <>
       <SEO />
       <section className={styles.section}>
-        <h2 className={styles.title}>
-          Latest Articles <PostMore to="/archive">All Articles</PostMore>
-        </h2>
-
         <div className={styles.articles}>
           {(data as any).latestArticles.edges
-            .slice(0, 2)
+            .slice(0, 4)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
         <div className={`${styles.articles} ${styles.articlesLast}`}>
           {(data as any).latestArticles.edges
-            .slice(2, 8)
+            .slice(4, 7)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
+
+        <PostMore to="/archive">All Articles</PostMore>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.title}>
-          Latest Photos <PostMore to="/photos">All Photos</PostMore>
-        </h2>
-
         <div className={styles.photos}>
           {(data as any).latestPhotos.edges.map(({ node }: { node: Post }) => (
             <PhotoThumb key={node.id} photo={node} />
           ))}
         </div>
+
+        <PostMore to="/photos">All Photos</PostMore>
       </section>
     </>
   )

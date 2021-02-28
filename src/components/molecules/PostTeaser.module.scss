@@ -4,10 +4,11 @@
 .title {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
-  margin-top: $spacer / 3;
+  margin-top: $spacer / 2;
   margin-bottom: 0;
   font-size: $font-size-base;
   transition: color 0.2s ease-out;
+  color: $text-color-light;
 }
 
 .post {
