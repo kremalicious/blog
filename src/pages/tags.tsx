@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
 import styles from './tags.module.scss'
@@ -16,23 +16,26 @@ interface Tag {
   totalCount: number
 }
 
-interface TagsPageProps {
+interface TagsPageProps extends PageProps {
   data: {
     allMarkdownRemark: { group: Tag[] }
   }
-  location: Location
 }
 
-const TagsPage = ({ data, location }: TagsPageProps): ReactElement => (
-  <Page title={page.frontmatter.title} location={location} post={page}>
+const TagsPage = (props: TagsPageProps): ReactElement => (
+  <Page
+    title={page.frontmatter.title}
+    post={page}
+    pathname={props.location.pathname}
+  >
     <ul className={styles.tags}>
-      {data.allMarkdownRemark.group
+      {props.data.allMarkdownRemark.group
         .sort((a, b) => b.totalCount - a.totalCount)
         .map((tag: Tag) => (
           <li key={tag.fieldValue}>
             <Tag
               name={tag.fieldValue}
-              url={`/tags/${tag.fieldValue}/`}
+              url={`/archive/${tag.fieldValue}/`}
               count={tag.totalCount}
               style={{ fontSize: `${100 + tag.totalCount * 2}%` }}
             />

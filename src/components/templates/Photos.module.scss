@@ -1,0 +1,34 @@
+@import 'variables';
+@import 'mixins';
+
+.photos {
+  @include breakoutviewport;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacer;
+
+  @media (min-width: $screen-sm) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+.photo {
+  a {
+    display: block;
+  }
+
+  figure {
+    margin: 0;
+
+    > div {
+      margin: 0;
+    }
+  }
+
+  figcaption {
+    font-size: $font-size-base;
+    padding-left: $spacer / 2;
+    padding-right: $spacer / 2;
+  }
+}

@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Kapaleeshwarar Temple Chennai
 image: 2017-07-05-kapaleeshwarar-temple-chennai.jpg
 author: Matthias Kretschmann

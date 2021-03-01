@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: New Berlin Bridge
 image: ../media/berliner_bruecke1-HDR-16bit.jpg
 author: Matthias Kretschmann

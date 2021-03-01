@@ -21,8 +21,6 @@
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
-        "prettier/@typescript-eslint",
-        "prettier/react",
         "plugin:prettier/recommended",
         "plugin:react/recommended",
         "plugin:testing-library/recommended",

@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { createHistory, createMemorySource } from '@reach/router'
 
 import NotFound from '../404'
 
 describe('/404', () => {
-  const history = createHistory(createMemorySource('/404'))
   it('renders without crashing', () => {
-    const { container } = render(<NotFound location={history.location} />)
+    const { container } = render(
+      <NotFound location={{ pathname: '/tags' } as any} />
+    )
     expect(container.firstChild).toBeInTheDocument()
   })
 })

@@ -7,7 +7,7 @@ import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import styles from './Footer.module.scss'
 
 function Copyright() {
-  const { name, uri, bitcoin, github } = useSiteMetadata().author
+  const { name, uri, github } = useSiteMetadata().author
   const year = new Date().getFullYear()
 
   return (
@@ -24,7 +24,7 @@ function Copyright() {
         </a>
         <Link to="/thanks" className={styles.btc}>
           <Icon name="Bitcoin" />
-          <code>{bitcoin}</code>
+          Say Thanks
         </Link>
       </p>
     </section>
@@ -37,7 +37,6 @@ export default class Footer extends PureComponent {
       <footer role="contentinfo" className={styles.footer}>
         <Container>
           <Vcard />
-
           <Copyright />
         </Container>
       </footer>

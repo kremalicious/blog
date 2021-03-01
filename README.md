@@ -163,8 +163,6 @@ If you want to know how this works, have a look at the respective component unde
 
 ## ✨ Development
 
-You can simply use [Docker](https://www.docker.com) & [Docker Compose](https://docs.docker.com/compose/) or install and run dependencies on your local system.
-
 ```bash
 git clone git@github.com:kremalicious/blog.git
 cd blog/
@@ -173,10 +171,6 @@ cd blog/
 cp .env.sample .env
 vi .env
 
-# use Docker
-docker-compose up
-
-# or go with local system
 npm i
 npm start
 ```
@@ -228,7 +222,7 @@ npm run new photo /path/to/photo.jpg
 ```
 
 - [`scripts/new.js`](scripts/new.js)
-- [`scripts/new.md`](scripts/new.md)
+- [`scripts/new-article.md`](scripts/new-article.md)
 - [`scripts/new-photo.md`](scripts/new-photo.md)
 
 ## 🚚 Deployment

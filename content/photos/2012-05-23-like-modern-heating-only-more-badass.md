@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Like modern heating only more badass
 image: ../media/41b5a454a43811e1989612313815112c_7.jpeg
 author: Matthias Kretschmann

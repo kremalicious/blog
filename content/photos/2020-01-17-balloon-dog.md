@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2020-01-17T14:32:17.000Z
 
 title: Balloon Dog

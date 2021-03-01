@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Historic Flood Levels
 image: ../media/Historic-Flood-Levels.jpg
 author: Matthias Kretschmann

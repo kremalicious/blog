@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: MacBook abstract
 image: ../media/MG_9313_2007-02-10.jpg
 author: Matthias Kretschmann

@@ -1,0 +1,523 @@
+{
+  "latestArticles": {
+    "edges": [
+      {
+        "node": {
+          "id": "108cdbf6-2442-54b5-887c-aad821fba6c2",
+          "fileAbsolutePath": "/Users/m/Code/blog/content/articles/2020-05-22-gatsby-redirect-from/index.md",
+          "frontmatter": {
+            "title": "Redirect plugin for Markdown Pages in Gatsby",
+            "linkurl": null,
+            "updated": "2020-05-23T09:35:12.000Z",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/gatsby-redirect-from-teaser-0d31de44f593361b78d2af6a9c030de3.png"
+                },
+                "fluid": {
+                  "aspectRatio": 3,
+                  "src": "/static/0d31de44f593361b78d2af6a9c030de3/7547c/gatsby-redirect-from-teaser.png",
+                  "srcSet": "/static/0d31de44f593361b78d2af6a9c030de3/f353c/gatsby-redirect-from-teaser.png 105w,\n/static/0d31de44f593361b78d2af6a9c030de3/45430/gatsby-redirect-from-teaser.png 210w,\n/static/0d31de44f593361b78d2af6a9c030de3/7547c/gatsby-redirect-from-teaser.png 420w,\n/static/0d31de44f593361b78d2af6a9c030de3/4f753/gatsby-redirect-from-teaser.png 630w,\n/static/0d31de44f593361b78d2af6a9c030de3/60369/gatsby-redirect-from-teaser.png 840w,\n/static/0d31de44f593361b78d2af6a9c030de3/6364d/gatsby-redirect-from-teaser.png 1880w",
+                  "srcWebp": "/static/0d31de44f593361b78d2af6a9c030de3/8a0fd/gatsby-redirect-from-teaser.webp",
+                  "srcSetWebp": "/static/0d31de44f593361b78d2af6a9c030de3/2aec1/gatsby-redirect-from-teaser.webp 105w,\n/static/0d31de44f593361b78d2af6a9c030de3/74e55/gatsby-redirect-from-teaser.webp 210w,\n/static/0d31de44f593361b78d2af6a9c030de3/8a0fd/gatsby-redirect-from-teaser.webp 420w,\n/static/0d31de44f593361b78d2af6a9c030de3/70212/gatsby-redirect-from-teaser.webp 630w,\n/static/0d31de44f593361b78d2af6a9c030de3/a9b7e/gatsby-redirect-from-teaser.webp 840w,\n/static/0d31de44f593361b78d2af6a9c030de3/b6972/gatsby-redirect-from-teaser.webp 1880w",
+                  "sizes": "(max-width: 420px) 100vw, 420px"
+                }
+              }
+            },
+            "tags": ["goodies", "gatsby", "development"]
+          },
+          "fields": {
+            "slug": "/gatsby-redirect-from",
+            "date": "2020-05-22T14:08:00.367Z",
+            "type": "article"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "cf701f60-bbb5-544f-bb13-97aa884b7ad7",
+          "fileAbsolutePath": "/Users/m/Code/blog/content/articles/2020-05-08-uses/index.md",
+          "frontmatter": {
+            "title": "/uses",
+            "linkurl": null,
+            "updated": "2020-07-30T13:58:12.000Z",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/uses-teaser-dfb23ab7203b0f61b838c98f23ea7852.png"
+                },
+                "fluid": {
+                  "aspectRatio": 3,
+                  "src": "/static/dfb23ab7203b0f61b838c98f23ea7852/7547c/uses-teaser.png",
+                  "srcSet": "/static/dfb23ab7203b0f61b838c98f23ea7852/f353c/uses-teaser.png 105w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/45430/uses-teaser.png 210w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/7547c/uses-teaser.png 420w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/4f753/uses-teaser.png 630w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/60369/uses-teaser.png 840w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/6364d/uses-teaser.png 1880w",
+                  "srcWebp": "/static/dfb23ab7203b0f61b838c98f23ea7852/8a0fd/uses-teaser.webp",
+                  "srcSetWebp": "/static/dfb23ab7203b0f61b838c98f23ea7852/2aec1/uses-teaser.webp 105w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/74e55/uses-teaser.webp 210w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/8a0fd/uses-teaser.webp 420w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/70212/uses-teaser.webp 630w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/a9b7e/uses-teaser.webp 840w,\n/static/dfb23ab7203b0f61b838c98f23ea7852/b6972/uses-teaser.webp 1880w",
+                  "sizes": "(max-width: 420px) 100vw, 420px"
+                }
+              }
+            },
+            "tags": [
+              "personal",
+              "macos",
+              "ios",
+              "mac",
+              "iphone",
+              "design",
+              "development"
+            ]
+          },
+          "fields": {
+            "slug": "/uses",
+            "date": "2020-05-10T21:51:12.000Z",
+            "type": "article"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "d7662b67-4a20-52af-a847-9c4debcf1cec",
+          "fileAbsolutePath": "/Users/m/Code/blog/content/articles/2020-03-04-raspberry-pi-file-and-screen-sharing-macos-ios/index.md",
+          "frontmatter": {
+            "title": "Setup Raspberry Pi File and Screen Sharing for macOS & iOS",
+            "linkurl": null,
+            "updated": null,
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/raspberry-pi-file-and-screen-sharing-macos-ios-teaser-a5f639b239acd8c475ff7dd3844508e8.png"
+                },
+                "fluid": {
+                  "aspectRatio": 3,
+                  "src": "/static/a5f639b239acd8c475ff7dd3844508e8/7547c/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png",
+                  "srcSet": "/static/a5f639b239acd8c475ff7dd3844508e8/f353c/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 105w,\n/static/a5f639b239acd8c475ff7dd3844508e8/45430/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 210w,\n/static/a5f639b239acd8c475ff7dd3844508e8/7547c/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 420w,\n/static/a5f639b239acd8c475ff7dd3844508e8/4f753/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 630w,\n/static/a5f639b239acd8c475ff7dd3844508e8/60369/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 840w,\n/static/a5f639b239acd8c475ff7dd3844508e8/6364d/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png 1880w",
+                  "srcWebp": "/static/a5f639b239acd8c475ff7dd3844508e8/8a0fd/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp",
+                  "srcSetWebp": "/static/a5f639b239acd8c475ff7dd3844508e8/2aec1/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 105w,\n/static/a5f639b239acd8c475ff7dd3844508e8/74e55/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 210w,\n/static/a5f639b239acd8c475ff7dd3844508e8/8a0fd/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 420w,\n/static/a5f639b239acd8c475ff7dd3844508e8/70212/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 630w,\n/static/a5f639b239acd8c475ff7dd3844508e8/a9b7e/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 840w,\n/static/a5f639b239acd8c475ff7dd3844508e8/b6972/raspberry-pi-file-and-screen-sharing-macos-ios-teaser.webp 1880w",
+                  "sizes": "(max-width: 420px) 100vw, 420px"
+                }
+              }
+            },
+            "tags": [
+              "macos",
+              "ios",
+              "linux",
+              "raspberrypi",
+              "ubuntu",
+              "tutorial",
+              "avahi"
+            ]
+          },
+          "fields": {
+            "slug": "/raspberry-pi-file-and-screen-sharing-macos-ios",
+            "date": "2020-03-04T18:35:26.815Z",
+            "type": "article"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "9acfbf40-a90a-56c3-ab08-b98be93bcd9a",
+          "fileAbsolutePath": "/Users/m/Code/blog/content/articles/2019-10-24-ocean-protocol-and-ipfs-sitting-in-the-merkle-tree/index.md",
+          "frontmatter": {
+            "title": "Ocean Protocol and IPFS, Sitting In The Merkle Tree",
+            "linkurl": null,
+            "updated": null,
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser-f724bdaae38e81ec90b01ec6b8412cc8.png"
+                },
+                "fluid": {
+                  "aspectRatio": 3,
+                  "src": "/static/f724bdaae38e81ec90b01ec6b8412cc8/7547c/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png",
+                  "srcSet": "/static/f724bdaae38e81ec90b01ec6b8412cc8/f353c/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 105w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/45430/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 210w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/7547c/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 420w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/4f753/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 630w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/60369/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 840w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/766ad/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png 2000w",
+                  "srcWebp": "/static/f724bdaae38e81ec90b01ec6b8412cc8/8a0fd/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp",
+                  "srcSetWebp": "/static/f724bdaae38e81ec90b01ec6b8412cc8/2aec1/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 105w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/74e55/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 210w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/8a0fd/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 420w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/70212/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 630w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/a9b7e/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 840w,\n/static/f724bdaae38e81ec90b01ec6b8412cc8/52dbc/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.webp 2000w",
+                  "sizes": "(max-width: 420px) 100vw, 420px"
+                }
+              }
+            },
+            "tags": [
+              "oceanprotocol",
+              "blockchain",
+              "design",
+              "development",
+              "ipfs",
+              "web3"
+            ]
+          },
+          "fields": {
+            "slug": "/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree",
+            "date": "2019-10-24T00:00:00.000Z",
+            "type": "article"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "45d2cb0a-5f77-5726-86d7-72b38b6c8024",
+          "fileAbsolutePath": "/Users/m/Code/blog/content/articles/2019-07-18-the-commons-marketplace-in-pacific-network/index.md",
+          "frontmatter": {
+            "title": "The Commons Marketplace in Pacific Network",
+            "linkurl": null,
+            "updated": null,
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/the-commons-marketplace-in-pacific-network-teaser-2db57438c9f98018d8b61d9224d3fb77.png"
+                },
+                "fluid": {
+                  "aspectRatio": 3,
+                  "src": "/static/2db57438c9f98018d8b61d9224d3fb77/7547c/the-commons-marketplace-in-pacific-network-teaser.png",
+                  "srcSet": "/static/2db57438c9f98018d8b61d9224d3fb77/f353c/the-commons-marketplace-in-pacific-network-teaser.png 105w,\n/static/2db57438c9f98018d8b61d9224d3fb77/45430/the-commons-marketplace-in-pacific-network-teaser.png 210w,\n/static/2db57438c9f98018d8b61d9224d3fb77/7547c/the-commons-marketplace-in-pacific-network-teaser.png 420w,\n/static/2db57438c9f98018d8b61d9224d3fb77/4f753/the-commons-marketplace-in-pacific-network-teaser.png 630w,\n/static/2db57438c9f98018d8b61d9224d3fb77/60369/the-commons-marketplace-in-pacific-network-teaser.png 840w,\n/static/2db57438c9f98018d8b61d9224d3fb77/fe119/the-commons-marketplace-in-pacific-network-teaser.png 2762w",
+                  "srcWebp": "/static/2db57438c9f98018d8b61d9224d3fb77/8a0fd/the-commons-marketplace-in-pacific-network-teaser.webp",
+                  "srcSetWebp": "/static/2db57438c9f98018d8b61d9224d3fb77/2aec1/the-commons-marketplace-in-pacific-network-teaser.webp 105w,\n/static/2db57438c9f98018d8b61d9224d3fb77/74e55/the-commons-marketplace-in-pacific-network-teaser.webp 210w,\n/static/2db57438c9f98018d8b61d9224d3fb77/8a0fd/the-commons-marketplace-in-pacific-network-teaser.webp 420w,\n/static/2db57438c9f98018d8b61d9224d3fb77/70212/the-commons-marketplace-in-pacific-network-teaser.webp 630w,\n/static/2db57438c9f98018d8b61d9224d3fb77/a9b7e/the-commons-marketplace-in-pacific-network-teaser.webp 840w,\n/static/2db57438c9f98018d8b61d9224d3fb77/dc0ca/the-commons-marketplace-in-pacific-network-teaser.webp 2762w",
+                  "sizes": "(max-width: 420px) 100vw, 420px"
+                }
+              }
+            },
+            "tags": [
+              "oceanprotocol",
+              "blockchain",
+              "design",
+              "development",
+              "web3"
+            ]
+          },
+          "fields": {
+            "slug": "/the-commons-marketplace-in-pacific-network",
+            "date": "2019-07-18T00:00:00.000Z",
+            "type": "article"
+          }
+        }
+      }
+    ]
+  },
+  "latestPhotos": {
+    "edges": [
+      {
+        "node": {
+          "id": "5f4558ee-381e-5fb0-9c0e-b60115b6e22e",
+          "frontmatter": {
+            "title": "The Light That Never Goes Out",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2020-02-14-the-light-that-never-goes-out-a389a64d6f51e45fa8e0a7ea98f85fa4.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/a389a64d6f51e45fa8e0a7ea98f85fa4/0f41b/2020-02-14-the-light-that-never-goes-out.jpg",
+                  "srcSet": "/static/a389a64d6f51e45fa8e0a7ea98f85fa4/73124/2020-02-14-the-light-that-never-goes-out.jpg 75w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/712e7/2020-02-14-the-light-that-never-goes-out.jpg 150w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/0f41b/2020-02-14-the-light-that-never-goes-out.jpg 300w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/270e8/2020-02-14-the-light-that-never-goes-out.jpg 450w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/aa95b/2020-02-14-the-light-that-never-goes-out.jpg 600w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/37b83/2020-02-14-the-light-that-never-goes-out.jpg 2772w",
+                  "srcWebp": "/static/a389a64d6f51e45fa8e0a7ea98f85fa4/40e2f/2020-02-14-the-light-that-never-goes-out.webp",
+                  "srcSetWebp": "/static/a389a64d6f51e45fa8e0a7ea98f85fa4/37dc9/2020-02-14-the-light-that-never-goes-out.webp 75w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/37a2a/2020-02-14-the-light-that-never-goes-out.webp 150w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/40e2f/2020-02-14-the-light-that-never-goes-out.webp 300w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/6a707/2020-02-14-the-light-that-never-goes-out.webp 450w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/bf714/2020-02-14-the-light-that-never-goes-out.webp 600w,\n/static/a389a64d6f51e45fa8e0a7ea98f85fa4/0a795/2020-02-14-the-light-that-never-goes-out.webp 2772w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/the-light-that-never-goes-out",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "8c2d7d7e-3799-5f1e-8499-922d58a636ee",
+          "frontmatter": {
+            "title": "Balloon Dog",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2020-01-17-balloon-dog-28916b152705a4f518c85519b6c1822b.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/28916b152705a4f518c85519b6c1822b/0f41b/2020-01-17-balloon-dog.jpg",
+                  "srcSet": "/static/28916b152705a4f518c85519b6c1822b/73124/2020-01-17-balloon-dog.jpg 75w,\n/static/28916b152705a4f518c85519b6c1822b/712e7/2020-01-17-balloon-dog.jpg 150w,\n/static/28916b152705a4f518c85519b6c1822b/0f41b/2020-01-17-balloon-dog.jpg 300w,\n/static/28916b152705a4f518c85519b6c1822b/270e8/2020-01-17-balloon-dog.jpg 450w,\n/static/28916b152705a4f518c85519b6c1822b/aa95b/2020-01-17-balloon-dog.jpg 600w,\n/static/28916b152705a4f518c85519b6c1822b/d5887/2020-01-17-balloon-dog.jpg 2792w",
+                  "srcWebp": "/static/28916b152705a4f518c85519b6c1822b/40e2f/2020-01-17-balloon-dog.webp",
+                  "srcSetWebp": "/static/28916b152705a4f518c85519b6c1822b/37dc9/2020-01-17-balloon-dog.webp 75w,\n/static/28916b152705a4f518c85519b6c1822b/37a2a/2020-01-17-balloon-dog.webp 150w,\n/static/28916b152705a4f518c85519b6c1822b/40e2f/2020-01-17-balloon-dog.webp 300w,\n/static/28916b152705a4f518c85519b6c1822b/6a707/2020-01-17-balloon-dog.webp 450w,\n/static/28916b152705a4f518c85519b6c1822b/bf714/2020-01-17-balloon-dog.webp 600w,\n/static/28916b152705a4f518c85519b6c1822b/57701/2020-01-17-balloon-dog.webp 2792w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/balloon-dog",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "a1cd842c-4755-508e-9709-2daabeb783a4",
+          "frontmatter": {
+            "title": "Bremen Cathedral",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2020-01-17-bremen-cathedral-7203580f941ea9a9b0a27d6f41686724.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/7203580f941ea9a9b0a27d6f41686724/0f41b/2020-01-17-bremen-cathedral.jpg",
+                  "srcSet": "/static/7203580f941ea9a9b0a27d6f41686724/73124/2020-01-17-bremen-cathedral.jpg 75w,\n/static/7203580f941ea9a9b0a27d6f41686724/712e7/2020-01-17-bremen-cathedral.jpg 150w,\n/static/7203580f941ea9a9b0a27d6f41686724/0f41b/2020-01-17-bremen-cathedral.jpg 300w,\n/static/7203580f941ea9a9b0a27d6f41686724/270e8/2020-01-17-bremen-cathedral.jpg 450w,\n/static/7203580f941ea9a9b0a27d6f41686724/aa95b/2020-01-17-bremen-cathedral.jpg 600w,\n/static/7203580f941ea9a9b0a27d6f41686724/ffda5/2020-01-17-bremen-cathedral.jpg 3115w",
+                  "srcWebp": "/static/7203580f941ea9a9b0a27d6f41686724/40e2f/2020-01-17-bremen-cathedral.webp",
+                  "srcSetWebp": "/static/7203580f941ea9a9b0a27d6f41686724/37dc9/2020-01-17-bremen-cathedral.webp 75w,\n/static/7203580f941ea9a9b0a27d6f41686724/37a2a/2020-01-17-bremen-cathedral.webp 150w,\n/static/7203580f941ea9a9b0a27d6f41686724/40e2f/2020-01-17-bremen-cathedral.webp 300w,\n/static/7203580f941ea9a9b0a27d6f41686724/6a707/2020-01-17-bremen-cathedral.webp 450w,\n/static/7203580f941ea9a9b0a27d6f41686724/bf714/2020-01-17-bremen-cathedral.webp 600w,\n/static/7203580f941ea9a9b0a27d6f41686724/ba27b/2020-01-17-bremen-cathedral.webp 3115w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/bremen-cathedral",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "82a3ca09-ff38-5c2a-8b4f-6f5150d9448e",
+          "frontmatter": {
+            "title": "RAW Gelände",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2020-01-05-raw-gelande-6d40de77304f8a335d88447d16125e5a.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/6d40de77304f8a335d88447d16125e5a/0f41b/2020-01-05-raw-gelande.jpg",
+                  "srcSet": "/static/6d40de77304f8a335d88447d16125e5a/73124/2020-01-05-raw-gelande.jpg 75w,\n/static/6d40de77304f8a335d88447d16125e5a/712e7/2020-01-05-raw-gelande.jpg 150w,\n/static/6d40de77304f8a335d88447d16125e5a/0f41b/2020-01-05-raw-gelande.jpg 300w,\n/static/6d40de77304f8a335d88447d16125e5a/270e8/2020-01-05-raw-gelande.jpg 450w,\n/static/6d40de77304f8a335d88447d16125e5a/aa95b/2020-01-05-raw-gelande.jpg 600w,\n/static/6d40de77304f8a335d88447d16125e5a/30037/2020-01-05-raw-gelande.jpg 3024w",
+                  "srcWebp": "/static/6d40de77304f8a335d88447d16125e5a/40e2f/2020-01-05-raw-gelande.webp",
+                  "srcSetWebp": "/static/6d40de77304f8a335d88447d16125e5a/37dc9/2020-01-05-raw-gelande.webp 75w,\n/static/6d40de77304f8a335d88447d16125e5a/37a2a/2020-01-05-raw-gelande.webp 150w,\n/static/6d40de77304f8a335d88447d16125e5a/40e2f/2020-01-05-raw-gelande.webp 300w,\n/static/6d40de77304f8a335d88447d16125e5a/6a707/2020-01-05-raw-gelande.webp 450w,\n/static/6d40de77304f8a335d88447d16125e5a/bf714/2020-01-05-raw-gelande.webp 600w,\n/static/6d40de77304f8a335d88447d16125e5a/859d2/2020-01-05-raw-gelande.webp 3024w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/raw-gelande",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "7c499977-3837-54bd-a8e9-945fb0e5c04a",
+          "frontmatter": {
+            "title": "Helmut Newton Foundation",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-11-16-helmut-newton-foundation-d5cf288572434a487b055397b4cec51b.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/d5cf288572434a487b055397b4cec51b/0f41b/2019-11-16-helmut-newton-foundation.jpg",
+                  "srcSet": "/static/d5cf288572434a487b055397b4cec51b/73124/2019-11-16-helmut-newton-foundation.jpg 75w,\n/static/d5cf288572434a487b055397b4cec51b/712e7/2019-11-16-helmut-newton-foundation.jpg 150w,\n/static/d5cf288572434a487b055397b4cec51b/0f41b/2019-11-16-helmut-newton-foundation.jpg 300w,\n/static/d5cf288572434a487b055397b4cec51b/270e8/2019-11-16-helmut-newton-foundation.jpg 450w,\n/static/d5cf288572434a487b055397b4cec51b/aa95b/2019-11-16-helmut-newton-foundation.jpg 600w,\n/static/d5cf288572434a487b055397b4cec51b/d3f44/2019-11-16-helmut-newton-foundation.jpg 3620w",
+                  "srcWebp": "/static/d5cf288572434a487b055397b4cec51b/40e2f/2019-11-16-helmut-newton-foundation.webp",
+                  "srcSetWebp": "/static/d5cf288572434a487b055397b4cec51b/37dc9/2019-11-16-helmut-newton-foundation.webp 75w,\n/static/d5cf288572434a487b055397b4cec51b/37a2a/2019-11-16-helmut-newton-foundation.webp 150w,\n/static/d5cf288572434a487b055397b4cec51b/40e2f/2019-11-16-helmut-newton-foundation.webp 300w,\n/static/d5cf288572434a487b055397b4cec51b/6a707/2019-11-16-helmut-newton-foundation.webp 450w,\n/static/d5cf288572434a487b055397b4cec51b/bf714/2019-11-16-helmut-newton-foundation.webp 600w,\n/static/d5cf288572434a487b055397b4cec51b/40f07/2019-11-16-helmut-newton-foundation.webp 3620w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/helmut-newton-foundation",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "bbf028a7-0973-5d1e-8099-d6409936e73e",
+          "frontmatter": {
+            "title": "Országház III",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-11-03-orszaghaz-iii-7c4460abda635fd1de2856343196a260.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/7c4460abda635fd1de2856343196a260/0f41b/2019-11-03-orszaghaz-iii.jpg",
+                  "srcSet": "/static/7c4460abda635fd1de2856343196a260/73124/2019-11-03-orszaghaz-iii.jpg 75w,\n/static/7c4460abda635fd1de2856343196a260/712e7/2019-11-03-orszaghaz-iii.jpg 150w,\n/static/7c4460abda635fd1de2856343196a260/0f41b/2019-11-03-orszaghaz-iii.jpg 300w,\n/static/7c4460abda635fd1de2856343196a260/270e8/2019-11-03-orszaghaz-iii.jpg 450w,\n/static/7c4460abda635fd1de2856343196a260/aa95b/2019-11-03-orszaghaz-iii.jpg 600w,\n/static/7c4460abda635fd1de2856343196a260/9ce23/2019-11-03-orszaghaz-iii.jpg 3813w",
+                  "srcWebp": "/static/7c4460abda635fd1de2856343196a260/40e2f/2019-11-03-orszaghaz-iii.webp",
+                  "srcSetWebp": "/static/7c4460abda635fd1de2856343196a260/37dc9/2019-11-03-orszaghaz-iii.webp 75w,\n/static/7c4460abda635fd1de2856343196a260/37a2a/2019-11-03-orszaghaz-iii.webp 150w,\n/static/7c4460abda635fd1de2856343196a260/40e2f/2019-11-03-orszaghaz-iii.webp 300w,\n/static/7c4460abda635fd1de2856343196a260/6a707/2019-11-03-orszaghaz-iii.webp 450w,\n/static/7c4460abda635fd1de2856343196a260/bf714/2019-11-03-orszaghaz-iii.webp 600w,\n/static/7c4460abda635fd1de2856343196a260/e9670/2019-11-03-orszaghaz-iii.webp 3813w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/orszaghaz-iii",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "6effe45d-0884-527c-9fba-6f7f567979fd",
+          "frontmatter": {
+            "title": "Országház II",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-11-03-orszaghaz-ii-2dbcf257b4bdf625c24fede935d32425.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/2dbcf257b4bdf625c24fede935d32425/0f41b/2019-11-03-orszaghaz-ii.jpg",
+                  "srcSet": "/static/2dbcf257b4bdf625c24fede935d32425/73124/2019-11-03-orszaghaz-ii.jpg 75w,\n/static/2dbcf257b4bdf625c24fede935d32425/712e7/2019-11-03-orszaghaz-ii.jpg 150w,\n/static/2dbcf257b4bdf625c24fede935d32425/0f41b/2019-11-03-orszaghaz-ii.jpg 300w,\n/static/2dbcf257b4bdf625c24fede935d32425/270e8/2019-11-03-orszaghaz-ii.jpg 450w,\n/static/2dbcf257b4bdf625c24fede935d32425/aa95b/2019-11-03-orszaghaz-ii.jpg 600w,\n/static/2dbcf257b4bdf625c24fede935d32425/d1a04/2019-11-03-orszaghaz-ii.jpg 3793w",
+                  "srcWebp": "/static/2dbcf257b4bdf625c24fede935d32425/40e2f/2019-11-03-orszaghaz-ii.webp",
+                  "srcSetWebp": "/static/2dbcf257b4bdf625c24fede935d32425/37dc9/2019-11-03-orszaghaz-ii.webp 75w,\n/static/2dbcf257b4bdf625c24fede935d32425/37a2a/2019-11-03-orszaghaz-ii.webp 150w,\n/static/2dbcf257b4bdf625c24fede935d32425/40e2f/2019-11-03-orszaghaz-ii.webp 300w,\n/static/2dbcf257b4bdf625c24fede935d32425/6a707/2019-11-03-orszaghaz-ii.webp 450w,\n/static/2dbcf257b4bdf625c24fede935d32425/bf714/2019-11-03-orszaghaz-ii.webp 600w,\n/static/2dbcf257b4bdf625c24fede935d32425/90141/2019-11-03-orszaghaz-ii.webp 3793w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/orszaghaz-ii",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "c80697e5-681d-5fcc-9dab-c3a3821ff0b1",
+          "frontmatter": {
+            "title": "Országház I",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-11-02-orszaghaz-i-36d87329aeeda296ae923606e5a4a785.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/36d87329aeeda296ae923606e5a4a785/0f41b/2019-11-02-orszaghaz-i.jpg",
+                  "srcSet": "/static/36d87329aeeda296ae923606e5a4a785/73124/2019-11-02-orszaghaz-i.jpg 75w,\n/static/36d87329aeeda296ae923606e5a4a785/712e7/2019-11-02-orszaghaz-i.jpg 150w,\n/static/36d87329aeeda296ae923606e5a4a785/0f41b/2019-11-02-orszaghaz-i.jpg 300w,\n/static/36d87329aeeda296ae923606e5a4a785/270e8/2019-11-02-orszaghaz-i.jpg 450w,\n/static/36d87329aeeda296ae923606e5a4a785/aa95b/2019-11-02-orszaghaz-i.jpg 600w,\n/static/36d87329aeeda296ae923606e5a4a785/506d6/2019-11-02-orszaghaz-i.jpg 3708w",
+                  "srcWebp": "/static/36d87329aeeda296ae923606e5a4a785/40e2f/2019-11-02-orszaghaz-i.webp",
+                  "srcSetWebp": "/static/36d87329aeeda296ae923606e5a4a785/37dc9/2019-11-02-orszaghaz-i.webp 75w,\n/static/36d87329aeeda296ae923606e5a4a785/37a2a/2019-11-02-orszaghaz-i.webp 150w,\n/static/36d87329aeeda296ae923606e5a4a785/40e2f/2019-11-02-orszaghaz-i.webp 300w,\n/static/36d87329aeeda296ae923606e5a4a785/6a707/2019-11-02-orszaghaz-i.webp 450w,\n/static/36d87329aeeda296ae923606e5a4a785/bf714/2019-11-02-orszaghaz-i.webp 600w,\n/static/36d87329aeeda296ae923606e5a4a785/7fe6d/2019-11-02-orszaghaz-i.webp 3708w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/orszaghaz-i",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "0549d0c5-1c41-5cf6-b640-6fbc6ab778fb",
+          "frontmatter": {
+            "title": "Foro di Cesare",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-09-29-foro-di-cesare-00ba7297095683d32f490c1cf1a3ca2d.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/00ba7297095683d32f490c1cf1a3ca2d/0f41b/2019-09-29-foro-di-cesare.jpg",
+                  "srcSet": "/static/00ba7297095683d32f490c1cf1a3ca2d/73124/2019-09-29-foro-di-cesare.jpg 75w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/712e7/2019-09-29-foro-di-cesare.jpg 150w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/0f41b/2019-09-29-foro-di-cesare.jpg 300w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/270e8/2019-09-29-foro-di-cesare.jpg 450w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/aa95b/2019-09-29-foro-di-cesare.jpg 600w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/9dbe2/2019-09-29-foro-di-cesare.jpg 2868w",
+                  "srcWebp": "/static/00ba7297095683d32f490c1cf1a3ca2d/40e2f/2019-09-29-foro-di-cesare.webp",
+                  "srcSetWebp": "/static/00ba7297095683d32f490c1cf1a3ca2d/37dc9/2019-09-29-foro-di-cesare.webp 75w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/37a2a/2019-09-29-foro-di-cesare.webp 150w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/40e2f/2019-09-29-foro-di-cesare.webp 300w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/6a707/2019-09-29-foro-di-cesare.webp 450w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/bf714/2019-09-29-foro-di-cesare.webp 600w,\n/static/00ba7297095683d32f490c1cf1a3ca2d/d8318/2019-09-29-foro-di-cesare.webp 2868w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/foro-di-cesare",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "fe3ed03e-3612-54cb-aceb-691938b4e3f3",
+          "frontmatter": {
+            "title": "Arco di Costantino",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-09-29-arco-di-costantino-8f7392d32a0a7746cbb712e4e4a8e2ef.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/8f7392d32a0a7746cbb712e4e4a8e2ef/0f41b/2019-09-29-arco-di-costantino.jpg",
+                  "srcSet": "/static/8f7392d32a0a7746cbb712e4e4a8e2ef/73124/2019-09-29-arco-di-costantino.jpg 75w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/712e7/2019-09-29-arco-di-costantino.jpg 150w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/0f41b/2019-09-29-arco-di-costantino.jpg 300w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/270e8/2019-09-29-arco-di-costantino.jpg 450w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/aa95b/2019-09-29-arco-di-costantino.jpg 600w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/30037/2019-09-29-arco-di-costantino.jpg 3024w",
+                  "srcWebp": "/static/8f7392d32a0a7746cbb712e4e4a8e2ef/40e2f/2019-09-29-arco-di-costantino.webp",
+                  "srcSetWebp": "/static/8f7392d32a0a7746cbb712e4e4a8e2ef/37dc9/2019-09-29-arco-di-costantino.webp 75w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/37a2a/2019-09-29-arco-di-costantino.webp 150w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/40e2f/2019-09-29-arco-di-costantino.webp 300w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/6a707/2019-09-29-arco-di-costantino.webp 450w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/bf714/2019-09-29-arco-di-costantino.webp 600w,\n/static/8f7392d32a0a7746cbb712e4e4a8e2ef/859d2/2019-09-29-arco-di-costantino.webp 3024w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/arco-di-costantino",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "2cc51eaa-e6c0-521e-8cea-00cf68688161",
+          "frontmatter": {
+            "title": "Vatican Museums",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-09-28-vatican-museums-9ffc375488247897643811d33d28edf9.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/9ffc375488247897643811d33d28edf9/0f41b/2019-09-28-vatican-museums.jpg",
+                  "srcSet": "/static/9ffc375488247897643811d33d28edf9/73124/2019-09-28-vatican-museums.jpg 75w,\n/static/9ffc375488247897643811d33d28edf9/712e7/2019-09-28-vatican-museums.jpg 150w,\n/static/9ffc375488247897643811d33d28edf9/0f41b/2019-09-28-vatican-museums.jpg 300w,\n/static/9ffc375488247897643811d33d28edf9/270e8/2019-09-28-vatican-museums.jpg 450w,\n/static/9ffc375488247897643811d33d28edf9/aa95b/2019-09-28-vatican-museums.jpg 600w,\n/static/9ffc375488247897643811d33d28edf9/179de/2019-09-28-vatican-museums.jpg 2978w",
+                  "srcWebp": "/static/9ffc375488247897643811d33d28edf9/40e2f/2019-09-28-vatican-museums.webp",
+                  "srcSetWebp": "/static/9ffc375488247897643811d33d28edf9/37dc9/2019-09-28-vatican-museums.webp 75w,\n/static/9ffc375488247897643811d33d28edf9/37a2a/2019-09-28-vatican-museums.webp 150w,\n/static/9ffc375488247897643811d33d28edf9/40e2f/2019-09-28-vatican-museums.webp 300w,\n/static/9ffc375488247897643811d33d28edf9/6a707/2019-09-28-vatican-museums.webp 450w,\n/static/9ffc375488247897643811d33d28edf9/bf714/2019-09-28-vatican-museums.webp 600w,\n/static/9ffc375488247897643811d33d28edf9/79bab/2019-09-28-vatican-museums.webp 2978w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/vatican-museums",
+            "type": "photo"
+          }
+        }
+      },
+      {
+        "node": {
+          "id": "9133fd25-1cb8-5660-be11-3532d4e18cae",
+          "frontmatter": {
+            "title": "German Chancellery II",
+            "image": {
+              "childImageSharp": {
+                "original": {
+                  "src": "/static/2019-08-18-german-chancellery-ii-325bcee8ced12b150a2f3448ec1ae8cd.jpg"
+                },
+                "fluid": {
+                  "aspectRatio": 1,
+                  "src": "/static/325bcee8ced12b150a2f3448ec1ae8cd/0f41b/2019-08-18-german-chancellery-ii.jpg",
+                  "srcSet": "/static/325bcee8ced12b150a2f3448ec1ae8cd/73124/2019-08-18-german-chancellery-ii.jpg 75w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/712e7/2019-08-18-german-chancellery-ii.jpg 150w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/0f41b/2019-08-18-german-chancellery-ii.jpg 300w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/270e8/2019-08-18-german-chancellery-ii.jpg 450w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/aa95b/2019-08-18-german-chancellery-ii.jpg 600w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/0e49e/2019-08-18-german-chancellery-ii.jpg 4032w",
+                  "srcWebp": "/static/325bcee8ced12b150a2f3448ec1ae8cd/40e2f/2019-08-18-german-chancellery-ii.webp",
+                  "srcSetWebp": "/static/325bcee8ced12b150a2f3448ec1ae8cd/37dc9/2019-08-18-german-chancellery-ii.webp 75w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/37a2a/2019-08-18-german-chancellery-ii.webp 150w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/40e2f/2019-08-18-german-chancellery-ii.webp 300w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/6a707/2019-08-18-german-chancellery-ii.webp 450w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/bf714/2019-08-18-german-chancellery-ii.webp 600w,\n/static/325bcee8ced12b150a2f3448ec1ae8cd/b3fb4/2019-08-18-german-chancellery-ii.webp 4032w",
+                  "sizes": "(max-width: 300px) 100vw, 300px"
+                }
+              }
+            }
+          },
+          "fields": {
+            "slug": "/german-chancellery-ii",
+            "type": "photo"
+          }
+        }
+      }
+    ]
+  }
+}

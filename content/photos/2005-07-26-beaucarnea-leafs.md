@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Beaucarnea leafs
 image: ../media/img_1820-Version-4.jpg
 author: Matthias Kretschmann

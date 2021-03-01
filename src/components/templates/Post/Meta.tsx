@@ -1,17 +1,17 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
-import Time from '../../atoms/Time'
 import Tag from '../../atoms/Tag'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 import styles from './Meta.module.scss'
 import { Post } from '../../../@types/Post'
 import shortid from 'shortid'
+import PostDate from '../../molecules/PostDate'
 
 export default function PostMeta({ post }: { post: Post }): ReactElement {
   const siteMeta = useSiteMetadata()
-  const { author, updated, tags, type } = post.frontmatter
-  const { date } = post.fields
+  const { author, updated, tags } = post.frontmatter
+  const { date, type } = post.fields
 
   return (
     <footer className={styles.entryMeta}>
@@ -22,12 +22,7 @@ export default function PostMeta({ post }: { post: Post }): ReactElement {
         </a>
       </div>
 
-      <div className={styles.time}>
-        {updated && 'published '}
-        <Time date={date} />
-        {updated && ' • updated '}
-        {updated && <Time date={updated} />}
-      </div>
+      <PostDate date={date} updated={updated} />
 
       {type && type === 'photo' && (
         <div className={styles.type}>
@@ -38,7 +33,7 @@ export default function PostMeta({ post }: { post: Post }): ReactElement {
       {tags && (
         <div className={styles.tags}>
           {tags.map((tag: string) => {
-            const url = `/tags/${slugify(tag)}/`
+            const url = `/archive/${slugify(tag)}/`
             return <Tag key={shortid.generate()} name={tag} url={url} />
           })}
         </div>

@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Antique Chrome
 image: ../media/5fc688aa953811e180c9123138016265_7.jpg
 author: Matthias Kretschmann

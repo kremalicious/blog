@@ -9,7 +9,7 @@
           "excerpt": "Inside the Hungarian Parliament Building in Budapest, Hungary.",
           "frontmatter": {
             "title": "Országház II",
-            "type": "photo",
+
             "linkurl": null,
             "tags": null,
             "image": {
@@ -34,7 +34,8 @@
           },
           "fields": {
             "slug": "/orszaghaz-ii/",
-            "date": "November 03, 2019"
+            "date": "November 03, 2019",
+            "type": "photo"
           }
         }
       },
@@ -46,7 +47,6 @@
           "excerpt": "The Hungarian Parliament Building seen from across the Danube in Budapest, Hungary.",
           "frontmatter": {
             "title": "Országház I",
-            "type": "photo",
             "linkurl": null,
             "tags": null,
             "featured": true,
@@ -72,7 +72,8 @@
           },
           "fields": {
             "slug": "/orszaghaz-i/",
-            "date": "November 02, 2019"
+            "date": "November 02, 2019",
+            "type": "photo"
           }
         }
       },
@@ -84,7 +85,7 @@
           "excerpt": "IPFS is now integrated into the Ocean Protocol stack, allowing you to take advantage of decentralized asset file hosting. This article was originally posted on Medium in the Ocean Protocol blog. ✨ Going Decentralized With Ocean Protocol, you can use…",
           "frontmatter": {
             "title": "Ocean Protocol and IPFS, Sitting In The Merkle Tree",
-            "type": "post",
+
             "linkurl": null,
             "tags": ["oceanprotocol", "blockchain", "design", "ipfs", "web3"],
             "image": {
@@ -109,7 +110,8 @@
           },
           "fields": {
             "slug": "/ocean-protocol-and-ipfs-sitting-in-the-merkle-tree",
-            "date": "October 24, 2019"
+            "date": "October 24, 2019",
+            "type": "post"
           }
         }
       }

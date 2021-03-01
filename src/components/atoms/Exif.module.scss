@@ -20,7 +20,7 @@
     display: block;
     flex: 1 1 20%;
     white-space: nowrap;
-    padding: $spacer $spacer / 1.5;
+    padding: $spacer;
     border-bottom: 1px dashed $brand-grey-dimmed;
 
     svg {
@@ -45,7 +45,6 @@
     span {
       border-left: 1px dashed $brand-grey-dimmed;
       border-bottom: 0;
-      padding: $spacer * 1.5 $spacer;
 
       &,
       &:first-child {

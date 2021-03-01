@@ -1,5 +1,4 @@
 ---
-type: photo
 title: Rotterdam coats
 image: 2017-02-19-rotterdam-coats.jpg
 author: Matthias Kretschmann

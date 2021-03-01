@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-03-13T00:00:00.000Z
 
 title: Paraty-Mirim

@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Helvetica Typewriter Keys
 image: ../media/MG_1735-Version-2.jpg
 author: Matthias Kretschmann

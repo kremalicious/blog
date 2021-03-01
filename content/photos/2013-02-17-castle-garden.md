@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Castle Garden
 image: ../media/8372983659_da0e88ca79_o.jpg
 author: Matthias Kretschmann

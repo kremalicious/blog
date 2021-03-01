@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Wooden Windmill
 image: ../media/muehle_suhlendorf_HDR_Tonemapped_16bit.jpg
 author: Matthias Kretschmann

@@ -11,12 +11,7 @@ import styles from './Layout.module.scss'
 //   whyDidYouRender(React)
 // }
 
-export default function Layout({
-  children
-}: {
-  location?: Location
-  children: any
-}): ReactElement {
+export default function Layout({ children }: { children: any }): ReactElement {
   return (
     <>
       <Typekit />

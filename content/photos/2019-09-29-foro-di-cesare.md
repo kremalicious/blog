@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-09-29T15:31:00.000Z
 
 title: Foro di Cesare

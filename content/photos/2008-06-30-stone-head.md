@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Stone Head
 image: ../media/stonehead.jpg
 author: Matthias Kretschmann

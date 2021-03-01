@@ -13,5 +13,5 @@
     "noImplicitAny": true
   },
   "exclude": ["node_modules", "public", ".cache", "*.js"],
-  "include": ["./src/**/*", "./jest/**/*"]
+  "include": ["./src/**/*", "./scripts/*.ts", "./jest/**/*"]
 }

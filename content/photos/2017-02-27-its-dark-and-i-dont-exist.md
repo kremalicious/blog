@@ -1,5 +1,4 @@
 ---
-type: photo
 title: "It's dark and I don't exist"
 image: 2017-02-27-its-dark-and-i-dont-exist.jpg
 author: Matthias Kretschmann

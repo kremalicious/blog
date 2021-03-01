@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2018-01-26T00:00:00.000Z
 
 title: Oca do Ibirapuera II

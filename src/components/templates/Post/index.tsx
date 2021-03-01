@@ -26,8 +26,8 @@ export default function Post({
   }
 }): ReactElement {
   const { post } = data
-  const { title, image, type, linkurl, style, tags, updated } = post.frontmatter
-  const { slug, githubLink, date } = post.fields
+  const { title, image, linkurl, style, tags, updated } = post.frontmatter
+  const { slug, githubLink, date, type } = post.fields
 
   return (
     <>
@@ -40,35 +40,32 @@ export default function Post({
       <article className={styles.hentry}>
         <header>
           <PostTitle
-            type={type}
             linkurl={linkurl}
             title={title}
             date={date}
             updated={updated}
           />
-          {type === 'post' && <PostLead post={post} />}
+
+          {type === 'article' && <PostLead post={post} />}
+
+          {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
         </header>
 
-        {type === 'photo' && <PostContent post={post} />}
-        {image && (
-          <Image
-            fluid={image.childImageSharp.fluid}
-            alt={title}
-            original={image.childImageSharp.original}
-          />
+        {type === 'photo' ? (
+          <>
+            {image && image.fields && <Exif exif={image.fields.exif} />}
+            <PostContent post={post} />
+          </>
+        ) : (
+          <PostContent post={post} />
         )}
-        {type === 'photo' && image && image.fields && (
-          <Exif exif={image.fields.exif} />
-        )}
-
-        {type !== 'photo' && <PostContent post={post} />}
 
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
         <PostMeta post={post} />
         <PostActions slug={slug} githubLink={githubLink} />
       </article>
 
-      <RelatedPosts photos={type === 'photo'} tags={tags} />
+      <RelatedPosts isPhotos={type === 'photo'} tags={tags} />
 
       <PrevNext prev={prev} next={next} />
     </>
@@ -81,7 +78,6 @@ export const pageQuery = graphql`
       html
       excerpt
       frontmatter {
-        type
         title
         image {
           childImageSharp {
@@ -116,6 +112,7 @@ export const pageQuery = graphql`
         changelog
       }
       fields {
+        type
         slug
         date
         githubLink

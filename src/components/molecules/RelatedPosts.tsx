@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.scss'
 import { Post, Frontmatter } from '../../@types/Post'
+import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
   query {
@@ -21,70 +22,79 @@ function postsWithDataFilter(
   key: keyof Frontmatter,
   valuesToFind: string[]
 ) {
-  const newArray = posts.filter(({ node }: { node: Post }) => {
-    const frontmatterKey = node.frontmatter[key] as []
+  const newArray = posts
+    .filter(({ node }: { node: Post }) => {
+      const frontmatterKey = node.frontmatter[key] as []
 
-    if (
-      frontmatterKey !== null &&
-      frontmatterKey.some((r: string) => valuesToFind.includes(r))
-    ) {
-      return node
-    }
-  })
+      if (
+        frontmatterKey !== null &&
+        frontmatterKey.some((r: string) => valuesToFind.includes(r))
+      ) {
+        return node
+      }
+    })
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 6)
+
   return newArray
 }
 
 function photosWithDataFilter(posts: []) {
-  const newArray = posts.filter((post: { node: Post }) => {
-    const { fileAbsolutePath } = post.node
+  const newArray = posts
+    .filter((post: { node: Post }) => {
+      const { fileAbsolutePath } = post.node
 
-    if (fileAbsolutePath.includes('content/photos')) {
-      return post
-    }
-  })
+      if (fileAbsolutePath.includes('content/photos')) {
+        return post
+      }
+    })
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 6)
+
   return newArray
 }
 
 export default function RelatedPosts({
   tags,
-  photos
+  isPhotos
 }: {
   tags: string[]
-  photos?: boolean
+  isPhotos?: boolean
 }): ReactElement {
   const data = useStaticQuery(query)
   const posts = data.allMarkdownRemark.edges
 
   function getPosts() {
-    return photos
+    return isPhotos
       ? photosWithDataFilter(posts)
       : tags && postsWithDataFilter(posts, 'tags', tags)
   }
 
   const [filteredPosts, setFilteredPosts] = useState(getPosts())
-  if (!filteredPosts) return null
 
   function refreshPosts() {
-    setFilteredPosts(getPosts())
+    const newPosts = getPosts()
+    setFilteredPosts(newPosts)
   }
 
   return (
     <aside className={styles.relatedPosts}>
       <h1 className={styles.title}>
-        Related {photos ? 'Photos' : 'Posts'}{' '}
-        <button className={styles.button} onClick={refreshPosts}>
+        Related {isPhotos ? 'Photos' : 'Posts'}{' '}
+        <button className={styles.button} onClick={() => refreshPosts()}>
           Refresh
         </button>
       </h1>
       <ul>
-        {filteredPosts
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 6)
-          .map(({ node }: { node: Post }) => (
-            <li key={node.id}>
-              <PostTeaser post={node} />
-            </li>
-          ))}
+        {filteredPosts?.map(({ node }: { node: Post }) => (
+          <li key={node.id}>
+            {isPhotos ? (
+              <PhotoThumb photo={node} />
+            ) : (
+              <PostTeaser post={node} hideDate />
+            )}
+          </li>
+        ))}
       </ul>
     </aside>
   )

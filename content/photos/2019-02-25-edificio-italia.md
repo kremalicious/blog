@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-02-25T22:51:00.000Z
 
 title: Edifício Itália

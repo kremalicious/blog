@@ -1,11 +1,14 @@
 const path = require('path')
-const postsTemplate = path.resolve('src/components/templates/Posts.tsx')
 const { itemsPerPage } = require('../config')
+
+const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
+const archiveTemplate = path.resolve('src/components/templates/Archive.tsx')
+const photosTemplate = path.resolve('src/components/templates/Photos.tsx')
 
 const redirects = [
   { f: '/feed', t: '/feed.xml' },
   { f: '/feed/', t: '/feed.xml' },
-  { f: '/goodies/', t: '/tags/goodies/' }
+  { f: '/goodies/', t: '/archive/goodies/' }
 ]
 
 function getPaginationData(i, numPages, slug) {
@@ -24,8 +27,6 @@ function getPaginationData(i, numPages, slug) {
 }
 
 exports.generatePostPages = (createPage, posts) => {
-  const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
-
   // Create Post pages
   posts.forEach((post) => {
     createPage({
@@ -44,10 +45,10 @@ exports.generatePostPages = (createPage, posts) => {
       }
     })
   })
+}
 
-  // Create paginated Blog index pages
-  const numPages = Math.ceil(posts.length / itemsPerPage)
-  const slug = `/`
+function generateIndexPages(createPage, length, slug, template) {
+  const numPages = Math.ceil(length / itemsPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
     const { prevPagePath, nextPagePath, path } = getPaginationData(
@@ -58,12 +59,12 @@ exports.generatePostPages = (createPage, posts) => {
 
     createPage({
       path,
-      component: postsTemplate,
+      component: template,
       context: {
         slug,
         limit: itemsPerPage,
         skip: i * itemsPerPage,
-        numPages,
+        numPages: numPages,
         currentPageNumber: i + 1,
         prevPagePath,
         nextPagePath
@@ -72,34 +73,25 @@ exports.generatePostPages = (createPage, posts) => {
   })
 }
 
+// Create paginated archive pages
+exports.generateArchivePages = (createPage, archiveLength) => {
+  generateIndexPages(createPage, archiveLength, `/archive/`, archiveTemplate)
+}
+
+// Create paginated photos pages
+exports.generatePhotosPages = (createPage, photosLength) => {
+  generateIndexPages(createPage, photosLength, `/photos/`, photosTemplate)
+}
+
+// Create paginated tag pages
 exports.generateTagPages = (createPage, tags) => {
   tags.forEach(({ tag, totalCount }) => {
-    // Create paginated tag pages
-    const numPages = Math.ceil(totalCount / itemsPerPage)
-    const slug = `/tags/${tag}/`
-
-    Array.from({ length: numPages }).forEach((_, i) => {
-      const { prevPagePath, nextPagePath, path } = getPaginationData(
-        i,
-        numPages,
-        slug
-      )
-
-      createPage({
-        path,
-        component: postsTemplate,
-        context: {
-          tag,
-          slug,
-          limit: itemsPerPage,
-          skip: i * itemsPerPage,
-          numPages,
-          currentPageNumber: i + 1,
-          prevPagePath,
-          nextPagePath
-        }
-      })
-    })
+    generateIndexPages(
+      createPage,
+      totalCount,
+      `/archive/${tag}/`,
+      archiveTemplate
+    )
   })
 }
 

@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Image } from '../atoms/Image'
-import styles from './PostTeaser.module.scss'
 import { Post } from '../../@types/Post'
+import PostTitle from '../templates/Post/Title'
+import styles from './PostTeaser.module.scss'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -10,32 +11,34 @@ export const postTeaserQuery = graphql`
     fileAbsolutePath
     frontmatter {
       title
-      type
       linkurl
-      tags
-      featured
+      updated
       image {
         childImageSharp {
           ...ImageFluidThumb
         }
       }
+      tags
     }
     fields {
       slug
-      date(formatString: "MMMM DD, YYYY")
+      date
+      type
     }
   }
 `
 
 export default function PostTeaser({
   post,
-  toggleSearch
+  toggleSearch,
+  hideDate
 }: {
-  post: Post
+  post: Partial<Post>
   toggleSearch?: () => void
+  hideDate?: boolean
 }): ReactElement {
-  const { image, title } = post.frontmatter
-  const { slug } = post.fields
+  const { image, title, updated } = post.frontmatter
+  const { slug, date } = post.fields
 
   return (
     <Link
@@ -46,9 +49,15 @@ export default function PostTeaser({
       {image ? (
         <Image fluid={image.childImageSharp.fluid} alt={title} />
       ) : (
-        <div className={styles.empty} />
+        <span className={styles.empty} />
       )}
-      <h4 className={styles.postTitle}>{title}</h4>
+
+      <PostTitle
+        title={title}
+        date={hideDate ? null : date}
+        updated={updated}
+        className={styles.title}
+      />
     </Link>
   )
 }

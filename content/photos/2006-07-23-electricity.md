@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Electricity
 image: ../media/MG_5885_2006-7-23.jpg
 author: Matthias Kretschmann

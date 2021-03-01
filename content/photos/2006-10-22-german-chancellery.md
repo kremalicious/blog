@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: German Chancellery
 image: ../media/bundeskanzleramt_01_HDR_tonemapped_16bit-Version-2.jpg
 author: Matthias Kretschmann

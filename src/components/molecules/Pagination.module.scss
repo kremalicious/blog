@@ -1,36 +1,47 @@
 @import 'variables';
+@import 'mixins';
 
 .pagination {
-  display: flex;
-  margin-top: $spacer * 2;
+  @include breakoutviewport;
+
+  margin-top: $spacer * 3;
   margin-bottom: $spacer;
-  justify-content: space-between;
-
-  > div {
-    &:first-child {
-      margin-right: $spacer;
-    }
-
-    &:last-child {
-      margin-left: $spacer;
-      text-align: right;
-    }
-  }
+  display: flex;
+  justify-content: center;
 }
 
 .number {
   text-align: center;
-  width: 2rem;
-  height: 2rem;
-  line-height: 1.7;
-  display: inline-block;
-  border-radius: 50%;
-  border: 1px solid transparent;
+  padding: $spacer / 6 $spacer / 2;
+  border: 1px solid $brand-grey-dimmed;
+  font-variant-numeric: lining-nums;
+  margin-left: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  color: $brand-grey;
+
+  :global(.dark) & {
+    color: $brand-grey-dimmed;
+    border-color: darken($body-background-color--dark, 5%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 
   &:hover,
   &:focus {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: darken($brand-grey-dimmed, 5%);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:first-child {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 }
 
@@ -38,10 +49,10 @@
   composes: number;
   cursor: default;
   pointer-events: none;
-  border: 1px solid darken($brand-grey-dimmed, 5%);
-  color: $brand-grey-light;
+  color: $brand-grey-dimmed;
+  background: rgba(255, 255, 255, 0.1);
 
   :global(.dark) & {
-    border-color: darken($brand-grey-light, 15%);
+    color: $brand-grey-light;
   }
 }

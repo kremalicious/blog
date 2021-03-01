@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Typeface condoms
 image: ../media/Typeface-condoms.jpg
 author: Matthias Kretschmann

@@ -3,12 +3,12 @@ import { ImageNode } from './Image'
 export interface Fields {
   slug: string
   date: string
+  type: 'article' | 'photo' | 'link'
   githubLink?: string
 }
 
 export interface Frontmatter {
   title: string
-  type?: string
   description?: string
   image?: ImageNode
   author?: string
@@ -31,4 +31,13 @@ export interface Post {
   rawMarkdownBody?: string
   fileAbsolutePath?: string
   tableOfContents?: string
+}
+
+export interface PageContext {
+  tag?: string
+  slug: string
+  currentPageNumber: number
+  numPages: number
+  prevPagePath?: string
+  nextPagePath?: string
 }

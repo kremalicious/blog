@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Subway Firefox
 image: ../media/84f9d2c4fb7411e19ca422000a1d0119_7.jpg
 author: Matthias Kretschmann

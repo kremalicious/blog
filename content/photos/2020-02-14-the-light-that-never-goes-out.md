@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2020-02-14T00:00:09.000Z
 
 title: The Light That Never Goes Out

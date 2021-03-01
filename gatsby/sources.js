@@ -4,8 +4,8 @@ module.exports = [
   {
     resolve: 'gatsby-source-filesystem',
     options: {
-      name: 'posts',
-      path: path.join(__dirname, '..', 'content', 'posts')
+      name: 'articles',
+      path: path.join(__dirname, '..', 'content', 'articles')
     }
   },
   {
@@ -13,6 +13,13 @@ module.exports = [
     options: {
       name: 'photos',
       path: path.join(__dirname, '..', 'content', 'photos')
+    }
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      name: 'links',
+      path: path.join(__dirname, '..', 'content', 'links')
     }
   },
   {

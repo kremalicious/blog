@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Glowing Star Inside
 image: ../media/Glowing-Star-Inside.jpg
 author: Matthias Kretschmann

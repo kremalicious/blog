@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-08-18T17:30:48.000Z
 
 title: German Chancellery II

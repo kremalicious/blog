@@ -1,5 +1,4 @@
 ---
-type: photo
 title: 'Sagrada Família'
 image: 2017-12-16-sagrada-familia.jpg
 author: Matthias Kretschmann

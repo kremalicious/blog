@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: Blaue Türme
 image: ../media/Blaue-Tuerme-1.jpg
 author: Matthias Kretschmann

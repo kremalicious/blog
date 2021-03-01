@@ -1,5 +1,4 @@
 ---
-type: photo
 date: 2019-11-03T12:05:22.000Z
 
 title: Országház II

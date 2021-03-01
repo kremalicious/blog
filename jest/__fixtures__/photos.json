@@ -1,12 +1,11 @@
 {
-  "photos": {
+  "allMarkdownRemark": {
     "edges": [
       {
         "node": {
           "id": "6effe45d-0884-527c-9fba-6f7f567979fd",
           "frontmatter": {
             "title": "Országház II",
-            "type": "photo",
             "image": {
               "childImageSharp": {
                 "fluid": {
@@ -25,7 +24,8 @@
             }
           },
           "fields": {
-            "slug": "/orszaghaz-ii/"
+            "slug": "/orszaghaz-ii/",
+            "type": "photo"
           }
         }
       },
@@ -34,7 +34,6 @@
           "id": "c80697e5-681d-5fcc-9dab-c3a3821ff0b1",
           "frontmatter": {
             "title": "Országház I",
-            "type": "photo",
             "image": {
               "childImageSharp": {
                 "fluid": {
@@ -53,7 +52,8 @@
             }
           },
           "fields": {
-            "slug": "/orszaghaz-i/"
+            "slug": "/orszaghaz-i/",
+            "type": "photo"
           }
         }
       }

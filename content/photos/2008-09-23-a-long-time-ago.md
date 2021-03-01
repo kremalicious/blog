@@ -1,6 +1,4 @@
 ---
-type: photo
-
 title: A Long Time Ago...
 image: ../media/A-Long-Time-Ago.jpg
 author: Matthias Kretschmann

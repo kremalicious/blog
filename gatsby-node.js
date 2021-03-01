@@ -3,7 +3,9 @@ const { createExif } = require('./gatsby/createExif')
 const {
   generatePostPages,
   generateTagPages,
-  generateRedirectPages
+  generateRedirectPages,
+  generateArchivePages,
+  generatePhotosPages
 } = require('./gatsby/createPages')
 const { generateJsonFeed } = require('./gatsby/feeds')
 
@@ -19,12 +21,12 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage, createRedirect } = actions
 
   const result = await graphql(`
     {
-      posts: allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+      all: allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
         edges {
           next {
             fields {
@@ -53,6 +55,24 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
+      photos: allMarkdownRemark(filter: { fields: { type: { eq: "photo" } } }) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+
+      archive: allMarkdownRemark(
+        filter: { fields: { type: { ne: "photo" } } }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+
       tags: allMarkdownRemark {
         group(field: frontmatter___tags) {
           tag: fieldValue
@@ -62,13 +82,24 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  if (result.errors) throw result.errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
 
-  const posts = result.data.posts.edges
+  const all = result.data.all.edges
+  const photosLength = result.data.photos.edges.length
+  const archiveLength = result.data.archive.edges.length
   const tags = result.data.tags.group
 
-  // Generate posts & posts index
-  generatePostPages(createPage, posts)
+  // Generate post pages
+  generatePostPages(createPage, all)
+
+  // Generate archive pages
+  generateArchivePages(createPage, archiveLength)
+
+  // Generate photos archive pages
+  generatePhotosPages(createPage, photosLength)
 
   // Generate tag pages
   generateTagPages(createPage, tags)
@@ -81,7 +112,7 @@ exports.onPostBuild = async ({ graphql }) => {
   // JSON Feed query
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
         edges {
           node {
             html

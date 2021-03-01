@@ -1,30 +1,29 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
 import styles from './Title.module.scss'
 import Icon from '../../atoms/Icon'
-import Time from '../../atoms/Time'
+import PostDate from '../../molecules/PostDate'
 
 export default function PostTitle({
-  type,
-  slug,
   linkurl,
   title,
   date,
-  updated
+  updated,
+  className
 }: {
-  type?: string
-  slug?: string
   linkurl?: string
   title: string
-  date: string
+  date?: string
   updated?: string
+  className?: string
 }): ReactElement {
   const linkHostname = linkurl ? new URL(linkurl).hostname : null
 
-  return type === 'link' ? (
+  return linkurl ? (
     <>
       <h1
-        className={[styles.hentry__title, styles.hentry__title__link].join(' ')}
+        className={`${styles.hentry__title} ${styles.hentry__title__link} ${
+          className && className
+        }`}
       >
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
           {title} <Icon name="ExternalLink" />
@@ -32,19 +31,12 @@ export default function PostTitle({
       </h1>
       <div className={styles.linkurl}>{linkHostname}</div>
     </>
-  ) : slug ? (
-    <h1 className={styles.hentry__title}>
-      <Link to={slug}>{title}</Link>
-    </h1>
   ) : (
     <>
-      <h1 className={styles.hentry__title}>{title}</h1>
-      <div className={styles.time}>
-        {updated && 'published '}
-        <Time date={date} />
-        {updated && ' • updated '}
-        {updated && <Time date={updated} />}
-      </div>
+      <h1 className={`${styles.hentry__title} ${className && className}`}>
+        {title}
+      </h1>
+      {date && <PostDate date={date} updated={updated} />}
     </>
   )
 }
