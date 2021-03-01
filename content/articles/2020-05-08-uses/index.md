@@ -1,6 +1,6 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2020-07-30T15:58:12+02:00
+updated: 2021-03-01T03:39:12+02:00
 
 title: /uses
 image: uses-teaser.png
@@ -34,10 +34,10 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading and I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
 
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**
-  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
+  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, listening to music on the go.
 
 - **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**
-  _40mm, Space Gray Aluminium, Milanese Loop & Sport Band in black_
+  _40mm, Space Gray Aluminium, Black Solo Loop_
   Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
 
 - **iPad Pro (9.7-inch) 2016**
@@ -46,7 +46,7 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[Bose QuietComfort 35 II](https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html#v=qc35_ii_black)**
   _Black_
-  The headphones for blocking out my whole environment during work in busy and loud places, and for way better music quality than any AirPods.
+  The headphones for blocking out my whole environment during work in busy and loud places, and for better music quality than any AirPods.
 
 - **[Beats Powerbeats](https://www.beatsbydre.com/earphones/powerbeats)**
   _Black_
@@ -83,6 +83,10 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _Concrete Grey_
   The most versatile, stand-alone wireless speaker I could find. Connects with pretty much everything no matter the OS: AirPlay, Chromecast, Spotify Connect, Bluetooth, USB-A, AUX. Looks and sounds great, albeit hard to justify its size after the [HomePod](https://www.apple.com/homepod/) had been released.
 
+- **[HomePod mini](https://www.apple.com/homepod-mini/)**
+  _2x Space Gray_
+  Used as desktop speakers connected as stereo pair, and setup as a HomeHub to automate home devices.
+
 - **[IKEA HEKTAR](https://www.ikea.com/de/de/p/hektar-arbeitsleuchte-mit-ladefunktion-dunkelgrau-60323436/)**
   _Dark Gray_
   My LED desk lamp with integrated Qi and USB-A charging in its base. Perfect merge of form and function so I don't need any other dedicated device or cable on my desk to charge my mobile devices.
@@ -100,7 +104,7 @@ I live with **automatic dark mode** where all my devices have a light theme duri
 ### File Storage & Sync
 
 - **Finder & Files**
-  So simple, yet powerful. I use Finder & the iOS Files app to access all my files from multiple sources: iCloud, Tresorit, SSH servers through [Secure ShellFish](https://secureshellfish.app), local [networks drives attached to my Raspberry Pi](/raspberry-pi-file-and-screen-sharing-macos-ios).
+  So simple, yet powerful. I use Finder & the iOS Files app to access all my files from multiple sources: iCloud, Tresorit, SSH servers through [Secure ShellFish](https://secureshellfish.app), local [network drives attached to my Raspberry Pi](/raspberry-pi-file-and-screen-sharing-macos-ios).
 
 - **[iCloud Drive, 2 TB](https://www.icloud.com)**
   I have used Dropbox Pro for many years but it became too clunky and Apple's version turned into what I wanted Dropbox to be. Most of my non-code related files live there and are happily synced.
@@ -141,7 +145,7 @@ I live with **automatic dark mode** where all my devices have a light theme duri
 ![VS Code light theme: Polar, SF Mono](vscode-light.png)
 
 - **[VS Code](https://code.visualstudio.com)**
-  From Notepad, to Dreamweaver, to Coda, to Espresso, to TextMate, to Atom, and now I arrived at VS Code. Its feature set, coding experience, and ecosystem far outweigh the Electron drawbacks, and at least it is the most performant Electron app I know. I still miss [Espresso](https://www.espressoapp.com) as my personal gold standard for how a code editor UI on macOS should look and behave. Using only a small set of extensions mostly for automatic code formatting based on various tools:
+  From Notepad, to Dreamweaver, to CSS Edit, to Coda, to Espresso, to TextMate, to Atom, and now I arrived at VS Code. Its feature set, coding experience, and ecosystem far outweigh the Electron drawbacks, and at least it is the most performant Electron app I know. I still miss [Espresso](https://www.espressoapp.com) as my personal gold standard for how a code editor UI on macOS should look and behave. Using only a small set of extensions mostly for automatic code formatting based on various tools:
 
   - [Nord](https://marketplace.visualstudio.com/items?itemName=arcticicestudio.nord-visual-studio-code): patiently awaiting a light version of it, until then [Polar](https://marketplace.visualstudio.com/items?itemName=merithayan.polar) does the job.
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -314,7 +318,7 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
   Everything I create is either stored in iCloud, Tresorit, or a pushed Git repository, making this my first line of defense for data loss.
 
 - **[Arq](https://www.arqbackup.com)**
-  My second line of defense, the snapshot backup tool used for all Macs I had in the last years. Encrypts everything locally before uploading. The same backups are sent every hour to a [Wasabi](https://wasabi.com) bucket, and in my local network to a hard drive connected to the Raspberry Pi via Samba. I have kept all my former Mac snapshots within the same bucket on Wasabi, so I can always jump back to any of their snapshots. Always super stable and happy with it, until the new Arq 6 with a terrible Electron interface came along.
+  My second line of defense, the snapshot backup tool used for all Macs I had in the last years. Encrypts everything locally before uploading. The same backups are sent every hour to a [Wasabi](https://wasabi.com) bucket, and in my local network to a hard drive connected to the Raspberry Pi via Samba. I have kept all my former Mac snapshots within the same bucket on Wasabi, so I can always jump back to any of their snapshots. Always super stable and happy with it.
 
 - **[iCloud Backup](https://support.apple.com/en-us/HT203977)**
   All mobile devices simply use this to create their backups.
@@ -330,7 +334,7 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 
 - I run my own **analytics server** with **[Matomo](https://matomo.org)**.
 
-- I run my own **Git repository hosting** with **[Gitea](https://gitea.com)** for private projects, and for automatically syncing every GitHub repository I touch into it. A VPS running within **[Amazon Lightsail](https://aws.amazon.com/lightsail/)**.
+- I run my own **Git repository hosting** with **[Gitea](https://gitea.com)** for private projects, and for automatically mirroring every GitHub repository I touch into it. A VPS running within **[Amazon Lightsail](https://aws.amazon.com/lightsail/)**.
 
 - I run a public **[IPFS](https://ipfs.io)** node & gateway, powered by a VPS on **[Amazon Lightsail](https://aws.amazon.com/lightsail/)**, and the frontend delivered via **[Vercel](https://vercel.com)**.
 
