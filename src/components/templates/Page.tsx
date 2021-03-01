@@ -1,4 +1,4 @@
-import React, { ReactChildren, ReactElement, ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { Post } from '../../@types/Post'
 import SEO from '../atoms/SEO'
