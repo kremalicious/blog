@@ -4,14 +4,12 @@ import Icon from '../../atoms/Icon'
 import PostDate from '../../molecules/PostDate'
 
 export default function PostTitle({
-  slug,
   linkurl,
   title,
   date,
   updated,
   className
 }: {
-  slug?: string
   linkurl?: string
   title: string
   date?: string
@@ -33,10 +31,6 @@ export default function PostTitle({
       </h1>
       <div className={styles.linkurl}>{linkHostname}</div>
     </>
-  ) : slug ? (
-    <h1 className={`${styles.hentry__title} ${className && className}`}>
-      {title}
-    </h1>
   ) : (
     <>
       <h1 className={`${styles.hentry__title} ${className && className}`}>

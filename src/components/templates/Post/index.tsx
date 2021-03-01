@@ -48,13 +48,7 @@ export default function Post({
 
           {type === 'article' && <PostLead post={post} />}
 
-          {image && (
-            <Image
-              fluid={image.childImageSharp.fluid}
-              alt={title}
-              original={image.childImageSharp.original}
-            />
-          )}
+          {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
         </header>
 
         {type === 'photo' ? (

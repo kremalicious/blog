@@ -4,7 +4,6 @@ import { Image } from '../atoms/Image'
 import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
 import styles from './PostTeaser.module.scss'
-import PostDate from './PostDate'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -48,17 +47,17 @@ export default function PostTeaser({
       onClick={toggleSearch && toggleSearch}
     >
       {image ? (
-        <Image
-          fluid={image.childImageSharp.fluid}
-          alt={title}
-          original={image.childImageSharp.original}
-        />
+        <Image fluid={image.childImageSharp.fluid} alt={title} />
       ) : (
         <span className={styles.empty} />
       )}
 
-      <PostTitle slug={slug} title={title} className={styles.title} />
-      {date && !hideDate && <PostDate date={date} updated={updated} />}
+      <PostTitle
+        title={title}
+        date={hideDate ? null : date}
+        updated={updated}
+        className={styles.title}
+      />
     </Link>
   )
 }
