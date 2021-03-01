@@ -72,7 +72,7 @@
     "node-fetch": "^2.6.1",
     "pigeon-maps": "^0.17.1",
     "pigeon-marker": "^0.3.4",
-    "react": "^16.14.0",
+    "react": "^17.0.1",
     "react-clipboard.js": "^2.0.16",
     "react-dom": "^16.14.0",
     "react-feather": "^2.0.9",
