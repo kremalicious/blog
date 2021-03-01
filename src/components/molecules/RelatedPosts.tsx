@@ -22,27 +22,35 @@ function postsWithDataFilter(
   key: keyof Frontmatter,
   valuesToFind: string[]
 ) {
-  const newArray = posts.filter(({ node }: { node: Post }) => {
-    const frontmatterKey = node.frontmatter[key] as []
+  const newArray = posts
+    .filter(({ node }: { node: Post }) => {
+      const frontmatterKey = node.frontmatter[key] as []
 
-    if (
-      frontmatterKey !== null &&
-      frontmatterKey.some((r: string) => valuesToFind.includes(r))
-    ) {
-      return node
-    }
-  })
+      if (
+        frontmatterKey !== null &&
+        frontmatterKey.some((r: string) => valuesToFind.includes(r))
+      ) {
+        return node
+      }
+    })
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 6)
+
   return newArray
 }
 
 function photosWithDataFilter(posts: []) {
-  const newArray = posts.filter((post: { node: Post }) => {
-    const { fileAbsolutePath } = post.node
+  const newArray = posts
+    .filter((post: { node: Post }) => {
+      const { fileAbsolutePath } = post.node
 
-    if (fileAbsolutePath.includes('content/photos')) {
-      return post
-    }
-  })
+      if (fileAbsolutePath.includes('content/photos')) {
+        return post
+      }
+    })
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 6)
+
   return newArray
 }
 
@@ -62,15 +70,11 @@ export default function RelatedPosts({
       : tags && postsWithDataFilter(posts, 'tags', tags)
   }
 
-  const [filteredPosts, setFilteredPosts] = useState(
-    getPosts()
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 6)
-  )
+  const [filteredPosts, setFilteredPosts] = useState(getPosts())
 
   function refreshPosts() {
     const newPosts = getPosts()
-    setFilteredPosts(newPosts.sort(() => 0.5 - Math.random()).slice(0, 6))
+    setFilteredPosts(newPosts)
   }
 
   return (

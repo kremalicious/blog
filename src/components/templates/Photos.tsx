@@ -29,22 +29,25 @@ interface PhotosPageProps extends PageProps {
   pageContext: PageContext
 }
 
-export default function Photos(props: PhotosPageProps): ReactElement {
-  const photos = props.data.allMarkdownRemark.edges
-  const { currentPageNumber, numPages } = props.pageContext
-
+function getMetadata(currentPageNumber: number, numPages: number) {
   const paginationTitle =
     numPages > 1 && currentPageNumber > 1
       ? `Page ${currentPageNumber} / ${numPages}`
       : ''
 
-  const page = {
+  return {
     frontmatter: {
       title: `Photos ${paginationTitle}`,
       description:
         'Personal photos of designer & developer Matthias Kretschmann.'
     }
   }
+}
+
+export default function Photos(props: PhotosPageProps): ReactElement {
+  const photos = props.data.allMarkdownRemark.edges
+  const { currentPageNumber, numPages } = props.pageContext
+  const page = getMetadata(currentPageNumber, numPages)
 
   return (
     <Page
