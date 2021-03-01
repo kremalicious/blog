@@ -11,6 +11,6 @@ describe('RelatedPosts', () => {
 
     fireEvent.click(getByText('Refresh'))
 
-    rerender(<RelatedPosts tags={['hello', 'design']} />)
+    rerender(<RelatedPosts tags={['hello', 'design']} isPhotos />)
   })
 })
