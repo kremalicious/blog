@@ -87,14 +87,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        sassOptions: {
-          includePaths: [`${__dirname}/node_modules`, `${__dirname}/src/styles`]
-        }
-      }
-    },
-    {
       resolve: 'gatsby-plugin-svgr',
       options: {
         icon: false,

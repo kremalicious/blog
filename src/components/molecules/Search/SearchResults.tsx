@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from '../../atoms/Container'
 import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
-import styles from './SearchResults.module.scss'
+import styles from './SearchResults.module.css'
 import { Post } from '../../../@types/Post'
 
 export interface Results {

@@ -1,0 +1,40 @@
+.alert {
+  font-size: var(--font-size-small);
+  display: inline-block;
+}
+
+.alert:empty {
+  display: none;
+}
+
+.alert::after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 1s infinite;
+  /* ascii code for the ellipsis character */
+  content: '\2026';
+  width: 0;
+  position: absolute;
+}
+
+.success {
+  composes: alert;
+  color: green;
+}
+
+.error {
+  composes: alert;
+  color: red;
+}
+
+.error::after,
+.success::after {
+  display: none;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 0.75rem;
+  }
+}

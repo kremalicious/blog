@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactElement } from 'react'
 import fetch from 'node-fetch'
-import styles from './Conversion.module.scss'
+import styles from './Conversion.module.css'
 
 export async function getFiat(
   amount: number

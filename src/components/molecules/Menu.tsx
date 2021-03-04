@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
-import styles from './Menu.module.scss'
+import styles from './Menu.module.css'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import { MenuItem } from '../../@types/Site'
 

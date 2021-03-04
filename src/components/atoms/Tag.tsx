@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
-import styles from './Tag.module.scss'
+import styles from './Tag.module.css'
 
 export default function Tag({
   name,

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { QRCode } from 'react-qr-svg'
-import styles from './Qr.module.scss'
+import styles from './Qr.module.css'
 import Copy from './Copy'
 
 export default function Qr({

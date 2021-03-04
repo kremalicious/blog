@@ -27,7 +27,7 @@ import {
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
-import styles from './Icon.module.scss'
+import styles from './Icon.module.css'
 
 const components: any = {
   Download: ArrowDownCircle,

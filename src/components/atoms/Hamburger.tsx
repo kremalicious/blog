@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Hamburger.module.scss'
+import styles from './Hamburger.module.css'
 
 export default function Hamburger({
   onClick

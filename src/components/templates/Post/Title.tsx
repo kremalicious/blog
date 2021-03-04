@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Title.module.scss'
+import styles from './Title.module.css'
 import Icon from '../../atoms/Icon'
 import PostDate from '../../molecules/PostDate'
 
@@ -21,7 +21,7 @@ export default function PostTitle({
   return linkurl ? (
     <>
       <h1
-        className={`${styles.hentry__title} ${styles.hentry__title__link} ${
+        className={`${styles.title} ${styles.title__link} ${
           className && className
         }`}
       >
@@ -33,9 +33,7 @@ export default function PostTitle({
     </>
   ) : (
     <>
-      <h1 className={`${styles.hentry__title} ${className && className}`}>
-        {title}
-      </h1>
+      <h1 className={`${styles.title} ${className && className}`}>{title}</h1>
       {date && <PostDate date={date} updated={updated} />}
     </>
   )

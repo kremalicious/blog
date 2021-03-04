@@ -3,7 +3,7 @@ import { graphql, Link, PageProps } from 'gatsby'
 import Page from './Page'
 import { Post, PageContext } from '../../@types/Post'
 import { Image } from '../atoms/Image'
-import styles from './Photos.module.scss'
+import styles from './Photos.module.css'
 import Pagination from '../molecules/Pagination'
 
 export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {

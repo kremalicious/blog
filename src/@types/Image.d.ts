@@ -6,6 +6,7 @@ export interface ImageProps {
   fixed?: FixedObject
   alt?: string
   original?: { src: string }
+  className?: string
 }
 
 export interface ImageNode {

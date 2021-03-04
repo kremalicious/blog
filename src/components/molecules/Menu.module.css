@@ -1,0 +1,62 @@
+.menu {
+  composes: divider from '../atoms/Divider.module.css';
+
+  margin-top: 0;
+  padding-top: calc(var(--spacer) / 2);
+  position: absolute;
+  top: calc(100% + calc(var(--spacer) / 1.5));
+  left: 0;
+  width: 100%;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.menu li::before {
+  display: none;
+}
+
+.menu a {
+  color: var(--text-color);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 calc(var(--spacer) / 4);
+  font-size: var(--font-size-small);
+  text-shadow: 0 1px 0 rgba(255 255 255 0.5);
+  padding: var(--padding-base-horizontal);
+  display: block;
+  text-align: center;
+}
+
+/* .menu a:hover,
+.menu a:focus {
+  color: var(--link-color-hover);
+} */
+/* 
+  :global(.dark) & {
+    color: $text-color--dark;
+    text-shadow: 0 -1px 0 rgba(#000, 0.5);
+
+    &:hover,
+    &:focus {
+      color: $link-color-hover;
+    } */
+
+.menu::-webkit-scrollbar,
+.menu::-moz-scrollbar,
+.menu::-webkit-scrollbar-thumb,
+.menu::-webkit-scrollbar-track {
+  display: none;
+}

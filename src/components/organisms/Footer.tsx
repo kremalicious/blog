@@ -4,7 +4,7 @@ import Container from '../atoms/Container'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import styles from './Footer.module.scss'
+import styles from './Footer.module.css'
 
 function Copyright() {
   const { name, uri, github } = useSiteMetadata().author

@@ -1,0 +1,73 @@
+.exif {
+  margin-top: -3rem;
+  margin-bottom: calc(var(--spacer) * 2);
+}
+
+.data {
+  font-size: var(--font-size-mini);
+  color: var(--text-color-light);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.data span {
+  display: block;
+  flex: 1 1 20%;
+  white-space: nowrap;
+  padding: var(--spacer);
+  border-bottom: 1px dashed var(--text-color-dimmed);
+}
+
+.data span svg {
+  display: block;
+  margin-bottom: calc(var(--spacer) / 8);
+  opacity: 0.65;
+}
+
+.data span:first-child {
+  flex-basis: 100%;
+}
+
+@media (min-width: 40rem) {
+  .data {
+    margin-bottom: 0;
+    font-size: var(--font-size-small);
+  }
+
+  .data span {
+    border-left: 1px dashed var(--text-color-dimmed);
+    border-bottom: 0;
+  }
+
+  .data span,
+  .data span:first-child {
+    flex: 1 1 auto;
+  }
+
+  .data span:first-child {
+    border-left: 0;
+  }
+}
+
+.map {
+  composes: breakout from './Breakout.module.css';
+  composes: frame from './Image.module.css';
+  height: 180px;
+  margin-top: calc(var(--spacer) * 2);
+}
+
+@media (min-width: 40rem) {
+  .map {
+    margin-top: 0;
+  }
+}
+
+.map img {
+  border-radius: 0 !important;
+}
+
+.map > div:first-child {
+  background: none !important;
+}

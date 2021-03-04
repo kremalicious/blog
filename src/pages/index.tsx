@@ -5,7 +5,7 @@ import SEO from '../components/atoms/SEO'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
-import styles from './index.module.scss'
+import styles from './index.module.css'
 
 export default function Home({ data }: PageProps): ReactElement {
   return (

@@ -1,0 +1,79 @@
+.actions {
+  composes: breakout from '../../atoms/Breakout.module.css';
+
+  margin-top: calc(var(--spacer) * 2);
+  margin-bottom: calc(var(--spacer) * 2);
+  background: var(--box-background-color);
+  padding-top: var(--spacer);
+  padding-bottom: var(--spacer);
+  border-radius: var(--border-radius);
+  display: grid;
+  gap: calc(var(--spacer) / 2);
+}
+
+@media (min-width: 40rem) {
+  .actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.link {
+  transition: 0.2s ease-out;
+  color: var(--link-color);
+}
+
+.actionTitle {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: calc(var(--spacer) / 4);
+  transition: color 0.2s ease-out;
+}
+
+.actionText {
+  font-size: var(--font-size-small);
+  color: var(--brand-grey-light);
+  margin-bottom: 0;
+  transition: color 0.2s ease-out;
+}
+
+.action {
+  display: block;
+  margin: 0;
+  padding-top: var(--spacer);
+  padding-bottom: var(--spacer);
+  padding-left: calc(var(--spacer) * 2);
+  padding-right: calc(var(--spacer) / 2);
+  position: relative;
+  text-align: left;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.action:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 40rem) {
+  .action {
+    border-bottom: 0;
+    border-left: 1px dashed var(--border-color);
+  }
+
+  .action:first-child {
+    border-left: 0;
+  }
+}
+
+.action:hover,
+.action:focus {
+  cursor: pointer;
+}
+
+.action svg {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: var(--spacer);
+  top: calc(var(--spacer) / 1.05);
+  stroke: var(--text-color-light);
+}

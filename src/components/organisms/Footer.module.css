@@ -1,0 +1,79 @@
+.footer {
+  text-align: center;
+  padding-top: calc(var(--spacer) * 2);
+  color: var(--text-color-light);
+  line-height: var(--spacer);
+}
+
+@media (min-width: 40rem) and (min-height: 500px) {
+  .footer {
+    position: fixed;
+    width: 100%;
+    border: 0;
+    will-change: transform;
+    z-index: 0;
+    bottom: 0;
+    box-shadow: none;
+  }
+}
+
+.theme {
+  margin: var(--spacer) auto;
+}
+
+.theme p {
+  text-align: center;
+  margin: 0;
+}
+
+.themeTitle {
+  font-size: var(--font-size-h5);
+  margin-bottom: calc(var(--spacer) / 2);
+}
+
+.copyright {
+  padding-top: var(--spacer);
+  padding-bottom: var(--spacer);
+}
+
+.copyright p {
+  margin-bottom: 0;
+  font-size: var(--font-size-mini);
+}
+
+.copyright a,
+.copyright button code {
+  color: var(--text-color-light);
+}
+
+.copyright a:hover,
+.copyright button code {
+  color: var(--link-color);
+}
+
+.copyright a,
+.copyright button {
+  margin-left: var(--spacer);
+}
+
+.copyright a:first-child,
+.copyright button:first-child {
+  margin-left: 0;
+}
+
+.copyright svg {
+  width: var(--font-size-small);
+  height: var(--font-size-small);
+  margin-right: calc(var(--spacer) / 8);
+  margin-bottom: -0.15rem;
+  display: inline-block;
+  stroke: var(--text-color-light);
+  opacity: 0.7;
+}
+
+.btc code {
+  font-size: 0.6rem;
+  background: none;
+  color: var(--link-color);
+  padding: 0;
+}

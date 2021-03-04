@@ -1,0 +1,17 @@
+.hentry {
+  width: 100%;
+  padding-top: var(--spacer);
+  padding-bottom: calc(var(--spacer) * 3);
+}
+
+.hentry > a {
+  display: block;
+}
+
+.hentry:only-child {
+  padding-bottom: var(--spacer);
+}
+
+.image {
+  composes: breakout from '../../atoms/Breakout.module.css';
+}

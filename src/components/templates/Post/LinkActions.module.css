@@ -1,0 +1,25 @@
+.postLinkActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: calc(var(--spacer) * 2);
+}
+
+.postLinkActions a {
+  margin: 0;
+}
+
+.postLinkActions a svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  stroke: var(--text-color-light);
+  margin-left: calc(var(--spacer) / 8);
+  position: relative;
+  top: 0.1rem;
+}
+
+.postLinkActions a:last-child svg {
+  width: var(--font-size-base);
+  height: var(--font-size-base);
+  stroke: var(--brand-cyan);
+}

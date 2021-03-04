@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import IconLinks from './Networks'
-import styles from './Vcard.module.scss'
+import styles from './Vcard.module.css'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const query = graphql`

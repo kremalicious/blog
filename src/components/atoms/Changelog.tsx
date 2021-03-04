@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import remark from 'remark'
 import remarkReact from 'remark-react'
-import styles from './Changelog.module.scss'
+import styles from './Changelog.module.css'
 import { GitHub, GitHubRepo } from '../../@types/GitHub'
 
 export function PureChangelog({
@@ -35,15 +35,13 @@ export function PureChangelog({
         Changelog
       </h2>
       <div className={styles.content}>
-        <p className={styles.source}>
-          <em>
-            sourced from{' '}
-            <a href={filePathUrl}>
-              <code>{filePathDisplay}</code>
-            </a>
-          </em>
-        </p>
         {changelogHtml}
+        <p className={styles.source}>
+          sourced from{' '}
+          <a href={filePathUrl}>
+            <code>{filePathDisplay}</code>
+          </a>
+        </p>
       </div>
     </div>
   )

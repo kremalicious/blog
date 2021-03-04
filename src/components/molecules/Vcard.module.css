@@ -1,0 +1,25 @@
+.vcard {
+  margin-bottom: calc(var(--spacer) * 2);
+}
+
+.avatar {
+  /* @include media-frame; */
+
+  margin-bottom: calc(var(--spacer) / 3);
+}
+
+.avatar,
+.avatar img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.description {
+  font-size: var(--font-size-h5);
+  margin-top: 0;
+  margin-bottom: calc(var(--spacer) / var(--line-height));
+}
+
+.description a {
+  display: block;
+}

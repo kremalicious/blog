@@ -1,0 +1,14 @@
+.posts {
+  display: grid;
+  gap: calc(var(--spacer) * 2);
+}
+
+@media (min-width: 40rem) {
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.posts h1 {
+  font-size: var(--font-size-h4);
+}

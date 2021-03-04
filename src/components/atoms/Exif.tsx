@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import ExifMap from './ExifMap'
-import styles from './Exif.module.scss'
+import styles from './Exif.module.css'
 import { Exif as ExifMeta } from '../../@types/Image'
 import Icon from './Icon'
 

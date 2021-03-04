@@ -1,0 +1,21 @@
+.accountWrap {
+  font-size: var(--font-size-small);
+  color: var(--text-color-light);
+  margin-bottom: var(--spacer);
+  display: flex;
+  justify-content: space-between;
+}
+
+.blockies {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: calc(var(--spacer) / 4);
+}
+
+.balance {
+  margin-left: var(--spacer);
+}

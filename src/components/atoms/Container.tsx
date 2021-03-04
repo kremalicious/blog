@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Container.module.scss'
+import styles from './Container.module.css'
 
 export default function Container({
   children

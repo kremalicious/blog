@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Time from '../atoms/Time'
-import styles from './PostDate.module.scss'
+import styles from './PostDate.module.css'
 
 export default function PostDate({
   date,

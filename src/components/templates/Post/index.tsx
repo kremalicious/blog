@@ -12,7 +12,7 @@ import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 import PrevNext from './PrevNext'
-import styles from './index.module.scss'
+import styles from './index.module.css'
 import { Image } from '../../atoms/Image'
 
 export default function Post({
@@ -45,17 +45,21 @@ export default function Post({
             date={date}
             updated={updated}
           />
-
-          {type === 'article' && <PostLead post={post} />}
-
-          {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
         </header>
 
+        {type === 'article' && <PostLead post={post} />}
+        {type === 'photo' && <PostContent post={post} />}
+
+        {image && (
+          <Image
+            className={styles.image}
+            fluid={image.childImageSharp.fluid}
+            alt={title}
+          />
+        )}
+
         {type === 'photo' ? (
-          <>
-            {image && image.fields && <Exif exif={image.fields.exif} />}
-            <PostContent post={post} />
-          </>
+          image?.fields && <Exif exif={image.fields.exif} />
         ) : (
           <PostContent post={post} />
         )}

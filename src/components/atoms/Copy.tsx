@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import loadable from '@loadable/component'
-import styles from './Copy.module.scss'
+import styles from './Copy.module.css'
 import Icon from './Icon'
 
 const Clipboard = loadable(() => import('react-clipboard.js'))

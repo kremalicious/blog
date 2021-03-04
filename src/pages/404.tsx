@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
-import styles from './404.module.scss'
+import styles from './404.module.css'
 
 const page = {
   frontmatter: {

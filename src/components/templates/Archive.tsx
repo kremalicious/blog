@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import { Post, PageContext } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import styles from './Archive.module.scss'
+import styles from './Archive.module.css'
 import PostTeaser from '../molecules/PostTeaser'
 import Page from './Page'
 

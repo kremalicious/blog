@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Toc.module.scss'
+import styles from './Toc.module.css'
 
 const PostToc = ({
   tableOfContents

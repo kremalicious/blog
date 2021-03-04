@@ -1,0 +1,126 @@
+:root {
+  /* Colors
+  ///////////////////////////////////// */
+
+  --brand-main: #015565;
+  --brand-cyan: #43a699;
+  --brand-main-light: #88bec8;
+  --brand-light: #e7eef4;
+
+  --brand-grey: #4e5d63;
+  --brand-grey-dark: #323c41;
+  --brand-grey-light: #70858e;
+  --brand-grey-dimmed: #c3d8e0;
+
+  --alert-info: #f7f1e4;
+  --alert-success: #dff0d8;
+  --alert-error: #f2dede;
+
+  /* Backgrounds
+  ///////////////////////////////////// */
+
+  --body-background-color: var(--brand-light);
+  --box-background-color: rgba(255, 255, 255, 0.4);
+
+  /* Text Colors
+  ///////////////////////////////////// */
+
+  --text-color: var(--brand-grey);
+  --text-color-light: var(--brand-grey-light);
+  --text-color-dimmed: var(--brand-grey-dimmed);
+  --color-headings: var(--brand-main);
+  --link-color: var(--brand-cyan);
+  --border-color: var(--brand-grey-dimmed);
+
+  /* Base Typography
+  ///////////////////////////////////// */
+
+  --font-size-root: 18px;
+
+  --font-size-base: 1rem;
+  --font-size-large: 1.15rem;
+  --font-size-small: 0.85rem;
+  --font-size-mini: 0.7rem;
+
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.2rem;
+  --font-size-h5: var(--font-size-large);
+  --font-size-h6: var(--font-size-base);
+
+  --line-height: 1.7;
+  --line-height-small: 1.1428571429;
+
+  --font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
+    'Helvetica', 'Arial', 'sans-serif';
+  --font-weight-base: 400;
+  --font-weight-bold: 600;
+
+  --font-family-monospace: 'Menlo', 'Consolas', 'Courier New', monospace;
+
+  /* Headings
+  ///////////////////////////////////// */
+
+  --font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
+    'Helvetica', 'Arial', 'sans-serif';
+  --font-weight-headings: 700;
+  --line-height-headings: 1.4;
+
+  /* Spacing
+  ///////////////////////////////////// */
+
+  --spacer: 2rem;
+  --padding-base-vertical: 0.75rem;
+  --padding-base-horizontal: 1.25rem;
+
+  --border-radius: 0.25rem;
+  --stroke-width: 0.125rem;
+
+  /* Code
+  ///////////////////////////////////// */
+
+  --code-color: var(--brand-light);
+  --kbd-color: var(--code-color);
+
+  /* Responsive breakpoints
+  ///////////////////////////////////// */
+
+  --screen-xs: 30rem;
+  --screen-sm: 40rem;
+  --screen-md: 60rem;
+  --screen-lg: 87.5rem;
+
+  /* Forms
+  ///////////////////////////////////// */
+
+  --input-bg: var(--body-background-color);
+  --input-bg-disabled: var(--brand-grey-light);
+
+  --input-font-size: var(--font-size-base);
+  --input-font-weight: var(--font-weight-base);
+
+  --input-color: var(--text-color);
+  --input-color-placeholder: var(--text-color-light);
+
+  --input-border: var(--brand-grey-light);
+  --input-border-focus: var(--brand-cyan);
+
+  /* Misc.
+  ///////////////////////////////////// */
+
+  --maxWidthContent: 47rem;
+  --maxWidthContainer: 80rem;
+  --easing: cubic-bezier(0.75, 0, 0.08, 1);
+}
+
+.dark {
+  --body-background-color: #1d2224;
+  --box-background-color: rgba(0, 0, 0, 0.1);
+
+  --text-color: #889da7;
+  --text-color-light: var(--brand-grey);
+  --text-color-dimmed: var(--brand-grey-dark);
+  --border-color: var(--brand-grey-dark);
+  --color-headings: var(--brand-main-light);
+}

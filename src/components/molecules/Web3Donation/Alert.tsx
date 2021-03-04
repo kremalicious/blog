@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Alert.module.scss'
+import styles from './Alert.module.css'
 
 export function getTransactionMessage(
   transactionHash?: string

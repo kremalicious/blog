@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Image } from '../atoms/Image'
 import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
-import styles from './PostTeaser.module.scss'
+import styles from './PostTeaser.module.css'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {

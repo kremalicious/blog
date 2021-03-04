@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import Input from '../../atoms/Input'
 import Account from './Account'
 import Conversion from './Conversion'
-import styles from './InputGroup.module.scss'
+import styles from './InputGroup.module.css'
 
 export default function InputGroup({
   sendTransaction

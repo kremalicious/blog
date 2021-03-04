@@ -1,0 +1,12 @@
+.pagetitle {
+  composes: divider from '../atoms/Divider.module.css';
+
+  font-size: var(--font-size-h3);
+  margin-top: 0;
+  margin-bottom: calc(var(--spacer) * var(--line-height));
+  padding-bottom: calc(var(--spacer) / var(--line-height));
+  color: var(--text-color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

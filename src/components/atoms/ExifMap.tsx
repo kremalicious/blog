@@ -40,7 +40,7 @@ export default function ExifMap({
     <Map
       center={[latitude, longitude]}
       zoom={zoom}
-      height={220}
+      height={180}
       dprs={[1, 2]}
       attribution={false}
       provider={isDarkMode ? providers['dark'] : providers['light']}

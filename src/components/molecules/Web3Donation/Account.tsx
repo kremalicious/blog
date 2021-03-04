@@ -2,7 +2,7 @@ import React, { ReactElement, useState, useEffect } from 'react'
 import { toDataUrl } from 'ethereum-blockies'
 import { formatEther } from '@ethersproject/units'
 import useWeb3 from '../../../hooks/use-web3'
-import styles from './Account.module.scss'
+import styles from './Account.module.css'
 
 export default function Account(): ReactElement {
   const { library, account } = useWeb3()

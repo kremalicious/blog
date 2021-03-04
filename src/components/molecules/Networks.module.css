@@ -1,0 +1,25 @@
+.link {
+  text-align: center;
+  width: 2rem;
+  padding: calc(var(--spacer) / 4);
+  margin-left: calc(var(--spacer) / 4);
+  margin-right: calc(var(--spacer) / 4);
+  display: inline-block;
+  color: var(--text-color-light);
+}
+
+.link:first-child {
+  margin-left: 0;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+.link svg {
+  width: 24px;
+  height: 24px;
+  transition: stroke 0.3s ease-in-out;
+  display: block;
+  margin: 0 auto;
+}

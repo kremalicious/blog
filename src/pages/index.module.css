@@ -1,0 +1,46 @@
+.section {
+  composes: breakout from '../components/atoms/Breakout.module.css';
+}
+
+.section:not(:first-child) {
+  margin-top: calc(var(--spacer) * 3);
+}
+
+.articles,
+.photos {
+  display: grid;
+  gap: var(--spacer);
+}
+
+@media (min-width: 40rem) {
+  .articles {
+    gap: calc(var(--spacer) * 1.5);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.articles:first-of-type h1 {
+  font-size: var(--font-size-h4);
+}
+
+.articlesLast {
+  margin-top: calc(var(--spacer) * 1.5);
+}
+
+@media (min-width: 40rem) {
+  .articlesLast {
+    gap: calc(var(--spacer) * 1.5);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.photos {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 40rem) {
+  .photos {
+    gap: calc(var(--spacer) * 1.5);
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}

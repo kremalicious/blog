@@ -1,0 +1,30 @@
+.button {
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 0;
+  box-shadow: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: rgba(var(--brand-grey), 0.3);
+  padding: calc(var(--spacer) / 3);
+}
+
+.button svg {
+  stroke: var(--text-color-light);
+  transition: 0.15s ease-out;
+}
+
+.button:hover svg {
+  stroke: var(--text-color-dimmed);
+}
+
+.copied {
+  background: green;
+}
+
+.copied svg {
+  stroke: var(--text-color-dimmed);
+}
