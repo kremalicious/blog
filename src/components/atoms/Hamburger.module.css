@@ -8,7 +8,7 @@
   margin-top: calc(var(--spacer) / 2);
 }
 
-.hamburgerLine {
+.line {
   display: block;
   position: absolute;
   height: 1px;
@@ -20,38 +20,38 @@
   transition: 0.2s var(--easing);
 }
 
-.hamburgerLine::nth-child(1) {
+.line:nth-child(1) {
   top: 0;
   transform-origin: left center;
 }
 
-.hamburgerLine::nth-child(2) {
+.line:nth-child(2) {
   top: 7px;
   transform-origin: left center;
 }
 
-.hamburgerLine::nth-child(3) {
+.line:nth-child(3) {
   top: 14px;
   transform-origin: left center;
 }
 
 /* open state */
-:global(.has-menu-open) .hamburgerLine::nth-child(1) {
+:global(.has-menu-open) .line:nth-child(1) {
   transform: rotate(45deg);
   top: -1px;
 }
 
-:global(.has-menu-open) .hamburgerLine::nth-child(2) {
+:global(.has-menu-open) .line:nth-child(2) {
   width: 0%;
   opacity: 0;
 }
 
-:global(.has-menu-open) .hamburgerLine::nth-child(3) {
+:global(.has-menu-open) .line:nth-child(3) {
   transform: rotate(-45deg);
   top: 16px;
 }
 
-.hamburgerButton {
+.button {
   padding: calc(var(--spacer) / 2);
   vertical-align: middle;
   display: inline-block;
@@ -59,12 +59,12 @@
   margin-right: -1rem;
 }
 
-.hamburgerButton:hover,
-.hamburgerButton:focus {
+.button:hover,
+.button:focus {
   outline: 0;
 }
 
-.hamburgerButton:hover .hamburgerLine,
-.hamburgerButton:focus .hamburgerLine {
+.button:hover .line,
+.button:focus .line {
   border-color: var(--link-color);
 }

@@ -29,7 +29,7 @@ export default function Vcard(): ReactElement {
   const links = [twitter, github, rss, jsonfeed]
 
   return (
-    <div className={styles.vcard}>
+    <>
       <Img className={styles.avatar} fixed={avatar} alt="avatar" />
       <p className={styles.description}>
         Blog of designer &amp; developer{' '}
@@ -39,6 +39,6 @@ export default function Vcard(): ReactElement {
       </p>
 
       <IconLinks links={links} />
-    </div>
+    </>
   )
 }

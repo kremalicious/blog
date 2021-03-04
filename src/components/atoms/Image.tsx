@@ -26,7 +26,7 @@ export const imageSizeDefault = graphql`
     original {
       src
     }
-    fluid(maxWidth: 940, quality: 85) {
+    fluid(maxWidth: 950, quality: 85) {
       ...GatsbyImageSharpFluid_withWebp_noBase64
     }
   }

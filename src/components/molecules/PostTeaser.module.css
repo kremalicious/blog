@@ -5,7 +5,6 @@
   margin-bottom: 0;
   font-size: var(--font-size-base);
   transition: color 0.2s ease-out;
-  color: var(--text-color);
 }
 
 .post {
@@ -25,7 +24,7 @@
 }
 
 .empty {
-  /* @include media-frame; */
+  composes: frame from '../atoms/Image.module.css';
 
   display: block;
   min-height: 95px;

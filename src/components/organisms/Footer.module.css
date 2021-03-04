@@ -17,22 +17,8 @@
   }
 }
 
-.theme {
-  margin: var(--spacer) auto;
-}
-
-.theme p {
-  text-align: center;
-  margin: 0;
-}
-
-.themeTitle {
-  font-size: var(--font-size-h5);
-  margin-bottom: calc(var(--spacer) / 2);
-}
-
 .copyright {
-  padding-top: var(--spacer);
+  padding-top: calvar(--spacer);
   padding-bottom: var(--spacer);
 }
 

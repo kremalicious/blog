@@ -14,7 +14,6 @@ kbd {
 code,
 samp {
   white-space: normal;
-  color: inherit;
   background-color: var(--box-background-color);
   border-radius: var(--border-radius);
 }

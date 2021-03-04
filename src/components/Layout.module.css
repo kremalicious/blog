@@ -36,7 +36,7 @@
   .document {
     margin-top: calc(var(--spacer) * 2.5);
     /* height of footer */
-    margin-bottom: calc(var(--spacer) * 18);
+    margin-bottom: calc(var(--spacer) * 12);
     position: relative;
     z-index: 2;
     min-height: 500px;

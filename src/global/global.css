@@ -25,8 +25,8 @@ body {
   color: var(--text-color);
   text-rendering: optimizeLegibility;
   font-feature-settings: 'liga', 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
   min-height: 100vh;
   background: var(--body-background-color);
   transition: 0.4s var(--easing);
@@ -41,7 +41,7 @@ body {
 p,
 ul,
 ol {
-  margin: 0 0 var(--spacer);
+  margin: 0 0 calc(var(--spacer) / var(--line-height));
 }
 
 /* Reset fonts for relevant elements
@@ -122,10 +122,8 @@ h6 {
   line-height: var(--line-height-headings);
   color: var(--color-headings);
   font-weight: var(--font-weight-headings);
-  margin: 0 0 var(--spacer);
+  margin: 0 0 calc(var(--spacer) / var(--line-height));
   letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   transition: color 0.2s ease-out;
 }
 
@@ -136,6 +134,27 @@ h6 {
 .wf-loading h5,
 .wf-loading h6 {
   font-weight: 600;
+}
+
+h1 .anchor.before,
+h2 .anchor.before,
+h3 .anchor.before,
+h4 .anchor.before,
+h5 .anchor.before,
+h6 .anchor.before {
+  opacity: 0;
+  font-size: var(--font-size-h4);
+  bottom: 0;
+  top: 0.3em;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+  opacity: 1;
 }
 
 /* Responsive Media
@@ -180,7 +199,7 @@ ol {
 
 li {
   position: relative;
-  margin-bottom: calc(var(--spacer) / 2);
+  margin-bottom: calc(var(--spacer) / 8);
 }
 
 li::before {

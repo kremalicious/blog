@@ -16,3 +16,6 @@
 :global(.dark) .divider::before {
   border-bottom-color: var(--brand-grey);
 }
+
+.dividerTop {
+}

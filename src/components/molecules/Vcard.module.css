@@ -1,17 +1,8 @@
-.vcard {
-  margin-bottom: calc(var(--spacer) * 2);
-}
-
 .avatar {
-  /* @include media-frame; */
-
-  margin-bottom: calc(var(--spacer) / 3);
-}
-
-.avatar,
-.avatar img {
+  composes: frame from '../atoms/Image.module.css';
+  border: 2px solid transparent;
   border-radius: 50%;
-  overflow: hidden;
+  margin-bottom: calc(var(--spacer) / 3);
 }
 
 .description {

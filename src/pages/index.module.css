@@ -20,7 +20,7 @@
 }
 
 .articles:first-of-type h1 {
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-h3);
 }
 
 .articlesLast {

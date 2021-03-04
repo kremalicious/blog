@@ -10,13 +10,13 @@ export default function Hamburger({
     <button
       type="button"
       title="Menu"
-      className={styles.hamburgerButton}
+      className={styles.button}
       onClick={onClick}
     >
       <span className={styles.hamburger}>
-        <span className={styles.hamburgerLine} />
-        <span className={styles.hamburgerLine} />
-        <span className={styles.hamburgerLine} />
+        <span className={styles.line} />
+        <span className={styles.line} />
+        <span className={styles.line} />
       </span>
     </button>
   )

@@ -21,7 +21,7 @@ export default function Home({ data }: PageProps): ReactElement {
         </div>
         <div className={`${styles.articles} ${styles.articlesLast}`}>
           {(data as any).latestArticles.edges
-            .slice(2, 5)
+            .slice(2, 8)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
@@ -48,7 +48,7 @@ export const homeQuery = graphql`
     latestArticles: allMarkdownRemark(
       filter: { fields: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 5
+      limit: 8
     ) {
       edges {
         node {
