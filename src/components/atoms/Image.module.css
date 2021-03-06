@@ -23,11 +23,7 @@
   border-bottom: 2px solid transparent;
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 5px 16px rgba(0, 0, 0, 0.05);
-}
-
-:global(.dark) .frame {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
 }
 
 .image {
