@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
-import styles from './Actions.module.css'
+import * as styles from './Actions.module.css'
 import Icon from '../../atoms/Icon'
 
 interface ActionProps {

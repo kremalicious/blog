@@ -12,7 +12,7 @@ import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 import PrevNext from './PrevNext'
-import styles from './index.module.css'
+import * as styles from './index.module.css'
 import { Image } from '../../atoms/Image'
 
 export default function Post({

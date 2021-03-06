@@ -5,7 +5,7 @@
     "stylelint-prettier/recommended"
   ],
   "plugins": ["stylelint-prettier"],
-  "syntax": "scss",
+  "syntax": "css",
   "rules": {
     "prettier/prettier": true,
     "property-no-unknown": [

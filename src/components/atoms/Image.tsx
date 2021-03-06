@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { ImageProps } from '../../@types/Image'
-import styles from './Image.module.css'
+import * as styles from './Image.module.css'
 
 export const Image = ({
   title,

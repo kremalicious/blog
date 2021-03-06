@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
-import styles from './Pagination.module.css'
+import * as styles from './Pagination.module.css'
 import shortid from 'shortid'
 import { PageContext } from '../../@types/Post'
 import Icon from '../atoms/Icon'

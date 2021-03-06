@@ -35,6 +35,7 @@
 @media (min-width: 40rem) and (min-height: 500px) {
   .document {
     margin-top: calc(var(--spacer) * 2.5);
+
     /* height of footer */
     margin-bottom: calc(var(--spacer) * 12);
     position: relative;

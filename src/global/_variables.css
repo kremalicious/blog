@@ -1,3 +1,5 @@
+/* stylelint-disable custom-property-empty-line-before */
+
 :root {
   /* Colors
   ///////////////////////////////////// */
@@ -121,6 +123,8 @@
   --body-background-color: #161a1b;
   --box-background-color: rgba(255, 255, 255, 0.03);
 
+  --box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 16px rgba(0, 0, 0, 0.1);
+
   --text-color: var(--brand-grey-light);
   --text-color-light: var(--brand-grey);
   --text-color-dimmed: var(--brand-grey-dark);
@@ -130,3 +134,5 @@
   --input-bg: var(--body-background-color);
   --input-color: var(--text-color);
 }
+
+/* stylelint-enable custom-property-empty-line-before */

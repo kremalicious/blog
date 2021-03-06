@@ -3,7 +3,7 @@ import { parseEther } from '@ethersproject/units'
 import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
-import styles from './index.module.css'
+import * as styles from './index.module.css'
 
 export default function Web3Donation({
   address

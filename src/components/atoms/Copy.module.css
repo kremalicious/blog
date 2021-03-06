@@ -17,14 +17,14 @@
   transition: 0.15s ease-out;
 }
 
-.button:hover svg {
-  stroke: var(--text-color-dimmed);
-}
-
 .copied {
   background: green;
 }
 
 .copied svg {
+  stroke: var(--text-color-dimmed);
+}
+
+.button:hover svg {
   stroke: var(--text-color-dimmed);
 }

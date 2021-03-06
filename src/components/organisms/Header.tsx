@@ -4,7 +4,7 @@ import Search from '../molecules/Search'
 import Menu from '../molecules/Menu'
 import ThemeSwitch from '../molecules/ThemeSwitch'
 import { ReactComponent as Logo } from '../../images/logo.svg'
-import styles from './Header.module.css'
+import * as styles from './Header.module.css'
 
 export default class Header extends PureComponent {
   render(): ReactElement {

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Lead.module.css'
+import * as styles from './Lead.module.css'
 import { Post } from '../../../@types/Post'
 
 // Extract lead paragraph from content

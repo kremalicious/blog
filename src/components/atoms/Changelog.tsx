@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import remark from 'remark'
 import remarkReact from 'remark-react'
-import styles from './Changelog.module.css'
+import * as styles from './Changelog.module.css'
 import { GitHub, GitHubRepo } from '../../@types/GitHub'
 
 export function PureChangelog({

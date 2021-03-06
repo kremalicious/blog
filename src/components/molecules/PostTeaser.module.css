@@ -7,25 +7,29 @@
   transition: color 0.2s ease-out;
 }
 
+.title + div {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
 .post {
   display: block;
+}
+
+.post:hover {
+  text-decoration: none;
+}
+
+.post:hover .title {
+  color: var(--link-color);
 }
 
 .post figure {
   margin: 0;
 }
 
-.time {
-  font-style: italic;
-  font-size: var(--font-size-small);
-  color: var(--text-color-light);
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-}
-
 .empty {
   composes: frame from '../atoms/Image.module.css';
-
   display: block;
   min-height: 95px;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACaADAAQAAAABAAAACQAAAAAvQpmhAAAAHElEQVQYGWNgoBL4T8gcggoIGcBA0ASCCmhsBQBhFwX7u70C8QAAAABJRU5ErkJggg==);

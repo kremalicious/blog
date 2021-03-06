@@ -17,6 +17,13 @@
   }
 }
 
+.btc code {
+  font-size: 0.6rem;
+  background: none;
+  color: var(--link-color);
+  padding: 0;
+}
+
 .copyright {
   padding-top: calvar(--spacer);
   padding-bottom: var(--spacer);
@@ -32,14 +39,14 @@
   color: var(--text-color-light);
 }
 
-.copyright a:hover,
-.copyright button code {
-  color: var(--link-color);
-}
-
 .copyright a,
 .copyright button {
   margin-left: var(--spacer);
+}
+
+.copyright a:hover,
+.copyright button code {
+  color: var(--link-color);
 }
 
 .copyright a:first-child,
@@ -55,11 +62,4 @@
   display: inline-block;
   stroke: var(--text-color-light);
   opacity: 0.7;
-}
-
-.btc code {
-  font-size: 0.6rem;
-  background: none;
-  color: var(--link-color);
-  padding: 0;
 }

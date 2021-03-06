@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import Icon from '../../atoms/Icon'
-import styles from './PrevNext.module.css'
+import * as styles from './PrevNext.module.css'
 
 interface Node {
   title: string

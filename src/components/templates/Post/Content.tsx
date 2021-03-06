@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import Changelog from '../../atoms/Changelog'
 import { Post } from '../../../@types/Post'
 import PostToc from './Toc'
-import styles from './Content.module.css'
+import * as styles from './Content.module.css'
 
 export default function PostContent({ post }: { post: Post }): ReactElement {
   const separator = '<!-- more -->'

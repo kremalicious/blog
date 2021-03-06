@@ -8,7 +8,7 @@ import { useSiteMetadata } from '../hooks/use-site-metadata'
 import { getLibrary } from '../hooks/use-web3'
 import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
-import styles from './thanks.module.css'
+import * as styles from './thanks.module.css'
 
 const LazyWeb3Donation = loadable(
   () => import('../components/molecules/Web3Donation')

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
-import styles from './tags.module.css'
+import * as styles from './tags.module.css'
 
 const page = {
   frontmatter: {

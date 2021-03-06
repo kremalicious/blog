@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Title.module.css'
+import * as styles from './Title.module.css'
 import Icon from '../../atoms/Icon'
 import PostDate from '../../molecules/PostDate'
 

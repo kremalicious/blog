@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import Typekit from './atoms/Typekit'
 import Header from './organisms/Header'
 import Footer from './organisms/Footer'
-import styles from './Layout.module.css'
+import * as styles from './Layout.module.css'
 
 // if (process.env.NODE_ENV !== 'production') {
 //   // eslint-disable-next-line

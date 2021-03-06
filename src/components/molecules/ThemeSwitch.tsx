@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import useDarkMode from 'use-dark-mode'
-import styles from './ThemeSwitch.module.css'
+import * as styles from './ThemeSwitch.module.css'
 import Icon from '../atoms/Icon'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 

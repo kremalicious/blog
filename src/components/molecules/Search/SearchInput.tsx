@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import Input from '../../atoms/Input'
 import Icon from '../../atoms/Icon'
-import styles from './SearchInput.module.css'
+import * as styles from './SearchInput.module.css'
 
 export default function SearchInput({
   value,

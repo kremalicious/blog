@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './SearchResultsEmpty.module.css'
+import * as styles from './SearchResultsEmpty.module.css'
 import { Results } from './SearchResults'
 
 const SearchResultsEmpty = ({

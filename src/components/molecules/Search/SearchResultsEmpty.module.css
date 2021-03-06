@@ -18,6 +18,7 @@
   display: inline-block;
   vertical-align: bottom;
   animation: ellipsis steps(4, end) 1s infinite;
+
   /* ascii code for the ellipsis character */
   content: '\2026';
   width: 0;

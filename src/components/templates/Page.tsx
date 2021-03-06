@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { Post } from '../../@types/Post'
 import SEO from '../atoms/SEO'
-import styles from './Page.module.css'
+import * as styles from './Page.module.css'
 
 export default function Page({
   title,

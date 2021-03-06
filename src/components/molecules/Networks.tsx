@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Icon from '../atoms/Icon'
-import styles from './Networks.module.css'
+import * as styles from './Networks.module.css'
 
 function NetworkIcon({ link }: { link: string }) {
   let IconComp

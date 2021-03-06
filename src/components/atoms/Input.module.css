@@ -15,6 +15,13 @@
   appearance: none;
 }
 
+.input::-moz-placeholder,
+.input::-webkit-input-placeholder,
+.input:-ms-input-placeholder {
+  color: var(--input-color-placeholder);
+  opacity: 1;
+}
+
 .input:focus {
   border-color: var(--input-border-focus);
   outline: 0;
@@ -22,11 +29,4 @@
 
 .input[disabled] {
   color: var(--text-color-dimmed);
-}
-
-.input::-moz-placeholder,
-.input::-webkit-input-placeholder,
-.input:-ms-input-placeholder {
-  color: var(--input-color-placeholder);
-  opacity: 1;
 }

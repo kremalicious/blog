@@ -29,12 +29,12 @@
 
 .title a {
   display: block;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
   border: 0;
-
   width: 60px;
   overflow: hidden;
 }

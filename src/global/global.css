@@ -25,8 +25,6 @@ body {
   color: var(--text-color);
   text-rendering: optimizeLegibility;
   font-feature-settings: 'liga', 'kern';
-  /* -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
   min-height: 100vh;
   background: var(--body-background-color);
   transition: 0.4s var(--easing);
@@ -341,9 +339,10 @@ td {
 ///////////////////////////////////// */
 
 @import '_code.css';
+@import '_toast.css';
+
 /* @import '_buttons';
 @import '_alerts'; */
-@import '_toast.css';
 
 .medium-zoom-overlay {
   background-color: var(--body-background-color) !important;

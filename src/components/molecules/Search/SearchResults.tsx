@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
-import styles from './SearchResults.module.css'
+import * as styles from './SearchResults.module.css'
 import { Post } from '../../../@types/Post'
 
 export interface Results {
