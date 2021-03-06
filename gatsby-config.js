@@ -23,6 +23,7 @@ module.exports = {
   },
   plugins: [
     ...sources,
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-sharp',
       options: {

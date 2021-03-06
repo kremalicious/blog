@@ -1,13 +1,12 @@
 import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { ImageProps } from '../../@types/Image'
 import * as styles from './Image.module.css'
 
 export const Image = ({
   title,
-  fluid,
-  fixed,
+  image,
   alt,
   original,
   className
@@ -16,13 +15,7 @@ export const Image = ({
     className={`${styles.image} ${className ? className : ''}`}
     data-original={original && original.src}
   >
-    <Img
-      backgroundColor="transparent"
-      fluid={fluid}
-      fixed={fixed}
-      alt={alt}
-      imgStyle={{ objectFit: 'contain' }}
-    />
+     <GatsbyImage backgroundColor="transparent" image={image} alt={alt} />
     {title && <figcaption className={styles.imageTitle}>{title}</figcaption>}
   </figure>
 )
@@ -32,9 +25,7 @@ export const imageSizeDefault = graphql`
     original {
       src
     }
-    fluid(maxWidth: 950, quality: 85) {
-      ...GatsbyImageSharpFluid_withWebp_noBase64
-    }
+    gatsbyImageData(layout: CONSTRAINED, width: 950, quality: 85)
   }
 `
 
@@ -43,9 +34,7 @@ export const imageSizeThumb = graphql`
     original {
       src
     }
-    fluid(maxWidth: 420, maxHeight: 140, quality: 85, cropFocus: CENTER) {
-      ...GatsbyImageSharpFluid_withWebp_noBase64
-    }
+    gatsbyImageData(layout: CONSTRAINED, width: 420, height: 140, quality: 85)
   }
 `
 
@@ -54,8 +43,6 @@ export const photoSizeThumb = graphql`
     original {
       src
     }
-    fluid(maxWidth: 300, maxHeight: 300, quality: 85, cropFocus: CENTER) {
-      ...GatsbyImageSharpFluid_withWebp_noBase64
-    }
+    gatsbyImageData(layout: CONSTRAINED, width: 300, height: 300, quality: 85)
   }
 `

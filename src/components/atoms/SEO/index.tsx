@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
+import { getSrc } from 'gatsby-plugin-image'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 import { Post } from '../../../@types/Post'
 import MetaTags from './MetaTags'
@@ -39,9 +39,7 @@ export default function SEO({
     const postMeta = post.frontmatter
     title = `${postMeta.title} ¦ ${siteTitle}`
     description = postMeta.description ? postMeta.description : post.excerpt
-    image = postMeta.image
-      ? postMeta.image.childImageSharp.fluid.src
-      : `/${logo}`
+    image = postMeta.image ? getSrc(postMeta.image) : `/${logo}`
     postURL = `${siteUrl}${slug}`
   } else {
     title = `${siteTitle} ¦ ${siteDescription}`

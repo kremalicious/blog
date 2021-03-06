@@ -1,18 +1,14 @@
-import { FixedObject, FluidObject } from 'gatsby-image'
+import { GatsbyImageProps, IGatsbyImageData } from 'gatsby-plugin-image'
 
-export interface ImageProps {
+export interface ImageProps extends GatsbyImageProps {
   title?: string
-  fluid?: FluidObject
-  fixed?: FixedObject
-  alt?: string
   original?: { src: string }
   className?: string
 }
 
-export interface ImageNode {
-  childImageSharp: ImageProps
-  fields: {
-    exif: Exif
+export interface ImageNode extends IGatsbyImageData {
+  fields?: {
+    exif?: Exif
   }
 }
 

@@ -47,7 +47,7 @@ export default function PostTeaser({
       onClick={toggleSearch && toggleSearch}
     >
       {image ? (
-        <Image fluid={image.childImageSharp.fluid} alt={title} />
+        <Image image={image} alt={title} />
       ) : (
         <span className={styles.empty} />
       )}
