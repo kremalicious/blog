@@ -1,10 +1,7 @@
 .menu {
-  composes: divider from '../atoms/Divider.module.css';
-
   margin-top: 0;
-  padding-top: calc(var(--spacer) / 2);
   position: absolute;
-  top: calc(100% + calc(var(--spacer) / 1.5));
+  top: 100%;
   left: 0;
   width: 100%;
 }
@@ -39,20 +36,6 @@
   display: block;
   text-align: center;
 }
-
-/* .menu a:hover,
-.menu a:focus {
-  color: var(--link-color-hover);
-} */
-/* 
-  :global(.dark) & {
-    color: $text-color--dark;
-    text-shadow: 0 -1px 0 rgba(#000, 0.5);
-
-    &:hover,
-    &:focus {
-      color: $link-color-hover;
-    } */
 
 .menu::-webkit-scrollbar,
 .menu::-moz-scrollbar,

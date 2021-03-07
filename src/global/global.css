@@ -359,3 +359,7 @@ td {
 .gatsby-resp-image-figure {
   margin-bottom: var(--spacer);
 }
+
+.gatsby-image-wrapper {
+  max-height: 100vh;
+}

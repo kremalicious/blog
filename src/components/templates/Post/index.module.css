@@ -1,7 +1,7 @@
 .hentry {
+  composes: container from '../../atoms/Container.module.css';
   width: 100%;
-  padding-top: var(--spacer);
-  padding-bottom: calc(var(--spacer) * 3);
+  padding-bottom: var(--spacer);
 }
 
 .hentry > a {

@@ -35,7 +35,11 @@ export default function Archive({
   }
 
   return (
-    <Page title={page.frontmatter.title} post={page}>
+    <Page
+      title={page.frontmatter.title}
+      post={page}
+      pathname={pageContext.slug}
+    >
       <div className={styles.posts}>{PostsList}</div>
       {numPages > 1 && <Pagination pageContext={pageContext} />}
     </Page>

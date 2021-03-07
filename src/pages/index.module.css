@@ -1,5 +1,5 @@
 .section {
-  composes: breakout from '../components/atoms/Breakout.module.css';
+  composes: container.wide from '../components/atoms/Container.module.css';
 }
 
 .section:not(:first-child) {

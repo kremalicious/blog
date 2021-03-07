@@ -1,6 +1,5 @@
 import React, { ReactElement, PureComponent } from 'react'
 import { Link } from 'gatsby'
-import Container from '../atoms/Container'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
@@ -35,10 +34,8 @@ export default class Footer extends PureComponent {
   render(): ReactElement {
     return (
       <footer role="contentinfo" className={styles.footer}>
-        <Container>
-          <Vcard />
-          <Copyright />
-        </Container>
+        <Vcard />
+        <Copyright />
       </footer>
     )
   }

@@ -16,7 +16,13 @@ export const Image = ({
     className={`${styles.image} ${className ? className : ''}`}
     data-original={original && original.src}
   >
-    <Img backgroundColor="transparent" fluid={fluid} fixed={fixed} alt={alt} />
+    <Img
+      backgroundColor="transparent"
+      fluid={fluid}
+      fixed={fixed}
+      alt={alt}
+      imgStyle={{ objectFit: 'contain' }}
+    />
     {title && <figcaption className={styles.imageTitle}>{title}</figcaption>}
   </figure>
 )

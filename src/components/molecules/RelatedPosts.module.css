@@ -1,10 +1,10 @@
+.relatedPosts {
+  composes: container from '../atoms/Container.module.css';
+}
+
 .title {
   font-size: var(--font-size-h3);
   margin-bottom: var(--spacer);
-}
-
-.relatedPosts {
-  margin-top: -4rem;
 }
 
 .relatedPosts ul {

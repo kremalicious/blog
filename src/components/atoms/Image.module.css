@@ -19,8 +19,8 @@
 }
 
 .frame {
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
+  border-top: var(--stroke-width) solid rgba(255, 255, 255, 0.2);
+  border-bottom: var(--stroke-width) solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--box-shadow);
@@ -38,7 +38,7 @@
 
 @media (min-width: 40rem) {
   .image {
-    border: 2px solid transparent;
+    border: var(--stroke-width) solid rgba(255, 255, 255, 0.2);
   }
 }
 

@@ -48,7 +48,6 @@
 }
 
 .map {
-  composes: breakout from './Breakout.module.css';
   composes: frame from './Image.module.css';
   height: 180px;
   margin-top: calc(var(--spacer) * 2);

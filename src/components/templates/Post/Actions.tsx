@@ -48,12 +48,12 @@ export default function PostActions({
       />
       <Action
         title="Found something useful?"
-        text="Say thanks with Bitcoin or Ether"
+        text="Say thanks with BTC or ETH"
         url="/thanks"
       />
       <Action
         title="Edit on GitHub"
-        text="Contribute to this post on GitHub"
+        text="Contribute to this post"
         url={githubLink}
       />
     </aside>

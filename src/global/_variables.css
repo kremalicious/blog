@@ -9,7 +9,7 @@
 
   --brand-grey: #4e5d63;
   --brand-grey-dark: #323c41;
-  --brand-grey-light: #70858e;
+  --brand-grey-light: #7f97a1;
   --brand-grey-dimmed: #c3d8e0;
 
   --alert-info: #f7f1e4;
@@ -113,7 +113,7 @@
   ///////////////////////////////////// */
 
   --maxWidthContent: 45rem;
-  --maxWidthContainer: 80rem;
+  --maxWidthContainer: 70rem;
   --easing: cubic-bezier(0.75, 0, 0.08, 1);
 }
 
@@ -126,4 +126,7 @@
   --text-color-dimmed: var(--brand-grey-dark);
   --border-color: var(--brand-grey-dark);
   --color-headings: var(--brand-main-light);
+
+  --input-bg: var(--body-background-color);
+  --input-color: var(--text-color);
 }

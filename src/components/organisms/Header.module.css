@@ -1,13 +1,3 @@
-.header {
-  padding: 0 calc(var(--spacer) / var(--line-height));
-}
-
-@media (min-width: 40rem) {
-  .header {
-    padding: 0 calc(var(--spacer) * 2);
-  }
-}
-
 @media (min-width: 40rem) and (min-height: 500px) {
   .header {
     position: fixed;
@@ -20,16 +10,14 @@
 }
 
 .headerContent {
+  padding: 0 calc(var(--spacer) / 1.5);
+  max-width: var(--maxWidthContainer);
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-@media (min-width: 40rem) {
-  .headerContent {
-    padding: 0;
-  }
 }
 
 /* Logo

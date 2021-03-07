@@ -12,7 +12,9 @@
   height: 91vh;
 }
 
-.searchResults ul {
+.results {
+  composes: container from '../../atoms/Container.module.css';
+  composes: wide from '../../atoms/Container.module.css';
   padding: var(--spacer) calc(var(--spacer) / 2);
   margin-bottom: 0;
   display: flex;
@@ -21,42 +23,42 @@
 }
 
 @media (min-width: 60rem) {
-  .searchResults ul {
+  .results {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-.searchResults ul li {
+.results li {
   display: block;
   flex: 0 0 48%;
   margin-bottom: var(--spacer);
 }
 
 @media (min-width: 40rem) {
-  .searchResults ul li {
+  .results li {
     flex-basis: 31%;
   }
 }
 
-.searchResults ul li::before {
+.results li::before {
   display: none;
 }
 
-.searchResults img {
+.results img {
   margin-bottom: 0;
 }
 
-.searchResults a {
+.results a {
   display: block;
 }
 
-.searchResults a > div {
+.results a > div {
   margin-bottom: 0;
 }
 
-.searchResults a:hover h4,
-.searchResults a:focus h4 {
+.results a:hover h4,
+.results a:focus h4 {
   color: var(--link-color);
 }
 
