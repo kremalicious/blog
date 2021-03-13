@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import Map from 'pigeon-maps'
 import Marker from 'pigeon-marker'
-import useDarkMode from 'use-dark-mode'
+import useDarkMode from '../../hooks/useDarkMode'
 
 const mapbox = (mapboxId: string) => (
   x: string,
@@ -23,10 +23,7 @@ export default function ExifMap({
 }: {
   gps: { latitude: string; longitude: string }
 }): ReactElement {
-  const { value } = useDarkMode(false, {
-    classNameDark: 'dark',
-    classNameLight: 'light'
-  })
+  const { value } = useDarkMode()
   const isDarkMode = value
   const [zoom, setZoom] = useState(12)
 

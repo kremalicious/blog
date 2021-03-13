@@ -42,9 +42,5 @@ module.exports = {
       title: '/Uses',
       link: '/uses'
     }
-  ],
-  darkModeConfig: {
-    classNameDark: 'dark',
-    classNameLight: 'light'
-  }
+  ]
 }

@@ -3,7 +3,11 @@ import { Link, graphql } from 'gatsby'
 import { Image } from '../atoms/Image'
 import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
-import * as styles from './PostTeaser.module.css'
+import {
+  post as stylePost,
+  empty,
+  title as styleTitle
+} from './PostTeaser.module.css'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -42,21 +46,24 @@ export default function PostTeaser({
 
   return (
     <Link
-      className={styles.post}
+      className={stylePost}
       to={slug}
       onClick={toggleSearch && toggleSearch}
     >
       {image ? (
-        <Image image={image} alt={title} />
+        <Image
+          image={(image as any).childImageSharp.gatsbyImageData}
+          alt={title}
+        />
       ) : (
-        <span className={styles.empty} />
+        <span className={empty} />
       )}
 
       <PostTitle
         title={title}
         date={hideDate ? null : date}
         updated={updated}
-        className={styles.title}
+        className={styleTitle}
       />
     </Link>
   )

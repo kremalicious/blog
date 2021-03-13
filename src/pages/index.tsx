@@ -5,21 +5,21 @@ import SEO from '../components/atoms/SEO'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
-import * as styles from './index.module.css'
+import { section, articles, articlesLast, photos } from './index.module.css'
 
 export default function Home({ data }: PageProps): ReactElement {
   return (
     <>
       <SEO />
-      <section className={styles.section}>
-        <div className={styles.articles}>
+      <section className={section}>
+        <div className={articles}>
           {(data as any).latestArticles.edges
             .slice(0, 2)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
-        <div className={`${styles.articles} ${styles.articlesLast}`}>
+        <div className={`${articles} ${articlesLast}`}>
           {(data as any).latestArticles.edges
             .slice(2, 8)
             .map(({ node }: { node: Post }) => (
@@ -30,8 +30,8 @@ export default function Home({ data }: PageProps): ReactElement {
         <PostMore to="/archive">All Articles</PostMore>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.photos}>
+      <section className={section}>
+        <div className={photos}>
           {(data as any).latestPhotos.edges.map(({ node }: { node: Post }) => (
             <PhotoThumb key={node.id} photo={node} />
           ))}

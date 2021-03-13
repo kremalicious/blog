@@ -53,7 +53,7 @@ export default function Post({
         {image && (
           <Image
             className={styles.image}
-            fluid={image.childImageSharp.fluid}
+            image={(image as any).childImageSharp.gatsbyImageData}
             alt={title}
           />
         )}

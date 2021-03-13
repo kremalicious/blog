@@ -361,4 +361,5 @@ td {
 
 .gatsby-image-wrapper {
   max-height: 100vh;
+  display: block;
 }

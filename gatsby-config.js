@@ -220,13 +220,6 @@ module.exports = {
         exclude: ['/archive', '/archive/**/*', '/thanks', '/tags']
       }
     },
-    {
-      resolve: 'gatsby-plugin-use-dark-mode',
-      options: {
-        ...siteConfig.darkModeConfig,
-        minify: true
-      }
-    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
