@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
-import * as styles from './404.module.css'
+import { hal9000, wrapper, title, text } from './404.module.css'
 
 const page = {
   frontmatter: {
@@ -15,11 +15,11 @@ const NotFound = (props: PageProps): ReactElement => (
     post={page}
     pathname={props.location.pathname}
   >
-    <div className={styles.hal9000} />
+    <div className={hal9000} />
 
-    <div className={styles.wrapper}>
-      <h1 className={styles.title}>{"I'm sorry Dave"}</h1>{' '}
-      <p className={styles.text}>{"I'm afraid I can't do that"}</p>
+    <div className={wrapper}>
+      <h1 className={title}>{"I'm sorry Dave"}</h1>{' '}
+      <p className={text}>{"I'm afraid I can't do that"}</p>
       <Link to={'/'}>Back to homepage</Link>
     </div>
   </Page>
