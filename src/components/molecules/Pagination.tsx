@@ -5,7 +5,7 @@ import { PageContext } from '../../@types/Post'
 import Icon from '../atoms/Icon'
 import {
   current as styleCurrent,
-  number,
+  number as styleNumber,
   pagination
 } from './Pagination.module.css'
 
@@ -18,7 +18,7 @@ const PageNumber = ({
   slug: string
   current?: boolean
 }) => {
-  const classes = current ? styleCurrent : number
+  const classes = current ? styleCurrent : styleNumber
   const link = i === 0 ? slug : `${slug}page/${i + 1}`
 
   return (
@@ -40,7 +40,7 @@ function PrevNext({
   const title = prevPagePath ? 'Newer Posts' : 'Older Posts'
 
   return (
-    <Link to={link} rel={rel} title={title} className={styles.number}>
+    <Link to={link} rel={rel} title={title} className={styleNumber}>
       {prevPagePath ? (
         <Icon name="ChevronLeft" />
       ) : (
