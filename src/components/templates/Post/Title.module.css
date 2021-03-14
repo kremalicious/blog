@@ -3,11 +3,11 @@
   margin-bottom: calc(var(--spacer) / 8);
 }
 
-.title__link {
+.titleLink {
   font-size: var(--font-size-h3);
 }
 
-.title__link svg {
+.titleLink svg {
   width: var(--font-size-base);
   height: var(--font-size-base);
   display: inline-block;

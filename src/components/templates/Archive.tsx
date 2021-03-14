@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import { Post, PageContext } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import * as styles from './Archive.module.css'
 import PostTeaser from '../molecules/PostTeaser'
 import Page from './Page'
+import { posts } from './Archive.module.css'
 
 export default function Archive({
   data,
@@ -40,7 +40,7 @@ export default function Archive({
       post={page}
       pathname={pageContext.slug}
     >
-      <div className={styles.posts}>{PostsList}</div>
+      <div className={posts}>{PostsList}</div>
       {numPages > 1 && <Pagination pageContext={pageContext} />}
     </Page>
   )

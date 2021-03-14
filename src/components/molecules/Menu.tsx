@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
-import * as styles from './Menu.module.css'
+import { menu as styleMenu } from './Menu.module.css'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 import { MenuItem } from '../../@types/Site'
 
@@ -28,7 +28,7 @@ export default function Menu(): ReactElement {
         <html className={menuOpen ? 'has-menu-open' : undefined} lang="en" />
       </Helmet>
       <Hamburger onClick={toggleMenu} />
-      <nav className={styles.menu}>
+      <nav className={styleMenu}>
         <ul>{MenuItems}</ul>
       </nav>
     </>

@@ -12,7 +12,7 @@ import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 import PrevNext from './PrevNext'
-import * as styles from './index.module.css'
+import { hentry, image as styleImage } from './index.module.css'
 import { Image } from '../../atoms/Image'
 
 export default function Post({
@@ -37,7 +37,7 @@ export default function Post({
 
       <SEO slug={slug} post={post} postSEO />
 
-      <article className={styles.hentry}>
+      <article className={hentry}>
         <header>
           <PostTitle
             linkurl={linkurl}
@@ -52,7 +52,7 @@ export default function Post({
 
         {image && (
           <Image
-            className={styles.image}
+            className={styleImage}
             image={(image as any).childImageSharp.gatsbyImageData}
             alt={title}
           />

@@ -1,5 +1,5 @@
 .section {
-  composes: container.wide from '../components/atoms/Container.module.css';
+  composes: wide from '../components/atoms/Container.module.css';
 }
 
 .section:not(:first-child) {

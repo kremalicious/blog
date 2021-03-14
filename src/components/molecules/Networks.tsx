@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Icon from '../atoms/Icon'
-import * as styles from './Networks.module.css'
+import { link as styleLink } from './Networks.module.css'
 
 function NetworkIcon({ link }: { link: string }) {
   let IconComp
@@ -28,7 +28,7 @@ export default function IconLinks({
   return (
     <p>
       {links.map((link: string) => (
-        <a key={link} className={styles.link} href={link} title={link}>
+        <a key={link} className={styleLink} href={link} title={link}>
           <NetworkIcon link={link} />
         </a>
       ))}

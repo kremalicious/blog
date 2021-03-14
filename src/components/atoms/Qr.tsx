@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { QRCode } from 'react-qr-svg'
-import * as styles from './Qr.module.css'
+import { qr, code } from './Qr.module.css'
 import Copy from './Copy'
 
 export default function Qr({
@@ -19,10 +19,10 @@ export default function Qr({
         level="Q"
         style={{ width: 120 }}
         value={address}
-        className={styles.qr}
+        className={qr}
       />
 
-      <pre className={styles.code}>
+      <pre className={code}>
         <code>{address}</code>
         <Copy text={address} />
       </pre>

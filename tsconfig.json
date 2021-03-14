@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": ["node_modules", "public", ".cache", "*.js"],
   "include": ["./src/**/*", "./scripts/*.ts", "./jest/**/*"]

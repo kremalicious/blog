@@ -2,7 +2,11 @@ import React, { ReactElement, useState, useEffect } from 'react'
 import { toDataUrl } from 'ethereum-blockies'
 import { formatEther } from '@ethersproject/units'
 import useWeb3 from '../../../hooks/use-web3'
-import * as styles from './Account.module.css'
+import {
+  accountWrap,
+  blockies as styleBlockies,
+  balance
+} from './Account.module.css'
 
 export default function Account(): ReactElement {
   const { library, account } = useWeb3()
@@ -26,12 +30,12 @@ export default function Account(): ReactElement {
     ethBalance && `Ξ${parseFloat(formatEther(ethBalance)).toPrecision(4)}`
 
   return (
-    <div className={styles.accountWrap} title={account}>
-      <span className={styles.account}>
-        <img className={styles.blockies} src={blockies} alt="Blockies" />
+    <div className={accountWrap} title={account}>
+      <span>
+        <img className={styleBlockies} src={blockies} alt="Blockies" />
         {accountDisplay}
       </span>
-      <span className={styles.balance}>{balanceDisplay}</span>
+      <span className={balance}>{balanceDisplay}</span>
     </div>
   )
 }

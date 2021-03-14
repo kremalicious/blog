@@ -3,7 +3,7 @@ import { parseEther } from '@ethersproject/units'
 import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
-import * as styles from './index.module.css'
+import { web3 } from './index.module.css'
 
 export default function Web3Donation({
   address
@@ -67,7 +67,7 @@ export default function Web3Donation({
   }
 
   return (
-    <div className={styles.web3}>
+    <div className={web3}>
       {!active && !message ? (
         <button className="link" onClick={() => activate(connectors.MetaMask)}>
           Activate Web3

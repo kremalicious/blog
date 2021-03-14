@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import Changelog from '../../atoms/Changelog'
 import { Post } from '../../../@types/Post'
 import PostToc from './Toc'
-import * as styles from './Content.module.css'
+import { content as styleContent } from './Content.module.css'
 
 export default function PostContent({ post }: { post: Post }): ReactElement {
   const separator = '<!-- more -->'
@@ -27,7 +27,7 @@ export default function PostContent({ post }: { post: Post }): ReactElement {
       )}
       <div
         dangerouslySetInnerHTML={{ __html: content }}
-        className={styles.content}
+        className={styleContent}
       />
       {changelog && <Changelog repo={changelog} />}
     </>

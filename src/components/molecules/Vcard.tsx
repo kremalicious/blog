@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
 import IconLinks from './Networks'
-import * as styles from './Vcard.module.css'
+import { avatar as styleAvatar, description } from './Vcard.module.css'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
 const query = graphql`
@@ -34,13 +34,13 @@ export default function Vcard(): ReactElement {
   return (
     <>
       <img
-        className={styles.avatar}
+        className={styleAvatar}
         src={avatar}
         width="80"
         height="80"
         alt="avatar"
       />
-      <p className={styles.description}>
+      <p className={description}>
         Blog of designer &amp; developer{' '}
         <a className="fn" rel="author" href={uri}>
           {name}

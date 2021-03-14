@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
-import * as styles from './RelatedPosts.module.css'
+import { relatedPosts, title, button } from './RelatedPosts.module.css'
 import { Post, Frontmatter } from '../../@types/Post'
 import { PhotoThumb } from '../templates/Photos'
 
@@ -78,10 +78,10 @@ export default function RelatedPosts({
   }
 
   return (
-    <aside className={styles.relatedPosts}>
-      <h1 className={styles.title}>
+    <aside className={relatedPosts}>
+      <h1 className={title}>
         Related {isPhotos ? 'Photos' : 'Posts'}{' '}
-        <button className={styles.button} onClick={() => refreshPosts()}>
+        <button className={button} onClick={() => refreshPosts()}>
           Refresh
         </button>
       </h1>

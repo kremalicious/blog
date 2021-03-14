@@ -1,30 +1,22 @@
 import React, { ReactElement } from 'react'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
-import * as styles from './Actions.module.css'
+import { action, actionTitle, actionText, actions } from './Actions.module.css'
 import Icon from '../../atoms/Icon'
 
 interface ActionProps {
   title: string
   text: string
+  icon: string
   url?: string
   onClick?(): void
 }
 
-const IconComp = ({ text }: { text: string }) =>
-  text.includes('GitHub') ? (
-    <Icon name="GitHub" />
-  ) : text.includes('Bitcoin') ? (
-    <Icon name="Bitcoin" />
-  ) : (
-    <Icon name="Twitter" />
-  )
-
-const Action = ({ title, text, url, onClick }: ActionProps) => {
+const Action = ({ title, text, url, icon, onClick }: ActionProps) => {
   return (
-    <a className={styles.action} href={url} onClick={onClick}>
-      <IconComp text={text} />
-      <h1 className={styles.actionTitle}>{title}</h1>
-      <p className={styles.actionText}>{text}</p>
+    <a className={action} href={url} onClick={onClick}>
+      <Icon name={icon} />
+      <h1 className={actionTitle}>{title}</h1>
+      <p className={actionText}>{text}</p>
     </a>
   )
 }
@@ -40,21 +32,24 @@ export default function PostActions({
   const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
 
   return (
-    <aside className={styles.actions}>
+    <aside className={actions}>
       <Action
         title="Have a comment?"
         text="Hit me up @kremalicious"
         url={urlTwitter}
+        icon="Twitter"
       />
       <Action
         title="Found something useful?"
         text="Say thanks with BTC or ETH"
         url="/thanks"
+        icon="Bitcoin"
       />
       <Action
         title="Edit on GitHub"
         text="Contribute to this post"
         url={githubLink}
+        icon="GitHub"
       />
     </aside>
   )

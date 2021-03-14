@@ -1,5 +1,9 @@
 import React, { ReactElement } from 'react'
-import * as styles from './SearchResultsEmpty.module.css'
+import {
+  empty,
+  emptyMessage,
+  emptyMessageText
+} from './SearchResultsEmpty.module.css'
 import { Results } from './SearchResults'
 
 const SearchResultsEmpty = ({
@@ -9,9 +13,9 @@ const SearchResultsEmpty = ({
   searchQuery: string
   results: Results[]
 }): ReactElement => (
-  <div className={styles.empty}>
-    <header className={styles.emptyMessage}>
-      <p className={styles.emptyMessageText}>
+  <div className={empty}>
+    <header className={emptyMessage}>
+      <p className={emptyMessageText}>
         {searchQuery.length > 0 && results.length === 0
           ? 'No results found'
           : 'Awaiting your input'}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactElement } from 'react'
 import fetch from 'node-fetch'
-import * as styles from './Conversion.module.css'
+import { conversion as styleConversion } from './Conversion.module.css'
 
 export async function getFiat(
   amount: number
@@ -43,7 +43,7 @@ export default function Conversion({
   }, [amount])
 
   return (
-    <div className={styles.conversion}>
+    <div className={styleConversion}>
       <span>{dollar !== '0.00' && `= $ ${dollar}`}</span>
       <span>{euro !== '0.00' && `= € ${euro}`}</span>
     </div>

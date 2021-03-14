@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import Input from '../../atoms/Input'
 import Icon from '../../atoms/Icon'
-import * as styles from './SearchInput.module.css'
+import { searchInput, searchInputClose } from './SearchInput.module.css'
 
 export default function SearchInput({
   value,
@@ -15,7 +15,7 @@ export default function SearchInput({
   return (
     <>
       <Input
-        className={styles.searchInput}
+        className={searchInput}
         type="search"
         placeholder="Search everything"
         autoFocus // eslint-disable-line
@@ -23,7 +23,7 @@ export default function SearchInput({
         onChange={onChange}
       />
       <button
-        className={styles.searchInputClose}
+        className={searchInputClose}
         onClick={onToggle}
         title="Close search"
       >

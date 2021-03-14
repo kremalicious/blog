@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import * as styles from './Hamburger.module.css'
+import { button, hamburger, line } from './Hamburger.module.css'
 
 export default function Hamburger({
   onClick
@@ -7,16 +7,11 @@ export default function Hamburger({
   onClick(): void
 }): ReactElement {
   return (
-    <button
-      type="button"
-      title="Menu"
-      className={styles.button}
-      onClick={onClick}
-    >
-      <span className={styles.hamburger}>
-        <span className={styles.line} />
-        <span className={styles.line} />
-        <span className={styles.line} />
+    <button type="button" title="Menu" className={button} onClick={onClick}>
+      <span className={hamburger}>
+        <span className={line} />
+        <span className={line} />
+        <span className={line} />
       </span>
     </button>
   )

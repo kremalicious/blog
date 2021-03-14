@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
-import Page from './Page'
 import { Post, PageContext } from '../../@types/Post'
 import { Image } from '../atoms/Image'
-import { photo as stylePhoto, photos as stylePhotos } from './Photos.module.css'
 import Pagination from '../molecules/Pagination'
+import Page from './Page'
+import { photo as stylePhoto, photos as stylePhotos } from './Photos.module.css'
 
 export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   const { title, image } = photo.frontmatter

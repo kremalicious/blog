@@ -6,5 +6,6 @@
 }
 
 .wide {
+  composes: container;
   max-width: none;
 }
