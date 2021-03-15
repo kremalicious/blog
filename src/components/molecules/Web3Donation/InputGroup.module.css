@@ -1,5 +1,5 @@
 .inputGroup {
-  max-width: 18rem;
+  max-width: 20rem;
   margin: auto;
   position: relative;
   animation: fadeIn 0.8s ease-out backwards;
@@ -21,7 +21,7 @@
 
 @media (min-width: 40rem) {
   .inputGroup button {
-    width: 50%;
+    width: 40%;
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -39,7 +39,7 @@
 
 @media (min-width: 40rem) {
   .input {
-    width: 50%;
+    width: 60%;
   }
 }
 
@@ -70,7 +70,6 @@
 
 :global(.dark) .input input {
   border-color: #000;
-  color: var(--text-color-dimmed);
 }
 
 .currency {
@@ -80,8 +79,7 @@
   left: 1px;
   font-size: var(--font-size-small);
   padding: calc(var(--spacer) / 3);
-  color: var(--brand-grey-light);
-  background: var(--brand-light);
+  background: var(--box-background-color);
   border-right: 1px solid var(--text-color-light);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
