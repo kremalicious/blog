@@ -55,7 +55,7 @@
   --font-size-h5: var(--font-size-large);
   --font-size-h6: var(--font-size-base);
 
-  --line-height: 1.6;
+  --line-height: 1.65;
   --line-height-small: 1.1428571429;
 
   --font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
@@ -109,14 +109,14 @@
   --input-color: var(--text-color);
   --input-color-placeholder: var(--text-color-light);
 
-  --input-border: var(--brand-grey-light);
+  --input-border: var(--border-color);
   --input-border-focus: var(--brand-cyan);
 
   /* Misc.
   ///////////////////////////////////// */
 
-  --maxWidthContent: 45rem;
-  --maxWidthContainer: 70rem;
+  --maxWidthContent: 44rem;
+  --maxWidthContainer: 60rem;
   --easing: cubic-bezier(0.75, 0, 0.08, 1);
 }
 
