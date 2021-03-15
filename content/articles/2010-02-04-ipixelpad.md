@@ -27,7 +27,7 @@ The homescreen icons pixels in the 16px version needed all more vivid colors to 
 The icons come in various formats: iContainer, ICNS, ICO and PNG files for each size. Just click the following download button to grab the whole pack:
 
 <p class="content-download">
-    <a class="icon-download" href="../media/ipixelpad_by_kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="../media/ipixelpad_by_kremalicious.zip">Download</a>
 </p>
 
 ## License

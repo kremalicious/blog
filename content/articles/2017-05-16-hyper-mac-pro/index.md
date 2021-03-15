@@ -41,5 +41,5 @@ hpm install hyper-mac-pro
 Head over to GitHub to take a peek into the code or report some issues.
 
 <p class="content-download">
-    <a class="icon-github btn-primary" href="https://github.com/kremalicious/hyper-mac-pro">GitHub</a>
+    <a class="icon-github btn btn-primary" href="https://github.com/kremalicious/hyper-mac-pro">GitHub</a>
 </p>

@@ -1,0 +1,170 @@
+.btn,
+a.btn {
+  text-align: center;
+  display: block;
+  margin: 0;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  user-select: none;
+  transition: 0.2s ease-in-out;
+  padding: var(--padding-base-vertical) var(--padding-base-horizontal);
+  font-size: var(--font-size-small);
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+  color: var(--text-color);
+  text-transform: uppercase;
+  box-shadow: var(--box-shadow);
+}
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn:active {
+  transition: none;
+}
+
+/* // Disabled State */
+.btn.disabled,
+.btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.btn span {
+  font-size: var(--font-size-mini);
+  color: var(--text-color-light);
+  margin-left: 0.3em;
+}
+
+@media (min-width: 30rem) {
+  .btn,
+  a.btn {
+    max-width: 20rem;
+  }
+}
+
+button.link {
+  color: var(--link-color);
+}
+
+button.link:hover,
+button.link:focus {
+  outline: 0;
+}
+
+/* // Primary Button */
+.btn-primary,
+a.btn-primary {
+  /* dark variant of  `--body-background-color` */
+  color: #161a1b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: var(--link-color);
+  border-color: var(--link-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--link-color-hover);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:active {
+  background: var(--link-color);
+}
+
+.btn-block {
+  display: block;
+}
+
+.btn[class*='icon-']::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 0.3rem;
+  margin-bottom: -0.2rem;
+  opacity: 0.75;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+
+.dark .btn[class*='icon-']::before {
+  filter: invert(0.75);
+}
+.dark .btn.btn-primary[class*='icon-']::before {
+  filter: invert(0);
+}
+
+/* // some helper classes for old content
+///////////////////////////////////// */
+
+.content-download {
+  text-align: center;
+  display: block;
+  margin-top: calc(var(--spacer) * 2);
+  margin-bottom: calc(var(--spacer) * 2);
+}
+
+@media (min-width: 30rem) {
+  .content-download {
+    display: flex;
+  }
+}
+
+.content-download .btn {
+  margin-bottom: calc(var(--spacer) / 2);
+}
+
+.content-download .btn:first-child {
+  margin-left: 0;
+}
+
+.content-download .btn:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-download .btn span {
+  font-size: var(--font-size-mini);
+  color: var(--brand-grey);
+}
+
+@media (min-width: 30rem) {
+  .content-download .btn {
+    flex: 1;
+    margin-left: calc(var(--spacer) / 2);
+    margin-bottom: 0;
+  }
+}
+
+.icon-download::before {
+  background-image: url('../../node_modules/feather-icons/dist/icons/arrow-down-circle.svg');
+}
+
+.icon-heart::before {
+  background-image: url('../../node_modules/feather-icons/dist/icons/heart.svg');
+}
+
+.icon-github::before {
+  background-image: url('../../node_modules/feather-icons/dist/icons/github.svg');
+}
+
+.icon-compass::before {
+  background-image: url('../../node_modules/feather-icons/dist/icons/compass.svg');
+}
+
+.icon-code::before {
+  background-image: url('../../node_modules/feather-icons/dist/icons/code.svg');
+}

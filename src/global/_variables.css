@@ -35,6 +35,7 @@
   --text-color-dimmed: var(--brand-grey-dimmed);
   --color-headings: var(--brand-main);
   --link-color: var(--brand-cyan);
+  --link-color-hover: #4ab8a9;
   --border-color: var(--brand-grey-dimmed);
 
   /* Base Typography

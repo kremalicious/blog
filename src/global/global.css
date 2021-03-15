@@ -338,11 +338,11 @@ td {
 /* More basic elements
 ///////////////////////////////////// */
 
+@import '_buttons';
 @import '_code.css';
 @import '_toast.css';
 
-/* @import '_buttons';
-@import '_alerts'; */
+/* @import '_alerts'; */
 
 .medium-zoom-overlay {
   background-color: var(--body-background-color) !important;

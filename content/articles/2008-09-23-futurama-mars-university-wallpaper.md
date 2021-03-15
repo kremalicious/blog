@@ -18,6 +18,6 @@ Show your geeky love for extraterrestrial universities! This is a simple Futuram
 
 As usual you can [grab the whole zip package from my Goodies page](http://www.kremalicious.com/goodies/#wall) and have fun.
 
-<p class="content-download">
-    <a class="icon-download" href="../media/mars-u-wall-by-kremalicious.zip">Download Futurama Mars U Wallpaper <span>zip</span></a>
+<p class="content-download ">
+    <a class="icon-download btn btn-primary" href="../media/mars-u-wall-by-kremalicious.zip">Download Futurama Mars U Wallpaper <span>zip</span></a>
 </p>
