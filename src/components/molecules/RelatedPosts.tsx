@@ -21,7 +21,7 @@ function postsWithDataFilter(
   posts: [{ node: Post }],
   key: keyof Frontmatter,
   valuesToFind: string[]
-) {
+): { node: Post }[] {
   const newArray = posts
     .filter(({ node }: { node: Post }) => {
       const frontmatterKey = node.frontmatter[key] as []
@@ -39,7 +39,7 @@ function postsWithDataFilter(
   return newArray
 }
 
-function photosWithDataFilter(posts: []) {
+function photosWithDataFilter(posts: [{ node: Post }]): { node: Post }[] {
   const newArray = posts
     .filter((post: { node: Post }) => {
       const { fileAbsolutePath } = post.node

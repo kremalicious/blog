@@ -9,7 +9,7 @@ import {
   pagination
 } from './Pagination.module.css'
 
-const PageNumber = ({
+function PageNumber({
   i,
   slug,
   current
@@ -17,7 +17,7 @@ const PageNumber = ({
   i: number
   slug: string
   current?: boolean
-}) => {
+}): JSX.Element {
   const classes = current ? styleCurrent : styleNumber
   const link = i === 0 ? slug : `${slug}page/${i + 1}`
 
@@ -34,7 +34,7 @@ function PrevNext({
 }: {
   prevPagePath?: string
   nextPagePath?: string
-}) {
+}): JSX.Element {
   const link = prevPagePath || nextPagePath
   const rel = prevPagePath ? 'prev' : 'next'
   const title = prevPagePath ? 'Newer Posts' : 'Older Posts'

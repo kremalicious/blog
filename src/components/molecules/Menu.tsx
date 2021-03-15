@@ -10,17 +10,19 @@ export default function Menu(): ReactElement {
   const [menuOpen, setMenuOpen] = useState(false)
   const { menu } = useSiteMetadata()
 
-  const toggleMenu = () => {
+  function toggleMenu(): void {
     setMenuOpen(!menuOpen)
   }
 
-  const MenuItems = menu.map((item: MenuItem) => (
-    <li key={item.title}>
-      <Link onClick={toggleMenu} to={item.link}>
-        {item.title}
-      </Link>
-    </li>
-  ))
+  const MenuItems = menu.map(
+    (item: MenuItem): JSX.Element => (
+      <li key={item.title}>
+        <Link onClick={toggleMenu} to={item.link}>
+          {item.title}
+        </Link>
+      </li>
+    )
+  )
 
   return (
     <>

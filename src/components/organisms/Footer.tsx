@@ -1,4 +1,4 @@
-import React, { ReactElement, PureComponent } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
@@ -30,13 +30,11 @@ function Copyright() {
   )
 }
 
-export default class Footer extends PureComponent {
-  render(): ReactElement {
-    return (
-      <footer role="contentinfo" className={footer}>
-        <Vcard />
-        <Copyright />
-      </footer>
-    )
-  }
+export default function Footer(): JSX.Element {
+  return (
+    <footer role="contentinfo" className={footer}>
+      <Vcard />
+      <Copyright />
+    </footer>
+  )
 }

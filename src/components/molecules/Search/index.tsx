@@ -26,7 +26,7 @@ export default function Search(): ReactElement {
     )
   }, [query])
 
-  const toggleSearch = () => {
+  function toggleSearch(): void {
     setSearchOpen(!searchOpen)
   }
 

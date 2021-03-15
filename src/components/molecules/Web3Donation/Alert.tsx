@@ -17,10 +17,9 @@ const constructMessage = (
   message?: { text?: string }
 ) =>
   transactionHash
-    ? message &&
-      message.text +
-        '<br /><br />' +
-        getTransactionMessage(transactionHash).transaction
+    ? message?.text +
+      '<br /><br />' +
+      getTransactionMessage(transactionHash).transaction
     : message && message.text
 
 const classes = (status: string) =>
