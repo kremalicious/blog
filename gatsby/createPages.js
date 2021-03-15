@@ -47,7 +47,7 @@ exports.generatePostPages = (createPage, posts) => {
   })
 }
 
-function generateIndexPages(createPage, length, slug, template) {
+function generateIndexPages(createPage, length, slug, template, tag) {
   const numPages = Math.ceil(length / itemsPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
@@ -67,7 +67,8 @@ function generateIndexPages(createPage, length, slug, template) {
         numPages: numPages,
         currentPageNumber: i + 1,
         prevPagePath,
-        nextPagePath
+        nextPagePath,
+        ...(tag && { tag })
       }
     })
   })
@@ -90,7 +91,8 @@ exports.generateTagPages = (createPage, tags) => {
       createPage,
       totalCount,
       `/archive/${tag}/`,
-      archiveTemplate
+      archiveTemplate,
+      tag
     )
   })
 }

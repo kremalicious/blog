@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
 
       archive: allMarkdownRemark(
-        filter: { fields: { type: { ne: "photo" } } }
+        filter: { fields: { type: { nin: "photo" } } }
       ) {
         edges {
           node {
@@ -95,14 +95,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Generate post pages
   generatePostPages(createPage, all)
 
-  // Generate archive pages
-  generateArchivePages(createPage, archiveLength)
-
   // Generate photos archive pages
   generatePhotosPages(createPage, photosLength)
 
   // Generate tag pages
   generateTagPages(createPage, tags)
+
+  // Generate archive pages
+  generateArchivePages(createPage, archiveLength)
 
   // Create manual redirects
   generateRedirectPages(createRedirect)

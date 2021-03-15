@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
   min-width: 2.5rem;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   color: var(--text-color);
 }
 
@@ -39,5 +38,4 @@
   cursor: default;
   pointer-events: none;
   color: var(--text-color-dimmed);
-  background: rgba(255, 255, 255, 0.1);
 }
