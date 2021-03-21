@@ -49,3 +49,27 @@
     min-height: 500px;
   }
 }
+
+.container {
+  width: 100%;
+  max-width: var(--maxWidthContent);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wide {
+  composes: container;
+  max-width: none;
+}
+
+.breakout {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+@media (min-width: 1000px) {
+  .breakout {
+    margin-left: -8rem;
+    margin-right: -8rem;
+  }
+}

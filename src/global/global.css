@@ -120,7 +120,7 @@ h6 {
   line-height: var(--line-height-headings);
   color: var(--color-headings);
   font-weight: var(--font-weight-headings);
-  margin: 0 0 calc(var(--spacer) / var(--line-height));
+  margin: var(--spacer) 0;
   letter-spacing: -0.01em;
   transition: color 0.2s ease-out;
 }
@@ -197,6 +197,10 @@ ol {
 
 li {
   position: relative;
+  margin-bottom: calc(var(--spacer) / 2);
+}
+
+ul ul li {
   margin-bottom: calc(var(--spacer) / 8);
 }
 
@@ -209,7 +213,7 @@ li::before {
 }
 
 li p {
-  margin-bottom: 0;
+  margin-bottom: calc(var(--spacer) / 4);
 }
 
 ul li::before {
@@ -341,8 +345,7 @@ td {
 @import '_buttons';
 @import '_code.css';
 @import '_toast.css';
-
-/* @import '_alerts'; */
+@import '_alerts.css';
 
 .medium-zoom-overlay {
   background-color: var(--body-background-color) !important;

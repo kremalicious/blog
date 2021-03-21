@@ -1,9 +1,9 @@
 .actions {
+  composes: breakout from '../../Layout.module.css';
   margin-top: calc(var(--spacer) * 2);
   margin-bottom: calc(var(--spacer) * 2);
   background: var(--box-background-color);
-  padding-top: var(--spacer);
-  padding-bottom: var(--spacer);
+  padding: var(--spacer);
   border-radius: var(--border-radius);
   display: grid;
 }

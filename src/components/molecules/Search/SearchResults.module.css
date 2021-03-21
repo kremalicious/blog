@@ -13,7 +13,7 @@
 }
 
 .results {
-  composes: container from '../../atoms/Container.module.css';
+  composes: container from '../../Layout.module.css';
   padding: var(--spacer) calc(var(--spacer) / 2);
   margin-bottom: 0;
   display: flex;

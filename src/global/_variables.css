@@ -14,7 +14,7 @@
   --brand-grey-light: #7f97a1;
   --brand-grey-dimmed: #c3d8e0;
 
-  --alert-info: #f7f1e4;
+  --alert-info: rgb(248, 241, 227);
   --alert-success: #dff0d8;
   --alert-error: #f2dede;
 
@@ -115,7 +115,7 @@
   /* Misc.
   ///////////////////////////////////// */
 
-  --maxWidthContent: 44rem;
+  --maxWidthContent: 42rem;
   --maxWidthContainer: 60rem;
   --easing: cubic-bezier(0.75, 0, 0.08, 1);
 }

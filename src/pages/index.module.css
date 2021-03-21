@@ -1,5 +1,5 @@
 .section {
-  composes: wide from '../components/atoms/Container.module.css';
+  composes: wide from '../components/Layout.module.css';
 }
 
 .section:not(:first-child) {
@@ -41,6 +41,6 @@
 @media (min-width: 40rem) {
   .photos {
     gap: calc(var(--spacer) * 1.5);
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }
