@@ -8,11 +8,10 @@
   "main": "index.js",
   "scripts": {
     "start": "gatsby develop --host 0.0.0.0",
-    "build": "gatsby build && npm run copy",
+    "build": "gatsby build",
     "ssr": "npm run build && serve -s public/",
     "test": "npm run lint && jest -c jest/jest.config.js --coverage --silent",
     "test:watch": "npm run lint && jest -c jest/jest.config.js --coverage --watch",
-    "copy": "cp -R content/media/ public",
     "lint": "run-p --continue-on-error lint:js lint:css lint:md",
     "lint:js": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
     "lint:css": "stylelint 'src/**/*.css'",
