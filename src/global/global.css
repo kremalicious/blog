@@ -362,7 +362,8 @@ td {
   margin-bottom: var(--spacer);
 }
 
-.gatsby-image-wrapper {
+.gatsby-image-wrapper,
+.gatsby-image-wrapper-constrained {
   max-height: 100vh;
-  display: block;
+  display: block !important;
 }
