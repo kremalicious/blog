@@ -9,6 +9,7 @@
   font-size: var(--font-size-small);
   padding: calc(var(--spacer) / 3) var(--spacer);
   animation: animation 0.2s ease-out backwards;
+  background: var(--body-background-color);
 }
 
 #toast button {
