@@ -1,5 +1,6 @@
 .footer {
   text-align: center;
+  padding: var(--spacer);
   padding-top: calc(var(--spacer) * 2);
   color: var(--text-color-light);
   line-height: var(--spacer);
@@ -22,11 +23,6 @@
   background: none;
   color: var(--link-color);
   padding: 0;
-}
-
-.copyright {
-  padding-top: calvar(--spacer);
-  padding-bottom: var(--spacer);
 }
 
 .copyright p {
