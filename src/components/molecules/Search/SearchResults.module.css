@@ -14,7 +14,6 @@
 
 .results {
   composes: container from '../../atoms/Container.module.css';
-  /* composes: wide from '../../atoms/Container.module.css'; */
   padding: var(--spacer) calc(var(--spacer) / 2);
   margin-bottom: 0;
   display: flex;
