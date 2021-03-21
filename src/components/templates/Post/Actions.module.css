@@ -42,22 +42,6 @@
   padding-right: calc(var(--spacer) / 2);
   position: relative;
   text-align: left;
-  border-bottom: var(--stroke-width) solid var(--body-background-color);
-}
-
-.action:last-child {
-  border-bottom: 0;
-}
-
-@media (min-width: 40rem) {
-  .action {
-    border-bottom: 0;
-    border-left: var(--stroke-width) solid var(--body-background-color);
-  }
-
-  .action:first-child {
-    border-left: 0;
-  }
 }
 
 .action:hover,

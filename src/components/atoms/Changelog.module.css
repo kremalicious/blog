@@ -7,7 +7,7 @@
   padding-top: var(--spacer);
   padding-left: calc(var(--spacer) / 2);
   margin-left: calc(var(--spacer) / 2);
-  border-left: 1px solid var(--border-color);
+  border-left: var(--stroke-width) solid var(--border-color);
 }
 
 .content h2,

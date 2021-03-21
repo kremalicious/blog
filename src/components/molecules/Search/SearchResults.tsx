@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
-import * as styles from './SearchResults.module.css'
+import {
+  searchResults,
+  results as styleResults
+} from './SearchResults.module.css'
 import { Post } from '../../../@types/Post'
 
 export interface Results {
@@ -34,9 +37,9 @@ function SearchResultsPure({
   toggleSearch(): void
 }) {
   return (
-    <div className={styles.searchResults}>
+    <div className={searchResults}>
       {results.length > 0 ? (
-        <ul className={styles.results}>
+        <ul className={styleResults}>
           {results.map((page: { slug: string }) =>
             posts
               .filter(
