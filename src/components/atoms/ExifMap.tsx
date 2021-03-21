@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react'
-import Map from 'pigeon-maps'
+import { Map } from 'pigeon-maps'
 import Marker from 'pigeon-marker'
 import useDarkMode from '../../hooks/useDarkMode'
 
