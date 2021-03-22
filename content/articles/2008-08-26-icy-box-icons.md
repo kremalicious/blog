@@ -20,7 +20,7 @@ As always these desktop icons are free for you personal and non-commercial use. 
 The whole package includes 7 icons either packed in a nice tagged iContainer for use with Candybar or in Mac + Win + Linux compatible formats. If you have such an Icy Box case grab the icons. Have fun!
 
 <p class="content-download">
-    <a class="icon-download" href="../media/icybox_by_kremalicious.zip">Download Icy Box Icons <span>zip</span></a>
+    <a class="icon-download btn btn-primary" href="../media/icybox_by_kremalicious.zip">Download Icy Box Icons <span>zip</span></a>
 </p>
 
 - Replacement icons for the silver and black Icy Box external aluminium case with USB interface

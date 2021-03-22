@@ -1,0 +1,61 @@
+.title {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--spacer);
+}
+
+.relatedPosts ul {
+  display: grid;
+  gap: calc(var(--spacer) / 2);
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 40rem) {
+  .relatedPosts ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacer);
+  }
+}
+
+.relatedPosts li {
+  display: block;
+  margin: 0;
+}
+
+.relatedPosts li::before {
+  display: none;
+}
+
+.relatedPosts figure {
+  margin: 0;
+}
+
+.relatedPosts img {
+  margin-bottom: 0;
+}
+
+.relatedPosts a {
+  display: block;
+}
+
+.relatedPosts a > div {
+  margin-bottom: 0;
+}
+
+.relatedPosts a h4 {
+  color: var(--text-color-light);
+}
+
+.relatedPosts a:hover h4,
+.relatedPosts a:focus h4 {
+  color: var(--link-color);
+}
+
+.button {
+  font-size: var(--font-size-mini);
+  display: inline-block;
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  margin-left: calc(var(--spacer) / 2);
+}

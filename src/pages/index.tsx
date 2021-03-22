@@ -5,23 +5,23 @@ import SEO from '../components/atoms/SEO'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
-import styles from './index.module.scss'
+import { section, articles, articlesLast, photos } from './index.module.css'
 
 export default function Home({ data }: PageProps): ReactElement {
   return (
     <>
       <SEO />
-      <section className={styles.section}>
-        <div className={styles.articles}>
+      <section className={section}>
+        <div className={articles}>
           {(data as any).latestArticles.edges
             .slice(0, 2)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
         </div>
-        <div className={`${styles.articles} ${styles.articlesLast}`}>
+        <div className={`${articles} ${articlesLast}`}>
           {(data as any).latestArticles.edges
-            .slice(2, 5)
+            .slice(2, 8)
             .map(({ node }: { node: Post }) => (
               <PostTeaser key={node.id} post={node} hideDate />
             ))}
@@ -30,8 +30,8 @@ export default function Home({ data }: PageProps): ReactElement {
         <PostMore to="/archive">All Articles</PostMore>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.photos}>
+      <section className={section}>
+        <div className={photos}>
           {(data as any).latestPhotos.edges.map(({ node }: { node: Post }) => (
             <PhotoThumb key={node.id} photo={node} />
           ))}
@@ -48,7 +48,7 @@ export const homeQuery = graphql`
     latestArticles: allMarkdownRemark(
       filter: { fields: { type: { ne: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
-      limit: 5
+      limit: 8
     ) {
       edges {
         node {

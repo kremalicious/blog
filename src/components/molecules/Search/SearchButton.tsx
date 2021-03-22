@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react'
-import styles from './SearchButton.module.scss'
+import { searchButton } from './SearchButton.module.css'
 import Icon from '../../atoms/Icon'
 
-const SearchButton = (props: any): ReactElement => (
+const SearchButton = ({ onClick }: { onClick: () => void }): ReactElement => (
   <button
     type="button"
     title="Search"
-    className={styles.searchButton}
-    {...props}
+    className={searchButton}
+    onClick={onClick}
   >
     <Icon name="Search" />
   </button>

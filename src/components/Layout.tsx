@@ -1,9 +1,8 @@
 import React, { ReactElement } from 'react'
-import Container from './atoms/Container'
 import Typekit from './atoms/Typekit'
 import Header from './organisms/Header'
 import Footer from './organisms/Footer'
-import styles from './Layout.module.scss'
+import { document, content } from './Layout.module.css'
 
 // if (process.env.NODE_ENV !== 'production') {
 //   // eslint-disable-next-line
@@ -17,10 +16,8 @@ export default function Layout({ children }: { children: any }): ReactElement {
       <Typekit />
       <Header />
 
-      <main className={styles.document} id="document">
-        <div className={styles.content}>
-          <Container>{children}</Container>
-        </div>
+      <main className={document} id="document">
+        <div className={content}>{children}</div>
       </main>
 
       <Footer />

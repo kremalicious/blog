@@ -1,5 +1,9 @@
 import React, { ReactElement } from 'react'
-import styles from './Title.module.scss'
+import {
+  title as styleTitle,
+  titleLink,
+  linkurl as styleLinkurl
+} from './Title.module.css'
 import Icon from '../../atoms/Icon'
 import PostDate from '../../molecules/PostDate'
 
@@ -20,22 +24,16 @@ export default function PostTitle({
 
   return linkurl ? (
     <>
-      <h1
-        className={`${styles.hentry__title} ${styles.hentry__title__link} ${
-          className && className
-        }`}
-      >
+      <h1 className={`${styleTitle} ${titleLink} ${className && className}`}>
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
           {title} <Icon name="ExternalLink" />
         </a>
       </h1>
-      <div className={styles.linkurl}>{linkHostname}</div>
+      <div className={styleLinkurl}>{linkHostname}</div>
     </>
   ) : (
     <>
-      <h1 className={`${styles.hentry__title} ${className && className}`}>
-        {title}
-      </h1>
+      <h1 className={`${styleTitle} ${className && className}`}>{title}</h1>
       {date && <PostDate date={date} updated={updated} />}
     </>
   )

@@ -44,10 +44,10 @@ module.exports = [
       url: 'https://api.github.com/graphql',
       headers: {
         Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`
-      },
+      }
       // Additional options to pass to node-fetch
-      fetchOptions: {},
-      refetchInterval: 300 // 5 min.
+      // fetchOptions: {},
+      // refetchInterval: 300 // 5 min.
     }
   }
 ]

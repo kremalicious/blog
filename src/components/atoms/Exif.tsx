@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import ExifMap from './ExifMap'
-import styles from './Exif.module.scss'
+import { exif as styleExif, data, map } from './Exif.module.css'
 import { Exif as ExifMeta } from '../../@types/Image'
 import Icon from './Icon'
 
@@ -31,8 +31,8 @@ export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
   } = exif.formatted
 
   return (
-    <aside className={styles.exif}>
-      <div className={styles.data}>
+    <aside className={styleExif}>
+      <div className={data}>
         {model && <ExifData title="Camera model" value={model} icon="Camera" />}
         {focalLength && (
           <ExifData title="Focal length" value={focalLength} icon="Crosshair" />
@@ -49,7 +49,7 @@ export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
         {iso && <ExifData title="ISO" value={iso} icon="Maximize" />}
       </div>
       {gps && gps.latitude && (
-        <div className={styles.map}>
+        <div className={map}>
           <ExifMap gps={gps} />
         </div>
       )}

@@ -28,10 +28,6 @@ const query = graphql`
         jsonfeed
         itemsPerPage
         repoContentPath
-        darkModeConfig {
-          classNameDark
-          classNameLight
-        }
       }
     }
   }

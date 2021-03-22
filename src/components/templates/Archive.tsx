@@ -2,9 +2,9 @@ import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import { Post, PageContext } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
-import styles from './Archive.module.scss'
 import PostTeaser from '../molecules/PostTeaser'
 import Page from './Page'
+import { posts } from './Archive.module.css'
 
 export default function Archive({
   data,
@@ -35,8 +35,12 @@ export default function Archive({
   }
 
   return (
-    <Page title={page.frontmatter.title} post={page}>
-      <div className={styles.posts}>{PostsList}</div>
+    <Page
+      title={page.frontmatter.title}
+      post={page}
+      pathname={pageContext.slug}
+    >
+      <div className={posts}>{PostsList}</div>
       {numPages > 1 && <Pagination pageContext={pageContext} />}
     </Page>
   )
@@ -46,8 +50,8 @@ export const archiveQuery = graphql`
   query($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: {
+        fields: { type: { nin: "photo" } }
         frontmatter: { tags: { eq: $tag } }
-        fields: { type: { ne: "photo" } }
       }
       sort: { order: DESC, fields: [fields___date] }
       skip: $skip

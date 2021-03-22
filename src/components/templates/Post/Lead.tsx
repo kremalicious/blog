@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styles from './Lead.module.scss'
+import { lead as styleLead } from './Lead.module.css'
 import { Post } from '../../../@types/Post'
 
 // Extract lead paragraph from content
@@ -23,7 +23,7 @@ const PostLead = ({
 
   return (
     <div
-      className={`${styles.lead} ${className && className}`}
+      className={`${styleLead} ${className && className}`}
       dangerouslySetInnerHTML={{ __html: lead }}
     />
   )

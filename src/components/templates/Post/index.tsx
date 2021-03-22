@@ -12,7 +12,7 @@ import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 import PrevNext from './PrevNext'
-import styles from './index.module.scss'
+import { hentry, image as styleImage } from './index.module.css'
 import { Image } from '../../atoms/Image'
 
 export default function Post({
@@ -37,7 +37,7 @@ export default function Post({
 
       <SEO slug={slug} post={post} postSEO />
 
-      <article className={styles.hentry}>
+      <article className={hentry}>
         <header>
           <PostTitle
             linkurl={linkurl}
@@ -45,17 +45,21 @@ export default function Post({
             date={date}
             updated={updated}
           />
-
-          {type === 'article' && <PostLead post={post} />}
-
-          {image && <Image fluid={image.childImageSharp.fluid} alt={title} />}
         </header>
 
+        {type === 'article' && <PostLead post={post} />}
+        {type === 'photo' && <PostContent post={post} />}
+
+        {image && (
+          <Image
+            className={styleImage}
+            image={(image as any).childImageSharp.gatsbyImageData}
+            alt={title}
+          />
+        )}
+
         {type === 'photo' ? (
-          <>
-            {image && image.fields && <Exif exif={image.fields.exif} />}
-            <PostContent post={post} />
-          </>
+          image?.fields && <Exif exif={image.fields.exif} />
         ) : (
           <PostContent post={post} />
         )}

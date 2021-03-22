@@ -33,7 +33,7 @@ So if you value quality and want pixel perfect icons in your admin area you need
 I’ve put the template along with the implementation examples from the next section on [github](https://github.com/kremalicious/wp-icons-template). You can just download the whole package right away:
 
 <p class="content-download">
-    <a href="https://github.com/kremalicious/wp-icons-template/zipball/master" class="btn-primary icon-download">Download</a> <a href="https://github.com/kremalicious/wp-icons-template" class="icon-github">GitHub</a> <a href="http://krlc.us/givecoffee" class="icon-heart">Donate</a>
+    <a href="https://github.com/kremalicious/wp-icons-template/zipball/master" class="btn btn-primary icon-download">Download</a> <a href="https://github.com/kremalicious/wp-icons-template" class="icon-github btn btn-primary">GitHub</a> <a href="http://krlc.us/givecoffee" class="icon-heart btn">Donate</a>
 </p>
 
 ### Usage

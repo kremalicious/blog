@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react'
 import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
-import Container from '../../atoms/Container'
 import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
-import styles from './SearchResults.module.scss'
+import {
+  searchResults,
+  results as styleResults
+} from './SearchResults.module.css'
 import { Post } from '../../../@types/Post'
 
 export interface Results {
@@ -35,26 +37,24 @@ function SearchResultsPure({
   toggleSearch(): void
 }) {
   return (
-    <div className={styles.searchResults}>
-      <Container>
-        {results.length > 0 ? (
-          <ul>
-            {results.map((page: { slug: string }) =>
-              posts
-                .filter(
-                  ({ node }: { node: Post }) => node.fields.slug === page.slug
-                )
-                .map(({ node }: { node: Post }) => (
-                  <li key={page.slug}>
-                    <PostTeaser post={node} toggleSearch={toggleSearch} />
-                  </li>
-                ))
-            )}
-          </ul>
-        ) : (
-          <SearchResultsEmpty searchQuery={searchQuery} results={results} />
-        )}
-      </Container>
+    <div className={searchResults}>
+      {results.length > 0 ? (
+        <ul className={styleResults}>
+          {results.map((page: { slug: string }) =>
+            posts
+              .filter(
+                ({ node }: { node: Post }) => node.fields.slug === page.slug
+              )
+              .map(({ node }: { node: Post }) => (
+                <li key={page.slug}>
+                  <PostTeaser post={node} toggleSearch={toggleSearch} />
+                </li>
+              ))
+          )}
+        </ul>
+      ) : (
+        <SearchResultsEmpty searchQuery={searchQuery} results={results} />
+      )}
     </div>
   )
 }

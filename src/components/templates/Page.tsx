@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react'
 import { Helmet } from 'react-helmet'
 import { Post } from '../../@types/Post'
 import SEO from '../atoms/SEO'
-import styles from './Page.module.scss'
+import { pagetitle } from './Page.module.css'
 
 export default function Page({
   title,
@@ -22,7 +22,7 @@ export default function Page({
       <Helmet title={title} />
       <SEO slug={pathname} postSEO post={post} />
 
-      <h1 className={styles.pagetitle}>{title}</h1>
+      <h1 className={pagetitle}>{title}</h1>
       {section ? <section className={section}>{children}</section> : children}
     </>
   )

@@ -1,17 +1,16 @@
-import React, { ReactElement, PureComponent } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
-import Container from '../atoms/Container'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import styles from './Footer.module.scss'
+import { copyright, btc, footer } from './Footer.module.css'
 
 function Copyright() {
   const { name, uri, github } = useSiteMetadata().author
   const year = new Date().getFullYear()
 
   return (
-    <section className={styles.copyright}>
+    <section className={copyright}>
       <p>
         &copy; 2005&ndash;
         {year + ' '}
@@ -22,7 +21,7 @@ function Copyright() {
           <Icon name="GitHub" />
           View source
         </a>
-        <Link to="/thanks" className={styles.btc}>
+        <Link to="/thanks" className={btc}>
           <Icon name="Bitcoin" />
           Say Thanks
         </Link>
@@ -31,15 +30,11 @@ function Copyright() {
   )
 }
 
-export default class Footer extends PureComponent {
-  render(): ReactElement {
-    return (
-      <footer role="contentinfo" className={styles.footer}>
-        <Container>
-          <Vcard />
-          <Copyright />
-        </Container>
-      </footer>
-    )
-  }
+export default function Footer(): JSX.Element {
+  return (
+    <footer role="contentinfo" className={footer}>
+      <Vcard />
+      <Copyright />
+    </footer>
+  )
 }

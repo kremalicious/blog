@@ -29,7 +29,7 @@ These icons are free for your personal use and include icons for all file types 
 Get them and have fun.
 
 <p class="content-download">
-    <a class="icon-download" href="../media/aperturefiletypes_by_kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="../media/aperturefiletypes_by_kremalicious.zip">Download</a>
 </p>
 
 And don't forget to read my article about [how to change the generic image icons in Mac OS X Leopard](/changing-the-image-icons-in-mac-os-x-leopard/).

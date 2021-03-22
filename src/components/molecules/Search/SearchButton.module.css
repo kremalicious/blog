@@ -1,0 +1,22 @@
+.searchButton {
+  padding: calc(var(--spacer) / 2);
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
+  margin-right: calc(var(--spacer) / 4);
+}
+
+.searchButton:focus {
+  outline: 0;
+}
+
+.searchButton svg {
+  stroke: var(--text-color-light);
+  width: 24px;
+  height: 24px;
+}
+
+.searchButton:hover svg,
+.searchButton:focus svg {
+  stroke: var(--link-color);
+}

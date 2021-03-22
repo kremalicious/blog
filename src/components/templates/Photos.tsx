@@ -1,21 +1,21 @@
 import React, { ReactElement } from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
-import Page from './Page'
 import { Post, PageContext } from '../../@types/Post'
 import { Image } from '../atoms/Image'
-import styles from './Photos.module.scss'
 import Pagination from '../molecules/Pagination'
+import Page from './Page'
+import { photo as stylePhoto, photos as stylePhotos } from './Photos.module.css'
 
 export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
   const { title, image } = photo.frontmatter
   const { slug } = photo.fields
-  const { fluid } = image.childImageSharp
+  const { gatsbyImageData } = (image as any).childImageSharp
 
   return (
-    <article className={styles.photo}>
+    <article className={stylePhoto}>
       {image && (
         <Link to={slug}>
-          <Image title={title} fluid={fluid} alt={title} />
+          <Image title={title} image={gatsbyImageData} alt={title} />
         </Link>
       )}
     </article>
@@ -55,7 +55,7 @@ export default function Photos(props: PhotosPageProps): ReactElement {
       post={page}
       pathname={props.location.pathname}
     >
-      <section className={styles.photos}>
+      <section className={stylePhotos}>
         {photos.map(({ node }: { node: Post }) => (
           <PhotoThumb key={node.id} photo={node} />
         ))}

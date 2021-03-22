@@ -1,19 +1,18 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import useDarkMode from 'use-dark-mode'
-import styles from './ThemeSwitch.module.scss'
+import { themeSwitch, checkbox, label } from './ThemeSwitch.module.css'
 import Icon from '../atoms/Icon'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import useDarkMode from '../../hooks/useDarkMode'
 
 const ThemeToggleInput = ({
   isDark,
   toggleDark
 }: {
   isDark: boolean
-  toggleDark(): void
+  toggleDark: () => void
 }) => (
   <input
-    onChange={toggleDark}
+    onChange={() => toggleDark()}
     type="checkbox"
     name="toggle"
     value="toggle"
@@ -22,8 +21,15 @@ const ThemeToggleInput = ({
   />
 )
 
-const HeadMarkup = ({ themeColor }: { themeColor: string }) => (
+const HeadMarkup = ({
+  bodyClass,
+  themeColor
+}: {
+  bodyClass: string
+  themeColor: string
+}) => (
   <Helmet>
+    <body className={bodyClass} />
     <meta name="theme-color" content={themeColor} />
     <meta
       name="apple-mobile-web-app-status-bar-style"
@@ -33,28 +39,30 @@ const HeadMarkup = ({ themeColor }: { themeColor: string }) => (
 )
 
 export default function ThemeSwitch(): ReactElement {
-  const { darkModeConfig } = useSiteMetadata()
-  const darkMode = useDarkMode(false, darkModeConfig)
-  const themeColor = darkMode.value ? '#1d2224' : '#e7eef4'
+  const { value, toggle } = useDarkMode()
+  const [themeColor, setThemeColor] = useState('')
+  const [bodyClass, setBodyClass] = useState('')
+
+  useEffect(() => {
+    setBodyClass(value ? 'dark' : null)
+    setThemeColor(value ? '#1d2224' : '#e7eef4')
+  }, [value])
 
   return (
     <>
-      <HeadMarkup themeColor={themeColor} />
-      <aside className={styles.themeSwitch} title="Toggle Dark Mode">
+      <HeadMarkup themeColor={themeColor} bodyClass={bodyClass} />
+      <aside className={themeSwitch} title="Toggle Dark Mode">
         <label
           htmlFor="toggle"
-          className={styles.checkbox}
-          onClick={darkMode.toggle}
-          onKeyPress={darkMode.toggle}
+          className={checkbox}
+          onClick={toggle}
+          onKeyPress={toggle}
           role="presentation"
         >
-          <span className={styles.label}>Toggle Dark Mode</span>
-          <ThemeToggleInput
-            isDark={darkMode.value}
-            toggleDark={darkMode.toggle}
-          />
+          <span className={label}>Toggle Dark Mode</span>
+          <ThemeToggleInput isDark={value} toggleDark={toggle} />
           <div aria-live="assertive">
-            {darkMode.value ? <Icon name="Sun" /> : <Icon name="Moon" />}
+            {value ? <Icon name="Sun" /> : <Icon name="Moon" />}
           </div>
         </label>
       </aside>

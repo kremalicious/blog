@@ -1,0 +1,17 @@
+.qr {
+  margin-bottom: calc(var(--spacer) / 2);
+}
+
+.code {
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  padding-right: 2rem;
+  width: fit-content;
+}
+
+.code code {
+  padding: calc(var(--spacer) / 2);
+  font-size: 0.65rem;
+  text-align: center;
+}

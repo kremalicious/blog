@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
-import styles from './tags.module.scss'
+import { tags } from './tags.module.css'
 
 const page = {
   frontmatter: {
@@ -28,7 +28,7 @@ const TagsPage = (props: TagsPageProps): ReactElement => (
     post={page}
     pathname={props.location.pathname}
   >
-    <ul className={styles.tags}>
+    <ul className={tags}>
       {props.data.allMarkdownRemark.group
         .sort((a, b) => b.totalCount - a.totalCount)
         .map((tag: Tag) => (

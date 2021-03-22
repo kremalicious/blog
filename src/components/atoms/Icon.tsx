@@ -27,7 +27,7 @@ import {
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
-import styles from './Icon.module.scss'
+import { icon } from './Icon.module.css'
 
 const components: any = {
   Download: ArrowDownCircle,
@@ -55,12 +55,12 @@ const components: any = {
   Crosshair
 }
 
-const Icon = ({ name }: { name: string }): ReactElement => {
+const Icon = ({ name, ...props }: { name: string }): ReactElement => {
   const IconMapped = components[name]
   // const IconFeather = (Feather as any)[name]
   if (!IconMapped) return null
 
-  return <IconMapped className={styles.icon} />
+  return <IconMapped className={icon} {...props} />
 }
 
 export default Icon

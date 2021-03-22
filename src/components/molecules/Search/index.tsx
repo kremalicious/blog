@@ -4,8 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 import SearchInput from './SearchInput'
 import SearchButton from './SearchButton'
 import SearchResults from './SearchResults'
-
-import styles from './index.module.scss'
+import * as styles from './index.module.css'
 
 export default function Search(): ReactElement {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -27,7 +26,7 @@ export default function Search(): ReactElement {
     )
   }, [query])
 
-  const toggleSearch = () => {
+  function toggleSearch(): void {
     setSearchOpen(!searchOpen)
   }
 

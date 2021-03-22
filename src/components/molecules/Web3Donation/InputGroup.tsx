@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import Input from '../../atoms/Input'
 import Account from './Account'
 import Conversion from './Conversion'
-import styles from './InputGroup.module.scss'
+import { inputGroup, input, currency } from './InputGroup.module.css'
 
 export default function InputGroup({
   sendTransaction
@@ -18,8 +18,8 @@ export default function InputGroup({
   return (
     <div>
       <Account />
-      <div className={styles.inputGroup}>
-        <div className={styles.input}>
+      <div className={inputGroup}>
+        <div className={input}>
           <Input
             type="number"
             value={amount}
@@ -27,7 +27,7 @@ export default function InputGroup({
             min="0"
             step="0.01"
           />
-          <div className={styles.currency}>
+          <div className={currency}>
             <span>ETH</span>
           </div>
         </div>

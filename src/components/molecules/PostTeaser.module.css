@@ -1,0 +1,40 @@
+.title {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  margin-top: calc(var(--spacer) / 3);
+  margin-bottom: 0;
+  font-size: var(--font-size-base);
+  transition: color 0.2s ease-out;
+}
+
+.title + div {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.post {
+  display: block;
+}
+
+.post:hover {
+  text-decoration: none;
+}
+
+.post:hover .title {
+  color: var(--link-color);
+}
+
+.post figure {
+  margin: 0;
+}
+
+.empty {
+  composes: frame from '../atoms/Image.module.css';
+  display: block;
+  min-height: 95px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACaADAAQAAAABAAAACQAAAAAvQpmhAAAAHElEQVQYGWNgoBL4T8gcggoIGcBA0ASCCmhsBQBhFwX7u70C8QAAAABJRU5ErkJggg==);
+}
+
+a:hover .empty {
+  border-color: var(--link-color);
+}

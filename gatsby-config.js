@@ -23,6 +23,7 @@ module.exports = {
   },
   plugins: [
     ...sources,
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
@@ -77,21 +78,13 @@ module.exports = {
               },
               injectStyles: false,
               extensions: [
-                `${__dirname}/vendor/nord-visual-studio-code-0.15.0.vsix`,
+                'nord-visual-studio-code',
                 `${__dirname}/vendor/polar-0.0.6.vsix`
               ],
               languageAliases: {}
             }
           }
         ]
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        sassOptions: {
-          includePaths: [`${__dirname}/node_modules`, `${__dirname}/src/styles`]
-        }
       }
     },
     {
@@ -225,13 +218,6 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         exclude: ['/archive', '/archive/**/*', '/thanks', '/tags']
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-use-dark-mode',
-      options: {
-        ...siteConfig.darkModeConfig,
-        minify: true
       }
     },
     'gatsby-plugin-react-helmet',

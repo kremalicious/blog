@@ -1,0 +1,20 @@
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.searchInputClose {
+  position: absolute;
+  right: calc(var(--spacer) / 2);
+  top: calc(var(--spacer) / 2);
+}
+
+.searchInputClose svg {
+  stroke: var(--brand-grey-light);
+  width: 24px;
+  height: 24px;
+}
+
+.searchInputClose:hover svg,
+.searchInputClose:focus svg {
+  stroke: var(--link-color);
+}

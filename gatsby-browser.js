@@ -1,4 +1,4 @@
-import './src/styles/global.scss'
+import './src/global/global.css'
 
 import wrapPageElementWithLayout from './src/helpers/wrapPageElement'
 export const wrapPageElement = wrapPageElementWithLayout

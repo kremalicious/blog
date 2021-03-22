@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
-import styles from './RelatedPosts.module.scss'
+import { relatedPosts, title, button } from './RelatedPosts.module.css'
 import { Post, Frontmatter } from '../../@types/Post'
 import { PhotoThumb } from '../templates/Photos'
 
@@ -21,7 +21,7 @@ function postsWithDataFilter(
   posts: [{ node: Post }],
   key: keyof Frontmatter,
   valuesToFind: string[]
-) {
+): { node: Post }[] {
   const newArray = posts
     .filter(({ node }: { node: Post }) => {
       const frontmatterKey = node.frontmatter[key] as []
@@ -39,7 +39,7 @@ function postsWithDataFilter(
   return newArray
 }
 
-function photosWithDataFilter(posts: []) {
+function photosWithDataFilter(posts: [{ node: Post }]): { node: Post }[] {
   const newArray = posts
     .filter((post: { node: Post }) => {
       const { fileAbsolutePath } = post.node
@@ -78,10 +78,10 @@ export default function RelatedPosts({
   }
 
   return (
-    <aside className={styles.relatedPosts}>
-      <h1 className={styles.title}>
+    <aside className={relatedPosts}>
+      <h1 className={title}>
         Related {isPhotos ? 'Photos' : 'Posts'}{' '}
-        <button className={styles.button} onClick={() => refreshPosts()}>
+        <button className={button} onClick={() => refreshPosts()}>
           Refresh
         </button>
       </h1>

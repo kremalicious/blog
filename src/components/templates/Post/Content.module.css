@@ -1,0 +1,10 @@
+.content hr {
+  /* composes: divider from '../../atoms/Divider.module.css'; */
+
+  margin-top: calc(var(--spacer) * var(--line-height));
+  margin-bottom: calc(var(--spacer) * var(--line-height));
+}
+
+.content img {
+  border-radius: var(--border-radius);
+}

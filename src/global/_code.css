@@ -1,0 +1,124 @@
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-family-monospace);
+  font-size: var(--font-size-small);
+}
+
+code,
+kbd {
+  padding: 0.1rem 0.3rem;
+}
+
+code,
+samp {
+  white-space: normal;
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+}
+
+kbd {
+  color: var(--kbd-color);
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--box-background-color);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  padding: 0.15rem 0.4rem;
+}
+
+pre {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin-bottom: var(--spacer);
+  line-height: var(--line-height);
+  color: var(--code-color);
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+
+  /* make 'em scrollable */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 800px;
+}
+
+/* overwrite Nord & Polar theme background color */
+pre.nord,
+pre.polar {
+  background-color: var(--box-background-color) !important;
+}
+
+pre code {
+  padding: var(--spacer) calc(var(--spacer) / 2);
+  white-space: pre;
+  display: block;
+  color: inherit;
+  overflow-wrap: normal;
+  word-wrap: normal;
+  word-break: normal;
+  background: none;
+}
+
+pre::-webkit-scrollbar {
+  width: 0.35rem;
+  height: 0.35rem;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: var(--brand-main);
+  border-radius: var(--border-radius);
+}
+
+pre::-webkit-scrollbar-track {
+  background: var(--brand-main);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+pre[data-language]::before {
+  background: var(--brand-grey);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  color: var(--brand-grey-dimmed);
+  font-size: var(--font-size-mini);
+  font-family: var(--font-family-base);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  right: calc(var(--spacer) / 2);
+  top: 0;
+}
+
+pre[data-language='js']::before {
+  content: 'js';
+}
+
+pre[data-language='bash']::before {
+  content: 'bash';
+}
+
+pre[data-language='bash'] .grvsc-line:only-child {
+  padding-left: 0.5rem;
+  display: block;
+}
+
+pre[data-language='bash'] .grvsc-line:only-child::before {
+  content: '$';
+  opacity: 0.5;
+  display: inline-block;
+  margin-left: -0.5rem;
+  margin-right: 0.5rem;
+}
+
+pre[data-language='html']::before {
+  content: 'html';
+}
+
+pre[data-language='css']::before {
+  content: 'css';
+}
+
+pre[data-language='php']::before {
+  content: 'php';
+}
