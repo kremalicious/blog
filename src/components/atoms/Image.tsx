@@ -34,7 +34,13 @@ export const imageSizeThumb = graphql`
     original {
       src
     }
-    gatsbyImageData(layout: CONSTRAINED, width: 480, height: 140, quality: 85)
+    gatsbyImageData(
+      layout: CONSTRAINED
+      width: 480
+      height: 180
+      quality: 85
+      transformOptions: { cropFocus: CENTER }
+    )
   }
 `
 
