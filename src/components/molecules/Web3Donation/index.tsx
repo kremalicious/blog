@@ -1,24 +1,17 @@
 import React, { ReactElement, useState, useEffect } from 'react'
 import { parseEther } from '@ethersproject/units'
-import useWeb3, { connectors, getErrorMessage } from '../../../hooks/use-web3'
+import useWeb3, { getErrorMessage } from '../../../hooks/use-web3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
-import { web3 } from './index.module.css'
+import { web3 as styleWeb3 } from './index.module.css'
+import Account from './Account'
 
 export default function Web3Donation({
   address
 }: {
   address: string
 }): ReactElement {
-  const {
-    connector,
-    library,
-    chainId,
-    account,
-    activate,
-    active,
-    error
-  } = useWeb3()
+  const { connector, library, chainId, account, active, error } = useWeb3()
   const [message, setMessage] = useState({})
 
   useEffect(() => {
@@ -67,15 +60,12 @@ export default function Web3Donation({
   }
 
   return (
-    <div className={web3}>
-      {!active && !message ? (
-        <button className="link" onClick={() => activate(connectors.MetaMask)}>
-          Activate Web3
-        </button>
-      ) : library && account && !message ? (
-        <InputGroup sendTransaction={sendTransaction} />
+    <div className={styleWeb3}>
+      <Account />
+      {message ? (
+        <Alert message={message} transactionHash={transactionHash} />
       ) : (
-        message && <Alert message={message} transactionHash={transactionHash} />
+        <InputGroup sendTransaction={sendTransaction} />
       )}
     </div>
   )

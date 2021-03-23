@@ -1,15 +1,16 @@
 import React, { ReactElement, useState, useEffect } from 'react'
 import { toDataUrl } from 'ethereum-blockies'
 import { formatEther } from '@ethersproject/units'
-import useWeb3 from '../../../hooks/use-web3'
+import useWeb3, { connectors } from '../../../hooks/use-web3'
 import {
   accountWrap,
   blockies as styleBlockies,
-  balance
+  balance,
+  link
 } from './Account.module.css'
 
 export default function Account(): ReactElement {
-  const { library, account } = useWeb3()
+  const { library, account, activate } = useWeb3()
   const [ethBalance, setEthBalance] = useState(0)
   const blockies = account && toDataUrl(account)
 
@@ -29,7 +30,14 @@ export default function Account(): ReactElement {
   const balanceDisplay =
     ethBalance && `Ξ${parseFloat(formatEther(ethBalance)).toPrecision(4)}`
 
-  return (
+  return !account ? (
+    <button
+      className={`link ${link}`}
+      onClick={() => activate(connectors.MetaMask)}
+    >
+      MetaMask
+    </button>
+  ) : (
     <div className={accountWrap} title={account}>
       <span>
         <img className={styleBlockies} src={blockies} alt="Blockies" />
