@@ -19,11 +19,17 @@
   min-height: 100vh;
 }
 
-.thanks h4 {
+.thanks h2 {
   text-align: center;
   margin: 0;
-  margin-bottom: cal(var(--spacer) / 2);
+  margin-bottom: calc(var(--spacer) / 8);
   color: var(--text-color);
+  font-size: var(--font-size-h4);
+}
+
+.thanks h4 {
+  color: var(--text-color);
+  text-align: center;
   text-transform: capitalize;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, waitFor, fireEvent } from '@testing-library/react'
 import { Web3ReactProvider } from '@web3-react/core'
-import { getLibrary } from '../../../hooks/use-web3'
+import { getLibrary } from '../../../hooks/useWeb3'
 
 import Web3Donation from '.'
 

@@ -21,7 +21,7 @@ export async function getFiat(
 export default function Conversion({
   amount
 }: {
-  amount: number
+  amount: string
 }): ReactElement {
   const [conversion, setConversion] = useState({
     euro: '0.00',
@@ -31,7 +31,7 @@ export default function Conversion({
 
   async function getFiatResponse() {
     try {
-      const { dollar, euro } = await getFiat(amount)
+      const { dollar, euro } = await getFiat(Number(amount))
       setConversion({ euro, dollar })
     } catch (error) {
       console.error(error.message)

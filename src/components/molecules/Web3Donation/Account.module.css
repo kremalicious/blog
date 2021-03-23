@@ -1,12 +1,12 @@
 .link {
-  margin-bottom: var(--spacer);
+  margin-bottom: calc(var(--spacer) / 2);
   display: inline-block;
 }
 
 .accountWrap {
   font-size: var(--font-size-small);
   color: var(--text-color-light);
-  margin-bottom: var(--spacer);
+  margin-bottom: calc(var(--spacer) / 2);
   display: flex;
   justify-content: space-between;
 }

@@ -12,7 +12,7 @@ export function getLibrary(provider: ExternalProvider): Web3Provider {
 }
 
 export function getNetworkName(netId: number): string {
-  let networkName
+  let networkName: string
 
   switch (netId) {
     case 1:

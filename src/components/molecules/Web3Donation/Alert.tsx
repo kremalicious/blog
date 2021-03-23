@@ -29,8 +29,8 @@ export default function Alert({
   transactionHash,
   message
 }: {
-  transactionHash: string
-  message?: { text?: string; status?: string }
+  transactionHash?: string
+  message: { text?: string; status?: string }
 }): ReactElement {
   return (
     <div

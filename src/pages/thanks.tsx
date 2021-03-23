@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Web3ReactProvider } from '@web3-react/core'
 import { Author } from '../@types/Site'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
-import { getLibrary } from '../hooks/use-web3'
+import { getLibrary } from '../hooks/useWeb3'
 import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
 import {
@@ -57,7 +57,7 @@ export default function Thanks(): ReactElement {
 
         <div className={web3}>
           <header>
-            <h4>Web3 Wallet</h4>
+            <h2>With Web3 Wallet</h2>
             <p>Send Ether with MetaMask or Brave.</p>
           </header>
 
@@ -71,7 +71,7 @@ export default function Thanks(): ReactElement {
 
         <div className={styleCoins}>
           <header>
-            <h4>Any other wallets</h4>
+            <h2>With Any Other Wallet</h2>
             <p>Send Bitcoin or Ether from any wallet.</p>
           </header>
 

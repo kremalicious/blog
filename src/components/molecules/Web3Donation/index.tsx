@@ -1,6 +1,6 @@
 import React, { ReactElement, useState, useEffect } from 'react'
 import { parseEther } from '@ethersproject/units'
-import useWeb3, { getErrorMessage } from '../../../hooks/use-web3'
+import useWeb3, { getErrorMessage } from '../../../hooks/useWeb3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import { web3 as styleWeb3 } from './index.module.css'
@@ -12,7 +12,8 @@ export default function Web3Donation({
   address: string
 }): ReactElement {
   const { connector, library, chainId, account, active, error } = useWeb3()
-  const [message, setMessage] = useState({})
+  const [message, setMessage] = useState<{ status: string; text: string }>()
+  const [transactionHash, setTransactionHash] = useState<string>()
 
   useEffect(() => {
     setMessage(undefined)
@@ -24,9 +25,7 @@ export default function Web3Donation({
       })
   }, [connector, account, library, chainId, active, error])
 
-  const [transactionHash, setTransactionHash] = useState(undefined)
-
-  async function sendTransaction(amount: number) {
+  async function sendTransaction(amount: string) {
     const signer = library.getSigner()
 
     setMessage({
@@ -37,7 +36,7 @@ export default function Web3Donation({
     try {
       const tx = await signer.sendTransaction({
         to: address,
-        value: parseEther(amount.toString()) // ETH -> Wei
+        value: parseEther(amount) // ETH -> Wei
       })
       setTransactionHash(tx.hash)
       setMessage({
@@ -52,10 +51,7 @@ export default function Web3Donation({
         text: getTransactionMessage().success
       })
     } catch (error) {
-      setMessage({
-        status: 'error',
-        text: error.message
-      })
+      setMessage(null)
     }
   }
 

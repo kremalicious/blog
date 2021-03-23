@@ -15,3 +15,7 @@
   font-size: 0.65rem;
   text-align: center;
 }
+
+.title {
+  margin-bottom: calc(var(--spacer) / 4);
+}
