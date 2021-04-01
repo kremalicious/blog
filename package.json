@@ -87,7 +87,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@types/classnames": "^2.2.11",
-    "@types/fs-extra": "^9.0.8",
+    "@types/fs-extra": "^9.0.9",
     "@types/jest": "^26.0.21",
     "@types/loadable__component": "^5.13.3",
     "@types/lunr": "^2.3.3",
