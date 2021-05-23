@@ -216,7 +216,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/archive', '/archive/**/*', '/thanks', '/tags']
+        excludes: ['/archive', '/archive/**/*', '/thanks', '/tags']
       }
     },
     'gatsby-plugin-react-helmet',
