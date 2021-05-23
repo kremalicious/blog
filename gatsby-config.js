@@ -223,8 +223,8 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-webpack-size'
+    'gatsby-plugin-offline'
+    // 'gatsby-plugin-webpack-size'
     // {
     //   resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     //   options: {
