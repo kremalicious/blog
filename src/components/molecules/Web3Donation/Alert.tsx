@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import { success, error, alert } from './Alert.module.css'
 
-export function getTransactionMessage(
-  transactionHash?: string
-): { [key: string]: string } {
+export function getTransactionMessage(transactionHash?: string): {
+  [key: string]: string
+} {
   return {
     transaction: `<a href="https://etherscan.io/tx/${transactionHash}" target="_blank">See your transaction on etherscan.io.</a>`,
     waitingForUser: 'Waiting for your confirmation',

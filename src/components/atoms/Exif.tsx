@@ -20,15 +20,8 @@ const ExifData = ({
 )
 
 export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
-  const {
-    iso,
-    model,
-    fstop,
-    shutterspeed,
-    focalLength,
-    exposure,
-    gps
-  } = exif.formatted
+  const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } =
+    exif.formatted
 
   return (
     <aside className={styleExif}>

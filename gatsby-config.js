@@ -37,7 +37,6 @@ module.exports = {
       options: {
         excerpt_separator: '<!-- more -->',
         plugins: [
-          'gatsby-remark-breaks',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -217,15 +216,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/archive', '/archive/**/*', '/thanks', '/tags']
+        excludes: ['/archive', '/archive/**/*', '/thanks', '/tags']
       }
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-webpack-size'
+    'gatsby-plugin-offline'
+    // 'gatsby-plugin-webpack-size'
     // {
     //   resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     //   options: {

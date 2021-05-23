@@ -67,7 +67,7 @@ export default function Photos(props: PhotosPageProps): ReactElement {
 }
 
 export const photosQuery = graphql`
-  query($skip: Int, $limit: Int) {
+  query ($skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: { fields: { type: { eq: "photo" } } }
       sort: { order: DESC, fields: [fields___date] }
