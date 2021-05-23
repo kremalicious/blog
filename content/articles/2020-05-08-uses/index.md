@@ -1,6 +1,6 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2021-03-01T03:39:12+02:00
+updated: 2021-06-11T21:20:12+02:00
 
 title: /uses
 image: uses-teaser.png
@@ -31,26 +31,18 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[iPhone 11 Pro](https://www.apple.com/iphone-11-pro/)**
   _Space Gray, 256GB_
-  My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading and I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
+  My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading. I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
 
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**
-  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, listening to music on the go.
+  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
 
 - **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**
   _40mm, Space Gray Aluminium, Black Solo Loop_
   Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
 
-- **iPad Pro (9.7-inch) 2016**
-  _Space Gray, 128GB_
-  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it is still perfect for it. Initially used with the keyboard cover and the Apple Pencil but until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done. Still intrigued by the possibilities and cleanliness of iPadOS compared to macOS but it's just not there yet for me. On the go, the iPad is my [Sidecar](https://support.apple.com/en-us/HT210380) display usually holding Terminal.app in fullscreen.
-
 - **[Bose QuietComfort 35 II](https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html#v=qc35_ii_black)**
   _Black_
   The headphones for blocking out my whole environment during work in busy and loud places, and for better music quality than any AirPods.
-
-- **[Beats Powerbeats](https://www.beatsbydre.com/earphones/powerbeats)**
-  _Black_
-  Using the original ones during all workout activities for many years. Impossible to fall out, and way more robust like AirPods, but with similar features.
 
 - **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**
   The best experience for long time reading. Almost all my non-technical books are Kindle books.
@@ -64,16 +56,27 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   Massive wood dining table turned into a desk. Yearly bee wax polishing keeps it looking like new for more than a decade. [The monolith](/basically-the-monolith-is-on-my-desk) might had an effect on that too. Leaves more than enough space to run big display and MacBook screen side-by-side.
 
 - **[LG 32UL950](https://www.lg.com/de/monitore/lg-32UL950-W)**
-  _32" UltraFine 4K external display with Thunderbolt3/USB-C_
+  _32" UltraFine 4K external display with Thunderbolt 3/USB-C_
   My main display being used when working from home. 4k and one cable to deliver power, video, audio, and further connectivity is the minimum. The image quality is bearable and on-par with the more Mac-optimized LG 5K UltraFine versions, but bigger, cheaper, more slim, and uses less energy. Still no Pro Display XDR image quality though.
 
-- **[Magic Mouse 2](https://www.apple.com/shop/product/MRME2/magic-mouse-2-space-gray)**
-  _Space Gray_
-  Always coming back to this mouse after trying a bunch of Logitech & Razer gaming mice. The combination of a mouse with a touch surface for gestures and scrolling in any direction is just unbeatable.
+- **[Logitech MX Master 3 for Mac](https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html)**
+  _Black & Space Gray_
+  Still a fan of the simplicity and gestures of the Magic Mouse 2, but it's just no fit for working precisely, or for gaming. Logitech's MX Master 3 provides both, and has great macOS support, unlike the people over at Razer.
 
-- **[Magic Keyboard](https://www.apple.com/ie/shop/product/MLA22Z/A/magic-keyboard-international-english)**
-  _1x US International & 1x DE, white_
-  Always loved the Magic Keyboards for typing at a desk although by now I highly prefer typing on the new MacBook Pro keyboard. Most of the time using the US keyboard, sometimes switch to the German one. It stresses me tremendously that the version without number block is only available in white.
+- **[Satechi Slim X1 Bluetooth Backlit Keyboard](https://satechi.net/products/slim-x1-bluetooth-backlit-keyboard)**
+  _US, Space Gray_
+  Great compact keyboard with black keys which have a great key travel. Packed with other welcome features over Apple's keyboards like backlit keys and easy switching between 3 paired devices.
+
+- **iPad Pro (9.7-inch) 2016**
+  _Space Gray, 128GB_
+  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it is still perfect for it. Initially used with the keyboard cover and the Apple Pencil but until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done. Still intrigued by the possibilities and cleanliness of iPadOS compared to macOS but it's just not there yet for me. At home, the iPad is my [Sidecar](https://support.apple.com/en-us/HT210380) display usually holding Terminal.app in fullscreen.
+
+- **[HomePod mini](https://www.apple.com/homepod-mini/)**
+  _2x Space Gray_
+  Used as desktop speakers connected as stereo pair, and setup as a HomeHub to automate home devices.
+
+- **[Logitech BRIO 4K Webcam](https://www.logitech.com/en-us/products/webcams/brio-4k-hdr-webcam.960-001105.html)**
+  Since Apple has not yet figured out how to put cameras capable of a better picture quality than a 720p potato camera into any of their MacBooks, an external one has to do it.
 
 - **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**
   _4GB RAM_
@@ -82,10 +85,6 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 - **[Urbanears Baggen](https://www.amazon.com/Urbanears-Multi-Room-Bluetooth-Connected-04091756/dp/B0742HFQRD/)**
   _Concrete Grey_
   The most versatile, stand-alone wireless speaker I could find. Connects with pretty much everything no matter the OS: AirPlay, Chromecast, Spotify Connect, Bluetooth, USB-A, AUX. Looks and sounds great, albeit hard to justify its size after the [HomePod](https://www.apple.com/homepod/) had been released.
-
-- **[HomePod mini](https://www.apple.com/homepod-mini/)**
-  _2x Space Gray_
-  Used as desktop speakers connected as stereo pair, and setup as a HomeHub to automate home devices.
 
 - **[IKEA HEKTAR](https://www.ikea.com/de/de/p/hektar-arbeitsleuchte-mit-ladefunktion-dunkelgrau-60323436/)**
   _Dark Gray_
@@ -99,7 +98,7 @@ I keep it simple and use most of the default Apple apps across devices for all b
 
 Living a cloud-first life where all my files are stored in some cloud service and are selectively synced to any device. Mail, Calendar, and Contacts are hooked up to personal and work **[Google G Suite](https://gsuite.google.com)** accounts.
 
-I live with **automatic dark mode** where all my devices have a light theme during the day, and a dark theme after sunset.
+I live with **automatic dark mode** where all my devices and apps have a light theme during the day, and a dark theme after sunset.
 
 ### File Storage & Sync
 

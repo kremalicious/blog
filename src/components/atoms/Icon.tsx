@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { FunctionComponent, ReactElement } from 'react'
 
 // https://featherstyles.com
 // import * as Feather from 'react-feather'
@@ -29,7 +29,9 @@ import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
 import { icon } from './Icon.module.css'
 
-const components: any = {
+const components: {
+  [key: string]: FunctionComponent<React.SVGProps<SVGSVGElement>>
+} = {
   Download: ArrowDownCircle,
   Jsonfeed,
   Bitcoin,
