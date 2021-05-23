@@ -47,7 +47,7 @@ export default function Archive({
 }
 
 export const archiveQuery = graphql`
-  query($tag: String, $skip: Int, $limit: Int) {
+  query ($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: {
         fields: { type: { nin: "photo" } }

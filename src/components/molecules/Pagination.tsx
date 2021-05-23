@@ -55,13 +55,8 @@ export default function Pagination({
 }: {
   pageContext: PageContext
 }): ReactElement {
-  const {
-    slug,
-    currentPageNumber,
-    numPages,
-    prevPagePath,
-    nextPagePath
-  } = pageContext
+  const { slug, currentPageNumber, numPages, prevPagePath, nextPagePath } =
+    pageContext
   const isFirst = currentPageNumber === 1
   const isLast = currentPageNumber === numPages
 

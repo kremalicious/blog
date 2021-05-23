@@ -54,7 +54,6 @@ redirect_from:
   - /2008/04/aperture-file-types/
   # note: trailing slashes are required
 ---
-
 ```
 
 ## Default Query
