@@ -76,7 +76,7 @@
     "react-feather": "^2.0.9",
     "react-helmet": "^6.1.0",
     "react-qr-svg": "^2.4.0",
-    "react-transition-group": "^4.4.1",
+    "react-transition-group": "^4.4.2",
     "remark": "^13.0.0",
     "remark-react": "^8.0.0",
     "slugify": "^1.5.3"
