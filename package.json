@@ -28,7 +28,7 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@ethersproject/providers": "^5.2.0",
+    "@ethersproject/providers": "^5.3.0",
     "@ethersproject/units": "^5.2.0",
     "@loadable/component": "^5.15.0",
     "@web3-react/core": "^6.1.9",
