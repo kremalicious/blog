@@ -37,6 +37,7 @@ module.exports = {
       options: {
         excerpt_separator: '<!-- more -->',
         plugins: [
+          'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -60,7 +61,6 @@ module.exports = {
               destinationDir: 'media'
             }
           },
-          'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
