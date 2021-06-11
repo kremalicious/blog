@@ -23,7 +23,7 @@
         "plugin:jsx-a11y/recommended",
         "plugin:prettier/recommended",
         "plugin:react/recommended",
-        "plugin:testing-library/recommended",
+        "plugin:testing-library/dom",
         "plugin:testing-library/react"
       ],
       "plugins": ["@typescript-eslint", "react", "testing-library"],
@@ -31,7 +31,9 @@
         "object-curly-spacing": ["error", "always"],
         "react/prop-types": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-explicit-any": "off"
+        "@typescript-eslint/no-explicit-any": "off",
+        "testing-library/no-node-access": "off",
+        "testing-library/no-container": "off"
       },
       "parserOptions": {
         "ecmaVersion": 2020,
