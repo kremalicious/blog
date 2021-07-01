@@ -43,7 +43,7 @@
     "gatsby": "^3.7.1",
     "gatsby-plugin-catch-links": "^3.7.1",
     "gatsby-plugin-feed": "^3.7.1",
-    "gatsby-plugin-image": "^1.7.1",
+    "gatsby-plugin-image": "^1.8.0",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^3.7.1",
     "gatsby-plugin-matomo": "^0.10.0",
