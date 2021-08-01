@@ -60,7 +60,7 @@
     "gatsby-remark-copy-linked-files": "^4.4.1",
     "gatsby-remark-images": "^5.4.1",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
-    "gatsby-remark-smartypants": "^4.4.1",
+    "gatsby-remark-smartypants": "^4.7.0",
     "gatsby-remark-vscode": "^3.2.1",
     "gatsby-source-filesystem": "^3.7.1",
     "gatsby-source-graphql": "^3.7.1",
