@@ -16,5 +16,6 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/jest/loadershim.js'],
   setupFilesAfterEnv: ['<rootDir>/jest/setup-test-env.ts'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/@types/**/*']
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/@types/**/*'],
+  testEnvironment: 'jsdom'
 }
