@@ -1,6 +1,6 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2021-06-11T21:20:12+02:00
+updated: 2021-08-27T21:20:12+02:00
 
 title: /uses
 image: uses-teaser.png
@@ -33,16 +33,16 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _Space Gray, 256GB_  
   My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading. I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
 
+- **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**  
+  _Space Gray, 512GB, WiFi + Cellular_  
+  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it became my favorite device to browse and edit photos on. Until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done but still intrigued by the possibilities and cleanliness of iPadOS compared to macOS.
+
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**  
   Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
 
 - **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
   _40mm Space Gray Aluminum Case, Black Solo Loop_  
   Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
-
-- **[Bose QuietComfort 35 II](https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html#v=qc35_ii_black)**  
-  _Black_  
-  The headphones for blocking out my whole environment during work in busy and loud places, and for better music quality than any AirPods.
 
 - **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**  
   The best experience for long time reading. Almost all my non-technical books are Kindle books.
@@ -67,16 +67,16 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _US, Space Gray_  
   Great compact keyboard with black keys which have a great key travel. Packed with other welcome features over Apple's keyboards like backlit keys and easy switching between 3 paired devices.
 
-- **iPad Pro (9.7-inch) 2016**  
-  _Space Gray, 128GB_  
-  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it is still perfect for it. Initially used with the keyboard cover and the Apple Pencil but until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done. Still intrigued by the possibilities and cleanliness of iPadOS compared to macOS but it's just not there yet for me. At home, the iPad is my [Sidecar](https://support.apple.com/en-us/HT210380) display usually holding Terminal.app in fullscreen.
-
 - **[HomePod mini](https://www.apple.com/homepod-mini/)**  
   _2x Space Gray_  
   Used as desktop speakers connected as stereo pair, and setup as a HomeHub to automate home devices.
 
 - **[Logitech BRIO 4K Webcam](https://www.logitech.com/en-us/products/webcams/brio-4k-hdr-webcam.960-001105.html)**  
   Since Apple has not yet figured out how to put cameras capable of a better picture quality than a 720p potato camera into any of their MacBooks, an external one has to do it.
+
+- **[Bose QuietComfort 35 II](https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html#v=qc35_ii_black)**  
+  _Black_  
+  The headphones for blocking out my whole environment, and for better music quality than any AirPods.
 
 - **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**  
   _4GB RAM_  
