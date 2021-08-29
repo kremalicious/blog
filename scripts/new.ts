@@ -45,7 +45,7 @@ async function getExif(imagePath: string) {
     return null
   }
 
-  let iptcData = {}
+  let iptcData: any = {}
   try {
     iptcData = await getIptc(imagePath)
   } catch (error) {
