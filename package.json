@@ -99,7 +99,7 @@
     "@types/react-transition-group": "^4.4.2",
     "@types/shortid": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
+    "@typescript-eslint/parser": "^4.30.0",
     "@welldone-software/why-did-you-render": "^6.2.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
