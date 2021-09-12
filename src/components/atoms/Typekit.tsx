@@ -1,13 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
 
-const TypekitScript = (typekitID: string) => (
+const TypekitScript = () => (
   <script>
     {`
         (function(d) {
             var config = {
-                kitId: '${typekitID}',
+                kitId: '${process.env.GATSBY_TYPEKIT_ID}',
                 scriptTimeout: 3000,
                 async: true
             },
@@ -17,15 +16,11 @@ const TypekitScript = (typekitID: string) => (
   </script>
 )
 
-export default function Typekit(): ReactElement {
-  const { typekitID } = useSiteMetadata()
-
-  return typekitID ? (
+export default function Typekit(): JSX.Element {
+  return (
     <Helmet>
-      <link rel="dns-prefetch" href="https://use.typekit.net/" />
-      <link rel="dns-prefetch" href="https://p.typekit.net/" />
-
-      {TypekitScript(typekitID)}
+      <link rel="preconnect" href="https://use.typekit.net" />
+      <TypekitScript />
     </Helmet>
-  ) : null
+  )
 }

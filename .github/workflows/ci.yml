@@ -77,6 +77,7 @@ jobs:
       - run: npm run build
         env:
           GATSBY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
           GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
 
       - uses: actions/upload-artifact@v1

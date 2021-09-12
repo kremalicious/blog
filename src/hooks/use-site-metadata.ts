@@ -19,7 +19,6 @@ const query = graphql`
           bitcoin
           ether
         }
-        typekitID
         menu {
           title
           link

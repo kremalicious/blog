@@ -20,7 +20,6 @@ export interface Site {
   siteDescription: string
   siteUrl: string
   author: Author
-  typekitID: string
   menu: MenuItem[]
   rss: string
   jsonfeed: string
