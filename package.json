@@ -93,7 +93,7 @@
     "@types/lunr": "^2.3.4",
     "@types/node": "^16.7.4",
     "@types/node-fetch": "^2.5.12",
-    "@types/react": "^17.0.19",
+    "@types/react": "^17.0.26",
     "@types/react-dom": "^17.0.9",
     "@types/react-helmet": "^6.1.2",
     "@types/react-transition-group": "^4.4.2",
