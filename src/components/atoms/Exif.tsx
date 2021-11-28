@@ -23,10 +23,14 @@ export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
   const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } =
     exif.formatted
 
+  const formattedModel = model === 'FC7203' ? 'DJI Mavic Mini' : model
+
   return (
     <aside className={styleExif}>
       <div className={data}>
-        {model && <ExifData title="Camera model" value={model} icon="Camera" />}
+        {formattedModel && (
+          <ExifData title="Camera model" value={formattedModel} icon="Camera" />
+        )}
         {focalLength && (
           <ExifData title="Focal length" value={focalLength} icon="Crosshair" />
         )}

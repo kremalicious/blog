@@ -27,7 +27,7 @@ export interface ExifFormatted {
 }
 
 export interface Exif {
-  formatted?: ExifFormatted
+  formatted: ExifFormatted
   exif?: any
   image?: any
   thumbnail?: any
