@@ -98,7 +98,7 @@
     "@types/shortid": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.32.0",
-    "@welldone-software/why-did-you-render": "^6.2.1",
+    "@welldone-software/why-did-you-render": "^6.2.3",
     "babel-preset-gatsby": "^2.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
