@@ -15,12 +15,14 @@
   appearance: none;
 }
 
+/* stylelint-disable selector-no-vendor-prefix */
 .input::-moz-placeholder,
 .input::-webkit-input-placeholder,
 .input:-ms-input-placeholder {
   color: var(--input-color-placeholder);
   opacity: 1;
 }
+/* stylelint-enable selector-no-vendor-prefix */
 
 .input:focus {
   border-color: var(--input-border-focus);

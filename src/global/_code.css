@@ -23,7 +23,7 @@ kbd {
   background-color: var(--box-background-color);
   border-radius: var(--border-radius);
   border: 1px solid var(--box-background-color);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255 255 255 / 40%);
   padding: 0.15rem 0.4rem;
 }
 

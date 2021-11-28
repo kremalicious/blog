@@ -18,9 +18,8 @@
   transform: translate3d(0, 0, 0);
   transition: 0.4s var(--easing);
   transition-property: transform, background, border, box-shadow;
-  border-top: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 1px 10px rgba(1, 85, 101, 0.1),
-    0 -1px 4px rgba(1, 85, 101, 0.05);
+  border-top: 1px solid rgba(255 255 255 / 85%);
+  box-shadow: 0 1px 10px rgba(1 85 101 / 10%), 0 -1px 4px rgba(1 85 101 / 5%);
 }
 
 :global(.has-menu-open) .document {
@@ -28,8 +27,8 @@
 }
 
 :global(.dark) .document {
-  border-top-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 1px 8px rgba(0, 7, 8, 0.3), 0 -1px 4px rgba(0, 21, 25, 0.8);
+  border-top-color: rgba(255 255 255 / 5%);
+  box-shadow: 0 1px 8px rgba(0 7 8 / 30%), 0 -1px 4px rgba(0 21 25 / 80%);
 }
 
 @media (min-width: 60rem) {

@@ -8,7 +8,6 @@
   box-shadow: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  background: rgba(var(--brand-grey), 0.3);
   padding: calc(var(--spacer) / 3);
 }
 

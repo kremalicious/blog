@@ -60,7 +60,7 @@ button {
   cursor: pointer;
   background: transparent;
   border: 0;
-  -webkit-appearance: none;
+  appearance: none;
   outline: 0;
 }
 
@@ -329,6 +329,7 @@ td {
 /* Selection
 ///////////////////////////////////// */
 
+/* stylelint-disable selector-no-vendor-prefix */
 ::-moz-selection {
   background: #2e4f5c;
   color: #fff;
@@ -338,6 +339,7 @@ td {
   background: #2e4f5c;
   color: #fff;
 }
+/* stylelint-enable selector-no-vendor-prefix */
 
 /* More basic elements
 ///////////////////////////////////// */

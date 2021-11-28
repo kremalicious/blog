@@ -4,17 +4,35 @@
     "stylelint-config-css-modules",
     "stylelint-prettier/recommended"
   ],
-  "plugins": ["stylelint-prettier"],
+  "plugins": [
+    "stylelint-prettier"
+  ],
   "syntax": "css",
   "rules": {
     "prettier/prettier": true,
     "property-no-unknown": [
       true,
-      { "ignoreProperties": ["composes", "compose-with"] }
+      {
+        "ignoreProperties": [
+          "composes",
+          "compose-with"
+        ]
+      }
     ],
     "at-rule-no-unknown": [
       true,
-      { "ignoreAtRules": ["value", "include", "mixin", "extend"] }
-    ]
+      {
+        "ignoreAtRules": [
+          "value",
+          "include",
+          "mixin",
+          "extend"
+        ]
+      }
+    ],
+    "selector-class-pattern": null,
+    "keyframes-name-pattern": null,
+    "custom-property-pattern": null,
+    "selector-id-pattern": null
   }
 }

@@ -27,6 +27,7 @@
   0% {
     transform: translateY(3rem);
   }
+
   100% {
     transform: translateY(0);
   }

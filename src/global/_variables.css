@@ -14,7 +14,7 @@
   --brand-grey-light: #7f97a1;
   --brand-grey-dimmed: #c3d8e0;
 
-  --alert-info: rgb(248, 241, 227);
+  --alert-info: rgb(248 241 227);
   --alert-success: #dff0d8;
   --alert-error: #f2dede;
 
@@ -22,10 +22,10 @@
   ///////////////////////////////////// */
 
   --body-background-color: var(--brand-light);
-  --box-background-color: rgba(255, 255, 255, 0.4);
+  --box-background-color: rgba(255 255 255 / 40%);
 
-  --box-shadow: 0 1.3px 5.4px rgba(1, 85, 101, 0.15),
-    0 4.5px 18.1px rgba(1, 85, 101, 0.05), 0 20px 81px rgba(1, 85, 101, 0.025);
+  --box-shadow: 0 1.3px 5.4px rgba(1 85 101 / 15%),
+    0 4.5px 18.1px rgba(1 85 101 / 5%), 0 20px 81px rgba(1 85 101 / 2.5%);
 
   /* Text Colors
   ///////////////////////////////////// */
@@ -56,7 +56,7 @@
   --font-size-h6: var(--font-size-base);
 
   --line-height: 1.65;
-  --line-height-small: 1.1428571429;
+  --line-height-small: 1.1429;
 
   --font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
     'Helvetica', 'Arial', 'sans-serif';
@@ -117,15 +117,15 @@
 
   --maxWidthContent: 42rem;
   --maxWidthContainer: 60rem;
-  --easing: cubic-bezier(0.75, 0, 0.08, 1);
+  --easing: cubic-bezier(0.75, 0, 0.08, 100%);
 }
 
 .dark {
   --body-background-color: #161a1b;
-  --box-background-color: rgba(255, 255, 255, 0.03);
+  --box-background-color: rgba(255 255 255 / 3%);
 
-  --box-shadow: 0 1.3px 5.4px rgba(0, 7, 8, 0.6),
-    0 4.5px 18.1px rgba(0, 7, 8, 0.4), 0 20px 81px rgba(0, 7, 8, 0.1);
+  --box-shadow: 0 1.3px 5.4px rgba(0 7 8 / 60%),
+    0 4.5px 18.1px rgba(0 7 8 / 40%), 0 20px 81px rgba(0 7 8 / 10%);
 
   --text-color: var(--brand-grey-light);
   --text-color-light: var(--brand-grey);

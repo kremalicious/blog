@@ -36,10 +36,8 @@
 .action {
   display: block;
   margin: 0;
-  padding-top: var(--spacer);
-  padding-bottom: var(--spacer);
-  padding-left: calc(var(--spacer) * 1.5);
-  padding-right: calc(var(--spacer) / 2);
+  padding: var(--spacer) calc(var(--spacer) * 1.5) var(--spacer)
+    calc(var(--spacer) / 2);
   position: relative;
   text-align: left;
 }

@@ -12,7 +12,7 @@ a.btn {
   padding: var(--padding-base-vertical) var(--padding-base-horizontal);
   font-size: var(--font-size-small);
   border-radius: var(--border-radius);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255 255 255 / 10%);
   border: 1px solid var(--border-color);
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-headings);
@@ -25,7 +25,7 @@ a.btn {
 .btn:focus {
   text-decoration: none;
   outline: 0;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255 255 255 / 15%);
 }
 
 .btn:active {
@@ -68,7 +68,7 @@ button.link:focus {
 a.btn-primary {
   /* dark variant of  `--body-background-color` */
   color: #161a1b;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 0 rgba(255 255 255 / 30%);
   background: var(--link-color);
   border-color: var(--link-color);
 }
@@ -76,7 +76,7 @@ a.btn-primary {
 .btn-primary:hover,
 .btn-primary:focus {
   background: var(--link-color-hover);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 0 rgba(255 255 255 / 30%);
 }
 
 .btn-primary:active {
@@ -103,6 +103,7 @@ a.btn-primary {
 .dark .btn[class*='icon-']::before {
   filter: invert(0.75);
 }
+
 .dark .btn.btn-primary[class*='icon-']::before {
   filter: invert(0);
 }
