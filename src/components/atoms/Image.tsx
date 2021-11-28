@@ -15,7 +15,7 @@ export const Image = ({
     className={`${styleImage} ${className ? className : ''}`}
     data-original={original?.src}
   >
-    <GatsbyImage image={image} alt={alt} />
+    <GatsbyImage image={image} alt={alt} objectFit="contain" />
     {title && <figcaption className={imageTitle}>{title}</figcaption>}
   </figure>
 )
