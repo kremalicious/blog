@@ -1,6 +1,6 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2021-08-27T21:20:12+02:00
+updated: 2021-11-29T00:25:12+00:00
 
 title: /uses
 image: uses-teaser.png
@@ -150,8 +150,8 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **[Transmit](https://www.panic.com/transmit/)**  
   Use it since like forever on macOS. Gives me file access to pretty much everything within my network and remote resources, including S3 & Wasabi on both, macOS & iOS.
 
-- **[Prompt](https://www.panic.com/prompt/)**  
-  Truly the best SSH client for iOS. Using it for occasional server maintenance on the go.
+- **[Secure ShellFish](https://secureshellfish.app)**  
+  Just like Transmit gives me file access to network and remote resources over SSH & SFTP. But truly unique in its iOS integration where all resources simply show up in Files.app and can be used there on a daily basis. Also has a great terminal on top, which can even be started from Files.app.
 
 - **[Working Copy](https://workingcopyapp.com)**  
   One of the most powerful development tools on iOS making version-controlled, on-device development actually possible. In my workflow it is the basis for doing quick code or copy edits. Because it is a document provider on iOS, I can directly access my cloned Git repositories from any other app.
@@ -180,10 +180,10 @@ I live with **automatic dark mode** where all my devices and apps have a light t
   My font manager of choice. Nice and simple.
 
 - **[Sip](https://sipapp.io)**  
-  Use this to pick colors from everywhere on the screen.
+  Using this to pick colors from everywhere on the screen.
 
 - **[ImageOptim](https://imageoptim.com)**  
-  Every bitmap asset I create goes through this app to keep file size small.
+  Every bitmap asset I put into production goes through this app to keep file size small.
 
 ### Photos
 
@@ -211,7 +211,7 @@ I live with **automatic dark mode** where all my devices and apps have a light t
   Used iTunes to manage my music library since I use a Mac. Digitalized my CD library in Apple Lossless into it in the 2000s, first synced to mobile devices (iPod, then iPhone) via cable, then "synced" with iTunes Match without any cables. Now this library is running with Music, in a mix with Apple Music. This library with the lossless files is living on a network drive in my home network and is accessed from there when sitting at a Mac.
 
 - **[iTunes Match](https://support.apple.com/en-us/HT204146)**  
-  Yup, still using that. I try to buy music I like from the artist in a lossless format and store it in my Music library, and iTunes Match gives me access to its compressed version from the Apple Music catalogue on all mobile devices.
+  Yup, still using that. I try to buy music I like from the artist in a lossless format and store it in my Music library, and iTunes Match gives me access to its version from the Apple Music catalogue on all mobile devices.
 
 - **[Apple Music](https://www.apple.com/apple-music/)**  
   Used for discovering new music and its excellent playlist curation.
@@ -246,7 +246,7 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 ### Password Management
 
 - **[1Password](https://1password.com)**  
-  Actively store pretty much every sensitive credential and infos in here. The 1Password keychain is only synced locally via WiFi to my other devices.
+  Actively store pretty much every password in here. The 1Password keychain is only synced locally via WiFi to my other devices.
 
 - **[iCloud Keychain](https://support.apple.com/en-us/HT204085)**  
   Replaces 1Password a lot for me during daily browsing because of its perfect integration into Safari.
@@ -271,14 +271,11 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 
 ### Health & Fitness
 
-- **[Health](https://www.apple.com/ios/health/)** & **[Activity](https://www.apple.com/watch/close-your-rings/)**  
+- **[Health](https://www.apple.com/ios/health/)** & **[Fitness](https://www.apple.com/watch/close-your-rings/)**  
   Any health and fitness-related app I use feeds data into these apps, making them my main health data dashboard.
 
 - **[Workout](https://support.apple.com/en-us/HT204523)**  
   Everything I need from an app to track workouts, which only happens on watchOS these days. It is pretty much perfect and replaced [Runkeeper](https://runkeeper.com) for me.
-
-- **[Pillow](https://neybox.com/pillow-sleep-tracker-en)**  
-  Nice and simple automatic sleep tracking through Apple Watch and great visual reports on my iPhone.
 
 ### Backup
 
