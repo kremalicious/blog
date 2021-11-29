@@ -33,31 +33,12 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _Space Gray, 256GB_  
   My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading. I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
 
-- **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**  
-  _Space Gray, 512GB, WiFi + Cellular_  
-  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it became my favorite device to browse and edit photos on. Until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done but still intrigued by the possibilities and cleanliness of iPadOS compared to macOS.
-
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**  
   Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
 
-- **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
-  _40mm Space Gray Aluminum Case, Black Solo Loop_  
-  Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
-
-- **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**  
-  The best experience for long time reading. Almost all my non-technical books are Kindle books.
-
-### Home Office Setup
-
-![The essentials at home.](uses-home.png)
-
-- **[Desk](/office-desk)**  
-  _East Indian rosewood, 200cm x 80cm_  
-  Massive wood dining table turned into a desk. Yearly bee wax polishing keeps it looking like new for more than a decade. [The monolith](/basically-the-monolith-is-on-my-desk) might had an effect on that too. Leaves more than enough space to run big display and MacBook screen side-by-side.
-
-- **[LG 32UL950](https://www.lg.com/de/monitore/lg-32UL950-W)**  
-  _32" UltraFine 4K external display with Thunderbolt 3/USB-C_  
-  My main display being used when working from home. 4k and one cable to deliver power, video, audio, and further connectivity is the minimum. The image quality is bearable and on-par with the more Mac-optimized LG 5K UltraFine versions, but bigger, cheaper, more slim, and uses less energy. Still no Pro Display XDR image quality though.
+- **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**  
+  _Space Gray, 512GB, WiFi + Cellular_  
+  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it became my favorite device to browse and edit photos on. Until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done but still intrigued by the possibilities and cleanliness of iPadOS compared to macOS.
 
 - **[Logitech MX Master 3 for Mac](https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html)**  
   _Black & Space Gray_  
@@ -67,28 +48,16 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _US, Space Gray_  
   Great compact keyboard with black keys which have a great key travel. Packed with other welcome features over Apple's keyboards like backlit keys and easy switching between 3 paired devices.
 
-- **[HomePod mini](https://www.apple.com/homepod-mini/)**  
-  _2x Space Gray_  
-  Used as desktop speakers connected as stereo pair, and setup as a HomeHub to automate home devices.
-
-- **[Logitech BRIO 4K Webcam](https://www.logitech.com/en-us/products/webcams/brio-4k-hdr-webcam.960-001105.html)**  
-  Since Apple has not yet figured out how to put cameras capable of a better picture quality than a 720p potato camera into any of their MacBooks, an external one has to do it.
-
-- **[Bose QuietComfort 35 II](https://www.bose.de/de_de/products/headphones/over_ear_headphones/quietcomfort-35-wireless-ii.html#v=qc35_ii_black)**  
-  _Black_  
-  The headphones for blocking out my whole environment, and for better music quality than any AirPods.
+- **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
+  _40mm Space Gray Aluminum Case, Black Solo Loop_  
+  Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
 
 - **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**  
   _4GB RAM_  
-  The little Linux and local home server playground performing some serious tasks for all devices within my home network: [Pi-Hole](https://pi-hole.net) keeps all browsing adventures clean, and every network device's DNS traffic is routed through the Raspberry Pi. [Plex](https://www.plex.tv) is delivering a video library, capable of playing 4K content. It runs a [Tor](https://www.torproject.org) non-exit relay. Has two 4 TB hard drives attached for [storage for all network devices](/raspberry-pi-file-and-screen-sharing-macos-ios).
+  The little Linux and local server playground performing some serious tasks for all devices within any network I arrive at: [Pi-Hole](https://pi-hole.net) keeps all browsing adventures clean, and every network device's DNS traffic is routed through the Raspberry Pi. [Plex](https://www.plex.tv) is delivering a video library, capable of playing 4K content. It runs a [Tor](https://www.torproject.org) non-exit relay. Has a 4 TB hard drive attached for [storage for all network devices](/raspberry-pi-file-and-screen-sharing-macos-ios).
 
-- **[Urbanears Baggen](https://www.amazon.com/Urbanears-Multi-Room-Bluetooth-Connected-04091756/dp/B0742HFQRD/)**  
-  _Concrete Grey_  
-  The most versatile, stand-alone wireless speaker I could find. Connects with pretty much everything no matter the OS: AirPlay, Chromecast, Spotify Connect, Bluetooth, USB-A, AUX. Looks and sounds great, albeit hard to justify its size after the [HomePod](https://www.apple.com/homepod/) had been released.
-
-- **[IKEA HEKTAR](https://www.ikea.com/de/de/p/hektar-arbeitsleuchte-mit-ladefunktion-dunkelgrau-60323436/)**  
-  _Dark Gray_  
-  My LED desk lamp with integrated Qi and USB-A charging in its base. Perfect merge of form and function so I don't need any other dedicated device or cable on my desk to charge my mobile devices.
+- **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**  
+  The best experience for long time reading. Almost all my non-technical books are Kindle books.
 
 ## Software
 
