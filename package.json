@@ -83,7 +83,7 @@
     "slugify": "^1.6.3"
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.0.0",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@types/fs-extra": "^9.0.13",
