@@ -50,7 +50,7 @@
 .map {
   composes: breakout from '../Layout.module.css';
   composes: frame from './Image.module.css';
-  height: 180px;
+  height: 220px;
   margin-top: calc(var(--spacer) * 2);
 }
 

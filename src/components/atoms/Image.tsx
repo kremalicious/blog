@@ -25,7 +25,7 @@ export const imageSizeDefault = graphql`
     original {
       src
     }
-    gatsbyImageData(layout: CONSTRAINED, width: 1040, quality: 85)
+    gatsbyImageData(width: 1040)
   }
 `
 
@@ -35,10 +35,8 @@ export const imageSizeThumb = graphql`
       src
     }
     gatsbyImageData(
-      layout: CONSTRAINED
       width: 480
       height: 180
-      quality: 85
       transformOptions: { cropFocus: CENTER }
     )
   }
@@ -50,10 +48,8 @@ export const photoSizeThumb = graphql`
       src
     }
     gatsbyImageData(
-      layout: CONSTRAINED
       width: 316
       height: 316
-      quality: 85
       transformOptions: { cropFocus: CENTER }
     )
   }

@@ -4,7 +4,7 @@ import Marker from 'pigeon-marker'
 import useDarkMode from '../../hooks/useDarkMode'
 
 const mapbox =
-  (mapboxId: string) => (x: string, y: string, z: string, dpr?: number) =>
+  (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
     `https://api.mapbox.com/styles/v1/mapbox/${mapboxId}/tiles/256/${z}/${x}/${y}${
       dpr >= 2 ? '@2x' : ''
     }?access_token=${process.env.GATSBY_MAPBOX_ACCESS_TOKEN}`
@@ -33,7 +33,7 @@ export default function ExifMap({
     <Map
       center={[latitude, longitude]}
       zoom={zoom}
-      height={180}
+      height={220}
       dprs={[1, 2]}
       attribution={false}
       provider={isDarkMode ? providers['dark'] : providers['light']}

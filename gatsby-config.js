@@ -28,7 +28,9 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
         stripMetadata: false,
-        defaultQuality: 75
+        defaults: {
+          quality: 85
+        }
       }
     },
     'gatsby-transformer-sharp',
