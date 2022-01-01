@@ -63,7 +63,7 @@
     "gatsby-remark-smartypants": "^5.3.0",
     "gatsby-remark-vscode": "^3.3.0",
     "gatsby-source-filesystem": "^4.3.0",
-    "gatsby-source-graphql": "^4.3.0",
+    "gatsby-source-graphql": "^4.4.0",
     "gatsby-transformer-remark": "^5.3.0",
     "gatsby-transformer-sharp": "^4.3.0",
     "node-fetch": "^2.6.1",
