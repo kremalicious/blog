@@ -66,7 +66,7 @@
     "gatsby-source-graphql": "^4.4.0",
     "gatsby-transformer-remark": "^5.3.0",
     "gatsby-transformer-sharp": "^4.4.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
     "pigeon-maps": "^0.19.7",
     "pigeon-marker": "^0.3.4",
