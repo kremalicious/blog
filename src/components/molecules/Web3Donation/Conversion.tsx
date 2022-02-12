@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ReactElement } from 'react'
-import fetch from 'node-fetch'
+import axios from 'axios'
 import { conversion as styleConversion } from './Conversion.module.css'
 
 export async function getFiat(
@@ -7,11 +7,10 @@ export async function getFiat(
 ): Promise<{ [key: string]: string }> {
   const url =
     'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur%2Cusd'
-  const response = await fetch(url)
+  const response = await axios(url)
 
-  if (!response.ok) console.error(response.statusText)
-  const data = await response.json()
-  const { usd, eur } = data.ethereum
+  if (!response) console.error(response.statusText)
+  const { usd, eur } = response.data.ethereum
   const dollar = (amount * usd).toFixed(2)
   const euro = (amount * eur).toFixed(2)
 

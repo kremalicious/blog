@@ -23,7 +23,7 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height);
   color: var(--text-color);
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   font-feature-settings: 'liga', 'kern';
   min-height: 100vh;
   background: var(--body-background-color);
