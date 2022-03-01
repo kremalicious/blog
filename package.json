@@ -93,7 +93,7 @@
     "@types/react-helmet": "^6.1.5",
     "@types/react-transition-group": "^4.4.4",
     "@types/shortid": "^0.0.29",
-    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.11.0",
     "@welldone-software/why-did-you-render": "^6.2.3",
     "babel-preset-gatsby": "^2.7.0",
