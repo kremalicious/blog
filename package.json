@@ -114,7 +114,7 @@
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
     "shortid": "^2.2.16",
-    "stylelint": "^14.5.0",
+    "stylelint": "^14.5.3",
     "stylelint-config-css-modules": "^3.0.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
