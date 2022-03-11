@@ -63,7 +63,7 @@
     "gatsby-remark-vscode": "^3.3.1",
     "gatsby-source-filesystem": "^4.7.0",
     "gatsby-source-graphql": "^4.7.0",
-    "gatsby-transformer-remark": "^5.8.1",
+    "gatsby-transformer-remark": "^5.9.1",
     "gatsby-transformer-sharp": "^4.7.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
     "pigeon-maps": "^0.20.0",
