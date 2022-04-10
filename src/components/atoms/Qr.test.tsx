@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 
 import Qr from './Qr'
 
@@ -12,6 +12,5 @@ describe('Qr', () => {
     )
     expect(container.firstChild).toBeInTheDocument()
     await waitFor(() => container.querySelector('button'))
-    fireEvent.click(container.querySelector('button'))
   })
 })
