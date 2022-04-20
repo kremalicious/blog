@@ -1,8 +1,16 @@
-import React, { ReactElement } from 'react'
+import React, {
+  ReactElement,
+  useEffect,
+  useState,
+  createElement,
+  Fragment
+} from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import remark from 'remark'
-import remarkReact from 'remark-react'
-import { title, content, source } from './Changelog.module.css'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeReact from 'rehype-react'
+import { content, source } from './Changelog.module.css'
 import { GitHub, GitHubRepo } from '../../@types/GitHub'
 
 export function PureChangelog({
@@ -12,6 +20,8 @@ export function PureChangelog({
   repo: string
   repos: [{ node: GitHubRepo }]
 }): ReactElement {
+  const [changelogHtml, setChangelogHtml] = useState()
+
   const repoFilteredArray = repos
     .map(({ node }: { node: GitHubRepo }) => {
       if (node.name === repo) return node
@@ -19,32 +29,33 @@ export function PureChangelog({
     .filter((n: any) => n)
 
   const repoMatch = repoFilteredArray[0]
-  if (!repoMatch) return null
 
-  const { object, url, owner } = repoMatch
+  useEffect(() => {
+    if (!repoMatch?.object?.text) return
 
-  const changelogHtml =
-    object && remark().use(remarkReact).processSync(object.text).result
+    async function init() {
+      const changelogHtml = await unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeReact, { createElement, Fragment })
+        .processSync(repoMatch.object.text).result
 
-  const filePathUrl = `${url}/tree/main/CHANGELOG.md`
-  const filePathDisplay = `${owner.login}/${repo}:CHANGELOG.md`
+      setChangelogHtml(changelogHtml)
+    }
+    init()
+  }, [repoMatch?.object?.text])
 
-  return (
-    <>
-      <h2 className={title} id="changelog">
-        Changelog
-      </h2>
-      <div className={content}>
-        {changelogHtml}
-        <p className={source}>
-          sourced from{' '}
-          <a href={filePathUrl}>
-            <code>{filePathDisplay}</code>
-          </a>
-        </p>
-      </div>
-    </>
-  )
+  return repoMatch ? (
+    <div className={content} id="changelog">
+      {changelogHtml}
+      <p className={source}>
+        sourced from{' '}
+        <a href={`${repoMatch?.url}/tree/main/CHANGELOG.md`}>
+          <code>{`${repoMatch?.owner.login}/${repo}:CHANGELOG.md`}</code>
+        </a>
+      </p>
+    </div>
+  ) : null
 }
 
 const queryGithub = graphql`

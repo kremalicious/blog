@@ -1,3 +1,29 @@
+const esModules = [
+  'unified',
+  'vfile',
+  'vfile-.+',
+  'unist-.+',
+  'bail',
+  'is-plain-obj',
+  'trough',
+  'mdast-util-.+',
+  'micromark',
+  'micromark-.+',
+  'parse-entities',
+  'character-entities',
+  'property-information',
+  'comma-separated-tokens',
+  'hast-.+',
+  'remark-.+',
+  'rehype-.+',
+  'space-separated-tokens',
+  'decode-named-character-reference',
+  'ccount',
+  'escape-string-regexp',
+  'markdown-table',
+  'web-namespaces'
+].join('|')
+
 module.exports = {
   rootDir: '../',
   transform: {
@@ -12,7 +38,7 @@ module.exports = {
     '^gatsby-page-utils/(.*)$': `gatsby-page-utils/dist/$1` // Workaround for https://github.com/facebook/jest/issues/9771
   },
   testPathIgnorePatterns: ['node_modules', '.cache', 'public', 'coverage'],
-  transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
+  transformIgnorePatterns: [`node_modules/(?!(gatsby|${esModules})/)`],
   globals: {
     __PATH_PREFIX__: ''
   },

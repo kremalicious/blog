@@ -1,10 +1,4 @@
-.title {
-  margin-top: calc(var(--spacer) * 3);
-  margin-bottom: 0;
-}
-
 .content {
-  padding-top: var(--spacer);
   padding-left: calc(var(--spacer) / 2);
   margin-left: calc(var(--spacer) / 2);
   border-left: var(--stroke-width) solid var(--border-color);
