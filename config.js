@@ -12,9 +12,8 @@ module.exports = {
     uri: 'https://matthiaskretschmann.com',
     twitter: 'https://twitter.com/kremalicious',
     github: 'https://github.com/kremalicious',
-    facebook: 'https://facebook.com/matthiaskretschmann',
     bitcoin: '171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V',
-    ether: '0xf50F267b5689b005FE107cfdb34619f24c014457'
+    ether: 'kremalicious.eth'
   },
   rss: '/feed.xml',
   jsonfeed: '/feed.json',

@@ -146,3 +146,13 @@ exports.onPostBuild = async ({ graphql }) => {
 
   return Promise.resolve()
 }
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        util: false
+      }
+    }
+  })
+}

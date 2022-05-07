@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react'
-import useWeb3 from '../../../hooks/useWeb3'
+import { useAccount } from 'wagmi'
 import Input from '../../atoms/Input'
 import Conversion from './Conversion'
 import { inputGroup, input, currency } from './InputGroup.module.css'
@@ -9,7 +9,7 @@ export default function InputGroup({
 }: {
   sendTransaction(amount: string): void
 }): ReactElement {
-  const { account } = useWeb3()
+  const { data: account } = useAccount()
   const [amount, setAmount] = useState('0.01')
 
   const onAmountChange = ({ target }: { target: any }) => {

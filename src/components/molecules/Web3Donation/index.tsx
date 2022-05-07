@@ -1,33 +1,36 @@
-import React, { ReactElement, useState, useEffect } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { parseEther } from '@ethersproject/units'
-import useWeb3, { getErrorMessage } from '../../../hooks/useWeb3'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import { web3 as styleWeb3 } from './index.module.css'
 import Account from './Account'
+import { useSigner } from 'wagmi'
+
+// function getErrorMessage(error: Error, chainId: number): string {
+//   if (error instanceof NoEthereumProviderError) {
+//     return 'No Ethereum browser extension detected, install <a href="https://metamask.io">MetaMask</a> or <a href="https://brave.com">Brave</a>.'
+//   } else if (error instanceof UnsupportedChainIdError) {
+//     const networkName = getNetworkName(chainId)
+//     return `Please connect to <strong>Main</strong> network. You are on <strong>${networkName}</strong> right now.`
+//   } else if (error instanceof UserRejectedRequestError) {
+//     return 'Please authorize this website to access your Ethereum account.'
+//   } else {
+//     console.error(error)
+//     return 'An unknown error occurred. Check the console for more details.'
+//   }
+// }
 
 export default function Web3Donation({
   address
 }: {
   address: string
 }): ReactElement {
-  const { connector, library, chainId, account, active, error } = useWeb3()
+  const { data: signer, isError, isLoading } = useSigner()
+
   const [message, setMessage] = useState<{ status: string; text: string }>()
   const [transactionHash, setTransactionHash] = useState<string>()
 
-  useEffect(() => {
-    setMessage(undefined)
-
-    error &&
-      setMessage({
-        status: 'error',
-        text: getErrorMessage(error, chainId)
-      })
-  }, [connector, account, library, chainId, active, error])
-
   async function sendTransaction(amount: string) {
-    const signer = library.getSigner()
-
     setMessage({
       status: 'loading',
       text: getTransactionMessage().waitingForUser

@@ -1,12 +1,18 @@
 import React, { ReactElement } from 'react'
 import loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
-import { Web3ReactProvider } from '@web3-react/core'
 import { Author } from '../@types/Site'
 import { useSiteMetadata } from '../hooks/use-site-metadata'
-import { getLibrary } from '../hooks/useWeb3'
 import Qr from '../components/atoms/Qr'
 import Icon from '../components/atoms/Icon'
+import {
+  apiProvider,
+  configureChains,
+  getDefaultWallets,
+  RainbowKitProvider
+} from '@rainbow-me/rainbowkit'
+import { chain, createClient, WagmiProvider } from 'wagmi'
+import '@rainbow-me/rainbowkit/styles.css'
 import {
   thanks,
   title,
@@ -36,6 +42,22 @@ const BackButton = () => (
   </button>
 )
 
+const { chains, provider } = configureChains(
+  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [apiProvider.alchemy(process.env.ALCHEMY_ID), apiProvider.fallback()]
+)
+
+const { connectors } = getDefaultWallets({
+  appName: 'kremalicious.com',
+  chains
+})
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider
+})
+
 export default function Thanks(): ReactElement {
   const { author } = useSiteMetadata()
   const coins = Object.keys(author).filter(
@@ -61,12 +83,14 @@ export default function Thanks(): ReactElement {
             <p>Send Ether with MetaMask or Brave.</p>
           </header>
 
-          <Web3ReactProvider getLibrary={getLibrary}>
-            <LazyWeb3Donation
-              fallback={<div className={loading}>Loading...</div>}
-              address={author.ether}
-            />
-          </Web3ReactProvider>
+          <WagmiProvider client={wagmiClient}>
+            <RainbowKitProvider chains={chains}>
+              <LazyWeb3Donation
+                fallback={<div className={loading}>Loading...</div>}
+                address={author.ether}
+              />
+            </RainbowKitProvider>
+          </WagmiProvider>
         </div>
 
         <div className={styleCoins}>

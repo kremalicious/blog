@@ -1,49 +1,46 @@
-import React, { ReactElement, useState, useEffect } from 'react'
+import React, { ReactElement } from 'react'
 import { toDataUrl } from 'ethereum-blockies'
-import { formatEther } from '@ethersproject/units'
-import useWeb3, { connectors } from '../../../hooks/useWeb3'
 import {
   accountWrap,
   blockies as styleBlockies,
   balance,
   link
 } from './Account.module.css'
+import { useAccount, useBalance, useEnsAvatar, useEnsName } from 'wagmi'
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Account(): ReactElement {
-  const { library, account, activate } = useWeb3()
-  const [ethBalance, setEthBalance] = useState('0')
-  const blockies = account && toDataUrl(account)
-
-  useEffect(() => {
-    if (!library || !account) return
-
-    async function init() {
-      const balance = await library.getBalance(account)
-      setEthBalance(balance.toString())
-    }
-    init()
-  }, [library, account])
+  const { data: account } = useAccount()
+  const { data: balance } = useBalance({ addressOrName: account?.address })
+  const { data: ens } = useEnsName({
+    address: account?.address
+  })
+  const { data: ensAvatar } = useEnsAvatar({ addressOrName: account?.address })
+  const avatar = account?.address && (ensAvatar || toDataUrl(account.address))
 
   const accountDisplay =
-    account &&
-    `${account.substring(0, 8)}...${account.substring(account.length - 4)}`
-  const balanceDisplay =
-    ethBalance && `Ξ${parseFloat(formatEther(ethBalance)).toPrecision(4)}`
+    account?.address &&
+    (ens ||
+      `${account.address.substring(0, 8)}...${account.address.substring(
+        account.address.length - 4
+      )}`)
+  const balanceDisplay = balance && `${balance.formatted} ${balance?.symbol}`
 
-  return account ? (
-    <div className={accountWrap} title={account}>
+  return account?.address ? (
+    <div className={accountWrap} title={account?.address}>
       <span>
-        <img className={styleBlockies} src={blockies} alt="Blockies" />
+        <img className={styleBlockies} src={avatar} alt="Avatar" />
         {accountDisplay}
       </span>
-      <span className={balance}>{balanceDisplay}</span>
+      <span>{balanceDisplay}</span>
     </div>
   ) : (
-    <button
-      className={`link ${link}`}
-      onClick={() => activate(connectors.MetaMask)}
-    >
-      Connect MetaMask
-    </button>
+    <ConnectButton />
+    // <button
+    //   className={`link ${link}`}
+    //   onClick={() => activate(connectors.MetaMask)}
+    // >
+    //   Connect MetaMask
+    // </button>
   )
 }

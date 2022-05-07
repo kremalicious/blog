@@ -9,7 +9,6 @@ export interface Author {
   uri: string
   twitter: string
   github: string
-  facebook: string
   bitcoin: string
   ether: string
 }

@@ -28,16 +28,14 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@ethersproject/providers": "^5.6.5",
-    "@ethersproject/units": "^5.6.0",
     "@loadable/component": "^5.15.2",
-    "@web3-react/core": "^6.1.9",
-    "@web3-react/injected-connector": "^6.0.7",
+    "@rainbow-me/rainbowkit": "^0.1.0",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "dms2dec": "^1.1.0",
     "ethereum-blockies": "github:MyEtherWallet/blockies",
+    "ethers": "^5.6.5",
     "fast-exif": "^1.0.1",
     "feather-icons": "^4.29.0",
     "fraction.js": "^4.2.0",
@@ -79,7 +77,8 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "slugify": "^1.6.5",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "wagmi": "^0.3.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
