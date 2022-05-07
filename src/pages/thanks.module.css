@@ -55,20 +55,6 @@
   font-size: var(--font-size-h2);
 }
 
-.web3 {
-  width: 100%;
-  text-align: center;
-  margin-top: calc(var(--spacer) / 2);
-  margin-bottom: calc(var(--spacer) * 2);
-  padding-bottom: var(--spacer);
-}
-
-.web3 small {
-  /* color: darken($alert-info, 60%); */
-  margin-top: -1rem;
-  display: block;
-}
-
 .coins {
   width: 100%;
 }
@@ -92,7 +78,20 @@
   }
 }
 
-.loading {
-  width: 100%;
+.code {
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  padding-right: 2rem;
+  width: fit-content;
+}
+
+.code code {
+  padding: calc(var(--spacer) / 2);
+  font-size: 0.65rem;
   text-align: center;
+}
+
+.title {
+  margin-bottom: calc(var(--spacer) / 4);
 }

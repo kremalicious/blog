@@ -1,8 +1,8 @@
 .inputGroup {
-  max-width: 20rem;
   margin: auto;
   position: relative;
   animation: fadeIn 0.8s ease-out backwards;
+  margin-top: var(--spacer);
 }
 
 @media (min-width: 40rem) {
@@ -16,7 +16,7 @@
   width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-color: var(--text-color-light);
+  border-color: var(--border-color);
 }
 
 @media (min-width: 40rem) {
@@ -29,10 +29,6 @@
   }
 }
 
-:global(.dark) .inputGroup button {
-  border-color: #000;
-}
-
 .input {
   position: relative;
 }
@@ -43,9 +39,9 @@
   }
 }
 
-.input input {
+.inputInput {
   text-align: center;
-  border: 1px solid var(--text-color-light);
+  border: 1px solid var(--border-color);
   font-size: var(--font-size-large);
   padding: calc(var(--spacer) / 3) calc(var(--spacer) / 3)
     calc(var(--spacer) / 3) calc(var(--spacer) * 1.7);
@@ -55,21 +51,21 @@
 }
 
 @media (min-width: 40rem) {
-  .input input {
+  .inputInput {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: var(--border-radius);
-    border-bottom: 1px solid var(--text-color-light);
+    border-bottom: 1px solid var(--border-color);
     border-right: 0;
   }
 }
 
-.input input::-webkit-inner-spin-button {
+.inputInput::-webkit-inner-spin-button {
   margin-left: -1rem;
 }
 
-:global(.dark) .input input {
-  border-color: #000;
+:global(.dark) .inputInput {
+  border-color: var(--border-color);
 }
 
 .currency {
@@ -80,7 +76,7 @@
   font-size: var(--font-size-small);
   padding: calc(var(--spacer) / 3);
   background: var(--box-background-color);
-  border-right: 1px solid var(--text-color-light);
+  border-right: 1px solid var(--text-color-dimmed);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   display: flex;

@@ -3,22 +3,8 @@ import { parseEther } from '@ethersproject/units'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import { web3 as styleWeb3 } from './index.module.css'
-import Account from './Account'
 import { useSigner } from 'wagmi'
-
-// function getErrorMessage(error: Error, chainId: number): string {
-//   if (error instanceof NoEthereumProviderError) {
-//     return 'No Ethereum browser extension detected, install <a href="https://metamask.io">MetaMask</a> or <a href="https://brave.com">Brave</a>.'
-//   } else if (error instanceof UnsupportedChainIdError) {
-//     const networkName = getNetworkName(chainId)
-//     return `Please connect to <strong>Main</strong> network. You are on <strong>${networkName}</strong> right now.`
-//   } else if (error instanceof UserRejectedRequestError) {
-//     return 'Please authorize this website to access your Ethereum account.'
-//   } else {
-//     console.error(error)
-//     return 'An unknown error occurred. Check the console for more details.'
-//   }
-// }
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Web3Donation({
   address
@@ -60,7 +46,7 @@ export default function Web3Donation({
 
   return (
     <div className={styleWeb3}>
-      <Account />
+      <ConnectButton chainStatus="icon" showBalance={false} />
       {message ? (
         <Alert message={message} transactionHash={transactionHash} />
       ) : (

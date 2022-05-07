@@ -1,8 +1,13 @@
 import React, { ReactElement, useState } from 'react'
-import { useAccount } from 'wagmi'
+import { useAccount, useNetwork } from 'wagmi'
 import Input from '../../atoms/Input'
 import Conversion from './Conversion'
-import { inputGroup, input, currency } from './InputGroup.module.css'
+import {
+  inputGroup,
+  input,
+  inputInput,
+  currency
+} from './InputGroup.module.css'
 
 export default function InputGroup({
   sendTransaction
@@ -10,6 +15,7 @@ export default function InputGroup({
   sendTransaction(amount: string): void
 }): ReactElement {
   const { data: account } = useAccount()
+  const { activeChain } = useNetwork()
   const [amount, setAmount] = useState('0.01')
 
   const onAmountChange = ({ target }: { target: any }) => {
@@ -21,14 +27,16 @@ export default function InputGroup({
       <div className={inputGroup}>
         <div className={input}>
           <Input
-            type="number"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={amount}
             onChange={onAmountChange}
-            min="0"
-            step="0.01"
+            className={inputInput}
+            disabled={!account}
           />
           <div className={currency}>
-            <span>ETH</span>
+            <span>{activeChain?.nativeCurrency?.symbol || 'ETH'}</span>
           </div>
         </div>
         <button

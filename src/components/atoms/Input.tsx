@@ -1,11 +1,9 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, InputHTMLAttributes } from 'react'
 import { input } from './Input.module.css'
 
 export default function Input({
   className,
   ...props
-}: {
-  className: string
-}): ReactElement {
+}: InputHTMLAttributes<HTMLInputElement>): ReactElement {
   return <input className={`${input} ${className || ''}`} {...props} />
 }
