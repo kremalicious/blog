@@ -69,7 +69,6 @@
     "react": "^18.1.0",
     "react-clipboard.js": "^2.0.16",
     "react-dom": "^18.1.0",
-    
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.2",
     "rehype-react": "^7.1.1",
@@ -106,7 +105,8 @@
     "eslint-plugin-testing-library": "^5.4.0",
     "fs-extra": "^10.1.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "markdownlint-cli": "^0.31.1",
     "node-iptc": "^1.0.5",
     "npm-run-all": "^4.1.5",
