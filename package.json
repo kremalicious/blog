@@ -78,7 +78,7 @@
     "wagmi": "^0.3.4"
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/webpack": "^6.2.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@types/fs-extra": "^9.0.13",
