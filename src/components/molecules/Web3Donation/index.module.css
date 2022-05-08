@@ -1,10 +1,16 @@
 .web3 {
   composes: container from '../../Layout.module.css';
   max-width: 20rem;
+  margin-bottom: calc(var(--spacer) * 2);
+  text-align: center;
+  min-height: 165px;
 }
 
-.web3:empty {
-  display: none;
+.web3 > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-small);
+  margin-bottom: var(--spacer);
 }
 
 .message {

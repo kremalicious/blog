@@ -13,9 +13,9 @@ describe('InputGroup', () => {
     expect(container.firstChild).toBeInTheDocument()
 
     const input = container.querySelector('input')
-    // const button = container.querySelector('button')
+    const button = container.querySelector('button')
     fireEvent.change(input, { target: { value: '3' } })
-    // fireEvent.click(button)
-    // expect(sendTransaction).toHaveBeenCalled()
+    fireEvent.click(button)
+    expect(sendTransaction).toHaveBeenCalled()
   })
 })

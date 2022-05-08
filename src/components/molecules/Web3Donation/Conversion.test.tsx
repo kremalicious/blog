@@ -6,7 +6,5 @@ import Conversion from './Conversion'
 describe('Conversion', () => {
   it('renders without crashing', async () => {
     render(<Conversion amount="1" />)
-    // const lazyElement = await findByText(/= €/)
-    // expect(lazyElement).toBeInTheDocument()
   })
 })

@@ -15,7 +15,6 @@ const query = graphql`
           uri
           twitter
           github
-          facebook
           bitcoin
           ether
         }
