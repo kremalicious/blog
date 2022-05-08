@@ -28,8 +28,8 @@ export default function InputGroup({
         <div className={input}>
           <Input
             type="text"
-            inputMode="numeric"
-            pattern="[0-9]*"
+            inputMode="decimal"
+            pattern="[0-9.]*"
             value={amount}
             onChange={onAmountChange}
             className={inputInput}

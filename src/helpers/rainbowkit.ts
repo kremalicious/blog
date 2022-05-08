@@ -7,7 +7,7 @@ import {
 import { chain, createClient } from 'wagmi'
 
 export const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.rinkeby],
   [apiProvider.infura(process.env.INFURA_ID), apiProvider.fallback()]
 )
 

@@ -8,7 +8,9 @@ import {
   coins as styleCoins,
   coin,
   code,
-  buttonBack
+  buttonBack,
+  titleCoin,
+  subTitle
 } from './thanks.module.css'
 import Web3Donation from '../components/molecules/Web3Donation'
 import Copy from '../components/atoms/Copy'
@@ -16,14 +18,17 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiProvider } from 'wagmi'
 import { chains, theme, wagmiClient } from '../helpers/rainbowkit'
 
-const Coin = ({ address }: { address: string }) => (
-  <div className={coin}>
-    <pre className={code}>
-      <code>{address}</code>
-      <Copy text={address} />
-    </pre>
-  </div>
-)
+function Coin({ address, title }: { address: string; title: string }) {
+  return (
+    <div className={coin}>
+      <h4 className={titleCoin}>{title}</h4>
+      <pre className={code}>
+        <code>{address}</code>
+        <Copy text={address} />
+      </pre>
+    </div>
+  )
+}
 
 const BackButton = () => (
   <button
@@ -36,8 +41,8 @@ const BackButton = () => (
 
 export default function Thanks(): ReactElement {
   const { author } = useSiteMetadata()
-  const coins = Object.keys(author).filter(
-    (key) => key === 'bitcoin' || key === 'ether'
+  const coins = Object.entries(author).filter(
+    ([key]) => key === 'bitcoin' || key === 'ether'
   )
 
   return (
@@ -60,13 +65,12 @@ export default function Thanks(): ReactElement {
         </WagmiProvider>
 
         <div className={styleCoins}>
-          <header>
-            <h2>With Any Other Wallet</h2>
-            <p>Send Bitcoin or Ether from any wallet.</p>
-          </header>
+          <h3 className={subTitle}>
+            Send Bitcoin or ERC-20 tokens from any wallet.
+          </h3>
 
-          {coins.map((address: string) => (
-            <Coin key={address} address={address} />
+          {coins.map(([key, value]) => (
+            <Coin key={key} title={key} address={value} />
           ))}
         </div>
       </article>

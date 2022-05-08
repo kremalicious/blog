@@ -19,79 +19,49 @@
   min-height: 100vh;
 }
 
-.thanks h2 {
-  text-align: center;
-  margin: 0;
-  margin-bottom: calc(var(--spacer) / 8);
-  color: var(--text-color);
-  font-size: var(--font-size-h4);
-}
-
-.thanks h4 {
-  color: var(--text-color);
-  text-align: center;
-  text-transform: capitalize;
-}
-
 .thanks header {
   width: 100%;
   text-align: center;
   margin-bottom: var(--spacer);
 }
 
-.thanks header h4 {
-  font-size: var(--font-size-large);
-  margin-top: 0;
-  margin-bottom: calc(var(--spacer) / 6);
-}
-
-.thanks header p {
-  color: var(--text-color-light);
-}
-
 .title {
+  text-align: center;
   margin-top: 0;
   margin-bottom: calc(var(--spacer) * 2);
   font-size: var(--font-size-h2);
 }
 
-.coins {
-  width: 100%;
+.subTitle {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--text-color-light);
 }
 
-@media (min-width: 40rem) {
-  .coins {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+.coins {
+  composes: container from '../components/Layout.module.css';
+  max-width: 20rem;
+  width: 100%;
+  border-top: 1px solid var(--border-color);
 }
 
 .coin {
   margin-top: var(--spacer);
 }
 
-@media (min-width: 40rem) {
-  .coin {
-    width: 48%;
-    margin-top: 0;
-  }
+.titleCoin {
+  margin-bottom: 0;
+  font-size: var(--font-size-base);
 }
 
 .code {
-  margin: 0 auto;
   position: relative;
   padding: 0;
   padding-right: 2rem;
-  width: fit-content;
+  width: 100%;
 }
 
 .code code {
   padding: calc(var(--spacer) / 2);
   font-size: 0.65rem;
-  text-align: center;
-}
-
-.title {
-  margin-bottom: calc(var(--spacer) / 4);
 }

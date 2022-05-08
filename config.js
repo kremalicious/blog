@@ -13,7 +13,7 @@ module.exports = {
     twitter: 'https://twitter.com/kremalicious',
     github: 'https://github.com/kremalicious',
     bitcoin: '171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V',
-    ether: 'kremalicious.eth'
+    ether: '0xf50F267b5689b005FE107cfdb34619f24c014457'
   },
   rss: '/feed.xml',
   jsonfeed: '/feed.json',
