@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react'
-import loadable from '@loadable/component'
 import { copied, button } from './Copy.module.css'
 import Icon from './Icon'
-
-const Clipboard = loadable(() => import('react-clipboard.js'))
+import Clipboard from 'react-clipboard.js'
 
 const onCopySuccess = (e: any) => {
   e.trigger.classList.add(copied)
