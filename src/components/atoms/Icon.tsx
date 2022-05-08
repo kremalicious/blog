@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactElement } from 'react'
 
 // https://featherstyles.com
-// import * as Feather from 'react-feather'
+// import * as Feather from '@kremalicious/react-feather'
 import {
   ArrowDownCircle,
   Edit,
@@ -22,7 +22,7 @@ import {
   Aperture,
   Maximize,
   Crosshair
-} from 'react-feather'
+} from '@kremalicious/react-feather'
 // custom icons
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'

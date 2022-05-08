@@ -28,6 +28,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@kremalicious/react-feather": "^2.1.0",
     "@loadable/component": "^5.15.2",
     "@rainbow-me/rainbowkit": "^0.1.0",
     "axios": "^0.27.2",
@@ -68,7 +69,7 @@
     "react": "^18.1.0",
     "react-clipboard.js": "^2.0.16",
     "react-dom": "^18.1.0",
-    "react-feather": "^2.0.9",
+    
     "react-helmet": "^6.1.0",
     "react-transition-group": "^4.4.2",
     "rehype-react": "^7.1.1",
