@@ -1,5 +1,5 @@
 import React from 'react'
-import testRender from '../../jest/testRender'
+import testRender from '../../.jest/testRender'
 import Layout from './Layout'
 
 describe('Layout', () => {

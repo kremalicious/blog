@@ -11,7 +11,6 @@ import {
   tags as styleTags
 } from './Meta.module.css'
 import { Post } from '../../../@types/Post'
-import shortid from 'shortid'
 import PostDate from '../../molecules/PostDate'
 
 export default function PostMeta({ post }: { post: Post }): ReactElement {
@@ -40,7 +39,7 @@ export default function PostMeta({ post }: { post: Post }): ReactElement {
         <div className={styleTags}>
           {tags.map((tag: string) => {
             const url = `/archive/${slugify(tag)}/`
-            return <Tag key={shortid.generate()} name={tag} url={url} />
+            return <Tag key={tag} name={tag} url={url} />
           })}
         </div>
       )}

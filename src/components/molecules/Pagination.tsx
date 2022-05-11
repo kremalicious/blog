@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
-import shortid from 'shortid'
 import { PageContext } from '../../@types/Post'
 import Icon from '../atoms/Icon'
 import {
@@ -65,7 +64,7 @@ export default function Pagination({
       {!isFirst && <PrevNext prevPagePath={prevPagePath} />}
       {Array.from({ length: numPages }, (_, i) => (
         <PageNumber
-          key={shortid.generate()}
+          key={i}
           i={i}
           slug={slug}
           current={currentPageNumber === i + 1}
