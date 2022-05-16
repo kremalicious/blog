@@ -33,8 +33,8 @@ module.exports = {
   moduleNameMapper: {
     '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
     '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/.jest/__mocks__/file-mock.js',
-    '\\.svg': '<rootDir>/.jest/__mocks__/svgr-mock.js',
+      '<rootDir>/.jest/__mocks__/file.js',
+    '\\.svg': '<rootDir>/.jest/__mocks__/svgr.js',
     '^@reach/router(.*)': '<rootDir>/node_modules/@gatsbyjs/reach-router$1'
   },
   testPathIgnorePatterns: ['node_modules', '.cache', 'public', 'coverage'],

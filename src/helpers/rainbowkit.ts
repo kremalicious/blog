@@ -50,11 +50,11 @@ export const theme: Theme = {
     profileAction: 'var(--body-background-color)',
     profileActionHover: 'var(--box-background-color)',
     profileForeground: 'var(--body-background-color)',
-    selectedOptionBorder: 'var(--boder-color)',
+    selectedOptionBorder: 'var(--border-color)',
     standby: 'var(--text-color-dimmed)'
   },
   fonts: {
-    body: 'var(--font-family-headings)'
+    body: 'var(--font-family-base)'
   },
   radii: {
     actionButton: 'var(--border-radius)',
