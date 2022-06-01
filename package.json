@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@kremalicious/react-feather": "^2.1.0",
-    "@rainbow-me/rainbowkit": "^0.1.0",
+    "@rainbow-me/rainbowkit": "^0.1.2",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
