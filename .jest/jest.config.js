@@ -38,7 +38,9 @@ module.exports = {
     '^@reach/router(.*)': '<rootDir>/node_modules/@gatsbyjs/reach-router$1'
   },
   testPathIgnorePatterns: ['node_modules', '.cache', 'public', 'coverage'],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby|${esModules})/)`],
+  transformIgnorePatterns: [
+    `node_modules/(?!(gatsby|gatsby-link|gatsby-script|${esModules})/)`
+  ],
   globals: {
     __PATH_PREFIX__: ''
   },
