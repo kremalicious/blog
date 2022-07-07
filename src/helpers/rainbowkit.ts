@@ -1,14 +1,11 @@
-import {
-  configureChains,
-  apiProvider,
-  getDefaultWallets,
-  Theme
-} from '@rainbow-me/rainbowkit'
-import { chain, createClient } from 'wagmi'
+import { getDefaultWallets, Theme } from '@rainbow-me/rainbowkit'
+import { chain, createClient, configureChains } from 'wagmi'
+import { infuraProvider } from 'wagmi/providers/infura'
+import { publicProvider } from 'wagmi/providers/public'
 
 export const { chains, provider } = configureChains(
   [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum, chain.rinkeby],
-  [apiProvider.infura(process.env.INFURA_ID), apiProvider.fallback()]
+  [infuraProvider({ infuraId: process.env.INFURA_ID }), publicProvider()]
 )
 
 export const { connectors } = getDefaultWallets({
@@ -22,7 +19,7 @@ export const wagmiClient = createClient({
   provider
 })
 
-export const theme: Theme = {
+export const theme = {
   colors: {
     accentColor: 'var(--brand-cyan)',
     accentColorForeground: '#161a1b',
@@ -71,4 +68,4 @@ export const theme: Theme = {
     selectedWallet: 'var(--box-shadow)',
     walletLogo: 'var(--box-shadow)'
   }
-}
+} as Theme
