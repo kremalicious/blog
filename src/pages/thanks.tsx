@@ -15,7 +15,7 @@ import {
 import Web3Donation from '../components/molecules/Web3Donation'
 import Copy from '../components/atoms/Copy'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { WagmiProvider } from 'wagmi'
+import { WagmiConfig } from 'wagmi'
 import { chains, theme, wagmiClient } from '../helpers/rainbowkit'
 
 function Coin({ address, title }: { address: string; title: string }) {
@@ -58,11 +58,11 @@ export default function Thanks(): ReactElement {
           <h1 className={title}>Say Thanks</h1>
         </header>
 
-        <WagmiProvider client={wagmiClient}>
+        <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains} theme={theme}>
             <Web3Donation address={author.ether} />
           </RainbowKitProvider>
-        </WagmiProvider>
+        </WagmiConfig>
 
         <div className={styleCoins}>
           <h3 className={subTitle}>

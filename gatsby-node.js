@@ -147,7 +147,7 @@ exports.onPostBuild = async ({ graphql }) => {
   return Promise.resolve()
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, stage, loaders }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
@@ -155,4 +155,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       }
     }
   })
+
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /@ethersproject/,
+            use: loaders.null()
+          }
+        ]
+      }
+    })
+  }
 }
