@@ -17,6 +17,7 @@ const esModules = [
   'remark-.+',
   'rehype-.+',
   'space-separated-tokens',
+  'trim-lines',
   'decode-named-character-reference',
   'ccount',
   'escape-string-regexp',
