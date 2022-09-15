@@ -3,7 +3,7 @@ import { parseEther } from '@ethersproject/units'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import { web3 as styleWeb3 } from './index.module.css'
-import { useSendTransaction } from 'wagmi'
+import { useSendTransaction, usePrepareSendTransaction } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 export default function Web3Donation({
@@ -11,7 +11,8 @@ export default function Web3Donation({
 }: {
   address: string
 }): ReactElement {
-  const { sendTransactionAsync } = useSendTransaction()
+  const { config } = usePrepareSendTransaction({ request: {} })
+  const { sendTransactionAsync } = useSendTransaction(config)
 
   const [message, setMessage] = useState<{ status: string; text: string }>()
   const [transactionHash, setTransactionHash] = useState<string>()
@@ -24,7 +25,7 @@ export default function Web3Donation({
 
     try {
       const tx = await sendTransactionAsync({
-        request: {
+        recklesslySetUnpreparedRequest: {
           to: address,
           value: parseEther(amount) // ETH -> Wei
         }
