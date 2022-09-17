@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
 import Input from '../../atoms/Input'
 import Conversion from './Conversion'
@@ -10,17 +10,14 @@ import {
 } from './InputGroup.module.css'
 
 export default function InputGroup({
-  sendTransaction
+  amount,
+  setAmount
 }: {
-  sendTransaction(amount: string): void
+  amount: string
+  setAmount(amount: string): void
 }): ReactElement {
-  const { data: account } = useAccount()
-  const { activeChain } = useNetwork()
-  const [amount, setAmount] = useState('0.01')
-
-  const onAmountChange = ({ target }: { target: any }) => {
-    setAmount(target.value)
-  }
+  const { address } = useAccount()
+  const { chain } = useNetwork()
 
   return (
     <>
@@ -31,19 +28,15 @@ export default function InputGroup({
             inputMode="decimal"
             pattern="[0-9.]*"
             value={amount}
-            onChange={onAmountChange}
+            onChange={(e) => setAmount(e.target.value)}
             className={inputInput}
-            disabled={!account}
+            disabled={!address}
           />
           <div className={currency}>
-            <span>{activeChain?.nativeCurrency?.symbol || 'ETH'}</span>
+            <span>{chain?.nativeCurrency?.symbol || 'ETH'}</span>
           </div>
         </div>
-        <button
-          className="btn btn-primary"
-          onClick={() => sendTransaction(amount)}
-          disabled={!account}
-        >
+        <button className="btn btn-primary" disabled={!address}>
           Make it rain
         </button>
       </div>

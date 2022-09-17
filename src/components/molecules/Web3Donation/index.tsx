@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import { parseEther } from '@ethersproject/units'
+import { useDebounce } from 'use-debounce'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
 import { web3 as styleWeb3 } from './index.module.css'
@@ -11,25 +12,28 @@ export default function Web3Donation({
 }: {
   address: string
 }): ReactElement {
-  const { config } = usePrepareSendTransaction({ request: {} })
+  const [amount, setAmount] = useState('0.01')
+  const [debouncedAmount] = useDebounce(amount, 500)
+
+  const { config } = usePrepareSendTransaction({
+    request: {
+      to: address,
+      value: debouncedAmount ? parseEther(debouncedAmount) : undefined
+    }
+  })
   const { sendTransactionAsync } = useSendTransaction(config)
 
   const [message, setMessage] = useState<{ status: string; text: string }>()
   const [transactionHash, setTransactionHash] = useState<string>()
 
-  async function handleSendTransaction(amount: string) {
+  async function handleSendTransaction() {
     setMessage({
       status: 'loading',
       text: getTransactionMessage().waitingForUser
     })
 
     try {
-      const tx = await sendTransactionAsync({
-        recklesslySetUnpreparedRequest: {
-          to: address,
-          value: parseEther(amount) // ETH -> Wei
-        }
-      })
+      const tx = await sendTransactionAsync()
       setTransactionHash(tx.hash)
       setMessage({
         status: 'loading',
@@ -48,14 +52,20 @@ export default function Web3Donation({
   }
 
   return (
-    <div className={styleWeb3}>
+    <form
+      className={styleWeb3}
+      onSubmit={(e) => {
+        e.preventDefault()
+        handleSendTransaction()
+      }}
+    >
       <ConnectButton chainStatus="icon" showBalance={false} />
 
       {message ? (
         <Alert message={message} transactionHash={transactionHash} />
       ) : (
-        <InputGroup sendTransaction={handleSendTransaction} />
+        <InputGroup amount={amount} setAmount={setAmount} />
       )}
-    </div>
+    </form>
   )
 }
