@@ -12,13 +12,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '15'
+          node-version: '18'
 
       - name: Cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -26,7 +26,7 @@ jobs:
 
       - run: npm ci
       - run: npm test
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: coverage
           path: coverage/
@@ -36,8 +36,8 @@ jobs:
     needs: [test]
     if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           name: coverage
       - uses: paambaati/codeclimate-action@v2.7.5
@@ -47,27 +47,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '15'
+          node-version: '18'
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
       - name: Cache Gatsby Cache Folder
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: .cache
           key: ${{ runner.os }}-cache-gatsby
           restore-keys: ${{ runner.os }}-cache-gatsby
 
       - name: Cache Gatsby Public Folder
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: public/
           key: ${{ runner.os }}-public-gatsby
@@ -80,7 +80,7 @@ jobs:
           GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
           GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:
           name: public
@@ -92,8 +92,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v1
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           name: public
       - run: npm run deploy
