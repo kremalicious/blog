@@ -18,7 +18,7 @@
     "lint:md": "markdownlint './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,.git,coverage}/**/*'",
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css}'",
     "tsc": "tsc --noEmit",
-    "deploy": "./scripts/deploy-s3.sh",
+    "deploy": "bash ./scripts/deploy-s3.sh",
     "new": "ts-node ./scripts/new.ts"
   },
   "browserslist": [
