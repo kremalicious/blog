@@ -24,7 +24,7 @@ To make this work, macOS requires each service to be running and advertised to t
 
 This guide assumes your Raspberry Pi is already setup and connected to your local network. All command line instructions can either be executed directly on the Raspberry Pi, or remotely via SSH which you can achieve by simply following the [official SSH guide](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md).
 
-I'm using a Raspberry Pi 4, Model B, running [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/), and macOS Catalina. The Raspberry model shouldn't matter for the scope of this guide, and the instructions should also work some macOS versions down.
+I'm using a Raspberry Pi 4, Model B, running [RaspberryPi OS (Debian Bullseye) with desktop](https://www.raspberrypi.com/software/), and macOS Monterey. The Raspberry model shouldn't matter for the scope of this guide, and the instructions should also work some macOS versions down.
 
 Furthermore, this guide should also work on any Linux distribution like Ubuntu or Debian itself. The principals to make a Raspberry Pi show up in macOS are applicable to any Linux distribution capable of running a VNC server, Samba, and Avahi.
 
@@ -32,7 +32,7 @@ Furthermore, this guide should also work on any Linux distribution like Ubuntu o
 
 Screen sharing using the default VNC server included in Raspbian called RealVNC is sufficient to make it work with the default macOS Screen Sharing app. Only the user authentication mechanism has to be changed in RealVNC.
 
-Depending on your Raspbian image the RealVNC server is already installed and configured. For getting it installed, you can follow [the official guide](https://www.raspberrypi.org/documentation/remote-access/vnc/README.md) where you end up activating the VNC server either:
+Depending on your Raspbian image the RealVNC server is already installed and configured. For getting it installed, you can follow [the official guide](https://www.raspberrypi.com/documentation/computers/remote-access.html#virtual-network-computing-vnc) where you end up activating the VNC server either:
 
 - graphically in _Raspberry Pi Configuration > Interfaces_
 - on command line via `sudo raspi-config` _> Interfacing Options_
@@ -55,7 +55,26 @@ If you have GUI access to your Raspberry Pi you will find the RealVNC icon at th
 
 ![RealVNC Authentication Method Configuration](raspberry-realvnc-auth-config.png)
 
-Hit _Apply & OK_ and reboot your Raspberry Pi. To test the connection, you should make note of your local network IP address. To do so on your Raspberry Pi:
+Hit _Apply & OK_ and reboot your Raspberry Pi. 
+
+This can also be done via SSH by first switching to VNC password auth:
+
+```bash
+sudo nano /root/.vnc/config.d/vncserver-x11
+
+# in there add the line:
+Authentication=VncAuth
+```
+
+Then set the VNC password with:
+
+```bash
+sudo vncpasswd -service
+```
+
+Now restart VNC server or simply reboot your Raspberry Pi.
+
+To test the connection, you should make note of your local network IP address. To do so on your Raspberry Pi:
 
 ```bash
 ifconfig
@@ -99,6 +118,16 @@ sudo nano /etc/samba/smb.conf
 ```
 
 In there, scroll down to the `[homes]` section and set `read only = no` to make shared home folders writable.
+
+To share more resources like an external drive, add another section at the end of your `smb.conf` and make it fully writable:
+
+```bash
+[sharename]
+    path = /mnt/myexternaldrive/
+    read only = no
+    public = yes
+    writable = yes
+```
 
 After setting a new password and modifying `smb.conf`, restart the Samba service:
 
