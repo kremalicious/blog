@@ -56,7 +56,7 @@ If you have GUI access to your Raspberry Pi you will find the RealVNC icon at th
 
 ![RealVNC Authentication Method Configuration](raspberry-realvnc-auth-config.png)
 
-Hit _Apply & OK_ and reboot your Raspberry Pi. 
+Hit _Apply & OK_ and reboot your Raspberry Pi.
 
 This can also be done via SSH by first switching to VNC password auth:
 
