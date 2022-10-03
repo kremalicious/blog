@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@kremalicious/react-feather": "^2.1.0",
-    "@rainbow-me/rainbowkit": "^0.6.0",
+    "@rainbow-me/rainbowkit": "^0.7.0",
     "axios": "^0.27.2",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
@@ -90,7 +90,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-helmet": "^6.1.5",
     "@types/react-transition-group": "^4.4.5",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.36.2",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "babel-preset-gatsby": "^2.23.0",
