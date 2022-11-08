@@ -53,7 +53,7 @@ export const archiveQuery = graphql`
         fields: { type: { nin: "photo" } }
         frontmatter: { tags: { eq: $tag } }
       }
-      sort: { order: DESC, fields: [fields___date] }
+      sort: { fields: { date: DESC } }
       skip: $skip
       limit: $limit
     ) {

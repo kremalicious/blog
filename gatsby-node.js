@@ -26,7 +26,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     {
-      all: allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+      all: allMarkdownRemark(sort: { fields: { date: DESC } }) {
         edges {
           next {
             fields {
@@ -54,7 +54,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-
       photos: allMarkdownRemark(filter: { fields: { type: { eq: "photo" } } }) {
         edges {
           node {
@@ -62,7 +61,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-
       archive: allMarkdownRemark(
         filter: { fields: { type: { nin: "photo" } } }
       ) {
@@ -72,9 +70,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-
       tags: allMarkdownRemark {
-        group(field: frontmatter___tags) {
+        group(field: { frontmatter: { tags: SELECT } }) {
           tag: fieldValue
           totalCount
         }
@@ -112,7 +109,7 @@ exports.onPostBuild = async ({ graphql }) => {
   // JSON Feed query
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+      allMarkdownRemark(sort: { fields: { date: DESC } }) {
         edges {
           node {
             html

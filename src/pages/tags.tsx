@@ -48,9 +48,9 @@ const TagsPage = (props: TagsPageProps): ReactElement => (
 export default TagsPage
 
 export const tagsPageQuery = graphql`
-  query {
+  {
     allMarkdownRemark {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

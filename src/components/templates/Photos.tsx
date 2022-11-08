@@ -70,7 +70,7 @@ export const photosQuery = graphql`
   query ($skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: { fields: { type: { eq: "photo" } } }
-      sort: { order: DESC, fields: [fields___date] }
+      sort: { fields: { date: DESC } }
       skip: $skip
       limit: $limit
     ) {
