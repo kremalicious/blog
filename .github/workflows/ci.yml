@@ -80,11 +80,11 @@ jobs:
           GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
           GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/main'
         with:
           name: public
-          path: public/
+          path: public
 
   deploy:
     needs: build
@@ -92,13 +92,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v1
         with:
           name: public
-      - run: npm run deploy
-        shell: bash
-        working-directory: ./
+      - name: Deploy to S3
+        run: npm run deploy:s3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

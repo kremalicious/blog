@@ -1,5 +1,5 @@
-@import '_buttons';
-@import '_code.css';
-@import '_toast.css';
-@import '_alerts.css';
-@import '@rainbow-me/rainbowkit/styles.css';
+@import url('_buttons');
+@import url('_code.css');
+@import url('_toast.css');
+@import url('_alerts.css');
+@import url('@rainbow-me/rainbowkit/styles.css');
