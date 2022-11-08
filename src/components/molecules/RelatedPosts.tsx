@@ -6,8 +6,8 @@ import { Post, Frontmatter } from '../../@types/Post'
 import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: [fields___date] }) {
+  {
+    allMarkdownRemark(sort: { fields: { date: DESC } }) {
       edges {
         node {
           ...PostTeaser

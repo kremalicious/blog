@@ -44,10 +44,10 @@ export default function Home({ data }: PageProps): ReactElement {
 }
 
 export const homeQuery = graphql`
-  query {
+  {
     latestArticles: allMarkdownRemark(
       filter: { fields: { type: { ne: "photo" } } }
-      sort: { order: DESC, fields: [fields___date] }
+      sort: { fields: { date: DESC } }
       limit: 8
     ) {
       edges {
@@ -56,10 +56,9 @@ export const homeQuery = graphql`
         }
       }
     }
-
     latestPhotos: allMarkdownRemark(
       filter: { fields: { type: { eq: "photo" } } }
-      sort: { order: DESC, fields: [fields___date] }
+      sort: { fields: { date: DESC } }
       limit: 12
     ) {
       edges {

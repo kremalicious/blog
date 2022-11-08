@@ -5,4 +5,4 @@ title: Santuário de Cristo Rei
 image: 2021-10-23-santuario-de-cristo-rei.jpg
 ---
 
-The [Santuário de Cristo Rei](https://en.wikipedia.org/wiki/Christ_the_King_(Almada)) in Almada overlooking Lisbon, Portugal.
+The [Santuário de Cristo Rei](<https://en.wikipedia.org/wiki/Christ_the_King_(Almada)>) in Almada overlooking Lisbon, Portugal.

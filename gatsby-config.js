@@ -183,32 +183,30 @@ module.exports = {
                 })
               })
             },
-            query: `
-              {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [fields___date] },
-                  limit: 40
-                ) {
-                  edges {
-                    node {
-                      html
-                      fields { slug, date }
-                      excerpt
-                      frontmatter {
-                        title
-                        image {
-                          childImageSharp {
-                            resize(width: 940, quality: 85) {
-                              src
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
+            query: `{
+  allMarkdownRemark(sort: {fields: {date: DESC}}, limit: 40) {
+    edges {
+      node {
+        html
+        fields {
+          slug
+          date
+        }
+        excerpt
+        frontmatter {
+          title
+          image {
+            childImageSharp {
+              resize(width: 940, quality: 85) {
+                src
               }
-            `,
+            }
+          }
+        }
+      }
+    }
+  }
+}`,
             output: '/feed.xml',
             title: siteConfig.siteTitle
           }
