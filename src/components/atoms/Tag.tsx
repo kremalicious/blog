@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
-import { tag, count as styleCount } from './Tag.module.css'
+import * as styles from './Tag.module.css'
 
 export default function Tag({
   name,
@@ -14,9 +14,9 @@ export default function Tag({
   style?: any
 }): ReactElement {
   return (
-    <Link className={tag} to={url} style={style}>
+    <Link className={styles.tag} to={url} style={style}>
       {name}
-      {count && <span className={styleCount}>{count}</span>}
+      {count && <span className={styles.count}>{count}</span>}
     </Link>
   )
 }

@@ -2,11 +2,10 @@ import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
-import { Post } from '../../../@types/Post'
 import MetaTags from './MetaTags'
 
 const query = graphql`
-  query {
+  query Logo {
     logo: allFile(filter: { name: { eq: "apple-touch-icon" } }) {
       edges {
         node {
@@ -17,25 +16,36 @@ const query = graphql`
   }
 `
 
+export interface SeoPost {
+  frontmatter: {
+    title: string
+    description?: string
+    image?: any
+    updated?: string
+  }
+  fields?: {
+    date: string
+  }
+  excerpt?: string
+}
+
 export default function SEO({
   post,
-  slug,
-  postSEO
+  slug
 }: {
-  post?: Post
+  post?: SeoPost
   slug?: string
-  postSEO?: boolean
 }): ReactElement {
-  const data = useStaticQuery(query)
+  const data = useStaticQuery<Queries.LogoQuery>(query)
   const logo = data.logo.edges[0].node.relativePath
   const { siteTitle, siteUrl, siteDescription } = useSiteMetadata()
 
-  let title
-  let description
-  let image
-  let postURL
+  let title: string
+  let description: string
+  let image: string
+  let postURL: string
 
-  if (postSEO) {
+  if (post) {
     const postMeta = post.frontmatter
     title = `${postMeta.title} ¦ ${siteTitle}`
     description = postMeta.description ? postMeta.description : post.excerpt
@@ -49,17 +59,17 @@ export default function SEO({
 
   image = `${siteUrl}${image}`
   const blogURL = siteUrl
-  const url = postSEO ? postURL : blogURL
+  const url = post ? postURL : blogURL
 
   return (
     <MetaTags
       description={description}
       image={image}
-      url={url}
-      postSEO={postSEO}
+      url={url || ''}
+      postSEO={Boolean(post)}
       title={title}
-      datePublished={post && post.fields && post.fields.date}
-      dateModified={post && post.frontmatter.updated}
+      datePublished={post?.fields && post.fields.date}
+      dateModified={post?.frontmatter.updated}
     />
   )
 }

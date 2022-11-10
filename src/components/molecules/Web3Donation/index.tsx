@@ -3,7 +3,7 @@ import { parseEther } from '@ethersproject/units'
 import { useDebounce } from 'use-debounce'
 import InputGroup from './InputGroup'
 import Alert, { getTransactionMessage } from './Alert'
-import { web3 as styleWeb3 } from './index.module.css'
+import * as styles from './index.module.css'
 import { useSendTransaction, usePrepareSendTransaction } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
@@ -53,7 +53,7 @@ export default function Web3Donation({
 
   return (
     <form
-      className={styleWeb3}
+      className={styles.web3}
       onSubmit={(e) => {
         e.preventDefault()
         handleSendTransaction()

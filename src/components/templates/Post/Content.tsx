@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react'
 import Changelog from '../../atoms/Changelog'
-import { Post } from '../../../@types/Post'
 import PostToc from './Toc'
-import { content as styleContent } from './Content.module.css'
+import * as styles from './Content.module.css'
 
-export default function PostContent({ post }: { post: Post }): ReactElement {
+export default function PostContent({
+  post
+}: {
+  post: Queries.BlogPostBySlugQuery['post']
+}): ReactElement {
   const separator = '<!-- more -->'
   const changelog = post.frontmatter.changelog
 
@@ -27,7 +30,7 @@ export default function PostContent({ post }: { post: Post }): ReactElement {
       )}
       <div
         dangerouslySetInnerHTML={{ __html: content }}
-        className={styleContent}
+        className={styles.content}
       />
       {changelog && <Changelog repo={changelog} />}
     </>

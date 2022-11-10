@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { toc } from './Toc.module.css'
+import * as styles from './Toc.module.css'
 
 const PostToc = ({
   tableOfContents
@@ -8,7 +8,7 @@ const PostToc = ({
 }): ReactElement => {
   return (
     <nav
-      className={toc}
+      className={styles.toc}
       dangerouslySetInnerHTML={{ __html: tableOfContents }}
     />
   )

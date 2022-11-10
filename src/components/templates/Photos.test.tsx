@@ -13,8 +13,9 @@ describe('/photos', () => {
     }
 
     const { container } = render(
+      // @ts-expect-error: only testing first render
       <Photos
-        data={data}
+        data={data as unknown as Queries.PhotosTemplateQuery}
         pageContext={pageContext}
         location={{ pathname: '/photos' } as any}
       />

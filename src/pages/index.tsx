@@ -1,38 +1,35 @@
 import { graphql, PageProps } from 'gatsby'
 import React, { ReactElement } from 'react'
-import { Post } from '../@types/Post'
 import SEO from '../components/atoms/SEO'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
-import { section, articles, articlesLast, photos } from './index.module.css'
+import * as styles from './index.module.css'
 
-export default function Home({ data }: PageProps): ReactElement {
+export default function Home(
+  props: PageProps<Queries.HomePageQuery>
+): ReactElement {
   return (
     <>
       <SEO />
-      <section className={section}>
-        <div className={articles}>
-          {(data as any).latestArticles.edges
-            .slice(0, 2)
-            .map(({ node }: { node: Post }) => (
-              <PostTeaser key={node.id} post={node} hideDate />
-            ))}
+      <section className={styles.section}>
+        <div className={styles.articles}>
+          {props.data.latestArticles.edges.slice(0, 2).map(({ node }) => (
+            <PostTeaser key={node.id} post={node} hideDate />
+          ))}
         </div>
-        <div className={`${articles} ${articlesLast}`}>
-          {(data as any).latestArticles.edges
-            .slice(2, 8)
-            .map(({ node }: { node: Post }) => (
-              <PostTeaser key={node.id} post={node} hideDate />
-            ))}
+        <div className={`${styles.articles} ${styles.articlesLast}`}>
+          {props.data.latestArticles.edges.slice(2, 8).map(({ node }) => (
+            <PostTeaser key={node.id} post={node} hideDate />
+          ))}
         </div>
 
         <PostMore to="/archive">All Articles</PostMore>
       </section>
 
-      <section className={section}>
-        <div className={photos}>
-          {(data as any).latestPhotos.edges.map(({ node }: { node: Post }) => (
+      <section className={styles.section}>
+        <div className={styles.photos}>
+          {props.data.latestPhotos.edges.map(({ node }) => (
             <PhotoThumb key={node.id} photo={node} />
           ))}
         </div>
@@ -44,7 +41,7 @@ export default function Home({ data }: PageProps): ReactElement {
 }
 
 export const homeQuery = graphql`
-  {
+  query HomePage {
     latestArticles: allMarkdownRemark(
       filter: { fields: { type: { ne: "photo" } } }
       sort: { fields: { date: DESC } }

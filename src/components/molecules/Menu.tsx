@@ -2,9 +2,8 @@ import React, { ReactElement, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
-import { menu as styleMenu } from './Menu.module.css'
+import * as styles from './Menu.module.css'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import { MenuItem } from '../../@types/Site'
 
 export default function Menu(): ReactElement {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -14,15 +13,13 @@ export default function Menu(): ReactElement {
     setMenuOpen(!menuOpen)
   }
 
-  const MenuItems = menu.map(
-    (item: MenuItem): JSX.Element => (
-      <li key={item.title}>
-        <Link onClick={toggleMenu} to={item.link}>
-          {item.title}
-        </Link>
-      </li>
-    )
-  )
+  const MenuItems = menu.map((item) => (
+    <li key={item.title}>
+      <Link onClick={toggleMenu} to={item.link}>
+        {item.title}
+      </Link>
+    </li>
+  ))
 
   return (
     <>
@@ -30,7 +27,7 @@ export default function Menu(): ReactElement {
         <html className={menuOpen ? 'has-menu-open' : undefined} lang="en" />
       </Helmet>
       <Hamburger onClick={toggleMenu} />
-      <nav className={styleMenu}>
+      <nav className={styles.menu}>
         <ul>{MenuItems}</ul>
       </nav>
     </>

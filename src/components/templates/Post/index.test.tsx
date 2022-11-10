@@ -14,11 +14,19 @@ describe('Post', () => {
 
   it('renders without crashing', () => {
     const { container, rerender } = render(
-      <Post data={post} pageContext={pageContext} />
+      <Post
+        data={post as unknown as Queries.BlogPostBySlugQuery}
+        pageContext={pageContext}
+      />
     )
     expect(container.firstChild).toBeInTheDocument()
 
-    rerender(<Post data={postWithMore} pageContext={pageContext} />)
+    rerender(
+      <Post
+        data={postWithMore as unknown as Queries.BlogPostBySlugQuery}
+        pageContext={pageContext}
+      />
+    )
     rerender(<Post data={link} pageContext={pageContext} />)
   })
 })

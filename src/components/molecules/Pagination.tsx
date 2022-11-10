@@ -2,11 +2,7 @@ import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import { PageContext } from '../../@types/Post'
 import Icon from '../atoms/Icon'
-import {
-  current as styleCurrent,
-  number as styleNumber,
-  pagination
-} from './Pagination.module.css'
+import * as styles from './Pagination.module.css'
 
 function PageNumber({
   i,
@@ -17,7 +13,7 @@ function PageNumber({
   slug: string
   current?: boolean
 }): JSX.Element {
-  const classes = current ? styleCurrent : styleNumber
+  const classes = current ? styles.current : styles.number
   const link = i === 0 ? slug : `${slug}page/${i + 1}`
 
   return (
@@ -39,7 +35,7 @@ function PrevNext({
   const title = prevPagePath ? 'Newer Posts' : 'Older Posts'
 
   return (
-    <Link to={link} rel={rel} title={title} className={styleNumber}>
+    <Link to={link} rel={rel} title={title} className={styles.number}>
       {prevPagePath ? (
         <Icon name="ChevronLeft" />
       ) : (
@@ -60,7 +56,7 @@ export default function Pagination({
   const isLast = currentPageNumber === numPages
 
   return (
-    <div className={pagination}>
+    <div className={styles.pagination}>
       {!isFirst && <PrevNext prevPagePath={prevPagePath} />}
       {Array.from({ length: numPages }, (_, i) => (
         <PageNumber

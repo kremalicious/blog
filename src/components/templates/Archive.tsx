@@ -1,22 +1,22 @@
 import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
-import { Post, PageContext } from '../../@types/Post'
+import { PageContext } from '../../@types/Post'
 import Pagination from '../molecules/Pagination'
 import PostTeaser from '../molecules/PostTeaser'
 import Page from './Page'
-import { posts } from './Archive.module.css'
+import * as styles from './Archive.module.css'
 
 export default function Archive({
   data,
   pageContext
 }: {
-  data: any
+  data: Queries.ArchiveTemplateQuery
   pageContext: PageContext
 }): ReactElement {
   const edges = data.allMarkdownRemark.edges
   const { tag, currentPageNumber, numPages } = pageContext
 
-  const PostsList = edges.map(({ node }: { node: Post }) => (
+  const PostsList = edges.map(({ node }) => (
     <PostTeaser key={node.id} post={node} />
   ))
 
@@ -40,14 +40,14 @@ export default function Archive({
       post={page}
       pathname={pageContext.slug}
     >
-      <div className={posts}>{PostsList}</div>
+      <div className={styles.posts}>{PostsList}</div>
       {numPages > 1 && <Pagination pageContext={pageContext} />}
     </Page>
   )
 }
 
 export const archiveQuery = graphql`
-  query ($tag: String, $skip: Int, $limit: Int) {
+  query ArchiveTemplate($tag: String, $skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: {
         fields: { type: { nin: "photo" } }

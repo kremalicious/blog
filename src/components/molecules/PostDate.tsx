@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Time from '../atoms/Time'
-import { time } from './PostDate.module.css'
+import * as styles from './PostDate.module.css'
 
 export default function PostDate({
   date,
@@ -10,7 +10,7 @@ export default function PostDate({
   updated?: string
 }): ReactElement {
   return (
-    <div className={time}>
+    <div className={styles.time}>
       <Time date={date} />
       {updated && ' • updated '}
       {updated && <Time date={updated} />}

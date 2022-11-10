@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
-import { action, actionTitle, actionText, actions } from './Actions.module.css'
+import * as styles from './Actions.module.css'
 import Icon from '../../atoms/Icon'
 
 interface ActionProps {
@@ -13,10 +13,10 @@ interface ActionProps {
 
 const Action = ({ title, text, url, icon, onClick }: ActionProps) => {
   return (
-    <a className={action} href={url} onClick={onClick}>
+    <a className={styles.action} href={url} onClick={onClick}>
       <Icon name={icon} />
-      <h1 className={actionTitle}>{title}</h1>
-      <p className={actionText}>{text}</p>
+      <h1 className={styles.actionTitle}>{title}</h1>
+      <p className={styles.actionText}>{text}</p>
     </a>
   )
 }
@@ -32,7 +32,7 @@ export default function PostActions({
   const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
 
   return (
-    <aside className={actions}>
+    <aside className={styles.actions}>
       <Action
         title="Have a comment?"
         text="Hit me up @kremalicious"

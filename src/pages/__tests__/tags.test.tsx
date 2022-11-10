@@ -15,6 +15,7 @@ describe('/tags', () => {
 
   it('renders without crashing', () => {
     const { container } = render(
+      // @ts-expect-error: only testing first render
       <Tags data={data} location={{ pathname: '/tags' } as any} />
     )
     expect(container.firstChild).toBeInTheDocument()

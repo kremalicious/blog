@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import ExifMap from './ExifMap'
-import { exif as styleExif, data, map } from './Exif.module.css'
-import { Exif as ExifMeta } from '../../@types/Image'
+import * as styles from './Exif.module.css'
 import Icon from './Icon'
 
 const ExifData = ({
@@ -19,15 +18,19 @@ const ExifData = ({
   </span>
 )
 
-export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
+export default function Exif({
+  exif
+}: {
+  exif: Queries.ImageExif
+}): ReactElement {
   const { iso, model, fstop, shutterspeed, focalLength, exposure, gps } =
     exif.formatted
 
   const formattedModel = model === 'FC7203' ? 'DJI Mavic Mini' : model
 
   return (
-    <aside className={styleExif}>
-      <div className={data}>
+    <aside className={styles.exif}>
+      <div className={styles.data}>
         {formattedModel && (
           <ExifData title="Camera model" value={formattedModel} icon="Camera" />
         )}
@@ -45,8 +48,8 @@ export default function Exif({ exif }: { exif: ExifMeta }): ReactElement {
         {exposure && <ExifData title="Exposure" value={exposure} icon="Sun" />}
         {iso && <ExifData title="ISO" value={iso} icon="Maximize" />}
       </div>
-      {gps && gps.latitude && (
-        <div className={map}>
+      {gps?.latitude && (
+        <div className={styles.map}>
           <ExifMap gps={gps} />
         </div>
       )}

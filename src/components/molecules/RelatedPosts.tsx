@@ -1,12 +1,11 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from './PostTeaser'
-import { relatedPosts, title, button } from './RelatedPosts.module.css'
-import { Post, Frontmatter } from '../../@types/Post'
+import * as styles from './RelatedPosts.module.css'
 import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
-  {
+  query RelatedPosts {
     allMarkdownRemark(sort: { fields: { date: DESC } }) {
       edges {
         node {
@@ -18,12 +17,12 @@ const query = graphql`
 `
 
 function postsWithDataFilter(
-  posts: [{ node: Post }],
-  key: keyof Frontmatter,
+  posts: Queries.RelatedPostsQuery['allMarkdownRemark']['edges'],
+  key: keyof Queries.MarkdownRemarkFrontmatter,
   valuesToFind: string[]
-): { node: Post }[] {
+) {
   const newArray = posts
-    .filter(({ node }: { node: Post }) => {
+    .filter(({ node }) => {
       const frontmatterKey = node.frontmatter[key] as []
 
       if (
@@ -39,9 +38,11 @@ function postsWithDataFilter(
   return newArray
 }
 
-function photosWithDataFilter(posts: [{ node: Post }]): { node: Post }[] {
+function photosWithDataFilter(
+  posts: Queries.RelatedPostsQuery['allMarkdownRemark']['edges']
+) {
   const newArray = posts
-    .filter((post: { node: Post }) => {
+    .filter((post) => {
       const { fileAbsolutePath } = post.node
 
       if (fileAbsolutePath.includes('content/photos')) {
@@ -61,7 +62,7 @@ export default function RelatedPosts({
   tags: string[]
   isPhotos?: boolean
 }): ReactElement {
-  const data = useStaticQuery(query)
+  const data = useStaticQuery<Queries.RelatedPostsQuery>(query)
   const posts = data.allMarkdownRemark.edges
 
   function getPosts() {
@@ -78,15 +79,15 @@ export default function RelatedPosts({
   }
 
   return (
-    <aside className={relatedPosts}>
-      <h1 className={title}>
+    <aside className={styles.relatedPosts}>
+      <h1 className={styles.title}>
         Related {isPhotos ? 'Photos' : 'Posts'}{' '}
-        <button className={button} onClick={() => refreshPosts()}>
+        <button className={styles.button} onClick={() => refreshPosts()}>
           Refresh
         </button>
       </h1>
       <ul>
-        {filteredPosts?.map(({ node }: { node: Post }) => (
+        {filteredPosts?.map(({ node }) => (
           <li key={node.id}>
             {isPhotos ? (
               <PhotoThumb photo={node} />

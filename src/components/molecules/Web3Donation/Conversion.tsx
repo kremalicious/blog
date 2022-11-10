@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ReactElement } from 'react'
 import axios from 'axios'
-import { conversion as styleConversion } from './Conversion.module.css'
+import * as styles from './Conversion.module.css'
 import { useNetwork } from 'wagmi'
 
 export async function getFiat(
@@ -23,7 +23,7 @@ export default function Conversion({
 }: {
   amount: string
 }): ReactElement {
-  const { activeChain } = useNetwork()
+  const { chain } = useNetwork()
 
   const [conversion, setConversion] = useState({
     euro: '0.00',
@@ -32,12 +32,12 @@ export default function Conversion({
   const { dollar, euro } = conversion
 
   useEffect(() => {
-    if (!activeChain?.nativeCurrency?.symbol) return
+    if (!chain?.nativeCurrency?.symbol) return
 
     async function getFiatResponse() {
       try {
         const tokenId =
-          activeChain?.nativeCurrency?.symbol === 'MATIC'
+          chain?.nativeCurrency?.symbol === 'MATIC'
             ? 'matic-network'
             : 'ethereum'
         const { dollar, euro } = await getFiat(Number(amount), tokenId)
@@ -48,10 +48,10 @@ export default function Conversion({
     }
 
     getFiatResponse()
-  }, [amount, activeChain?.nativeCurrency?.symbol])
+  }, [amount, chain?.nativeCurrency?.symbol])
 
   return (
-    <div className={styleConversion}>
+    <div className={styles.conversion}>
       <span>{dollar !== '0.00' && `= $ ${dollar}`}</span>
       <span>{euro !== '0.00' && `= € ${euro}`}</span>
     </div>

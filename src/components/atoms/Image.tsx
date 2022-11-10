@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ImageProps } from '../../@types/Image'
-import { image as styleImage, imageTitle } from './Image.module.css'
+import * as styles from './Image.module.css'
 
 export const Image = ({
   title,
@@ -12,11 +12,11 @@ export const Image = ({
   className
 }: ImageProps): ReactElement => (
   <figure
-    className={`${styleImage} ${className ? className : ''}`}
+    className={`${styles.image} ${className ? className : ''}`}
     data-original={original?.src}
   >
     <GatsbyImage image={image} alt={alt} objectFit="contain" />
-    {title && <figcaption className={imageTitle}>{title}</figcaption>}
+    {title && <figcaption className={styles.imageTitle}>{title}</figcaption>}
   </figure>
 )
 

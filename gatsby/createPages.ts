@@ -1,5 +1,6 @@
-const path = require('path')
-const { itemsPerPage } = require('../config')
+import path from 'path'
+import config from '../config'
+import { Actions } from 'gatsby'
 
 const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
 const archiveTemplate = path.resolve('src/components/templates/Archive.tsx')
@@ -11,7 +12,7 @@ const redirects = [
   { f: '/goodies/', t: '/archive/goodies/' }
 ]
 
-function getPaginationData(i, numPages, slug) {
+function getPaginationData(i: number, numPages: number, slug: string) {
   const currentPage = i + 1
   const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
   const nextPageNumber = currentPage + 1 > numPages ? null : currentPage + 1
@@ -26,29 +27,38 @@ function getPaginationData(i, numPages, slug) {
   return { prevPagePath, nextPagePath, path }
 }
 
-exports.generatePostPages = (createPage, posts) => {
+export const generatePostPages = (
+  createPage: Actions['createPage'],
+  posts: Queries.AllContentQuery['all']['edges'] | undefined
+) => {
   // Create Post pages
-  posts.forEach((post) => {
+  posts?.forEach((post) => {
     createPage({
-      path: `${post.node.fields.slug}`,
+      path: `${post.node.fields?.slug}`,
       component: postTemplate,
       context: {
-        slug: post.node.fields.slug,
+        slug: post.node.fields?.slug,
         prev: post.previous && {
-          title: post.previous.frontmatter.title,
-          slug: post.previous.fields.slug
+          title: post.previous.frontmatter?.title,
+          slug: post.previous.fields?.slug
         },
         next: post.next && {
-          title: post.next.frontmatter.title,
-          slug: post.next.fields.slug
+          title: post.next.frontmatter?.title,
+          slug: post.next.fields?.slug
         }
       }
     })
   })
 }
 
-function generateIndexPages(createPage, length, slug, template, tag) {
-  const numPages = Math.ceil(length / itemsPerPage)
+function generateIndexPages(
+  createPage: Actions['createPage'],
+  length: number,
+  slug: string,
+  template: string,
+  tag?: string
+) {
+  const numPages = Math.ceil(length / config.itemsPerPage)
 
   Array.from({ length: numPages }).forEach((_, i) => {
     const { prevPagePath, nextPagePath, path } = getPaginationData(
@@ -62,8 +72,8 @@ function generateIndexPages(createPage, length, slug, template, tag) {
       component: template,
       context: {
         slug,
-        limit: itemsPerPage,
-        skip: i * itemsPerPage,
+        limit: config.itemsPerPage,
+        skip: i * config.itemsPerPage,
         numPages: numPages,
         currentPageNumber: i + 1,
         prevPagePath,
@@ -75,29 +85,44 @@ function generateIndexPages(createPage, length, slug, template, tag) {
 }
 
 // Create paginated archive pages
-exports.generateArchivePages = (createPage, archiveLength) => {
+export const generateArchivePages = (
+  createPage: Actions['createPage'],
+  archiveLength: number | undefined
+) => {
+  if (!archiveLength) return
   generateIndexPages(createPage, archiveLength, `/archive/`, archiveTemplate)
 }
 
 // Create paginated photos pages
-exports.generatePhotosPages = (createPage, photosLength) => {
+export const generatePhotosPages = (
+  createPage: Actions['createPage'],
+  photosLength: number | undefined
+) => {
+  if (!photosLength) return
   generateIndexPages(createPage, photosLength, `/photos/`, photosTemplate)
 }
 
 // Create paginated tag pages
-exports.generateTagPages = (createPage, tags) => {
+export const generateTagPages = (
+  createPage: Actions['createPage'],
+  tags: Queries.AllContentQuery['tags']['group'] | undefined
+) => {
+  if (!tags) return
+
   tags.forEach(({ tag, totalCount }) => {
     generateIndexPages(
       createPage,
       totalCount,
       `/archive/${tag}/`,
       archiveTemplate,
-      tag
+      tag || ''
     )
   })
 }
 
-exports.generateRedirectPages = (createRedirect) => {
+export const generateRedirectPages = (
+  createRedirect: Actions['createRedirect']
+) => {
   redirects.forEach(({ f, t }) => {
     createRedirect({
       fromPath: f,

@@ -7,3 +7,4 @@ coverage
 .env
 .env.development
 .nova
+src/@types/Gatsby.d.ts

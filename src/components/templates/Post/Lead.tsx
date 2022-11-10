@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
-import { lead as styleLead } from './Lead.module.css'
-import { Post } from '../../../@types/Post'
+import * as styles from './Lead.module.css'
 
 // Extract lead paragraph from content
 // Grab everything before more tag, or just first paragraph
@@ -8,7 +7,7 @@ const PostLead = ({
   post,
   className
 }: {
-  post: Partial<Post>
+  post: Queries.BlogPostBySlugQuery['post']
   className?: string
 }): ReactElement => {
   let lead
@@ -23,7 +22,7 @@ const PostLead = ({
 
   return (
     <div
-      className={`${styleLead} ${className && className}`}
+      className={`${styles.lead} ${className && className}`}
       dangerouslySetInnerHTML={{ __html: lead }}
     />
   )

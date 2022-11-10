@@ -14,7 +14,10 @@ describe('Archive', () => {
 
   it('renders without crashing', () => {
     const { container } = render(
-      <Archive data={data} pageContext={pageContext} />
+      <Archive
+        data={data as unknown as Queries.ArchiveTemplateQuery}
+        pageContext={pageContext}
+      />
     )
     expect(container.firstChild).toBeInTheDocument()
   })

@@ -19,7 +19,7 @@ export function PureChangelog({
 }: {
   repo: string
   repos: [{ node: GitHubRepo }]
-}): ReactElement {
+}): ReactElement | null {
   const [changelogHtml, setChangelogHtml] = useState()
 
   const repoFilteredArray = repos
@@ -38,7 +38,7 @@ export function PureChangelog({
         .use(remarkParse)
         .use(remarkRehype)
         .use(rehypeReact, { createElement, Fragment })
-        .processSync(repoMatch.object.text).result
+        .processSync(repoMatch?.object.text).result
 
       setChangelogHtml(changelogHtml)
     }
@@ -59,7 +59,7 @@ export function PureChangelog({
 }
 
 const queryGithub = graphql`
-  query GitHubReposInfo {
+  query GitHubRepos {
     github {
       viewer {
         repositories(first: 100, privacy: PUBLIC, isFork: false) {
