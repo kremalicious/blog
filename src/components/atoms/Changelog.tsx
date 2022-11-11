@@ -10,7 +10,7 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeReact from 'rehype-react'
-import styles from './Changelog.module.css'
+import * as styles from './Changelog.module.css'
 
 export function PureChangelog({
   repo,
