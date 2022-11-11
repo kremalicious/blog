@@ -10,20 +10,19 @@ import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeReact from 'rehype-react'
-import { content, source } from './Changelog.module.css'
-import { GitHub, GitHubRepo } from '../../@types/GitHub'
+import styles from './Changelog.module.css'
 
 export function PureChangelog({
   repo,
   repos
 }: {
   repo: string
-  repos: [{ node: GitHubRepo }]
+  repos: Queries.GitHubReposQuery['github']['viewer']['repositories']['edges']
 }): ReactElement | null {
   const [changelogHtml, setChangelogHtml] = useState()
 
   const repoFilteredArray = repos
-    .map(({ node }: { node: GitHubRepo }) => {
+    .map(({ node }) => {
       if (node.name === repo) return node
     })
     .filter((n: any) => n)
@@ -31,24 +30,24 @@ export function PureChangelog({
   const repoMatch = repoFilteredArray[0]
 
   useEffect(() => {
-    if (!repoMatch?.object?.text) return
+    if (!(repoMatch?.object as Queries.GitHub_Blob)?.text) return
 
     async function init() {
       const changelogHtml = await unified()
         .use(remarkParse)
         .use(remarkRehype)
         .use(rehypeReact, { createElement, Fragment })
-        .processSync(repoMatch?.object.text).result
+        .processSync((repoMatch?.object as Queries.GitHub_Blob).text).result
 
       setChangelogHtml(changelogHtml)
     }
     init()
-  }, [repoMatch?.object?.text])
+  }, [(repoMatch?.object as Queries.GitHub_Blob)?.text])
 
   return repoMatch ? (
-    <div className={content} id="changelog">
+    <div className={styles.content} id="changelog">
       {changelogHtml}
-      <p className={source}>
+      <p className={styles.source}>
         sourced from{' '}
         <a href={`${repoMatch?.url}/tree/main/CHANGELOG.md`}>
           <code>{`${repoMatch?.owner.login}/${repo}:CHANGELOG.md`}</code>
@@ -85,7 +84,7 @@ const queryGithub = graphql`
 `
 
 export default function Changelog({ repo }: { repo: string }): ReactElement {
-  const data: GitHub = useStaticQuery(queryGithub)
-  const repos: [{ node: GitHubRepo }] = data.github.viewer.repositories.edges
+  const data = useStaticQuery<Queries.GitHubReposQuery>(queryGithub)
+  const repos = data.github.viewer.repositories.edges
   return <PureChangelog repo={repo} repos={repos} />
 }
