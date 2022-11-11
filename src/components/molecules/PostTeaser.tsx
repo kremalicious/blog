@@ -1,13 +1,8 @@
 import React, { ReactElement } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Image } from '../atoms/Image'
-import { Post } from '../../@types/Post'
 import PostTitle from '../templates/Post/Title'
-import {
-  post as stylePost,
-  empty,
-  title as styleTitle
-} from './PostTeaser.module.css'
+import * as styles from './PostTeaser.module.css'
 
 export const postTeaserQuery = graphql`
   fragment PostTeaser on MarkdownRemark {
@@ -37,7 +32,7 @@ export default function PostTeaser({
   toggleSearch,
   hideDate
 }: {
-  post: Partial<Post>
+  post: Queries.PostTeaserFragment
   toggleSearch?: () => void
   hideDate?: boolean
 }): ReactElement {
@@ -46,7 +41,7 @@ export default function PostTeaser({
 
   return (
     <Link
-      className={stylePost}
+      className={styles.post}
       to={slug}
       onClick={toggleSearch && toggleSearch}
     >
@@ -56,14 +51,14 @@ export default function PostTeaser({
           alt={title}
         />
       ) : (
-        <span className={empty} />
+        <span className={styles.empty} />
       )}
 
       <PostTitle
         title={title}
         date={hideDate ? null : date}
         updated={updated}
-        className={styleTitle}
+        className={styles.title}
       />
     </Link>
   )

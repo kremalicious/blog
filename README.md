@@ -202,12 +202,6 @@ npm test
 
 All test files live beside the respective component. Testing setup, fixtures, and mocks can be found in `./jest.config.js` and `./jest` folder.
 
-For local development, run the test watcher:
-
-```bash
-npm run test:watch
-```
-
 ### 🎈 Add a new post
 
 ```bash

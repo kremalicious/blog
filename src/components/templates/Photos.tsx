@@ -1,18 +1,22 @@
 import React, { ReactElement } from 'react'
 import { graphql, Link, PageProps } from 'gatsby'
-import { Post, PageContext } from '../../@types/Post'
+import { PageContext } from '../../@types/Post'
 import { Image } from '../atoms/Image'
 import Pagination from '../molecules/Pagination'
 import Page from './Page'
-import { photo as stylePhoto, photos as stylePhotos } from './Photos.module.css'
+import * as styles from './Photos.module.css'
 
-export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
+export const PhotoThumb = ({
+  photo
+}: {
+  photo: Queries.PhotosTemplateQuery['allMarkdownRemark']['edges'][0]['node']
+}): ReactElement => {
   const { title, image } = photo.frontmatter
   const { slug } = photo.fields
   const { gatsbyImageData } = (image as any).childImageSharp
 
   return (
-    <article className={stylePhoto}>
+    <article className={styles.photo}>
       {image && (
         <Link to={slug}>
           <Image title={title} image={gatsbyImageData} alt={title} />
@@ -23,9 +27,7 @@ export const PhotoThumb = ({ photo }: { photo: Post }): ReactElement => {
 }
 
 interface PhotosPageProps extends PageProps {
-  data: {
-    allMarkdownRemark: { edges: { node: Post }[] }
-  }
+  data: Queries.PhotosTemplateQuery
   pageContext: PageContext
 }
 
@@ -55,8 +57,8 @@ export default function Photos(props: PhotosPageProps): ReactElement {
       post={page}
       pathname={props.location.pathname}
     >
-      <section className={stylePhotos}>
-        {photos.map(({ node }: { node: Post }) => (
+      <section className={styles.photos}>
+        {photos.map(({ node }) => (
           <PhotoThumb key={node.id} photo={node} />
         ))}
       </section>
@@ -67,7 +69,7 @@ export default function Photos(props: PhotosPageProps): ReactElement {
 }
 
 export const photosQuery = graphql`
-  query ($skip: Int, $limit: Int) {
+  query PhotosTemplate($skip: Int, $limit: Int) {
     allMarkdownRemark(
       filter: { fields: { type: { eq: "photo" } } }
       sort: { fields: { date: DESC } }

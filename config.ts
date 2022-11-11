@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   siteTitle: 'kremalicious',
   siteTitleShort: 'krlc',
   siteDescription: 'Blog of designer & developer Matthias Kretschmann',

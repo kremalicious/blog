@@ -1,43 +1,50 @@
-const fs = require('fs')
-const util = require('util')
-const fastExif = require('fast-exif')
-const Fraction = require('fraction.js')
-const getCoordinates = require('dms2dec')
-const iptc = require('node-iptc')
+import fs from 'fs'
+import util from 'util'
+import fastExif from 'fast-exif'
+import Fraction from 'fraction.js'
+import getCoordinates from 'dms2dec'
+import iptc from 'node-iptc'
+import type { Actions, NodePluginArgs, Node } from 'gatsby'
 
 const readFile = util.promisify(fs.readFile)
 
-exports.createExif = async (node, actions, createNodeId) => {
+export const createExif = async (
+  node: Node,
+  actions: Actions,
+  createNodeId: NodePluginArgs['createNodeId']
+) => {
   try {
     // exif
     const exifData = await fastExif.read(node.absolutePath, true)
     if (!exifData) return
 
     // iptc
-    const file = await readFile(node.absolutePath)
+    const file = await readFile(node.absolutePath as string)
     const iptcData = iptc(file)
 
     createNodes(exifData, iptcData, node, actions, createNodeId)
-  } catch (error) {
+  } catch (error: any) {
     console.error(`${node.name}: ${error.message}`)
   }
 }
 
-function createNodes(exifData, iptcData, node, actions, createNodeId) {
+function createNodes(
+  exifData: Queries.ImageExif,
+  iptcData: any,
+  node: Node,
+  actions: Actions,
+  createNodeId: NodePluginArgs['createNodeId']
+) {
   const { createNodeField, createNode, createParentChildLink } = actions
   const exifDataFormatted = formatExif(exifData)
 
   const exif = {
     ...exifData,
-    iptc: {
-      ...iptcData
-    },
-    formatted: {
-      ...exifDataFormatted
-    }
+    iptc: { ...iptcData },
+    formatted: { ...exifDataFormatted }
   }
 
-  const exifNode = {
+  const exifNode: any = {
     id: createNodeId(`${node.id} >> ImageExif`),
     children: [],
     ...exif,
@@ -49,22 +56,15 @@ function createNodes(exifData, iptcData, node, actions, createNodeId) {
   }
 
   // add exif fields to existing type file
-  createNodeField({
-    node,
-    name: 'exif',
-    value: exif
-  })
+  createNodeField({ node, name: 'exif', value: exif })
 
   // create new nodes from all exif data
   // allowing to be queried with imageExif & AllImageExif
   createNode(exifNode)
-  createParentChildLink({
-    parent: node,
-    child: exifNode
-  })
+  createParentChildLink({ parent: node, child: exifNode })
 }
 
-function formatExif(exifData) {
+function formatExif(exifData: Queries.ImageExif) {
   if (!exifData.exif) return
 
   const { Model } = exifData.image
@@ -107,8 +107,11 @@ function formatExif(exifData) {
   }
 }
 
-function formatGps(gpsData) {
-  if (!gpsData) return
+function formatGps(gpsData: Queries.ImageExif['gps']): {
+  latitude: string
+  longitude: string
+} {
+  if (!gpsData) return { latitude: '', longitude: '' }
 
   const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
 
@@ -125,7 +128,7 @@ function formatGps(gpsData) {
   return { latitude, longitude }
 }
 
-function formatExposure(exposureMode) {
+function formatExposure(exposureMode: Queries.ImageExifExif['ExposureMode']) {
   if (exposureMode === null || exposureMode === undefined) return
 
   const exposureShortened = parseFloat(exposureMode.toFixed(2))

@@ -27,7 +27,7 @@ import {
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
-import { icon } from './Icon.module.css'
+import * as styles from './Icon.module.css'
 
 const components: {
   [key: string]: FunctionComponent<React.SVGProps<SVGSVGElement>>
@@ -62,7 +62,7 @@ const Icon = ({ name, ...props }: { name: string }): ReactElement => {
   // const IconFeather = (Feather as any)[name]
   if (!IconMapped) return null
 
-  return <IconMapped className={icon} {...props} />
+  return <IconMapped className={styles.icon} {...props} />
 }
 
 export default Icon

@@ -3,18 +3,14 @@ import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
 import PostTeaser from '../PostTeaser'
 import SearchResultsEmpty from './SearchResultsEmpty'
-import {
-  searchResults,
-  results as styleResults
-} from './SearchResults.module.css'
-import { Post } from '../../../@types/Post'
+import * as styles from './SearchResults.module.css'
 
 export interface Results {
   slug: string
 }
 
 const query = graphql`
-  query {
+  query SearchResults {
     allMarkdownRemark {
       edges {
         node {
@@ -31,21 +27,19 @@ function SearchResultsPure({
   toggleSearch,
   posts
 }: {
-  posts: [{ node: Post }]
+  posts: Queries.SearchResultsQuery['allMarkdownRemark']['edges']
   searchQuery: string
   results: Results[]
   toggleSearch(): void
 }) {
   return (
-    <div className={searchResults}>
+    <div className={styles.searchResults}>
       {results.length > 0 ? (
-        <ul className={styleResults}>
+        <ul className={styles.results}>
           {results.map((page: { slug: string }) =>
             posts
-              .filter(
-                ({ node }: { node: Post }) => node.fields.slug === page.slug
-              )
-              .map(({ node }: { node: Post }) => (
+              .filter(({ node }) => node.fields.slug === page.slug)
+              .map(({ node }) => (
                 <li key={page.slug}>
                   <PostTeaser post={node} toggleSearch={toggleSearch} />
                 </li>
@@ -68,7 +62,7 @@ export default function SearchResults({
   results: Results[]
   toggleSearch(): void
 }): ReactElement {
-  const data = useStaticQuery(query)
+  const data = useStaticQuery<Queries.SearchResultsQuery>(query)
   const posts = data.allMarkdownRemark.edges
 
   // creating portal to break out of DOM node we're in

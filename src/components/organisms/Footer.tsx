@@ -3,14 +3,14 @@ import { Link } from 'gatsby'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
 import { useSiteMetadata } from '../../hooks/use-site-metadata'
-import { copyright, btc, footer } from './Footer.module.css'
+import * as styles from './Footer.module.css'
 
 function Copyright() {
   const { name, uri, github } = useSiteMetadata().author
   const year = new Date().getFullYear()
 
   return (
-    <section className={copyright}>
+    <section className={styles.copyright}>
       <p>
         &copy; 2005&ndash;
         {year + ' '}
@@ -21,7 +21,7 @@ function Copyright() {
           <Icon name="GitHub" />
           View source
         </a>
-        <Link to="/thanks" className={btc}>
+        <Link to="/thanks" className={styles.btc}>
           <Icon name="Bitcoin" />
           Say Thanks
         </Link>
@@ -32,7 +32,7 @@ function Copyright() {
 
 export default function Footer(): JSX.Element {
   return (
-    <footer role="contentinfo" className={footer}>
+    <footer role="contentinfo" className={styles.footer}>
       <Vcard />
       <Copyright />
     </footer>

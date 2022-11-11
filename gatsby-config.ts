@@ -1,23 +1,30 @@
-require('dotenv').config()
+import type { GatsbyConfig } from 'gatsby'
+import * as dotenv from 'dotenv'
 
-if (!process.env.GATSBY_GITHUB_TOKEN) {
+dotenv.config()
+
+if (!process.env.GITHUB_TOKEN) {
   // eslint-disable-next-line
   console.warn(`
 
-      ⚠️  A GitHub token as GATSBY_GITHUB_TOKEN is required to build some parts of the blog.
+      ⚠️  A GitHub token as GITHUB_TOKEN is required to build some parts of the blog.
       ⚠️  Check the README https://github.com/kremalicious/blog#-development.
 
   `)
 }
 
-const siteConfig = require('./config')
-const sources = require('./gatsby/sources')
-const { feedContent } = require('./gatsby/feeds')
+import siteConfig from './config'
+import sources from './gatsby/sources'
+import { feedContent } from './gatsby/feeds'
 
 // required for gatsby-plugin-meta-redirect
-require('regenerator-runtime/runtime')
+import 'regenerator-runtime/runtime'
 
-module.exports = {
+const config: GatsbyConfig = {
+  graphqlTypegen: {
+    typesOutputPath: './src/@types/Gatsby.d.ts',
+    generateOnBuild: true
+  },
   siteMetadata: {
     ...siteConfig
   },
@@ -169,44 +176,44 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map((edge) => {
+            serialize: ({ query }: { query: Queries.AllContentFeedQuery }) => {
+              return query.allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  title: edge.node.frontmatter.title,
-                  date: edge.node.fields.date,
+                  title: edge.node.frontmatter?.title,
+                  date: edge.node.fields?.date,
                   description: edge.node.excerpt,
-                  url: siteConfig.siteUrl + edge.node.fields.slug,
-                  categories: edge.node.frontmatter.tags,
+                  url: siteConfig.siteUrl + edge.node.fields?.slug,
+                  categories: edge.node.frontmatter?.tags,
                   author: siteConfig.author.name,
-                  guid: siteConfig.siteUrl + edge.node.fields.slug,
+                  guid: siteConfig.siteUrl + edge.node.fields?.slug,
                   custom_elements: [{ 'content:encoded': feedContent(edge) }]
                 })
               })
             },
             query: `{
-  allMarkdownRemark(sort: {fields: {date: DESC}}, limit: 40) {
-    edges {
-      node {
-        html
-        fields {
-          slug
-          date
-        }
-        excerpt
-        frontmatter {
-          title
-          image {
-            childImageSharp {
-              resize(width: 940, quality: 85) {
-                src
+              allMarkdownRemark(sort: {fields: {date: DESC}}, limit: 40) {
+                edges {
+                  node {
+                    html
+                    fields {
+                      slug
+                      date
+                    }
+                    excerpt
+                    frontmatter {
+                      title
+                      image {
+                        childImageSharp {
+                          resize(width: 940, quality: 85) {
+                            src
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
-            }
-          }
-        }
-      }
-    }
-  }
-}`,
+            }`,
             output: '/feed.xml',
             title: siteConfig.siteTitle
           }
@@ -226,3 +233,5 @@ module.exports = {
     'gatsby-plugin-offline'
   ]
 }
+
+export default config

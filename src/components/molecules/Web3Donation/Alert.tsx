@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { success, error, alert } from './Alert.module.css'
+import * as styles from './Alert.module.css'
 
 export function getTransactionMessage(transactionHash?: string): {
   [key: string]: string
@@ -23,7 +23,11 @@ const constructMessage = (
     : message && message.text
 
 const classes = (status: string) =>
-  status === 'success' ? success : status === 'error' ? error : alert
+  status === 'success'
+    ? styles.success
+    : status === 'error'
+    ? styles.error
+    : styles.alert
 
 export default function Alert({
   transactionHash,

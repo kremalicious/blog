@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { themeSwitch, checkbox, label } from './ThemeSwitch.module.css'
+import * as styles from './ThemeSwitch.module.css'
 import Icon from '../atoms/Icon'
 import useDarkMode from '../../hooks/useDarkMode'
 
@@ -40,8 +40,8 @@ const HeadMarkup = ({
 
 export default function ThemeSwitch(): ReactElement {
   const { value, toggle } = useDarkMode()
-  const [themeColor, setThemeColor] = useState('')
-  const [bodyClass, setBodyClass] = useState('')
+  const [themeColor, setThemeColor] = useState<string>()
+  const [bodyClass, setBodyClass] = useState<string>()
 
   useEffect(() => {
     setBodyClass(value ? 'dark' : null)
@@ -51,15 +51,15 @@ export default function ThemeSwitch(): ReactElement {
   return (
     <>
       <HeadMarkup themeColor={themeColor} bodyClass={bodyClass} />
-      <aside className={themeSwitch} title="Toggle Dark Mode">
+      <aside className={styles.themeSwitch} title="Toggle Dark Mode">
         <label
           htmlFor="toggle"
-          className={checkbox}
+          className={styles.checkbox}
           onClick={toggle}
           onKeyPress={toggle}
           role="presentation"
         >
-          <span className={label}>Toggle Dark Mode</span>
+          <span className={styles.label}>Toggle Dark Mode</span>
           <ThemeToggleInput isDark={value} toggleDark={toggle} />
           <div aria-live="assertive">
             {value ? <Icon name="Sun" /> : <Icon name="Moon" />}

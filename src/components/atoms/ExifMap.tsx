@@ -17,7 +17,7 @@ const providers = {
 export default function ExifMap({
   gps
 }: {
-  gps: { latitude: string; longitude: string }
+  gps: { latitude: number; longitude: number }
 }): ReactElement {
   const { value } = useDarkMode()
   const isDarkMode = value

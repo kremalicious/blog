@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import { Post as PostMetadata } from '../../../@types/Post'
 import Exif from '../../atoms/Exif'
 import SEO from '../../atoms/SEO'
 import RelatedPosts from '../../molecules/RelatedPosts'
@@ -12,14 +11,14 @@ import PostActions from './Actions'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 import PrevNext from './PrevNext'
-import { hentry, image as styleImage } from './index.module.css'
+import * as styles from './index.module.css'
 import { Image } from '../../atoms/Image'
 
 export default function Post({
   data,
   pageContext: { next, prev }
 }: {
-  data: { post: PostMetadata }
+  data: Queries.BlogPostBySlugQuery
   pageContext: {
     next: { title: string; slug: string }
     prev: { title: string; slug: string }
@@ -35,9 +34,9 @@ export default function Post({
         {style && <link rel="stylesheet" href={style.publicURL} />}
       </Helmet>
 
-      <SEO slug={slug} post={post} postSEO />
+      <SEO slug={slug} post={post} />
 
-      <article className={hentry}>
+      <article className={styles.hentry}>
         <header>
           <PostTitle
             linkurl={linkurl}
@@ -52,14 +51,16 @@ export default function Post({
 
         {image && (
           <Image
-            className={styleImage}
+            className={styles.image}
             image={(image as any).childImageSharp.gatsbyImageData}
             alt={title}
           />
         )}
 
         {type === 'photo' ? (
-          image?.fields && <Exif exif={image.fields.exif} />
+          image?.fields && (
+            <Exif exif={image.fields.exif as Queries.ImageExif} />
+          )
         ) : (
           <PostContent post={post} />
         )}
@@ -69,7 +70,7 @@ export default function Post({
         <PostActions slug={slug} githubLink={githubLink} />
       </article>
 
-      <RelatedPosts isPhotos={type === 'photo'} tags={tags} />
+      <RelatedPosts isPhotos={type === 'photo'} tags={tags as string[]} />
 
       <PrevNext prev={prev} next={next} />
     </>

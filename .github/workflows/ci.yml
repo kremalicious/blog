@@ -17,41 +17,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-
-      - run: npm ci
-      - run: npm test
-      - uses: actions/upload-artifact@v3
-        with:
-          name: coverage
-          path: coverage/
-
-  coverage:
-    runs-on: ubuntu-latest
-    needs: [test]
-    if: ${{ success() && github.actor != 'dependabot[bot]' }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: coverage
-      - uses: paambaati/codeclimate-action@v2.7.5
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -76,9 +41,15 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          GATSBY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
           GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+      - run: npm test
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/
 
       - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/main'
@@ -86,8 +57,21 @@ jobs:
           name: public
           path: public
 
+  coverage:
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: ${{ success() && github.actor != 'dependabot[bot]' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: coverage
+      - uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+
   deploy:
-    needs: build
+    needs: test
     if: success() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 

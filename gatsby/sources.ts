@@ -1,6 +1,6 @@
-const path = require('path')
+import path from 'path'
 
-module.exports = [
+export default [
   {
     resolve: 'gatsby-source-filesystem',
     options: {
@@ -43,7 +43,7 @@ module.exports = [
       fieldName: 'github',
       url: 'https://api.github.com/graphql',
       headers: {
-        Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`
+        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
       }
       // Additional options to pass to node-fetch
       // fetchOptions: {},
