@@ -23,7 +23,6 @@
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
   - [🏆 SEO component](#-seo-component)
-  - [📈 Matomo (formerly Piwik) analytics tracking](#-matomo-formerly-piwik-analytics-tracking)
   - [gatsby-redirect-from](#gatsby-redirect-from)
   - [💎 Importing SVG assets](#-importing-svg-assets)
   - [🍬 Typekit component](#-typekit-component)
@@ -133,12 +132,6 @@ Includes a SEO component which automatically switches all required `meta` tags f
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/atoms/SEO.jsx`](src/components/atoms/SEO.jsx)
-
-### 📈 Matomo (formerly Piwik) analytics tracking
-
-Site sends usage statistics to my own [Matomo](https://matomo.org) installation. To make this work in Gatsby, I created and open sourced a plugin which is in use on this site.
-
-- [gatsby-plugin-matomo](https://github.com/kremalicious/gatsby-plugin-matomo)
 
 ### gatsby-redirect-from
 

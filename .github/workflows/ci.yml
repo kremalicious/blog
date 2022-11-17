@@ -44,6 +44,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
           GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+          GATSBY_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+          GATSBY_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+          GATSBY_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
       - run: npm test
 
       - uses: actions/upload-artifact@v3

@@ -136,15 +136,6 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: '1',
-        matomoUrl: 'https://analytics.kremalicious.com',
-        siteUrl: `${siteConfig.siteUrl}`,
-        trackLoad: false
-      }
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: siteConfig.siteTitle,
