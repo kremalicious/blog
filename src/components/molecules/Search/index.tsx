@@ -1,11 +1,13 @@
 import React, { useState, useEffect, ReactElement } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import SearchInput from './SearchInput'
 import SearchButton from './SearchButton'
 import SearchResults from './SearchResults'
 import * as styles from './index.module.css'
+import { getAnimationProps, moveInTop } from '../../atoms/Transitions'
 
 export default function Search(): ReactElement {
+  const shouldReduceMotion = useReducedMotion()
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
@@ -43,20 +45,19 @@ export default function Search(): ReactElement {
 
       {searchOpen && (
         <>
-          <CSSTransition
-            appear={searchOpen}
-            in={searchOpen}
-            timeout={200}
-            classNames={styles}
-          >
-            <section className={styles.search}>
+          <LazyMotion features={domAnimation}>
+            <m.section
+              variants={moveInTop}
+              {...getAnimationProps(shouldReduceMotion)}
+              className={styles.search}
+            >
               <SearchInput
                 value={query}
                 onChange={(e: any) => setQuery(e.target.value)}
                 onToggle={toggleSearch}
               />
-            </section>
-          </CSSTransition>
+            </m.section>
+          </LazyMotion>
 
           <SearchResults
             searchQuery={query}
