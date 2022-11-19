@@ -6,7 +6,21 @@ import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
   query RelatedPosts {
-    allMarkdownRemark(sort: { fields: { date: DESC } }) {
+    allArticles: allMarkdownRemark(
+      sort: { fields: { date: DESC } }
+      filter: { fields: { type: { regex: "/(article|link)/" } } }
+    ) {
+      edges {
+        node {
+          ...PostTeaser
+        }
+      }
+    }
+
+    allPhotos: allMarkdownRemark(
+      sort: { fields: { date: DESC } }
+      filter: { fields: { type: { eq: "photo" } } }
+    ) {
       edges {
         node {
           ...PostTeaser
@@ -17,42 +31,30 @@ const query = graphql`
 `
 
 function postsWithDataFilter(
-  posts: Queries.RelatedPostsQuery['allMarkdownRemark']['edges'],
+  posts:
+    | Queries.RelatedPostsQuery['allArticles']['edges']
+    | Queries.RelatedPostsQuery['allPhotos']['edges'],
   key: keyof Queries.MarkdownRemarkFrontmatter,
   valuesToFind: string[]
 ) {
-  const newArray = posts
-    .filter(({ node }) => {
-      const frontmatterKey = node.frontmatter[key] as []
+  let filtered = posts.filter(({ node }) => {
+    const frontmatterKey = node.frontmatter[key]
 
-      if (
-        frontmatterKey !== null &&
-        frontmatterKey.some((r: string) => valuesToFind.includes(r))
-      ) {
-        return node
-      }
-    })
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 6)
+    if (
+      frontmatterKey !== null &&
+      frontmatterKey.some((r: string) => valuesToFind?.includes(r))
+    ) {
+      return node
+    }
+  })
 
-  return newArray
-}
+  if (!filtered?.length) {
+    filtered = posts.filter(({ node }) => node)
+  }
 
-function photosWithDataFilter(
-  posts: Queries.RelatedPostsQuery['allMarkdownRemark']['edges']
-) {
-  const newArray = posts
-    .filter((post) => {
-      const { fileAbsolutePath } = post.node
+  filtered = filtered.sort(() => 0.5 - Math.random()).slice(0, 6)
 
-      if (fileAbsolutePath.includes('content/photos')) {
-        return post
-      }
-    })
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 6)
-
-  return newArray
+  return filtered
 }
 
 export default function RelatedPosts({
@@ -63,12 +65,12 @@ export default function RelatedPosts({
   isPhotos?: boolean
 }): ReactElement {
   const data = useStaticQuery<Queries.RelatedPostsQuery>(query)
-  const posts = data.allMarkdownRemark.edges
 
   function getPosts() {
-    return isPhotos
-      ? photosWithDataFilter(posts)
-      : tags && postsWithDataFilter(posts, 'tags', tags)
+    const dataByType = isPhotos ? data.allPhotos.edges : data.allArticles.edges
+    const posts = postsWithDataFilter(dataByType, 'tags', tags)
+
+    return posts
   }
 
   const [filteredPosts, setFilteredPosts] = useState(getPosts())
