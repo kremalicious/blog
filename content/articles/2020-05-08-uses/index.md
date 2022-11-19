@@ -26,38 +26,29 @@ A continuously updated list of devices, tools, and services I use to get digital
 My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[MacBook Pro (16-inch, 2019)](https://www.apple.com/macbook-pro-16/)**  
-  _Space Gray, 2.6GHz 6-Core Intel Core i7, 16 GB RAM, 512GB SSD, AMD Radeon Pro 5300M 4GB, US International keyboard_  
-  My main workhorse powering my daily work & play. Everything is pretty much amazing and it handles everything I throw at it. Love the screen, keyboard, and speakers. Still miss the SD card slot which Apple deemed not Pro enough.
+  _Space Gray, 2.6GHz 6-Core Intel Core i7, 16 GB RAM, 512GB SSD, AMD Radeon Pro 5300M 4GB, US International keyboard_
 
 - **[iPhone 11 Pro](https://www.apple.com/iphone-11-pro/)**  
-  _Space Gray, 256GB_  
-  My main camera and used for everything when I'm not on my Mac. I try to keep it only for personal communication and reading. I'm never quite sure what to do with all its unbelievable power, but the screen is the best display I ever looked at. Because of that, replaces a lot the iPad for reading.
+  _Space Gray, 256GB_
 
-- **[AirPods Pro](https://www.apple.com/airpods-pro/)**  
-  Rocked the original AirPods since their introduction, one of the best products Apple has ever made. By now using the Pro variant pretty much all the time when talking into my devices and participating in online meetings, or listening to music on the go.
+- **[AirPods Pro](https://www.apple.com/airpods-pro/)**
 
 - **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**  
-  _Space Gray, 512GB, WiFi + Cellular_  
-  My 4th iPad after the original iPad. Since that time used it as a paper document replacement for reading and research and it became my favorite device to browse and edit photos on. Until I can run a local web development environment on iPadOS it is rarely useful for me to get coding work done but still intrigued by the possibilities and cleanliness of iPadOS compared to macOS.
+  _Space Gray, 512GB, WiFi + Cellular_
 
 - **[Logitech MX Master 3 for Mac](https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html)**  
-  _Black & Space Gray_  
-  Still a fan of the simplicity and gestures of the Magic Mouse 2, but it's just no fit for working precisely, or for gaming. Logitech's MX Master 3 provides both, and has great macOS support, unlike the people over at Razer.
+  _Black & Space Gray_
 
 - **[Satechi Slim X1 Bluetooth Backlit Keyboard](https://satechi.net/products/slim-x1-bluetooth-backlit-keyboard)**  
-  _US, Space Gray_  
-  Great compact keyboard with black keys which have a great key travel. Packed with other welcome features over Apple's keyboards like backlit keys and easy switching between 3 paired devices.
+  _US, Space Gray_
 
 - **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
-  _40mm Space Gray Aluminum Case, Black Solo Loop_  
-  Mainly used for its health & fitness features so I can go on a run without my iPhone, and track the shit out of me. I like to keep it unobtrusive, all notifications are turned off, except for calendar event & Activity.app notifications.
+  _40mm Space Gray Aluminum Case, Black Solo Loop_
 
 - **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**  
-  _4GB RAM_  
-  The little Linux and local server playground performing some serious tasks for all devices within any network I arrive at: [Pi-Hole](https://pi-hole.net) keeps all browsing adventures clean, and every network device's DNS traffic is routed through the Raspberry Pi. [Plex](https://www.plex.tv) is delivering a video library, capable of playing 4K content. It runs a [Tor](https://www.torproject.org) non-exit relay. Has a 4 TB hard drive attached for [storage for all network devices](/raspberry-pi-file-and-screen-sharing-macos-ios).
+  _4GB RAM_
 
-- **[Kindle Voyage](https://www.amazon.com/Amazon-Kindle-Voyage-6-Inch-4GB-eReader/dp/B00IOY8XWQ)**  
-  The best experience for long time reading. Almost all my non-technical books are Kindle books.
+- **[Kindle Paperwhite 11th Gen](https://www.amazon.com/dp/B08KTZ8249)**
 
 ## Software
 
@@ -77,7 +68,7 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **[iCloud Drive, 2 TB](https://www.icloud.com)**  
   I have used Dropbox Pro for many years but it became too clunky and Apple's version turned into what I wanted Dropbox to be. Most of my non-code related files live there and are happily synced.
 
-- **[Tresorit Premium, 500 GB](https://tresorit.com)**  
+- **[Tresorit Premium, 1 TB](https://tresorit.com)**  
   Holds all the personal and sensitive documents. Works like Dropbox or iCloud Drive but with end-to-end encryption with my own private keys, and some nicely paranoid sharing features.
 
 - **[Scanner Pro](https://readdle.com/scannerpro)**  
@@ -224,7 +215,7 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **[GnuPG](https://gnupg.org)**  
   Use it since I use email but its clunky and rarely anyone uses it. Interacting with it only in Terminal.app for decrypting and encrypting, and use it to sign Git commits. Yes, I'm aware of [GPG Suite](https://gpgtools.org) but the instability it introduces into the whole operating system is not worth the usage to me.
 
-- **[Messages](https://support.apple.com/explore/messages) & [Telegram](https://telegram.org)**  
+- **[Messages](https://support.apple.com/explore/messages) & [WhatsApp](https://whatsapp.com)**  
   The only messengers I use every day for personal stuff, mostly on my iPhone.
 
 - **[Signal](https://www.signal.org)**  
@@ -288,16 +279,13 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 - **[iCloud Backup](https://support.apple.com/en-us/HT203977)**  
   All mobile devices simply use this to create their backups.
 
-- **[Rclone](https://rclone.org)**  
-  For moving large cloud data around within and between online storage services. Usually run from my remote web server.
-
 ## Self Hosted
 
 - I host my **[blog](https://kremalicious.com)** (which also includes my photo stream) and **[portfolio](https://matthiaskretschmann.com)** on **[AWS S3](https://aws.amazon.com/s3/)**, with **[Cloudflare](https://www.cloudflare.com)** in front of it.
 
 - I run my own **web and development server**, a droplet on **[DigitalOcean](https://m.do.co/c/9882a054acf6)**, running **[Nginx](https://nginx.org)**.
 
-- I run my own **analytics server** with **[Matomo](https://matomo.org)**.
+- I run my own **analytics server** with **[Umami](https://umami.is)**.
 
 - I run my own **Git repository hosting** with **[Gitea](https://gitea.com)** for private projects, and for automatically mirroring every GitHub repository I touch into it. A VPS running within **[Amazon Lightsail](https://aws.amazon.com/lightsail/)**.
 

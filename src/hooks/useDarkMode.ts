@@ -2,7 +2,13 @@
 // adapted from
 // https://github.com/daveschumaker/react-dark-mode-hook/blob/master/useDarkMode.js
 //
-import { useState, useEffect, useCallback } from 'react'
+import {
+  useState,
+  useEffect,
+  useCallback,
+  Dispatch,
+  SetStateAction
+} from 'react'
 
 const isClient = typeof window === 'object'
 
@@ -24,25 +30,41 @@ function getDarkMode() {
   }
 }
 
-export default function useDarkMode(): {
-  value: boolean
-  toggle?: () => void
-} {
-  const [darkMode, setDarkMode] = useState(getDarkMode)
+export type UseDarkMode = {
+  isDarkMode: boolean
+  themeColor: string
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>
+}
 
-  function toggleDarkMode() {
-    setDarkMode(!darkMode)
-  }
+export default function useDarkMode(): UseDarkMode {
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(getDarkMode())
+  const [themeColor, setThemeColor] = useState<string>()
+
+  const changeTheme = useCallback(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    setThemeColor(isDarkMode === true ? '#1d2224' : '#e7eef4')
+  }, [isDarkMode])
+
+  //
+  // Init
+  //
+  useEffect(() => {
+    changeTheme()
+  }, [changeTheme])
 
   //
   // Handle system theme change events
   //
   const handleChange = useCallback(() => {
-    setDarkMode(getDarkMode())
+    setIsDarkMode(getDarkMode())
   }, [])
 
   useEffect(() => {
-    if (!isClient || process.env.NODE_ENV === 'test') return
+    if (!isClient) return
 
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
@@ -58,5 +80,5 @@ export default function useDarkMode(): {
         .removeEventListener('change', handleChange)
   }, [handleChange])
 
-  return { value: darkMode, toggle: toggleDarkMode }
+  return { isDarkMode, setIsDarkMode, themeColor }
 }

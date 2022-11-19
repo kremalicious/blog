@@ -3,20 +3,15 @@ import { graphql, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import Tag from '../components/atoms/Tag'
 import * as styles from './tags.module.css'
-import { SeoPost } from '../components/atoms/SEO'
+import HeadMeta, { HeadMetaProps } from '../components/atoms/HeadMeta'
 
-const page: SeoPost = {
-  frontmatter: {
-    title: 'Tags',
-    description: 'All the tags being used.'
-  }
+const meta: Partial<HeadMetaProps> = {
+  title: 'Tags',
+  description: 'All the tags being used.'
 }
 
-const TagsPage = ({
-  location,
-  data
-}: PageProps<Queries.TagsPageQuery>): ReactElement => (
-  <Page title={page.frontmatter.title} post={page} pathname={location.pathname}>
+const TagsPage = ({ data }: PageProps<Queries.TagsPageQuery>): ReactElement => (
+  <Page title={meta.title}>
     <ul className={styles.tags}>
       {Array.from(data.allMarkdownRemark.group)
         .sort((a, b) => b.totalCount - a.totalCount)
@@ -35,6 +30,10 @@ const TagsPage = ({
 )
 
 export default TagsPage
+
+export function Head(props: PageProps) {
+  return <HeadMeta {...meta} slug={props.location.pathname} />
+}
 
 export const tagsPageQuery = graphql`
   query TagsPage {

@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react'
-import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Exif from '../../atoms/Exif'
-import SEO from '../../atoms/SEO'
 import RelatedPosts from '../../molecules/RelatedPosts'
 import PostTitle from './Title'
 import PostLead from './Lead'
@@ -13,6 +11,10 @@ import PostMeta from './Meta'
 import PrevNext from './PrevNext'
 import * as styles from './index.module.css'
 import { Image } from '../../atoms/Image'
+import HeadMeta from '../../atoms/HeadMeta'
+import { PageContext } from '../../../@types/Post'
+import SchemaOrg from '../../atoms/HeadMeta/schemaOrg'
+import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 
 export default function Post({
   data,
@@ -25,17 +27,11 @@ export default function Post({
   }
 }): ReactElement {
   const { post } = data
-  const { title, image, linkurl, style, tags, updated } = post.frontmatter
+  const { title, image, linkurl, tags, updated } = post.frontmatter
   const { slug, githubLink, date, type } = post.fields
 
   return (
     <>
-      <Helmet title={title}>
-        {style && <link rel="stylesheet" href={style.publicURL} />}
-      </Helmet>
-
-      <SEO slug={slug} post={post} />
-
       <article className={styles.hentry}>
         <header>
           <PostTitle
@@ -74,6 +70,43 @@ export default function Post({
 
       <PrevNext prev={prev} next={next} />
     </>
+  )
+}
+
+export function Head({
+  pageContext,
+  data
+}: {
+  pageContext: PageContext
+  data: Queries.BlogPostBySlugQuery
+}): ReactElement {
+  const { siteUrl } = useSiteMetadata()
+  const { excerpt, rawMarkdownBody } = data.post
+  const { title, image, style, updated } = data.post.frontmatter
+  const { date } = data.post.fields
+  const description = excerpt || rawMarkdownBody
+
+  return (
+    <HeadMeta
+      title={title}
+      description={description}
+      slug={pageContext.slug}
+      image={image}
+    >
+      <>
+        <SchemaOrg
+          post={{
+            title,
+            description,
+            image,
+            url: `${siteUrl}${pageContext.slug}`,
+            datePublished: date,
+            dateModified: updated
+          }}
+        />
+        {style && <link rel="stylesheet" href={style.publicURL} />}
+      </>
+    </HeadMeta>
   )
 }
 

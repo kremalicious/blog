@@ -125,15 +125,6 @@ h6 {
   transition: color 0.2s ease-out;
 }
 
-.wf-loading h1,
-.wf-loading h2,
-.wf-loading h3,
-.wf-loading h4,
-.wf-loading h5,
-.wf-loading h6 {
-  font-weight: 600;
-}
-
 h1 .anchor.before,
 h2 .anchor.before,
 h3 .anchor.before,
@@ -349,9 +340,6 @@ td {
 }
 
 #___gatsby {
-  /* // display: flex;
-  // min-height: 100vh;
-  // flex-direction: column; */
   position: relative;
 }
 

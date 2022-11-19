@@ -85,10 +85,7 @@ const config: GatsbyConfig = {
                 parentSelector: { 'body.dark': 'Nord' }
               },
               injectStyles: false,
-              extensions: [
-                'nord-visual-studio-code',
-                `${__dirname}/vendor/polar-0.0.6.vsix`
-              ],
+              extensions: ['nord-visual-studio-code', 'polar'],
               languageAliases: {}
             }
           }
@@ -217,7 +214,6 @@ const config: GatsbyConfig = {
         excludes: ['/archive', '/archive/**/*', '/thanks', '/tags']
       }
     },
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',

@@ -2,28 +2,27 @@ import React, { ReactElement } from 'react'
 import { Link, PageProps } from 'gatsby'
 import Page from '../components/templates/Page'
 import * as styles from './404.module.css'
-import { SeoPost } from '../components/atoms/SEO'
+import HeadMeta, { HeadMetaProps } from '../components/atoms/HeadMeta'
 
-const page: SeoPost = {
-  frontmatter: {
-    title: '404 - Not Found'
-  }
+const meta: Partial<HeadMetaProps> = {
+  title: `I'm sorry Dave`,
+  description: `I'm afraid I can't do that`
 }
 
-const NotFound = (props: PageProps): ReactElement => (
-  <Page
-    title={page.frontmatter?.title}
-    post={page}
-    pathname={props.location.pathname}
-  >
+const NotFound = (): ReactElement => (
+  <Page title={meta.title}>
     <div className={styles.hal9000} />
 
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>{"I'm sorry Dave"}</h1>{' '}
-      <p className={styles.text}>{"I'm afraid I can't do that"}</p>
+      <h1 className={styles.title}>{meta.title}</h1>{' '}
+      <p className={styles.text}>{meta.description}</p>
       <Link to={'/'}>Back to homepage</Link>
     </div>
   </Page>
 )
 
 export default NotFound
+
+export function Head(props: PageProps) {
+  return <HeadMeta {...meta} slug={props.location.pathname} />
+}

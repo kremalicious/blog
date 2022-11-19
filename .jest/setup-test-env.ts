@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
+import './__mocks__/matchMedia'
 
 import * as Gatsby from 'gatsby'
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')

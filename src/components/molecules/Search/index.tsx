@@ -1,5 +1,4 @@
 import React, { useState, useEffect, ReactElement } from 'react'
-import { Helmet } from 'react-helmet'
 import { CSSTransition } from 'react-transition-group'
 import SearchInput from './SearchInput'
 import SearchButton from './SearchButton'
@@ -26,6 +25,14 @@ export default function Search(): ReactElement {
     )
   }, [query])
 
+  useEffect(() => {
+    if (searchOpen) {
+      document.body.classList.add('hasSearchOpen')
+    } else {
+      document.body.classList.remove('hasSearchOpen')
+    }
+  }, [searchOpen])
+
   function toggleSearch(): void {
     setSearchOpen(!searchOpen)
   }
@@ -36,10 +43,6 @@ export default function Search(): ReactElement {
 
       {searchOpen && (
         <>
-          <Helmet>
-            <html className="hasSearchOpen" lang="en" />
-          </Helmet>
-
           <CSSTransition
             appear={searchOpen}
             in={searchOpen}

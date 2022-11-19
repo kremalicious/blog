@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby'
 import React, { ReactElement } from 'react'
-import SEO from '../components/atoms/SEO'
+import HeadMeta from '../components/atoms/HeadMeta'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
 import PostMore from '../components/templates/Post/More'
@@ -11,7 +11,6 @@ export default function Home(
 ): ReactElement {
   return (
     <>
-      <SEO />
       <section className={styles.section}>
         <div className={styles.articles}>
           {props.data.latestArticles.edges.slice(0, 2).map(({ node }) => (
@@ -38,6 +37,10 @@ export default function Home(
       </section>
     </>
   )
+}
+
+export function Head() {
+  return <HeadMeta slug="/" />
 }
 
 export const homeQuery = graphql`
