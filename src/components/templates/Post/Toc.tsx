@@ -8,6 +8,7 @@ const PostToc = ({
 }): ReactElement => {
   return (
     <nav
+      aria-label="Table of Contents"
       className={styles.toc}
       dangerouslySetInnerHTML={{ __html: tableOfContents }}
     />

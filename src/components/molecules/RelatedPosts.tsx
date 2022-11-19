@@ -79,7 +79,7 @@ export default function RelatedPosts({
   }
 
   return (
-    <aside className={styles.relatedPosts}>
+    <section className={styles.relatedPosts}>
       <h1 className={styles.title}>
         Related {isPhotos ? 'Photos' : 'Posts'}{' '}
         <button className={styles.button} onClick={() => refreshPosts()}>
@@ -97,6 +97,6 @@ export default function RelatedPosts({
           </li>
         ))}
       </ul>
-    </aside>
+    </section>
   )
 }

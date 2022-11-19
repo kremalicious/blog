@@ -24,10 +24,6 @@
 ///////////////////////////////////// */
 
 .title {
-  margin: 0;
-}
-
-.title a {
   display: block;
   /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font: 0/0 a;
@@ -40,13 +36,13 @@
 }
 
 @media (min-width: 40rem) {
-  .title a {
+  .title {
     width: 212px;
   }
 }
 
-.title a:hover svg,
-.title a:focus svg {
+.title:hover svg,
+.title:focus svg {
   fill: var(--link-color);
 }
 

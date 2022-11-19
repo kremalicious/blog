@@ -1,9 +1,6 @@
 import fs from 'fs'
-import util from 'util'
 import path from 'path'
 import config from '../config'
-
-const writeFile = util.promisify(fs.writeFile)
 
 const feedContent = (
   edge: Queries.AllContentFeedQuery['allMarkdownRemark']['edges'][0]
@@ -63,14 +60,15 @@ const generateJsonFeed = async (
 ) => {
   if (!posts) return
 
-  await writeFile(
-    path.join('./public', 'feed.json'),
-    JSON.stringify(await createJsonFeed(posts)),
-    'utf8'
-  ).catch((err) => {
-    throw Error('\nFailed to write JSON Feed file: ', err)
-  })
-
+  try {
+    fs.writeFileSync(
+      path.join('./public', 'feed.json'),
+      JSON.stringify(await createJsonFeed(posts)),
+      'utf8'
+    )
+  } catch (error) {
+    throw Error('\nFailed to write JSON Feed file: ', error)
+  }
   console.log('\nsuccess Generating JSON feed')
 }
 

@@ -7,7 +7,7 @@ export default function ThemeSwitch(): ReactElement {
   const { isDarkMode, setIsDarkMode } = useDarkMode()
 
   return (
-    <aside className={styles.themeSwitch} title="Toggle Dark Mode">
+    <div className={styles.themeSwitch} title="Toggle Dark Mode">
       <label
         htmlFor="toggle"
         className={styles.checkbox}
@@ -28,6 +28,6 @@ export default function ThemeSwitch(): ReactElement {
           {isDarkMode ? <Icon name="Sun" /> : <Icon name="Moon" />}
         </div>
       </label>
-    </aside>
+    </div>
   )
 }

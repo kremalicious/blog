@@ -11,14 +11,14 @@ const PostLinkActions = ({
   linkurl?: string
   slug: string
 }): ReactElement => (
-  <aside className={styles.postLinkActions}>
+  <div className={styles.postLinkActions}>
     <a className={stylesMore.postMore} href={linkurl}>
       Go to source <Icon name="ExternalLink" />
     </a>
     <Link to={slug} rel="tooltip" title="Permalink">
       <Icon name="Link" />
     </Link>
-  </aside>
+  </div>
 )
 
 export default PostLinkActions

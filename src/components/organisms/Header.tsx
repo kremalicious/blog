@@ -10,13 +10,11 @@ export default function Header(): JSX.Element {
   return (
     <header role="banner" className={styles.header}>
       <div className={styles.headerContent}>
-        <h1 className={styles.title}>
-          <Link to="/">
-            <Logo className={styles.logo} /> kremalicious
-          </Link>
-        </h1>
+        <Link to="/" className={styles.title}>
+          <Logo className={styles.logo} /> kremalicious
+        </Link>
 
-        <nav role="navigation" className={styles.nav}>
+        <nav aria-label="Menu" className={styles.nav}>
           <ThemeSwitch />
           <Search />
           <Menu />

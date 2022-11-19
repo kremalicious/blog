@@ -1,12 +1,9 @@
 import fs from 'fs'
-import util from 'util'
 import fastExif from 'fast-exif'
 import Fraction from 'fraction.js'
 import getCoordinates from 'dms2dec'
 import iptc from 'node-iptc'
 import type { Actions, NodePluginArgs, Node } from 'gatsby'
-
-const readFile = util.promisify(fs.readFile)
 
 export const createExif = async (
   node: Node,
@@ -19,7 +16,7 @@ export const createExif = async (
     if (!exifData) return
 
     // iptc
-    const file = await readFile(node.absolutePath as string)
+    const file = fs.readFileSync(node.absolutePath as string)
     const iptcData = iptc(file)
 
     createNodes(exifData, iptcData, node, actions, createNodeId)

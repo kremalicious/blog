@@ -32,7 +32,7 @@ export default function PostActions({
   const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
 
   return (
-    <aside className={styles.actions}>
+    <section className={styles.actions}>
       <Action
         title="Have a comment?"
         text="Hit me up @kremalicious"
@@ -51,6 +51,6 @@ export default function PostActions({
         url={githubLink}
         icon="GitHub"
       />
-    </aside>
+    </section>
   )
 }

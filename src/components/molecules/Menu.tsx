@@ -31,7 +31,7 @@ export default function Menu(): ReactElement {
   return (
     <>
       <Hamburger onClick={toggleMenu} />
-      <nav className={styles.menu}>
+      <nav aria-label="Pages" className={styles.menu}>
         <ul>{MenuItems}</ul>
       </nav>
     </>
