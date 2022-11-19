@@ -23,7 +23,9 @@ const esModules = [
   'escape-string-regexp',
   'markdown-table',
   'web-namespaces',
-  '@rainbow-me/rainbowkit'
+  '@rainbow-me/rainbowkit',
+  'wagmi',
+  '@wagmi/core'
 ].join('|')
 
 module.exports = {

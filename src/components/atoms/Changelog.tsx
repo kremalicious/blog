@@ -21,13 +21,11 @@ export function PureChangelog({
 }): ReactElement | null {
   const [changelogHtml, setChangelogHtml] = useState()
 
-  const repoFilteredArray = repos
+  const repoMatch = repos
     .map(({ node }) => {
       if (node.name === repo) return node
     })
-    .filter((n: any) => n)
-
-  const repoMatch = repoFilteredArray[0]
+    .filter((n: any) => n)[0]
 
   useEffect(() => {
     if (!(repoMatch?.object as Queries.GitHub_Blob)?.text) return

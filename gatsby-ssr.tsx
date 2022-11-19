@@ -7,6 +7,8 @@ export const wrapPageElement: GatsbySSR['wrapPageElement'] =
   wrapPageElementWithLayout
 
 export const onRenderBody = ({ setPostBodyComponents, setHtmlAttributes }) => {
+  setHtmlAttributes({ lang: 'en' })
+
   const isEnabled = process.env.NODE_ENV === 'production'
 
   if (!isEnabled) {
@@ -18,7 +20,6 @@ export const onRenderBody = ({ setPostBodyComponents, setHtmlAttributes }) => {
     'data-website-id': UMAMI_WEBSITE_ID
   }
 
-  setHtmlAttributes({ lang: 'en' })
   setPostBodyComponents([
     <script key="umami-script" async defer {...umamiOptions} />
   ])
