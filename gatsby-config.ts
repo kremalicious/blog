@@ -1,17 +1,4 @@
 import type { GatsbyConfig } from 'gatsby'
-import * as dotenv from 'dotenv'
-
-dotenv.config()
-
-if (!process.env.GITHUB_TOKEN) {
-  // eslint-disable-next-line
-  console.warn(`
-
-      ⚠️  A GitHub token as GITHUB_TOKEN is required to build some parts of the blog.
-      ⚠️  Check the README https://github.com/kremalicious/blog#-development.
-
-  `)
-}
 
 import siteConfig from './config'
 import sources from './gatsby/sources'
