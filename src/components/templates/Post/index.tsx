@@ -13,7 +13,7 @@ import * as styles from './index.module.css'
 import { Image } from '../../atoms/Image'
 import HeadMeta from '../../atoms/HeadMeta'
 import { PageContext } from '../../../@types/Post'
-import SchemaOrg from '../../atoms/HeadMeta/schemaOrg'
+import SchemaOrg from '../../atoms/HeadMeta/SchemaOrg'
 import { useSiteMetadata } from '../../../hooks/use-site-metadata'
 
 export default function Post({
