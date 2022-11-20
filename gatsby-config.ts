@@ -20,6 +20,8 @@ import { feedContent } from './gatsby/feeds'
 // required for gatsby-plugin-meta-redirect
 import 'regenerator-runtime/runtime'
 
+//import algolia from './gatsby/algolia'
+
 const config: GatsbyConfig = {
   graphqlTypegen: {
     typesOutputPath: './src/@types/Gatsby.d.ts',
@@ -218,6 +220,7 @@ const config: GatsbyConfig = {
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect',
     'gatsby-plugin-offline'
+    // { ...algolia }
   ]
 }
 
