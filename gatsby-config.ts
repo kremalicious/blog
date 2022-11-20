@@ -205,8 +205,7 @@ const config: GatsbyConfig = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-redirect-from',
-    'gatsby-plugin-meta-redirect',
-    'gatsby-plugin-offline'
+    'gatsby-plugin-meta-redirect'
     // { ...algolia }
   ]
 }
