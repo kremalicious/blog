@@ -22,7 +22,7 @@ import {
   Aperture,
   Maximize,
   Crosshair
-} from '@kremalicious/react-feather'
+} from 'react-feather'
 // custom icons
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'

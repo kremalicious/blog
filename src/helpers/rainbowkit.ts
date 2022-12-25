@@ -1,10 +1,11 @@
 import { getDefaultWallets, Theme } from '@rainbow-me/rainbowkit'
-import { chain, createClient, configureChains } from 'wagmi'
+import { createClient, configureChains } from 'wagmi'
+import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 
 export const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [mainnet, polygon, optimism, arbitrum],
   [infuraProvider({ apiKey: process.env.GATSBY_INFURA_ID }), publicProvider()]
 )
 

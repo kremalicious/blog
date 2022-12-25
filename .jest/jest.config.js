@@ -25,7 +25,9 @@ const esModules = [
   'web-namespaces',
   '@rainbow-me/rainbowkit',
   'wagmi',
-  '@wagmi/core'
+  '@wagmi/chains',
+  '@wagmi/core',
+  '@wagmi/connectors'
 ].join('|')
 
 module.exports = {
