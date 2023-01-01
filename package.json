@@ -71,7 +71,7 @@
     "slugify": "^1.6.5",
     "unified": "^10.1.2",
     "use-debounce": "^9.0.2",
-    "wagmi": "^0.9.5"
+    "wagmi": "^0.9.6"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
