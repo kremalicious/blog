@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.8.1",
-    "axios": "^1.2.1",
+    "axios": "^1.2.2",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "dms2dec": "^1.1.0",
