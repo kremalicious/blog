@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getSrc, ImageDataLike } from 'gatsby-plugin-image'
-import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 import useDarkMode from '../../../hooks/useDarkMode'
 
 const query = graphql`

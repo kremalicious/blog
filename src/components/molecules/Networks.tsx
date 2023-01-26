@@ -5,7 +5,9 @@ import * as styles from './Networks.module.css'
 function NetworkIcon({ link }: { link: string }) {
   let IconComp
 
-  if (link.includes('twitter')) {
+  if (link.includes('mas.to')) {
+    IconComp = <Icon name="Mastodon" />
+  } else if (link.includes('twitter')) {
     IconComp = <Icon name="Twitter" />
   } else if (link.includes('github')) {
     IconComp = <Icon name="GitHub" />
@@ -28,7 +30,7 @@ export default function IconLinks({
   return (
     <p>
       {links.map((link: string) => (
-        <a key={link} className={styles.link} href={link} title={link}>
+        <a key={link} className={styles.link} href={link} title={link} rel="me">
           <NetworkIcon link={link} />
         </a>
       ))}

@@ -14,7 +14,7 @@ import { Image } from '../../atoms/Image'
 import HeadMeta from '../../atoms/HeadMeta'
 import { PageContext } from '../../../@types/Post'
 import SchemaOrg from '../../atoms/HeadMeta/SchemaOrg'
-import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 
 export default function Post({
   data,
@@ -63,7 +63,7 @@ export default function Post({
 
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
         <PostMeta post={post} />
-        <PostActions slug={slug} githubLink={githubLink} />
+        <PostActions githubLink={githubLink} />
       </article>
 
       <RelatedPosts isPhotos={type === 'photo'} tags={tags as string[]} />

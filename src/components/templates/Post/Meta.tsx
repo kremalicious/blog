@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
 import Tag from '../../atoms/Tag'
-import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 import * as styles from './Meta.module.css'
 import PostDate from '../../molecules/PostDate'
 

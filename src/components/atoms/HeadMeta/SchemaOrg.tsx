@@ -1,6 +1,6 @@
 import { ImageDataLike } from 'gatsby-plugin-image'
 import React, { ReactElement } from 'react'
-import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 
 type SchemaOrgProps = {
   post?: {

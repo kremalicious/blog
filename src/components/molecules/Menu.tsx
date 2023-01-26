@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import Hamburger from '../atoms/Hamburger'
 import * as styles from './Menu.module.css'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 
 export default function Menu(): ReactElement {
   const [menuOpen, setMenuOpen] = useState(false)

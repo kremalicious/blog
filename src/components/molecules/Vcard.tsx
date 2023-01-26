@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
 import IconLinks from './Networks'
 import * as styles from './Vcard.module.css'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 
 const query = graphql`
   query Avatar {
@@ -27,9 +27,9 @@ const query = graphql`
 export default function Vcard(): ReactElement {
   const data = useStaticQuery<Queries.AvatarQuery>(query)
   const { author, rss, jsonfeed } = useSiteMetadata()
-  const { twitter, github, name, uri } = author
+  const { mastodon, twitter, github, name, uri } = author
   const avatar = getSrc(data.avatar.edges[0].node)
-  const links = [twitter, github, rss, jsonfeed]
+  const links = [mastodon, github, twitter, rss, jsonfeed]
 
   return (
     <>

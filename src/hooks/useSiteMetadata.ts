@@ -13,6 +13,7 @@ const query = graphql`
           email
           uri
           twitter
+          mastodon
           github
           bitcoin
           ether

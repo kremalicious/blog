@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { useSiteMetadata } from '../hooks/use-site-metadata'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import Icon from '../components/atoms/Icon'
 import * as styles from './thanks.module.css'
 import Web3Donation from '../components/molecules/Web3Donation'

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { useSiteMetadata } from '../../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 import * as styles from './Actions.module.css'
 import Icon from '../../atoms/Icon'
 
@@ -22,22 +22,19 @@ const Action = ({ title, text, url, icon, onClick }: ActionProps) => {
 }
 
 export default function PostActions({
-  slug,
   githubLink
 }: {
-  slug: string
   githubLink: string
 }): ReactElement {
-  const { siteUrl } = useSiteMetadata()
-  const urlTwitter = `https://twitter.com/intent/tweet?text=@kremalicious&url=${siteUrl}${slug}`
+  const { author } = useSiteMetadata()
 
   return (
     <section className={styles.actions}>
       <Action
         title="Have a comment?"
-        text="Hit me up @kremalicious"
-        url={urlTwitter}
-        icon="Twitter"
+        text="Hit me up @krema@mas.to"
+        url={author.mastodon}
+        icon="Mastodon"
       />
       <Action
         title="Found something useful?"

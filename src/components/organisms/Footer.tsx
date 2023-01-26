@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Icon from '../atoms/Icon'
 import Vcard from '../molecules/Vcard'
-import { useSiteMetadata } from '../../hooks/use-site-metadata'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import * as styles from './Footer.module.css'
 
 function Copyright() {

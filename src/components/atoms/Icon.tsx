@@ -27,6 +27,7 @@ import {
 import { ReactComponent as Jsonfeed } from '../../images/jsonfeed.svg'
 import { ReactComponent as Bitcoin } from '../../images/bitcoin.svg'
 import { ReactComponent as Stopwatch } from '../../images/stopwatch.svg'
+import { ReactComponent as Mastodon } from '../../images/mastodon.svg'
 import * as styles from './Icon.module.css'
 
 const components: {
@@ -54,7 +55,8 @@ const components: {
   Camera,
   Aperture,
   Maximize,
-  Crosshair
+  Crosshair,
+  Mastodon
 }
 
 const Icon = ({ name, ...props }: { name: string }): ReactElement => {
