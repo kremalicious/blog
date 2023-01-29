@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
-import * as styles from './Actions.module.css'
 import Icon from '../../atoms/Icon'
+import * as styles from './Actions.module.css'
 
 interface ActionProps {
   title: string

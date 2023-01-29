@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getSrc } from 'gatsby-plugin-image'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import IconLinks from './Networks'
 import * as styles from './Vcard.module.css'
-import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 
 const query = graphql`
   query Avatar {

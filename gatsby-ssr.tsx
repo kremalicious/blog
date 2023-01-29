@@ -1,7 +1,7 @@
 import React from 'react'
 import { GatsbySSR } from 'gatsby'
-import wrapPageElementWithLayout from './src/helpers/wrapPageElement'
 import { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } from './src/helpers/umami'
+import wrapPageElementWithLayout from './src/helpers/wrapPageElement'
 
 export const wrapPageElement: GatsbySSR['wrapPageElement'] =
   wrapPageElementWithLayout

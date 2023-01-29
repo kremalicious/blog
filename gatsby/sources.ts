@@ -1,5 +1,5 @@
-import path from 'path'
 import * as dotenv from 'dotenv'
+import path from 'path'
 
 dotenv.config()
 

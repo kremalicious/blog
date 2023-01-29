@@ -1,9 +1,9 @@
+import fastExif from 'fast-exif'
 import fs from 'fs-extra'
+import iptc from 'node-iptc'
+import ora from 'ora'
 import path from 'path'
 import slugify from 'slugify'
-import ora from 'ora'
-import fastExif from 'fast-exif'
-import iptc from 'node-iptc'
 
 const templatePath = path.join(__dirname, 'new-article.md')
 const templatePathPhoto = path.join(__dirname, 'new-photo.md')

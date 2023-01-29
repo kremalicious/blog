@@ -1,11 +1,11 @@
 import React, { ReactElement, useState } from 'react'
 import { parseEther } from '@ethersproject/units'
-import { useDebounce } from 'use-debounce'
-import InputGroup from './InputGroup'
-import Alert, { getTransactionMessage } from './Alert'
-import * as styles from './index.module.css'
-import { useSendTransaction, usePrepareSendTransaction } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { useDebounce } from 'use-debounce'
+import { usePrepareSendTransaction, useSendTransaction } from 'wagmi'
+import Alert, { getTransactionMessage } from './Alert'
+import InputGroup from './InputGroup'
+import * as styles from './index.module.css'
 
 export default function Web3Donation({
   address

@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
 import { graphql } from 'gatsby'
 import { PageContext } from '../../@types/Post'
+import HeadMeta, { HeadMetaProps } from '../atoms/HeadMeta'
 import Pagination from '../molecules/Pagination'
 import PostTeaser from '../molecules/PostTeaser'
-import Page from './Page'
 import * as styles from './Archive.module.css'
-import HeadMeta, { HeadMetaProps } from '../atoms/HeadMeta'
+import Page from './Page'
 
 function getMetadata(pageContext: PageContext) {
   const { tag, currentPageNumber, numPages } = pageContext

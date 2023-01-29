@@ -1,8 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import Archive from './Archive'
 import data from '../../../.jest/__fixtures__/posts.json'
+import Archive from './Archive'
 
 describe('Archive', () => {
   const pageContext = {

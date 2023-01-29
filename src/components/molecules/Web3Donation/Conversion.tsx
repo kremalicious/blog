@@ -1,7 +1,7 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import axios from 'axios'
-import * as styles from './Conversion.module.css'
 import { useNetwork } from 'wagmi'
+import * as styles from './Conversion.module.css'
 
 export async function getFiat(
   amount: number,

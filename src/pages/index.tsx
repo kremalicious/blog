@@ -1,5 +1,5 @@
-import { graphql, PageProps } from 'gatsby'
 import React, { ReactElement } from 'react'
+import { PageProps, graphql } from 'gatsby'
 import HeadMeta from '../components/atoms/HeadMeta'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'

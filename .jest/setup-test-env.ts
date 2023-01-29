@@ -1,12 +1,12 @@
+import * as Gatsby from 'gatsby'
 import '@testing-library/jest-dom/extend-expect'
+import avatar from './__fixtures__/avatar.json'
+import github from './__fixtures__/github.json'
+import meta from './__fixtures__/meta.json'
+import posts from './__fixtures__/posts.json'
 import './__mocks__/matchMedia'
 
-import * as Gatsby from 'gatsby'
 const useStaticQuery = jest.spyOn(Gatsby, 'useStaticQuery')
-import meta from './__fixtures__/meta.json'
-import avatar from './__fixtures__/avatar.json'
-import posts from './__fixtures__/posts.json'
-import github from './__fixtures__/github.json'
 
 beforeAll(() => {
   useStaticQuery.mockImplementation(() => ({

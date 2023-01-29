@@ -1,7 +1,7 @@
-import { parse } from 'path'
-import { createFilePath } from 'gatsby-source-filesystem'
-import config from '../config'
 import { Actions, Node, NodePluginArgs } from 'gatsby'
+import { createFilePath } from 'gatsby-source-filesystem'
+import { parse } from 'path'
+import config from '../config'
 
 // Create slug, date & github file link for posts from file path values
 export function createMarkdownFields(

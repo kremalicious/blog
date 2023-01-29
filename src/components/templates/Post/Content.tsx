@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import Changelog from '../../atoms/Changelog'
-import PostToc from './Toc'
 import * as styles from './Content.module.css'
+import PostToc from './Toc'
 
 export default function PostContent({
   post

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import * as styles from './SearchButton.module.css'
 import Icon from '../../atoms/Icon'
+import * as styles from './SearchButton.module.css'
 
 const SearchButton = ({ onClick }: { onClick: () => void }): ReactElement => (
   <button

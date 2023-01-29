@@ -3,11 +3,11 @@
 // https://github.com/daveschumaker/react-dark-mode-hook/blob/master/useDarkMode.js
 //
 import {
-  useState,
-  useEffect,
-  useCallback,
   Dispatch,
-  SetStateAction
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState
 } from 'react'
 
 const isClient = typeof window === 'object'

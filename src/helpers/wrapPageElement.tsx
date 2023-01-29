@@ -1,5 +1,5 @@
-import type { GatsbyBrowser, GatsbySSR } from 'gatsby'
 import React, { ReactElement } from 'react'
+import type { GatsbyBrowser, GatsbySSR } from 'gatsby'
 import Layout from '../components/Layout'
 
 const wrapPageElement:

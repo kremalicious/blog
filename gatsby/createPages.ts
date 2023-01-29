@@ -1,6 +1,6 @@
+import { Actions } from 'gatsby'
 import path from 'path'
 import config from '../config'
-import { Actions } from 'gatsby'
 
 const postTemplate = path.resolve('src/components/templates/Post/index.tsx')
 const archiveTemplate = path.resolve('src/components/templates/Archive.tsx')

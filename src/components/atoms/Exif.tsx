@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import ExifMap from './ExifMap'
 import * as styles from './Exif.module.css'
+import ExifMap from './ExifMap'
 import Icon from './Icon'
 
 const ExifData = ({

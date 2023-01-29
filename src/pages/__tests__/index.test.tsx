@@ -1,8 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
-import Home from '../index'
 import data from '../../../.jest/__fixtures__/home.json'
+import Home from '../index'
 
 describe('/', () => {
   it('renders without crashing', () => {

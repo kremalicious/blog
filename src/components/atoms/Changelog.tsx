@@ -1,15 +1,15 @@
 import React, {
+  Fragment,
   ReactElement,
-  useEffect,
-  useState,
   createElement,
-  Fragment
+  useEffect,
+  useState
 } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { unified } from 'unified'
+import rehypeReact from 'rehype-react'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeReact from 'rehype-react'
+import { unified } from 'unified'
 import * as styles from './Changelog.module.css'
 
 export function PureChangelog({

@@ -1,11 +1,9 @@
 import type { GatsbyConfig } from 'gatsby'
-
-import siteConfig from './config'
-import sources from './gatsby/sources'
-import { feedContent } from './gatsby/feeds'
-
 // required for gatsby-plugin-meta-redirect
 import 'regenerator-runtime/runtime'
+import siteConfig from './config'
+import { feedContent } from './gatsby/feeds'
+import sources from './gatsby/sources'
 
 //import algolia from './gatsby/algolia'
 

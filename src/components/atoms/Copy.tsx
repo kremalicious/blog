@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
+import Clipboard from 'react-clipboard.js'
 import * as styles from './Copy.module.css'
 import Icon from './Icon'
-import Clipboard from 'react-clipboard.js'
 
 const onCopySuccess = (e: any) => {
   e.trigger.classList.add(styles.copied)

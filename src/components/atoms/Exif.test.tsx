@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-
 import Exif from './Exif'
 
 const exif: Partial<Queries.ImageExif> = {

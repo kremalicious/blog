@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
-import * as styles from './Title.module.css'
 import Icon from '../../atoms/Icon'
 import PostDate from '../../molecules/PostDate'
+import * as styles from './Title.module.css'
 
 export default function PostTitle({
   linkurl,

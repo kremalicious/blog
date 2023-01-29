@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
-import ReactDOM from 'react-dom'
 import { graphql, useStaticQuery } from 'gatsby'
+import ReactDOM from 'react-dom'
 import PostTeaser from '../PostTeaser'
-import SearchResultsEmpty from './SearchResultsEmpty'
 import * as styles from './SearchResults.module.css'
+import SearchResultsEmpty from './SearchResultsEmpty'
 
 export interface Results {
   slug: string

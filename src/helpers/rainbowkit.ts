@@ -1,6 +1,6 @@
-import { getDefaultWallets, Theme } from '@rainbow-me/rainbowkit'
-import { createClient, configureChains } from 'wagmi'
-import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains'
+import { Theme, getDefaultWallets } from '@rainbow-me/rainbowkit'
+import { configureChains, createClient } from 'wagmi'
+import { arbitrum, mainnet, optimism, polygon } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 

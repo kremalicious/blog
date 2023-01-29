@@ -1,14 +1,14 @@
 import React, { ReactElement } from 'react'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
-import Icon from '../components/atoms/Icon'
-import * as styles from './thanks.module.css'
-import Web3Donation from '../components/molecules/Web3Donation'
-import Copy from '../components/atoms/Copy'
+import { HeadProps } from 'gatsby'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
-import { chains, theme, wagmiClient } from '../helpers/rainbowkit'
+import Copy from '../components/atoms/Copy'
 import Meta, { HeadMetaProps } from '../components/atoms/HeadMeta'
-import { HeadProps } from 'gatsby'
+import Icon from '../components/atoms/Icon'
+import Web3Donation from '../components/molecules/Web3Donation'
+import { chains, theme, wagmiClient } from '../helpers/rainbowkit'
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import * as styles from './thanks.module.css'
 
 const meta: Partial<HeadMetaProps> = {
   title: `Say Thanks`

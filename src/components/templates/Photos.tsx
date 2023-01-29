@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
-import { graphql, Link, PageProps } from 'gatsby'
+import { Link, PageProps, graphql } from 'gatsby'
 import { PageContext } from '../../@types/Post'
+import HeadMeta, { HeadMetaProps } from '../atoms/HeadMeta'
 import { Image } from '../atoms/Image'
 import Pagination from '../molecules/Pagination'
 import Page from './Page'
 import * as styles from './Photos.module.css'
-import HeadMeta, { HeadMetaProps } from '../atoms/HeadMeta'
 
 export const PhotoThumb = ({
   photo

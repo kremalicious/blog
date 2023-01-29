@@ -1,10 +1,10 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
-import SearchInput from './SearchInput'
+import { getAnimationProps, moveInTop } from '../../atoms/Transitions'
 import SearchButton from './SearchButton'
+import SearchInput from './SearchInput'
 import SearchResults from './SearchResults'
 import * as styles from './index.module.css'
-import { getAnimationProps, moveInTop } from '../../atoms/Transitions'
 
 export default function Search(): ReactElement {
   const shouldReduceMotion = useReducedMotion()

@@ -1,5 +1,5 @@
-import { Script } from 'gatsby'
 import React from 'react'
+import { Script } from 'gatsby'
 
 const script = `
   (function(d) {

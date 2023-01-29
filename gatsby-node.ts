@@ -1,14 +1,14 @@
-import { createMarkdownFields } from './gatsby/createMarkdownFields'
+import type { GatsbyNode } from 'gatsby'
 import { createExif } from './gatsby/createExif'
+import { createMarkdownFields } from './gatsby/createMarkdownFields'
 import {
-  generatePostPages,
-  generateTagPages,
-  generateRedirectPages,
   generateArchivePages,
-  generatePhotosPages
+  generatePhotosPages,
+  generatePostPages,
+  generateRedirectPages,
+  generateTagPages
 } from './gatsby/createPages'
 import { generateJsonFeed } from './gatsby/feeds'
-import type { GatsbyNode } from 'gatsby'
 
 export const onCreateNode: GatsbyNode['onCreateNode'] = ({
   node,

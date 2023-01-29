@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { PhotoThumb } from '../templates/Photos'
 import PostTeaser from './PostTeaser'
 import * as styles from './RelatedPosts.module.css'
-import { PhotoThumb } from '../templates/Photos'
 
 const query = graphql`
   query RelatedPosts {

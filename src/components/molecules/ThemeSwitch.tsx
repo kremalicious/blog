@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
-import * as styles from './ThemeSwitch.module.css'
-import Icon from '../atoms/Icon'
 import useDarkMode from '../../hooks/useDarkMode'
+import Icon from '../atoms/Icon'
+import * as styles from './ThemeSwitch.module.css'
 
 export default function ThemeSwitch(): ReactElement {
   const { isDarkMode, setIsDarkMode } = useDarkMode()

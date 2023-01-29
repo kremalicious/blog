@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react'
 import { ReactElement } from 'react'
+import { render } from '@testing-library/react'
 
 const testRender = (component: ReactElement): void => {
   it('renders without crashing', () => {

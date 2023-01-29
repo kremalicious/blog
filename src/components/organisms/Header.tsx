@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Search from '../molecules/Search'
-import Menu from '../molecules/Menu'
-import ThemeSwitch from '../molecules/ThemeSwitch'
 import { ReactComponent as Logo } from '../../images/logo.svg'
+import Menu from '../molecules/Menu'
+import Search from '../molecules/Search'
+import ThemeSwitch from '../molecules/ThemeSwitch'
 import * as styles from './Header.module.css'
 
 export default function Header(): JSX.Element {

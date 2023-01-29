@@ -1,6 +1,6 @@
 import React, { ChangeEvent, ReactElement } from 'react'
-import Input from '../../atoms/Input'
 import Icon from '../../atoms/Icon'
+import Input from '../../atoms/Input'
 import * as styles from './SearchInput.module.css'
 
 export default function SearchInput({

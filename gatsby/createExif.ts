@@ -1,9 +1,9 @@
-import fs from 'fs'
+import type { Actions, Node, NodePluginArgs } from 'gatsby'
+import getCoordinates from 'dms2dec'
 import fastExif from 'fast-exif'
 import Fraction from 'fraction.js'
-import getCoordinates from 'dms2dec'
+import fs from 'fs'
 import iptc from 'node-iptc'
-import type { Actions, NodePluginArgs, Node } from 'gatsby'
 
 export const createExif = async (
   node: Node,

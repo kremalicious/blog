@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import * as styles from './SearchResultsEmpty.module.css'
 import { Results } from './SearchResults'
+import * as styles from './SearchResultsEmpty.module.css'
 
 const SearchResultsEmpty = ({
   searchQuery,

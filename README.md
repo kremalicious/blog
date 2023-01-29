@@ -143,6 +143,7 @@ All SVG assets under `src/images/` will be converted to React components with th
 
 ```jsx
 import { ReactComponent as Logo } from './components/svg/Logo'
+
 ;<Logo />
 ```
 

@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'gatsby'
 import slugify from 'slugify'
-import Tag from '../../atoms/Tag'
 import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
-import * as styles from './Meta.module.css'
+import Tag from '../../atoms/Tag'
 import PostDate from '../../molecules/PostDate'
+import * as styles from './Meta.module.css'
 
 export default function PostMeta({
   post
