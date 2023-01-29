@@ -69,7 +69,7 @@ const config: GatsbyConfig = {
             options: {
               theme: {
                 default: 'Polar',
-                parentSelector: { 'body.dark': 'Nord' }
+                parentSelector: { 'html.dark': 'Nord' }
               },
               injectStyles: false,
               extensions: ['nord-visual-studio-code', 'polar'],
