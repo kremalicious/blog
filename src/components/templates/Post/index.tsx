@@ -63,11 +63,10 @@ export default function Post({
 
         {type === 'link' && <PostLinkActions slug={slug} linkurl={linkurl} />}
         <PostMeta post={post} />
-        <PostActions githubLink={githubLink} />
+        {type !== 'photo' && <PostActions githubLink={githubLink} />}
       </article>
 
       <RelatedPosts isPhotos={type === 'photo'} tags={tags as string[]} />
-
       <PrevNext prev={prev} next={next} />
     </>
   )
