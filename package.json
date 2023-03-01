@@ -77,7 +77,7 @@
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/fs-extra": "^11.0.1",
     "@types/jest": "^29.4.0",
     "@types/lunr": "^2.3.4",
