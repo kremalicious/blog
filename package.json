@@ -57,7 +57,7 @@
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-source-graphql": "^5.7.0",
     "gatsby-transformer-remark": "^6.7.0",
-    "gatsby-transformer-sharp": "^5.7.0",
+    "gatsby-transformer-sharp": "^5.8.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
     "pigeon-maps": "^0.21.3",
     "pigeon-marker": "^0.3.4",
