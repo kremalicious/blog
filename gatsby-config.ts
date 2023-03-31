@@ -72,7 +72,10 @@ const config: GatsbyConfig = {
                 parentSelector: { 'html.dark': 'Nord' }
               },
               injectStyles: false,
-              extensions: ['nord-visual-studio-code', 'polar'],
+              extensions: [
+                'nord-visual-studio-code',
+                `${__dirname}/vendor/polar-0.0.6.vsix`
+              ],
               languageAliases: {}
             }
           }
