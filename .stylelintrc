@@ -8,7 +8,6 @@
   "syntax": "css",
   "rules": {
     "prettier/prettier": true,
-    "string-quotes": "single",
     "property-no-unknown": [
       true,
       {
@@ -26,6 +25,7 @@
     "custom-property-pattern": null,
     "selector-id-pattern": null,
     "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null
+    "value-list-comma-newline-after": null,
+    "media-feature-range-notation": "prefix"
   }
 }
