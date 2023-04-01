@@ -1,6 +1,6 @@
 import type { Actions, Node, NodePluginArgs } from 'gatsby'
 import getCoordinates from 'dms2dec'
-import fastExif from 'fast-exif'
+import { read } from 'fast-exif'
 import Fraction from 'fraction.js'
 import fs from 'fs'
 import iptc from 'node-iptc'
@@ -10,9 +10,14 @@ export const createExif = async (
   actions: Actions,
   createNodeId: NodePluginArgs['createNodeId']
 ) => {
+  if (!node?.absolutePath) return
+
   try {
     // exif
-    const exifData = await fastExif.read(node.absolutePath, true)
+    const exifData = (await read(
+      node.absolutePath as string,
+      true
+    )) as Queries.ImageExif
     if (!exifData) return
 
     // iptc
