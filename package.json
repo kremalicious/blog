@@ -106,7 +106,7 @@
     "prettier": "^2.8.7",
     "stylelint": "^15.4.0",
     "stylelint-config-css-modules": "^4.2.0",
-    "stylelint-config-standard": "^32.0.0",
+    "stylelint-config-standard": "^33.0.0",
     "stylelint-prettier": "^3.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.3",
