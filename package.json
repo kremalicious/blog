@@ -55,7 +55,7 @@
     "gatsby-remark-smartypants": "^6.8.0",
     "gatsby-remark-vscode": "^3.3.1",
     "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-source-graphql": "^5.8.0",
+    "gatsby-source-graphql": "^5.11.0",
     "gatsby-transformer-remark": "^6.8.0",
     "gatsby-transformer-sharp": "^5.8.0",
     "nord-visual-studio-code": "github:arcticicestudio/nord-visual-studio-code",
