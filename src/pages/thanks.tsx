@@ -6,7 +6,7 @@ import Copy from '../components/atoms/Copy'
 import Meta, { HeadMetaProps } from '../components/atoms/HeadMeta'
 import Icon from '../components/atoms/Icon'
 import Web3Donation from '../components/molecules/Web3Donation'
-import { chains, theme, wagmiClient } from '../helpers/rainbowkit'
+import { chains, theme, wagmiConfig } from '../helpers/rainbowkit'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import * as styles from './thanks.module.css'
 
@@ -48,7 +48,7 @@ export default function Thanks(): ReactElement {
         <h1 className={styles.title}>{meta.title}</h1>
       </header>
 
-      <WagmiConfig client={wagmiClient}>
+      <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} theme={theme}>
           <Web3Donation address={author.ether} />
         </RainbowKitProvider>
@@ -59,7 +59,7 @@ export default function Thanks(): ReactElement {
           Send Bitcoin or ERC-20 tokens from any wallet.
         </h3>
 
-        {coins.map(([key, value]) => (
+        {coins.map(([key, value]: [key: string, value: string]) => (
           <Coin key={key} title={key} address={value} />
         ))}
       </div>

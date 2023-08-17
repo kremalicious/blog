@@ -27,7 +27,9 @@ const esModules = [
   'wagmi',
   '@wagmi/chains',
   '@wagmi/core',
-  '@wagmi/connectors'
+  '@wagmi/connectors',
+  'viem',
+  'devlop'
 ].join('|')
 
 module.exports = {

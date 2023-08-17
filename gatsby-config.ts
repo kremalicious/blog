@@ -85,9 +85,14 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-svgr',
       options: {
-        icon: false,
+        icon: true,
         svgoConfig: {
-          plugins: [{ name: 'removeViewBox', active: false }]
+          plugins: [
+            {
+              name: 'preset-default',
+              params: { overrides: { removeViewBox: false } }
+            }
+          ]
         }
       }
     },

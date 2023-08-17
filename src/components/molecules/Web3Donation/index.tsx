@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react'
-import { parseEther } from '@ethersproject/units'
+import { parseEther } from 'viem'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useDebounce } from 'use-debounce'
 import { usePrepareSendTransaction, useSendTransaction } from 'wagmi'
@@ -16,12 +16,11 @@ export default function Web3Donation({
   const [debouncedAmount] = useDebounce(amount, 500)
 
   const { config } = usePrepareSendTransaction({
-    request: {
-      to: address,
-      value: debouncedAmount ? parseEther(debouncedAmount) : undefined
-    }
+    to: address,
+    value: debouncedAmount ? parseEther(debouncedAmount) : undefined
   })
-  const { sendTransactionAsync } = useSendTransaction(config)
+  const { sendTransactionAsync, isError, isSuccess } =
+    useSendTransaction(config)
 
   const [message, setMessage] = useState<{ status: string; text: string }>()
   const [transactionHash, setTransactionHash] = useState<string>()
@@ -33,19 +32,24 @@ export default function Web3Donation({
     })
 
     try {
-      const tx = await sendTransactionAsync()
-      setTransactionHash(tx.hash)
+      const result = await sendTransactionAsync()
+
+      if (isError) {
+        throw new Error(null)
+      }
+
+      setTransactionHash(result?.hash)
       setMessage({
         status: 'loading',
         text: getTransactionMessage().waitingConfirmation
       })
 
-      await tx.wait()
-
-      setMessage({
-        status: 'success',
-        text: getTransactionMessage().success
-      })
+      if (isSuccess) {
+        setMessage({
+          status: 'success',
+          text: getTransactionMessage().success
+        })
+      }
     } catch (error) {
       setMessage(null)
     }
