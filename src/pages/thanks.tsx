@@ -1,18 +1,21 @@
 import React, { ReactElement } from 'react'
 import { HeadProps } from 'gatsby'
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
+import { chains, theme, wagmiConfig } from '../helpers/rainbowkit'
 import Copy from '../components/atoms/Copy'
 import Meta, { HeadMetaProps } from '../components/atoms/HeadMeta'
 import Icon from '../components/atoms/Icon'
-import Web3Donation from '../components/molecules/Web3Donation'
-import { chains, theme, wagmiConfig } from '../helpers/rainbowkit'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import * as styles from './thanks.module.css'
 
 const meta: Partial<HeadMetaProps> = {
   title: `Say Thanks`
 }
+
+const Web3Donation = React.lazy(
+  () => import('../components/molecules/Web3Donation')
+)
 
 function Coin({ address, title }: { address: string; title: string }) {
   return (
@@ -36,6 +39,7 @@ const BackButton = () => (
 )
 
 export default function Thanks(): ReactElement {
+  const isSSR = typeof window === 'undefined'
   const { author } = useSiteMetadata()
   const coins = Object.entries(author).filter(
     ([key]) => key === 'bitcoin' || key === 'ether'
@@ -50,7 +54,11 @@ export default function Thanks(): ReactElement {
 
       <WagmiConfig config={wagmiConfig}>
         <RainbowKitProvider chains={chains} theme={theme}>
-          <Web3Donation address={author.ether} />
+          {!isSSR && (
+            <React.Suspense fallback={<div />}>
+              <Web3Donation address={author.ether} />
+            </React.Suspense>
+          )}
         </RainbowKitProvider>
       </WagmiConfig>
 

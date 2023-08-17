@@ -172,8 +172,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
           util: false,
           crypto: false,
           path: false,
-          url: false,
-          process: false
+          url: false
         }
       }
     })
