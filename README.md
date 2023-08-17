@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://kremalicious.com"><img src="https://raw.githubusercontent.com/kremalicious/portfolio/main/src/images/github-header.png" /></a>
+  <a href="https://kremalicious.com"><img src="https://raw.githubusercontent.com/kremalicious/portfolio/main/public/github-header.png" /></a>
  </p>
 <p align="center">
   <strong>🍭 My blog built with <a href="http://gatsbyjs.org">Gatsby</a> + TypeScript. Neat.</strong>
@@ -34,7 +34,7 @@
   - [S3 Deployment](#s3-deployment)
 - [🏛 Licenses](#-licenses)
   - [Posts](#posts)
-  - [Photos & images](#photos--images)
+  - [Photos \& images](#photos--images)
 
 ---
 
@@ -143,7 +143,6 @@ All SVG assets under `src/images/` will be converted to React components with th
 
 ```jsx
 import { ReactComponent as Logo } from './components/svg/Logo'
-
 ;<Logo />
 ```
 

@@ -1,4 +1,5 @@
 import type { GatsbyNode } from 'gatsby'
+import webpack from 'webpack'
 import { createExif } from './gatsby/createExif'
 import { createMarkdownFields } from './gatsby/createMarkdownFields'
 import {
@@ -158,14 +159,21 @@ export const onPostBuild: GatsbyNode['onPostBuild'] = async ({ graphql }) => {
   return Promise.resolve()
 }
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
-  actions
-}) => {
-  actions.setWebpackConfig({
-    resolve: {
-      fallback: {
-        util: false
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
+  async ({ actions }) => {
+    actions.setWebpackConfig({
+      plugins: [
+        new webpack.NormalModuleReplacementPlugin(/node:/, (resource) => {
+          resource.request = resource.request.replace(/^node:/, '')
+        })
+      ],
+      resolve: {
+        fallback: {
+          util: false,
+          crypto: false,
+          path: false,
+          url: false
+        }
       }
-    }
-  })
-}
+    })
+  }
