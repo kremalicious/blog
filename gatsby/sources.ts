@@ -1,7 +1,4 @@
-import * as dotenv from 'dotenv'
 import path from 'path'
-
-dotenv.config()
 
 if (!process.env.GITHUB_TOKEN) {
   // eslint-disable-next-line

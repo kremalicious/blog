@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
+import 'dotenv/config'
 // required for gatsby-plugin-meta-redirect
 import 'regenerator-runtime/runtime'
 import siteConfig from './config'
