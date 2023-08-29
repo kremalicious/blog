@@ -24,37 +24,23 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
-      - name: Cache Gatsby Cache Folder
-        uses: actions/cache@v3
-        with:
-          path: .cache
-          key: ${{ runner.os }}-cache-gatsby
-          restore-keys: ${{ runner.os }}-cache-gatsby
-
-      - name: Cache Gatsby Public Folder
-        uses: actions/cache@v3
-        with:
-          path: public/
-          key: ${{ runner.os }}-public-gatsby
-          restore-keys: ${{ runner.os }}-public-gatsby
-
       - run: npm ci
       - run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
-          GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
-          GATSBY_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
-          GATSBY_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
-          GATSBY_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+          PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
+          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+          PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+          PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
       - run: npm test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GATSBY_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
-          GATSBY_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
-          GATSBY_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
-          GATSBY_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
-          GATSBY_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+          PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
+          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+          PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+          PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
 
       - uses: actions/upload-artifact@v3
         with:

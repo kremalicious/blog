@@ -4,7 +4,7 @@ import { Script } from 'gatsby'
 const script = `
   (function(d) {
       var config = {
-          kitId: '${process.env.GATSBY_TYPEKIT_ID}',
+          kitId: '${process.env.PUBLIC_TYPEKIT_ID}',
           scriptTimeout: 3000,
           async: true
       },

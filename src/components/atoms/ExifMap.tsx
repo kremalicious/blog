@@ -7,7 +7,7 @@ const mapbox =
   (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
     `https://api.mapbox.com/styles/v1/mapbox/${mapboxId}/tiles/256/${z}/${x}/${y}${
       dpr >= 2 ? '@2x' : ''
-    }?access_token=${process.env.GATSBY_MAPBOX_ACCESS_TOKEN}`
+    }?access_token=${process.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
 
 const providers = {
   light: mapbox('light-v10'),

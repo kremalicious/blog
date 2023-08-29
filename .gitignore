@@ -8,3 +8,8 @@ coverage
 .env.development
 .nova
 src/@types/Gatsby.d.ts
+
+# build output
+dist/
+# generated types
+.astro/

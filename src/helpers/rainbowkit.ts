@@ -6,12 +6,12 @@ import { publicProvider } from 'wagmi/providers/public'
 
 export const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum],
-  [infuraProvider({ apiKey: process.env.GATSBY_INFURA_ID }), publicProvider()]
+  [infuraProvider({ apiKey: process.env.PUBLIC_INFURA_ID }), publicProvider()]
 )
 
 export const { connectors } = getDefaultWallets({
   appName: 'kremalicious.com',
-  projectId: process.env.GATSBY_WALLETCONNECT_ID,
+  projectId: process.env.PUBLIC_WALLETCONNECT_ID,
   chains
 })
 

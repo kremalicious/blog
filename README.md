@@ -160,7 +160,7 @@ If you want to know how this works, have a look at the respective component unde
 git clone git@github.com:kremalicious/blog.git
 cd blog/
 
-# GATSBY_GITHUB_TOKEN is required for some parts
+# PUBLIC_GITHUB_TOKEN is required for some parts
 cp .env.sample .env
 vi .env
 
