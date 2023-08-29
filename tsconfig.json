@@ -1,8 +1,13 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsx": "react",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "jsxImportSource": "react"
   },
   "exclude": ["node_modules", "public", "dist", "*.js"],
   "include": ["./*.ts", "./src/**/*", "./scripts/*.ts", "./.jest/**/*"]

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import Tags from '../tags'
+import Tags from '../tags/tags'
 
 describe('/tags', () => {
   const data = {

@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react'
 import { HeadProps } from 'gatsby'
 import { WagmiConfig } from 'wagmi'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { chains, theme, wagmiConfig } from '../helpers/rainbowkit'
-import Copy from '../components/atoms/Copy'
-import Meta, { HeadMetaProps } from '../components/atoms/HeadMeta'
-import Icon from '../components/atoms/Icon'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
+import { chains, theme, wagmiConfig } from '../../helpers/rainbowkit'
+import Copy from '../../components/atoms/Copy'
+import Meta, { HeadMetaProps } from '../../components/atoms/HeadMeta'
+import Icon from '../../components/atoms/Icon'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import * as styles from './thanks.module.css'
 
 const meta: Partial<HeadMetaProps> = {
@@ -14,7 +14,7 @@ const meta: Partial<HeadMetaProps> = {
 }
 
 const Web3Donation = React.lazy(
-  () => import('../components/molecules/Web3Donation')
+  () => import('../../components/molecules/Web3Donation')
 )
 
 function Coin({ address, title }: { address: string; title: string }) {

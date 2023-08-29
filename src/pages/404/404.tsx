@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Link, PageProps } from 'gatsby'
-import HeadMeta, { HeadMetaProps } from '../components/atoms/HeadMeta'
-import Page from '../components/templates/Page'
+import HeadMeta, { HeadMetaProps } from '../../components/atoms/HeadMeta'
+import Page from '../../components/templates/Page'
 import * as styles from './404.module.css'
 
 const meta: Partial<HeadMetaProps> = {
