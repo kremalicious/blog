@@ -169,6 +169,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] =
       ],
       resolve: {
         fallback: {
+          process: false,
           util: false,
           crypto: false,
           path: false,
