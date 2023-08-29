@@ -1,48 +1,42 @@
 {
-  "extends": ["eslint:recommended", "prettier"],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": { "jsx": true }
-  },
+  "root": true,
   "env": {
     "browser": true,
     "node": true,
     "es2020": true,
     "jest": true
   },
-  "settings": {
-    "react": { "version": "detect" }
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true },
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
   },
+  "plugins": ["@typescript-eslint", "react"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "settings": { "react": { "version": "detect" } },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "parser": "@typescript-eslint/parser",
-      "extends": [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:prettier/recommended",
-        "plugin:react/recommended",
-        "plugin:testing-library/dom",
-        "plugin:testing-library/react"
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
       ],
-      "plugins": ["@typescript-eslint", "react", "testing-library"],
+      "extends": ["plugin:testing-library/react"],
       "rules": {
-        "object-curly-spacing": ["error", "always"],
-        "react/prop-types": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-explicit-any": "off",
         "testing-library/no-node-access": "off",
         "testing-library/no-container": "off"
-      },
-      "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "jsx": true
-        },
-        "project": "./tsconfig.json",
-        "tsconfigRootDir": "./"
       }
     }
   ]
