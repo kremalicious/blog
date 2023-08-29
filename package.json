@@ -22,19 +22,12 @@
     "deploy:s3": "./scripts/deploy-s3.sh",
     "new": "ts-node scripts/new.ts"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "dependencies": {
     "@astrojs/react": "^2.3.2",
     "@astrojs/rss": "^2.4.4",
     "@astrojs/sitemap": "^2.0.2",
     "@rainbow-me/rainbowkit": "^1.0.9",
     "astro": "^2.10.15",
-    "axios": "^1.5.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "dms2dec": "^1.1.0",
@@ -98,5 +91,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kremalicious/blog.git"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

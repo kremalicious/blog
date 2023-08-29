@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
 import { PageProps, graphql } from 'gatsby'
-import HeadMeta from '../components/atoms/HeadMeta'
+import HeadMeta from '../components/core/HeadMeta'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
-import PostMore from '../components/templates/Post/More'
-import * as styles from './index.module.css'
+import PostMore from '../components/layouts/Post/More'
+import styles from './index.module.css'
 
 export default function Home(
   props: PageProps<Queries.HomePageQuery>

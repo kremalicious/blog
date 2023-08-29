@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import { PageProps, graphql } from 'gatsby'
-import HeadMeta, { HeadMetaProps } from '../../components/atoms/HeadMeta'
-import Tag from '../../components/atoms/Tag'
-import Page from '../../components/templates/Page'
-import * as styles from './tags.module.css'
+import HeadMeta, { HeadMetaProps } from '../../components/core/HeadMeta'
+import Tag from '../../components/core/Tag'
+import Page from '../../components/layouts/Page'
+import styles from './tags.module.css'
 
 const meta: Partial<HeadMetaProps> = {
   title: 'Tags',

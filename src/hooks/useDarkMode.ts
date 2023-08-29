@@ -32,13 +32,13 @@ function getDarkMode() {
 
 export type UseDarkMode = {
   isDarkMode: boolean
-  themeColor: string
+  themeColor: string | undefined
   setIsDarkMode: Dispatch<SetStateAction<boolean>>
 }
 
 export default function useDarkMode(): UseDarkMode {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(getDarkMode())
-  const [themeColor, setThemeColor] = useState<string>()
+  const [themeColor, setThemeColor] = useState<string | undefined>()
 
   const changeTheme = useCallback(() => {
     if (isDarkMode) {
