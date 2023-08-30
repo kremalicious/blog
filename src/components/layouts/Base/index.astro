@@ -7,7 +7,13 @@ import Header from '@components/Header/index.astro'
 import Typekit from '@components/core/Typekit.astro'
 import styles from './index.module.css'
 
-const { title, description } = Astro.props
+type Props = {
+  title?: string
+  pageTitle?: string
+  description?: string
+}
+
+const { title, pageTitle, description } = Astro.props
 import config from '@config/blog.config.mjs'
 
 const titleFinal = title
@@ -42,7 +48,7 @@ const canonicalURL = Astro.site + Astro.url.pathname.replace('/', '')
 
     <main class={styles.document} id="document">
       <div class={styles.content}>
-        {title && <h1 class={styles.pagetitle}>{title}</h1>}
+        {pageTitle && <h1 class={styles.pagetitle}>{pageTitle}</h1>}
         <slot />
       </div>
     </main>

@@ -4,11 +4,11 @@ import type { ReactElement } from 'react'
 // import RelatedPosts from '../../RelatedPosts'
 import PostActions from './Actions'
 import PostContent from './Content'
-import PostLead from './Lead'
+import PostLead from '../../components/layouts/Post/Lead'
 import PostLinkActions from './LinkActions'
 import PostMeta from './Meta'
 // import PrevNext from './PrevNext'
-import PostTitle from './Title'
+import PostTitle from '../../components/layouts/Post/Title'
 import styles from './index.module.css'
 
 export default function Post({ entry }): ReactElement {

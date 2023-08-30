@@ -1,0 +1,42 @@
+---
+import Time from '@components/core/Time.astro'
+import Icon from '../../core/Icon'
+import styles from './Title.module.css'
+
+type Props = {
+  linkurl?: string
+  title: string
+  date?: Date
+  updated?: Date
+  className?: string
+}
+
+const { linkurl, title, date, updated, className } = Astro.props
+const linkHostname = linkurl ? new URL(linkurl).hostname : null
+---
+
+{
+  linkurl ? (
+    <>
+      <h1
+        class={`${styles.title} ${styles.titleLink} ${className && className}`}
+      >
+        <a href={linkurl} title={`Go to source: ${linkurl}`}>
+          {title} <Icon name="ExternalLink" />
+        </a>
+      </h1>
+      <div class={styles.linkurl}>{linkHostname}</div>
+    </>
+  ) : (
+    <>
+      <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
+      {date && (
+        <div class={styles.date}>
+          <Time date={date} />
+          {updated && ' • updated '}
+          {updated && <Time date={updated} />}
+        </div>
+      )}
+    </>
+  )
+}

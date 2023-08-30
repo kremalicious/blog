@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import LayoutBase from '@layouts/Base/index.astro'
+import Title from './Title.astro'
+import Lead from './Lead.astro'
+
+type Props = CollectionEntry<'articles' | 'links' | 'photos'>
+
+const { collection, body } = Astro.props
+console.log(Astro.props)
+const { title, date, updated, image, linkurl } = Astro.props.data
+---
+
+<style>
+  .entry {
+    /* composes: container from '../../Layout.module.css'; */
+    width: 100%;
+    padding-bottom: var(--spacer);
+  }
+
+  .entry > a {
+    display: block;
+  }
+
+  .entry:only-child {
+    padding-bottom: var(--spacer);
+  }
+
+  .image {
+    /* composes: breakout from '../../Layout.module.css'; */
+  }
+</style>
+
+<LayoutBase title={title}>
+  <article class="entry">
+    <header>
+      <Title linkurl={linkurl} title={title} date={date} updated={updated} />
+    </header>
+
+    {collection === 'articles' && <Lead body={body} />}
+
+    <div class="hero-image">
+      {image && <img width={1020} height={510} src={image} alt="" />}
+    </div>
+
+    <slot />
+  </article>
+</LayoutBase>

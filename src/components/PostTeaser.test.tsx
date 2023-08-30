@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import post from '../../../.jest/__fixtures__/post.json'
-import PostTeaser from './PostTeaser'
+import PostTeaser from './PostTeaser.astro'
 
 describe('PostTeaser', () => {
   it('renders correctly', () => {

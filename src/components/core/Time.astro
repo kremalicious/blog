@@ -1,0 +1,13 @@
+---
+import { format, formatDistance } from 'date-fns'
+
+type Props = {
+  date: Date
+}
+
+const { date } = Astro.props
+---
+
+<time title={format(date, 'yyyy/MM/dd HH:mm')} datetime={date.toISOString()}>
+  {formatDistance(date, Date.now(), { addSuffix: true })}
+</time>

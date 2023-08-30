@@ -1,6 +1,5 @@
 node_modules
 .yarnclean
-public
 .cache
 plugins/gatsby-redirect-from
 coverage

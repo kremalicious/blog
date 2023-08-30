@@ -1,8 +1,7 @@
 ---
-import LayoutBase from '@layouts/Base/index.astro'
+import LayoutPost from '@layouts/Post/index.astro'
 import { loadAndFormatCollection } from '@lib/astro'
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
@@ -10,17 +9,16 @@ export async function getStaticPaths() {
 
   return [...articles, ...links, ...photos].map((entry) => {
     return {
-      params: { slug: entry.slug, date: entry.date },
+      params: { slug: entry.slug },
       props: { entry }
     }
   })
 }
 
-// 2. For your template, you can get the entry directly from the prop
 const { entry } = Astro.props
 const { Content } = await entry.render()
 ---
 
-<LayoutBase>
+<LayoutPost {...entry}>
   <Content />
-</LayoutBase>
+</LayoutPost>

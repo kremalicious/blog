@@ -10,12 +10,16 @@ const articles = defineCollection({
       .string()
       .or(z.date())
       .optional()
-      .transform((val: string) => new Date(val)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     updated: z
       .string()
       .or(z.date())
       .optional()
-      .transform((val: string) => (val ? new Date(val) : undefined)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
     download: z.string().optional(),
@@ -34,12 +38,16 @@ const links = defineCollection({
       .string()
       .or(z.date())
       .optional()
-      .transform((val: string) => new Date(val)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     updated: z
       .string()
       .or(z.date())
       .optional()
-      .transform((str: string) => (str ? new Date(str) : undefined)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     tags: z.array(z.string()).optional()
   })
 })
@@ -52,12 +60,16 @@ const photos = defineCollection({
       .string()
       .or(z.date())
       .optional()
-      .transform((val: string) => new Date(val)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     updated: z
       .string()
       .or(z.date())
       .optional()
-      .transform((str: string) => (str ? new Date(str) : undefined)),
+      .transform((val: string | Date | undefined) =>
+        val ? new Date(val) : undefined
+      ),
     image: z.string(),
     tags: z.array(z.string()).optional()
   })

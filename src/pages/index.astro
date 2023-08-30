@@ -1,6 +1,6 @@
 ---
 import LayoutBase from '@components/layouts/Base/index.astro'
-import PostTeaser from '@components/PostTeaser'
+import PostTeaser from '@components/PostTeaser.astro'
 import { PhotoThumb } from '../components/layouts/Photos'
 import { loadAndFormatCollection } from '@lib/astro'
 
@@ -64,14 +64,18 @@ const photos = await loadAndFormatCollection('photos')
       {
         articles
           .slice(0, 2)
-          .map((article) => <PostTeaser post={article} hideDate />)
+          .map((article) => (
+            <PostTeaser slug={article.slug} hideDate {...article.data} />
+          ))
       }
     </div>
     <div class="articles articlesLast">
       {
         articles
           .slice(2, 8)
-          .map((article) => <PostTeaser post={article} hideDate />)
+          .map((article) => (
+            <PostTeaser slug={article.slug} hideDate {...article.data} />
+          ))
       }
     </div>
 

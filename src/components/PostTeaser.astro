@@ -1,0 +1,28 @@
+---
+// import { Image } from '../core/Image'
+import PostTitle from './layouts/Post/Title.astro'
+import styles from './PostTeaser.module.css'
+
+const { title, date, updated, hideDate, image, toggleSearch, slug } =
+  Astro.props
+---
+
+<a class={styles.post} href={slug} onclick={toggleSearch && toggleSearch}>
+  {
+    /* {image ? (
+        <Image
+          image={(image as any).childImageSharp.gatsbyImageData}
+          alt={title}
+        />
+      ) : (
+        <span className={styles.empty} />
+      )} */
+  }
+
+  <PostTitle
+    title={title}
+    date={hideDate ? null : date}
+    updated={updated}
+    className={styles.title}
+  />
+</a>

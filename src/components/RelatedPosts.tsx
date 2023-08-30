@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import { PhotoThumb } from '../templates/Photos'
-import PostTeaser from './PostTeaser'
+import PostTeaser from './PostTeaser.astro'
 import styles from './RelatedPosts.module.css'
 
 const query = graphql`

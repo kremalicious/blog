@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import ReactDOM from 'react-dom'
-import PostTeaser from '../../PostTeaser'
+import PostTeaser from '../../PostTeaser.astro'
 import styles from './SearchResults.module.css'
 import SearchResultsEmpty from './SearchResultsEmpty'
 
