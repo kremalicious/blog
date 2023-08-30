@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { PageProps, graphql } from 'gatsby'
-import HeadMeta, { HeadMetaProps } from '../../components/core/HeadMeta'
-import Tag from '../../components/core/Tag'
+import HeadMeta, { HeadMetaProps } from '../components/core/HeadMeta'
+import Tag from '../components/core/Tag'
 import Page from '../../components/layouts/Page'
 import styles from './tags.module.css'
 

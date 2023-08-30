@@ -8,19 +8,16 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
+    "ecmaVersion": "latest",
     "sourceType": "module",
     "ecmaFeatures": { "jsx": true },
     "project": "./tsconfig.json",
     "tsconfigRootDir": "./"
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:astro/jsx-a11y-recommended",
-    "plugin:astro/recommended",
-    "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {

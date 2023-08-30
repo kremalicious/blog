@@ -1,12 +1,11 @@
 import React, { ReactElement } from 'react'
-import { graphql } from 'gatsby'
 import { PageContext } from '../../../@types/Post'
 import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 import Exif from '../../core/Exif'
 import HeadMeta from '../../core/HeadMeta'
 import SchemaOrg from '../../core/HeadMeta/SchemaOrg'
 import { Image } from '../../core/Image'
-import RelatedPosts from '../../molecules/RelatedPosts'
+import RelatedPosts from '../../RelatedPosts'
 import PostActions from './Actions'
 import PostContent from './Content'
 import PostLead from './Lead'
@@ -108,54 +107,3 @@ export function Head({
     </HeadMeta>
   )
 }
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    post: markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            ...ImageFluid
-          }
-          fields {
-            exif {
-              formatted {
-                iso
-                model
-                fstop
-                shutterspeed
-                focalLength
-                lensModel
-                exposure
-                gps {
-                  latitude
-                  longitude
-                }
-              }
-            }
-          }
-        }
-        toc
-        author
-        updated
-        tags
-        linkurl
-        style {
-          publicURL
-        }
-        changelog
-      }
-      fields {
-        type
-        slug
-        date
-        githubLink
-      }
-      rawMarkdownBody
-      tableOfContents(maxDepth: 3)
-    }
-  }
-`

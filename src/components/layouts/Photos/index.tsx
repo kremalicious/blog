@@ -4,7 +4,7 @@ import HeadMeta, { HeadMetaProps } from '../../core/HeadMeta'
 import { Image } from '../../core/Image'
 import Pagination from '../../Pagination'
 import Page from '../Page'
-import styles from './Photos.module.css'
+import styles from './index.module.css'
 
 export const PhotoThumb = ({
   photo

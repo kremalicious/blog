@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content'
+import PostTeaser from '../components/PostTeaser'
+import PostMore from '../components/layouts/Post/More'
+import { PhotoThumb } from '../components/layouts/Photos'
+
+function sortByDateNewest(collection) {
+  return collection.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
+}
+
+const articles = sortByDateNewest(await getCollection('articles'))
+const links = sortByDateNewest(await getCollection('links'))
+const photos = sortByDateNewest(await getCollection('photos'))
+---
+
+<style>
+  /* .section {
+    composes: wide from '../components/Layout.module.css';
+  } */
+
+  .section:not(:first-child) {
+    margin-top: calc(var(--spacer) * 3);
+  }
+
+  .articles,
+  .photos {
+    display: grid;
+    gap: var(--spacer);
+  }
+
+  @media (min-width: 40rem) {
+    .articles {
+      gap: calc(var(--spacer) * 1.5);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .articles:first-of-type h1 {
+    font-size: var(--font-size-h3);
+  }
+
+  .articlesLast {
+    margin-top: calc(var(--spacer) * 1.5);
+  }
+
+  @media (min-width: 40rem) {
+    .articlesLast {
+      gap: calc(var(--spacer) * 1.5);
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 40rem) {
+    .photos {
+      gap: calc(var(--spacer) * 1.5);
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+</style>
+
+<section class="section">
+  <div class="articles">
+    {
+      articles
+        .slice(0, 2)
+        .map((article) => <PostTeaser post={article} hideDate />)
+    }
+  </div>
+  <div class="articles articlesLast">
+    {
+      articles
+        .slice(2, 8)
+        .map((article) => <PostTeaser post={article} hideDate />)
+    }
+  </div>
+
+  <PostMore to="/archive">All Articles</PostMore>
+</section>
+
+<section class="section">
+  <div class="photos">
+    {photos.map(({ node }) => <PhotoThumb photo={node} />)}
+  </div>
+
+  <PostMore to="/photos">All Photos</PostMore>
+</section>
+
+<!-- <ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/${post.slug}/`}>
+          <img width={720} height={360} src={post.data.image} alt="" />
+          <h4 class="title">{post.data.title}</h4>
+          <p class="date">{post.data.date}</p>
+        </a>
+      </li>
+    ))
+  }
+</ul> -->
+
+ ../components/layouts/Photos

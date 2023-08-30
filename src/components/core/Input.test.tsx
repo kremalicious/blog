@@ -1,6 +1,6 @@
 import React from 'react'
 // import { render } from '@testing-library/react'
-import testRender from '../../../.jest/testRender'
+import testRender from '../../../.config/jest/testRender'
 import Input from './Input'
 
 describe('Input', () => {

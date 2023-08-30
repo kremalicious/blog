@@ -1,30 +1,7 @@
 import React, { ReactElement } from 'react'
-import { Image } from '../core/Image'
-import PostTitle from '../layouts/Post/Title'
+// import { Image } from '../core/Image'
+import PostTitle from './layouts/Post/Title'
 import styles from './PostTeaser.module.css'
-
-export const postTeaserQuery = graphql`
-  fragment PostTeaser on MarkdownRemark {
-    id
-    fileAbsolutePath
-    frontmatter {
-      title
-      linkurl
-      updated
-      image {
-        childImageSharp {
-          ...ImageFluidThumb
-        }
-      }
-      tags
-    }
-    fields {
-      slug
-      date
-      type
-    }
-  }
-`
 
 export default function PostTeaser({
   post,
@@ -44,14 +21,14 @@ export default function PostTeaser({
       href={slug}
       onClick={toggleSearch && toggleSearch}
     >
-      {image ? (
+      {/* {image ? (
         <Image
           image={(image as any).childImageSharp.gatsbyImageData}
           alt={title}
         />
       ) : (
         <span className={styles.empty} />
-      )}
+      )} */}
 
       <PostTitle
         title={title}

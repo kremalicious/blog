@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import data from '../../../.jest/__fixtures__/photos.json'
-import Photos from './Photos'
+import Photos from '.'
 
 describe('/photos', () => {
   it('renders without crashing', () => {

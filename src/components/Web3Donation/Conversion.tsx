@@ -1,5 +1,4 @@
 import React, { ReactElement, useEffect, useState } from 'react'
-import axios from 'axios'
 import { useNetwork } from 'wagmi'
 import styles from './Conversion.module.css'
 
@@ -8,10 +7,11 @@ export async function getFiat(
   tokenId = 'ethereum'
 ): Promise<{ [key: string]: string }> {
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${tokenId}&vs_currencies=eur%2Cusd`
-  const response = await axios(url)
+  const response = await fetch(url)
+  const json = await response.json()
 
-  if (!response) console.error(response.statusText)
-  const { usd, eur } = response.data[tokenId]
+  if (!json) console.error(response.statusText)
+  const { usd, eur } = json.data[tokenId]
   const dollar = (amount * usd).toFixed(2)
   const euro = (amount * eur).toFixed(2)
 

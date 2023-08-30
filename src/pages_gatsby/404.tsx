@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import HeadMeta, { HeadMetaProps } from '../../components/core/HeadMeta'
+import HeadMeta, { HeadMetaProps } from '../components/core/HeadMeta'
 import Page from '../../components/layouts/Page'
 import styles from './404.module.css'
 

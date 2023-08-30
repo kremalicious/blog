@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import meta from '../../../.jest/__fixtures__/meta.json'
+import meta from '../../../.config/jest/__fixtures__/meta.json'
 import Networks from './Networks'
 
 const { author, rss, jsonfeed } = meta.site.siteMetadata

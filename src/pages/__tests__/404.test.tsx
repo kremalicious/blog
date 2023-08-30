@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import NotFound from '../404/404'
+import NotFound from '../../pages_gatsby/404'
 
 describe('/404', () => {
   it('renders without crashing', () => {
