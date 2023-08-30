@@ -1,19 +1,8 @@
 ---
 type Props = {
-  body: string
+  lead: string
 }
-
-// Extract lead paragraph from content
-// Grab everything before more tag, or just first paragraph
-let lead
-const content = Astro.props.body
-const separator = '<!-- more -->'
-
-if (content.includes(separator)) {
-  lead = content.split(separator)[0]
-} else {
-  lead = content.split('\n')[0]
-}
+const { lead } = Astro.props
 ---
 
 <style>

@@ -7,8 +7,18 @@ import Lead from './Lead.astro'
 type Props = CollectionEntry<'articles' | 'links' | 'photos'>
 
 const { collection, body } = Astro.props
-console.log(Astro.props)
 const { title, date, updated, image, linkurl } = Astro.props.data
+
+// Extract lead paragraph from content
+// Grab everything before more tag, or just first paragraph
+let lead
+const separator = '<!-- more -->'
+
+if (collection === 'articles') {
+  lead = body.includes(separator)
+    ? body.split(separator)[0]
+    : body.split('\n')[0]
+}
 ---
 
 <style>
@@ -37,7 +47,7 @@ const { title, date, updated, image, linkurl } = Astro.props.data
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />
     </header>
 
-    {collection === 'articles' && <Lead body={body} />}
+    {lead && <Lead lead={lead} />}
 
     <div class="hero-image">
       {image && <img width={1020} height={510} src={image} alt="" />}
