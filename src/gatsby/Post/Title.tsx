@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react'
-import Icon from '../../core/Icon'
-import PostDate from '../../PostDate'
+import type { ReactElement } from 'react'
+import Icon from '../../components/core/Icon'
+import PostDate from '../../components/PostDate'
 import styles from './Title.module.css'
 
 export default function PostTitle({

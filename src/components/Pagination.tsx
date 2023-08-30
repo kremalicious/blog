@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { PageContext } from '../@types/Post'
 import Icon from './core/Icon'
 import styles from './Pagination.module.css'
 

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import Icon from '../core/Icon'
 import styles from './Networks.module.css'
 

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import Icon from '../../core/Icon'
+import Icon from '../../components/core/Icon'
 import styles from './LinkActions.module.css'
 import stylesMore from './More.module.css'
 

@@ -1,0 +1,30 @@
+---
+import Icon from '../core/Icon'
+import Vcard from './Vcard'
+import styles from './index.module.css'
+import config from '@config/blog.config.mjs'
+
+const year = new Date().getFullYear()
+const { name, uri, github } = config.author
+---
+
+<footer role="contentinfo" class={styles.footer}>
+  <Vcard />
+  <section class={styles.copyright}>
+    <p>
+      &copy; 2005&ndash;
+      {year + ' '}
+      <a href={uri} rel="me">
+        {name}
+      </a>
+      <a href={`${github}/blog`}>
+        <Icon name="GitHub" />
+         View source
+      </a>
+      <a href="/thanks" class={styles.btc}>
+        <Icon name="Bitcoin" />
+         Say Thanks
+      </a>
+    </p>
+  </section>
+</footer>

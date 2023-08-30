@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import slugify from 'slugify'
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
-import Tag from '../../core/Tag'
-import PostDate from '../../molecules/PostDate'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+import Tag from '../../components/core/Tag'
+import PostDate from '../../components/PostDate'
 import styles from './Meta.module.css'
 
 export default function PostMeta({
@@ -11,8 +11,8 @@ export default function PostMeta({
   post: Queries.BlogPostBySlugQuery['post']
 }): ReactElement {
   const siteMeta = useSiteMetadata()
-  const { author, updated, tags } = post.frontmatter
-  const { date, type } = post.fields
+  const { author, updated, tags } = post.data
+  const { date, type } = post
 
   return (
     <footer className={styles.entryMeta}>

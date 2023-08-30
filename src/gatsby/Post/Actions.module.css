@@ -1,5 +1,5 @@
 .actions {
-  composes: breakout from '../../Layout.module.css';
+  /* composes: breakout from '../../Layout.module.css'; */
   margin-top: calc(var(--spacer) * 2);
   margin-bottom: calc(var(--spacer) * 2);
   background: var(--box-background-color);

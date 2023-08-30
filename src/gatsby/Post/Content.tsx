@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import Changelog from '../../core/Changelog'
+import type { ReactElement } from 'react'
+// import Changelog from '../../core/Changelog'
 import styles from './Content.module.css'
 import PostToc from './Toc'
 
@@ -9,7 +9,7 @@ export default function PostContent({
   post: Queries.BlogPostBySlugQuery['post']
 }): ReactElement {
   const separator = '<!-- more -->'
-  const changelog = post.frontmatter.changelog
+  // const changelog = post.data.changelog
 
   let content = post.html
 
@@ -25,14 +25,12 @@ export default function PostContent({
 
   return (
     <>
-      {post.frontmatter.toc && (
-        <PostToc tableOfContents={post.tableOfContents} />
-      )}
+      {post.data.toc && <PostToc tableOfContents={post.tableOfContents} />}
       <div
         dangerouslySetInnerHTML={{ __html: content }}
         className={styles.content}
       />
-      {changelog && <Changelog repo={changelog} />}
+      {/* {changelog && <Changelog repo={changelog} />} */}
     </>
   )
 }

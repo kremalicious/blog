@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import Icon from '../../core/Icon'
+import Icon from '../../components/core/Icon'
 import styles from './More.module.css'
 
 const PostMore = ({

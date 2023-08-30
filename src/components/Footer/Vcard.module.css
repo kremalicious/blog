@@ -1,5 +1,5 @@
 .avatar {
-  composes: frame from '../atoms/Image.module.css';
+  /* composes: frame from '../atoms/Image.module.css'; */
   border: 2px solid transparent;
   border-radius: 50%;
   margin-bottom: calc(var(--spacer) / 3);

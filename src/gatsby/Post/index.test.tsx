@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import Post from '.'
-import link from '../../../../.config/jest/__fixtures__/link.json'
-import post from '../../../../.config/jest/__fixtures__/post.json'
-import postWithMore from '../../../../.config/jest/__fixtures__/postWithMore.json'
+import link from '../../../.config/jest/__fixtures__/link.json'
+import post from '../../../.config/jest/__fixtures__/post.json'
+import postWithMore from '../../../.config/jest/__fixtures__/postWithMore.json'
 
 describe('Post', () => {
   const pageContext = {

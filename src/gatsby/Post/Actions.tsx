@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react'
-import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
-import Icon from '../../core/Icon'
+import type { ReactElement } from 'react'
+import { useSiteMetadata } from '../../hooks/useSiteMetadata'
+import Icon from '../../components/core/Icon'
 import styles from './Actions.module.css'
 
 interface ActionProps {

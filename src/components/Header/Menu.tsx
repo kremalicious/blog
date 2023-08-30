@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import Hamburger from '../core/Hamburger'
 import styles from './Menu.module.css'

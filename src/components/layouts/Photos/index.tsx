@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react'
-import { PageContext } from '../../../@types/Post'
-import HeadMeta, { HeadMetaProps } from '../../core/HeadMeta'
-import { Image } from '../../core/Image'
+// import { Image } from '../../core/Image'
 import Pagination from '../../Pagination'
 import Page from '../Page'
 import styles from './index.module.css'
@@ -11,15 +9,13 @@ export const PhotoThumb = ({
 }: {
   photo: Queries.PhotosTemplateQuery['allMarkdownRemark']['edges'][0]['node']
 }): ReactElement => {
-  const { title, image } = photo.frontmatter
-  const { slug } = photo.fields
-  const { gatsbyImageData } = (image as any).childImageSharp
+  const { title, image, slug } = photo.data
 
   return (
     <article className={styles.photo}>
       {image && (
         <a href={slug}>
-          <Image title={title} image={gatsbyImageData} alt={title} />
+          {/* <Image title={title} image={gatsbyImageData} alt={title} /> */}
         </a>
       )}
     </article>
@@ -65,42 +61,3 @@ export default function Photos({
     </Page>
   )
 }
-
-export function Head({
-  pageContext
-}: {
-  pageContext: PhotosPageProps['pageContext']
-}) {
-  const { currentPageNumber, numPages } = pageContext
-  const meta = getMetadata(currentPageNumber, numPages)
-  return <HeadMeta {...meta} slug={pageContext.slug} />
-}
-
-export const photosQuery = graphql`
-  query PhotosTemplate($skip: Int, $limit: Int) {
-    allMarkdownRemark(
-      filter: { fields: { type: { eq: "photo" } } }
-      sort: { fields: { date: DESC } }
-      skip: $skip
-      limit: $limit
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                ...PhotoFluidThumb
-              }
-            }
-          }
-          fields {
-            slug
-            type
-          }
-        }
-      }
-    }
-  }
-`

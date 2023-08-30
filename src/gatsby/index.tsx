@@ -3,7 +3,7 @@ import { PageProps, graphql } from 'gatsby'
 import HeadMeta from '../components/core/HeadMeta'
 import PostTeaser from '../components/molecules/PostTeaser'
 import { PhotoThumb } from '../components/templates/Photos'
-import PostMore from '../components/layouts/Post/More'
+import PostMore from './Post/More'
 import styles from './index.module.css'
 
 export default function Home(

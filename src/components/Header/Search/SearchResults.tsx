@@ -1,25 +1,12 @@
 import React, { ReactElement } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import ReactDOM from 'react-dom'
-import PostTeaser from '../../molecules/PostTeaser'
+import PostTeaser from '../../PostTeaser'
 import styles from './SearchResults.module.css'
 import SearchResultsEmpty from './SearchResultsEmpty'
 
 export interface Results {
   slug: string
 }
-
-const query = graphql`
-  query SearchResults {
-    allMarkdownRemark {
-      edges {
-        node {
-          ...PostTeaser
-        }
-      }
-    }
-  }
-`
 
 function SearchResultsPure({
   searchQuery,

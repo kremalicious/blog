@@ -1,18 +1,12 @@
 ---
-import { getCollection } from 'astro:content'
-import PostTeaser from '../components/PostTeaser'
-import PostMore from '../components/layouts/Post/More'
+import LayoutBase from '@components/layouts/Base/index.astro'
+import PostTeaser from '@components/PostTeaser'
 import { PhotoThumb } from '../components/layouts/Photos'
+import { loadAndFormatCollection } from '@lib/astro'
 
-function sortByDateNewest(collection) {
-  return collection.sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-  )
-}
-
-const articles = sortByDateNewest(await getCollection('articles'))
-const links = sortByDateNewest(await getCollection('links'))
-const photos = sortByDateNewest(await getCollection('photos'))
+const articles = await loadAndFormatCollection('articles')
+const links = await loadAndFormatCollection('links')
+const photos = await loadAndFormatCollection('photos')
 ---
 
 <style>
@@ -64,45 +58,31 @@ const photos = sortByDateNewest(await getCollection('photos'))
   }
 </style>
 
-<section class="section">
-  <div class="articles">
-    {
-      articles
-        .slice(0, 2)
-        .map((article) => <PostTeaser post={article} hideDate />)
-    }
-  </div>
-  <div class="articles articlesLast">
-    {
-      articles
-        .slice(2, 8)
-        .map((article) => <PostTeaser post={article} hideDate />)
-    }
-  </div>
+<LayoutBase>
+  <section class="section">
+    <div class="articles">
+      {
+        articles
+          .slice(0, 2)
+          .map((article) => <PostTeaser post={article} hideDate />)
+      }
+    </div>
+    <div class="articles articlesLast">
+      {
+        articles
+          .slice(2, 8)
+          .map((article) => <PostTeaser post={article} hideDate />)
+      }
+    </div>
 
-  <PostMore to="/archive">All Articles</PostMore>
-</section>
+    <a href="/archive">All Articles</a>
+  </section>
 
-<section class="section">
+  <!-- <section class="section">
   <div class="photos">
     {photos.map(({ node }) => <PhotoThumb photo={node} />)}
   </div>
 
   <PostMore to="/photos">All Photos</PostMore>
-</section>
-
-<!-- <ul>
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/${post.slug}/`}>
-          <img width={720} height={360} src={post.data.image} alt="" />
-          <h4 class="title">{post.data.title}</h4>
-          <p class="date">{post.data.date}</p>
-        </a>
-      </li>
-    ))
-  }
-</ul> -->
-
- ../components/layouts/Photos
+</section> -->
+</LayoutBase>

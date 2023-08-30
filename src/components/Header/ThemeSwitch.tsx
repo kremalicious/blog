@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 import useDarkMode from '../../hooks/useDarkMode'
 import Icon from '../core/Icon'
 import styles from './ThemeSwitch.module.css'

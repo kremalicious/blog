@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement } from 'react'
+import type { FunctionComponent, ReactElement } from 'react'
 // https://featherstyles.com
 // import * as Feather from '@kremalicious/react-feather'
 import {
@@ -58,7 +58,7 @@ const components: {
   Mastodon
 }
 
-const Icon = ({ name, ...props }: { name: string }): ReactElement => {
+const Icon = ({ name, ...props }: { name: string }): ReactElement | null => {
   const IconMapped = components[name]
   // const IconFeather = (Feather as any)[name]
   if (!IconMapped) return null

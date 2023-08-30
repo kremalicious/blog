@@ -331,24 +331,3 @@ td {
   color: #fff;
 }
 /* stylelint-enable selector-no-vendor-prefix */
-
-/* More basic elements
-///////////////////////////////////// */
-
-.medium-zoom-overlay {
-  background-color: var(--body-background-color) !important;
-}
-
-#___gatsby {
-  position: relative;
-}
-
-.gatsby-resp-image-figure {
-  margin-bottom: var(--spacer);
-}
-
-.gatsby-image-wrapper,
-.gatsby-image-wrapper-constrained {
-  max-height: 100vh;
-  display: block !important;
-}

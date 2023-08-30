@@ -61,7 +61,6 @@
 }
 
 .wide {
-  composes: container;
   max-width: none;
 }
 
@@ -75,4 +74,14 @@
     margin-left: -8rem;
     margin-right: -8rem;
   }
+}
+
+.pagetitle {
+  font-size: var(--font-size-h3);
+  margin-top: 0;
+  margin-bottom: var(--spacer);
+  color: var(--text-color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }

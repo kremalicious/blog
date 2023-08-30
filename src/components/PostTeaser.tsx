@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 // import { Image } from '../core/Image'
-import PostTitle from './layouts/Post/Title'
+import PostTitle from '../gatsby/Post/Title'
 import styles from './PostTeaser.module.css'
 
 export default function PostTeaser({
@@ -12,13 +12,12 @@ export default function PostTeaser({
   toggleSearch?: () => void
   hideDate?: boolean
 }): ReactElement {
-  const { image, title, updated } = post.frontmatter
-  const { slug, date } = post.fields
+  const { image, title, updated, date } = post.data
 
   return (
     <a
       className={styles.post}
-      href={slug}
+      href={post.slug}
       onClick={toggleSearch && toggleSearch}
     >
       {/* {image ? (

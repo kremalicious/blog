@@ -3,7 +3,15 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@config/*": [".config/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/components/layouts/*"],
+      "@images/*": ["src/images/*"],
+      "@lib/*": ["src/lib/*"]
+    }
   }
   // "exclude": ["node_modules", "public", "dist", "./**/*.js"],
   // "include": [
