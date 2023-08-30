@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
 import Icon from '../../core/Icon'
 import styles from './More.module.css'
 
@@ -10,10 +9,10 @@ const PostMore = ({
   to: string
   children: string
 }): ReactElement => (
-  <Link className={styles.postMore} to={to}>
+  <a className={styles.postMore} href={to}>
     {children}
     <Icon name="ChevronRight" />
-  </Link>
+  </a>
 )
 
 export default PostMore

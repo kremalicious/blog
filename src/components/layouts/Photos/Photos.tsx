@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link, PageProps, graphql } from 'gatsby'
 import { PageContext } from '../../../@types/Post'
 import HeadMeta, { HeadMetaProps } from '../../core/HeadMeta'
 import { Image } from '../../core/Image'
@@ -19,9 +18,9 @@ export const PhotoThumb = ({
   return (
     <article className={styles.photo}>
       {image && (
-        <Link to={slug}>
+        <a href={slug}>
           <Image title={title} image={gatsbyImageData} alt={title} />
-        </Link>
+        </a>
       )}
     </article>
   )

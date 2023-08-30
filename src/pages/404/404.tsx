@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link, PageProps } from 'gatsby'
 import HeadMeta, { HeadMetaProps } from '../../components/core/HeadMeta'
 import Page from '../../components/layouts/Page'
 import styles from './404.module.css'
@@ -16,7 +15,7 @@ const NotFound = (): ReactElement => (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{meta.title}</h1>{' '}
       <p className={styles.text}>{meta.description}</p>
-      <Link to={'/'}>Back to homepage</Link>
+      <a href={'/'}>Back to homepage</a>
     </div>
   </Page>
 )

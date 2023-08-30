@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
 import Icon from '../../core/Icon'
 import styles from './PrevNext.module.css'
 
@@ -17,20 +16,20 @@ const PrevNext = ({ prev, next }: PrevNextProps): ReactElement => (
   <nav className={styles.prevnext}>
     <div>
       {prev && (
-        <Link to={prev.slug}>
+        <a href={prev.slug}>
           <Icon name="ChevronLeft" />
           <p className={styles.label}>Newer</p>
           <h3 className={styles.title}>{prev.title}</h3>
-        </Link>
+        </a>
       )}
     </div>
     <div>
       {next && (
-        <Link to={next.slug}>
+        <a href={next.slug}>
           <p className={styles.label}>Older</p>
           <h3 className={styles.title}>{next.title}</h3>
           <Icon name="ChevronRight" />
-        </Link>
+        </a>
       )}
     </div>
   </nav>

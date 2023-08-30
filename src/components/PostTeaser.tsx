@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link, graphql } from 'gatsby'
 import { Image } from '../core/Image'
 import PostTitle from '../layouts/Post/Title'
 import styles from './PostTeaser.module.css'
@@ -40,9 +39,9 @@ export default function PostTeaser({
   const { slug, date } = post.fields
 
   return (
-    <Link
+    <a
       className={styles.post}
-      to={slug}
+      href={slug}
       onClick={toggleSearch && toggleSearch}
     >
       {image ? (
@@ -60,6 +59,6 @@ export default function PostTeaser({
         updated={updated}
         className={styles.title}
       />
-    </Link>
+    </a>
   )
 }

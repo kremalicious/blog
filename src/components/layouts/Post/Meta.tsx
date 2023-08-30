@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
 import slugify from 'slugify'
 import { useSiteMetadata } from '../../../hooks/useSiteMetadata'
 import Tag from '../../core/Tag'
@@ -28,7 +27,7 @@ export default function PostMeta({
 
       {type && type === 'photo' && (
         <div className={styles.type}>
-          <Link to={`/${slugify(type)}s/`}>{type}s</Link>
+          <a href={`/${slugify(type)}s/`}>{type}s</a>
         </div>
       )}
 

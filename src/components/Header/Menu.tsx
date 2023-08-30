@@ -1,5 +1,4 @@
 import React, { ReactElement, useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import Hamburger from '../core/Hamburger'
 import styles from './Menu.module.css'
@@ -22,9 +21,9 @@ export default function Menu(): ReactElement {
 
   const MenuItems = menu.map((item) => (
     <li key={item.title}>
-      <Link onClick={toggleMenu} to={item.link}>
+      <a onClick={toggleMenu} href={item.link}>
         {item.title}
-      </Link>
+      </a>
     </li>
   ))
 

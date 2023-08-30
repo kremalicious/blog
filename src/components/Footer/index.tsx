@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
 import Icon from '../core/Icon'
 import Vcard from './Vcard'
-import styles from './Footer.module.css'
+import styles from './index.module.css'
 
 function Copyright() {
   const { name, uri, github } = useSiteMetadata().author
@@ -21,10 +20,10 @@ function Copyright() {
           <Icon name="GitHub" />
           View source
         </a>
-        <Link to="/thanks" className={styles.btc}>
+        <a href="/thanks" className={styles.btc}>
           <Icon name="Bitcoin" />
           Say Thanks
-        </Link>
+        </a>
       </p>
     </section>
   )

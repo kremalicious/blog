@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Link } from 'gatsby'
 import { PageContext } from '../@types/Post'
 import Icon from './core/Icon'
 import styles from './Pagination.module.css'
@@ -17,9 +16,9 @@ function PageNumber({
   const link = i === 0 ? slug : `${slug}page/${i + 1}`
 
   return (
-    <Link className={classes} to={link}>
+    <a className={classes} href={link}>
       {i + 1}
-    </Link>
+    </a>
   )
 }
 
@@ -35,13 +34,13 @@ function PrevNext({
   const title = prevPagePath ? 'Newer Posts' : 'Older Posts'
 
   return (
-    <Link to={link} rel={rel} title={title} className={styles.number}>
+    <a href={link} rel={rel} title={title} className={styles.number}>
       {prevPagePath ? (
         <Icon name="ChevronLeft" />
       ) : (
         <Icon name="ChevronRight" />
       )}
-    </Link>
+    </a>
   )
 }
 

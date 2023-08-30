@@ -1,5 +1,4 @@
 import React, { ReactElement, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { PhotoThumb } from '../templates/Photos'
 import PostTeaser from './PostTeaser'
 import styles from './RelatedPosts.module.css'

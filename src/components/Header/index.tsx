@@ -1,18 +1,17 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { ReactComponent as Logo } from '../../images/logo.svg'
 import Menu from './Menu'
 import Search from './Search'
-import ThemeSwitch from '../molecules/ThemeSwitch'
-import styles from './Header.module.css'
+import ThemeSwitch from './ThemeSwitch'
+import styles from './index.module.css'
 
 export default function Header(): JSX.Element {
   return (
     <header role="banner" className={styles.header}>
       <div className={styles.headerContent}>
-        <Link to="/" className={styles.title}>
+        <a href="/" className={styles.title}>
           <Logo className={styles.logo} /> kremalicious
-        </Link>
+        </a>
 
         <nav aria-label="Menu" className={styles.nav}>
           <ThemeSwitch />
