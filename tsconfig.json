@@ -10,7 +10,8 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/components/layouts/*"],
       "@images/*": ["src/images/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@content/*": ["src/content/*"]
     }
   }
   // "exclude": ["node_modules", "public", "dist", "./**/*.js"],

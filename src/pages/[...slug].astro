@@ -1,6 +1,11 @@
 ---
 import LayoutPost from '@layouts/Post/index.astro'
 import { loadAndFormatCollection } from '@lib/astro'
+import type { CollectionEntry } from 'astro:content'
+
+type Props = {
+  entry: CollectionEntry<'articles' | 'links' | 'photos'>
+}
 
 export async function getStaticPaths() {
   const articles = await loadAndFormatCollection('articles')

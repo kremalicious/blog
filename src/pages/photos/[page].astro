@@ -1,0 +1,35 @@
+---
+import { loadAndFormatCollection } from '@lib/astro'
+import LayoutBase from '@layouts/Base/index.astro'
+import PhotoTeaser from '@components/PhotoTeaser.astro'
+import type { CollectionEntry } from 'astro:content'
+
+export async function getStaticPaths({ paginate }) {
+  const photos = await loadAndFormatCollection('photos')
+  return paginate(photos, { pageSize: 10 })
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props
+---
+
+<style>
+  .photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacer);
+  }
+
+  @media (min-width: 40rem) {
+    .photos {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+</style>
+
+<LayoutBase>
+  <div class="photos">
+    {page.data.map((photo) => <PhotoTeaser photo={photo} />)}
+  </div>
+  <!--Display the current page number. Astro.params.page can also be used!-->
+  <h1>Page {page.currentPage}</h1>
+</LayoutBase>

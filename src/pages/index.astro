@@ -1,8 +1,9 @@
 ---
 import LayoutBase from '@components/layouts/Base/index.astro'
 import PostTeaser from '@components/PostTeaser.astro'
-import { PhotoThumb } from '../components/layouts/Photos'
 import { loadAndFormatCollection } from '@lib/astro'
+import PhotoTeaser from '@components/PhotoTeaser.astro'
+import type { CollectionEntry } from 'astro:content'
 
 const articles = await loadAndFormatCollection('articles')
 const links = await loadAndFormatCollection('links')
@@ -79,14 +80,20 @@ const photos = await loadAndFormatCollection('photos')
       }
     </div>
 
-    <a href="/archive">All Articles</a>
+    <a href="/archive/1">All Articles</a>
   </section>
 
-  <!-- <section class="section">
-  <div class="photos">
-    {photos.map(({ node }) => <PhotoThumb photo={node} />)}
-  </div>
+  <section class="section">
+    <div class="photos">
+      {
+        photos
+          .slice(0, 8)
+          .map((photo) => (
+            <PhotoTeaser {...(photo as CollectionEntry<'photos'>)} />
+          ))
+      }
+    </div>
 
-  <PostMore to="/photos">All Photos</PostMore>
-</section> -->
+    <a href="/photos/1">All Photos</a>
+  </section>
 </LayoutBase>

@@ -27,7 +27,7 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@rainbow-me/rainbowkit": "^1.0.9",
-    "astro": "^3.0.2",
+    "astro": "^3.0.3",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "dms2dec": "^1.1.0",

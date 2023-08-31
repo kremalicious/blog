@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+type Props = CollectionEntry<'photos'>
+
+const { slug } = Astro.props
+const { title, image } = Astro.props.data
+---
+
+<style>
+  .photo a {
+    display: block;
+  }
+
+  .photo figure,
+  .photo figure > div {
+    margin: 0;
+  }
+
+  .photo figcaption {
+    font-size: var(--font-size-base);
+    padding-left: calc(var(--spacer) / 2);
+    padding-right: calc(var(--spacer) / 2);
+  }
+</style>
+
+<article class="photo">
+  {
+    image ? (
+      <a href={slug}>
+        <Image width="150" height="80" src={image} alt={title} />
+      </a>
+    ) : null
+  }
+</article>

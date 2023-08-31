@@ -1,0 +1,60 @@
+---
+import { loadAndFormatCollection } from '@lib/astro'
+
+type Props = {
+  page: {
+    data: {
+      post: {
+        title: string
+      }
+    }[]
+    currentPage: number
+    totalPages: number
+  }
+}
+
+export async function getStaticPaths({ paginate }) {
+  const articles = await loadAndFormatCollection('articles')
+  const links = await loadAndFormatCollection('links')
+  return paginate([...articles, ...links], { pageSize: 10 })
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props
+---
+
+<style>
+  .posts {
+    display: grid;
+    gap: calc(var(--spacer) * 2);
+  }
+
+  @media (min-width: 40rem) {
+    .posts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .posts h1 {
+    font-size: var(--font-size-h4);
+  }
+</style>
+
+<!--Display the current page number. Astro.params.page can also be used!-->
+<h1>Page {page.currentPage}</h1>
+<ul>
+  {page.data.map(({ post }) => <li>{post.title}</li>)}
+</ul>
+<!-- 
+<ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/${post.slug}/`}>
+          <img width={720} height={360} src={post.data.image} alt="" />
+          <h4 class="title">{post.data.title}</h4>
+          <p class="date">{post.data.date}</p>
+        </a>
+      </li>
+    ))
+  }
+</ul> -->

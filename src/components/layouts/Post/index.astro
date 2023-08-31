@@ -2,12 +2,11 @@
 import type { CollectionEntry } from 'astro:content'
 import LayoutBase from '@layouts/Base/index.astro'
 import Title from './Title.astro'
-import Lead from './Lead.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'>
 
-const { collection, body } = Astro.props
-const { title, date, updated, image, linkurl } = Astro.props.data
+const { collection, body, data } = Astro.props
+const { title, date, updated, image, linkurl } = data
 
 // Extract lead paragraph from content
 // Grab everything before more tag, or just first paragraph
@@ -39,6 +38,11 @@ if (collection === 'articles') {
   .image {
     /* composes: breakout from '../../Layout.module.css'; */
   }
+
+  .lead {
+    font-size: var(--font-size-large);
+    margin-bottom: calc(var(--spacer) * var(--line-height));
+  }
 </style>
 
 <LayoutBase title={title}>
@@ -47,7 +51,7 @@ if (collection === 'articles') {
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />
     </header>
 
-    {lead && <Lead lead={lead} />}
+    {lead && <div class="lead">{lead}</div>}
 
     <div class="hero-image">
       {image && <img width={1020} height={510} src={image} alt="" />}
