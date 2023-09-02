@@ -64,7 +64,7 @@
   margin-left: -1rem;
 }
 
-:global(.dark) .inputInput {
+:global([data-theme='dark']) .inputInput {
   border-color: var(--border-color);
 }
 
@@ -83,7 +83,7 @@
   align-items: center;
 }
 
-:global(.dark) .currency {
+:global([data-theme='dark']) .currency {
   border-right-color: #000;
 }
 

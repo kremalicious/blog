@@ -10,5 +10,7 @@ src/@types/Gatsby.d.ts
 
 # build output
 dist/
+src/images/icons/
+
 # generated types
 .astro/

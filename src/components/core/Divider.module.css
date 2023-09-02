@@ -13,6 +13,6 @@
   border-bottom: 1px dashed #fff;
 }
 
-:global(.dark) .divider::before {
+:global([data-theme='dark']) .divider::before {
   border-bottom-color: var(--brand-grey);
 }

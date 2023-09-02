@@ -1,0 +1,21 @@
+---
+import { Sun, Moon } from '@images/icons'
+import styles from './index.module.css'
+---
+
+<div class={styles.themeSwitch} title="Toggle Theme" id="theme-toggle">
+  <label for="toggle" class={styles.checkbox} role="presentation">
+    <span class={styles.label}>Toggle Theme</span>
+    <input
+      type="checkbox"
+      name="theme-toggle"
+      aria-describedby="theme-toggle"
+    />
+    <div aria-live="assertive">
+      <Sun id="sun" />
+      <Moon id="moon" />
+    </div>
+  </label>
+</div>
+
+<script src="./script.js"></script>

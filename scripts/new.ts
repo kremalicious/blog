@@ -1,5 +1,5 @@
 import fastExif from 'fast-exif'
-import fs from 'fs-extra'
+import fs from 'fs'
 import iptc from 'node-iptc'
 import ora from 'ora'
 import path from 'path'

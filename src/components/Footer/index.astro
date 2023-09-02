@@ -1,5 +1,5 @@
 ---
-import Icon from '../core/Icon'
+import { Github, Bitcoin } from '@images/icons'
 import Vcard from './Vcard.astro'
 import styles from './index.module.css'
 import config from '@config/blog.config.mjs'
@@ -18,11 +18,11 @@ const { name, uri, github } = config.author
         {name}
       </a>
       <a href={`${github}/blog`}>
-        <Icon name="GitHub" />
+        <Github />
          View source
       </a>
       <a href="/thanks" class={styles.btc}>
-        <Icon name="Bitcoin" />
+        <Bitcoin />
          Say Thanks
       </a>
     </p>

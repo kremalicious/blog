@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import Icon from '../../components/core/Icon'
 import styles from './PrevNext.module.css'
+import { ChevronLeft, ChevronRight } from '@images/icons'
 
 interface Node {
   title: string
@@ -17,7 +17,7 @@ const PrevNext = ({ prev, next }: PrevNextProps): ReactElement => (
     <div>
       {prev && (
         <a href={prev.slug}>
-          <Icon name="ChevronLeft" />
+          <ChevronLeft />
           <p className={styles.label}>Newer</p>
           <h3 className={styles.title}>{prev.title}</h3>
         </a>
@@ -28,7 +28,7 @@ const PrevNext = ({ prev, next }: PrevNextProps): ReactElement => (
         <a href={next.slug}>
           <p className={styles.label}>Older</p>
           <h3 className={styles.title}>{next.title}</h3>
-          <Icon name="ChevronRight" />
+          <ChevronRight />
         </a>
       )}
     </div>

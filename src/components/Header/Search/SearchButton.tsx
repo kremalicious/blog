@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import Icon from '../../core/Icon'
 import styles from './SearchButton.module.css'
+import { Search } from '@images/icons'
 
 const SearchButton = ({ onClick }: { onClick: () => void }): ReactElement => (
   <button
@@ -9,7 +9,7 @@ const SearchButton = ({ onClick }: { onClick: () => void }): ReactElement => (
     className={styles.searchButton}
     onClick={onClick}
   >
-    <Icon name="Search" />
+    <Search />
   </button>
 )
 

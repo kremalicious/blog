@@ -23,6 +23,10 @@
   display: block;
 }
 
+.themeSwitch [hidden] {
+  display: none !important;
+}
+
 /* hide visually */
 .checkbox [type='checkbox'],
 .checkbox .label {

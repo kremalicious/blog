@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 import { useSiteMetadata } from '../../hooks/useSiteMetadata'
-import Icon from '../../components/core/Icon'
 import styles from './Actions.module.css'
 
 interface ActionProps {
@@ -14,7 +13,7 @@ interface ActionProps {
 const Action = ({ title, text, url, icon, onClick }: ActionProps) => {
   return (
     <a className={styles.action} href={url} onClick={onClick}>
-      <Icon name={icon} />
+      {/* <Icon name={icon} /> */}
       <h1 className={styles.actionTitle}>{title}</h1>
       <p className={styles.actionText}>{text}</p>
     </a>

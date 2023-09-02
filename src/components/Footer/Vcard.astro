@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets'
-import Networks from './Networks'
-import avatar from '../../images/avatar.jpg'
-import config from '../../../.config/blog.config.mjs'
+import Networks from './Networks.astro'
+import avatar from '@images/avatar.jpg'
+import config from '@config/blog.config.mjs'
 
 const { author, rss, jsonfeed } = config
 const { mastodon, twitter, github, name, uri } = author

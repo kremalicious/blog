@@ -23,12 +23,12 @@
   background: var(--alert-info);
 }
 
-.dark .alert-info {
+[data-theme='dark'] .alert-info {
   color: var(--alert-info);
   background: rgba(248 241 227 / 20%);
 }
 
-/* .dark & {
+/* [data-theme="dark"] & {
       color: darken($alert-info, 40%);
       background: darken($alert-info, 85%);
       border-color: darken($alert-info, 90%);

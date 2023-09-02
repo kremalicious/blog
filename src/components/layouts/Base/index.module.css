@@ -28,7 +28,7 @@
   transform: translate3d(0, calc(var(--spacer) * 2), 0);
 }
 
-:global(.dark) .document {
+:global([data-theme='dark']) .document {
   border-top-color: rgba(255 255 255 / 5%);
   box-shadow:
     0 1px 8px rgba(0 7 8 / 30%),

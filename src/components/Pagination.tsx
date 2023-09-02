@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import Icon from './core/Icon'
 import styles from './Pagination.module.css'
+import { ChevronLeft, ChevronRight } from '@images/icons'
 
 function PageNumber({
   i,
@@ -34,11 +34,7 @@ function PrevNext({
 
   return (
     <a href={link} rel={rel} title={title} className={styles.number}>
-      {prevPagePath ? (
-        <Icon name="ChevronLeft" />
-      ) : (
-        <Icon name="ChevronRight" />
-      )}
+      {prevPagePath ? <ChevronLeft /> : <ChevronRight />}
     </a>
   )
 }

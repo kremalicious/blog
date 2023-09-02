@@ -1,7 +1,7 @@
 ---
 import Time from '@components/core/Time.astro'
-import Icon from '../../core/Icon'
 import styles from './Title.module.css'
+import { ExternalLink } from '@images/icons'
 
 type Props = {
   linkurl?: string
@@ -22,7 +22,7 @@ const linkHostname = linkurl ? new URL(linkurl).hostname : null
         class={`${styles.title} ${styles.titleLink} ${className && className}`}
       >
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
-          {title} <Icon name="ExternalLink" />
+          {title} <ExternalLink />
         </a>
       </h1>
       <div class={styles.linkurl}>{linkHostname}</div>

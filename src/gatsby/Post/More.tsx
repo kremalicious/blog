@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import Icon from '../../components/core/Icon'
+import { ChevronRight } from '@images/icons'
 import styles from './More.module.css'
 
 const PostMore = ({
@@ -11,7 +11,7 @@ const PostMore = ({
 }): ReactElement => (
   <a className={styles.postMore} href={to}>
     {children}
-    <Icon name="ChevronRight" />
+    <ChevronRight />
   </a>
 )
 

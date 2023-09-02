@@ -5,9 +5,9 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { chains, theme, wagmiConfig } from '../lib/rainbowkit'
 import Copy from '../components/core/Copy'
 import Meta, { HeadMetaProps } from '../components/core/HeadMeta'
-import Icon from '../components/core/Icon'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import styles from './thanks.module.css'
+import { ChevronLeft } from '@images/icons'
 
 const meta: Partial<HeadMetaProps> = {
   title: `Say Thanks`
@@ -32,7 +32,7 @@ const BackButton = () => (
     className={`link ${styles.buttonBack}`}
     onClick={() => window.history.back()}
   >
-    <Icon name="ChevronLeft" /> Go Back
+    <ChevronLeft /> Go Back
   </button>
 )
 

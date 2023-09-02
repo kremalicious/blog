@@ -100,11 +100,11 @@ a.btn-primary {
   background-size: 100%;
 }
 
-.dark .btn[class*='icon-']::before {
+[data-theme='dark'] .btn[class*='icon-']::before {
   filter: invert(0.75);
 }
 
-.dark .btn.btn-primary[class*='icon-']::before {
+[data-theme='dark'] .btn.btn-primary[class*='icon-']::before {
   filter: invert(0);
 }
 

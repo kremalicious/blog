@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ReactElement } from 'react'
-import Icon from '../../core/Icon'
 import Input from '../../core/Input'
 import styles from './SearchInput.module.css'
+import { X } from '@images/icons'
 
 export default function SearchInput({
   value,
@@ -27,7 +27,7 @@ export default function SearchInput({
         onClick={onToggle}
         title="Close search"
       >
-        <Icon name="X" />
+        <X />
       </button>
     </>
   )

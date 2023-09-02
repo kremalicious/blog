@@ -1,20 +1,20 @@
 ---
-import logo from '@images/logo.svg'
 import Menu from './Menu'
-import Search from './Search'
-import ThemeSwitch from './ThemeSwitch'
+// import Search from './Search'
+import ThemeSwitch from '../ThemeSwitch/index.astro'
+import { Logo } from '@images/icons'
 import styles from './index.module.css'
 ---
 
 <header role="banner" class={styles.header}>
   <div class={styles.headerContent}>
     <a href="/" class={styles.title}>
-      <img src={logo} class={styles.logo} /> kremalicious
+      <Logo class={styles.logo} viewBox="0 0 191 36" /> kremalicious
     </a>
 
     <nav aria-label="Menu" class={styles.nav}>
       <ThemeSwitch />
-      <Search />
+      <!-- <Search /> -->
       <Menu />
     </nav>
   </div>
