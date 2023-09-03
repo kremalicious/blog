@@ -10,11 +10,11 @@ tags:
   - css
 ---
 
+Writing right now on a longer article about text-shadow and it's implementation in WebKit, the rendering engine which powers Safari and Konqueror.
+
 ![WebKit](../media/webkit.png)
 
-Writing right now on a longer article about text-shadow and it's implementation in WebKit, the rendering engine which powers Safari and Konqueror. But now this exciting news popped up from Surfin' Safari, the blog of the WebKit development team:
-
-<!-- more -->
+But now this exciting news popped up from Surfin' Safari, the blog of the WebKit development team:
 
 > WebKit now supports gradients specified in CSS. There are two types of gradients: linear gradients and radial gradients.
 

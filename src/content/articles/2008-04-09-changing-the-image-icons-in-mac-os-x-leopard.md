@@ -15,11 +15,11 @@ redirect_from:
   - /2008/04/changing-the-image-icons-in-mac-os-x-leopard/
 ---
 
+After i released my [Aperture File Types icon set](http://www.kremalicious.com/goodies) many of you asked how they can really use these icons for displaying the icons of images on your Mac system.
+
 [![Aperture File Types](../media/aperturefiletypes.png)](../media/aperturefiletypes.png)
 
-After i released my [Aperture File Types icon set](http://www.kremalicious.com/goodies) many of you asked how they can really use these icons for displaying the icons of images on your Mac system. Sadly this isn't as easy as dropping them in [Candybar](http://www.panic.com/candybar) into a well for image icons cause there isn't any well for them. So using other icons as standard file type icons for images is a bit tricky. I discovered two ways of doing it, which involves overwriting resources of Preview.app and Photoshop. So before doing anything I mention in this post, you should make a backup copy of them.
-
-<!-- more -->
+Sadly this isn't as easy as dropping them in [Candybar](http://www.panic.com/candybar) into a well for image icons cause there isn't any well for them. So using other icons as standard file type icons for images is a bit tricky. I discovered two ways of doing it, which involves overwriting resources of Preview.app and Photoshop. So before doing anything I mention in this post, you should make a backup copy of them.
 
 ## Changing Preview.app icons
 

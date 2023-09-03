@@ -13,10 +13,7 @@ redirect_from:
   - /2008/12/how-to-set-a-custom-gravatar-image-in-wordpress-27/
 ---
 
-![Wordpress Logo by kremalicious](../media/wordpress-logo.png)
 Sure enough I've upgraded immediately when [Wordpress 2.7 was released](http://wordpress.org/development/2008/12/coltrane/). Among all the other things that changed in this new version the comments functions got a massive overhaul. But the [new comment loop](http://codex.wordpress.org/Migrating_Plugins_and_Themes_to_2.7/Enhanced_Comment_Display#The_Comments_Loop) with the [new function `<?php wp_list_comments(); ?>`](http://codex.wordpress.org/Template_Tags/wp_list_comments) lacks the ability to quickly set a custom default gravatar or avatar image. But with some help of the functions.php file we can set the default gravatar image in the Discussion settings in the Wordpress backend.
-
-<!-- more -->
 
 Before Wordpress 2.7 I achieved a custom gravatar image on kremalicious.com with this code placed in the comments.php template file:
 

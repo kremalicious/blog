@@ -10,9 +10,11 @@ tags:
   - apple
 ---
 
-![Aperture](../media/aperture97.png)With the release of Aperture 2.1 Apple introduced a plugin architecture for adding third party image adjustment and export plugins. Now the first third party image adjustment plugins for Aperture 2.1 have arrived. And they can definitely make you stop roundtripping your pictures to Photoshop and back. For now a total of 14 plugins from 9 companys were announced which are waiting to help you with your Aperture 2 workflow.
+With the release of Aperture 2.1 Apple introduced a plugin architecture for adding third party image adjustment and export plugins. Now the first third party image adjustment plugins for Aperture 2.1 have arrived.
 
-<!-- more -->
+![Aperture](../media/aperture97.png)
+
+And they can definitely make you stop roundtripping your pictures to Photoshop and back. For now a total of 14 plugins from 9 companys were announced which are waiting to help you with your Aperture 2 workflow.
 
 ## Dfx digital filters plugin from Tiffen
 

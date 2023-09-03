@@ -8,9 +8,11 @@ tags:
   - photography
 ---
 
-![Digital Rebel XS/EOS 1000D ](../media/canon1000d.png)After the latest Digital Photo Professional update (DPP 3.4.1.1) [revealed some evidence about an upcoming Canon EOS Rebel XS/1000D](http://www.bobatkins.com/photography/digital/canon_xs_1000D_dpp34.html), Canon finally introduced this new entry-level DSLR this month. The [EOS Digital Rebel XS/1000D/Kiss F](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp) ([full product specifications](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp?specs=1)) is technically a hybrid between hardware and features found in Canon's entry-level cameras from the past: the 7-point autofocus system comes from the XT/350D, the Digic III processor is the same as in the XSi/450D and the Live View feature is implemented with the same features as found in the XSi/450D.
+After the latest Digital Photo Professional update (DPP 3.4.1.1) [revealed some evidence about an upcoming Canon EOS Rebel XS/1000D](http://www.bobatkins.com/photography/digital/canon_xs_1000D_dpp34.html), Canon finally introduced this new entry-level DSLR this month.
 
-<!-- more -->
+![Digital Rebel XS/EOS 1000D ](../media/canon1000d.png)
+
+The [EOS Digital Rebel XS/1000D/Kiss F](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp) ([full product specifications](http://www.canon-europe.com/For_Home/Product_Finder/Cameras/Digital_SLR/EOS_1000D/index.asp?specs=1)) is technically a hybrid between hardware and features found in Canon's entry-level cameras from the past: the 7-point autofocus system comes from the XT/350D, the Digic III processor is the same as in the XSi/450D and the Live View feature is implemented with the same features as found in the XSi/450D.
 
 With this DSLR Canon seems to open up a new class in their EOS system which is somehow below the former entry level cameras (XT/350D, XTi/400D) and the latest entry-level XSi/450D. It's priced 200\$ below Canons current or former entry-level DSLR XSi/450D and you can find a nice first review of this new DSLR [over at Digital Photography Review](http://www.dpreview.com/previews/Canon_1000D/).
 

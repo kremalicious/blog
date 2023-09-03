@@ -13,9 +13,9 @@ tags:
   - wallpaper
 ---
 
-It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstall-fight-club-day-three-apple-samsung-trial/in/2971889) the original iPhone was developed in a locked down building under the name "Project Purple". Because of the secrecy involved, the team decorated the building with [Fight Club](http://www.imdb.com/title/tt0137523/) references. If you don't think this demands a wallpaper, you're weird.
+It [has been revealed](http://www.theverge.com/2012/8/3/3218846/schiller-forstall-fight-club-day-three-apple-samsung-trial/in/2971889) the original iPhone was developed in a locked down building under the name "Project Purple".
 
-<!-- more -->
+Because of the secrecy involved, the team decorated the building with [Fight Club](http://www.imdb.com/title/tt0137523/) references. If you don't think this demands a wallpaper, you're weird.
 
 > Forstall said that "on the front door of the Purple Dorm we put a sign up that said 'Fight Club'... because the first rule of that project was to not talk about it outside those doors."
 

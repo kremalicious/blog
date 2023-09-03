@@ -11,9 +11,9 @@ tags:
   - wordpress
 ---
 
-![Wordpress Logo by kremalicious](../media/wordpress-logo.png)Since Wordpress 2.5 it was nearly impossible for me to log into Wordpress and quickly head over to the write tab. The Dashboard always wants to load a bunch of things in it but this always seemed to fail in my setup and slow things down. And not enough the Dashboard just locks everything up while loading which can take more than one minute.
+Since Wordpress 2.5 it was nearly impossible for me to log into Wordpress and quickly head over to the write tab. The Dashboard always wants to load a bunch of things in it but this always seemed to fail in my setup and slow things down. And not enough the Dashboard just locks everything up while loading which can take more than one minute.
 
-<!-- more -->
+![Wordpress Logo by kremalicious](../media/wordpress-logo.png)
 
 I've searched for a simple way of disabling those feeds, plugins etc. stuff the Wordpress Dashboard tries to fill but it seems you can't disable these from the backend. But there's a quick way for doing this which involves editing your /wp-admin/index-extra.php and uncomment some lines there. This will leave your Dashboard intact while it stops Wordpress from connecting to various sources to screw your blog up when you just want to quickly write something.
 

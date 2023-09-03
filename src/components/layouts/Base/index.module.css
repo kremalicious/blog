@@ -15,13 +15,15 @@
   padding-top: var(--spacer);
   background-color: var(--body-background-color);
   padding-bottom: calc(var(--spacer) * 2);
-  transform: translate3d(0, 0, 0);
-  transition: 0.4s var(--easing);
-  transition-property: transform, background, border, box-shadow;
   border-top: 1px solid rgba(255 255 255 / 85%);
   box-shadow:
     0 1px 10px rgba(1 85 101 / 10%),
     0 -1px 4px rgba(1 85 101 / 5%);
+
+  /* animates the page menu opening/closing */
+  transition: 0.2s ease-out;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 :global(.has-menu-open) .document {

@@ -9,9 +9,9 @@ tags:
   - aperture
 ---
 
-![Aperture](../media/aperture128.png)Have you ever looked for a way to quickly add text to your images [without photoshopping a watermark image](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) first?
+Have you ever looked for a way to quickly add text to your images [without photoshopping a watermark image](http://www.kremalicious.com/2008/05/high-quality-watermarks-with-aperture/) first?
 
-<!-- more -->
+![Aperture](../media/aperture128.png)
 
 There's a simple editing plug-in available for this task called [Borders & Titles](http://developer.apple.com/samplecode/BordersAndTitles/index.html) and as the name says you can add simple borders and text to your images within Aperture 2.1. It's a sample plug-in provided by Apple and it's fully functional. You can download it from Apple's Developer Connection website without registration:
 

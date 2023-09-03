@@ -1,0 +1,33 @@
+---
+import Hamburger from '../../core/Hamburger.astro'
+import config from '@config/blog.config.mjs'
+import styles from './index.module.css'
+---
+
+<Hamburger id="menu-button" />
+<nav aria-label="Pages" class={styles.menu}>
+  <ul>
+    {
+      config.menu.map((item) => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  let menuOpen = false
+  const hamburger = document.querySelector('#menu-button')
+
+  hamburger?.addEventListener('click', () => {
+    menuOpen = !menuOpen
+
+    if (menuOpen) {
+      document.body.classList.add('has-menu-open')
+    } else {
+      document.body.classList.remove('has-menu-open')
+    }
+  })
+</script>

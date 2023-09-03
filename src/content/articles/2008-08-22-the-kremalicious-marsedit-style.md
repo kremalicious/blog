@@ -8,9 +8,9 @@ tags:
   - goodies
 ---
 
-![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious.png)Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.
+Personally I blog everything with RedSweater's awesome application [MarsEdit](http://www.red-sweater.com/marsedit/). MarsEdit has a cool preview window included where you can see your writing live while you type. The formatting of this preview is based on simple HTML and CSS so the style is pretty customizable.
 
-<!-- more -->
+![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious.png)
 
 A while ago I've made a custom style for the blog on kremalicious.com and would like to share this style with you. The style is based on the colors used on kremalicious.com with a black background and light grey text on top of it. The links have the same blueish hover style as on my website:
 
@@ -48,7 +48,10 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
         color: #778caa;
         background-color: #333;
         margin: 0;
-        font: normal 2.1em 'HelveticaNeue-UltraLight', Helvetica, sans-serif;
+        font:
+          normal 2.1em 'HelveticaNeue-UltraLight',
+          Helvetica,
+          sans-serif;
       }
 
       #title a {
@@ -62,7 +65,11 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
       }
 
       #content {
-        font: 1em 'Lucida Grande', Lucida, Verdana, sans-serif;
+        font:
+          1em 'Lucida Grande',
+          Lucida,
+          Verdana,
+          sans-serif;
         color: #ddd;
         padding: 10px 20px;
       }
@@ -75,7 +82,12 @@ Just copy and paste the following HTML and CSS into your Preview Template editor
       }
 
       #credit {
-        font: italic 0.8em/12px 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif;
+        font:
+          italic 0.8em/12px 'Helvetica Neue',
+          Arial,
+          Helvetica,
+          Geneva,
+          sans-serif;
         text-align: center;
         margin-top: 20px;
       }

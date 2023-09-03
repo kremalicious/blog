@@ -9,9 +9,9 @@ tags:
   - icon
 ---
 
-[![Indiana Jones Iconset by Iconfactory](../media/indianajones_first.png)](http://iconfactory.com/indianajones/)If you enjoyed the Indiana Jones movies than this first of four desktop icon sets is a must have for you. Icon Designer [Anthony Piraino](http://onebuttonmouse.com/) crafted some beautiful items from Indiana Jones and The Raiders of the Lost Ark movie.
+If you enjoyed the Indiana Jones movies than this first of four desktop icon sets is a must have for you. Icon Designer [Anthony Piraino](http://onebuttonmouse.com/) crafted some beautiful items from Indiana Jones and The Raiders of the Lost Ark movie.
 
-<!-- more -->
+[![Indiana Jones Iconset by Iconfactory](../media/indianajones_first.png)](http://iconfactory.com/indianajones/)
 
 The icons are available from the [special Iconfactory site](http://iconfactory.com/indianajones/) as an icontainer or mac and windows icon files. If you download the iContainer for use in [Candybar](http://www.panic.com/candybar/) you also get a new Mac OS X dock created by [David Lanham](http://dlanham.com/). All icons are free for your personal use only and there are already some nice placeholders for more icon sets inspired by the other movies. All of them will be released during May.
 

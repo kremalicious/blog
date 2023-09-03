@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
+import { slugifyAll } from './slugify'
 
 export function getSortedPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
@@ -16,7 +17,7 @@ export function getPostsByTag(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[],
   tag: string
 ) {
-  return posts.filter((post) => slugifyAll(post.data.tags).includes(tag))
+  return posts.filter((post) => slugifyAll(post.data.tags || []).includes(tag))
 }
 
 export default getPostsByTag

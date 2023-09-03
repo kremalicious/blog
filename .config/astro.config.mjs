@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config'
+import { remarkLeadParagraph } from './src/lib/remark-lead-paragraph.mjs'
 import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
-  site: 'https://kremalicious.com'
+  site: 'https://kremalicious.com',
+  markdown: {
+    remarkPlugins: [remarkLeadParagraph]
+  },
+  integrations: [react()]
 })

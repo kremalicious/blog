@@ -12,9 +12,9 @@ redirect_from:
   - /2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/
 ---
 
-![CSS](../media/css.png)The aim of this article is to give you a quick introduction of a css property named text-shadow which was first included in CSS2 (but it's not implemented in all browsers yet). Nevertheless you can make some cool effects with it, which could only be done before by photoshopping text and rendering it as an image.
+The aim of this article is to give you a quick introduction of a css property named text-shadow which was first included in CSS2 (but it's not implemented in all browsers yet). Nevertheless you can make some cool effects with it, which could only be done before by photoshopping text and rendering it as an image.
 
-<!-- more -->
+![CSS](../media/css.png)
 
 Because it's included in Safari since version 1.1(!) Mac users should be aware of various effects done by this property. In fact, most companys and persons with mac users as their main target audience use this effect on their websites.
 
@@ -274,8 +274,12 @@ Sadly Safari 3 isn't able to render more than one shadow on one element. It just
 ```css
 color: #000;
 background: #000;
-text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px
-    #f80, 2px -18px 18px #f20;
+text-shadow:
+  0 0 4px #ccc,
+  0 -5px 4px #ff3,
+  2px -10px 6px #fd3,
+  -2px -15px 11px #f80,
+  2px -18px 18px #f20;
 ```
 
 <p style="color: #000;

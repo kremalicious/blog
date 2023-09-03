@@ -10,11 +10,9 @@ tags:
   - apple
 ---
 
-![image](../media/aperture-plugin128.png)
-
 Last week two new image editing plug-ins were announced for Aperture 2.1: The PTLens plug-in for correcting barrel distortion, vignetting, chromatic aberration, and perspective and the Jade plug-in for automatic correction of color, levels and exposure.
 
-<!-- more -->
+![image](../media/aperture-plugin128.png)
 
 The [PTLens plug-in](http://epaperpress.com/ptlens/) from [ePaperPress](http://epaperpress.com/) was available as a Photoshop plug-in in the past and is well known for its lens pincushion, barrel distortion, vignetting, chromatic aberration, and perspective correction abilities based on a lens model database similiar to [Kekus' LensFix CI plug-in](http://www.kekus.com/software/plugin.html).
 

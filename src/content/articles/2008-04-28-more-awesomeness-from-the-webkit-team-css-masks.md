@@ -9,9 +9,9 @@ tags:
   - css
 ---
 
-![WebKit](../media/webkit.png)They won't stop with their cutting edge love. After having [text-shadow](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) implemented since many years and having a bunch of other cool stuff implemented like CSS gradients or CSS box-shadow the WebKit team freshly announced a new cool feature: CSS alpha masks.
+They won't stop with their cutting edge love. After having [text-shadow](http://www.kremalicious.com/2008/04/make-cool-and-clever-text-effects-with-css-text-shadow/) implemented since many years and having a bunch of other cool stuff implemented like CSS gradients or CSS box-shadow the WebKit team freshly announced a new cool feature: CSS alpha masks.
 
-<!-- more -->
+![WebKit](../media/webkit.png)
 
 From the Surfin' Safari Blog:
 

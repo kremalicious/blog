@@ -12,12 +12,13 @@ tags:
   - wordpress
 ---
 
+Ever wanted to include those sharing links to social or bookmarking sites so users can easily submit your content to these sites in a Wordpress site or any other platform?
+
 ![Coda Clips Teaser](../media/codaclips-teaser.png)
-Ever wanted to include those sharing links to social or bookmarking sites so users can easily submit your content to these sites in a Wordpress site or any other platform? Then you might have experienced a rather time consuming search odyssey to get those links. But fear no more! In this article I've provided a huge collection of all the links to your favorite social sites compiled in two handy Coda Clip files in a plain and a Wordpress version. And the non-Coda users can download an html file with all the links included.
+
+Then you might have experienced a rather time consuming search odyssey to get those links. But fear no more! In this article I've provided a huge collection of all the links to your favorite social sites compiled in two handy Coda Clip files in a plain and a Wordpress version. And the non-Coda users can download an html file with all the links included.
 
 Additionally you'll find a huge list within this article with the separated links in two versions for each site. And finally I've put together a quick tutorial for using buttons or icons with these links. This way you can easily add content submit/sharing links to your sites in no time.
-
-<!-- more -->
 
 ## Share Links Coda Clips Download
 

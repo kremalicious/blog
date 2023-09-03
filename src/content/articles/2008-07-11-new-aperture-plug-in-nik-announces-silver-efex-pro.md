@@ -10,9 +10,11 @@ tags:
   - apple
 ---
 
-![image](../media/aperture-plugin128.png)Beside a new version of Color Efex Pro for Capture NX, Nik announced a brand new plug-in for Photoshop and Aperture. [Silver Efex Pro](http://www.niksoftware.com/silverefexpro/usa/entry.php) is a tool to create black & white images with the power and simplicity of the U-Point technology. You can easily fine tune portions of your black & white images. It's also capable of emulating film grain and 18 different types of film while also providing 20 one-click preset styles. But Silver Efex Pro is also capable of color toning the image.
+Beside a new version of Color Efex Pro for Capture NX, Nik announced a brand new plug-in for Photoshop and Aperture.
 
-<!-- more -->
+![image](../media/aperture-plugin128.png)
+
+[Silver Efex Pro](http://www.niksoftware.com/silverefexpro/usa/entry.php) is a tool to create black & white images with the power and simplicity of the U-Point technology. You can easily fine tune portions of your black & white images. It's also capable of emulating film grain and 18 different types of film while also providing 20 one-click preset styles. But Silver Efex Pro is also capable of color toning the image.
 
 [![Nik Silver Efex Pro UI](../media/nik_silverefex_thumb.png)](../media/nik_silverefex.png)
 
