@@ -1,6 +1,6 @@
 ---
-import Image from '@components/core/Image.astro'
 import type { CollectionEntry } from 'astro:content'
+import Picture from './core/Picture.astro'
 
 type Props = CollectionEntry<'photos'>
 
@@ -29,7 +29,7 @@ const { title, image } = Astro.props.data
   {
     image ? (
       <a href={slug}>
-        <Image
+        <Picture
           width={316}
           height={316}
           image={image}

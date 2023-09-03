@@ -1,9 +1,10 @@
 ---
-import { getImage, type ImgAttributes } from 'astro:assets'
-import styles from './Image.module.css'
+import { getImage } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import styles from './Picture.module.css'
 
 type Props = {
-  image: ImgAttributes
+  image: ImageMetadata
   alt: string
   title?: string
   class?: string
@@ -12,10 +13,11 @@ type Props = {
 }
 
 const { title, alt, image, class: className } = Astro.props
-const { src } = image
+const src = image
 
 const sizes = [260, 520, 1040, 2080]
 
+// TODO: make less repetitive
 const image260_webp = await getImage({ src, width: 260, format: 'webp' })
 const image520_webp = await getImage({ src, width: 520, format: 'webp' })
 const image1040_webp = await getImage({ src, width: 1040, format: 'webp' })

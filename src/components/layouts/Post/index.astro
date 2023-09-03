@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import LayoutBase from '@layouts/Base/index.astro'
-import Image from '@components/core/Image.astro'
 import Title from './Title.astro'
 import Actions from './Actions.astro'
 import styles from './index.module.css'
 import Meta from './Meta.astro'
+import Picture from '@components/core/Picture.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -25,9 +25,13 @@ const { title, date, updated, image, linkurl } = data
 
     {
       image && (
-        <div class={styles.image}>
-          <Image width={1040} height={460} image={image} alt={title} />
-        </div>
+        <Picture
+          class={styles.image}
+          width={1040}
+          height={460}
+          image={image}
+          alt={title}
+        />
       )
     }
 
