@@ -1,0 +1,54 @@
+---
+import { getImage, type ImgAttributes } from 'astro:assets'
+import styles from './Image.module.css'
+
+type Props = {
+  image: ImgAttributes
+  alt: string
+  title?: string
+  class?: string
+  width?: number
+  height?: number
+}
+
+const { title, alt, image, class: className } = Astro.props
+const { src } = image
+
+const sizes = [260, 520, 1040, 2080]
+
+const image260_webp = await getImage({ src, width: 260, format: 'webp' })
+const image520_webp = await getImage({ src, width: 520, format: 'webp' })
+const image1040_webp = await getImage({ src, width: 1040, format: 'webp' })
+const image2080_webp = await getImage({ src, width: 2080, format: 'webp' })
+const image260_png = await getImage({ src, width: 260, format: 'png' })
+const image520_png = await getImage({ src, width: 520, format: 'png' })
+const image1040_png = await getImage({ src, width: 1040, format: 'png' })
+const image2080_png = await getImage({ src, width: 2080, format: 'png' })
+
+const srcSetWebP = `${image260_webp.src} 260w, ${image520_webp.src} 520w, ${image1040_webp.src} 1040w, ${image2080_webp.src} 2080w`
+const srcSetPng = `${image260_png.src} 260w, ${image520_png.src} 520w, ${image1040_png.src} 1040w, ${image2080_png.src} 2080w`
+---
+
+<figure class={`${styles.image} ${className ? className : ''}`}>
+  <picture>
+    <source
+      type="image/webp"
+      srcset={srcSetWebP}
+      sizes="(min-width: 1040px) 1040px, 100vw"
+    />
+    <img
+      width="1040"
+      height="460"
+      data-main-image=""
+      style="object-fit: contain; opacity: 1;"
+      sizes="(min-width: 1040px) 1040px, 100vw"
+      decoding="async"
+      loading="lazy"
+      src={image1040_png.src}
+      srcset={srcSetPng}
+      alt={alt}
+    />
+  </picture>
+
+  {title && <figcaption class={styles.imageTitle}>{title}</figcaption>}
+</figure>

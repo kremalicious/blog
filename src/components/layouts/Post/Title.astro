@@ -1,5 +1,5 @@
 ---
-import Time from '@components/core/Time.astro'
+import Date from './Date.astro'
 import styles from './Title.module.css'
 import { ExternalLink } from '@images/icons'
 
@@ -30,13 +30,7 @@ const linkHostname = linkurl ? new URL(linkurl).hostname : null
   ) : (
     <>
       <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
-      {date && (
-        <div class={styles.date}>
-          <Time date={date} />
-          {updated && ' • updated '}
-          {updated && <Time date={updated} />}
-        </div>
-      )}
+      {date && <Date date={date} updated={updated} />}
     </>
   )
 }

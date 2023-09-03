@@ -3,7 +3,9 @@ import type { CollectionEntry } from 'astro:content'
 import LayoutBase from '@layouts/Base/index.astro'
 import Image from '@components/core/Image.astro'
 import Title from './Title.astro'
+import Actions from './Actions.astro'
 import styles from './index.module.css'
+import Meta from './Meta.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -30,5 +32,11 @@ const { title, date, updated, image, linkurl } = data
     }
 
     <slot />
+
+    <Actions />
+    <Meta post={Astro.props} />
+
+    {/* <RelatedPosts isPhotos={type === 'photo'} tags={tags as string[]} /> */}
+    {/* <PrevNext prev={prev} next={next} /> */}
   </article>
 </LayoutBase>

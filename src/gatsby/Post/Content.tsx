@@ -1,6 +1,5 @@
 import type { ReactElement } from 'react'
 // import Changelog from '../../core/Changelog'
-import styles from './Content.module.css'
 import PostToc from './Toc'
 
 export default function PostContent({
