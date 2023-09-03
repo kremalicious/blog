@@ -4,17 +4,18 @@ import PostTeaser from '@components/PostTeaser.astro'
 import { loadAndFormatCollection } from '@lib/astro'
 import PhotoTeaser from '@components/PhotoTeaser.astro'
 import type { CollectionEntry } from 'astro:content'
+import More from '@components/core/More.astro'
 
-const articles = await loadAndFormatCollection('articles')
+const articles = (await loadAndFormatCollection(
+  'articles'
+)) as CollectionEntry<'articles'>[]
 // const links = await loadAndFormatCollection('links')
-const photos = await loadAndFormatCollection('photos')
+const photos = (await loadAndFormatCollection(
+  'photos'
+)) as CollectionEntry<'photos'>[]
 ---
 
 <style>
-  /* .section {
-    composes: wide from '../components/Layout.module.css';
-  } */
-
   .section:not(:first-child) {
     margin-top: calc(var(--spacer) * 3);
   }
@@ -65,22 +66,18 @@ const photos = await loadAndFormatCollection('photos')
       {
         articles
           .slice(0, 2)
-          .map((article) => (
-            <PostTeaser slug={article.slug} hideDate {...article.data} />
-          ))
+          .map((article) => <PostTeaser post={article} hideDate />)
       }
     </div>
     <div class="articles articlesLast">
       {
         articles
           .slice(2, 8)
-          .map((article) => (
-            <PostTeaser slug={article.slug} hideDate {...article.data} />
-          ))
+          .map((article) => <PostTeaser post={article} hideDate />)
       }
     </div>
 
-    <a href="/archive/1">All Articles</a>
+    <More href="/archive/1">All Articles</More>
   </section>
 
   <section class="section">
@@ -94,6 +91,6 @@ const photos = await loadAndFormatCollection('photos')
       }
     </div>
 
-    <a href="/photos/1">All Photos</a>
+    <More href="/photos/1">All Photos</More>
   </section>
 </LayoutBase>

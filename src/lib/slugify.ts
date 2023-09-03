@@ -1,8 +1,7 @@
-import slugify from 'slugify'
-// import type { PostFrontmatter } from '@content/_schemas'
+import slugifyLib from 'slugify'
 
-// const slugify = (post: PostFrontmatter) =>
-//   post.slug ? slugger(post.slug) : slugger(post.title)
+const slugify = (text: string) =>
+  slugifyLib(text, { lower: true, remove: /[*+~.()'"!:@]/g })
 
 export const slugifyAll = (arr: string[]) => arr.map((str) => slugify(str))
 

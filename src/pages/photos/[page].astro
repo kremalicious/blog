@@ -2,12 +2,18 @@
 import { loadAndFormatCollection } from '@lib/astro'
 import LayoutBase from '@layouts/Base/index.astro'
 import PhotoTeaser from '@components/PhotoTeaser.astro'
+import type { GetStaticPathsOptions, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-export async function getStaticPaths({ paginate }) {
-  const photos = await loadAndFormatCollection('photos')
-  return paginate(photos, { pageSize: 10 })
+type Props = {
+  page: Page<CollectionEntry<'photos'>>
 }
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const photos = await loadAndFormatCollection('photos')
+  return paginate(photos, { pageSize: 24 })
+}
+
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props
 ---
@@ -26,10 +32,11 @@ const { page } = Astro.props
   }
 </style>
 
-<LayoutBase>
+<LayoutBase
+  title="Photos"
+  pageTitle={`Photos | Page ${page.currentPage} of ${page.lastPage} `}
+>
   <div class="photos">
-    {page.data.map((photo) => <PhotoTeaser photo={photo} />)}
+    {page.data.map((photo) => <PhotoTeaser {...photo} />)}
   </div>
-  <!--Display the current page number. Astro.params.page can also be used!-->
-  <h1>Page {page.currentPage}</h1>
 </LayoutBase>

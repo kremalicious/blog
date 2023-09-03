@@ -12,10 +12,10 @@ type Props = {
   height?: number
 }
 
-const { title, alt, image, class: className } = Astro.props
+const { title, alt, image, class: className, width, height } = Astro.props
 const src = image
 
-const sizes = [260, 520, 1040, 2080]
+// const sizes = [260, 520, 1040, 2080]
 
 // TODO: make less repetitive
 const image260_webp = await getImage({ src, width: 260, format: 'webp' })
@@ -36,17 +36,16 @@ const srcSetPng = `${image260_png.src} 260w, ${image520_png.src} 520w, ${image10
     <source
       type="image/webp"
       srcset={srcSetWebP}
-      sizes="(min-width: 1040px) 1040px, 100vw"
+      sizes={`(min-width: ${width}) ${width}, 100vw`}
     />
     <img
-      width="1040"
-      height="460"
-      data-main-image=""
+      width={width}
+      height={height}
       style="object-fit: contain; opacity: 1;"
-      sizes="(min-width: 1040px) 1040px, 100vw"
+      sizes={`(min-width: ${width}) ${width}, 100vw`}
       decoding="async"
       loading="lazy"
-      src={image1040_png.src}
+      src={image260_png.src}
       srcset={srcSetPng}
       alt={alt}
     />

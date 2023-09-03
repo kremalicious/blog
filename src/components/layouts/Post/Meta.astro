@@ -1,10 +1,10 @@
 ---
-import Tag from '../../core/Tag.astro'
+import type { CollectionEntry } from 'astro:content'
+import slugify from '@lib/slugify'
+import config from '@config/blog.config.mjs'
+import Tag from '@components/core/Tag.astro'
 import styles from './Meta.module.css'
 import Date from './Date.astro'
-import type { CollectionEntry } from 'astro:content'
-import config from '@config/blog.config.mjs'
-import slugify from '@lib/slugify'
 
 type Props = {
   post: CollectionEntry<'articles' | 'links' | 'photos'>
@@ -36,7 +36,7 @@ const { date, updated, author, tags } = data
     tags && (
       <div class={styles.tags}>
         {tags.map((tag) => (
-          <Tag name={tag} url={`/archive/${slugify(tag)}/`} />
+          <Tag name={tag} url={`/tags/${slugify(tag)}/`} />
         ))}
       </div>
     )

@@ -1,0 +1,18 @@
+---
+import styles from './index.module.css'
+
+type Props = {
+  i: number
+  slug: string
+  current?: boolean
+}
+
+const { i, slug, current } = Astro.props
+
+const classes = current ? `${styles.number} ${styles.current}` : styles.number
+const link = i === 0 ? slug : `${slug}/${i + 1}`
+---
+
+<a class={classes} href={link}>
+  {i + 1}
+</a>

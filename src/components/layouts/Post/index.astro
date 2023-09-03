@@ -11,7 +11,7 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
 }
 
-const { data, lead } = Astro.props
+const { data, collection, lead } = Astro.props
 const { title, date, updated, image, linkurl } = data
 ---
 
@@ -21,7 +21,11 @@ const { title, date, updated, image, linkurl } = data
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />
     </header>
 
-    {lead && <div class={styles.lead} set:html={lead} />}
+    {
+      collection === 'articles' && lead && (
+        <div class={styles.lead} set:html={lead} />
+      )
+    }
 
     {
       image && (
@@ -37,10 +41,12 @@ const { title, date, updated, image, linkurl } = data
 
     <slot />
 
-    <Actions />
     <Meta post={Astro.props} />
+    {collection !== 'photos' && <Actions />}
 
-    {/* <RelatedPosts isPhotos={type === 'photo'} tags={tags as string[]} /> */}
+    {
+      /* <RelatedPosts isPhotos={collection === 'photos'} tags={tags as string[]} /> */
+    }
     {/* <PrevNext prev={prev} next={next} /> */}
   </article>
 </LayoutBase>

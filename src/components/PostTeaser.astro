@@ -2,12 +2,19 @@
 import PostTitle from './layouts/Post/Title.astro'
 import styles from './PostTeaser.module.css'
 import Picture from './core/Picture.astro'
+import type { CollectionEntry } from 'astro:content'
 
-const { title, date, updated, hideDate, image, toggleSearch, slug } =
-  Astro.props
+type Props = {
+  post: CollectionEntry<'articles' | 'links'>
+  hideDate?: boolean
+}
+
+const { post, hideDate } = Astro.props
+const { slug } = post
+const { title, date, updated, image } = post.data
 ---
 
-<a class={styles.post} href={slug} onclick={toggleSearch && toggleSearch}>
+<a class={styles.post} href={slug}>
   {
     image ? (
       <Picture image={image} alt={title} width={480} height={180} />
@@ -18,7 +25,7 @@ const { title, date, updated, hideDate, image, toggleSearch, slug } =
 
   <PostTitle
     title={title}
-    date={hideDate ? null : date}
+    date={hideDate ? undefined : date}
     updated={updated}
     className={styles.title}
   />

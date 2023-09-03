@@ -1,0 +1,25 @@
+---
+import PageNumber from './PageNumber.astro'
+import PrevNext from './PrevNext.astro'
+import styles from './index.module.css'
+
+type Props = {
+  slug: string
+  currentPage: number
+  numPages: number
+}
+
+const { slug, currentPage, numPages } = Astro.props
+const isFirst = currentPage === 1
+const isLast = currentPage === numPages
+---
+
+<div class={styles.pagination}>
+  {!isFirst && <PrevNext prevPagePath={`${slug}/${currentPage - 1}`} />}
+  {
+    Array.from({ length: numPages }, (_, i) => (
+      <PageNumber i={i} slug={slug} current={currentPage === i + 1} />
+    ))
+  }
+  {!isLast && <PrevNext nextPagePath={`${slug}/${currentPage + 1}`} />}
+</div>

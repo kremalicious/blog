@@ -1,6 +1,6 @@
 .title {
   margin-top: 0;
-  margin-bottom: calc(var(--spacer) / 6);
+  margin-bottom: calc(var(--spacer) / 3);
 }
 
 .titleLink {

@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { loadAndFormatCollection } from '@lib/astro'
+import LayoutBase from '@components/layouts/Base/index.astro'
+import PostTeaser from '@components/PostTeaser.astro'
+
+type Props = {
+  posts: CollectionEntry<'articles' | 'links'>[]
+}
+
+export async function getStaticPaths() {
+  const articles = await loadAndFormatCollection('articles')
+  const links = await loadAndFormatCollection('links')
+  // const photos = await loadAndFormatCollection('photos')
+  const allPosts = [...articles, ...links]
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags?.includes(tag || '')
+    )
+    return {
+      params: { tag },
+      props: { posts: filteredPosts }
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<LayoutBase title={tag} pageTitle={`Posts tagged with ${tag}`}>
+  <ul>
+    {
+      posts.map((post) => (
+        <PostTeaser url={`/posts/${post.slug}`} title={post.data.title} />
+      ))
+    }
+  </ul>
+</LayoutBase>

@@ -1,19 +1,16 @@
 ---
 import { loadAndFormatCollection } from '@lib/astro'
+import LayoutBase from '@components/layouts/Base/index.astro'
+import type { GetStaticPathsOptions, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import PostTeaser from '@components/PostTeaser.astro'
+import Pagination from '@components/Pagination/index.astro'
 
 type Props = {
-  page: {
-    data: {
-      post: {
-        title: string
-      }
-    }[]
-    currentPage: number
-    totalPages: number
-  }
+  page: Page<CollectionEntry<'articles' | 'links'>>
 }
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
   return paginate([...articles, ...links], { pageSize: 10 })
@@ -39,22 +36,17 @@ const { page } = Astro.props
   }
 </style>
 
-<!--Display the current page number. Astro.params.page can also be used!-->
-<h1>Page {page.currentPage}</h1>
-<ul>
-  {page.data.map(({ post }) => <li>{post.title}</li>)}
-</ul>
-<!-- 
-<ul>
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/${post.slug}/`}>
-          <img width={720} height={360} src={post.data.image} alt="" />
-          <h4 class="title">{post.data.title}</h4>
-          <p class="date">{post.data.date}</p>
-        </a>
-      </li>
-    ))
-  }
-</ul> -->
+<LayoutBase
+  title="Archive"
+  pageTitle={`Archive | Page ${page.currentPage} of ${page.lastPage} `}
+>
+  <div class="posts">
+    {page.data.map((post) => <PostTeaser post={post} />)}
+  </div>
+
+  <Pagination
+    currentPage={page.currentPage}
+    numPages={page.lastPage}
+    slug="/archive"
+  />
+</LayoutBase>

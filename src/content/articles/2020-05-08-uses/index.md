@@ -21,7 +21,7 @@ A continuously updated list of devices, tools, and services I use to get digital
 
 ## Hardware
 
-![The essentials.](uses-devices.png)
+![The essentials.](./uses-devices.png)
 
 My office is where my MacBook is, all these devices go wherever I travel to:
 
@@ -99,9 +99,9 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 
 ### Development
 
-![Terminal.app: Nord, SF Mono, Pure](terminal.png)
-![VS Code dark theme: Nord, SF Mono](vscode-dark.png)
-![VS Code light theme: Polar, SF Mono](vscode-light.png)
+![Terminal.app: Nord, SF Mono, Pure](./terminal.png)
+![VS Code dark theme: Nord, SF Mono](./vscode-dark.png)
+![VS Code light theme: Polar, SF Mono](./vscode-light.png)
 
 - **[VS Code](https://code.visualstudio.com)**  
   From Notepad, to Dreamweaver, to CSS Edit, to Coda, to Espresso, to TextMate, to Atom, and now I arrived at VS Code. Its feature set, coding experience, and ecosystem far outweigh the Electron drawbacks, and at least it is the most performant Electron app I know. I still miss [Espresso](https://www.espressoapp.com) as my personal gold standard for how a code editor UI on macOS should look and behave. Using only a small set of extensions mostly for automatic code formatting based on various tools:

@@ -34,7 +34,6 @@
 }
 
 .current {
-  composes: number;
   cursor: default;
   pointer-events: none;
   color: var(--text-color-dimmed);

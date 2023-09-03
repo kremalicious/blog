@@ -2,12 +2,19 @@
 import { format, formatDistance } from 'date-fns'
 
 type Props = {
-  date: Date
+  date: Date | undefined
 }
 
 const { date } = Astro.props
 ---
 
-<time title={format(date, 'yyyy/MM/dd HH:mm')} datetime={date.toISOString()}>
-  {formatDistance(date, Date.now(), { addSuffix: true })}
-</time>
+{
+  date ? (
+    <time
+      title={format(date, 'yyyy/MM/dd HH:mm')}
+      datetime={date.toISOString()}
+    >
+      {formatDistance(date, Date.now(), { addSuffix: true })}
+    </time>
+  ) : null
+}
