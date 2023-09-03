@@ -1,4 +1,4 @@
-import { z } from 'astro:content'
+import { z, type ImageFunction } from 'astro:content'
 
 const schemaShared = {
   title: z.string(),
@@ -25,15 +25,20 @@ const schemaShared = {
   style: z.string().optional()
 }
 
-export const schemaArticles = z
-  .object({
-    ...schemaShared,
-    image: z.string().optional(),
-    download: z.string().optional(),
-    toc: z.boolean().optional(),
-    changelog: z.string().optional()
-  })
-  .strict()
+export const schemaArticles = (image: ImageFunction) =>
+  z
+    .object({
+      ...schemaShared,
+      image: image()
+        // .refine((img) => img.width >= 1040, {
+        //   message: 'Cover image must be at least 1040 pixels wide!'
+        // })
+        .optional(),
+      download: z.string().optional(),
+      toc: z.boolean().optional(),
+      changelog: z.string().optional()
+    })
+    .strict()
 
 export const schemaLinks = z
   .object({
@@ -42,12 +47,16 @@ export const schemaLinks = z
   })
   .strict()
 
-export const schemaPhotos = z
-  .object({
-    ...schemaShared,
-    image: z.string()
-  })
-  .strict()
+export const schemaPhotos = (image: ImageFunction) =>
+  z
+    .object({
+      ...schemaShared,
+      image: image()
+      // .refine((img) => img.width >= 1040, {
+      //   message: 'Cover image must be at least 1040 pixels wide!'
+      // })
+    })
+    .strict()
 
 export type ArticleFrontmatter = z.infer<typeof schemaArticles>
 export type LinkFrontmatter = z.infer<typeof schemaLinks>

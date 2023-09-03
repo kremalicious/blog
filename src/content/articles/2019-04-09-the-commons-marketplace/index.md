@@ -2,7 +2,7 @@
 date: 2019-04-09T00:00:00.000Z
 
 title: The Commons Marketplace
-image: the-commons-marketplace-teaser.png
+image: ./the-commons-marketplace-teaser.png
 
 tags:
   - oceanprotocol

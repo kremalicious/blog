@@ -29,7 +29,7 @@
 }
 
 .empty {
-  /* composes: frame from '../atoms/Image.module.css'; */
+  composes: frame from './core/Image.module.css';
   display: block;
   min-height: 95px;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAACaADAAQAAAABAAAACQAAAAAvQpmhAAAAHElEQVQYGWNgoBL4T8gcggoIGcBA0ASCCmhsBQBhFwX7u70C8QAAAABJRU5ErkJggg==');

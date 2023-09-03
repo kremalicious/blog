@@ -3,7 +3,7 @@ date: 2020-05-22T14:08:00.367Z
 updated: 2020-05-23T11:35:12+02:00
 
 title: Redirect plugin for Markdown Pages in Gatsby
-image: gatsby-redirect-from-teaser.png
+image: ./gatsby-redirect-from-teaser.png
 changelog: gatsby-redirect-from
 
 tags:

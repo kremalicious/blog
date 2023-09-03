@@ -1,6 +1,6 @@
 ---
 title: Simple Tor setup on macOS
-image: teaser-tor.png
+image: ./teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
 updated: 2019-11-08 00:52:46+02:00

@@ -2,7 +2,7 @@
 date: 2019-07-18T00:00:00.000Z
 
 title: The Commons Marketplace in Pacific Network
-image: the-commons-marketplace-in-pacific-network-teaser.png
+image: ./the-commons-marketplace-in-pacific-network-teaser.png
 
 tags:
   - oceanprotocol

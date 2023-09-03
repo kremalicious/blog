@@ -3,7 +3,7 @@ date: 2020-03-04T18:35:26.815Z
 updated: 2022-09-24T23:23:00
 
 title: Setup Raspberry Pi File and Screen Sharing for macOS & iOS
-image: raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png
+image: ./raspberry-pi-file-and-screen-sharing-macos-ios-teaser.png
 
 tags:
   - macos
@@ -46,7 +46,7 @@ sudo service vncserver-x11-serviced status
 
 Which should give you something like this:
 
-![RealVNC service status output](raspberry-vnc-status.png)
+![RealVNC service status output](./raspberry-vnc-status.png)
 
 The important part is `Found running X server` cause that's the graphical interface we are going to connect to. This will only be present if your Raspberry Pi is set to boot up into a desktop GUI which can be configured under `sudo raspi-config` _> Boot Options > Desktop / CLI_. If you use your Raspberry Pi with a display attached, this should be the default.
 
@@ -54,7 +54,7 @@ To be able to connect from macOS without additional software, you have to change
 
 If you have GUI access to your Raspberry Pi you will find the RealVNC icon at the top right in your menubar, and in the app's options under _Security_ you can switch the _Authentication_ to _VNC Password_. This will prompt you to enter and confirm a new password which we are going to use to connect from macOS.
 
-![RealVNC Authentication Method Configuration](raspberry-realvnc-auth-config.png)
+![RealVNC Authentication Method Configuration](./raspberry-realvnc-auth-config.png)
 
 Hit _Apply & OK_ and reboot your Raspberry Pi.
 
@@ -85,11 +85,11 @@ ifconfig
 
 Now we can verify the connection from macOS by selecting from the menubar in Finder _Go > Connect to Server..._ and use the above IP as the host:
 
-![macOS Connect to Server in Finder](raspberry-macos-server-connect.png)
+![macOS Connect to Server in Finder](./raspberry-macos-server-connect.png)
 
 You should be prompted for the VNC password setup in RealVNC in the step above and afterwards should see your Raspberry Pi desktop from macOS:
 
-![Raspbian desktop from macOS](raspberry-vnc-desktop.png)
+![Raspbian desktop from macOS](./raspberry-vnc-desktop.png)
 
 Now, keeping track of IP addresses is not fun at all so we still need to make the _Screen sharing_ button appear in Finder with Avahi. But first, file sharing.
 
@@ -168,7 +168,7 @@ The `%h` in the `<name replace-wildcards="yes">%h</name>` line will simply be su
 
 And with all that you should end up in macOS Finder with the buttons we wanted for file and screen sharing:
 
-![Success in functionality, fail on the visuals](raspberry-finder-ugly.png)
+![Success in functionality, fail on the visuals](./raspberry-finder-ugly.png)
 
 But nobody can live with that default question mark as the device icon and the name still sometimes switches between the actual hostname, and a nasty SHOUTING DEVICE NAME in all caps.
 
@@ -201,13 +201,13 @@ And fill it with:
 
 You see that `model=Xserve` service part? That will make your Raspberry Pi show up with a [Xserve](https://en.wikipedia.org/wiki/Xserve) icon in Finder for some nostalgia feeling.
 
-![Raspberry Pi showing up as XServe](raspberry-finder-xserve.png)
+![Raspberry Pi showing up as XServe](./raspberry-finder-xserve.png)
 
 You can use any Mac, iPhone, iPad, or other Apple device model string, like `model=MacPro7,1` or `model=iPad6,12`.
 
-![Raspberry Pi showing up as Mac Pro](raspberry-finder-macpro.png)
+![Raspberry Pi showing up as Mac Pro](./raspberry-finder-macpro.png)
 
-![Raspberry Pi showing up as iPad](raspberry-finder-ipad.png)
+![Raspberry Pi showing up as iPad](./raspberry-finder-ipad.png)
 
 Using the model string essentially works for any device which has an icon in macOS, which you can check out in Finder with, referring to the `com.apple.*` named icons:
 
@@ -223,7 +223,7 @@ sudo service avahi-daemon restart
 
 And with all that you should end up in macOS Finder with the buttons we wanted for file and screen sharing, along with a nice hostname and icon for it:
 
-![Raspberry Pi fully integrated in macOS Finder](raspberry-finder-final.png)
+![Raspberry Pi fully integrated in macOS Finder](./raspberry-finder-final.png)
 
 On the macOS side, sometimes Finder does not pick up changes in Bonjour/Avahi services right away. In that case, a `killall Finder` helps to force them.
 
@@ -279,7 +279,7 @@ sudo reboot
 
 You can verify all the services advertised via Bonjour/Avahi with this handy macOS app called [Discovery](http://www.tildesoft.com):
 
-![Discovery app showing all Bonjour services in the network](raspberry-bonjour-discovery.png)
+![Discovery app showing all Bonjour services in the network](./raspberry-bonjour-discovery.png)
 
 ## Connect from iOS & iPadOS
 
@@ -287,10 +287,10 @@ With the Raspberry Pi setup for macOS connection, you can now connect to your Ra
 
 Since Raspbian is configured to advertise the `raspberrypi.local` hostname by default, you can use that name from any device to connect to it without figuring out IP addresses. So from Files, hit the three dots in the upper right corner and tap _Connect to Server_, and use `raspberrypi.local` or whatever hostname you use. Enter your user account credentials and you should see your home folder in the Files app.
 
-![Raspberry Pi in Files.app on iPadOS](raspberry-ipados.jpg)
+![Raspberry Pi in Files.app on iPadOS](./raspberry-ipados.jpg)
 
 As for screen sharing, you can use any VNC app on iPhone or iPad and it should work the same way as on macOS with using the VNC password. For me, [Edovia's Screens app](https://edovia.com/en/screens-ios/) works pretty well.
 
-![Raspberry Pi in Screens.app on iPadOS](raspberry-ipados-screens.jpg)
+![Raspberry Pi in Screens.app on iPadOS](./raspberry-ipados-screens.jpg)
 
 There is also a way to make the Raspberry Pi available via [AirDrop](https://support.apple.com/en-us/HT204144). The [Open Wireless Link (OWL) project](https://owlink.org) set out to reverse engineer the protocol used for AirDrop, Apple Wireless Direct Link (AWDL). The setup is rather hacky and unstable but they provide a [tutorial for the Raspberry Pi 3](https://owlink.org/2019/05/16/howto-use-airdrop-on-raspberry-pi-3.html) if you want to try.

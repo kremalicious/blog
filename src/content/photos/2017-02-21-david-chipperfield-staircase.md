@@ -1,6 +1,6 @@
 ---
 title: David Chipperfield staircase
-image: 2017-02-21-david-chipperfield-staircase.jpg
+image: ./2017-02-21-david-chipperfield-staircase.jpg
 author: Matthias Kretschmann
 date: 2017-02-21 21:18:36.350189000 +02:00
 ---

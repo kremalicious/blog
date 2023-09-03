@@ -1,6 +1,6 @@
 ---
 title: Tips for Journalists Reporting From China
-image: jingjing_chacha_kremalicious.jpg
+image: ../media/jingjing_chacha_kremalicious.jpg
 date: 2008-08-03 17:10:25+00:00
 
 tags:

@@ -3,7 +3,7 @@ date: 2017-05-16T19:50:52.281Z
 updated: 2018-10-30T19:50:52.281Z
 
 title: Hyper Mac Pro
-image: hyper-mac-pro-teaser.png
+image: ./hyper-mac-pro-teaser.png
 
 featured: true
 

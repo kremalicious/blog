@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import LayoutBase from '@layouts/Base/index.astro'
+import Image from '@components/core/Image.astro'
 import Title from './Title.astro'
 import styles from './index.module.css'
 
@@ -23,7 +24,7 @@ const { title, date, updated, image, linkurl } = data
     {
       image && (
         <div class={styles.image}>
-          <img width={1040} height={460} src={image} alt={title} />
+          <Image width={1040} height={460} image={image} alt={title} />
         </div>
       )
     }

@@ -3,7 +3,7 @@ import { schemaArticles, schemaLinks, schemaPhotos } from './_schemas'
 
 const articles = defineCollection({
   type: 'content',
-  schema: schemaArticles
+  schema: ({ image }) => schemaArticles(image)
 })
 
 const links = defineCollection({
@@ -13,7 +13,7 @@ const links = defineCollection({
 
 const photos = defineCollection({
   type: 'content',
-  schema: schemaPhotos
+  schema: ({ image }) => schemaPhotos(image)
 })
 
 export const collections = { articles, links, photos }

@@ -2,7 +2,7 @@
 date: 2019-10-24T00:00:00.000Z
 
 title: Ocean Protocol and IPFS, Sitting In The Merkle Tree
-image: ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png
+image: ./ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png
 
 tags:
   - oceanprotocol

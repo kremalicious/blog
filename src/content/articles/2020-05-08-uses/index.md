@@ -3,7 +3,7 @@ date: 2020-05-10T21:51:12Z
 updated: 2021-11-29T00:25:12+00:00
 
 title: /uses
-image: uses-teaser.png
+image: ./uses-teaser.png
 
 tags:
   - personal
