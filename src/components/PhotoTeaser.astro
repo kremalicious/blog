@@ -28,7 +28,7 @@ const { title, image } = Astro.props.data
 <article class="photo">
   {
     image ? (
-      <a href={slug}>
+      <a href={`/${slug}`}>
         <Picture
           width={316}
           height={316}

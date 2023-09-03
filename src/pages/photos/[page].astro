@@ -2,6 +2,7 @@
 import { loadAndFormatCollection } from '@lib/astro'
 import LayoutBase from '@layouts/Base/index.astro'
 import PhotoTeaser from '@components/PhotoTeaser.astro'
+import Pagination from '@components/Pagination/index.astro'
 import type { GetStaticPathsOptions, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
@@ -39,4 +40,10 @@ const { page } = Astro.props
   <div class="photos">
     {page.data.map((photo) => <PhotoTeaser {...photo} />)}
   </div>
+
+  <Pagination
+    currentPage={page.currentPage}
+    numPages={page.lastPage}
+    slug="/photos"
+  />
 </LayoutBase>
