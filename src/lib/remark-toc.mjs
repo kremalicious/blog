@@ -6,6 +6,11 @@ import { toc } from 'mdast-util-toc'
 import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
 
+/**
+ * @typedef {import('hast').Root} HastRoot
+ * @typedef {import('mdast').Root} MdastRoot
+ * @type {import('unified').Plugin<MdastRoot, HastRoot>}
+ */
 export default function remarkToc() {
   return (tree, file) => {
     const result = toc(tree, { maxDepth: 3 })

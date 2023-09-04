@@ -1,28 +1,33 @@
+import { visit } from 'unist-util-visit'
+import { toHast } from 'mdast-util-to-hast'
+import { toHtml } from 'hast-util-to-html'
+
+/**
+ * @typedef {import('hast').Root} HastRoot
+ * @typedef {import('mdast').Root} MdastRoot
+ * @type {import('unified').Plugin<MdastRoot, HastRoot>}
+ */
 export default function remarkLeadParagraph() {
-  return function (tree, file) {
-    // run only on articles
-    if (!file.history[0].includes('articles')) return
+  return (tree, file) => {
+    let firstParagraph = null
 
-    let lead = ''
+    // Find the first paragraph node
+    visit(tree, 'paragraph', (node, index, parent) => {
+      if (!firstParagraph) {
+        firstParagraph = node
+        // Remove the first paragraph from the tree
+        parent.children.splice(index, 1)
+      }
+    })
 
-    // Extract and concatenate the first paragraph's text
-    const paragraphChilds = tree.children.filter(
-      (child) => child.type === 'paragraph'
-    )[0].children
+    if (firstParagraph) {
+      const hast = toHast(firstParagraph)
+      const html = toHtml(hast)
 
-    lead = paragraphChilds
-      .map((child) =>
-        child.type === 'link'
-          ? `<a href="${child.url}">${child.children[0].value}</a>`
-          : child.value
-      )
-      .join('')
-
-    // Remove the paragraph from the tree
-    // TODO: guarantee that the first children is actually the lead
-    tree.children.splice(0, 1)
-
-    // Add lead to frontmatter
-    file.data.astro.frontmatter.lead = lead.toString()
+      // Add lead to frontmatter
+      file.data.astro.frontmatter.lead = html
+      return
+    }
+    return null // Return null if no first paragraph is found
   }
 }
