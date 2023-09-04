@@ -1,6 +1,6 @@
 ---
 title: CSS App Store Badges
-image: ../media/teaser-appstorebadges.png
+image: ./teaser-appstorebadges.png
 
 author: Matthias Kretschmann
 date: 2015-09-13 18:55:18.418548000 +02:00
@@ -28,8 +28,15 @@ So all buttons are just set in Apple’s San Francisco UI font with this funky f
 
 ```css
 .badge {
-  font-family: system, -apple-system, '.SFNSDisplay-Regular', 'San Francisco', 'Helvetica Neue',
-    'Helvetica', 'Arial', sans-serif;
+  font-family:
+    system,
+    -apple-system,
+    '.SFNSDisplay-Regular',
+    'San Francisco',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
 }
 ```
 

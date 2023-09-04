@@ -34,7 +34,7 @@ When an asset is registered into Ocean Protocol, the file URLs are encrypted and
 
 We tweaked all of the relevant [Ocean Protocol components](https://docs.oceanprotocol.com/concepts/components/) in the background (Aquarius, Brizo, Secret Store, Squid-js) to be able to provide a faster consume flow. We also added more real-time feedback during the whole process in the UI. In combination, these steps introduced a much more stable consume flow and a dramatic decrease in real and perceived time required to download an asset in Pacific.
 
-![Granular feedback messages and faster process than before. Multiple months of work for one GIF.](consume.gif)
+![Granular feedback messages and faster process than before. Multiple months of work for one GIF.](./consume.gif)
 
 It is still not as fast as we would like it to be, and we will continue to make improvements on the speed over time.
 
@@ -46,7 +46,7 @@ We found this to be one of the main pain points users had when interacting with 
 
 We’ve started adding some improvements to remedy this, and so that Ocean developers will be able to debug more quickly:
 
-![New Ocean Versions component on commons.oceanprotocol.com/about](ocean-versions.png)
+![New Ocean Versions component on commons.oceanprotocol.com/about](./ocean-versions.png)
 
 But telling users to read some version numbers and act on it can’t be the solution.
 
@@ -56,7 +56,7 @@ We went back to the drawing board, created some [concepts and prototypes](https:
 
 A burner wallet is a frictionless but disposable wallet, often used for signing transactions only, or to move small amounts of tokens around. They are usually [hierarchical deterministic wallets (HD wallet)](https://en.bitcoinwiki.org/wiki/Deterministic_wallet), generating a set of public/private keys from a random seed phrase. But the keys are not protected as much as in a “normal” wallet, and in our case the seed phrase is stored in your browser’s cache, hence the low-security aspect.
 
-![It's not about money, it's about sending a message](message.gif)
+![It's not about money, it's about sending a message](./message.gif)
 
 Luckily, this doesn’t matter for interactions in the Commons Marketplace, where all assets are free and don’t require any transfer of tokens. All that is required to interact with all Ocean Protocol features in Commons is a wallet for signing during the register & consume requests.
 
@@ -66,17 +66,17 @@ Conceptually, a burner wallet’s private keys are supposed to be destroyed (“
 
 Any visitor to the Commons Marketplace will be switched to a burner wallet by default. In the background, we create a wallet in your browser from a random mnemonic with [Truffle’s HD Wallet](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider) and pass that wallet to Web3 as the provider. We then load its first generated account and also send some Pacific ETH (not to be confused with Ethereum Mainnet ETH) from our [Faucet](https://github.com/oceanprotocol/faucet) to that account, in order to cover eventual Gas costs for publishing and consuming.
 
-![Extended Web3 status component with burner wallet](web3-account-status.png)
+![Extended Web3 status component with burner wallet](./web3-account-status.png)
 
 We try to give you some persistence across sessions though, by storing that seed phrase in your browser’s _localStorage_, and on next visit we’ll generate your wallet again from this seed phrase, so you’ll get the same account again. This persistence is needed so we can provide you with some basic level of personalization, e.g. the _History_ page will show the assets published by you, meaning by the Web3 account you are using.
 
 Phew, that’s a lot of tech going on in the background — so let’s get back to the UI! All those tasks are moved aside and are not visible to end users. They essentially transform the previous view where consuming was not possible without a Web3 browser or MetaMask:
 
-![Non-Web3 capable browser](consume-non-web3.png)
+![Non-Web3 capable browser](./consume-non-web3.png)
 
 Into this view, unlocking the consume flow even for non-Web3 capable browsers without any user action required:
 
-![Non-Web3 capable browser with burner wallet](consume-non-web3-burner.png)
+![Non-Web3 capable browser with burner wallet](./consume-non-web3-burner.png)
 
 > **Disclaimer:**
 > Being low-security and disposable by design, a burner wallet should not be used if you want to keep track of all your published and downloaded assets, or if you want to hold tokens in it. We strongly suggest not using any burner wallet generated in Commons to move or hold any tokens. The burner wallet only exists in your browser and is geared towards usage in Commons only. We don’t ever store any account information so we are not able to restore a lost burner wallet.
@@ -85,25 +85,25 @@ Into this view, unlocking the consume flow even for non-Web3 capable browsers wi
 
 If you require more security, you can optionally switch to [using MetaMask](https://docs.oceanprotocol.com/tutorials/metamask-setup/) with an account that only you control. If we detect your browser is able to use MetaMask (i.e. is Web3-capable), we show an action for switching the wallet you’re using in Commons:
 
-![Wallet status](wallet-status.png)
+![Wallet status](./wallet-status.png)
 
 In the wallet selector you can switch to MetaMask:
 
-![Choose your preferred ride.](wallet-selector.png)
+![Choose your preferred ride.](./wallet-selector.png)
 
 After selecting MetaMask, the UI switches to your first account in it. If you use MetaMask for the first time with Commons, you will be prompted by MetaMask to approve reading access to your accounts:
 
-![MetaMask approval](wallet-metamask-approve.png)
+![MetaMask approval](./wallet-metamask-approve.png)
 
 Approving this request results in your first MetaMask account being selected, displayed and ready to use in Commons:
 
-![Wallet status with MetaMask](wallet-metamask.png)
+![Wallet status with MetaMask](./wallet-metamask.png)
 
 We also store your selection and, on your next visit, we switch to MetaMask automatically.
 
 Additionally, we allow you to export your burner wallet by providing the seed phrase you can use to import the wallet into MetaMask:
 
-![Seed phrase for exporting a burner wallet](wallet-seed.png)
+![Seed phrase for exporting a burner wallet](./wallet-seed.png)
 
 This is helpful if you have already made some interactions in Commons, published and consumed some assets, and now want to keep your history and transactions in an account you control.
 
@@ -121,7 +121,7 @@ With [Pacific](https://docs.oceanprotocol.com/concepts/pacific-network/) running
 
 This all provides much more helpful feedback in case of network & account misconfigurations, e.g. if you use MetaMask and are connected to the wrong network:
 
-![Wallet status with wrong network](wallet-wrongnetwork.png)
+![Wallet status with wrong network](./wallet-wrongnetwork.png)
 
 For this check we fetch the network from the Brizo endpoint configured in Commons client, then check that against the network you’re connected to in MetaMask. This allows Ocean devs to deploy the front-end into any network, and it will figure out the correct network combination automatically, and show relevant help messages.
 
@@ -139,7 +139,7 @@ As a developer, this also means you can use the Nile & Duero installations as a 
 
 The Ocean Versions component in those Commons installations under their _About_ pages allows you to see which endpoints are in use:
 
-![Ocean component endpoints in use by Commons in Nile](ocean-versions-endpoints.png)
+![Ocean component endpoints in use by Commons in Nile](./ocean-versions-endpoints.png)
 
 And you can use the [Commons client & server](https://github.com/oceanprotocol/commons) locally on your machine to fully customize it for your Ocean testing purposes, and as a blueprint to build your own marketplace on top of Ocean Protocol.
 
@@ -151,7 +151,7 @@ A feature to enhance data discoverability and introduce a first basic curation m
 
 Our first channel is AI For Good, created as part of the [AI for Good Global Summit 2019](https://aiforgood.itu.int) in Geneva. [AI for Good](https://blog.oceanprotocol.com/ai-for-good-at-scale-7bc65b51d764) is an initiative to promote the use of artificial intelligence for taking action on the [United Nations Sustainable Development Goals (SDGs)](https://www.un.org/sustainabledevelopment/sustainable-development-goals/) such as fighting poverty, climate change, improving healthcare, etc. The AI for Good Commons channel is aimed at helping scale AI for Good by enabling relevant open datasets to be published and shared and connecting AI problem owners with problem solvers. All curated by the Ocean Protocol team.
 
-![AI For Good as a Featured Channel on commons.oceanprotocol.com](channel-aiforgood.png)
+![AI For Good as a Featured Channel on commons.oceanprotocol.com](./channel-aiforgood.png)
 
 - [**Channel: AI For Good →**](https://commons.oceanprotocol.com/channels/ai-for-good)
 

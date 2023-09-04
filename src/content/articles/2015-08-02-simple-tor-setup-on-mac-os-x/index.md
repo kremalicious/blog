@@ -22,7 +22,7 @@ I'm using macOS Catalina (10.15) for the following instructions but it should wo
 
 ## Tor Browser
 
-![Tor Browser](tor-browser.png)
+![Tor Browser](./tor-browser.png)
 
 The most simple way to surf anonymously with Tor is to just grab [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). It's a modified version of [Firefox Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/) with Tor and some extensions (Torbutton, TorLauncher, NoScript, and HTTPS-Everywhere) built right in. Upon start, Tor Browser automatically starts the required Tor background processes and routes traffic through the Tor network. That's the way to go if you want the highest level of protection without much further configuration.
 
@@ -65,7 +65,7 @@ You can do this under _System Preferences > Network_ by creating a specific Tor 
 - _SOCKS proxy server_: `localhost`
 - _Port_: `9050`
 
-![Network Settings](tor-osx-proxy.png)
+![Network Settings](./tor-osx-proxy.png)
 
 After hitting _OK_ & _Apply_ at the initial network screen, you can easily switch to this newly created location from your menu bar under _ > Location_ whenever you start up Tor.
 
@@ -121,7 +121,7 @@ tor.sh
 
 and Tor should run smoothly on your system without additional configuration:
 
-![Tor running in Terminal](tor-osx-terminal.png)
+![Tor running in Terminal](./tor-osx-terminal.png)
 
 Verify you're indeed browsing over the Tor network by going to [check.torproject.org](https://check.torproject.org).
 
