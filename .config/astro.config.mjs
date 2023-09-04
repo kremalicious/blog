@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import remarkLeadParagraph from './src/lib/remark-lead-paragraph.mjs'
 import remarkToc from './src/lib/remark-toc.mjs'
 import react from '@astrojs/react'
+import redirects from './redirects.json'
 
 // https://astro.build/config
 /** @type {import('astro/config').AstroUserConfig} */
@@ -17,6 +18,7 @@ export default defineConfig({
       wrap: true
     }
   },
+  redirects,
   vite: {
     resolve: {
       // for making content -> src/content symlink work

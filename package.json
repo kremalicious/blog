@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "prebuild": "npm run create:icons && npm run move:downloads",
+    "prebuild": "npm run create:icons && npm run create:redirects && npm run move:downloads",
     "start": "npm run prebuild && astro dev --config .config/astro.config.mjs",
     "build": "npm run prebuild && astro build --config .config/astro.config.mjs",
     "preview": "astro preview",
