@@ -1,6 +1,6 @@
 ---
 title: Personal Site v2
-image: ../media/mkv2.jpg
+image: ./mkv2.jpg
 
 date: 2012-02-26 21:29:54+00:00
 

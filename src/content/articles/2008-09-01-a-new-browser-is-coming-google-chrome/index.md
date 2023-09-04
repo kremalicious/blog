@@ -1,7 +1,5 @@
 ---
 title: 'A New Browser Is Coming: Google Chrome'
-image: ../media/googlechrome.png
-
 date: 2008-09-01 20:40:38+00:00
 
 tags:
@@ -11,6 +9,8 @@ tags:
 ---
 
 Today some information about Google's new open source browser called Google Chrome came up.
+
+![Google Chrome icon](./googlechrome.png)
 
 First published as a comic on [Blogoscoped.com](http://blogoscoped.com/google-chrome/) and [confirmed by Kara Swisher](http://kara.allthingsd.com/20080901/google-ignites-a-new-browser-war-with-microsoft-by-unveiling-one-of-its-own/), Google Chrome will be a [WebKit](http://webkit.org/)-based browser with a new JavaScript Virtual Machine called V8 and with [Google Gears](http://gears.google.com/) included.
 

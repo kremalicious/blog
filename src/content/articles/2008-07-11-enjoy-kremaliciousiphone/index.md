@@ -41,7 +41,9 @@ There's neither an active nor a hover state for links on the iPhone which makes 
 
 ## Home Screen Icon
 
-![image](../media/kremalicious-iconiphone.png)I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
+![Home Screen Icon](./kremalicious-iconiphone.png)
+
+I've used a 147x147px icon so the icon looks crisp and sharp on the iPhone screen (because it's a 160dpi screen). You really should use a bigger size than [Apple's recommendation in their iPhone HIG](https://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/IconsImages/chapter_14_section_2.html). You have to provide a png icon without rounded corners and without the highlight shine since the iPhone will render that automatically on the icon. The icon has to be named apple-touch-icon.png and gets automatically detected when put in the root of your website. Additionally you can tell the iPhone the place where the icon is with this link tag in your head section:
 
 ```html
 <link rel="apple-touch-icon" href="/i/apple-touch-icon.png" />

@@ -11,7 +11,7 @@ tags:
 
 In a heavy venturesome step of unreasonable Web 2.0 love I've decided to get me on Twitter and [opened up an account](https://twitter.com/kremalicious).
 
-![Twitter](./twitter.png)
+![Twitter](./twitter-bird-kremalicious.png)
 
 If you like, you can follow me now on Twitter while I try to find some advantages of this curious Twitter thing. The plan for now is to post about background updates of this website and about whatever I will throw into the Cloud on other places. But damn, just 140 characters. Feels like writing like it's 1999.
 

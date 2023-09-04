@@ -22,8 +22,8 @@ const isPhoto = process.argv[2] === 'photo'
 spinner.text = `Adding '${title}'.`
 
 let titleSlug = slugify(title, { lower: true })
-const postsPath = path.join('.', 'content', 'articles')
-const photosPath = path.join('.', 'content', 'photos')
+const postsPath = path.join('.', 'src', 'content', 'articles')
+const photosPath = path.join('.', 'src', 'content', 'photos')
 
 let date = new Date().toISOString()
 
@@ -59,13 +59,13 @@ async function createPhotoPost() {
   const photo = process.argv[3]
   try {
     const exifData = await getExif(photo)
-    title = exifData.iptc.object_name || exifData.iptc.title
+    title = exifData?.iptc?.object_name || exifData.iptc.title
     titleSlug = slugify(title, { lower: true })
-    date = new Date(exifData.exif.DateTimeOriginal).toISOString()
+    date = new Date(exifData?.exif?.DateTimeOriginal).toISOString()
     const dateShort = date.slice(0, 10)
-    const description = exifData.iptc.caption
+    const description = exifData?.iptc?.caption
     const fileName = `${dateShort}-${titleSlug}`
-    const postPhoto = `${photosPath}/${fileName}.md`
+    const postPhoto = `${photosPath}/${fileName}/index.md`
 
     const newContentsPhoto = templatePhoto
       .split('TITLE')
@@ -80,7 +80,7 @@ async function createPhotoPost() {
       .join(description)
 
     // copy photo file in place
-    fs.copyFile(photo, `${photosPath}/${fileName}.jpg`, (err) => {
+    fs.copyFile(photo, `${photosPath}/${fileName}/${fileName}.jpg`, (err) => {
       if (err) spinner.fail(`Error copying photo file: ${err}`)
     })
 
