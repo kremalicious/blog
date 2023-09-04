@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
 import { schemaArticles, schemaLinks, schemaPhotos } from './_schemas'
 
 const articles = defineCollection({

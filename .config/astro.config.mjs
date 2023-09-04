@@ -16,5 +16,12 @@ export default defineConfig({
       wrap: true
     }
   },
+  vite: {
+    resolve: {
+      // for making content -> src/content symlink work
+      // https://www.eliostruyf.com/symlink-content-astro-portability/#fix-the-content-issues
+      preserveSymlinks: true
+    }
+  },
   integrations: [react()]
 })

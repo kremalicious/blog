@@ -11,7 +11,7 @@
       "@layouts/*": ["src/components/layouts/*"],
       "@images/*": ["src/images/*"],
       "@lib/*": ["src/lib/*"],
-      "@content/*": ["src/content/*"]
+      "@content/*": ["content/*"]
     }
   }
   // "exclude": ["node_modules", "public", "dist", "./**/*.js"],
