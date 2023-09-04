@@ -4,6 +4,7 @@ import remarkToc from './src/lib/remark-toc.mjs'
 import react from '@astrojs/react'
 
 // https://astro.build/config
+/** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
   site: 'https://kremalicious.com',
   markdown: {

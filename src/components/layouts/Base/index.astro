@@ -12,9 +12,10 @@ type Props = {
   title?: string
   pageTitle?: string
   description?: string
+  style?: string
 }
 
-const { title, pageTitle, description } = Astro.props
+const { title, pageTitle, description, style } = Astro.props
 
 const titleFinal = title
   ? `${title} ¦ ${config.siteTitle}`
@@ -41,6 +42,7 @@ const canonicalURL = Astro.site + Astro.url.pathname.replace('/', '')
     <meta name="twitter:creator" content={config.author.twitter} />
 
     <link rel="canonical" href={canonicalURL} />
+    {style && <link rel="stylesheet" href={style} />}
   </head>
   <body>
     <Typekit />

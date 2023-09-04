@@ -45,3 +45,7 @@
   font-size: var(--font-size-large);
   margin-bottom: calc(var(--spacer) * var(--line-height));
 }
+
+.lead code {
+  font-size: calc(var(--font-size-large) * 0.9);
+}
