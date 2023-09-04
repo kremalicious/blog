@@ -6,7 +6,8 @@ type Props = {
   url?: string
 }
 
-const { title, text, url } = Astro.props
+const { title, text, url, icon } = Astro.props
+const Icon = icon
 ---
 
 <style>
@@ -36,6 +37,7 @@ const { title, text, url } = Astro.props
   .action:hover,
   .action:focus {
     cursor: pointer;
+    color: var(--text-color-light);
   }
 
   .action svg {
@@ -49,7 +51,7 @@ const { title, text, url } = Astro.props
 </style>
 
 <a class="action" href={url}>
-  {/* <Icon name={icon} /> */}
+  <Icon />
   <h1 class="actionTitle">{title}</h1>
   <p class="actionText">{text}</p>
 </a>

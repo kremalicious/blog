@@ -2,6 +2,7 @@
 import config from '@config/blog.config.mjs'
 import styles from './Actions.module.css'
 import Action from './Action.astro'
+import { Mastodon, Bitcoin, Github } from '@images/icons'
 
 const githubLink = '?'
 
@@ -10,19 +11,19 @@ const actions = [
     title: 'Have a comment?',
     text: 'Hit me up @krema@mas.to',
     url: config.author.mastodon,
-    icon: 'Mastodon'
+    icon: Mastodon
   },
   {
     title: 'Found something useful?',
     text: 'Say thanks with BTC or ETH',
     url: '/thanks',
-    icon: 'Bitcoin'
+    icon: Bitcoin
   },
   {
     title: 'Edit on GitHub',
     text: 'Contribute to this post',
     url: githubLink,
-    icon: 'GitHub'
+    icon: Github
   }
 ]
 ---
