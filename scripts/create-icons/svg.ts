@@ -1,7 +1,8 @@
 import { optimize as optimizeSVGNative } from 'svgo'
 
 export const toAstroComponent = (innerSVG: string, title: string) => `---
-export { Props } from './Props.ts';
+import type { Props } from './Props.ts';
+export type { Props };
 
 let {
 	size = '24px',
@@ -9,14 +10,15 @@ let {
 	width = size,
 	height = size,
 	...props
-} = {
+}: Props = {
 	'fill': 'none',
 	'title': '${title}',
 	'viewBox': '0 0 24 24',
 	...Astro.props
 }
 
-const toAttributeSize = (size: number) => String(size).replace(/(?<=[0-9])x$/, 'em')
+const toAttributeSize = (size: number | string) =>
+  String(size).replace(/(?<=[0-9])x$/, 'em')
 
 size = toAttributeSize(size)
 width = toAttributeSize(width)

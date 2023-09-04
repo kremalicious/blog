@@ -312,7 +312,7 @@ export interface Props extends HTMLAttributes {
   'stroke-dashoffset'?: string | number
   'stroke-linecap'?: 'butt' | 'round' | 'square' | 'inherit'
   'stroke-linejoin'?: 'miter' | 'round' | 'bevel' | 'inherit'
-  'stroke-miterlimit'?: number | string
+  // 'stroke-miterlimit'?: number | string
   'stroke-opacity'?: number | string
   'stroke-width'?: number | string
   viewBox?: string
