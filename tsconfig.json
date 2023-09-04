@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "jsxImportSource": "react",
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@config/*": [".config/*"],
