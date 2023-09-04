@@ -22,7 +22,8 @@ const schemaShared = {
   redirect_from: z.array(z.string()).optional(),
   author: z.string().optional(),
   featured: z.boolean().optional(),
-  style: z.string().optional()
+  style: z.string().optional(),
+  toc: z.boolean().optional()
 }
 
 export const schemaArticles = (image: ImageFunction) =>
@@ -35,7 +36,6 @@ export const schemaArticles = (image: ImageFunction) =>
         // })
         .optional(),
       download: z.string().optional(),
-      toc: z.boolean().optional(),
       changelog: z.string().optional()
     })
     .strict()

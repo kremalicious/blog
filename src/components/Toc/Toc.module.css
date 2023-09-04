@@ -5,7 +5,8 @@
   margin-bottom: calc(var(--spacer) * var(--line-height));
 }
 
-.toc ul {
+.toc ul,
+.toc p {
   margin: 0;
 }
 

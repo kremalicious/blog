@@ -1,16 +1,24 @@
 import rss from '@astrojs/rss'
-import { getCollection } from 'astro:content'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import config from '@config/blog.config.mjs'
+import { loadAndFormatCollection } from '@lib/astro'
+
+const { siteTitle, siteDescription } = config
 
 export async function get(context) {
-  const posts = await getCollection('blog')
+  const articles = await loadAndFormatCollection('articles')
+  const links = await loadAndFormatCollection('links')
+  const photos = await loadAndFormatCollection('photos')
+  const allPosts = [...articles, ...links, ...photos]
+
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: siteTitle,
+    description: siteDescription,
     site: context.site,
-    items: posts.map((post) => ({
-      ...post.data,
-      link: `/blog/${post.slug}/`
+    items: allPosts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.date as Date,
+      link: `/blog/${post.slug}/`,
+      content: post.body
     }))
   })
 }

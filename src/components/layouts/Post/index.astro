@@ -6,13 +6,15 @@ import Actions from './Actions.astro'
 import styles from './index.module.css'
 import Meta from './Meta.astro'
 import Picture from '@components/core/Picture.astro'
+import Toc from '@components/Toc/Toc.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
+  tableOfContents?: string // comes in through remark plugin as html
 }
 
-const { data, collection, lead } = Astro.props
-const { title, date, updated, image, linkurl } = data
+const { data, collection, lead, tableOfContents } = Astro.props
+const { title, date, updated, image, linkurl, toc } = data
 ---
 
 <LayoutBase title={title}>
@@ -38,6 +40,8 @@ const { title, date, updated, image, linkurl } = data
         />
       )
     }
+
+    {toc && tableOfContents && <Toc tableOfContents={tableOfContents} />}
 
     <slot />
 

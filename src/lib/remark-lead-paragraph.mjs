@@ -1,4 +1,4 @@
-export function remarkLeadParagraph() {
+export default function remarkLeadParagraph() {
   return function (tree, file) {
     // run only on articles
     if (!file.history[0].includes('articles')) return

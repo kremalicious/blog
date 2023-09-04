@@ -24,6 +24,10 @@ const { entry } = Astro.props
 const { Content, remarkPluginFrontmatter } = await entry.render()
 ---
 
-<LayoutPost {...entry} lead={remarkPluginFrontmatter.lead}>
+<LayoutPost
+  {...entry}
+  lead={remarkPluginFrontmatter.lead}
+  tableOfContents={remarkPluginFrontmatter.tableOfContents}
+>
   <Content />
 </LayoutPost>
