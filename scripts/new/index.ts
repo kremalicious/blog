@@ -1,8 +1,8 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import fastExif from 'fast-exif'
-import fs from 'fs'
 import iptc from 'node-iptc'
 import ora from 'ora'
-import path from 'path'
 import slugify from 'slugify'
 
 const templatePath = path.join(__dirname, 'new-article.md')
@@ -59,7 +59,7 @@ async function createPhotoPost() {
   const photo = process.argv[3]
   try {
     const exifData = await getExif(photo)
-    title = exifData?.iptc?.object_name || exifData.iptc.title
+    title = exifData?.iptc?.object_name || exifData?.iptc?.title
     titleSlug = slugify(title, { lower: true })
     date = new Date(exifData?.exif?.DateTimeOriginal).toISOString()
     const dateShort = date.slice(0, 10)
@@ -89,8 +89,8 @@ async function createPhotoPost() {
       if (err) spinner.fail(`Error creating photo post: ${err}`)
       spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
     })
-  } catch (error) {
-    console.error(error.message)
+  } catch (error: any) {
+    console.error((error as Error).message)
   }
 }
 

@@ -21,7 +21,7 @@
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css}'",
     "type-check": "tsc --noEmit",
     "deploy:s3": "./scripts/deploy-s3.sh",
-    "new": "ts-node --esm scripts/new.ts",
+    "new": "ts-node --esm scripts/new/index.ts",
     "create:icons": "ts-node --esm scripts/create-icons/index.ts",
     "create:redirects": "ts-node --esm scripts/redirect-from.ts",
     "move:downloads": "ts-node --esm scripts/move-downloads.ts"
