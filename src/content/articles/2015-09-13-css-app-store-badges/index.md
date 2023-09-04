@@ -52,12 +52,6 @@ Install with npm:
 npm i appstorebadges --save
 ```
 
-Or install with Bower:
-
-```bash
-bower install appstorebadges --save
-```
-
 Or just directly link to the css file in the [GitHub repo](https://github.com/kremalicious/appstorebadges):
 
 ```html

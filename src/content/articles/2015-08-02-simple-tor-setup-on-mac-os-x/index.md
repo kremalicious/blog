@@ -31,7 +31,7 @@ But it's based on an older version of Firefox and there might be more you want t
 For this you need to have Tor installed on your system and additionally set specific proxy values in your network preferences after you've started Tor.
 
 <div class="alert alert-info">
-    <p>Be aware that the instructions and the script mentioned below will not make whatever you do on the web anonymous. Much depends on your browsing habits, what apps you're using, and none of the methods below will offer the same level of protection than <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> out of the box. You have been warned.</p>
+  <p>Be aware that the instructions and the script mentioned below will not make whatever you do on the web anonymous. Much depends on your browsing habits, what apps you're using, and none of the methods below will offer the same level of protection than <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> out of the box. You have been warned.</p>
 </div>
 
 ## Install Tor
