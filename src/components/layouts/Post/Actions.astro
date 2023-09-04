@@ -4,7 +4,11 @@ import styles from './Actions.module.css'
 import Action from './Action.astro'
 import { Mastodon, Bitcoin, Github } from '@images/icons'
 
-const githubLink = '?'
+type Props = {
+  githubLink: string
+}
+
+const { githubLink } = Astro.props
 
 const actions = [
   {

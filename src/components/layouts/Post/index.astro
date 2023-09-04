@@ -14,7 +14,7 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
 }
 
 const { data, collection, lead, tableOfContents } = Astro.props
-const { title, date, updated, image, linkurl, toc, style } = data
+const { title, date, updated, image, linkurl, toc, style, githubLink } = data
 ---
 
 <LayoutBase title={title} style={style}>
@@ -46,7 +46,7 @@ const { title, date, updated, image, linkurl, toc, style } = data
     <slot />
 
     <Meta post={Astro.props} />
-    {collection !== 'photos' && <Actions />}
+    {collection !== 'photos' && <Actions githubLink={githubLink as string} />}
 
     {
       /* <RelatedPosts isPhotos={collection === 'photos'} tags={tags as string[]} /> */

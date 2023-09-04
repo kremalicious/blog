@@ -36,9 +36,11 @@ export async function loadAndFormatCollection(
 
       // use date from frontmatter, or grab from file path
       const date = post.data.date ? post.data.date : slug.substring(1, 11)
+      const githubLink = `https://github.com/kremalicious/blog/blob/main/content/${post.collection}/${post.id}`
 
       post.slug = slug
       post.data.date = new Date(date)
+      post.data.githubLink = githubLink
     }
   )
 
