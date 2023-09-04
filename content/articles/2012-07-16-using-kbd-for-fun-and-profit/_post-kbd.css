@@ -1,4 +1,6 @@
-kbd {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+article kbd {
   font-size: 18px;
   color: #444;
   font-family: 'Lucida Grande', Lucida, Verdana, sans-serif;
@@ -27,7 +29,7 @@ kbd {
     inset 0 -1px 3px #ccc;
 }
 
-kbd[data-theme='dark'] {
+article kbd.dark {
   color: #eee;
   text-shadow: 0 -1px 0 #000;
   border-color: #000;
@@ -45,7 +47,7 @@ kbd[data-theme='dark'] {
     inset 0 -1px 3px #272727;
 }
 
-kbd.ios {
+article kbd.ios {
   font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
   color: #000;
   border-color: rgba(0, 0, 0, 0.6);
@@ -59,8 +61,8 @@ kbd.ios {
     inset 0 1px 0 #fff;
 }
 
-kbd.android {
-  font-family: 'RobotoRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+article kbd.android {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
   text-shadow: none;
   padding: 0.3em;
@@ -74,7 +76,7 @@ kbd.android {
     inset 0 1px 0 #868686;
 }
 
-kbd.android[data-theme='dark'] {
+article kbd.android.dark {
   background: #222;
   box-shadow:
     0 2px 2px rgba(0, 0, 0, 0.7),
@@ -82,22 +84,10 @@ kbd.android[data-theme='dark'] {
     inset 0 1px 0 #505050;
 }
 
-kbd.android.color {
+article kbd.android.color {
   background: #083c5b;
   box-shadow:
     0 2px 2px rgba(0, 0, 0, 0.7),
     0 1px 0 #444,
     inset 0 1px 0 #36647b;
-}
-
-@font-face {
-  font-family: 'RobotoRegular';
-  src: url('/media/Roboto-Regular-webfont.eot');
-  src:
-    url('/media/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/media/Roboto-Regular-webfont.woff') format('woff'),
-    url('/media/Roboto-Regular-webfont.ttf') format('truetype'),
-    url('/media/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }

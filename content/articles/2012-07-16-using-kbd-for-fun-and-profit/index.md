@@ -1,7 +1,7 @@
 ---
 title: Using <kbd> for fun and profit
 image: ./kremalicious-kbdfun-teaser.png
-style: ./post-kbd.css
+style: /post-kbd.css
 author: Matthias Kretschmann
 
 date: 2012-07-16 14:36:58+00:00
