@@ -36,7 +36,7 @@ const { date, updated, author, tags } = data
     tags && (
       <div class={styles.tags}>
         {tags.map((tag) => (
-          <Tag name={tag} url={`/tags/${slugify(tag)}/`} />
+          <Tag name={slugify(tag)} url={`/tags/${slugify(tag)}/`} />
         ))}
       </div>
     )

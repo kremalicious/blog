@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content'
 import { loadAndFormatCollection } from '@lib/astro'
 import LayoutBase from '@components/layouts/Base/index.astro'
 import PostTeaser from '@components/PostTeaser.astro'
+import slugify, { slugifyAll } from '@lib/slugify'
 
 type Props = {
   posts: CollectionEntry<'articles' | 'links'>[]
@@ -13,15 +14,22 @@ export async function getStaticPaths() {
   const links = await loadAndFormatCollection('links')
   // const photos = await loadAndFormatCollection('photos')
   const allPosts = [...articles, ...links]
+  const allUniqueTags = slugifyAll([
+    ...new Set(
+      allPosts
+        // only map posts which have tags defined
+        .filter((post) => post.data.tags)
+        .map((post) => post.data.tags)
+        .flat()
+    )
+  ] as string[])
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
-
-  return uniqueTags.map((tag) => {
+  return allUniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post) =>
-      post.data.tags?.includes(tag || '')
+      post.data.tags?.includes(slugify(tag) || '')
     )
     return {
-      params: { tag },
+      params: { tag: slugify(tag) },
       props: { posts: filteredPosts }
     }
   })
@@ -31,12 +39,31 @@ const { tag } = Astro.params
 const { posts } = Astro.props
 ---
 
-<LayoutBase title={tag} pageTitle={`Posts tagged with ${tag}`}>
-  <ul>
-    {
-      posts.map((post) => (
-        <PostTeaser url={`/posts/${post.slug}`} title={post.data.title} />
-      ))
+<style>
+  .posts {
+    display: grid;
+    gap: calc(var(--spacer) * 2);
+  }
+
+  @media (min-width: 40rem) {
+    .posts {
+      grid-template-columns: repeat(2, 1fr);
     }
-  </ul>
+  }
+
+  .posts h1 {
+    font-size: var(--font-size-h4);
+  }
+</style>
+
+<LayoutBase title={tag} pageTitle={`Posts tagged with ${tag}`}>
+  <div class="posts">
+    {posts.map((post) => <PostTeaser post={post} />)}
+  </div>
+
+  <!-- <Pagination
+    currentPage={page.currentPage}
+    numPages={page.lastPage}
+    slug="/archive"
+  /> -->
 </LayoutBase>
