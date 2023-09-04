@@ -1,7 +1,7 @@
 ---
 title: iPixelPad - Tongue Twisting But Crisp iPad Icons
 image: ./Teaser-iPixelPad.png
-download: ./ipixelpad_by_kremalicious.zip
+download: /get/ipixelpad_by_kremalicious.zip
 date: 2010-02-04 15:21:42+00:00
 
 tags:
@@ -29,7 +29,7 @@ The homescreen icons pixels in the 16px version needed all more vivid colors to 
 The icons come in various formats: iContainer, ICNS, ICO and PNG files for each size. Just click the following download button to grab the whole pack:
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./ipixelpad_by_kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="/get/ipixelpad_by_kremalicious.zip">Download</a>
 </p>
 
 ## License

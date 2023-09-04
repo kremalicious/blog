@@ -23,7 +23,8 @@ const schemaShared = {
   author: z.string().optional(),
   featured: z.boolean().optional(),
   style: z.string().optional(),
-  toc: z.boolean().optional()
+  toc: z.boolean().optional(),
+  slug: z.string().optional()
 }
 
 export const schemaArticles = (image: ImageFunction) =>

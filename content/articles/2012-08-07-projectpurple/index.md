@@ -1,7 +1,7 @@
 ---
 title: Project Purple
 image: ./Teaser-Project-Purple.png
-download: ./project-purple-kremalicious.zip
+download: /get/project-purple-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2012-08-07 13:15:44+00:00
@@ -30,7 +30,7 @@ The full size I designed the wallpaper in is 3200x2048px. I don't know why Apple
 Download the whole package with all the sizes included or grab the individual ones from the list, all linked to the image files:
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./project-purple-kremalicious.zip">Download <span> zip</span></a>
+    <a class="icon-download btn btn-primary" href="/get/project-purple-kremalicious.zip">Download <span> zip</span></a>
 </p>
 
 - [Desktop/rMBP/iPad 3 (3200x2048)](./project-purple-kremalicious.png)

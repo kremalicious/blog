@@ -376,7 +376,7 @@ Here you can see the icons included in the Server Displays icon pack:
 Because I've just modified Apple's standard icons these icons are just available via this blog post and they will not show up in my Goodies section. Just download the whole package directly via this link:
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
+    <a class="icon-download btn btn-primary" href="/get/server_displays_by_kremalicious.zip">Download Server Display Icons <span>zip</span></a>
 </p>
 
 ### How to use the icons

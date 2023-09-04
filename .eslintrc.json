@@ -1,11 +1,5 @@
 {
   "root": true,
-  "env": {
-    "browser": true,
-    "node": true,
-    "es2020": true,
-    "jest": true
-  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -18,6 +12,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:astro/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {

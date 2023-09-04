@@ -22,7 +22,7 @@ But the default menubar icon and the other interface icons look quite disturbing
 Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab these replacement icons.
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./delibar-by-kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="/get/delibar-by-kremalicious.zip">Download</a>
 </p>
 
 ## Icon Usage

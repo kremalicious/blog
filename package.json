@@ -7,8 +7,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "npm run create:icons && astro dev --config .config/astro.config.mjs",
-    "build": "npm run create:icons && astro build --config .config/astro.config.mjs",
+    "prebuild": "npm run create:icons && npm run move:downloads",
+    "start": "npm run prebuild && astro dev --config .config/astro.config.mjs",
+    "build": "npm run prebuild && astro build --config .config/astro.config.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "test": "astro check && tsc --noEmit && npm run lint && npm run type-check && npm run jest",
@@ -21,7 +22,9 @@
     "type-check": "tsc --noEmit",
     "deploy:s3": "./scripts/deploy-s3.sh",
     "new": "ts-node --esm scripts/new.ts",
-    "create:icons": "ts-node --esm scripts/create-icons/index.ts"
+    "create:icons": "ts-node --esm scripts/create-icons/index.ts",
+    "move:downloads": "ts-node --esm scripts/move-downloads.ts",
+    "create:redirects": "ts-node --esm scripts/redirect-from.ts"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.0",
@@ -63,6 +66,8 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-testing-library": "^6.0.1",
+    "front-matter": "^4.0.2",
+    "glob": "^10.3.4",
     "hast-util-to-html": "^9.0.0",
     "jest": "^29.6.4",
     "jest-environment-jsdom": "^29.6.4",

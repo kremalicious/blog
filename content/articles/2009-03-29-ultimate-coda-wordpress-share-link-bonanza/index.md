@@ -1,6 +1,6 @@
 ---
 title: Ultimate Share Link Bonanza For Coda, WordPress And Everything Else
-download: ./share-link-bonanza-coda-clips.zip
+download: /get/share-link-bonanza-coda-clips.zip
 
 date: 2009-03-29 23:12:15+00:00
 
@@ -28,7 +28,7 @@ But I think you don't want to load tons of scripts on your websites if you inclu
 
 To make this a bit more straightforward I provide these links compiled within two Coda Clip files for use with [Panic's Coda](http://panic.com/coda). While the first clip group contains all the plain link snippets the second group includes those snippets for use with Wordpress. Just download and add them to your Coda Clips collection:
 
-<a class="btn btn-primary icon icon-download" href="./share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
+<a class="btn btn-primary icon icon-download" href="/get/share-link-bonanza-coda-clips.zip" title="Download Share Links Coda Clips">Download Share Links Coda Clips</a>
 
 Included are a **total of 40 share links per clip group** for the following social/bookmark sites. This list uses the links provided in the Coda clips so you can test them out here with this article:
 
@@ -41,7 +41,7 @@ _
 
 If you download the above Coda Clip files this icon is already applied on the clip files but here're just the icon files (icns, folder, iContainer, PNGs):
 
-<a class="btn btn-primary icon icon-download" href="./coda-clips-icon-files.zip" title="Download Coda Clips Icon">Download Coda Clips Icon</a>
+<a class="btn btn-primary icon icon-download" href="/get/coda-clips-icon-files.zip" title="Download Coda Clips Icon">Download Coda Clips Icon</a>
 
 ## 2. Usage
 
@@ -142,7 +142,7 @@ If you want to use just icons and no text you should provide a link text anyway 
 
 Sadly Coda's clips aren't in a portable format ([Panic guys](http://panic.com), consider this is a feature request!) so here's a comprehensive list for the non-Coda users of all the links included in the above Coda Clips with plain and the Wordpress version for every site. This comes as a downloadable stripped-down HTML file (meaning there's no HTML site structure included) and as a long list within in this article. First, here's the HTML file download. Just open this locally in your browser or in your favorite editor:
 
-<a class="btn btn-primary icon icon-download" href="./share-link-bonanza-html.zip" title="Download Share Links HTML File">Download Share Links HTML File</a>
+<a class="btn btn-primary icon icon-download" href="/get/share-link-bonanza-html.zip" title="Download Share Links HTML File">Download Share Links HTML File</a>
 
 And here's the huge list with all the share links in case you quickly want to grab just one of them. But be warned that this is a huge list so this is hidden by default.
 

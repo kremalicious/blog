@@ -1,7 +1,7 @@
 ---
 title: Twitter Crisp
 image: ./Teaser-Twitter-Crisp.jpg
-download: ./twitter-crisp-by-kremalicious.zip
+download: /get/twitter-crisp-by-kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2009-06-04 00:16:40+00:00
@@ -16,7 +16,7 @@ Here's a quick twitter icon for use on your websites which is kind of a by-produ
 This icon comes in various formats (PNG, ICNS, iContainer) and in 4 different sizes (128px, 48px, 32px, 16px) with each icon size redrawn (of course).
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./twitter-crisp-by-kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="/get/twitter-crisp-by-kremalicious.zip">Download</a>
 </p>
 
 Use them on any web project you like and/or [convert them into a send to twitter link](http://kremalicious.com/ultimate-coda-wordpress-share-link-bonanza/). Have fun!

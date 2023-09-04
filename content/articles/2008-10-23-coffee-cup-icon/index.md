@@ -1,7 +1,7 @@
 ---
 title: Coffee Cup Icon
 image: ./Teaser-Coffee-Cup-Icon.jpg
-download: ./coffee_cup_by_kremalicious.zip
+download: /get/coffee_cup_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-10-23 14:59:23+00:00
@@ -22,5 +22,5 @@ I’ve just released my own coffee cup icon, enjoy:
 ## Download
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>
+    <a class="icon-download btn btn-primary" href="/get/coffee_cup_by_kremalicious.zip">Download Coffee Cup Icons</a>
 </p>

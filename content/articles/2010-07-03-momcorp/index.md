@@ -1,7 +1,7 @@
 ---
 title: MomCorp Wallpaper
 image: ./Teaser-MomCorp-Wall.png
-download: ./momcorp_wall_by_kremalicious.zip
+download: /get/momcorp_wall_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2010-07-03 17:12:53+00:00
@@ -23,6 +23,6 @@ The wallpaper comes in four versions with two color variations and two text vari
 You can grab the full zip-package with versions for Desktop, iPad, iPhone & Android included:
 
 <p class="content-download">
-    <a class="btn btn-primary icon-download" href="./momcorp_wall_by_kremalicious.zip">Download</a>
+    <a class="btn btn-primary icon-download" href="/get/momcorp_wall_by_kremalicious.zip">Download</a>
     <a href="http://krlc.us/givecoffee" class="btn icon-heart">Donate</a>
 </p>

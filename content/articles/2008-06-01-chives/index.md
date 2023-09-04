@@ -1,7 +1,7 @@
 ---
 title: Chives
 image: ./Teaser-Chives.jpg
-download: ./chives_by_kremalicious.zip
+download: /get/chives_by_kremalicious.zip
 author: Matthias Kretschmann
 
 date: 2008-06-01 18:43:40+00:00
@@ -19,5 +19,5 @@ I have added my first wallpaper to the Goodies section on this website. It's a s
 You can get the wallpaper by browsing [my Goodies section](https://kremalicious.com/goodies/) and clicking on the download link for the wallpaper. The download package also includes a custom folder icon (512px as .icns, .png, .ico) with the Chives wallpaper on it.
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./chives_by_kremalicious.zip">Download Chives Wallpaper</a>
+    <a class="icon-download btn btn-primary" href="/get/chives_by_kremalicious.zip">Download Chives Wallpaper</a>
 </p>

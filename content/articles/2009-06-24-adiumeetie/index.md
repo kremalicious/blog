@@ -1,7 +1,7 @@
 ---
 title: Adiumeetie. Tweetie Style Adium Icon
 image: ./Teaser-Adiumeetie.jpg
-download: ./adiumeetie-by-kremalicious.zip
+download: /get/adiumeetie-by-kremalicious.zip
 
 date: 2009-06-24 21:00:38+00:00
 
@@ -26,7 +26,7 @@ The icon comes in various formats (iContainer, icns, png) in sizes from 512px-16
 Just head over [to my Goodies page](http://www.kremalicious.com/goodies/) or click the following download button and grab this icon while it's hot.
 
 <p class="content-download">
-    <a class="icon-download btn btn-primary" href="./adiumeetie-by-kremalicious.zip">Download</a>
+    <a class="icon-download btn btn-primary" href="/get/adiumeetie-by-kremalicious.zip">Download</a>
 </p>
 
 ## Adium Icon Usage
