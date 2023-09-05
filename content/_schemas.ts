@@ -52,10 +52,11 @@ export const schemaPhotos = (image: ImageFunction) =>
   z
     .object({
       ...schemaShared,
-      image: image()
+      image: image(),
       // .refine((img) => img.width >= 1040, {
       //   message: 'Cover image must be at least 1040 pixels wide!'
       // })
+      exif: z.object({}).optional()
     })
     .strict()
 
