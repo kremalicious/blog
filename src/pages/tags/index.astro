@@ -1,8 +1,10 @@
 ---
-import { getAllTags } from '@lib/astro'
+import { getAllTags, getAllPosts } from '@lib/astro'
 import Tag from '@components/core/Tag.astro'
+import LayoutBase from '@components/layouts/Base/index.astro'
 
-const allTags = await getAllTags()
+const allPosts = await getAllPosts()
+const allTags = await getAllTags(allPosts)
 ---
 
 <style>
@@ -23,19 +25,25 @@ const allTags = await getAllTags()
   }
 </style>
 
-<ul class="tags">
-  {
-    Array.from(data.allMarkdownRemark.group)
-      .sort((a, b) => b.totalCount - a.totalCount)
-      .map((tag) => (
-        <li>
-          <Tag
-            name={tag.fieldValue || ''}
-            url={`/archive/${tag.fieldValue}/`}
-            count={tag.totalCount}
-            style={{ fontSize: `${100 + tag.totalCount * 2}%` }}
-          />
-        </li>
-      ))
-  }
-</ul>
+<LayoutBase
+  title="Tags"
+  pageTitle="All Tags"
+  description="All tags used on this site"
+>
+  <ul class="tags">
+    {
+      allTags
+        .sort((a, b) => b.count - a.count)
+        .map((tag) => (
+          <li>
+            <Tag
+              name={tag.name || ''}
+              url={`/tags/${tag.name}/`}
+              count={tag.count}
+              style={{ fontSize: `${100 + tag.count * 3}%` }}
+            />
+          </li>
+        ))
+    }
+  </ul>
+</LayoutBase>

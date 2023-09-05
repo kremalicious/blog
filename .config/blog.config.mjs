@@ -31,7 +31,7 @@ export default {
     },
     {
       title: 'Goodies',
-      link: '/archive/goodies'
+      link: '/tags/goodies'
     },
     {
       title: 'Tags',

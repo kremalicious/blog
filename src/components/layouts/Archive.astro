@@ -58,9 +58,13 @@ const classes = `posts ${
     }
   </div>
 
-  <Pagination
-    currentPage={page.currentPage}
-    numPages={page.lastPage}
-    slug={`/${Astro.url.pathname.split('/')[1]}`}
-  />
+  {
+    page.currentPage && (
+      <Pagination
+        currentPage={page.currentPage}
+        numPages={page.lastPage}
+        slug={`/${Astro.url.pathname.split('/')[1]}`}
+      />
+    )
+  }
 </LayoutBase>

@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import type { GetStaticPathsOptions, Page } from 'astro'
+import { getAllPosts, getAllTags, getPostsByTag } from '@lib/astro'
+import LayoutArchive from '@components/layouts/Archive.astro'
+
+type Props = {
+  page: Page<CollectionEntry<'articles' | 'links' | 'photos'>>
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const allPosts = await getAllPosts()
+  const allUniqueTags = await getAllTags(allPosts)
+
+  return allUniqueTags.map((tag) => {
+    const filteredPosts = getPostsByTag(allPosts, tag.name)
+    return {
+      params: { tag: tag.name },
+      props: { page: { data: filteredPosts } }
+    }
+  })
+
+  // return paginate(allData, { pageSize: 20 })
+}
+
+// All paginated data + posts are passed on the "page" prop
+const { page } = Astro.props
+const { tag } = Astro.params
+---
+
+<LayoutArchive title={`#${tag}`} pageTitle={`#${tag}`} page={page} />
