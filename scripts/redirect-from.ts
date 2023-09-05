@@ -37,8 +37,7 @@ async function findMarkdownFilesWithRedirects(
 
         // construct slug from frontmatter or folder name
         const postSlug =
-          attributes.slug ||
-          itemPath.split('2')[1].split('/index.md')[0].substring(10)
+          attributes.slug || `/${itemPath.split('/')[2].substring(11)}`
 
         // Check if the Markdown file has a redirect_from field
         if (attributes.redirect_from) {
