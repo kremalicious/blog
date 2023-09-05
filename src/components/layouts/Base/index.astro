@@ -87,7 +87,10 @@ const schema: SchemaProps = {
       type="application/json"
       href="/feed.json"
     />
+
     <SchemaOrg {...schema} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     {style && <link rel="stylesheet" href={style} />}
   </head>

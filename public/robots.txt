@@ -9,4 +9,4 @@ Disallow: /*/page/
 Disallow: /tags/
 Disallow: /api/
 
-Sitemap: https://kremalicious.com/sitemap.xml
+Sitemap: https://kremalicious.com/sitemap-index.xml

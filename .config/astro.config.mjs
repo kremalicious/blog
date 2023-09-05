@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import remarkLeadParagraph from './src/lib/remark-lead-paragraph.mjs'
 import remarkToc from './src/lib/remark-toc.mjs'
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import redirects from './redirects.json'
 
 // https://astro.build/config
@@ -26,5 +27,14 @@ export default defineConfig({
       preserveSymlinks: true
     }
   },
-  integrations: [react()]
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) =>
+        !page.includes('page/') &&
+        !page.includes('tags/') &&
+        !page.includes('archive/') &&
+        !page.includes('404')
+    })
+  ]
 })
