@@ -83,3 +83,18 @@ export async function getAllPosts() {
 
   return allPostsSorted
 }
+
+export async function getAllTags() {
+  const allPosts = await getAllPosts()
+  const allUniqueTags = slugifyAll([
+    ...new Set(
+      allPosts
+        // only map posts which have tags defined
+        .filter((post) => post.data.tags)
+        .map((post) => post.data.tags)
+        .flat()
+    )
+  ] as string[])
+
+  return allUniqueTags
+}

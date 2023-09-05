@@ -1,15 +1,15 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import type { GetStaticPathsOptions, Page } from 'astro'
 import { loadAndFormatCollection } from '@lib/astro'
-import LayoutBase from '@components/layouts/Base/index.astro'
-import PostTeaser from '@components/PostTeaser.astro'
 import slugify, { slugifyAll } from '@lib/slugify'
+import LayoutArchive from '@components/layouts/Archive.astro'
 
 type Props = {
-  posts: CollectionEntry<'articles' | 'links'>[]
+  page: Page<CollectionEntry<'articles' | 'links' | 'photos'>>
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
   // const photos = await loadAndFormatCollection('photos')
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
     )
   ] as string[])
 
-  return allUniqueTags.map((tag) => {
+  const allData = allUniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post) =>
       post.data.tags?.includes(slugify(tag) || '')
     )
@@ -33,37 +33,17 @@ export async function getStaticPaths() {
       props: { posts: filteredPosts }
     }
   })
+
+  return paginate(allData, { pageSize: 20 })
 }
 
+// All paginated data + posts are passed on the "page" prop
+const { page } = Astro.props
 const { tag } = Astro.params
-const { posts } = Astro.props
 ---
 
-<style>
-  .posts {
-    display: grid;
-    gap: calc(var(--spacer) * 2);
-  }
-
-  @media (min-width: 40rem) {
-    .posts {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .posts h1 {
-    font-size: var(--font-size-h4);
-  }
-</style>
-
-<LayoutBase title={tag} pageTitle={`Posts tagged with ${tag}`}>
-  <div class="posts">
-    {posts.map((post) => <PostTeaser post={post} />)}
-  </div>
-
-  <!-- <Pagination
-    currentPage={page.currentPage}
-    numPages={page.lastPage}
-    slug="/archive"
-  /> -->
-</LayoutBase>
+<LayoutArchive
+  title={`#${tag}`}
+  pageTitle={`#${tag} | Page ${page.currentPage} of ${page.lastPage} `}
+  page={page}
+/>

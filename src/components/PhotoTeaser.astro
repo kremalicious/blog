@@ -2,10 +2,10 @@
 import type { CollectionEntry } from 'astro:content'
 import Picture from './core/Picture.astro'
 
-type Props = CollectionEntry<'photos'>
+type Props = { post: CollectionEntry<'photos'> }
 
-const { slug } = Astro.props
-const { title, image } = Astro.props.data
+const { slug, data } = Astro.props.post
+const { title, image } = data
 ---
 
 <style>

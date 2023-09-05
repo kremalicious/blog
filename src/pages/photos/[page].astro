@@ -1,10 +1,8 @@
 ---
-import { loadAndFormatCollection } from '@lib/astro'
-import LayoutBase from '@layouts/Base/index.astro'
-import PhotoTeaser from '@components/PhotoTeaser.astro'
-import Pagination from '@components/Pagination/index.astro'
 import type { GetStaticPathsOptions, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
+import { loadAndFormatCollection } from '@lib/astro'
+import LayoutArchive from '@components/layouts/Archive.astro'
 
 type Props = {
   page: Page<CollectionEntry<'photos'>>
@@ -12,38 +10,15 @@ type Props = {
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const photos = await loadAndFormatCollection('photos')
-  return paginate(photos, { pageSize: 24 })
+  return paginate(photos, { pageSize: 30 })
 }
 
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props
 ---
 
-<style>
-  .photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacer);
-  }
-
-  @media (min-width: 40rem) {
-    .photos {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    }
-  }
-</style>
-
-<LayoutBase
+<LayoutArchive
   title="Photos"
   pageTitle={`Photos | Page ${page.currentPage} of ${page.lastPage} `}
->
-  <div class="photos">
-    {page.data.map((photo) => <PhotoTeaser {...photo} />)}
-  </div>
-
-  <Pagination
-    currentPage={page.currentPage}
-    numPages={page.lastPage}
-    slug="/photos"
-  />
-</LayoutBase>
+  page={page}
+/>

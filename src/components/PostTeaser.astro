@@ -5,7 +5,7 @@ import Picture from './core/Picture.astro'
 import type { CollectionEntry } from 'astro:content'
 
 type Props = {
-  post: CollectionEntry<'articles'>
+  post: CollectionEntry<'articles' | 'links'>
   hideDate?: boolean
 }
 

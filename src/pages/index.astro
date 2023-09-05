@@ -20,6 +20,11 @@ const photos = (await loadAndFormatCollection(
     margin-top: calc(var(--spacer) * 3);
   }
 
+  .sectionTitle {
+    margin-top: 0;
+    color: var(--text-color-light);
+  }
+
   .articles,
   .photos {
     display: grid;
@@ -62,6 +67,7 @@ const photos = (await loadAndFormatCollection(
 
 <LayoutBase>
   <section class="section">
+    <h2 class="sectionTitle">Articles</h2>
     <div class="articles">
       {
         articles
@@ -81,14 +87,9 @@ const photos = (await loadAndFormatCollection(
   </section>
 
   <section class="section">
+    <h2 class="sectionTitle">Photos</h2>
     <div class="photos">
-      {
-        photos
-          .slice(0, 8)
-          .map((photo) => (
-            <PhotoTeaser {...(photo as CollectionEntry<'photos'>)} />
-          ))
-      }
+      {photos.slice(0, 12).map((photo) => <PhotoTeaser post={photo} />)}
     </div>
 
     <More href="/photos/1">All Photos</More>
