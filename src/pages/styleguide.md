@@ -1,6 +1,4 @@
 ---
-layout: page
-
 title: Style Guide
 sitemap: false
 ---
@@ -11,7 +9,7 @@ The main page title of this guide is an `h1` element.
 
 ## Colors
 
-<div class="colors grid grid--gutters grid--full grid-small--third">
+<!-- <div class="colors grid grid--gutters grid--full grid-small--third">
     {% for color in site.data.colors %}
     <div class="color grid__col">
         <div class="color__swatch {{ color.name }}"></div>
@@ -19,7 +17,7 @@ The main page title of this guide is an `h1` element.
         <span class="color__hex">#{{ color.hex }}</span>
     </div>
     {% endfor %}
-</div>
+</div> -->
 
 ## Typography
 

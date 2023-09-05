@@ -1,6 +1,6 @@
 ---
 import LayoutPost from '@layouts/Post/index.astro'
-import { loadAndFormatCollection } from '@lib/astro'
+import { getAllPosts } from '@lib/astro'
 import type { CollectionEntry } from 'astro:content'
 
 type Props = {
@@ -8,11 +8,12 @@ type Props = {
 }
 
 export async function getStaticPaths() {
-  const articles = await loadAndFormatCollection('articles')
-  const links = await loadAndFormatCollection('links')
-  const photos = await loadAndFormatCollection('photos')
+  const allPosts = await getAllPosts()
 
-  return [...articles, ...links, ...photos].map((entry) => {
+  return allPosts.map((entry) => {
+    if (!entry?.slug) {
+      throw new Error('Missing `slug` field in entry', entry)
+    }
     return {
       params: { slug: entry.slug },
       props: { entry }

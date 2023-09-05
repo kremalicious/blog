@@ -14,16 +14,6 @@ export function sortPosts(
     )
 }
 
-export async function getAllPosts() {
-  const articles = await loadAndFormatCollection('articles')
-  const links = await loadAndFormatCollection('links')
-  const photos = await loadAndFormatCollection('photos')
-  const allPosts = [...articles, ...links, ...photos]
-  const allPostsSorted = sortPosts(allPosts)
-
-  return allPostsSorted
-}
-
 export function getPostsByTag(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[],
   tag: string
@@ -40,10 +30,10 @@ export async function loadAndFormatCollection(
     // use date from frontmatter, or grab from file path
     const date = post.data.date
       ? post.data.date
-      : new Date(post.slug.substring(0, 10))
+      : new Date(post.id.split('/')[0].substring(0, 10))
 
     // remove date from slug
-    const slug = post.slug.substring(11) as CollectionEntry<
+    const slug = post.id.split('/')[0].substring(11) as CollectionEntry<
       'articles' | 'links' | 'photos'
     >['slug']
 
@@ -63,4 +53,14 @@ export async function loadAndFormatCollection(
 
   const posts = sortPosts(postsCollection)
   return posts
+}
+
+export async function getAllPosts() {
+  const articles = await loadAndFormatCollection('articles')
+  const links = await loadAndFormatCollection('links')
+  const photos = await loadAndFormatCollection('photos')
+  const allPosts = [...articles, ...links, ...photos]
+  const allPostsSorted = sortPosts(allPosts)
+
+  return allPostsSorted
 }
