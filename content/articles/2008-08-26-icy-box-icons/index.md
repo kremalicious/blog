@@ -28,4 +28,4 @@ The whole package includes 7 icons either packed in a nice tagged iContainer for
 - Leopard ready (512x512)
 - including 7 icons with 2 Time Machine versions
 
-![Icy Box Icons](./icybox.png)
+![Icy Box Icons](./icybox.jpg)

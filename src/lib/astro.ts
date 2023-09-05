@@ -2,16 +2,26 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import { slugifyAll } from './slugify'
 import { readOutExif } from './exif'
 
-export function getSortedPosts(
+export function sortPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
 ) {
   return posts
     .filter(({ data }) => !data.draft)
     .sort(
       (a, b) =>
-        Math.floor((b.data.date as Date)?.getTime() / 1000) -
-        Math.floor((a.data.date as Date)?.getTime() / 1000)
+        Math.floor(new Date(b.data.date as Date)?.getTime() / 1000) -
+        Math.floor(new Date(a.data.date as Date)?.getTime() / 1000)
     )
+}
+
+export async function getAllPosts() {
+  const articles = await loadAndFormatCollection('articles')
+  const links = await loadAndFormatCollection('links')
+  const photos = await loadAndFormatCollection('photos')
+  const allPosts = [...articles, ...links, ...photos]
+  const allPostsSorted = sortPosts(allPosts)
+
+  return allPostsSorted
 }
 
 export function getPostsByTag(
@@ -21,21 +31,22 @@ export function getPostsByTag(
   return posts.filter((post) => slugifyAll(post.data.tags || []).includes(tag))
 }
 
-export default getPostsByTag
-
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ) {
   const postsCollection = await getCollection(name)
 
   for await (const post of postsCollection) {
+    // use date from frontmatter, or grab from file path
+    const date = post.data.date
+      ? post.data.date
+      : new Date(post.slug.substring(0, 10))
+
     // remove date from slug
     const slug = post.slug.substring(11) as CollectionEntry<
       'articles' | 'links' | 'photos'
     >['slug']
 
-    // use date from frontmatter, or grab from file path
-    const date = post.data.date ? post.data.date : slug.substring(1, 11)
     const githubLink = `https://github.com/kremalicious/blog/blob/main/content/${post.collection}/${post.id}`
 
     // extract exif & iptc data from photos
@@ -46,10 +57,10 @@ export async function loadAndFormatCollection(
     }
 
     post.slug = slug
-    post.data.date = new Date(date)
+    post.data.date = date
     post.data.githubLink = githubLink
   }
 
-  const posts = getSortedPosts(postsCollection)
+  const posts = sortPosts(postsCollection)
   return posts
 }

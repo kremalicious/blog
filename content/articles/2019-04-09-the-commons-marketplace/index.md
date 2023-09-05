@@ -92,7 +92,7 @@ To connect to the Nile network:
 
 The Commons marketplace includes a faucet functionality under [https://commons.oceanprotocol.com/faucet](https://commons.oceanprotocol.com/faucet) from where you can easily request some Ether to be added to your account by clicking the _Request Ether_ button:
 
-![Faucet under commons.oceanprotocol.com/faucet](commons-faucet.png)
+![Faucet under commons.oceanprotocol.com/faucet](./commons-faucet.png)
 
 ## Build on top of Commons
 

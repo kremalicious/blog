@@ -14,7 +14,7 @@ Personally I blog everything with RedSweater's awesome application [MarsEdit](ht
 
 A while ago I've made a custom style for the blog on kremalicious.com and would like to share this style with you. The style is based on the colors used on kremalicious.com with a black background and light grey text on top of it. The links have the same blueish hover style as on my website:
 
-![The Kremalicious MarsEdit Style](../media/marsedit_kremalicious_big.png)
+![The Kremalicious MarsEdit Style](./marsedit_kremalicious_big.png)
 
 Here's how to apply the style for your blog preview in MarsEdit:
 
