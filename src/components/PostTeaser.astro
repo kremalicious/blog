@@ -5,7 +5,7 @@ import Picture from './core/Picture.astro'
 import type { CollectionEntry } from 'astro:content'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links'>
+  post: CollectionEntry<'articles'>
   hideDate?: boolean
 }
 
@@ -17,7 +17,14 @@ const { title, date, updated, image } = post.data
 <a class={styles.post} href={`/${slug}`}>
   {
     image ? (
-      <Picture image={image} alt={title} width={480} height={180} />
+      <Picture
+        class={styles.image}
+        image={image}
+        alt={title}
+        width={480}
+        height={180}
+        objectFit
+      />
     ) : (
       <span class={styles.empty} />
     )

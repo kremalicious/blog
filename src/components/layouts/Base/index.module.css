@@ -37,12 +37,6 @@
     0 -1px 4px rgba(0 21 25 / 80%);
 }
 
-@media (min-width: 60rem) {
-  .document {
-    padding-top: calc(var(--spacer) * 2);
-  }
-}
-
 @media (min-width: 40rem) and (min-height: 500px) {
   .document {
     margin-top: calc(var(--spacer) * 2.5);

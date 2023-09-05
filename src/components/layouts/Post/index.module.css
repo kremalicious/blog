@@ -36,16 +36,31 @@
   border-radius: var(--border-radius);
 }
 
-.image {
+.imageWrapper {
+  display: flex;
+  justify-content: center;
   composes: breakout from '../Base/index.module.css';
-  margin-bottom: calc(var(--spacer) * var(--line-height));
+}
+
+.image {
+  width: fit-content;
+}
+
+.image img:last-child {
+  max-height: 98vh;
+  width: auto;
 }
 
 .lead {
   font-size: var(--font-size-large);
-  margin-bottom: calc(var(--spacer) * var(--line-height));
+  margin-bottom: var(--spacer);
 }
 
 .lead code {
   font-size: calc(var(--font-size-large) * 0.9);
+}
+
+/* only Articles have a lead */
+.lead + .imageWrapper {
+  margin-bottom: calc(var(--spacer) * var(--line-height));
 }

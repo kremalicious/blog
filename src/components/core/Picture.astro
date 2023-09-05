@@ -10,9 +10,18 @@ type Props = {
   class?: string
   width?: number
   height?: number
+  objectFit?: boolean
 }
 
-const { title, alt, image, class: className, width, height } = Astro.props
+const {
+  title,
+  alt,
+  image,
+  class: className,
+  width,
+  height,
+  objectFit
+} = Astro.props
 const src = image
 
 // const sizes = [260, 520, 1040, 2080]
@@ -31,7 +40,24 @@ const srcSetWebP = `${image260_webp.src} 260w, ${image520_webp.src} 520w, ${imag
 const srcSetPng = `${image260_jpg.src} 260w, ${image520_jpg.src} 520w, ${image1040_jpg.src} 1040w, ${image2080_jpg.src} 2080w`
 ---
 
-<figure class={`${styles.image} ${className ? className : ''}`}>
+<figure
+  class={`${styles.image} ${className ? className : ''} ${
+    objectFit ? styles['objectFit'] : ''
+  }`}
+>
+  {
+    objectFit ? (
+      <div style={`max-width:${width}px;display:block`}>
+        <img
+          alt=""
+          role="presentation"
+          aria-hidden="true"
+          src={`data:image/svg+xml;charset=utf-8,%3Csvg%20height="${height}"%20width="${width}"%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E`}
+          style="max-width:100%;display:block;position:static"
+        />
+      </div>
+    ) : null
+  }
   <picture>
     <source
       type="image/webp"
@@ -41,7 +67,6 @@ const srcSetPng = `${image260_jpg.src} 260w, ${image520_jpg.src} 520w, ${image10
     <img
       width={width}
       height={height}
-      style="object-fit: contain; opacity: 1;"
       sizes={`(min-width: ${width}) ${width}, 100vw`}
       decoding="async"
       loading="lazy"

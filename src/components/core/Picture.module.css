@@ -14,16 +14,23 @@ a:focus .frame {
 .image {
   composes: frame;
   max-width: none;
-  margin-top: calc(var(--spacer) * var(--line-height));
-  margin-bottom: calc(var(--spacer) * var(--line-height));
   position: relative;
   display: block;
 }
 
-/* single photo post teasers */
-.image:only-child {
-  margin-top: 0;
-  margin-bottom: 0;
+.objectFit img {
+  object-fit: cover;
+  transform: translateZ(0);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .imageTitle {

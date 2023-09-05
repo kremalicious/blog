@@ -24,8 +24,8 @@
   color: var(--link-color);
 }
 
-.post figure {
-  margin: 0;
+.image {
+  overflow: hidden;
 }
 
 .empty {

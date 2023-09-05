@@ -43,13 +43,15 @@ const { title, date, updated, image, linkurl, toc, style, githubLink, exif } =
 
     {
       image && (
-        <Picture
-          class={styles.image}
-          width={1040}
-          height={460}
-          image={image}
-          alt={title}
-        />
+        <div class={styles.imageWrapper}>
+          <Picture
+            class={styles.image}
+            width={1040}
+            height={460}
+            image={image}
+            alt={title}
+          />
+        </div>
       )
     }
 
