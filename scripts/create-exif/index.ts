@@ -1,148 +1,80 @@
-import type { Actions, Node, NodePluginArgs } from 'gatsby'
-import getCoordinates from 'dms2dec'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import { read } from 'fast-exif'
-import Fraction from 'fraction.js'
-import fs from 'fs'
 import iptc from 'node-iptc'
+import ora from 'ora'
+import type { Exif, ExifFormatted } from './types.ts'
+import { formatExif } from './format.ts'
 
-export const createExif = async (
-  node: Node,
-  actions: Actions,
-  createNodeId: NodePluginArgs['createNodeId']
-) => {
-  if (!node?.absolutePath) return
+const imageFolder = path.join(process.cwd(), 'content', 'photos')
+const outputFilePath = '.config/exif.json'
+
+const spinner = ora('Extracting EXIF metadata from all photos').start()
+
+async function readOutExif(filePath: string): Promise<Exif | undefined> {
+  if (!filePath) return
 
   try {
     // exif
-    const exifData = (await read(
-      node.absolutePath as string,
-      true
-    )) as Queries.ImageExif
+    const exifData = await read(filePath, true)
     if (!exifData) return
 
     // iptc
-    const file = fs.readFileSync(node.absolutePath as string)
+    const file = await fs.readFile(filePath)
     const iptcData = iptc(file)
 
-    createNodes(exifData, iptcData, node, actions, createNodeId)
-  } catch (error: any) {
-    console.error(`${node.name}: ${error.message}`)
-  }
-}
+    // format before output
+    const exifDataFormatted = formatExif(exifData)
+    const imageId = path.basename(filePath, path.extname(filePath))
 
-function createNodes(
-  exifData: Queries.ImageExif,
-  iptcData: any,
-  node: Node,
-  actions: Actions,
-  createNodeId: NodePluginArgs['createNodeId']
-) {
-  const { createNodeField, createNode, createParentChildLink } = actions
-  const exifDataFormatted = formatExif(exifData)
-
-  const exif = {
-    ...exifData,
-    iptc: { ...iptcData },
-    formatted: { ...exifDataFormatted }
-  }
-
-  const exifNode: any = {
-    id: createNodeId(`${node.id} >> ImageExif`),
-    children: [],
-    ...exif,
-    parent: node.id,
-    internal: {
-      contentDigest: `${node.internal.contentDigest}`,
-      type: 'ImageExif'
+    const exif = {
+      image: imageId,
+      exif: { ...exifDataFormatted } as ExifFormatted,
+      iptc: { ...iptcData }
     }
-  }
 
-  // add exif fields to existing type file
-  createNodeField({ node, name: 'exif', value: exif })
-
-  // create new nodes from all exif data
-  // allowing to be queried with imageExif & AllImageExif
-  createNode(exifNode)
-  createParentChildLink({ parent: node, child: exifNode })
-}
-
-function formatExif(exifData: Queries.ImageExif) {
-  if (!exifData.exif) return
-
-  const { Model } = exifData.image
-  const {
-    ISO,
-    FNumber,
-    ExposureTime,
-    FocalLength,
-    FocalLengthIn35mmFormat,
-    ExposureBiasValue,
-    ExposureMode,
-    LensModel
-  } = exifData.exif
-
-  const iso = `ISO ${ISO}`
-  const fstop = `ƒ/${FNumber}`
-  const focalLength = `${FocalLengthIn35mmFormat || FocalLength}mm`
-
-  // Shutter speed
-  const { n, d } = new Fraction(ExposureTime)
-  const shutterspeed = `${n}/${d}s`
-
-  // GPS
-  let latitude
-  let longitude
-  if (exifData.gps) ({ latitude, longitude } = formatGps(exifData.gps))
-
-  // Exposure
-  const exposure = formatExposure(ExposureBiasValue || ExposureMode)
-
-  return {
-    iso,
-    model: Model,
-    fstop,
-    shutterspeed,
-    focalLength,
-    lensModel: LensModel,
-    exposure,
-    gps: { latitude, longitude }
+    return exif
+  } catch (error: any) {
+    console.error(`${filePath}: ${error.message}`)
   }
 }
 
-function formatGps(gpsData: Queries.ImageExif['gps']): {
-  latitude: string
-  longitude: string
-} {
-  if (!gpsData) return { latitude: '', longitude: '' }
+async function processImages(folderPath: string): Promise<Exif[]> {
+  const allExif: Exif[] = []
 
-  const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
+  try {
+    const files = await fs.readdir(folderPath, { recursive: true })
 
-  const GPSdec = getCoordinates(
-    GPSLatitude,
-    GPSLatitudeRef,
-    GPSLongitude,
-    GPSLongitudeRef
-  )
+    for (const file of files) {
+      const filePath = path.join(folderPath, file)
+      const stats = await fs.stat(filePath)
 
-  const latitude = GPSdec[0]
-  const longitude = GPSdec[1]
+      if (stats.isFile()) {
+        // Check if it's an image file based on its file extension
+        const fileExtension = path.extname(filePath).toLowerCase()
 
-  return { latitude, longitude }
-}
-
-function formatExposure(exposureMode: Queries.ImageExifExif['ExposureMode']) {
-  if (exposureMode === null || exposureMode === undefined) return
-
-  const exposureShortened = parseFloat(exposureMode.toFixed(2))
-  let exposure
-
-  if (exposureMode === 0) {
-    exposure = `+/- ${exposureShortened} ev`
-  } else if (exposureMode > 0) {
-    exposure = `+ ${exposureShortened} ev`
-  } else {
-    exposure = `${exposureShortened} ev`
+        if (fileExtension === '.jpg' || fileExtension === '.jpeg') {
+          const exif = await readOutExif(filePath)
+          if (!exif) continue
+          allExif.push(exif)
+        }
+      }
+    }
+  } catch (err) {
+    console.error('Error:', (err as Error).message)
   }
 
-  return exposure
+  return allExif
+}
+
+try {
+  const allExif = await processImages(imageFolder)
+  const allExifJSON = JSON.stringify(allExif, null, 2)
+
+  // Write the redirects object to the output file
+  fs.writeFile(outputFilePath, allExifJSON, 'utf-8')
+
+  spinner.succeed(`Extracted EXIF data from ${allExif.length} photos`)
+} catch (error: any) {
+  spinner.fail((error as Error).message)
 }

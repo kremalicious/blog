@@ -13,7 +13,8 @@
       "@images/*": ["src/images/*"],
       "@lib/*": ["src/lib/*"],
       "@content/*": ["content/*"]
-    }
+    },
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
   }
   // "exclude": ["node_modules", "public", "dist", "./**/*.js"],
   // "include": [
