@@ -9,6 +9,8 @@ import { toHtml } from 'hast-util-to-html'
  */
 export default function remarkLeadParagraph() {
   return (tree, file) => {
+    if (!file.history[0].includes('articles')) return
+
     let firstParagraph = null
 
     // Find the first paragraph node
