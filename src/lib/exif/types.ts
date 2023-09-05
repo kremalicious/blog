@@ -14,7 +14,7 @@ export type ExifFormatted = {
   focalLength: string
   lensModel: any
   exposure: string | undefined
-  gps: { latitude: string | undefined; longitude: string | undefined }
+  gps: { latitude: number | undefined; longitude: number | undefined }
 }
 
 export type Exif = {

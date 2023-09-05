@@ -7,6 +7,7 @@ import styles from './index.module.css'
 import Meta from './Meta.astro'
 import Picture from '@components/core/Picture.astro'
 import Toc from '@components/Toc/Toc.astro'
+import Exif from '@components/Exif/index.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -14,7 +15,8 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
 }
 
 const { data, collection, lead, tableOfContents } = Astro.props
-const { title, date, updated, image, linkurl, toc, style, githubLink } = data
+const { title, date, updated, image, linkurl, toc, style, githubLink, exif } =
+  data
 ---
 
 <LayoutBase title={title} style={style}>
@@ -24,9 +26,11 @@ const { title, date, updated, image, linkurl, toc, style, githubLink } = data
     </header>
 
     {
-      collection === 'articles' && lead && (
+      collection === 'articles' && lead ? (
         <div class={styles.lead} set:html={lead} />
-      )
+      ) : collection === 'photos' ? (
+        <slot />
+      ) : null
     }
 
     {
@@ -41,9 +45,11 @@ const { title, date, updated, image, linkurl, toc, style, githubLink } = data
       )
     }
 
+    {collection === 'photos' && exif && <Exif exif={exif} />}
+
     {toc && tableOfContents && <Toc tableOfContents={tableOfContents} />}
 
-    <slot />
+    {collection !== 'photos' && <slot />}
 
     <Meta post={Astro.props} />
     {collection !== 'photos' && <Actions githubLink={githubLink as string} />}

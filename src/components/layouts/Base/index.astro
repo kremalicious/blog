@@ -42,6 +42,7 @@ const canonicalURL = Astro.site + Astro.url.pathname.replace('/', '')
     <meta name="twitter:creator" content={config.author.twitter} />
 
     <link rel="canonical" href={canonicalURL} />
+
     {style && <link rel="stylesheet" href={style} />}
   </head>
   <body>

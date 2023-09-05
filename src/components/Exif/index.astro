@@ -1,0 +1,47 @@
+---
+import type { Exif } from '@lib/exif/types'
+import {
+  Camera,
+  Crosshair,
+  Aperture,
+  Stopwatch,
+  Sun,
+  Maximize
+} from '@images/icons'
+import ExifData from './ExifData.astro'
+import styles from './index.module.css'
+import ExifMap from './ExifMap.tsx'
+
+type Props = {
+  exif: Exif
+}
+
+const { model, focalLength, fstop, shutterspeed, exposure, iso, gps } =
+  Astro.props.exif.exif
+---
+
+<aside class={styles.exif}>
+  <div class={styles.data}>
+    {model && <ExifData title="Camera model" value={model} icon={Camera} />}
+    {
+      focalLength && (
+        <ExifData title="Focal length" value={focalLength} icon={Crosshair} />
+      )
+    }
+    {fstop && <ExifData title="Aperture" value={fstop} icon={Aperture} />}
+    {
+      shutterspeed && (
+        <ExifData title="Shutter speed" value={shutterspeed} icon={Stopwatch} />
+      )
+    }
+    {exposure && <ExifData title="Exposure" value={exposure} icon={Sun} />}
+    {iso && <ExifData title="ISO" value={iso} icon={Maximize} />}
+  </div>
+  {
+    gps?.latitude && (
+      <div class={styles.map}>
+        <ExifMap gps={gps} client:only="react" />
+      </div>
+    )
+  }
+</aside>

@@ -1,13 +1,12 @@
-import React, { ReactElement, useState } from 'react'
-import { Map } from 'pigeon-maps'
-import Marker from 'pigeon-marker'
-import useDarkMode from '../../hooks/useDarkMode'
+import { type ReactElement, useState } from 'react'
+import { Map, Marker } from 'pigeon-maps'
+import useDarkMode from '@hooks/useDarkMode'
 
 const mapbox =
   (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
     `https://api.mapbox.com/styles/v1/mapbox/${mapboxId}/tiles/256/${z}/${x}/${y}${
       dpr >= 2 ? '@2x' : ''
-    }?access_token=${process.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
+    }?access_token=${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
 
 const providers = {
   light: mapbox('light-v10'),
@@ -17,10 +16,22 @@ const providers = {
 export default function ExifMap({
   gps
 }: {
-  gps: { latitude: number; longitude: number }
+  gps: { latitude: string | undefined; longitude: string | undefined }
 }): ReactElement {
   const { isDarkMode } = useDarkMode()
   const [zoom, setZoom] = useState(12)
+
+  // useEffect(() => {
+  //   const theme = document
+  //     .querySelector('html')
+  //     ?.attributes.getNamedItem('data-theme')
+
+  //   setIsDarkMode(Boolean(theme?.value === 'dark'))
+
+  //   theme?.addEventListener('change', () => {
+  //     setIsDarkMode(Boolean(theme?.value === 'dark'))
+  //   })
+  // }, [])
 
   const zoomIn = () => {
     setZoom(Math.min(zoom + 4, 20))

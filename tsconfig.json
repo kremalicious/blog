@@ -12,17 +12,9 @@
       "@layouts/*": ["src/components/layouts/*"],
       "@images/*": ["src/images/*"],
       "@lib/*": ["src/lib/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@content/*": ["content/*"]
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   }
-  // "exclude": ["node_modules", "public", "dist", "./**/*.js"],
-  // "include": [
-  //   "./**/*.ts",
-  //   "./**/*.tsx",
-  //   "./**/*.mjs",
-  //   "./**/*.astro",
-  //   "./scripts/*.ts",
-  //   "./.jest/**/*"
-  // ]
 }
