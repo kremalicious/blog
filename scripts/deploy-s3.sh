@@ -11,36 +11,25 @@ SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap.xml"
 set -e;
 
 function s3sync {
-  aws s3 sync ./public s3://"$1" \
+  aws s3 sync ./dist s3://"$1" \
     --include "*" \
     --exclude "*.html" \
+    --exclude "*.zip" \
     --exclude "sw.js" \
-    --exclude "*page-data.json" \
-    --exclude "*app-data.json" \
-    --exclude "chunk-map.json" \
-    --exclude "sitemap.xml" \
-    --exclude "feed.xml" \
-    --exclude "feed.json" \
-    --exclude ".iconstats.json" \
-    --exclude "humans.txt" \
-    --exclude "robots.txt" \
+    --exclude "*.json" \
+    --exclude "*.txt" \
     --cache-control public,max-age=31536000,immutable \
     --delete \
     --acl public-read
 
-  aws s3 sync ./public s3://"$1" \
+  aws s3 sync ./dist s3://"$1" \
     --exclude "*" \
     --include "*.html" \
+    --include "*.zip" \
     --include "sw.js" \
-    --include "*page-data.json" \
-    --include "*app-data.json" \
-    --include "chunk-map.json" \
-    --include "sitemap.xml" \
-    --include "feed.xml" \
-    --include "feed.json" \
-    --include ".iconstats.json" \
-    --include "humans.txt" \
-    --include "robots.txt" \
+    --include "*.xml" \
+    --include "*.json" \
+    --include "*.txt" \
     --cache-control public,max-age=0,must-revalidate \
     --delete \
     --acl public-read
