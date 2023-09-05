@@ -1,7 +1,7 @@
 import { getAllPosts } from '@lib/astro'
 import config from '@config/blog.config.mjs'
 import type { AstroConfig } from 'astro'
-import { getPostFeedContent } from '@lib/feeds'
+import { getPostFeedContent } from '@lib/feed'
 
 const { siteTitle, siteDescription, author } = config
 

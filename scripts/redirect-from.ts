@@ -5,6 +5,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import frontmatter from 'front-matter'
 import ora from 'ora'
+import chalk from 'chalk'
 
 const contentDir = 'content/'
 const outputFilePath = '.config/redirects.json'
@@ -12,7 +13,9 @@ let fileCount = 0
 
 type Frontmatter = { redirect_from?: string[]; slug?: string }
 
-const spinner = ora('Extract redirects').start()
+const spinner = ora(
+  `${chalk.bold('[redirect-from]')} Extract redirects`
+).start()
 
 async function findMarkdownFilesWithRedirects(
   dir: string
@@ -64,10 +67,10 @@ try {
   fs.writeFile(outputFilePath, redirectsJSON, 'utf-8')
 
   spinner.succeed(
-    `Extracted ${
+    `${chalk.bold('[redirect-from]')} Extracted ${
       Object.keys(redirects).length
     } redirects from ${fileCount} files`
   )
 } catch (error: any) {
-  spinner.fail((error as Error).message)
+  spinner.fail(`${chalk.bold('[redirect-from]')} ${(error as Error).message}`)
 }

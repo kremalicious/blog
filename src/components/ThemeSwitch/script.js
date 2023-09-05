@@ -2,6 +2,7 @@ const themeToggle = document.querySelector('#theme-toggle')
 const themeToggleInput = document.querySelector('#theme-toggle input')
 const sun = document.querySelector('#sun')
 const moon = document.querySelector('#moon')
+
 const primaryColorScheme = null // "light" | "dark"
 const currentTheme = localStorage.getItem('theme')
 
@@ -15,6 +16,7 @@ function getPreferTheme() {
 }
 
 let themeValue = getPreferTheme()
+let themeColor = themeValue === 'dark' ? '#1d2224' : '#e7eef4'
 
 function setPreference() {
   localStorage.setItem('theme', themeValue)
@@ -22,7 +24,10 @@ function setPreference() {
 }
 
 function reflectPreference() {
-  document.firstElementChild?.setAttribute('data-theme', themeValue)
+  const htmlEl = document.querySelector('html')
+  htmlEl.setAttribute('data-theme', themeValue)
+  htmlEl.setAttribute('data-theme-color', themeColor)
+
   themeToggle?.setAttribute('aria-label', themeValue)
   themeToggleInput?.setAttribute('checked', `${themeValue === 'dark'}`)
 
@@ -44,6 +49,7 @@ window.onload = () => {
 
   themeToggle?.addEventListener('click', () => {
     themeValue = themeValue === 'light' ? 'dark' : 'light'
+    themeColor = themeValue === 'light' ? '#1d2224' : '#e7eef4'
     setPreference()
   })
 }
@@ -53,5 +59,6 @@ window
   .matchMedia('(prefers-color-scheme: dark)')
   .addEventListener('change', ({ matches: isDark }) => {
     themeValue = isDark ? 'dark' : 'light'
+    themeColor = isDark ? '#1d2224' : '#e7eef4'
     setPreference()
   })

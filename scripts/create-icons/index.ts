@@ -5,6 +5,7 @@
 import fs from 'node:fs/promises'
 import ps from 'node:path/posix'
 import ora from 'ora'
+import chalk from 'chalk'
 import { toAstroComponent, toInnerSvg } from './svg.ts'
 
 // Current directory.
@@ -22,7 +23,9 @@ const distDir = ps.resolve(currentDir, 'src/images/icons')
 // Data related to each icon exported by this package.
 const icons = []
 
-const spinner = ora('Create icon components').start()
+const spinner = ora(
+  `${chalk.bold('[create-icons]')} Create icon components`
+).start()
 
 // clean the distribution directory
 await fs.rm(distDir, { force: true, recursive: true })
@@ -89,4 +92,8 @@ for (const src of srcDirs) {
 // write the main entry `index.ts` file
 await fs.writeFile(ps.resolve(distDir, 'index.ts'), contentOfIndexJS, 'utf8')
 
-spinner.succeed(`Generated ${icons.length} icons into @images/icons.`)
+spinner.succeed(
+  `${chalk.bold('[create-icons]')} Generated ${
+    icons.length
+  } icons into @images/icons.`
+)

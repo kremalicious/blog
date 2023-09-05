@@ -6,12 +6,15 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { glob } from 'glob'
 import ora from 'ora'
+import chalk from 'chalk'
 
 const sourceFolder = './content/articles/'
 const destinationFolder = './public/get/'
 const filesGlob = '**/*.zip'
 
-const spinner = ora('Move downloads').start()
+const spinner = ora(
+  `${chalk.bold('[move-downloads]')} Finding and moving zip files`
+).start()
 
 function removeFolderContents(folderPath: string) {
   if (fs.existsSync(folderPath)) {
@@ -47,12 +50,20 @@ function copyZipFiles(source: string, destination: string) {
       // Copy the file to the destination folder
       fs.copyFileSync(sourcePath, destinationPath)
     } catch (error: any) {
-      spinner.fail(`Error copying ${zipFile}: ${(error as Error).message}`)
+      spinner.fail(
+        `${chalk.bold('[move-downloads]')} Error copying ${zipFile}: ${
+          (error as Error).message
+        }`
+      )
       return
     }
   })
 
-  spinner.succeed(`Copied ${zipFiles.length} .zip files to ${destination}`)
+  spinner.succeed(
+    `${chalk.bold('[move-downloads]')} Copied ${
+      zipFiles.length
+    } .zip files to ${destination}`
+  )
 }
 
 copyZipFiles(sourceFolder, destinationFolder)

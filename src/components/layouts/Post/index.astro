@@ -11,15 +11,23 @@ import Exif from '@components/Exif/index.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
+  leadRaw?: string // comes in through remark plugin as plain text
   tableOfContents?: string // comes in through remark plugin as html
 }
 
-const { data, collection, lead, tableOfContents } = Astro.props
+const { data, collection, lead, leadRaw, tableOfContents } = Astro.props
 const { title, date, updated, image, linkurl, toc, style, githubLink, exif } =
   data
 ---
 
-<LayoutBase title={title} style={style}>
+<LayoutBase
+  title={title}
+  description={leadRaw}
+  image={image}
+  style={style}
+  date={date}
+  updated={updated}
+>
   <article class={styles.entry}>
     <header>
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />

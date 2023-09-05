@@ -28,6 +28,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render()
 <LayoutPost
   {...entry}
   lead={remarkPluginFrontmatter.lead}
+  leadRaw={remarkPluginFrontmatter.leadRaw}
   tableOfContents={remarkPluginFrontmatter.tableOfContents}
 >
   <Content />
