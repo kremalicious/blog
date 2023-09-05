@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
 import { slugifyAll } from './slugify'
 import { readOutExif } from './exif'
+import path from 'path'
 
 export function sortPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
@@ -41,7 +42,25 @@ export async function loadAndFormatCollection(
 
     // extract exif & iptc data from photos
     if (post.collection === 'photos') {
-      const imagePath = post.data.image.src.split('?')[0].split('/@fs')[1]
+      const isProd = import.meta.env.PROD
+
+      //
+      // Get the absolute image path from post.data.image
+      // to read exif from
+      //
+      // production image.src:
+      //    `/_astro/filename.hash.jpg`
+      // development image.src:
+      //    `/@fs/absolute/system/path/project/src/content/photos/postSlug/filename.jpg?origWidth=3873&origHeight=2796&origFormat=jpg`
+      //
+      const imagePath = isProd
+        ? path.join(
+            'content',
+            'photos',
+            post.id.split('/')[0],
+            post.data.image.src.split('/')[2].split('.')[0].concat('.jpg')
+          )
+        : post.data.image.src.split('?')[0].split('/@fs')[1]
       const exif = await readOutExif(imagePath)
       post.data.exif = exif
     }

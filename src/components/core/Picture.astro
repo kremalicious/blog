@@ -22,13 +22,13 @@ const image260_webp = await getImage({ src, width: 260, format: 'webp' })
 const image520_webp = await getImage({ src, width: 520, format: 'webp' })
 const image1040_webp = await getImage({ src, width: 1040, format: 'webp' })
 const image2080_webp = await getImage({ src, width: 2080, format: 'webp' })
-const image260_png = await getImage({ src, width: 260, format: 'png' })
-const image520_png = await getImage({ src, width: 520, format: 'png' })
-const image1040_png = await getImage({ src, width: 1040, format: 'png' })
-const image2080_png = await getImage({ src, width: 2080, format: 'png' })
+const image260_jpg = await getImage({ src, width: 260, format: 'jpg' })
+const image520_jpg = await getImage({ src, width: 520, format: 'jpg' })
+const image1040_jpg = await getImage({ src, width: 1040, format: 'jpg' })
+const image2080_jpg = await getImage({ src, width: 2080, format: 'jpg' })
 
 const srcSetWebP = `${image260_webp.src} 260w, ${image520_webp.src} 520w, ${image1040_webp.src} 1040w, ${image2080_webp.src} 2080w`
-const srcSetPng = `${image260_png.src} 260w, ${image520_png.src} 520w, ${image1040_png.src} 1040w, ${image2080_png.src} 2080w`
+const srcSetPng = `${image260_jpg.src} 260w, ${image520_jpg.src} 520w, ${image1040_jpg.src} 1040w, ${image2080_jpg.src} 2080w`
 ---
 
 <figure class={`${styles.image} ${className ? className : ''}`}>
@@ -45,7 +45,7 @@ const srcSetPng = `${image260_png.src} 260w, ${image520_png.src} 520w, ${image10
       sizes={`(min-width: ${width}) ${width}, 100vw`}
       decoding="async"
       loading="lazy"
-      src={image260_png.src}
+      src={image260_jpg.src}
       srcset={srcSetPng}
       alt={alt}
     />
