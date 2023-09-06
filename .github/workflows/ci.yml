@@ -21,18 +21,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          key: ${{ runner.os }}-node-test-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-test-
 
       - run: npm ci
-      - run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
-          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
-          PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
-          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
-          PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
       - run: npm test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,11 +39,36 @@ jobs:
           name: coverage
           path: coverage/
 
-      - uses: actions/upload-artifact@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          name: public
-          path: public
+  build:
+    runs-on: ubuntu
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+
+        - name: Cache node modules
+          uses: actions/cache@v3
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-node-build-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: ${{ runner.os }}-node-build-
+        
+        - run: npm ci
+        - run: npm run build
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
+            PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+            PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+            PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+            PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+
+        - uses: actions/upload-artifact@v1
+          if: github.ref == 'refs/heads/main'
+          with:
+            name: dist
+            path: dist
 
   coverage:
     runs-on: ubuntu-latest
@@ -67,15 +84,15 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
   deploy:
-    needs: test
+    needs: [test, build]
     if: success() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v1
         with:
-          name: public
+          name: dist
       - name: Deploy to S3
         run: npm run deploy:s3
         env:
