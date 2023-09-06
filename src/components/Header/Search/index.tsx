@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
-import { getAnimationProps, moveInTop } from '../../core/Transitions'
+import { getAnimationProps, moveInTop } from '../../Transitions'
 import SearchButton from './SearchButton'
 import SearchInput from './SearchInput'
 import SearchResults from './SearchResults'

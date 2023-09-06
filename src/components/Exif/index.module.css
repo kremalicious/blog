@@ -48,7 +48,7 @@
 
 .map {
   composes: breakout from '@layouts/Base/index.module.css';
-  composes: frame from '@components/core/Picture.module.css';
+  composes: frame from '@components/Picture/Picture.module.css';
   height: 220px;
   margin-top: calc(var(--spacer) * 2);
 }

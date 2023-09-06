@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
-import Input from '../../core/Input'
+import Input from '@components/Input'
 import Conversion from './Conversion'
 import styles from './InputGroup.module.css'
 

@@ -1,0 +1,28 @@
+---
+type Props = {
+  tableOfContents: string
+}
+
+const { tableOfContents } = Astro.props
+---
+
+<style>
+  .toc {
+    background: var(--box-background-color);
+    padding: var(--spacer);
+    border-radius: var(--border-radius);
+    margin-bottom: calc(var(--spacer) * var(--line-height));
+  }
+
+  .toc ul,
+  .toc p {
+    margin: 0;
+  }
+
+  .toc li {
+    margin-top: calc(var(--spacer) / 6);
+    margin-bottom: calc(var(--spacer) / 6);
+  }
+</style>
+
+<nav aria-label="Table of Contents" class="toc" set:html={tableOfContents} />

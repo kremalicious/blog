@@ -3,34 +3,16 @@ import { Image } from 'astro:assets'
 import Networks from './Networks.astro'
 import avatar from '@images/avatar.jpg'
 import config from '@config/blog.config.mjs'
+import styles from './Vcard.module.css'
 
 const { author, rss, jsonfeed } = config
 const { mastodon, twitter, github, name, uri } = author
 const links = [mastodon, github, twitter, rss, jsonfeed]
 ---
 
-<style>
-  .avatar {
-    /* composes: frame from '../atoms/Image.module.css'; */
-    border: 2px solid transparent;
-    border-radius: 50%;
-    margin-bottom: calc(var(--spacer) / 3);
-  }
+<Image class={styles.avatar} src={avatar} width="80" height="80" alt="avatar" />
 
-  .description {
-    font-size: var(--font-size-h5);
-    margin-top: 0;
-    margin-bottom: calc(var(--spacer) / var(--line-height));
-  }
-
-  .description a {
-    display: block;
-  }
-</style>
-
-<Image class="avatar" src={avatar} width="80" height="80" alt="avatar" />
-
-<p class="description">
+<p class={styles.description}>
   Blog of designer &amp; developer{' '}
   <a class="fn" rel="author" href={uri}>
     {name}
