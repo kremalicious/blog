@@ -7,14 +7,14 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "prebuild": "npm run create:icons && npm run create:redirects && npm run move:downloads",
     "start": "npm run prebuild && astro dev --config .config/astro.config.mjs",
     "build": "astro build --config .config/astro.config.mjs",
     "preview": "astro preview",
     "astro": "astro",
+    "prebuild": "run-p --silent --continue-on-error create:icons create:redirects move:downloads",
     "test": "astro check && npm run lint && npm run type-check && npm run jest",
     "jest": "jest -c .config/jest/jest.config.js --coverage --silent",
-    "lint": "run-p --continue-on-error lint:js lint:css lint:md",
+    "lint": "run-p --silent --continue-on-error lint:js lint:css lint:md",
     "lint:js": "eslint --ignore-path .gitignore --ext .ts,.tsx,.astro,.mjs,.js,.cjs .",
     "lint:css": "stylelint --config '.config/.stylelintrc.json' 'src/**/*.css'",
     "lint:md": "markdownlint --config '.config/.markdownlintrc.json' './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,dist,.git,coverage}/**/*'",
@@ -46,7 +46,7 @@
     "slugify": "^1.6.6",
     "use-debounce": "^9.0.4",
     "viem": "^1.10.3",
-    "wagmi": "^1.4.1"
+    "wagmi": "^1.3.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.2",

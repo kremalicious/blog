@@ -69,7 +69,7 @@ try {
   spinner.succeed(
     `${chalk.bold('[redirect-from]')} Extracted ${
       Object.keys(redirects).length
-    } redirects from ${fileCount} files`
+    } redirects from ${fileCount} files to ${outputFilePath}`
   )
 } catch (error: any) {
   spinner.fail(`${chalk.bold('[redirect-from]')} ${(error as Error).message}`)
