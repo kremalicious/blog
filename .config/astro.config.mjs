@@ -14,7 +14,7 @@ export default defineConfig({
     remarkPlugins: [remarkLeadParagraph, remarkToc],
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-      theme: 'github-dark-dimmed',
+      theme: 'nord',
       langs: [],
       wrap: true
     }

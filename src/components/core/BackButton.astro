@@ -1,0 +1,31 @@
+---
+import { ChevronLeft } from '@images/icons'
+---
+
+<style>
+  .buttonBack {
+    margin-bottom: var(--spacer);
+    display: block;
+  }
+
+  @media (min-width: 60rem) {
+    .buttonBack {
+      margin-top: -2rem;
+    }
+  }
+
+  .buttonBack svg {
+    stroke: var(--text-color-light);
+    display: inline-block;
+    margin-bottom: -0.15rem;
+  }
+</style>
+
+<button class={`link buttonBack`}>
+  <ChevronLeft /> Go Back
+</button>
+
+<script>
+  const buttonBack = document.querySelector('.buttonBack')
+  buttonBack?.addEventListener('click', () => window.history.back())
+</script>

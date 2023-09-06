@@ -1,17 +1,20 @@
-import { Theme, getDefaultWallets } from '@rainbow-me/rainbowkit'
+import { type Theme, getDefaultWallets } from '@rainbow-me/rainbowkit'
 import { configureChains, createConfig } from 'wagmi'
-import { arbitrum, mainnet, optimism, polygon } from 'wagmi/chains'
+import { arbitrum, mainnet, optimism, polygon, bsc } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 
 export const { chains, publicClient } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
-  [infuraProvider({ apiKey: process.env.PUBLIC_INFURA_ID }), publicProvider()]
+  [mainnet, polygon, optimism, arbitrum, bsc],
+  [
+    infuraProvider({ apiKey: import.meta.env.PUBLIC_INFURA_ID }),
+    publicProvider()
+  ]
 )
 
 export const { connectors } = getDefaultWallets({
   appName: 'kremalicious.com',
-  projectId: process.env.PUBLIC_WALLETCONNECT_ID,
+  projectId: import.meta.env.PUBLIC_WALLETCONNECT_ID,
   chains
 })
 

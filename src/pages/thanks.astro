@@ -1,0 +1,13 @@
+---
+import BackButton from '@components/core/BackButton.astro'
+import LayoutBase from '@layouts/Base/index.astro'
+import Web3 from '@components/Donation/Web3'
+import Web3Fallback from '@components/Donation/Web3Fallback/index.astro'
+---
+
+<LayoutBase title="Thanks" pageTitle="Say Thanks">
+  <BackButton />
+
+  <Web3 client:load />
+  <Web3Fallback />
+</LayoutBase>

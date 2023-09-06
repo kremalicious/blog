@@ -2,8 +2,8 @@
   font-size: var(--font-size-mini);
   color: var(--text-color-light);
   text-align: left;
-  margin-top: calc(var(--spacer) / 4);
-  margin-left: calc(var(--spacer) * 1.4);
+  margin-top: 0;
+  margin-left: calc(var(--spacer) * 2.4);
   animation: fadeIn 0.5s 0.8s ease-out backwards;
 }
 

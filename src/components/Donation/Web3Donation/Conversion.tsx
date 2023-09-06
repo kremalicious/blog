@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 import { useNetwork } from 'wagmi'
 import styles from './Conversion.module.css'
 
@@ -11,7 +11,7 @@ export async function getFiat(
   const json = await response.json()
 
   if (!json) console.error(response.statusText)
-  const { usd, eur } = json.data[tokenId]
+  const { usd, eur } = json[tokenId]
   const dollar = (amount * usd).toFixed(2)
   const euro = (amount * eur).toFixed(2)
 
@@ -32,7 +32,7 @@ export default function Conversion({
   const { dollar, euro } = conversion
 
   useEffect(() => {
-    if (!chain?.nativeCurrency?.symbol) return
+    // if (!chain?.nativeCurrency?.symbol) return
 
     async function getFiatResponse() {
       try {
@@ -43,7 +43,7 @@ export default function Conversion({
         const { dollar, euro } = await getFiat(Number(amount), tokenId)
         setConversion({ euro, dollar })
       } catch (error) {
-        console.error(error.message)
+        console.error((error as Error).message)
       }
     }
 

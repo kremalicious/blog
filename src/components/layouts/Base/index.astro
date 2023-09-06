@@ -11,15 +11,12 @@ import { getImage } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 import logo from '@images/kremalicious512.png'
 import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
+import type { CollectionEntry } from 'astro:content'
 
-type Props = {
-  title?: string
+type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
   pageTitle?: string
   description?: string
-  style?: string
   image?: ImageMetadata
-  date?: Date
-  updated?: Date
 }
 
 const { title, pageTitle, description, style, image, date, updated } =

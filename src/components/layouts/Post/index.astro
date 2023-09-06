@@ -16,18 +16,10 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
 }
 
 const { data, collection, lead, leadRaw, tableOfContents } = Astro.props
-const { title, date, updated, image, linkurl, toc, style, githubLink, exif } =
-  data
+const { title, date, updated, image, linkurl, toc, githubLink, exif } = data
 ---
 
-<LayoutBase
-  title={title}
-  description={leadRaw}
-  image={image}
-  style={style}
-  date={date}
-  updated={updated}
->
+<LayoutBase {...data} description={leadRaw}>
   <article class={styles.entry}>
     <header>
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />

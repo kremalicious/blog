@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import { type ReactElement, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { parseEther } from 'viem'
 import { usePrepareSendTransaction, useSendTransaction } from 'wagmi'
@@ -13,7 +13,7 @@ export default function Web3Donation({
 }: {
   address: string
 }): ReactElement {
-  const [amount, setAmount] = useState('0.01')
+  const [amount, setAmount] = useState('0.005')
   const [debouncedAmount] = useDebounce(amount, 500)
 
   const { config } = usePrepareSendTransaction({
@@ -33,10 +33,10 @@ export default function Web3Donation({
     })
 
     try {
-      const result = await sendTransactionAsync()
+      const result = sendTransactionAsync && (await sendTransactionAsync())
 
       if (isError) {
-        throw new Error(null)
+        throw new Error(undefined)
       }
 
       setTransactionHash(result?.hash)
@@ -52,7 +52,7 @@ export default function Web3Donation({
         })
       }
     } catch (error) {
-      setMessage(null)
+      setMessage(undefined)
     }
   }
 

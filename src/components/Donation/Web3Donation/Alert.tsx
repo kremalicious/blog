@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import styles from './Alert.module.css'
 
 export function getTransactionMessage(transactionHash?: string): {
@@ -38,9 +38,9 @@ export default function Alert({
 }): ReactElement {
   return (
     <div
-      className={classes(message.status)}
+      className={classes(message.status || '')}
       dangerouslySetInnerHTML={{
-        __html: `${constructMessage(transactionHash, message)}`
+        __html: `${constructMessage(transactionHash as string, message)}`
       }}
     />
   )

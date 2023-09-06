@@ -1,6 +1,8 @@
 .web3 {
-  composes: container from '../../Layout.module.css';
-  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25rem;
+  width: 100%;
   margin-bottom: calc(var(--spacer) * 2);
   text-align: center;
   min-height: 165px;
@@ -11,6 +13,12 @@
   justify-content: space-between;
   font-size: var(--font-size-small);
   margin-bottom: var(--spacer);
+}
+
+/* connect button */
+.web3 > div:first-child > button:only-child {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .message {
