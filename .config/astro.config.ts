@@ -1,18 +1,17 @@
 import { defineConfig } from 'astro/config'
-import remarkLeadParagraph from './src/lib/remark-lead-paragraph.mjs'
-import remarkToc from './src/lib/remark-toc.mjs'
+import remarkLeadParagraph from '../src/lib/remark-lead-paragraph'
+import remarkToc from '../src/lib/remark-toc'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import redirects from './redirects.json'
-import config from './blog.config.mjs'
+import config from './blog.config'
 
 // https://astro.build/config
-/** @type {import('astro/config').AstroUserConfig} */
 export default defineConfig({
   site: config.siteUrl,
   output: 'static',
   markdown: {
-    remarkPlugins: [remarkLeadParagraph, remarkToc],
+    remarkPlugins: [remarkLeadParagraph, remarkToc as any],
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
       theme: 'nord',

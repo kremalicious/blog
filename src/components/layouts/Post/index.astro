@@ -8,6 +8,7 @@ import Meta from './Meta.astro'
 import Picture from '@components/Picture/index.astro'
 import Toc from '@components/Toc.astro'
 import Exif from '@components/Exif/index.astro'
+import type { Exif as ExifType } from '@lib/exif/types'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -16,7 +17,9 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
 }
 
 const { data, collection, lead, leadRaw, tableOfContents } = Astro.props
-const { title, date, updated, image, linkurl, toc, githubLink, exif } = data
+const { title, date, updated, toc, githubLink } = data
+const { image, exif } = data as CollectionEntry<'photos'>['data']
+const { linkurl } = data as CollectionEntry<'links'>['data']
 ---
 
 <LayoutBase {...data} description={leadRaw}>
@@ -47,7 +50,7 @@ const { title, date, updated, image, linkurl, toc, githubLink, exif } = data
       )
     }
 
-    {collection === 'photos' && exif && <Exif exif={exif} />}
+    {collection === 'photos' && exif && <Exif exif={exif as ExifType} />}
 
     {toc && tableOfContents && <Toc tableOfContents={tableOfContents} />}
 

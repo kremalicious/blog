@@ -2,9 +2,12 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [
+      { "name": "typescript-plugin-css-modules" },
+      { "name": "@astrojs/ts-plugin" }
+    ],
     "jsxImportSource": "react",
-    "allowJs": true,
+    // "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@config/*": [".config/*"],

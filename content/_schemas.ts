@@ -1,4 +1,5 @@
 import { z, type ImageFunction } from 'astro:content'
+import type { Exif } from '@lib/exif/types'
 
 const schemaShared = {
   title: z.string(),
@@ -56,7 +57,7 @@ export const schemaPhotos = (image: ImageFunction) =>
       // .refine((img) => img.width >= 1040, {
       //   message: 'Cover image must be at least 1040 pixels wide!'
       // })
-      exif: z.object({}).optional()
+      exif: z.object(Exif).optional()
     })
     .strict()
 

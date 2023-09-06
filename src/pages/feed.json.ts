@@ -1,5 +1,5 @@
 import { getAllPosts } from '@lib/astro'
-import config from '@config/blog.config.mjs'
+import config from '@config/blog.config.ts'
 import type { AstroConfig } from 'astro'
 import { getPostFeedContent } from '@lib/feed'
 

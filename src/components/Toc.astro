@@ -14,12 +14,12 @@ const { tableOfContents } = Astro.props
     margin-bottom: calc(var(--spacer) * var(--line-height));
   }
 
-  .toc ul,
-  .toc p {
+  .toc :global(ul),
+  .toc :global(p) {
     margin: 0;
   }
 
-  .toc li {
+  .toc :global(li) {
     margin-top: calc(var(--spacer) / 6);
     margin-bottom: calc(var(--spacer) / 6);
   }

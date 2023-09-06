@@ -1,12 +1,9 @@
 ---
 import { loadAndFormatCollection } from '@lib/astro'
-import type { GetStaticPathsOptions, Page } from 'astro'
-import type { CollectionEntry } from 'astro:content'
+import type { GetStaticPathsOptions, InferGetStaticPropsType } from 'astro'
 import LayoutArchive from '@components/layouts/Archive.astro'
 
-type Props = {
-  page: Page<CollectionEntry<'articles' | 'links'>>
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await loadAndFormatCollection('articles')
@@ -14,7 +11,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate([...articles, ...links], { pageSize: 30 })
 }
 // All paginated data + posts are passed on the "page" prop
-const { page } = Astro.props
+const { page } = Astro.props as Props
 ---
 
 <LayoutArchive

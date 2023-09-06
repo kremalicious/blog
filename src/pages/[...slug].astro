@@ -1,11 +1,9 @@
 ---
 import LayoutPost from '@layouts/Post/index.astro'
 import { getAllPosts } from '@lib/astro'
-import type { CollectionEntry } from 'astro:content'
+import type { InferGetStaticPropsType } from 'astro'
 
-type Props = {
-  entry: CollectionEntry<'articles' | 'links' | 'photos'>
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()

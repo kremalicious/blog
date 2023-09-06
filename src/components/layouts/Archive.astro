@@ -12,7 +12,7 @@ type Props = {
   pageTitle: string
 }
 
-const { page, title, pageTitle }: Props = Astro.props
+const { page, title, pageTitle } = Astro.props
 const classes = `posts ${
   title.toLowerCase().includes('photos') ? 'photos' : ''
 }`

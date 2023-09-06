@@ -5,14 +5,21 @@
 import { toc } from 'mdast-util-toc'
 import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
+import type { Nodes } from 'node_modules/mdast-util-toc/lib'
+import type { VFile } from 'vfile'
 
-/**
- * @typedef {import('hast').Root} HastRoot
- * @typedef {import('mdast').Root} MdastRoot
- * @type {import('unified').Plugin<MdastRoot, HastRoot>}
- */
+interface MyFile extends VFile {
+  data: {
+    astro: {
+      frontmatter: {
+        tableOfContents: string
+      }
+    }
+  }
+}
+
 export default function remarkToc() {
-  return (tree, file) => {
+  return (tree: Nodes, file: MyFile) => {
     const result = toc(tree, { maxDepth: 3 })
 
     if (
