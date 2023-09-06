@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import { getAnimationProps, moveInTop } from '../../Transitions'
 import SearchButton from './SearchButton'
@@ -48,7 +48,7 @@ export default function Search(): ReactElement {
           <LazyMotion features={domAnimation}>
             <m.section
               variants={moveInTop}
-              {...getAnimationProps(shouldReduceMotion)}
+              {...getAnimationProps(Boolean(shouldReduceMotion))}
               className={styles.search}
             >
               <SearchInput

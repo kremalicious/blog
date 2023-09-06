@@ -1,5 +1,5 @@
 import type { ChangeEvent, ReactElement } from 'react'
-import Input from '../../core/Input'
+import Input from '@components/Input'
 import styles from './SearchInput.module.css'
 import { X } from '@images/icons'
 

@@ -1,17 +1,14 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import InputGroup from './InputGroup'
 
 const setAmount = jest.fn()
 
 describe('InputGroup', () => {
   it('renders without crashing', async () => {
-    const { container } = render(
-      <InputGroup amount="1" setAmount={setAmount} />
-    )
-    expect(container.firstChild).toBeInTheDocument()
+    render(<InputGroup amount="1" setAmount={setAmount} />)
 
-    const input = container.querySelector('input')
-    const button = container.querySelector('button')
+    const input = await screen.findByRole('textbox')
+    const button = await screen.findByRole('button')
     fireEvent.change(input, { target: { value: '3' } })
     fireEvent.click(button)
     expect(setAmount).toHaveBeenCalled()

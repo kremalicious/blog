@@ -1,7 +1,7 @@
-// import { render } from '@testing-library/react'
-import testRender from '@config/jest/testRender'
+import { render, screen } from '@testing-library/react'
 import Input from '.'
 
-describe('Input', () => {
-  testRender(<Input />)
+describe('Input', async () => {
+  render(<Input />)
+  await screen.findByRole('textbox')
 })

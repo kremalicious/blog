@@ -17,8 +17,8 @@ article kbd {
   background-color: #f7f7f7;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0)
+    rgb(0 0 0 / 10%),
+    rgb(0 0 0 / 0%)
   );
   background-repeat: repeat-x;
   box-shadow:
@@ -35,9 +35,9 @@ article kbd.dark {
   border-color: #000;
   background-color: #4d4c4c;
   background-image: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0) 80%,
-    rgba(0, 0, 0, 0)
+    rgb(0 0 0 / 50%),
+    rgb(0 0 0 / 0%) 80%,
+    rgb(0 0 0 / 0%)
   );
   background-repeat: no-repeat;
   box-shadow:
@@ -50,28 +50,28 @@ article kbd.dark {
 article kbd.ios {
   font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
   color: #000;
-  border-color: rgba(0, 0, 0, 0.6);
-  border-top-color: rgba(0, 0, 0, 0.4);
+  border-color: rgb(0 0 0 / 60%);
+  border-top-color: rgb(0 0 0 / 40%);
   background-color: #b7b7bc;
   background-image: linear-gradient(to bottom, #efeff0, #b7b7bc);
   background-repeat: repeat-x;
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.6),
-    0 2px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgb(0 0 0 / 60%),
+    0 2px 3px rgb(0 0 0 / 10%),
     inset 0 1px 0 #fff;
 }
 
 article kbd.android {
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;
   text-shadow: none;
   padding: 0.3em;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(0 0 0 / 5%);
   border-radius: 3px;
   background-clip: padding-box;
-  background: #5e5e5e;
+  background-color: #5e5e5e;
   box-shadow:
-    0 2px 2px rgba(0, 0, 0, 0.3),
+    0 2px 2px rgb(0 0 0 / 30%),
     0 1px 0 #444,
     inset 0 1px 0 #868686;
 }
@@ -79,7 +79,7 @@ article kbd.android {
 article kbd.android.dark {
   background: #222;
   box-shadow:
-    0 2px 2px rgba(0, 0, 0, 0.7),
+    0 2px 2px rgb(0 0 0 / 70%),
     0 1px 0 #444,
     inset 0 1px 0 #505050;
 }
@@ -87,7 +87,7 @@ article kbd.android.dark {
 article kbd.android.color {
   background: #083c5b;
   box-shadow:
-    0 2px 2px rgba(0, 0, 0, 0.7),
+    0 2px 2px rgb(0 0 0 / 70%),
     0 1px 0 #444,
     inset 0 1px 0 #36647b;
 }

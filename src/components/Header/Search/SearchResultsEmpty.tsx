@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import { Results } from './SearchResults'
+import type { ReactElement } from 'react'
+import type { Results } from './SearchResults'
 import styles from './SearchResultsEmpty.module.css'
 
 const SearchResultsEmpty = ({

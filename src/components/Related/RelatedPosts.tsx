@@ -1,33 +1,6 @@
-import React, { ReactElement, useState } from 'react'
-import { PhotoThumb } from '../templates/Photos'
-import PostTeaser from './PostTeaser.astro'
+import { type ReactElement, useState } from 'react'
+import PostTeaser from '@components/PostTeaser/index.astro'
 import styles from './RelatedPosts.module.css'
-
-const query = graphql`
-  query RelatedPosts {
-    allArticles: allMarkdownRemark(
-      sort: { fields: { date: DESC } }
-      filter: { fields: { type: { regex: "/(article|link)/" } } }
-    ) {
-      edges {
-        node {
-          ...PostTeaser
-        }
-      }
-    }
-
-    allPhotos: allMarkdownRemark(
-      sort: { fields: { date: DESC } }
-      filter: { fields: { type: { eq: "photo" } } }
-    ) {
-      edges {
-        node {
-          ...PostTeaser
-        }
-      }
-    }
-  }
-`
 
 function postsWithDataFilter(
   posts:

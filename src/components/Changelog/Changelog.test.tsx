@@ -1,16 +1,14 @@
-import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Changelog from './Changelog'
 
-describe('Changelog', () => {
-  it('renders without crashing', () => {
-    const { container, rerender } = render(
-      <Changelog repo="gatsby-plugin-matomo" />
-    )
-    expect(container.firstChild).toBeInTheDocument()
+describe('Changelog', async () => {
+  it('renders without crashing', async () => {
+    render(<Changelog repo="gatsby-plugin-matomo" />)
+    await screen.findByText('sourced from')
+  })
 
-    // return nothing when no match
-    rerender(<Changelog repo="nomatch" />)
-    expect(container.firstChild).not.toBeInTheDocument()
+  it('returns nothing when no match', async () => {
+    render(<Changelog repo="nomatch" />)
+    expect(await screen.findByText('sourced from')).toBeUndefined()
   })
 })

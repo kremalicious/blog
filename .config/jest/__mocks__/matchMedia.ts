@@ -1,3 +1,5 @@
+import jest from 'jest-mock'
+
 const matchMediaMock = Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest

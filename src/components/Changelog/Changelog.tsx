@@ -1,11 +1,10 @@
 import React, {
   Fragment,
-  ReactElement,
+  type ReactElement,
   createElement,
   useEffect,
   useState
 } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import rehypeReact from 'rehype-react'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
