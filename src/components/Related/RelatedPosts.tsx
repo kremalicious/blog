@@ -2,33 +2,6 @@ import { type ReactElement, useState } from 'react'
 // import PostTeaser from '@components/PostTeaser/index.astro'
 import styles from './RelatedPosts.module.css'
 
-function postsWithDataFilter(
-  posts:
-    | Queries.RelatedPostsQuery['allArticles']['edges']
-    | Queries.RelatedPostsQuery['allPhotos']['edges'],
-  key: keyof Queries.MarkdownRemarkFrontmatter,
-  valuesToFind: string[]
-) {
-  let filtered = posts.filter(({ node }) => {
-    const frontmatterKey = node.frontmatter[key]
-
-    if (
-      frontmatterKey !== null &&
-      frontmatterKey.some((r: string) => valuesToFind?.includes(r))
-    ) {
-      return node
-    }
-  })
-
-  if (!filtered?.length) {
-    filtered = posts.filter(({ node }) => node)
-  }
-
-  filtered = filtered.sort(() => 0.5 - Math.random()).slice(0, 6)
-
-  return filtered
-}
-
 export default function RelatedPosts({
   tags,
   isPhotos

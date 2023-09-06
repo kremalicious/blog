@@ -8,6 +8,7 @@ import styles from './index.module.css'
 
 export default function Search(): ReactElement {
   const shouldReduceMotion = useReducedMotion()
+
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])

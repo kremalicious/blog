@@ -1,8 +1,10 @@
 .avatar {
   composes: frame from '@components/Picture/index.module.css';
   border: 2px solid transparent;
-  border-radius: 50%;
+  border-radius: 50% !important;
   margin-bottom: calc(var(--spacer) / 3);
+  width: 80px;
+  height: 80px;
 }
 
 .description {
