@@ -1,7 +1,12 @@
 import { type ReactElement, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { parseEther } from 'viem'
-import { usePrepareSendTransaction, useSendTransaction } from 'wagmi'
+import {
+  useAccount,
+  useNetwork,
+  usePrepareSendTransaction,
+  useSendTransaction
+} from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 import Alert, { getTransactionMessage } from './Alert'
@@ -13,6 +18,9 @@ export default function Web3Donation({
 }: {
   address: string
 }): ReactElement {
+  const { address: account } = useAccount()
+  const { chain } = useNetwork()
+
   const [amount, setAmount] = useState('0.005')
   const [debouncedAmount] = useDebounce(amount, 500)
 
@@ -69,7 +77,12 @@ export default function Web3Donation({
       {message ? (
         <Alert message={message} transactionHash={transactionHash} />
       ) : (
-        <InputGroup amount={amount} setAmount={setAmount} />
+        <InputGroup
+          amount={amount}
+          symbol={chain?.nativeCurrency?.symbol || 'ETH'}
+          setAmount={setAmount}
+          isDisabled={!account}
+        />
       )}
     </form>
   )

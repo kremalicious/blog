@@ -4,7 +4,7 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { wagmiConfig, chains, theme } from '@lib/rainbowkit'
 
-export default function Thanks() {
+export default function Web3() {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains} theme={theme}>

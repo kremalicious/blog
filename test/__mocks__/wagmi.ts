@@ -1,21 +1,15 @@
-import { chain as chainOrig } from 'wagmi'
+import { mainnet } from 'wagmi'
 import { vi } from 'vitest'
 
 export function useNetwork() {
   return {
-    activeChain: {
-      nativeCurrency: {
-        symbol: 'ETH'
-      }
-    }
+    chain: mainnet
   }
 }
 
 export function useAccount() {
   return {
-    data: {
-      address: '0x0000000000000000000000000000000000000000'
-    }
+    address: '0x0000000000000000000000000000000000000000'
   }
 }
 
@@ -61,7 +55,7 @@ export function useProvider() {
   return {}
 }
 
-export const chain = chainOrig
+export const chain = mainnet
 
 export function createClient() {
   return {
