@@ -4,11 +4,12 @@ import remarkToc from './src/lib/remark-toc.mjs'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import redirects from './redirects.json'
+import config from './blog.config.mjs'
 
 // https://astro.build/config
 /** @type {import('astro/config').AstroUserConfig} */
 export default defineConfig({
-  site: 'https://kremalicious.com',
+  site: config.siteUrl,
   output: 'static',
   markdown: {
     remarkPlugins: [remarkLeadParagraph, remarkToc],

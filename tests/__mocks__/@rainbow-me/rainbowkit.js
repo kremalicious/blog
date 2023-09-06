@@ -1,11 +1,13 @@
+import { vi } from 'vitest'
+
 export function configureChains() {
   return { chains: [{}], provider: {} }
 }
 
 export const apiProvider = {
-  infura: jest.fn(),
-  alchemy: jest.fn(),
-  fallback: jest.fn()
+  infura: vi.fn(),
+  alchemy: vi.fn(),
+  fallback: vi.fn()
 }
 
 export function getDefaultWallets() {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Input from '.'
 
-describe('Input', async () => {
+test('Input', async () => {
   render(<Input />)
   await screen.findByRole('textbox')
 })

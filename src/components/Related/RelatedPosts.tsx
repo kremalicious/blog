@@ -1,5 +1,5 @@
 import { type ReactElement, useState } from 'react'
-import PostTeaser from '@components/PostTeaser/index.astro'
+// import PostTeaser from '@components/PostTeaser/index.astro'
 import styles from './RelatedPosts.module.css'
 
 function postsWithDataFilter(
@@ -63,11 +63,11 @@ export default function RelatedPosts({
       <ul>
         {filteredPosts?.map(({ node }) => (
           <li key={node.id}>
-            {isPhotos ? (
+            {/* {isPhotos ? (
               <PhotoThumb photo={node} />
             ) : (
               <PostTeaser post={node} hideDate />
-            )}
+            )} */}
           </li>
         ))}
       </ul>

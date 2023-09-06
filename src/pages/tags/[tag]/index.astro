@@ -1,6 +1,6 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import type { GetStaticPathsOptions, Page } from 'astro'
+import { type CollectionEntry } from 'astro:content'
+import { type Page } from 'astro'
 import { getAllPosts, getAllTags, getPostsByTag } from '@lib/astro'
 import LayoutArchive from '@components/layouts/Archive.astro'
 
@@ -8,7 +8,7 @@ type Props = {
   page: Page<CollectionEntry<'articles' | 'links' | 'photos'>>
 }
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+export async function getStaticPaths() {
   const allPosts = await getAllPosts()
   const allUniqueTags = await getAllTags(allPosts)
 

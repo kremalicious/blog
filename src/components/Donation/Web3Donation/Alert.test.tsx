@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import { describe, it } from 'vitest'
 import Alert from './Alert'
 
 describe('Alert', () => {

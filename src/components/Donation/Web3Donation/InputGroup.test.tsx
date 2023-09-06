@@ -1,7 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
 import InputGroup from './InputGroup'
 
-const setAmount = jest.fn()
+const setAmount = vi.fn()
 
 describe('InputGroup', () => {
   it('renders without crashing', async () => {

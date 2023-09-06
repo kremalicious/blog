@@ -1,4 +1,5 @@
 import { chain as chainOrig } from 'wagmi'
+import { vi } from 'vitest'
 
 export function useNetwork() {
   return {
@@ -46,13 +47,13 @@ export function useBalance() {
 
 export function useConnect() {
   return {
-    connect: jest.fn()
+    connect: vi.fn()
   }
 }
 
 export function useDisconnect() {
   return {
-    disconnect: jest.fn()
+    disconnect: vi.fn()
   }
 }
 
@@ -65,8 +66,8 @@ export const chain = chainOrig
 export function createClient() {
   return {
     queryClient: {
-      mount: jest.fn(),
-      unmount: jest.fn()
+      mount: vi.fn(),
+      unmount: vi.fn()
     }
   }
 }
