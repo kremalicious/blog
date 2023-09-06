@@ -1,0 +1,41 @@
+---
+import styles from './PrevNext.module.css'
+import { ChevronLeft, ChevronRight } from '@images/icons'
+
+interface Node {
+  title: string
+  slug: string
+}
+
+type Props = {
+  prev: Node
+  next: Node
+}
+
+const { prev, next } = Astro.props
+---
+
+<nav class={styles.prevnext}>
+  <div>
+    {
+      prev && (
+        <a href={prev.slug}>
+          <ChevronLeft />
+          <p class={styles.label}>Newer</p>
+          <h3 class={styles.title}>{prev.title}</h3>
+        </a>
+      )
+    }
+  </div>
+  <div>
+    {
+      next && (
+        <a href={next.slug}>
+          <p class={styles.label}>Older</p>
+          <h3 class={styles.title}>{next.title}</h3>
+          <ChevronRight />
+        </a>
+      )
+    }
+  </div>
+</nav>

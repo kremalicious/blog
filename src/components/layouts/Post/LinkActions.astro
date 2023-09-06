@@ -1,0 +1,20 @@
+---
+import styles from './LinkActions.module.css'
+import { ExternalLink, Link } from '@images/icons'
+
+type Props = {
+  linkurl?: string
+  slug: string
+}
+
+const { slug, linkurl } = Astro.props
+---
+
+<div class={styles.postLinkActions}>
+  <a href={linkurl}>
+    Go to source <ExternalLink />
+  </a>
+  <a href={slug} rel="tooltip" title="Permalink">
+    <Link />
+  </a>
+</div>
