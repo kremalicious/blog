@@ -11,7 +11,8 @@ type Props = {
 
 const { post, hideDate } = Astro.props
 const { slug } = post
-const { title, date, updated, image } = post.data
+const { title, date, updated } = post.data
+const { image } = post.data as CollectionEntry<'articles'>['data']
 ---
 
 <a class={styles.post} href={`/${slug}`}>

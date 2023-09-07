@@ -10,7 +10,7 @@
 }
 
 .results {
-  /* composes: container from '../../Layout.module.css'; */
+  composes: container from '@layouts/Base/index.module.css';
   padding: var(--spacer) calc(var(--spacer) / 2);
   margin-bottom: 0;
   display: flex;

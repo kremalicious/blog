@@ -1,18 +1,18 @@
-import type { ReactElement } from 'react'
-import type { Results } from './SearchResults'
-import styles from './SearchResultsEmpty.module.css'
+import { type ReactElement } from 'react'
+import styles from './Empty.module.css'
+import type { Post } from '../Search'
 
 const SearchResultsEmpty = ({
-  searchQuery,
+  query,
   results
 }: {
-  searchQuery: string
-  results: Results[]
+  query: string
+  results: Post[]
 }): ReactElement => (
   <div className={styles.empty}>
     <header className={styles.emptyMessage}>
       <p className={styles.emptyMessageText}>
-        {searchQuery.length > 0 && results.length === 0
+        {query.length > 0 && results.length === 0
           ? 'No results found'
           : 'Awaiting your input'}
       </p>

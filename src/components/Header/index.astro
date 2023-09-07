@@ -1,7 +1,7 @@
 ---
-import Menu from './Menu/index.astro'
-// import Search from './Search'
-import ThemeSwitch from '../ThemeSwitch/index.astro'
+import Menu from '@components/Menu/index.astro'
+import Search from '@components/Search/index.astro'
+import ThemeSwitch from '@components/ThemeSwitch/index.astro'
 import { Logo } from '@images/icons'
 import styles from './index.module.css'
 ---
@@ -14,7 +14,7 @@ import styles from './index.module.css'
 
     <nav aria-label="Menu" class={styles.nav}>
       <ThemeSwitch />
-      <!-- <Search /> -->
+      <Search />
       <Menu />
     </nav>
   </div>

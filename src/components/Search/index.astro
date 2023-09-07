@@ -1,0 +1,56 @@
+---
+import { Search as SearchIcon } from '@images/icons'
+import Search from './Search.tsx'
+import { getAllPosts } from '@lib/astro'
+
+const allPosts = await getAllPosts()
+const allPostsFiltered = allPosts.filter(
+  (post) => !post.data.draft && post.slug
+)
+---
+
+<button id="search-button" type="button" title="Search" class="searchButton">
+  <SearchIcon />
+</button>
+
+<Search client:load allPosts={allPostsFiltered} />
+
+<script>
+  import { isSearchOpen } from '@stores/search'
+  const button = document.querySelector('#search-button')
+
+  button?.addEventListener('click', () => {
+    isSearchOpen.set(!isSearchOpen.get())
+
+    if (isSearchOpen.get()) {
+      document.body.classList.add('hasSearchOpen')
+    } else {
+      document.body.classList.remove('hasSearchOpen')
+    }
+  })
+</script>
+
+<style>
+  .searchButton {
+    padding: calc(var(--spacer) / 2);
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    margin-right: calc(var(--spacer) / 4);
+  }
+
+  .searchButton:focus {
+    outline: 0;
+  }
+
+  .searchButton svg {
+    stroke: var(--text-color-light);
+    width: 24px;
+    height: 24px;
+  }
+
+  .searchButton:hover svg,
+  .searchButton:focus svg {
+    stroke: var(--link-color);
+  }
+</style>
