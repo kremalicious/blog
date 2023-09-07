@@ -24,7 +24,8 @@ const schemaShared = {
   featured: z.boolean().optional(),
   style: z.string().optional(),
   toc: z.boolean().optional(),
-  githubLink: z.string().optional()
+  githubLink: z.string().optional(),
+  changelog: z.string().optional()
 }
 
 export const schemaArticles = (image: ImageFunction) =>

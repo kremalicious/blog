@@ -1,0 +1,46 @@
+---
+import { markdownToHtml } from '@lib/markdown'
+import { getRepo } from '@lib/github'
+import styles from './index.module.css'
+
+type Props = {
+  repo: string
+}
+
+const { repo } = Astro.props as Props
+const repoInfo = await getRepo(repo)
+const { url, owner, object } = repoInfo
+const changelogHtml = await markdownToHtml(
+  object.text.replace('### Changelog', '')
+)
+---
+
+{
+  repoInfo ? (
+    <>
+      <h2>Changelog</h2>
+      <div class={styles.changelog} id="changelog">
+        <p class={styles.source}>
+          sourced from{' '}
+          <a href={`${url}/tree/main/CHANGELOG.md`}>
+            <code>{`${owner?.login}/${repo}:CHANGELOG.md`}</code>
+          </a>
+        </p>
+        <div class={styles.content} set:html={changelogHtml} />
+        <button class="link" id="changelog-all">
+          Show all
+        </button>
+      </div>
+    </>
+  ) : null
+}
+
+<script>
+  const changelog = document.querySelector('#changelog')
+  const button = document.querySelector('#changelog-all')
+
+  button?.addEventListener('click', () => {
+    changelog?.classList.add('all')
+    button?.remove()
+  })
+</script>

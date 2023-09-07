@@ -1,7 +1,16 @@
-.content {
+.changelog {
   padding-left: calc(var(--spacer) / 2);
   margin-left: calc(var(--spacer) / 2);
   border-left: var(--stroke-width) solid var(--border-color);
+}
+
+.content {
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.changelog:global(.all) .content {
+  max-height: none;
 }
 
 .content h2,
@@ -58,7 +67,7 @@
 }
 
 .source {
-  font-size: var(--font-size-mini);
+  font-size: var(--font-size-small);
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-base);
   padding-bottom: calc(var(--spacer) / 2);
@@ -74,7 +83,7 @@
 }
 
 .source code {
-  font-size: calc(var(--font-size-mini) * 0.9);
+  font-size: calc(var(--font-size-small) * 0.9);
 }
 
 .source a:hover {
