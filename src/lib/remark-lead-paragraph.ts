@@ -32,6 +32,7 @@ export default function remarkLeadParagraph(): Transformer {
           parent?.children.splice(index as number, 1)
       }
     }
+    visit(tree, 'paragraph', visitor)
 
     if (firstParagraph) {
       const hast = toHast(firstParagraph)
@@ -45,7 +46,6 @@ export default function remarkLeadParagraph(): Transformer {
       return
     }
 
-    visit(tree, 'paragraph', visitor)
     return
   }
 }

@@ -44,10 +44,10 @@ pre {
 }
 
 /* overwrite Nord & Polar theme background color */
-pre.nord,
+/* pre.nord,
 pre.polar {
   background-color: var(--box-background-color) !important;
-}
+} */
 
 pre code {
   padding: var(--spacer) calc(var(--spacer) / 2);
