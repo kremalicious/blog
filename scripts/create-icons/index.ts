@@ -83,7 +83,7 @@ for (const src of srcDirs) {
     )
 
     // add the astro component export to the main entry `index.ts` file
-    contentOfIndexJS += `\nexport { default as ${baseName} } from './${baseName}.astro'`
+    contentOfIndexJS += `\n// @ts-nocheck\nexport { default as ${baseName} } from './${baseName}.astro'`
 
     icons.push({ name, baseName, title })
   }

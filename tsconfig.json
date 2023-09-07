@@ -7,7 +7,6 @@
       { "name": "@astrojs/ts-plugin" }
     ],
     "jsxImportSource": "react",
-    // "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@config/*": [".config/*"],
