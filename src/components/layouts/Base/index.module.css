@@ -22,7 +22,7 @@
 
   /* animates the page menu opening/closing */
   transition: 0.2s ease-out;
-  will-change: transform;
+  will-change: transform, background-color;
   transform: translate3d(0, 0, 0);
 }
 
@@ -30,7 +30,7 @@
   transform: translate3d(0, calc(var(--spacer) * 2), 0);
 }
 
-:global([data-theme='dark']) .document {
+[data-theme='dark'] .document {
   border-top-color: rgba(255 255 255 / 5%);
   box-shadow:
     0 1px 8px rgba(0 7 8 / 30%),

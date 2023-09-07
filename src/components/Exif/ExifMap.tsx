@@ -1,6 +1,7 @@
 import { type ReactElement, useState } from 'react'
 import { Map, Marker } from 'pigeon-maps'
-import useDarkMode from '@hooks/useDarkMode'
+import { useStore } from '@nanostores/react'
+import { $theme as themeStore } from '@stores/theme'
 
 const mapbox =
   (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
@@ -18,26 +19,15 @@ export default function ExifMap({
 }: {
   gps: { latitude: number; longitude: number }
 }): ReactElement {
-  const { isDarkMode } = useDarkMode()
+  const $theme = useStore(themeStore)
   const [zoom, setZoom] = useState(12)
-
-  // useEffect(() => {
-  //   const theme = document
-  //     .querySelector('html')
-  //     ?.attributes.getNamedItem('data-theme')
-
-  //   setIsDarkMode(Boolean(theme?.value === 'dark'))
-
-  //   theme?.addEventListener('change', () => {
-  //     setIsDarkMode(Boolean(theme?.value === 'dark'))
-  //   })
-  // }, [])
 
   const zoomIn = () => {
     setZoom(Math.min(zoom + 4, 20))
   }
 
   const { latitude, longitude } = gps
+  const provider = providers[$theme]
 
   return (
     <Map
@@ -46,7 +36,7 @@ export default function ExifMap({
       height={220}
       dprs={[1, 2]}
       attribution={false}
-      provider={isDarkMode ? providers['dark'] : providers['light']}
+      provider={provider as any}
       metaWheelZoom={true}
       metaWheelZoomWarning={'META+wheel to zoom'}
     >

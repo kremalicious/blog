@@ -1,32 +1,45 @@
+import { $theme, $themeColor, type Theme, type ThemeColor } from '@stores/theme'
+
 const themeToggle = document.querySelector('#theme-toggle')
 const themeToggleInput = document.querySelector('#theme-toggle input')
 const sun = document.querySelector('#sun')
 const moon = document.querySelector('#moon')
 
-const primaryColorScheme = null // "light" | "dark"
-const currentTheme = localStorage.getItem('theme')
+const currentTheme = localStorage.getItem('theme') as Theme
 
-function getPreferTheme() {
+function getPreferTheme(): Theme {
   if (currentTheme) return currentTheme
-  if (primaryColorScheme) return primaryColorScheme
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light'
 }
 
+function getThemeColor(theme: Theme): ThemeColor {
+  return theme === 'dark' ? '#1d2224' : '#e7eef4'
+}
+
 let themeValue = getPreferTheme()
-let themeColor = themeValue === 'dark' ? '#1d2224' : '#e7eef4'
+let themeColor = getThemeColor(themeValue)
 
 function setPreference() {
   localStorage.setItem('theme', themeValue)
+  $theme.set(themeValue)
+  $themeColor.set(themeColor)
   reflectPreference()
 }
 
 function reflectPreference() {
   const htmlEl = document.querySelector('html')
-  htmlEl.setAttribute('data-theme', themeValue)
-  htmlEl.setAttribute('data-theme-color', themeColor)
+  const metaThemeColor = document.querySelector('meta[name=theme-color]')
+  const metaThemeColorMs = document.querySelector(
+    'meta[name=msapplication-TileColor]'
+  )
+
+  htmlEl?.setAttribute('data-theme', themeValue)
+  htmlEl?.setAttribute('data-theme-color', themeColor)
+  metaThemeColor?.setAttribute('content', themeColor)
+  metaThemeColorMs?.setAttribute('content', themeColor)
 
   themeToggle?.setAttribute('aria-label', themeValue)
   themeToggleInput?.setAttribute('checked', `${themeValue === 'dark'}`)
@@ -49,16 +62,22 @@ window.onload = () => {
 
   themeToggle?.addEventListener('click', () => {
     themeValue = themeValue === 'light' ? 'dark' : 'light'
-    themeColor = themeValue === 'light' ? '#1d2224' : '#e7eef4'
+    themeColor = getThemeColor(themeValue)
     setPreference()
   })
 }
+
+// subscribe to store changes
+$theme.listen((theme) => {
+  themeColor = getThemeColor(theme)
+  setPreference()
+})
 
 // sync with system changes
 window
   .matchMedia('(prefers-color-scheme: dark)')
   .addEventListener('change', ({ matches: isDark }) => {
     themeValue = isDark ? 'dark' : 'light'
-    themeColor = isDark ? '#1d2224' : '#e7eef4'
+    themeColor = getThemeColor(themeValue)
     setPreference()
   })
