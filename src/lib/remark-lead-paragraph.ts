@@ -1,9 +1,10 @@
-import { visit } from 'unist-util-visit'
+import { visit, type Visitor } from 'unist-util-visit'
 import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
 import { toString } from 'mdast-util-to-string'
-import type { VFile } from 'vfile'
-import type { Node, Parent } from 'unist'
+import { type VFile } from 'vfile'
+import { type Transformer } from 'unified'
+import type { Paragraph } from 'node_modules/mdast-util-to-hast/lib/handlers/paragraph'
 
 interface MyFile extends VFile {
   data: {
@@ -16,35 +17,35 @@ interface MyFile extends VFile {
   }
 }
 
-export default function remarkLeadParagraph() {
-  return (tree: Node, file: MyFile) => {
-    let isFirstParagraph = false
-    let firstParagraph
+export default function remarkLeadParagraph(): Transformer {
+  return (tree, file) => {
+    let firstParagraph: Paragraph | undefined
 
     // Find the first paragraph node
-    visit(tree, 'paragraph', (node: Node, index: number, parent: Parent) => {
-      if (!isFirstParagraph) {
-        isFirstParagraph = true
+    const visitor: Visitor<Paragraph> = (node, index, parent) => {
+      if (!firstParagraph) {
         firstParagraph = node
 
         // Remove the first paragraph from the tree,
         // but only in articles
         if (file.history[0].includes('articles'))
-          parent.children.splice(index, 1)
+          parent?.children.splice(index as number, 1)
       }
-    })
+    }
 
-    if (isFirstParagraph) {
-      const hast = toHast(firstParagraph as any)
+    if (firstParagraph) {
+      const hast = toHast(firstParagraph)
       const html = toHtml(hast)
-      const string = toString(firstParagraph as unknown as Node)
+      const string = toString(firstParagraph)
 
       // Add lead to frontmatter
-      file.data.astro.frontmatter.lead = html
-      file.data.astro.frontmatter.leadRaw = string
+      ;(file.data as MyFile['data']).astro.frontmatter.lead = html
+      ;(file.data as MyFile['data']).astro.frontmatter.leadRaw = string
 
       return
     }
-    return null // Return null if no first paragraph is found
+
+    visit(tree, 'paragraph', visitor)
+    return
   }
 }
