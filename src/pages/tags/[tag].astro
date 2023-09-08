@@ -19,9 +19,10 @@ export async function getStaticPaths() {
 
   return allUniqueTags.map((tag) => {
     const filteredPosts = getPostsByTag(allPosts, tag.name)
+
     return {
       params: { tag: tag.name },
-      props: { page: filteredPosts }
+      props: { page: { data: [...filteredPosts] } }
     }
   })
 

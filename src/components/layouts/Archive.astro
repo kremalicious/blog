@@ -48,7 +48,7 @@ const classes = `posts ${
 <LayoutBase title={title} pageTitle={pageTitle}>
   <div class={classes}>
     {
-      page.data.map((post) =>
+      page?.data?.map((post) =>
         post.collection === 'photos' ? (
           <PhotoTeaser post={post} />
         ) : (
