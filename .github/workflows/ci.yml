@@ -47,6 +47,21 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
+
+    - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-e2e-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-e2e-
+
+    - name: Cache dist
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ runner.os }}-node-e2e-dist-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-e2e-dist-
+
     - run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
@@ -73,7 +88,14 @@ jobs:
             path: ~/.npm
             key: ${{ runner.os }}-node-build-${{ hashFiles('**/package-lock.json') }}
             restore-keys: ${{ runner.os }}-node-build-
-        
+
+        - name: Cache dist
+          uses: actions/cache@v3
+          with:
+            path: dist
+            key: ${{ runner.os }}-node-build-dist-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: ${{ runner.os }}-node-build-dist-
+            
         - run: npm ci
         - run: npm run build
           env:

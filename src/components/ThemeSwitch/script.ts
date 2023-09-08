@@ -41,7 +41,6 @@ function reflectPreference() {
   metaThemeColor?.setAttribute('content', themeColor)
   metaThemeColorMs?.setAttribute('content', themeColor)
 
-  themeToggle?.setAttribute('aria-label', themeValue)
   themeToggleInput?.setAttribute('checked', `${themeValue === 'dark'}`)
 
   if (themeValue === 'dark') {

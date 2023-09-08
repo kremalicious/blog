@@ -16,7 +16,8 @@
       "@lib/*": ["src/lib/*"],
       "@hooks/*": ["src/hooks/*"],
       "@stores/*": ["src/stores/*"],
-      "@content/*": ["content/*"]
+      "@content/*": ["content/*"],
+      "@test/*": ["test/*"]
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   }

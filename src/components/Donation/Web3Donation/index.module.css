@@ -3,9 +3,7 @@
   margin-right: auto;
   max-width: 25rem;
   width: 100%;
-  margin-bottom: calc(var(--spacer) * 2);
   text-align: center;
-  min-height: 165px;
 }
 
 .web3 > div:first-child {

@@ -2,12 +2,52 @@
 import BackButton from '@components/BackButton.astro'
 import LayoutBase from '@layouts/Base/index.astro'
 import Web3 from '@components/Donation/Web3'
-import Web3Fallback from '@components/Donation/Web3Fallback/index.astro'
+import config from '@config/blog.config.ts'
+import Coin from '@components/Donation/Coin.astro'
+
+const coins = Object.entries(config.author).filter(
+  ([key]) => key === 'bitcoin' || key === 'ether'
+)
 ---
+
+<style>
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 25rem;
+    width: 100%;
+    background-color: var(--box-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0 var(--spacer) var(--spacer) var(--spacer);
+    margin-bottom: var(--spacer);
+  }
+
+  .subTitle {
+    font-size: var(--font-size-large);
+    border-bottom: 1px solid var(--border-color);
+    padding: calc(var(--spacer) / 2);
+    margin-top: 0;
+    margin-left: calc(var(--spacer) * -1);
+    margin-right: calc(var(--spacer) * -1);
+  }
+</style>
 
 <LayoutBase title="Thanks" pageTitle="Say Thanks">
   <BackButton />
 
-  <Web3 client:load />
-  <Web3Fallback />
+  <div class="content">
+    <h3 class="subTitle">Send ETH from your browser wallet.</h3>
+    <Web3 client:load />
+  </div>
+
+  <div class="content">
+    <h3 class="subTitle">Send Bitcoin or ERC-20 tokens from any wallet.</h3>
+
+    {
+      coins.map(([key, value]: [key: string, value: string]) => (
+        <Coin title={key} address={value} />
+      ))
+    }
+  </div>
 </LayoutBase>
