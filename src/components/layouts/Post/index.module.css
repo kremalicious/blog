@@ -39,7 +39,7 @@
 .imageWrapper {
   display: flex;
   justify-content: center;
-  composes: breakout from '../Base/index.module.css';
+  composes: breakout from '@layouts/Base/index.module.css';
 }
 
 .image {
@@ -54,6 +54,7 @@
 .lead {
   font-size: var(--font-size-large);
   margin-bottom: var(--spacer);
+  margin-top: calc(var(--spacer) / 2);
 }
 
 .lead code {
