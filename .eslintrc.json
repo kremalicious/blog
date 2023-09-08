@@ -43,10 +43,7 @@
       }
     },
     {
-      "files": [
-        "**/__tests__/**/*.[jt]s?(x)",
-        "**/?(*.)+(spec|test).[jt]s?(x)"
-      ],
+      "files": ["**/?(*.)+(spec|test).[jt]sx"],
       "extends": ["plugin:testing-library/react"],
       "rules": {
         "testing-library/no-node-access": "off",

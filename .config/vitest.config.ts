@@ -7,9 +7,9 @@ export default getViteConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./test/setup.ts'],
+    setupFiles: ['./tests/setup.ts'],
     deps: {
-      moduleDirectories: ['node_modules', './test/__mocks__']
+      moduleDirectories: ['node_modules', './tests/__mocks__']
     }
   }
 })

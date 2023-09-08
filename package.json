@@ -13,6 +13,7 @@
     "prebuild": "run-p --silent --continue-on-error create:icons create:redirects move:downloads",
     "test": "npm run lint && npm run vitest",
     "vitest": "vitest run --config .config/vitest.config.ts --coverage --silent",
+    "playwright": "playwright test --config .config/playwright.config.ts",
     "lint": "run-p --silent lint:js lint:css lint:md",
     "lint:js": "eslint --ignore-path .gitignore --ext .ts,.tsx,.astro,.mjs,.js,.cjs .",
     "lint:css": "stylelint --config '.config/.stylelintrc.json' 'src/**/*.css'",
@@ -51,6 +52,7 @@
     "wagmi": "^1.3.11"
   },
   "devDependencies": {
+    "@playwright/test": "^1.37.1",
     "@testing-library/react": "^14.0.0",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.20",
