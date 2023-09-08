@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.menu[aria-hidden] {
+  display: none;
+}
+
 .menu ul {
   margin: 0;
   padding: 0;

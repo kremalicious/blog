@@ -31,7 +31,11 @@ const descriptionFinal = description
   ? description.slice(0, 160)
   : config.siteDescription
 
-const canonicalURL = `${Astro.site}${Astro.url.pathname.split('/')[1]}`
+const canonicalURL =
+  (Astro.url.pathname === '/'
+    ? Astro.site?.href.replace(/\/$/, '')
+    : `${Astro.site?.href}${Astro.url.pathname.split('/')[1]}`) ||
+  config.siteUrl
 
 const imageFinal = `${Astro.site}${(
   await getImage({ src: image || logo, width: 800, format: 'jpg' })
