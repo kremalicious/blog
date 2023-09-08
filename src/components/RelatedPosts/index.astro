@@ -11,9 +11,7 @@ type Props = {
   isPhotos?: boolean
 }
 const { post, isPhotos } = Astro.props as Props
-const allPosts = (await getAllPostsForSearch()) as CollectionEntry<
-  'articles' | 'photos' | 'links'
->[]
+const allPosts = await getAllPostsForSearch()
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
