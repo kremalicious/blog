@@ -1,16 +1,13 @@
 ---
 import { Search as SearchIcon } from '@images/icons'
 import Search from './Search.tsx'
-import { getAllPosts } from '@lib/astro'
-
-const allPosts = await getAllPosts()
 ---
 
 <button id="search-button" type="button" title="Search" class="searchButton">
   <SearchIcon />
 </button>
 
-<Search client:load allPosts={allPosts} />
+<Search client:load />
 
 <script>
   import { isSearchOpen } from '@stores/search'

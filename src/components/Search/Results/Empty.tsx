@@ -7,12 +7,12 @@ const SearchResultsEmpty = ({
   results
 }: {
   query: string
-  results: Post[]
+  results: Post[] | undefined
 }): ReactElement => (
   <div className={styles.empty}>
     <header className={styles.emptyMessage}>
       <p className={styles.emptyMessageText}>
-        {query.length > 0 && results.length === 0
+        {query.length > 0 && results?.length === 0
           ? 'No results found'
           : 'Awaiting your input'}
       </p>

@@ -110,3 +110,21 @@ export async function getAllTags(
 
   return allUniqueTags
 }
+
+export async function getAllPostsForSearch(): Promise<
+  Partial<CollectionEntry<'articles' | 'photos' | 'links'>>[]
+> {
+  const allPosts = await getAllPosts()
+  const cleaned = allPosts.map((post) => ({
+    data: {
+      title: post.data.title,
+      slug: post.slug,
+      tags: post.data.tags,
+      collection: post.collection,
+      lead: post.body.substring(0, 200),
+      image: post.data.image
+    }
+  }))
+
+  return cleaned
+}

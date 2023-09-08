@@ -20,21 +20,26 @@ const fuseOptions = {
   threshold: 0.5
 }
 
-export default function Search({
-  allPosts
-}: {
-  allPosts: Post[]
-}): ReactElement {
+export default function Search(): ReactElement {
   const shouldReduceMotion = useReducedMotion()
   const $isSearchOpen = useStore(isSearchOpen)
 
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState<Post[]>([])
-
-  const fuse = new Fuse(allPosts, fuseOptions)
+  const [results, setResults] = useState<Post[]>()
+  const [allPosts, setAllPosts] = useState<Post[]>()
 
   useEffect(() => {
-    if (!query || query === '') {
+    if (!$isSearchOpen) return
+
+    fetch('/api/posts')
+      .then((res) => res.json())
+      .then((json) => setAllPosts(json))
+  }, [$isSearchOpen])
+
+  const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
+
+  useEffect(() => {
+    if (!query || query === '' || !fuse) {
       setResults([])
       return
     }

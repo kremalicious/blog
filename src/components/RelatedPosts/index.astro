@@ -4,14 +4,16 @@ import Fuse from 'fuse.js'
 import styles from './index.module.css'
 import PhotoTeaser from '@components/PhotoTeaser.astro'
 import PostTeaser from '@components/PostTeaser/index.astro'
-import { getAllPosts } from '@lib/astro'
+import { getAllPostsForSearch } from '@lib/astro'
 
 type Props = {
   post: CollectionEntry<'articles' | 'photos' | 'links'>
   isPhotos?: boolean
 }
 const { post, isPhotos } = Astro.props as Props
-const allPosts = await getAllPosts()
+const allPosts = (await getAllPostsForSearch()) as CollectionEntry<
+  'articles' | 'photos' | 'links'
+>[]
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html

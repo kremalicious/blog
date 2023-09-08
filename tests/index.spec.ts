@@ -22,7 +22,9 @@ test('all menu buttons are present', async ({ page }) => {
 
   const theme = page.getByTitle('Toggle Theme')
   const search = page.getByTitle('Search')
+  const menu = page.getByTitle('Menu')
 
   await expect(theme).toBeVisible()
   await expect(search).toBeVisible()
+  await expect(menu).toBeVisible()
 })

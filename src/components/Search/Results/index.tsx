@@ -8,12 +8,12 @@ function SearchResultsPure({
   query,
   results
 }: {
-  results: Post[]
+  results: Post[] | undefined
   query: string
 }) {
   return (
     <div className={styles.searchResults}>
-      {results.length > 0 ? (
+      {results && results.length > 0 ? (
         <ul className={styles.results}>
           {results.map((post) => (
             <li key={post.slug}>
@@ -35,7 +35,7 @@ export default function SearchResults({
   results
 }: {
   query: string
-  results: Post[]
+  results: Post[] | undefined
 }): ReactElement {
   // creating portal to break out of DOM node we're in
   // and render the results in content container
