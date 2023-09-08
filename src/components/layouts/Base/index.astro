@@ -13,6 +13,7 @@ import logo from '@images/kremalicious512.png'
 import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
 import type { CollectionEntry } from 'astro:content'
 import { $themeColor } from '@stores/theme'
+import { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } from '@lib/umami'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
   pageTitle?: string
@@ -49,6 +50,7 @@ const schema: SchemaProps = {
 }
 
 const themeColorInitial = $themeColor.get()
+const isProduction = import.meta.env.PROD
 ---
 
 <html lang="en">
@@ -95,6 +97,16 @@ const themeColorInitial = $themeColor.get()
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     {style && <link rel="stylesheet" href={style} />}
+
+    {
+      isProduction && (
+        <script
+          async
+          src={UMAMI_SCRIPT_URL}
+          data-website-id={UMAMI_WEBSITE_ID}
+        />
+      )
+    }
   </head>
 
   <body>
