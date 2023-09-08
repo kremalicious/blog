@@ -4,16 +4,13 @@ import Search from './Search.tsx'
 import { getAllPosts } from '@lib/astro'
 
 const allPosts = await getAllPosts()
-const allPostsFiltered = allPosts.filter(
-  (post) => !post.data.draft && post.slug
-)
 ---
 
 <button id="search-button" type="button" title="Search" class="searchButton">
   <SearchIcon />
 </button>
 
-<Search client:load allPosts={allPostsFiltered} />
+<Search client:load allPosts={allPosts} />
 
 <script>
   import { isSearchOpen } from '@stores/search'

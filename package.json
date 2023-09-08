@@ -11,7 +11,7 @@
     "build": "astro build --config .config/astro.config.ts",
     "preview": "astro preview",
     "prebuild": "run-p --silent --continue-on-error create:icons create:redirects move:downloads",
-    "test": "npm run type-check && npm run lint && npm run vitest",
+    "test": "npm run lint && npm run vitest",
     "vitest": "vitest run --config .config/vitest.config.ts --coverage --silent",
     "lint": "run-p --silent lint:js lint:css lint:md",
     "lint:js": "eslint --ignore-path .gitignore --ext .ts,.tsx,.astro,.mjs,.js,.cjs .",

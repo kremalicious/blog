@@ -6,13 +6,11 @@ import path from 'path'
 export function sortPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
 ) {
-  return posts
-    .filter(({ data }) => !data.draft)
-    .sort(
-      (a, b) =>
-        Math.floor(new Date(b.data.date as Date)?.getTime() / 1000) -
-        Math.floor(new Date(a.data.date as Date)?.getTime() / 1000)
-    )
+  return posts.sort(
+    (a, b) =>
+      Math.floor(new Date(b.data.date as Date)?.getTime() / 1000) -
+      Math.floor(new Date(a.data.date as Date)?.getTime() / 1000)
+  )
 }
 
 export function getPostsByTag(
@@ -26,8 +24,9 @@ export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ) {
   const postsCollection = await getCollection(name)
+  const filtered = postsCollection.filter(({ data }) => !data.draft)
 
-  for await (const post of postsCollection) {
+  for await (const post of filtered) {
     // use date from frontmatter, or grab from file path
     const date = post.data.date
       ? post.data.date
@@ -78,10 +77,9 @@ export async function getAllPosts() {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
   const photos = await loadAndFormatCollection('photos')
-  const allPosts = [...articles, ...links, ...photos]
-  const allPostsSorted = sortPosts(allPosts)
 
-  return allPostsSorted
+  const allPosts = sortPosts([...articles, ...links, ...photos])
+  return allPosts
 }
 
 export type AllTags = {

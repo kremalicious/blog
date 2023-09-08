@@ -1,0 +1,66 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Fuse from 'fuse.js'
+import styles from './index.module.css'
+import PhotoTeaser from '@components/PhotoTeaser.astro'
+import PostTeaser from '@components/PostTeaser/index.astro'
+import { getAllPosts } from '@lib/astro'
+
+type Props = {
+  post: CollectionEntry<'articles' | 'photos' | 'links'>
+  isPhotos?: boolean
+}
+const { post, isPhotos } = Astro.props as Props
+const allPosts = await getAllPosts()
+
+// Configure fuse.js
+// https://fusejs.io/api/options.html
+const fuseOptions: Fuse.IFuseOptions<
+  CollectionEntry<'articles' | 'photos' | 'links'>
+> = {
+  keys: ['data.tags', 'data.title', 'collection'],
+  includeMatches: true,
+  useExtendedSearch: true,
+  minMatchCharLength: 3,
+  threshold: 0.5
+}
+
+const fuse = new Fuse(
+  allPosts.filter((post) => post.slug !== Astro.props.post.slug),
+  fuseOptions
+)
+const relatedPosts = fuse
+  // https://www.fusejs.io/examples.html#extended-search
+  .search(
+    `${post?.data?.tags?.join(' | ')} | ${post?.data?.title} | ${
+      post.collection
+    }`
+  )
+  .map((result) => result.item)
+  .slice(0, 6)
+---
+
+<section class={styles.relatedPosts}>
+  <h1 class={styles.title}>
+    Related {isPhotos ? 'Photos' : 'Posts'}{' '}
+    <!-- <button class={styles.button} onClick={() => refreshPosts()}>
+      Refresh
+    </button> -->
+  </h1>
+  <ul>
+    {
+      relatedPosts?.map((post) => (
+        <li>
+          {isPhotos ? (
+            <PhotoTeaser post={post as CollectionEntry<'photos'>} />
+          ) : (
+            <PostTeaser
+              post={post as CollectionEntry<'articles' | 'links'>}
+              hideDate
+            />
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</section>

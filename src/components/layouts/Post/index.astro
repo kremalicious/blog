@@ -10,6 +10,7 @@ import Toc from '@components/Toc.astro'
 import Exif from '@components/Exif/index.astro'
 import type { Exif as ExifType } from '@lib/exif/types'
 import Changelog from '@components/Changelog/index.astro'
+import RelatedPosts from '@components/RelatedPosts/index.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -63,9 +64,8 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
 
     {collection !== 'photos' && <Actions githubLink={githubLink as string} />}
 
-    {
-      /* <RelatedPosts isPhotos={collection === 'photos'} tags={tags as string[]} /> */
-    }
+    <RelatedPosts isPhotos={collection === 'photos'} post={Astro.props} />
+
     {/* <PrevNext prev={prev} next={next} /> */}
   </article>
 </LayoutBase>
