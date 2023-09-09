@@ -10,7 +10,7 @@ on:
       - '**'
 
 jobs:
-  test:
+  test-unit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
           name: coverage
           path: coverage/
 
-  e2e:
+  test-e2e:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -66,8 +66,18 @@ jobs:
       - run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
         run: npm run playwright
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
+          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+          PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+          PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+          PUBLIC_WALLETCONNECT_ID: ${{ secrets.GATSBY_WALLETCONNECT_ID }}
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -106,6 +116,7 @@ jobs:
           PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
           PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
           PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+          PUBLIC_WALLETCONNECT_ID: ${{ secrets.GATSBY_WALLETCONNECT_ID }}
 
       - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/main'
@@ -115,7 +126,7 @@ jobs:
 
   coverage:
     runs-on: ubuntu-latest
-    needs: [test]
+    needs: [test-unit]
     if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v3
@@ -127,7 +138,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
   deploy:
-    needs: [test, e2e, build]
+    needs: [test-unit, test-e2e, build]
     if: success() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
