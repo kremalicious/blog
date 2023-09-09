@@ -44,74 +44,74 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Cache node modules
+      - name: Cache node modules
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-e2e-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-e2e-
 
-    - name: Cache dist
+      - name: Cache dist
         uses: actions/cache@v3
         with:
           path: dist
           key: ${{ runner.os }}-node-e2e-dist-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-e2e-dist-
 
-    - run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npm run playwright
-    - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npm run playwright
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
 
   build:
-    runs-on: ubuntu
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: 18
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-        - name: Cache node modules
-          uses: actions/cache@v3
-          with:
-            path: ~/.npm
-            key: ${{ runner.os }}-node-build-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: ${{ runner.os }}-node-build-
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-build-
 
-        - name: Cache dist
-          uses: actions/cache@v3
-          with:
-            path: dist
-            key: ${{ runner.os }}-node-build-dist-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: ${{ runner.os }}-node-build-dist-
-            
-        - run: npm ci
-        - run: npm run build
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
-            PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
-            PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
-            PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
-            PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+      - name: Cache dist
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: ${{ runner.os }}-node-build-dist-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-build-dist-
 
-        - uses: actions/upload-artifact@v1
-          if: github.ref == 'refs/heads/main'
-          with:
-            name: dist
-            path: dist
+      - run: npm ci
+      - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_TYPEKIT_ID: ${{ secrets.GATSBY_TYPEKIT_ID }}
+          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.GATSBY_MAPBOX_ACCESS_TOKEN }}
+          PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
+          PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
+          PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+
+      - uses: actions/upload-artifact@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: dist
+          path: dist
 
   coverage:
     runs-on: ubuntu-latest
