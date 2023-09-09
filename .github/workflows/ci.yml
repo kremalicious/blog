@@ -16,58 +16,50 @@ env:
   PUBLIC_UMAMI_SCRIPT_URL: ${{ secrets.GATSBY_UMAMI_SCRIPT_URL }}
   PUBLIC_UMAMI_WEBSITE_ID: ${{ secrets.GATSBY_UMAMI_WEBSITE_ID }}
   PUBLIC_INFURA_ID: ${{ secrets.GATSBY_INFURA_ID }}
+  PUBLIC_WALLETCONNECT_ID: ${{ secrets.GATSBY_WALLETCONNECT_ID }}
 
 jobs:
   test-unit:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: ['18']
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-test-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-test-
-
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
       - run: npm ci
-      - run: npm test
-
+      - run: npm run test:unit
       - uses: actions/upload-artifact@v3
         with:
-          name: coverage
+          name: coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage/
 
   test-e2e:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: ['18']
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 60
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-e2e-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-e2e-
-
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
       - run: npm ci
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
+      - run: npx playwright install --with-deps
       - run: npm run test:e2e
-
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: playwright-report
+          name: playwright-report-${{ matrix.os }}-${{ matrix.node }}
           path: playwright-report/
           retention-days: 30
 
@@ -77,30 +69,25 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         node: ['18']
-
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Cache node_modules & Astro build output
+          cache: 'npm'
+      - name: Cache Astro build output
         uses: actions/cache@v3
         with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/dist
-          key: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**/package-lock.json') }}-
-
+          path: ${{ github.workspace }}/dist
+          key: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
       - run: npm ci
       - run: npm run build
-
       - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/main'
         with:
-          name: dist
+          name: dist-${{ runner.os }}-${{ matrix.node }}
           path: dist
 
   coverage:
@@ -111,7 +98,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
-          name: coverage
+          name: coverage-ubuntu-latest-18
       - uses: paambaati/codeclimate-action@v2.7.5
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
@@ -125,7 +112,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v1
         with:
-          name: dist
+          name: dist-ubuntu-latest-18
       - name: Deploy to S3
         run: npm run deploy:s3
         env:
