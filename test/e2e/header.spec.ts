@@ -28,13 +28,13 @@ test('page menu is working', async ({ page }) => {
 
   // open menu
   await menuButton.click()
-  expect(menu).toBeVisible()
-  expect(body).toHaveClass(/has-menu-open/)
+  await expect(menu).toBeVisible()
+  await expect(body).toHaveClass(/has-menu-open/)
 
   // close menu
   await menuButton.click()
-  expect(menu).toBeHidden()
-  expect(body).not.toHaveClass('has-menu-open')
+  await expect(menu).toBeHidden()
+  await expect(body).not.toHaveClass('has-menu-open')
 })
 
 test('search is working', async ({ page }) => {
