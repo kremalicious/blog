@@ -80,14 +80,14 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/dist
-          key: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
+          key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
+          restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-artifact@v1
         if: github.ref == 'refs/heads/main'
         with:
-          name: dist-${{ runner.os }}-${{ matrix.node }}
+          name: dist-${{ matrix.os }}-${{ matrix.node }}
           path: dist
 
   coverage:
