@@ -10,7 +10,7 @@
     "start": "npm run prebuild && astro dev --config '.config/astro.config.ts'",
     "build": "astro build --config '.config/astro.config.ts'",
     "preview": "astro preview",
-    "prebuild": "run-p --silent --continue-on-error create:icons create:redirects move:downloads",
+    "prebuild": "run-p --silent --continue-on-error create:symlinks create:icons create:redirects move:downloads",
     "test": "npm run lint && npm run vitest",
     "vitest": "vitest run --config './test/vitest.config.ts' --silent",
     "playwright": "playwright test --config './test/playwright.config.ts'",
@@ -25,6 +25,7 @@
     "new": "ts-node --esm scripts/new/index.ts",
     "create:icons": "ts-node --esm scripts/create-icons/index.ts",
     "create:redirects": "ts-node --esm scripts/redirect-from.ts",
+    "create:symlinks": "./scripts/create-symlinks.sh",
     "move:downloads": "ts-node --esm scripts/move-downloads.ts"
   },
   "dependencies": {
