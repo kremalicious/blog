@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "prebuild": "run-p --silent --continue-on-error create:symlinks create:icons create:redirects move:downloads",
     "test": "npm run lint && npm run vitest",
-    "vitest": "vitest run --config './test/vitest.config.ts' --silent",
+    "vitest": "vitest run --config './test/vitest.config.ts' --coverage --silent",
     "playwright": "playwright test --config './test/playwright.config.ts'",
     "playwright:ui": "npm run playwright -- --ui",
     "lint": "run-p --silent lint:js lint:css lint:md",

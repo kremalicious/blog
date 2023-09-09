@@ -3,7 +3,7 @@ date: 2018-11-01T19:08:00.367Z
 
 title: Matomo plugin for Gatsby
 image: ./gatsby-plugin-matomo-teaser.png
-changelog: gatsby-plugin-matomo
+changelog: kremalicious/gatsby-plugin-matomo
 
 tags:
   - goodies

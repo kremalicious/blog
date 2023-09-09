@@ -1,4 +1,8 @@
 export async function getRepo(name: string) {
+  // name comes in as user/repo
+  const user = name.split('/')[0]
+  const repo = name.split('/')[1]
+
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
@@ -7,7 +11,7 @@ export async function getRepo(name: string) {
     },
     body: JSON.stringify({
       query: CHANGELOG_QUERY,
-      variables: { name }
+      variables: { user, repo }
     })
   })
 
@@ -17,14 +21,14 @@ export async function getRepo(name: string) {
     console.error(json.errors)
   }
 
-  const repoInfo = json?.data?.viewer?.repository
+  const repoInfo = json?.data?.user?.repository
   return repoInfo
 }
 
 export const CHANGELOG_QUERY = /* GraphQL */ `
-  query GitHubRepo($name: String!) {
-    viewer {
-      repository(name: $name) {
+  query GitHubRepo($user: String!, $repo: String!) {
+    user(login: $user) {
+      repository(name: $repo) {
         name
         description
         forkCount

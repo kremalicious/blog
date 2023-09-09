@@ -104,7 +104,7 @@ Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on 
 Adding this to a post's YAML frontmatter:
 
 ```yaml
-changelog: gatsby-plugin-matomo
+changelog: kremalicious/gatsby-plugin-matomo
 ```
 
 will render this at the end of the post:

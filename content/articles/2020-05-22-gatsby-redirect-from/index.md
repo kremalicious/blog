@@ -4,7 +4,7 @@ updated: 2020-05-23T11:35:12+02:00
 
 title: Redirect plugin for Markdown Pages in Gatsby
 image: ./gatsby-redirect-from-teaser.png
-changelog: gatsby-redirect-from
+changelog: kremalicious/gatsby-redirect-from
 
 tags:
   - goodies

@@ -31,10 +31,10 @@ const changelogHtml = await markdownToHtml(
           </a>
         </p>
         <div class={styles.content} set:html={changelogHtml} />
-        <button class="link" id="changelog-all">
-          Show all
-        </button>
       </div>
+      <button class="link" id="changelog-all">
+        Show all
+      </button>
     </>
   ) : null
 }
