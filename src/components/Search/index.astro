@@ -7,21 +7,17 @@ import Search from './Search.tsx'
   <SearchIcon />
 </button>
 
-<Search client:load />
+<Search client:only="react" />
 
 <script>
   import { isSearchOpen } from '@stores/search'
   const button = document.querySelector('#search-button')
 
-  button?.addEventListener('click', () => {
-    isSearchOpen.set(!isSearchOpen.get())
+  isSearchOpen.subscribe((value) =>
+    document.body.classList.toggle('hasSearchOpen', value)
+  )
 
-    if (isSearchOpen.get()) {
-      document.body.classList.add('hasSearchOpen')
-    } else {
-      document.body.classList.remove('hasSearchOpen')
-    }
-  })
+  button?.addEventListener('click', () => isSearchOpen.set(!isSearchOpen.get()))
 </script>
 
 <style>
@@ -46,5 +42,9 @@ import Search from './Search.tsx'
   .searchButton:hover svg,
   .searchButton:focus svg {
     stroke: var(--link-color);
+  }
+
+  :global(.hasSearchOpen) {
+    overflow: hidden;
   }
 </style>

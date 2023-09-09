@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/404')
+  await page.goto('/gatsby-redirect-from/')
 })
 
 test('matches screenshot', async ({ page }) => {
@@ -37,17 +37,35 @@ test('page menu is working', async ({ page }) => {
   await expect(body).not.toHaveClass('has-menu-open')
 })
 
-test('search is working', async ({ page }) => {
+test('search ui is working', async ({ page }) => {
   const search = page.getByRole('button', { name: 'Search' })
+  const emptyMessage = 'Awaiting your input fellow web wanderer'
+
+  // Mock the api call before search
+  await page.route('*/**/api/posts', async (route) => {
+    const json = [
+      { data: { title: 'MomCorp Wallpaper' }, slug: 'momcorp-wallpaper' }
+    ]
+    await route.fulfill({ json })
+  })
 
   // open search
   await search.click()
+  await expect(page.getByText(emptyMessage)).toBeVisible()
 
   // fill search field
   const searchField = page.getByPlaceholder('Search everything')
+  searchField.focus()
   await searchField.fill('wallpaper')
-  expect(page.getByText('MomCorp Wallpaper')).toBeDefined()
+  await expect(page.getByText(emptyMessage)).toBeHidden()
+  await expect(page.getByText('No results found')).toBeHidden()
+  await expect(page.getByText('MomCorp Wallpaper')).toBeVisible()
+
+  // empty search field
+  await searchField.fill('')
+  await expect(page.getByText(emptyMessage)).toBeVisible()
 
   // close search
   await page.getByRole('button', { name: 'Close search' }).click()
+  await expect(searchField).toBeHidden()
 })

@@ -10,7 +10,7 @@
 }
 
 .results {
-  composes: container from '@layouts/Base/index.module.css';
+  composes: content from '@layouts/Base/index.module.css';
   padding: var(--spacer) calc(var(--spacer) / 2);
   margin-bottom: 0;
   display: flex;
@@ -23,6 +23,14 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.post {
+  composes: post from '@components/PostTeaser/index.module.css';
+}
+
+.title {
+  composes: title from '@components/PostTeaser/index.module.css';
 }
 
 .results li {
@@ -43,19 +51,6 @@
 
 .results img {
   margin-bottom: 0;
-}
-
-.results a {
-  display: block;
-}
-
-.results a > div {
-  margin-bottom: 0;
-}
-
-.results a:hover h4,
-.results a:focus h4 {
-  color: var(--link-color);
 }
 
 @keyframes fadein {

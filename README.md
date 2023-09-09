@@ -23,8 +23,9 @@
   - [🕸 Related Posts](#-related-posts)
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
-  - [`redirect_from`](#redirect_from)
   - [💎 SVG assets as components](#-svg-assets-as-components)
+  - [`redirect_from`](#redirect_from)
+  - [RSS \& JSON feeds](#rss--json-feeds)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
   - [👩‍🔬 Testing](#-testing)
@@ -133,6 +134,16 @@ If you want to know how, have a look at the respective components:
 - [`src/components/ThemeSwitch/`](src/components/ThemeSwitch/)
 - [`src/stores/theme.ts`](src/stores/theme.ts)
 
+### 💎 SVG assets as components
+
+All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/icons/` and all include the cleaned SVGs as inline HTML.
+
+All SVGs can then be imported from `@images/icons` in all Astro components.
+
+If you want to know how this works, have a look at the respective files:
+
+- [`scripts/create-icons/`](scripts/create-icons/)
+
 ### `redirect_from`
 
 Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived in [gatsby-redirect-from](/gatsby-redirect-from/) and now works in Astro. For all post slugs defined in a `redirect_from` frontmatter key, redirects will be put in place by Astro.
@@ -143,15 +154,7 @@ If you want to know how, have a look at the respective files:
 
 - [`scripts/redirect-from.ts`](scripts/redirect-from.ts)
 
-### 💎 SVG assets as components
-
-All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/icons/` and all include the cleaned SVGs as inline HTML.
-
-All SVGs can then be imported from `@images/icons` in all Astro components.
-
-If you want to know how this works, have a look at the respective files:
-
-- [`scripts/create-icons/`](scripts/create-icons/)
+### RSS & JSON feeds
 
 ## ✨ Development
 
@@ -204,6 +207,7 @@ npm run build && npm run preview
 npm run test:e2e
 npm run test:e2e -- --ui
 npm run test:e2e -- path/to/file.spec.ts.
+npm run test:e2e -- --update-snapshots
 ```
 
 ## 🎈 Content creation helpers

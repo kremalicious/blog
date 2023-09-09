@@ -1,13 +1,12 @@
-import { type ReactElement, useEffect, useState } from 'react'
-import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
+import { type ReactElement, useEffect, useState, useRef } from 'react'
 import Fuse from 'fuse.js'
-import { getAnimationProps, moveInTop } from '@components/Transitions'
 import { useStore } from '@nanostores/react'
 import { isSearchOpen } from '@stores/search'
-import SearchInput from './Input'
+import { animate } from 'motion'
 import SearchResults from './Results'
 import styles from './Search.module.css'
 import type { CollectionEntry } from 'astro:content'
+import Input from '@components/Input'
 
 export type Post = CollectionEntry<'articles' | 'links' | 'photos'>
 
@@ -21,13 +20,26 @@ const fuseOptions = {
 }
 
 export default function Search(): ReactElement {
-  const shouldReduceMotion = useReducedMotion()
   const $isSearchOpen = useStore(isSearchOpen)
 
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Post[]>()
   const [allPosts, setAllPosts] = useState<Post[]>()
 
+  const ref = useRef(null)
+
+  // animate opening of search
+  useEffect(() => {
+    if (!$isSearchOpen || !ref?.current) return
+
+    animate(
+      ref.current,
+      { transform: ['translate3d(0, 0, 0)'] },
+      { duration: 0.2, easing: 'ease-out' }
+    )
+  }, [$isSearchOpen])
+
+  // fetch all post data on open
   useEffect(() => {
     if (!$isSearchOpen) return
 
@@ -36,6 +48,7 @@ export default function Search(): ReactElement {
       .then((json) => setAllPosts(json))
   }, [$isSearchOpen])
 
+  // Handle search and set results
   const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
 
   useEffect(() => {
@@ -52,31 +65,57 @@ export default function Search(): ReactElement {
     setResults(results)
   }, [query])
 
-  function toggleSearch(): void {
+  // animate closing of search
+  async function toggleSearch(): Promise<void> {
+    ref.current &&
+      (await animate(
+        ref.current,
+        {
+          transform: $isSearchOpen
+            ? 'translate3d(0, 80px, 0)'
+            : 'translate3d(0, 0, 0)'
+        },
+        { duration: 0.2 }
+      ).finished)
     isSearchOpen.set(!$isSearchOpen)
   }
 
-  return (
+  return $isSearchOpen ? (
     <>
-      {$isSearchOpen && (
-        <>
-          <LazyMotion features={domAnimation}>
-            <m.section
-              variants={moveInTop}
-              {...getAnimationProps(Boolean(shouldReduceMotion))}
-              className={styles.search}
-            >
-              <SearchInput
-                query={query}
-                onChange={(e: any) => setQuery(e.target.value)}
-                onToggle={toggleSearch}
-              />
-            </m.section>
-          </LazyMotion>
+      <form className={styles.search} ref={ref}>
+        <Input
+          className={styles.searchInput}
+          type="search"
+          placeholder="Search everything"
+          autoFocus
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button
+          type="button"
+          className={styles.searchInputClose}
+          onClick={toggleSearch}
+          title="Close search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </form>
 
-          <SearchResults query={query} results={results} />
-        </>
-      )}
+      <SearchResults query={query} results={results} />
     </>
+  ) : (
+    <></>
   )
 }

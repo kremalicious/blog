@@ -8,7 +8,7 @@
   color: var(--input-color);
   background-color: var(--input-bg);
   background-image: none;
-  border: var(--stroke-width) solid transparent;
+  border: var(--stroke-width) solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: none;
   transition: all ease-in-out 0.15s;

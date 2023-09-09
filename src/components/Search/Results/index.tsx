@@ -17,9 +17,9 @@ function SearchResultsPure({
         <ul className={styles.results}>
           {results.map((post) => (
             <li key={post.slug}>
-              <h3>
-                <a href={post.slug}>{post.data.title}</a>
-              </h3>
+              <a className={styles.post} href={post.slug}>
+                <h3 className={styles.title}>{post.data.title}</h3>
+              </a>
             </li>
           ))}
         </ul>
