@@ -9,6 +9,10 @@ type Props = {
 
 const { repo } = Astro.props as Props
 const repoInfo = await getRepo(repo)
+if (!repoInfo) {
+  console.info(`Repo ${repo} not found`)
+  return
+}
 const { url, owner, object } = repoInfo
 const changelogHtml = await markdownToHtml(
   object.text.replace('### Changelog', '')
