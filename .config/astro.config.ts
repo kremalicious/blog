@@ -19,6 +19,9 @@ export default defineConfig({
       wrap: true
     }
   },
+  server: {
+    host: true
+  },
   redirects,
   vite: {
     resolve: {
