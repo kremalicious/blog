@@ -219,6 +219,7 @@ Create a new photo post with date, title & description pre-filled from EXIF/IPTC
 
 ```bash
 npm run new photo /path/to/photo.jpg
+npm run new photo /path/to/photo.jpg "Hello Photo Post"
 ```
 
 - [`scripts/new/`](scripts/new/)

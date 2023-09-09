@@ -1,9 +1,11 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import fastExif from 'fast-exif'
-import iptc from 'node-iptc'
+import { fileURLToPath } from 'node:url'
 import ora from 'ora'
-import slugify from 'slugify'
+import slugify from '../../src/lib/slugify.js'
+import { readOutExif } from '../../src/lib/exif/index.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const templatePath = path.join(__dirname, 'new-article.md')
 const templatePathPhoto = path.join(__dirname, 'new-photo.md')
@@ -21,51 +23,34 @@ const isPhoto = process.argv[2] === 'photo'
 
 spinner.text = `Adding '${title}'.`
 
-let titleSlug = slugify(title, { lower: true })
-const postsPath = path.join('.', 'src', 'content', 'articles')
-const photosPath = path.join('.', 'src', 'content', 'photos')
+let titleSlug = slugify(title)
+const postsPath = path.join('.', 'content', 'articles')
+const photosPath = path.join('.', 'content', 'photos')
 
 let date = new Date().toISOString()
 
-async function getIptc(imagePath: string) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(imagePath, (err, data) => {
-      if (err) reject(err)
-      const iptcData = iptc(data)
-      return resolve(iptcData)
-    })
-  })
-}
-
-async function getExif(imagePath: string) {
-  let exifData
-  try {
-    exifData = await fastExif.read(imagePath, true)
-  } catch (error) {
-    return null
-  }
-
-  let iptcData: any = {}
-  try {
-    iptcData = await getIptc(imagePath)
-  } catch (error) {
-    return null
-  }
-
-  return { ...exifData, iptc: { ...iptcData } }
-}
-
 async function createPhotoPost() {
   const photo = process.argv[3]
+  const photoTitle = process.argv[4]
+
   try {
-    const exifData = await getExif(photo)
-    title = exifData?.iptc?.object_name || exifData?.iptc?.title
-    titleSlug = slugify(title, { lower: true })
-    date = new Date(exifData?.exif?.DateTimeOriginal).toISOString()
+    const exifData = await readOutExif(photo)
+    if (!exifData) throw new Error('No exif data found in image')
+    const { iptc, exif } = exifData
+
+    title = iptc?.object_name || iptc?.title || photoTitle
+    if (!title)
+      throw new Error(
+        'No title given. Add to IPTC, or use the format `npm run new photo path/to/photo.jpg "Title of post"'
+      )
+
+    titleSlug = slugify(title)
+    date = new Date(exif?.date).toISOString()
     const dateShort = date.slice(0, 10)
-    const description = exifData?.iptc?.caption
-    const fileName = `${dateShort}-${titleSlug}`
-    const postPhoto = `${photosPath}/${fileName}/index.md`
+    const description = iptc?.caption
+    const folderName = `${dateShort}-${titleSlug}`
+    const destination = `${photosPath}/${folderName}`
+    const postPhotoFile = `${destination}/index.md`
 
     const newContentsPhoto = templatePhoto
       .split('TITLE')
@@ -79,18 +64,31 @@ async function createPhotoPost() {
       .split('DESCRIPTION')
       .join(description)
 
+    // Create the destination folder if it doesn't exist
+    if (!fs.existsSync(destination)) {
+      fs.mkdirSync(destination, { recursive: true })
+    }
+
     // copy photo file in place
-    fs.copyFile(photo, `${photosPath}/${fileName}/${fileName}.jpg`, (err) => {
-      if (err) spinner.fail(`Error copying photo file: ${err}`)
+    fs.copyFile(photo, `${destination}/${folderName}.jpg`, (err) => {
+      if (err) {
+        spinner.fail(`Error copying photo file: ${err}`)
+        return
+      }
     })
 
     // create photo post file
-    fs.appendFile(postPhoto, newContentsPhoto, (err) => {
-      if (err) spinner.fail(`Error creating photo post: ${err}`)
-      spinner.succeed(`New photo post '${title}' as '${fileName}.md' created.`)
+    fs.appendFile(postPhotoFile, newContentsPhoto, (err) => {
+      if (err) {
+        spinner.fail(`Error creating photo post: ${err}`)
+        return
+      }
+      spinner.succeed(
+        `New photo post '${title}' under '${postPhotoFile}' created.`
+      )
     })
   } catch (error: any) {
-    console.error((error as Error).message)
+    spinner.fail((error as Error).message)
   }
 }
 
@@ -112,8 +110,12 @@ if (isPhoto) {
     .split('DATE')
     .join(date)
 
-  fs.outputFile(file, newContents)
-    .then(() => fs.readFile(file, 'utf8'))
-    .then(() => spinner.succeed(`New post '${title}' created.`))
-    .catch((err: Error) => spinner.fail(`Error creating post: ${err.message}`))
+  // create post file
+  fs.appendFile(file, newContents, (err) => {
+    if (err) {
+      spinner.fail(`Error creating post: ${err}`)
+      return
+    }
+    spinner.succeed(`New post '${title}' created.`)
+  })
 }

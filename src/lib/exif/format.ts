@@ -7,11 +7,9 @@ import Fraction from 'fraction.js'
 import type { ExifFormatted, FastExif } from './types.ts'
 
 function formatGps(gpsData: FastExif['gps']): {
-  latitude: number | undefined
-  longitude: number | undefined
+  latitude: number
+  longitude: number
 } {
-  if (!gpsData) return { latitude: undefined, longitude: undefined }
-
   const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
 
   const GPSdec = getCoordinates(
@@ -56,7 +54,8 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
     FocalLengthIn35mmFormat,
     ExposureBiasValue,
     ExposureMode,
-    LensModel
+    LensModel,
+    DateTimeOriginal: date
   } = exifData.exif
 
   const iso = `ISO ${ISO}`
@@ -68,9 +67,10 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   const shutterspeed = `${n}/${d}s`
 
   // GPS
-  let latitude
-  let longitude
-  if (exifData.gps) ({ latitude, longitude } = formatGps(exifData.gps))
+  let gps
+  if (exifData.gps) {
+    gps = formatGps(exifData.gps)
+  }
 
   // Exposure
   const exposureValue = (ExposureBiasValue || ExposureMode) as number
@@ -80,6 +80,7 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   model === 'FC7203' ? 'DJI Mavic Mini' : model
 
   return {
+    date: date as string,
     iso,
     model,
     fstop,
@@ -87,6 +88,6 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
     focalLength,
     lensModel: LensModel,
     exposure,
-    gps: { latitude, longitude }
+    gps
   }
 }
