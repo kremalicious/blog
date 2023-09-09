@@ -20,6 +20,12 @@ export function getPostsByTag(
   return posts.filter((post) => slugifyAll(post.data.tags || []).includes(tag))
 }
 
+//
+// Main loader for all collections content.
+// ---
+// Astro's `getCollection()` is never called
+// from components, but this helper method instead.
+//
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ) {
@@ -27,7 +33,7 @@ export async function loadAndFormatCollection(
   const filtered = postsCollection.filter(({ data }) => !data.draft)
 
   for await (const post of filtered) {
-    // use date from frontmatter, or grab from file path
+    // use date from frontmatter, or grab from folder path
     const date = post.data.date
       ? post.data.date
       : new Date(post.id.split('/')[0].substring(0, 10))
@@ -111,6 +117,7 @@ export async function getAllTags(
   return allUniqueTags
 }
 
+// helps to reduce DOM size
 export async function getAllPostsForSearch() {
   const allPosts = await getAllPosts()
   const cleaned = allPosts.map((post) => ({
