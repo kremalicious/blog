@@ -81,7 +81,7 @@ jobs:
         with:
           path: ${{ github.workspace }}/dist
           key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
-          restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
+          restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-artifact@v1
