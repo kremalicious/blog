@@ -43,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         node: ['18']
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
@@ -80,7 +80,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/dist
-          key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('**.[jt]s', '**.[jt]sx', '**.astro') }}
+          key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('dist/**/*.html', 'dist/**/*.js', 'dist/**/*.css', 'dist/**/*.jpg') }}
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci
       - run: npm run build
