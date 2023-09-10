@@ -192,7 +192,7 @@ All unit test files live beside the respective component with naming pattern `*.
 
 Testing setup, fixtures, and mocks shared between unit & integration tests can be found in `./test` folder.
 
-To run all linting and unit tests:
+To run all unit tests:
 
 ```bash
 npm run test:unit

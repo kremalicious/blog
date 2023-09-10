@@ -9,7 +9,7 @@ import { type VFile } from 'vfile'
 import { type Transformer } from 'unified'
 import type { Nodes } from 'node_modules/mdast-util-toc/lib'
 
-interface MyFile extends VFile {
+export interface MyFile extends VFile {
   data: {
     astro: {
       frontmatter: {
@@ -21,6 +21,9 @@ interface MyFile extends VFile {
 
 export default function remarkToc(): Transformer {
   return (tree, file) => {
+    // Check if the file is the type we want to process
+    if (!file.history[0]?.includes('articles')) return
+
     const result = toc(tree as Nodes, { maxDepth: 3 })
 
     if (

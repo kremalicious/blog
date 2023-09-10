@@ -8,9 +8,25 @@ export default getViteConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./test/vitest.setup.ts'],
-    include: ['./src/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
+    include: [
+      './src/**/*.test.?(c|m)[jt]s?(x)',
+      './scripts/**/*.test.?(c|m)[jt]s?(x)'
+    ],
     deps: {
       moduleDirectories: ['node_modules', './test/__mocks__']
+    },
+    coverage: {
+      all: true,
+      exclude: [
+        '**/*.d.ts',
+        '**/*.test.ts',
+        '**/*.spec.ts',
+        '**/test/**/*',
+        '**/.config',
+        'src/images/icons',
+        'src/pages',
+        '**/content'
+      ]
     }
   }
 })

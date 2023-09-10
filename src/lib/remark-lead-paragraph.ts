@@ -6,7 +6,7 @@ import { type VFile } from 'vfile'
 import { type Transformer } from 'unified'
 import type { Paragraph } from 'node_modules/mdast-util-to-hast/lib/handlers/paragraph'
 
-interface MyFile extends VFile {
+export interface MyFile extends VFile {
   data: {
     astro: {
       frontmatter: {
@@ -19,6 +19,9 @@ interface MyFile extends VFile {
 
 export default function remarkLeadParagraph(): Transformer {
   return (tree, file) => {
+    // Check if the file is the type we want to process
+    if (!file.history[0]?.includes('articles')) return
+
     let firstParagraph: Paragraph | undefined
 
     // Find the first paragraph node
@@ -26,10 +29,8 @@ export default function remarkLeadParagraph(): Transformer {
       if (!firstParagraph) {
         firstParagraph = node
 
-        // Remove the first paragraph from the tree,
-        // but only in articles
-        if (file.history[0].includes('articles'))
-          parent?.children.splice(index as number, 1)
+        // Remove the first paragraph from the tree
+        parent?.children.splice(index as number, 1)
       }
     }
     visit(tree, 'paragraph', visitor)
@@ -45,7 +46,5 @@ export default function remarkLeadParagraph(): Transformer {
 
       return
     }
-
-    return
   }
 }
