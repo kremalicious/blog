@@ -48,6 +48,8 @@ async function createPhotoPost() {
     date = new Date(exif?.date).toISOString()
     const dateShort = date.slice(0, 10)
     const description = iptc?.caption
+    const keywords = iptc?.keywords as string[]
+    const keywordsString = keywords?.join('  \n- ')
     const folderName = `${dateShort}-${titleSlug}`
     const destination = `${photosPath}/${folderName}`
     const postPhotoFile = `${destination}/index.md`
@@ -63,6 +65,8 @@ async function createPhotoPost() {
       .join(dateShort)
       .split('DESCRIPTION')
       .join(description)
+      .split('TAGS')
+      .join(keywordsString)
 
     // Create the destination folder if it doesn't exist
     if (!fs.existsSync(destination)) {

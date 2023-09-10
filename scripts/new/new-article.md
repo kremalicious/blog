@@ -2,7 +2,7 @@
 date: DATE
 
 title: TITLE
-image: SLUG-teaser.png
+image: ./SLUG-teaser.png
 
 tags:
   - tag
