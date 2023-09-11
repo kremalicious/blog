@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - astro
   pull_request:
     branches:
       - '**'
