@@ -21,18 +21,13 @@
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".cache",
-    "public",
-    "src/images/components"
-  ],
+  "exclude": ["node_modules", "dist", ".cache", "src/images/components"],
   "include": [
     "src/**/*",
     "content/**/*",
-    "test/**/*",
+    "public/**/*",
     "scripts/**/*",
+    "test/**/*",
     ".config/**/*"
   ]
 }

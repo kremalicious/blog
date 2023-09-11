@@ -24,9 +24,9 @@ const fuseOptions: Fuse.IFuseOptions<
   minMatchCharLength: 3,
   threshold: 0.5
 }
-
+// TODO; firgure out how to remove any
 const fuse = new Fuse(
-  allPosts.filter((post) => post.slug !== Astro.props.post.slug),
+  (allPosts as any).filter((post: any) => post.slug !== Astro.props.post.slug),
   fuseOptions
 )
 const relatedPosts = fuse

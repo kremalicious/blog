@@ -22,9 +22,10 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
 const { title, pageTitle, description, style, image, date, updated } =
   Astro.props
 
-const titleFinal = title
-  ? `${title} ¦ ${config.siteTitle}`
-  : `${config.siteTitle} ¦ ${config.siteDescription}`
+const titleFinal =
+  title && title !== ''
+    ? `${title} ¦ ${config.siteTitle}`
+    : `${config.siteTitle} ¦ ${config.siteDescription}`
 
 const descriptionFinal = description
   ? description.slice(0, 160)
