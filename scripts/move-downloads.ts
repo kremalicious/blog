@@ -5,7 +5,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { glob } from 'glob'
-import ora from 'ora'
+import ora, { type Ora } from 'ora'
 import chalk from 'chalk'
 
 const sourceFolder = './content/articles/'
@@ -30,7 +30,11 @@ function removeFolderContents(folderPath: string) {
   }
 }
 
-function copyZipFiles(source: string, destination: string) {
+export function copyZipFiles(
+  source: string,
+  destination: string,
+  spinner: Ora
+) {
   // Clean out the destination folder
   removeFolderContents(destination)
 
@@ -66,4 +70,4 @@ function copyZipFiles(source: string, destination: string) {
   )
 }
 
-copyZipFiles(sourceFolder, destinationFolder)
+copyZipFiles(sourceFolder, destinationFolder, spinner)

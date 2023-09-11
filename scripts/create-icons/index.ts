@@ -33,12 +33,12 @@ await fs.mkdir(distDir, { recursive: true })
 
 // copy the attribute typings file
 await fs.copyFile(
-  ps.resolve(currentDir, 'scripts/create-icons/Props.ts'),
-  ps.resolve(distDir, 'Props.ts')
+  ps.resolve(currentDir, 'scripts/create-icons/Props.d.ts'),
+  ps.resolve(distDir, 'Props.d.ts')
 )
 
 // convert the SVG files into Astro components
-let contentOfIndexJS = ''
+let contentOfIndexJS = '// @ts-nocheck\n'
 
 for (const src of srcDirs) {
   for (let filepath of await fs.readdir(src, { encoding: 'utf8' })) {
@@ -83,7 +83,7 @@ for (const src of srcDirs) {
     )
 
     // add the astro component export to the main entry `index.ts` file
-    contentOfIndexJS += `\n// @ts-nocheck\nexport { default as ${baseName} } from './${baseName}.astro'`
+    contentOfIndexJS += `\nexport { default as ${baseName} } from './${baseName}.astro'`
 
     icons.push({ name, baseName, title })
   }

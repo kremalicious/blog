@@ -4,6 +4,6 @@ import Conversion from './Conversion'
 
 describe('Conversion', () => {
   it('renders without crashing', async () => {
-    render(<Conversion amount="1" />)
+    render(<Conversion amount="1" symbol="ETH" />)
   })
 })

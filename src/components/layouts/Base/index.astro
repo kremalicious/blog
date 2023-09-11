@@ -59,8 +59,11 @@ const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="generator" content={Astro.generator} />
 
     <title>{titleFinal}</title>
@@ -80,6 +83,13 @@ const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
     <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
+    />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon-precomposed.png"
     />
 
     <link

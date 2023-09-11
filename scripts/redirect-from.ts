@@ -17,7 +17,7 @@ const spinner = ora(
   `${chalk.bold('[redirect-from]')} Extract redirects`
 ).start()
 
-async function findMarkdownFilesWithRedirects(
+export async function findMarkdownFilesWithRedirects(
   dir: string
 ): Promise<{ [old: string]: string }> {
   const redirects: { [old: string]: string } = {}

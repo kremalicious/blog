@@ -13,3 +13,7 @@ export const apiProvider = {
 export function getDefaultWallets() {
   return { connectors: [{}] }
 }
+
+export function ConnectButton() {
+  return 'Connect Wallet'
+}

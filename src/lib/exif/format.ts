@@ -1,6 +1,5 @@
 //
-// Extract EXIF & IPTC data from images
-// write to json file `.config/exif.json`
+// Format EXIF data
 //
 import getCoordinates from 'dms2dec'
 import Fraction from 'fraction.js'
