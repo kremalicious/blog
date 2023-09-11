@@ -69,3 +69,19 @@ test('search ui is working', async ({ page }) => {
   await page.getByRole('button', { name: 'Close search' }).click()
   await expect(searchField).toBeHidden()
 })
+
+test('theme toggle is working', async ({ page }) => {
+  const themeToggle = page.getByTitle('Toggle Theme')
+  const htmlElement = await page.locator('html')
+
+  // Check initial theme (assuming it's 'light' by default)
+  await expect(htmlElement).toHaveAttribute('data-theme', 'light')
+
+  // Click to toggle theme
+  await themeToggle.click()
+  await expect(htmlElement).toHaveAttribute('data-theme', 'dark')
+
+  // Click to toggle theme back
+  await themeToggle.click()
+  await expect(htmlElement).toHaveAttribute('data-theme', 'light')
+})

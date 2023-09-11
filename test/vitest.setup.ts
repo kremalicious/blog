@@ -2,9 +2,7 @@ import { vi, afterEach } from 'vitest'
 import { cleanup } from '@testing-library/react'
 import * as wagmiMock from './__mocks__/wagmi'
 import * as rainbowkitMock from './__mocks__/@rainbow-me/rainbowkit'
-
 import '@testing-library/jest-dom'
-import './__mocks__/matchMedia'
 
 // viem uses TextEncoder and TextDecoder which are not available with jsdom 16+
 import { TextEncoder, TextDecoder } from 'node:util'

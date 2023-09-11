@@ -1,10 +1,7 @@
-import { $theme, $themeColor, type Theme, type ThemeColor } from '@stores/theme'
+import { $theme, $themeColor, getThemeColor, type Theme } from '@stores/theme'
 
-const themeToggle = document.querySelector('#theme-toggle')
-const themeToggleInput = document.querySelector('#theme-toggle input')
-const sun = document.querySelector('#sun')
-const moon = document.querySelector('#moon')
-
+const htmlEl = document.documentElement
+const themeToggle = document.querySelector('#toggle')
 const currentTheme = localStorage.getItem('theme') as Theme
 
 function getPreferTheme(): Theme {
@@ -13,10 +10,6 @@ function getPreferTheme(): Theme {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light'
-}
-
-function getThemeColor(theme: Theme): ThemeColor {
-  return theme === 'dark' ? '#1d2224' : '#e7eef4'
 }
 
 let themeValue = getPreferTheme()
@@ -30,7 +23,8 @@ function setPreference() {
 }
 
 function reflectPreference() {
-  const htmlEl = document.querySelector('html')
+  const sun = document.querySelector('#sun')
+  const moon = document.querySelector('#moon')
   const metaThemeColor = document.querySelector('meta[name=theme-color]')
   const metaThemeColorMs = document.querySelector(
     'meta[name=msapplication-TileColor]'
@@ -41,7 +35,7 @@ function reflectPreference() {
   metaThemeColor?.setAttribute('content', themeColor)
   metaThemeColorMs?.setAttribute('content', themeColor)
 
-  themeToggleInput?.setAttribute('checked', `${themeValue === 'dark'}`)
+  themeToggle?.setAttribute('checked', `${themeValue === 'dark'}`)
 
   if (themeValue === 'dark') {
     sun?.removeAttribute('hidden')
@@ -59,24 +53,25 @@ window.onload = () => {
   // set on load so screen readers can get the latest value on the button
   reflectPreference()
 
-  themeToggle?.addEventListener('click', () => {
+  themeToggle?.addEventListener('change', () => {
     themeValue = themeValue === 'light' ? 'dark' : 'light'
     themeColor = getThemeColor(themeValue)
     setPreference()
   })
+
+  // subscribe to store changes
+  // $theme.listen((theme) => {
+  //   themeValue = theme
+  //   themeColor = getThemeColor(theme)
+  //   setPreference()
+  // })
+
+  // sync with system changes
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches: isDark }) => {
+      themeValue = isDark ? 'dark' : 'light'
+      themeColor = getThemeColor(themeValue)
+      setPreference()
+    })
 }
-
-// subscribe to store changes
-$theme.listen((theme) => {
-  themeColor = getThemeColor(theme)
-  setPreference()
-})
-
-// sync with system changes
-window
-  .matchMedia('(prefers-color-scheme: dark)')
-  .addEventListener('change', ({ matches: isDark }) => {
-    themeValue = isDark ? 'dark' : 'light'
-    themeColor = getThemeColor(themeValue)
-    setPreference()
-  })
