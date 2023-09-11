@@ -1,0 +1,74 @@
+<!-- 
+    AWS S3 routing rules for old content
+    needs to be manually added to S3 bucket
+-->
+<RoutingRules>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>lab/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>lab.kremalicious.com</HostName>
+      <ReplaceKeyWith></ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>lab</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>lab.kremalicious.com</HostName>
+      <ReplaceKeyWith></ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>csspaperstack/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>lab.kremalicious.com</HostName>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>csspaperstack</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>lab.kremalicious.com</HostName>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>download/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>media/</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>feed/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>feed.xml</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>portfolio/</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>matthiaskretschmann.com</HostName>
+      <ReplaceKeyWith></ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>portfolio</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <HostName>matthiaskretschmann.com</HostName>
+      <ReplaceKeyWith></ReplaceKeyWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>
