@@ -28,6 +28,7 @@
   - [RSS \& JSON feeds](#rss--json-feeds)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
+  - [🔮 Type Checking](#-type-checking)
   - [👩‍🔬 Testing](#-testing)
 - [🎈 Content creation helpers](#-content-creation-helpers)
   - [Add a new post](#add-a-new-post)
@@ -182,6 +183,14 @@ To automatically format all code files:
 
 ```bash
 npm run format
+```
+
+### 🔮 Type Checking
+
+Type checking can be invoked to check all TypeScript code, including within .astro files:
+
+```bash
+npm run typecheck
 ```
 
 ### 👩‍🔬 Testing

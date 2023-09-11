@@ -72,7 +72,7 @@ test('search ui is working', async ({ page }) => {
 
 test('theme toggle is working', async ({ page }) => {
   const themeToggle = page.getByTitle('Toggle Theme')
-  const htmlElement = await page.locator('html')
+  const htmlElement = page.locator('html')
 
   // Check initial theme (assuming it's 'light' by default)
   await expect(htmlElement).toHaveAttribute('data-theme', 'light')

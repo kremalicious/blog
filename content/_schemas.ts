@@ -61,10 +61,10 @@ export const schemaPhotos = (image: ImageFunction) =>
     })
     .strict()
 
-export type ArticleFrontmatter = z.infer<typeof schemaArticles>
-export type LinkFrontmatter = z.infer<typeof schemaLinks>
-export type PhotoFrontmatter = z.infer<typeof schemaPhotos>
-export type PostFrontmatter =
-  | ArticleFrontmatter
-  | LinkFrontmatter
-  | PhotoFrontmatter
+// export type ArticleFrontmatter = z.infer<typeof schemaArticles>
+// export type LinkFrontmatter = z.infer<typeof schemaLinks>
+// export type PhotoFrontmatter = z.infer<typeof schemaPhotos>
+// export type PostFrontmatter =
+//   | ArticleFrontmatter
+//   | LinkFrontmatter
+//   | PhotoFrontmatter

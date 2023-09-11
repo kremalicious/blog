@@ -6,7 +6,7 @@ test('should throw an error if Umami environment variables are missing in produc
     NODE_ENV: 'production',
     PUBLIC_UMAMI_SCRIPT_URL: '',
     PUBLIC_UMAMI_WEBSITE_ID: ''
-  }
+  } as any
 
   expect(() => getUmamiConfig(mockEnv)).toThrow(
     'Missing Umami environment variables'
@@ -19,7 +19,7 @@ test('should not throw an error if Umami environment variables are present in pr
     NODE_ENV: 'production',
     PUBLIC_UMAMI_SCRIPT_URL: 'https://example.com/umami.js',
     PUBLIC_UMAMI_WEBSITE_ID: 'your-website-id'
-  }
+  } as any
 
   expect(() => getUmamiConfig(mockEnv)).not.toThrow()
 })
@@ -30,7 +30,7 @@ test('should not throw an error in non-production environments', () => {
     NODE_ENV: 'development',
     PUBLIC_UMAMI_SCRIPT_URL: '',
     PUBLIC_UMAMI_WEBSITE_ID: ''
-  }
+  } as any
 
   expect(() => getUmamiConfig(mockEnv)).not.toThrow()
 })

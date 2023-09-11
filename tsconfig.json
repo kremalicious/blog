@@ -20,5 +20,19 @@
       "@test/*": ["test/*"]
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".cache",
+    "public",
+    "src/images/components"
+  ],
+  "include": [
+    "src/**/*",
+    "content/**/*",
+    "test/**/*",
+    "scripts/**/*",
+    ".config/**/*"
+  ]
 }

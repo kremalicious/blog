@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { getAllPostsForSearch } from '@lib/astro'
 
-export async function GET(): Promise<APIRoute> {
+export const GET: APIRoute = async () => {
   const allPosts = await getAllPostsForSearch()
   return new Response(JSON.stringify(allPosts))
 }
