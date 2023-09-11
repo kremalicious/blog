@@ -48,6 +48,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'npm'
       - run: npm ci
+      - run: npm run prebuild
       - run: npm run typecheck
 
   test-unit:
