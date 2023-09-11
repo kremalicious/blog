@@ -4,17 +4,22 @@ import { arbitrum, mainnet, optimism, polygon, bsc } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 
+const PUBLIC_INFURA_ID = import.meta.env.PUBLIC_INFURA_ID
+const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID
+const isProduction = import.meta.env.NODE_ENV === 'production'
+
+if (isProduction && (!PUBLIC_INFURA_ID || !PUBLIC_WALLETCONNECT_ID)) {
+  throw new Error('Missing web3-related environment variables')
+}
+
 export const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, bsc],
-  [
-    infuraProvider({ apiKey: import.meta.env.PUBLIC_INFURA_ID }),
-    publicProvider()
-  ]
+  [infuraProvider({ apiKey: PUBLIC_INFURA_ID }), publicProvider()]
 )
 
 export const { connectors } = getDefaultWallets({
   appName: 'kremalicious.com',
-  projectId: import.meta.env.PUBLIC_WALLETCONNECT_ID,
+  projectId: PUBLIC_WALLETCONNECT_ID,
   chains
 })
 

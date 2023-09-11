@@ -25,7 +25,8 @@ export default getViteConfig({
         '**/.config',
         'src/images/icons',
         'src/pages',
-        '**/content'
+        '**/content',
+        'public'
       ]
     }
   }
