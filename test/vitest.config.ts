@@ -23,7 +23,7 @@ export default getViteConfig({
         '**/*.spec.ts',
         '**/test/**/*',
         '**/.config',
-        'src/images/icons',
+        'src/images/components',
         'src/pages',
         '**/content',
         'public'

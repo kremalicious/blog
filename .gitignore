@@ -8,7 +8,7 @@ coverage
 
 # build output
 dist/
-src/images/icons/
+src/images/components/
 
 # generated types
 .astro/
@@ -19,7 +19,6 @@ src/content/
 src/content
 public/post-kbd.css
 .config/redirects.json
-.config/exif.json
 test-results/
 playwright-report/
 playwright/.cache/

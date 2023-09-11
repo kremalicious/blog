@@ -18,7 +18,7 @@ const srcDirs = [
 ]
 
 // Distribution directory.
-const distDir = ps.resolve(currentDir, 'src/images/icons')
+const distDir = ps.resolve(currentDir, 'src/images/components')
 
 // Data related to each icon exported by this package.
 const icons = []
@@ -95,5 +95,5 @@ await fs.writeFile(ps.resolve(distDir, 'index.ts'), contentOfIndexJS, 'utf8')
 spinner.succeed(
   `${chalk.bold('[create-icons]')} Generated ${
     icons.length
-  } icons into @images/icons.`
+  } icons into @images/components.`
 )

@@ -136,9 +136,9 @@ If you want to know how, have a look at the respective components:
 
 ### 💎 SVG assets as components
 
-All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/icons/` and all include the cleaned SVGs as inline HTML.
+All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML.
 
-All SVGs can then be imported from `@images/icons` in all Astro components.
+All SVGs can then be imported from `@images/components` in all Astro components.
 
 If you want to know how this works, have a look at the respective files:
 
