@@ -3,7 +3,20 @@ kbd,
 pre,
 samp {
   font-family: var(--font-family-monospace);
-  font-size: var(--font-size-small);
+  /* unifying font sizes and x-height between body & monospace, considering their inherited size */
+  font-size: calc(1em * 0.9);
+}
+
+/* unifying font sizes and x-height between headings & monospace, considering their inherited size */
+h2 code,
+h2 kbd,
+h3 code,
+h3 kbd,
+h4 code,
+h4 kbd,
+h5 code,
+h5 kbd {
+  font-size: calc(1em * 0.7);
 }
 
 code,

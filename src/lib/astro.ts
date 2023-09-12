@@ -30,10 +30,14 @@ export function getPostsByTag(
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ) {
-  const postsCollection = await getCollection(name)
-  const filtered = postsCollection.filter(({ data }) => !data.draft)
+  let postsCollection = await getCollection(name)
 
-  for await (const post of filtered) {
+  // filter out drafts, but only in production
+  if (import.meta.env.PROD) {
+    postsCollection = postsCollection.filter(({ data }) => data.draft !== true)
+  }
+
+  for await (const post of postsCollection) {
     // use date from frontmatter, or grab from folder path
     const date = post.data.date
       ? post.data.date

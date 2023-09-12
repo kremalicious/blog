@@ -81,7 +81,7 @@ export const GET: APIRoute = async () => {
 
   const manifest = {
     name: 'Your site title',
-    description: "Your site's description",
+    description: 'Your site's description',
     start_url: '/',
     display: 'standalone',
     id: 'some-unique-id',

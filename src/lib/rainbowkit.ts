@@ -6,7 +6,7 @@ import { publicProvider } from 'wagmi/providers/public'
 
 const PUBLIC_INFURA_ID = import.meta.env.PUBLIC_INFURA_ID
 const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID
-const isProduction = import.meta.env.NODE_ENV === 'production'
+const isProduction = import.meta.env.PROD
 
 if (isProduction && (!PUBLIC_INFURA_ID || !PUBLIC_WALLETCONNECT_ID)) {
   throw new Error('Missing web3-related environment variables')
