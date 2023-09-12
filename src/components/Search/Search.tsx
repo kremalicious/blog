@@ -1,8 +1,7 @@
-import { type ReactElement, useEffect, useState, useRef } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 import Fuse from 'fuse.js'
 import { useStore } from '@nanostores/react'
 import { isSearchOpen } from '@stores/search'
-import { animate } from 'motion'
 import SearchResults from './Results'
 import styles from './Search.module.css'
 import type { CollectionEntry } from 'astro:content'
@@ -25,19 +24,6 @@ export default function Search(): ReactElement {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Post[]>()
   const [allPosts, setAllPosts] = useState<Post[]>()
-
-  const ref = useRef(null)
-
-  // animate opening of search
-  useEffect(() => {
-    if (!$isSearchOpen || !ref?.current) return
-
-    animate(
-      ref.current,
-      { transform: ['translate3d(0, 0, 0)'] },
-      { duration: 0.2, easing: 'ease-out' }
-    )
-  }, [$isSearchOpen])
 
   // fetch all post data on open
   useEffect(() => {
@@ -67,22 +53,12 @@ export default function Search(): ReactElement {
 
   // animate closing of search
   async function toggleSearch(): Promise<void> {
-    ref.current &&
-      (await animate(
-        ref.current,
-        {
-          transform: $isSearchOpen
-            ? 'translate3d(0, 80px, 0)'
-            : 'translate3d(0, 0, 0)'
-        },
-        { duration: 0.2 }
-      ).finished)
     isSearchOpen.set(!$isSearchOpen)
   }
 
   return $isSearchOpen ? (
     <>
-      <form className={styles.search} ref={ref}>
+      <form className={styles.search}>
         <Input
           className={styles.searchInput}
           type="search"
