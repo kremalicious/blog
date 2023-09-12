@@ -6,7 +6,7 @@ import config from '@config/blog.config.ts'
 import styles from './Vcard.module.css'
 
 const { author, rss, jsonfeed } = config
-const { mastodon, twitter, github, name, uri } = author
+const { mastodon, twitter, github, name, url } = author
 const links = [mastodon, github, twitter, rss, jsonfeed]
 ---
 
@@ -19,8 +19,8 @@ const links = [mastodon, github, twitter, rss, jsonfeed]
 />
 
 <p class={styles.description}>
-  Blog of designer &amp; developer{' '}
-  <a class="fn" rel="author" href={uri}>
+  {config.siteDescription}{' '}
+  <a class="fn" rel="author" href={url}>
     {name}
   </a>
 </p>

@@ -1,15 +1,11 @@
 export default {
   siteTitle: 'kremalicious',
-  siteTitleShort: 'krlc',
   siteDescription: 'Blog of designer & developer Matthias Kretschmann',
   siteUrl: 'https://kremalicious.com',
-  themeColor: '#e7eef4',
-  backgroundColor: '#e7eef4',
-  pathPrefix: null,
   author: {
     name: 'Matthias Kretschmann',
     email: 'm@kretschmann.io',
-    uri: 'https://matthiaskretschmann.com',
+    url: 'https://matthiaskretschmann.com',
     twitter: 'https://twitter.com/kremalicious',
     mastodon: 'https://mas.to/@krema',
     github: 'https://github.com/kremalicious',

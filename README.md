@@ -77,7 +77,7 @@ If you want to know how this works, have a look at the respective files:
 
 ### 💰 Cryptocurrency donation via Web3/MetaMask
 
-Lets visitors say thanks with Bitcoin or Ether. Uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending Ether transactions via browser wallets.
+Lets visitors say thanks with Bitcoin or Ether. Uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions via browser wallets.
 
 <img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 

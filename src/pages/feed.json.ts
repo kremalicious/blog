@@ -29,7 +29,7 @@ export async function GET(context: AstroConfig) {
       icon: `${context.site}apple-touch-icon.png`,
       author: {
         name: author.name,
-        url: author.uri
+        url: author.url
       },
       items
     })

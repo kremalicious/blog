@@ -17,7 +17,7 @@ const { date, updated, author, tags } = data
 <footer class={styles.entryMeta}>
   <div class={styles.byline}>
     <span class={styles.by}>by</span>
-    <a class="fn" rel="author" href={config.author.uri}>
+    <a class="fn" rel="author" href={config.author.url}>
       {author || config.author.name}
     </a>
   </div>
@@ -35,7 +35,7 @@ const { date, updated, author, tags } = data
   {
     tags && (
       <div class={styles.tags}>
-        {tags.map((tag) => (
+        {tags.map((tag: string) => (
           <Tag name={slugify(tag)} url={`/tags/${slugify(tag)}/`} />
         ))}
       </div>

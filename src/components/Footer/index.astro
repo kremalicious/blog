@@ -2,10 +2,10 @@
 import { Github, Bitcoin } from '@images/components'
 import Vcard from './Vcard.astro'
 import styles from './index.module.css'
-import config from '@config/blog.config.ts'
+import config from '@config/blog.config'
 
 const year = new Date().getFullYear()
-const { name, uri, github } = config.author
+const { name, url, github } = config.author
 ---
 
 <footer role="contentinfo" class={styles.footer}>
@@ -14,7 +14,7 @@ const { name, uri, github } = config.author
     <p>
       &copy; 2005&ndash;
       {year + ' '}
-      <a href={uri} rel="me">
+      <a href={url} rel="me">
         {name}
       </a>
       <a href={`${github}/blog`}>

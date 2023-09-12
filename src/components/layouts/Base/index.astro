@@ -12,6 +12,8 @@ import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
 import type { CollectionEntry } from 'astro:content'
 import { $themeColor } from '@stores/theme'
 import { getUmamiConfig } from '@lib/umami'
+import faviconSrc from '@images/favicon.png'
+import faviconSvgSrc from '@images/favicon.svg'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
   pageTitle?: string
@@ -37,14 +39,12 @@ const canonicalURL =
     : `${Astro.site?.href}${Astro.url.pathname.split('/')[1]}`) ||
   config.siteUrl
 
-const imageFinal = `${Astro.site}${
-  image
-    ? (await getImage({ src: image, width: 800, format: 'jpg' })).src.replace(
-        '/',
-        ''
-      )
-    : 'favicon-512.png'
-}`
+const imageFinal = image
+  ? (await getImage({ src: image, width: 800, format: 'jpg' })).src.replace(
+      '/',
+      ''
+    )
+  : faviconSrc.src
 
 const schema: SchemaProps = {
   title: titleFinal,
@@ -59,6 +59,14 @@ const themeColorInitial = $themeColor.get()
 const isProduction = import.meta.env.PROD
 const typekitID = import.meta.env.PUBLIC_TYPEKIT_ID
 const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  width: 180,
+  height: 180,
+  format: 'png'
+})
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 ---
 
 <html lang="en">
@@ -84,9 +92,9 @@ const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
     <meta name="theme-color" content={themeColorInitial} />
     <meta name="msapplication-TileColor" content={themeColorInitial} />
 
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={appleTouchIcon.src} />
     <link rel="manifest" href="/manifest.json" />
 
     <link
@@ -106,7 +114,15 @@ const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <link rel="stylesheet" href={`https://use.typekit.net/${typekitID}.css`} />
+    {
+      typekitID && (
+        <link
+          rel="stylesheet"
+          href={`https://use.typekit.net/${typekitID}.css`}
+        />
+      )
+    }
+
     {style && <link rel="stylesheet" href={style} />}
 
     {

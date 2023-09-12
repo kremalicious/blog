@@ -2,6 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import { slugifyAll } from './slugify'
 import { readOutExif } from './exif'
 import path from 'path'
+import config from '@config/blog.config'
 
 export function sortPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
@@ -43,7 +44,7 @@ export async function loadAndFormatCollection(
       'articles' | 'links' | 'photos'
     >['slug']
 
-    const githubLink = `https://github.com/kremalicious/blog/blob/main/content/${post.collection}/${post.id}`
+    const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 
     // extract exif & iptc data from photos
     if (post.collection === 'photos') {
