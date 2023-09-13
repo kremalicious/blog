@@ -145,11 +145,11 @@ The SVG favicon is not generated anew but is essentially passed through the `get
 
 Yup, for legacy browsers we actually need a `favicon.ico` at the site's root, hence the reference to `/favicon.ico` in the `head`.
 
----
+The most simple way is to generate that ico once in one of the many tools available for it, put in `public/` and be done with it.
 
-TODO: NOT WORKING
+But to accomplish this without dealing with another source file and don't worry about icon changes, we can make use of Astro's Static File Endpoints again to generate and deliver this asset under `/favicon.ico` in your final build.
 
-To still accomplish this without dealing with another source file, we can make use of Astro's Static File Endpoints again. As `sharp` does not support `ico` output by default, we have to use `sharp-ico`.
+As `sharp` does not support `ico` output by default, we have to use `sharp-ico`.
 
 Install it first:
 
@@ -157,30 +157,31 @@ Install it first:
 npm install sharp-ico
 ```
 
-Then use `sharp` and `sharp-ico` directly in `src/pages/favicon.ico.ts` to generate the final favicon.ico from the source favicon:
+Then use `sharp` and `sharp-ico` directly in `src/pages/favicon.ico.ts` to resize and generate the final `favicon.ico` from the source image:
 
 ```typescript
 import type { APIRoute } from 'astro'
-import faviconSrc from '../images/favicon.png'
 import sharp from 'sharp'
 import ico from 'sharp-ico'
+import path from 'node:path'
+
+// relative to project root
+const faviconSrc = path.resolve('src/images/favicon.png')
 
 export const GET: APIRoute = async () => {
-  const buffer = await sharp(faviconSrc.src)
-    .resize(32)
-    .toFormat('png')
-    .toBuffer()
+  const buffer = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()
   const icoBuffer = ico.encode([buffer])
 
   return new Response(icoBuffer, {
     headers: { 'Content-Type': 'image/x-icon' }
   })
 }
+
 ```
 
----
+We have to work around Astro's native asset handling as I could not get `sharp` to work either with `astro:assets` urls, nor with the raw old `?url` import way. Which is why `path` is used, which might lead to problems during SSR depending on your setup. Would love to know a way of passing Astro-generated image URLs so sharp understands them, if you know a way, do let me know! 
 
-This will return our dynamically generated ico file under `/favicon.ico`.
+In the end, this will return our dynamically generated ico file under `/favicon.ico`.
 
 ## Conclusion
 
