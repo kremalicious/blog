@@ -58,7 +58,7 @@ pre {
 }
 
 pre code {
-  padding: var(--spacer) calc(var(--spacer) / 2);
+  padding: calc(var(--spacer) / 2);
   white-space: pre;
   display: block;
   color: inherit;
@@ -74,12 +74,12 @@ pre::-webkit-scrollbar {
 }
 
 pre::-webkit-scrollbar-thumb {
-  background: var(--brand-main);
+  background: var(--text-color-light);
   border-radius: var(--border-radius);
 }
 
 pre::-webkit-scrollbar-track {
-  background: var(--brand-main);
+  background: var(--border-color);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 }
