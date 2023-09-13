@@ -1,5 +1,5 @@
 ---
-date: 2023-09-12T11:30:30.691Z
+date: 2023-09-13T11:30:30.691Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -14,7 +14,7 @@ draft: true
 
 Favicons are those small but impactful icons displayed next to a website's title in a browser tab. While they may seem like a minor detail, implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on [Evil Martians](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) to tell us which files are actually needed in modern times.
 
-This article outlines how to implement just that with Astro.js, utilizing its Static File Endpoints and [`getImage()`](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) function to generate multiple favicon sizes without any other tools, as it uses [`sharp`](https://github.com/lovell/sharp) under the hood.
+This article outlines how to implement just that with Astro.js, utilizing its Static File Endpoints and [`getImage()`](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) function to generate multiple favicon sizes.
 
 This procedure assumes you are fine with all sizes being generated from one big size. If you require more control e.g. over the smaller sizes you can use the following walkthrough as a starting point.
 
@@ -145,9 +145,9 @@ The SVG favicon is not generated anew but is essentially passed through the `get
 
 Yup, for legacy browsers we actually need a `favicon.ico` at the site's root, hence the reference to `/favicon.ico` in the `head`.
 
-The most simple way is to generate that ico once in one of the many tools available for it, put in `public/` and be done with it.
+The most simple way is to generate that ico file once in one of the many online or cli tools available for it, put it in `public/` and be done with it.
 
-But to accomplish this without dealing with another source file and don't worry about icon changes, we can make use of Astro's Static File Endpoints again to generate and deliver this asset under `/favicon.ico` in your final build.
+But to accomplish this without dealing with another source file and don't worry about future favicon changes, we can make use of Astro's [Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/) again to generate and deliver this asset under `/favicon.ico` in your final build.
 
 As `sharp` does not support `ico` output by default, we have to use `sharp-ico`.
 
@@ -156,6 +156,8 @@ Install it first:
 ```bash
 npm install sharp-ico
 ```
+
+Astro uses [`sharp`](https://github.com/lovell/sharp) under the hood so it should be installed already but if you get errors, you might have to add it to your dependencies too.
 
 Then use `sharp` and `sharp-ico` directly in `src/pages/favicon.ico.ts` to resize and generate the final `favicon.ico` from the source image:
 
@@ -169,20 +171,30 @@ import path from 'node:path'
 const faviconSrc = path.resolve('src/images/favicon.png')
 
 export const GET: APIRoute = async () => {
+  // resize to 32px PNG
   const buffer = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()
+  // generate ico
   const icoBuffer = ico.encode([buffer])
 
   return new Response(icoBuffer, {
     headers: { 'Content-Type': 'image/x-icon' }
   })
 }
-
 ```
 
-We have to work around Astro's native asset handling as I could not get `sharp` to work either with `astro:assets` urls, nor with the raw old `?url` import way. Which is why `path` is used, which might lead to problems during SSR depending on your setup. Would love to know a way of passing Astro-generated image URLs so sharp understands them, if you know a way, do let me know! 
+Only one size in the final ico should be fine for mosty use cases. If you want to get more sizes into the final ico, you can pass more buffers to that array passed to `ico.encode()`:
 
-In the end, this will return our dynamically generated ico file under `/favicon.ico`.
+```typescript
+const buffer32 = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()
+const buffer16 = await sharp(faviconSrc).resize(16).toFormat('png').toBuffer()
+
+ico.encode([buffer16, buffer32])
+```
+
+We have to work around Astro's native asset handling as I could not get `sharp` to work either with `astro:assets` urls, nor with the raw old `?url` import way. Which is why a Node.js native module `path` is used, which might lead to problems during SSR depending on your setup. Would love to know a way of passing Astro-generated image URLs so sharp understands them, if you know a way, do let me know!
 
 ## Conclusion
 
-This setup successfully implements favicons in an Astro.js project, covering most modern browsers and devices. By taking advantage of Astro's asset handling capabilities, particularly the `getImage` function and Static File Endpoints feature, managing and optimizing favicons becomes a straightforward task. The dynamic generation also aids in cache busting, ensuring that users always see the most up-to-date icons.
+In the end, this will return our dynamically generated ico file under `/favicon.ico`. And all the other required assets are integrated in an Astro.js project, covering most modern browsers and devices.
+
+By taking advantage of Astro's asset handling capabilities, particularly the `getImage` function and Static File Endpoints feature, managing and optimizing favicons becomes a straightforward task. The dynamic generation also aids in cache busting, ensuring that users always see the most up-to-date icons.

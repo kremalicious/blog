@@ -130,7 +130,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
   deploy:
-    needs: [test-unit, test-e2e, build]
+    needs: [lint, typecheck, test-unit, test-e2e, build]
     if: success() && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
