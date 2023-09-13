@@ -131,8 +131,8 @@ export async function getAllPostsForSearch() {
       title: post.data.title,
       tags: post.data.tags,
       collection: post.collection,
-      lead: post.body.substring(0, 200)
-      // image: post.data.image
+      lead: post.body.substring(0, 200),
+      image: post.data.image
     }
   }))
 
