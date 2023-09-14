@@ -13,7 +13,7 @@ toc: true
 draft: true
 ---
 
-Those small but impactful icons displayed next to a website's title in a browser tab seem like a minor detail. Implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on Evil Martians to tell us [which files are needed](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) in modern times. Those findings can be implemented quite easy in Astro.
+Those small but impactful icons displayed next to a website's title in a browser tab seem like a minor detail, yet implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on Evil Martians to tell us [which files are needed](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) in modern times. Those findings can be implemented quite easy in Astro.
 
 This article outlines how to implement just that with [Astro](https://astro.build), utilizing its [Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/) and [`getImage()`](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) function to generate multiple favicon sizes.
 

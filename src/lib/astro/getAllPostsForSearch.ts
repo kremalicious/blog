@@ -21,10 +21,10 @@ export async function getAllPostsForSearch() {
       //   : null
       return {
         slug: post.slug,
+        collection: post.collection,
         data: {
           title: post.data.title,
           tags: post.data.tags,
-          collection: post.collection,
           lead: post.body.substring(0, 200),
           image: imageSrc
         }
