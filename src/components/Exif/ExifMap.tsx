@@ -1,7 +1,5 @@
-import { type ReactElement, useState } from 'react'
+import { type ReactElement, useState, useEffect } from 'react'
 import { Map, Marker } from 'pigeon-maps'
-import { useStore } from '@nanostores/react'
-import { $theme as themeStore } from '@stores/theme'
 
 const mapbox =
   (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
@@ -14,20 +12,33 @@ const providers = {
   dark: mapbox('dark-v10')
 }
 
+type Theme = 'light' | 'dark'
+
 export default function ExifMap({
   gps
 }: {
   gps: { latitude: number; longitude: number }
 }): ReactElement {
-  const $theme = useStore(themeStore)
-  const [zoom, setZoom] = useState(12)
+  const theme = document?.documentElement?.getAttribute('data-theme') as Theme
 
-  const zoomIn = () => {
-    setZoom(Math.min(zoom + 4, 20))
+  const [zoom, setZoom] = useState(12)
+  const [provider, setProvider] = useState(() => providers[theme || 'dark'])
+
+  function handleThemeChange() {
+    const theme = document.documentElement.getAttribute('data-theme') as Theme
+    setProvider(() => providers[theme])
   }
 
+  useEffect(() => {
+    if (!window) return
+
+    const toggle = document.querySelector('#toggle') as HTMLInputElement
+    toggle.addEventListener('change', handleThemeChange)
+    return () => toggle.removeEventListener('change', handleThemeChange)
+  }, [])
+
+  const zoomIn = () => setZoom(Math.min(zoom + 4, 20))
   const { latitude, longitude } = gps
-  const provider = providers[$theme]
 
   return (
     <Map

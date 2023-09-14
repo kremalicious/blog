@@ -33,7 +33,7 @@ test('data-theme attribute is set as quickly as possible', async () => {
   globalThis.window.matchMedia = () =>
     ({ matches: true, addEventListener: () => {} }) as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   // Check the data-theme attribute
   const htmlEl = document.querySelector('html')
@@ -46,7 +46,7 @@ test('data-theme attribute is set based on localStorage', async () => {
     setItem: () => {}
   } as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   const htmlEl = document.querySelector('html')
   expect(htmlEl?.getAttribute('data-theme')).toBe('dark')
@@ -56,7 +56,7 @@ test('data-theme attribute is set based on system preference', async () => {
   globalThis.window.matchMedia = () =>
     ({ matches: true, addEventListener: () => {} }) as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   const htmlEl = document.querySelector('html')
   expect(htmlEl?.getAttribute('data-theme')).toBe('dark')
@@ -72,7 +72,7 @@ test('data-theme attribute changes on system preference change', async () => {
       }
     }) as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   // Simulate a system preference change
   changeCallback({ matches: true })
@@ -85,7 +85,7 @@ test('meta tags are updated', async () => {
   globalThis.window.matchMedia = () =>
     ({ matches: true, addEventListener: () => {} }) as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   const metaThemeColor = document.querySelector('meta[name=theme-color]')
   const metaThemeColorMs = document.querySelector(
@@ -100,7 +100,7 @@ test('sun and moon hidden attributes are updated', async () => {
   globalThis.window.matchMedia = () =>
     ({ matches: true, addEventListener: () => {} }) as any
 
-  await import('./script.js')
+  await import('./theme.cjs')
 
   const sun = document.querySelector('#sun')
   const moon = document.querySelector('#moon')

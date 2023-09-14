@@ -44,9 +44,17 @@ export async function loadAndFormatCollection(
       : new Date(post.id.split('/')[0].substring(0, 10))
 
     // remove date from slug
-    const slug = post.id.split('/')[0].substring(11) as CollectionEntry<
-      'articles' | 'links' | 'photos'
+    let slug = post.id.split('/')[0].substring(11) as CollectionEntry<
+      'articles' | 'photos' | 'links'
     >['slug']
+
+    // links are not folders so remove .md from the end
+    if (post.collection === 'links') {
+      slug = slug.substring(
+        0,
+        slug.length - 3
+      ) as CollectionEntry<'links'>['slug']
+    }
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 
@@ -125,16 +133,33 @@ export async function getAllTags(
 // helps to reduce DOM size
 export async function getAllPostsForSearch() {
   const allPosts = await getAllPosts()
-  const cleaned = allPosts.map((post) => ({
-    slug: post.slug,
-    data: {
-      title: post.data.title,
-      tags: post.data.tags,
-      collection: post.collection,
-      lead: post.body.substring(0, 200),
-      image: (post.data as CollectionEntry<'articles' | 'photos'>['data']).image
-    }
-  }))
+
+  const cleaned = await Promise.all(
+    allPosts.map(async (post) => {
+      const imageSrc = (
+        post.data as CollectionEntry<'articles' | 'photos'>['data']
+      ).image
+      // const image = imageSrc
+      //   ? await getImage({
+      //       src: imageSrc,
+      //       width: 300,
+      //       height: 100,
+      //       format: 'png'
+      //     })
+      //   : null
+
+      return {
+        slug: post.slug,
+        data: {
+          title: post.data.title,
+          tags: post.data.tags,
+          collection: post.collection,
+          lead: post.body.substring(0, 200),
+          image: imageSrc
+        }
+      }
+    })
+  )
 
   return cleaned
 }

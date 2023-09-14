@@ -26,9 +26,7 @@ const { image } = post.data as CollectionEntry<'articles'>['data']
         height={180}
         objectFit
       />
-    ) : (
-      <span class={styles.empty} />
-    )
+    ) : null
   }
 
   <PostTitle

@@ -10,7 +10,6 @@ import { getImage } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
 import type { CollectionEntry } from 'astro:content'
-import { $themeColor } from '@stores/theme'
 import { getUmamiConfig } from '@lib/umami'
 import faviconSrc from '@images/favicon.png'
 import faviconSvgSrc from '@images/favicon.svg'
@@ -55,7 +54,6 @@ const schema: SchemaProps = {
   ...(updated && { dateModified: updated.toISOString().substring(0, 10) })
 }
 
-const themeColorInitial = $themeColor.get()
 const isProduction = import.meta.env.PROD
 const typekitID = import.meta.env.PUBLIC_TYPEKIT_ID
 const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
@@ -89,8 +87,8 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content={config.author.twitter} />
 
-    <meta name="theme-color" content={themeColorInitial} />
-    <meta name="msapplication-TileColor" content={themeColorInitial} />
+    <meta name="theme-color" content="" />
+    <meta name="msapplication-TileColor" content="" />
 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />

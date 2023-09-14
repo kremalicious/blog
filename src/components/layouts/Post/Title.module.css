@@ -21,7 +21,6 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  color: var(--text-color);
   font-family: var(--font-family-base);
   font-size: var(--font-size-small);
   color: var(--text-color-light);
