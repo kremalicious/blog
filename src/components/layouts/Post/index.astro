@@ -11,6 +11,7 @@ import Exif from '@components/Exif/index.astro'
 import type { Exif as ExifType } from '@lib/exif/types'
 import Changelog from '@components/Changelog/index.astro'
 import RelatedPosts from '@components/RelatedPosts/index.astro'
+import LinkActions from './LinkActions.astro'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -18,7 +19,7 @@ type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   tableOfContents?: string // comes in through remark plugin as html
 }
 
-const { data, collection, lead, leadRaw, tableOfContents } = Astro.props
+const { data, collection, lead, leadRaw, tableOfContents, slug } = Astro.props
 const { title, date, updated, toc, githubLink, changelog } = data
 const { image, exif } = data as CollectionEntry<'photos'>['data']
 const { linkurl } = data as CollectionEntry<'links'>['data']
@@ -59,6 +60,8 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
     {collection !== 'photos' && <slot />}
 
     {changelog && <Changelog repo={changelog} />}
+
+    {collection === 'links' && <LinkActions slug={slug} linkurl={linkurl} />}
 
     <Meta post={Astro.props} />
 

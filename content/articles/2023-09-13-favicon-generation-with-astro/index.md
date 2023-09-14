@@ -13,13 +13,13 @@ toc: true
 draft: true
 ---
 
-Those small but impactful icons displayed next to a website's title in a browser tab seem like a minor detail. Implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on Evil Martians to tell us [which files are actually needed](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) in modern times. Those findings can be implmented quite easy in Astro.
+Those small but impactful icons displayed next to a website's title in a browser tab seem like a minor detail. Implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on Evil Martians to tell us [which files are needed](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) in modern times. Those findings can be implemented quite easy in Astro.
 
 This article outlines how to implement just that with [Astro](https://astro.build), utilizing its [Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/) and [`getImage()`](https://docs.astro.build/en/guides/images/#generating-images-with-getimage) function to generate multiple favicon sizes.
 
 This procedure assumes you are fine with all sizes being generated from one big size. If you require more control e.g. over the smaller sizes you can use the following walkthrough as a starting point.
 
-You might wonder why there's a need for a dynamic approach when these images could simply be added to the `public/` directory manually.
+But you might wonder why there's a need for a dynamic approach when these images could simply be added to the `public/` directory manually.
 
 If you're fine with never changing your favicon assets, the most simple approach would be to generate all files manually into the `public/` folder, including the `manifest.json`. And then reference them with their absolute path in your `head` as described further down, skipping the dynamic image generation and manifest creation.
 
@@ -27,7 +27,7 @@ One significant advantage of generating favicons dynamically is cache busting. W
 
 ## Project Structure
 
-To begin, these are the only source files we will deal with:
+To begin, these are the source files we will deal with, with only 2 image assets:
 
 ```
 my-astro-project/
@@ -74,7 +74,7 @@ my-astro-project/
 
 ## Adding Favicon References to the `head`
 
-To reference the manifest file and to generate required favicon sizes, let's update the `head` section of your site first.
+To reference the manifest file and to generate required favicon sizes, let's update the `head` section of the site first.
 
 In this example, we do this in a `src/layouts/index.astro` file, assuming this is then used as a layout in of your `src/pages/` files. Do this wherever your `head` info gets populated in your site.
 

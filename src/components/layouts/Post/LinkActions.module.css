@@ -1,7 +1,6 @@
 .postLinkActions {
   display: flex;
   justify-content: space-between;
-  margin-top: calc(var(--spacer) * 2);
 }
 
 .postLinkActions a {
