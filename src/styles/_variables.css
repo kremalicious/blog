@@ -63,8 +63,8 @@
   --font-weight-base: 400;
   --font-weight-bold: 600;
 
-  --font-family-monospace: 'SF Mono', SFMono-Regular, ui-monospace,
-    'DejaVu Sans Mono', Menlo, Consolas, monospace;
+  --font-family-monospace: 'SF Mono', sfmono-regular, ui-monospace,
+    'DejaVu Sans Mono', menlo, consolas, monospace;
 
   /* Headings
   ///////////////////////////////////// */

@@ -42,15 +42,15 @@ my-astro-project/
 │ │ └── favicon.svg
 ```
 
-#### `src/images/`
+### `src/images/`
 
 Housing the original favicon images. `favicon.png` is a large-sized image (512px) that will be resized dynamically, whereas `favicon.svg` can be a SVG file that adapts to the user's light or dark mode settings.
 
-#### `src/layouts/index.astro`
+### `src/layouts/index.astro`
 
 This can be any layout template or page that contains your HTML `head` content, as we will add the links to the favicons and the manifest file in there.
 
-#### `src/pages/manifest.json.ts`
+### `src/pages/manifest.json.ts`
 
 This is an Astro Static File Endpoint that dynamically generates the `/manifest.json` file, referencing the generated favicons. This file uses Astro's `getImage()` function to create various sizes of PNG icons from a single source image, and then includes these in the generated manifest.
 

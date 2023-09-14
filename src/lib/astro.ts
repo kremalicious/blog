@@ -132,7 +132,7 @@ export async function getAllPostsForSearch() {
       tags: post.data.tags,
       collection: post.collection,
       lead: post.body.substring(0, 200),
-      image: post.data.image
+      image: (post.data as CollectionEntry<'articles' | 'photos'>['data']).image
     }
   }))
 

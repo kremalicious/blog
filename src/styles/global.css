@@ -120,7 +120,6 @@ h6 {
   line-height: var(--line-height-headings);
   color: var(--color-headings);
   font-weight: var(--font-weight-headings);
-
   letter-spacing: -0.01em;
   transition: color 0.2s ease-out;
 }
