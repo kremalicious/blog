@@ -1,5 +1,6 @@
 import { test, expect } from 'vitest'
-import { sortPosts, getPostsByTag, getAllTags } from './astro'
+import { getPostsByTag, getAllTags } from '.'
+import { sortPosts } from './sortPosts'
 
 test('sortPosts sorts posts by date in descending order', () => {
   const posts = [
