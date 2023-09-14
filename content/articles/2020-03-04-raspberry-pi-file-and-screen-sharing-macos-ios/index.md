@@ -122,7 +122,7 @@ In there, scroll down to the `[homes]` section and set `read only = no` to make 
 
 To share more resources like an external drive, add another section at the end of your `smb.conf` and make it fully writable:
 
-```bash
+```text title="smb.conf"
 [sharename]
     path = /mnt/myexternaldrive/
     read only = no
@@ -152,7 +152,7 @@ sudo nano /etc/avahi/services/rfb.service
 
 And fill it with an Avahi service description for VNC:
 
-```xml
+```xml title="rfb.service"
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
@@ -182,7 +182,7 @@ sudo nano /etc/avahi/services/smb.service
 
 And fill it with:
 
-```xml
+```xml title="smb.service"
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
@@ -235,7 +235,7 @@ For SFTP:
 sudo nano /etc/avahi/services/sftp.service
 ```
 
-```xml
+```xml title="sftp.service"
 <?xml version="1.0" standalone='no'?>
  <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
  <service-group>
@@ -253,7 +253,7 @@ For SSH:
 sudo nano /etc/avahi/services/ssh.service
 ```
 
-```xml
+```xml title="ssh.service"
 <?xml version="1.0" standalone='no'?>
  <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
  <service-group>

@@ -24,7 +24,7 @@ If you use Hyper along with those apps, this theme is for you. It is purely a ta
 
 Install by adding `hyper-mac-pro` to the plugins property in your `~/.hyper.js`:
 
-```js
+```js title="~/.hyper.js"
 plugins: ['hyper-mac-pro']
 ```
 

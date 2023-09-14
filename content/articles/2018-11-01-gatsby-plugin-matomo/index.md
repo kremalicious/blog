@@ -41,7 +41,7 @@ npm i gatsby-plugin-matomo
 
 Then load the plugin from your `gatsby-config.js` and set the required variables:
 
-```js
+```js title="gatsby-config.js"
 plugins: [
   {
     resolve: 'gatsby-plugin-matomo',
