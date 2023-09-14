@@ -19,7 +19,7 @@ const links = [mastodon, github, twitter, rss, jsonfeed]
 />
 
 <p class={styles.description}>
-  {config.siteDescription}{' '}
+  {config.siteDescription.replace(name, '')}{' '}
   <a class="fn" rel="author" href={url}>
     {name}
   </a>

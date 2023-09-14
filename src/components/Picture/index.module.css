@@ -1,5 +1,5 @@
 .frame {
-  border: var(--stroke-width) solid rgba(255 255 255 / 20%);
+  border: var(--border-width) solid rgba(255 255 255 / 20%);
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: 0.2s ease-out;

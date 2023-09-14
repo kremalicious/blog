@@ -63,7 +63,8 @@
   --font-weight-base: 400;
   --font-weight-bold: 600;
 
-  --font-family-monospace: 'Menlo', 'Consolas', 'Courier New', monospace;
+  --font-family-monospace: 'SF Mono', SFMono-Regular, ui-monospace,
+    'DejaVu Sans Mono', Menlo, Consolas, monospace;
 
   /* Headings
   ///////////////////////////////////// */
@@ -81,7 +82,7 @@
   --padding-base-horizontal: 1.25rem;
 
   --border-radius: 0.25rem;
-  --stroke-width: 0.125rem;
+  --border-width: 0.125rem;
 
   /* Code
   ///////////////////////////////////// */

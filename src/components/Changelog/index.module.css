@@ -1,7 +1,7 @@
 .changelog {
   padding-left: calc(var(--spacer) / 2);
   margin-left: calc(var(--spacer) / 2);
-  border-left: var(--stroke-width) solid var(--border-color);
+  border-left: var(--border-width) solid var(--border-color);
   max-height: 800px;
   overflow: hidden;
   padding-bottom: var(--spacer);

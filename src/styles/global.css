@@ -120,9 +120,21 @@ h6 {
   line-height: var(--line-height-headings);
   color: var(--color-headings);
   font-weight: var(--font-weight-headings);
-  margin: var(--spacer) 0;
+
   letter-spacing: -0.01em;
   transition: color 0.2s ease-out;
+}
+
+h1,
+h2,
+h3 {
+  margin: var(--spacer) 0;
+}
+
+h4,
+h5,
+h6 {
+  margin: calc(var(--spacer) / 2) 0;
 }
 
 h1 .anchor.before,
@@ -275,7 +287,7 @@ cite {
 blockquote,
 blockquote > p {
   font-style: italic;
-  color: var(--text-color-light);
+  color: var(--text-color);
 }
 
 blockquote {
@@ -288,7 +300,7 @@ blockquote {
 blockquote::before {
   content: '“';
   font-size: 300%;
-  color: var(--text-color-dimmed);
+  color: var(--text-color-light);
   position: absolute;
   left: -10px;
   top: -20px;

@@ -29,7 +29,7 @@ height = toAttributeSize(height)
   width: 1em;
   height: 1em;
   stroke: currentcolor;
-  stroke-width: var(--stroke-width);
+  stroke-width: var(--border-width);
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;

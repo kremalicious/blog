@@ -5,6 +5,7 @@
   background: var(--box-background-color);
   padding: var(--spacer);
   border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
   display: grid;
 }
 

@@ -3,7 +3,7 @@
   margin-top: var(--spacer);
   margin-bottom: var(--spacer);
   border-radius: var(--border-radius);
-  border: var(--stroke-width) solid transparent;
+  border: var(--border-width) solid transparent;
   box-shadow: var(--box-shadow);
 }
 
