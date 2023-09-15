@@ -5,7 +5,7 @@ import type {
   InferGetStaticPropsType,
   Page
 } from 'astro'
-import { getAllPosts, getAllTags, getPostsByTag } from '@lib/astro'
+import { getAllTags, getPostsByTag } from '@lib/astro'
 import LayoutArchive from '@components/layouts/Archive.astro'
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths> & {
@@ -14,17 +14,18 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths> & {
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPosts()
-  const allUniqueTags = await getAllTags(allPosts)
+  const allUniqueTags = await getAllTags()
 
-  return allUniqueTags.map((tag) => {
-    const filteredPosts = getPostsByTag(allPosts, tag.name)
+  return await Promise.all(
+    allUniqueTags.map(async (tag) => {
+      const filteredPosts = await getPostsByTag(tag.name)
 
-    return {
-      params: { tag: tag.name },
-      props: { page: { data: [...filteredPosts] } }
-    }
-  })
+      return {
+        params: { tag: tag.name },
+        props: { page: { data: [...filteredPosts] } }
+      }
+    })
+  )
 
   // return paginate(allData, { pageSize: 20 })
 }

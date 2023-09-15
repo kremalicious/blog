@@ -1,10 +1,9 @@
 ---
-import { getAllTags, getAllPosts } from '@lib/astro'
+import { getAllTags } from '@lib/astro'
 import Tag from '@components/Tag.astro'
 import LayoutBase from '@components/layouts/Base/index.astro'
 
-const allPosts = await getAllPosts()
-const allTags = await getAllTags(allPosts)
+const allTags = await getAllTags()
 ---
 
 <style>
@@ -47,6 +46,3 @@ const allTags = await getAllTags(allPosts)
     }
   </ul>
 </LayoutBase>
- @lib/astro/astro import {getAllPosts} from '@lib/astro/getAllPosts' import {
-  getAllTags
-} from '@lib/astro/AllTags'
