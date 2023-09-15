@@ -1,5 +1,5 @@
 ---
-date: 2023-09-14T02:02:30.691Z
+date: 2023-09-15T12:02:30.000Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -76,7 +76,7 @@ my-astro-project/
 
 To reference the manifest file and to generate required favicon sizes, let's update the `head` section of the site first.
 
-In this example, we do this in a `src/layouts/index.astro` file, assuming this is then used as a layout in of your `src/pages/` files. Do this wherever your `head` info gets populated in your site.
+In this example, we do this in a `src/layouts/index.astro` file, assuming this is then used as a shared layout in one of your `src/pages/` files. But do this wherever your `head` info gets populated in your site.
 
 In this example layout file, let's add:
 
@@ -172,11 +172,9 @@ Yup, for legacy browsers we actually _need_ a `favicon.ico` at the site's root, 
 
 The most simple way is to generate that ico file once with one of the many online or cli tools available, put it in `public/` and be done with it.
 
-But to accomplish this without dealing with another source file and don't worry about future favicon changes, we can make use of Astro's [Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/) again to generate and deliver this asset under `/favicon.ico` in your final build.
+But to accomplish this without dealing with another source file and without having to worry about future favicon changes, we can make use of Astro's [Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/) again to generate and deliver this asset under `/favicon.ico`.
 
-As `sharp` does not support `ico` output by default, we have to use `sharp-ico`.
-
-Install it first:
+As `sharp` does not support `ico` output by default, we have to use `sharp-ico`:
 
 ```bash
 npm install sharp-ico
@@ -207,7 +205,7 @@ export const GET: APIRoute = async () => {
 }
 ```
 
-Only one size in the final ico should be fine for mosty use cases. If you want to get more sizes into the final ico, you can pass more buffers to that array passed to `ico.encode()`:
+Only one size in the final ico should be fine for most use cases. If you want to get more sizes into the final ico, you can pass more buffers to that array passed to `ico.encode()`:
 
 ```typescript title="src/pages/favicon.ico.ts"
 const buffer32 = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()

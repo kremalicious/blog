@@ -4,6 +4,7 @@ import { getAllPosts } from './index'
 // helps to reduce DOM size
 export async function getAllPostsForSearch() {
   const allPosts = await getAllPosts()
+  if (!allPosts) return
 
   const cleaned = await Promise.all(
     allPosts.map(async (post) => {
