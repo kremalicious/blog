@@ -1,5 +1,8 @@
 import { type CollectionEntry } from 'astro:content'
 
+//
+// Sort posts by date, newest first
+//
 export function sortPosts(
   posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
 ): CollectionEntry<'articles' | 'links' | 'photos'>[] {

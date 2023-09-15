@@ -1,4 +1,4 @@
-import { type CollectionEntry } from 'astro:content'
+import { getAllPosts } from './index'
 import { slugifyAll } from '../slugify'
 
 export type AllTags = {
@@ -6,10 +6,9 @@ export type AllTags = {
   count: number
 }[]
 
-export async function getAllTags(
-  posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
-): Promise<AllTags> {
-  const allTagsArray = posts
+export async function getAllTags(): Promise<AllTags> {
+  const allPosts = await getAllPosts()
+  const allTagsArray = allPosts
     .filter((post) => post.data.tags)
     .map((post) => post.data.tags)
     .flat() as string[]

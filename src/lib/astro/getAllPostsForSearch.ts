@@ -2,7 +2,6 @@ import { type CollectionEntry } from 'astro:content'
 import { getAllPosts } from './index'
 
 // helps to reduce DOM size
-
 export async function getAllPostsForSearch() {
   const allPosts = await getAllPosts()
 

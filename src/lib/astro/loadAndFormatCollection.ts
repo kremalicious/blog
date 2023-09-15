@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content'
-import { readOutExif } from '../exif'
+import { readOutExif } from '@lib/exif'
 import path from 'path'
 import config from '@config/blog.config'
 import { sortPosts } from './sortPosts'
@@ -10,7 +10,6 @@ import { sortPosts } from './sortPosts'
 // Astro's `getCollection()` is never called
 // from components, but this helper method instead.
 //
-
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ) {
@@ -22,12 +21,16 @@ export async function loadAndFormatCollection(
   }
 
   for await (const post of postsCollection) {
+    //
     // use date from frontmatter, or grab from folder path
+    //
     const date = post.data.date
       ? post.data.date
       : new Date(post.id.split('/')[0].substring(0, 10))
 
+    //
     // remove date from slug
+    //
     let slug = post.id.split('/')[0].substring(11) as CollectionEntry<
       'articles' | 'photos' | 'links'
     >['slug']
@@ -42,11 +45,16 @@ export async function loadAndFormatCollection(
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 
+    post.slug = slug
+    post.data.date = date
+    post.data.githubLink = githubLink
+
+    //
     // extract exif & iptc data from photos
+    //
     if (post.collection === 'photos') {
       const isProd = import.meta.env.PROD
 
-      //
       // Get the absolute image path from post.data.image
       // to read exif from
       //
@@ -54,7 +62,6 @@ export async function loadAndFormatCollection(
       //    `/_astro/filename.hash.jpg`
       // development image.src:
       //    `/@fs/absolute/system/path/project/src/content/photos/postSlug/filename.jpg?origWidth=3873&origHeight=2796&origFormat=jpg`
-      //
       const imagePath = isProd
         ? path.join(
             'content',
@@ -66,10 +73,6 @@ export async function loadAndFormatCollection(
       const exif = await readOutExif(imagePath)
       post.data.exif = exif
     }
-
-    post.slug = slug
-    post.data.date = date
-    post.data.githubLink = githubLink
   }
 
   const posts = sortPosts(postsCollection)

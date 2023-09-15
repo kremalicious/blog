@@ -1,9 +1,9 @@
-import { type CollectionEntry } from 'astro:content'
+import { getAllPosts } from './index'
 import { slugifyAll } from '../slugify'
 
-export function getPostsByTag(
-  posts: CollectionEntry<'articles' | 'links' | 'photos'>[],
-  tag: string
-) {
-  return posts.filter((post) => slugifyAll(post.data.tags || []).includes(tag))
+export async function getPostsByTag(tag: string) {
+  const allPosts = await getAllPosts()
+  return allPosts.filter((post) =>
+    slugifyAll(post.data.tags || []).includes(tag)
+  )
 }
