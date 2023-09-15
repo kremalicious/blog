@@ -20,10 +20,10 @@ const { image } = post.data as CollectionEntry<'articles'>['data']
     image ? (
       <Picture
         class={styles.image}
-        image={image}
+        src={image}
         alt={title}
-        width={480}
-        height={180}
+        width={305}
+        height={114}
         objectFit
       />
     ) : null

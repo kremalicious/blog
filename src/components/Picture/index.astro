@@ -1,43 +1,66 @@
 ---
 import { getImage } from 'astro:assets'
-import type { ImageMetadata } from 'astro'
 import styles from './index.module.css'
+import type { ImageMetadata, ImageOutputFormat } from 'astro'
 
 type Props = {
-  image: ImageMetadata
+  src: ImageMetadata
   alt: string
+  width: number
+  height?: number
   title?: string
   class?: string
-  width?: number
-  height?: number
   objectFit?: boolean
 }
 
 const {
   title,
   alt,
-  image,
+  src,
   class: className,
   width,
   height,
   objectFit
 } = Astro.props
-const src = image
 
-// const sizes = [260, 520, 1040, 2080]
+const formats: ImageOutputFormat[] = ['avif', 'webp', 'jpg']
+const sizes = [Number(width) / 2, Number(width), Number(width) * 2]
 
-// TODO: make less repetitive
-const image260_webp = await getImage({ src, width: 260, format: 'webp' })
-const image520_webp = await getImage({ src, width: 520, format: 'webp' })
-const image1040_webp = await getImage({ src, width: 1040, format: 'webp' })
-const image2080_webp = await getImage({ src, width: 2080, format: 'webp' })
-const image260_jpg = await getImage({ src, width: 260, format: 'jpg' })
-const image520_jpg = await getImage({ src, width: 520, format: 'jpg' })
-const image1040_jpg = await getImage({ src, width: 1040, format: 'jpg' })
-const image2080_jpg = await getImage({ src, width: 2080, format: 'jpg' })
+const originalSize = (src as ImageMetadata).width
+const images: { format: ImageOutputFormat; size: number; src: string }[] = []
 
-const srcSetWebP = `${image260_webp.src} 260w, ${image520_webp.src} 520w, ${image1040_webp.src} 1040w, ${image2080_webp.src} 2080w`
-const srcSetPng = `${image260_jpg.src} 260w, ${image520_jpg.src} 520w, ${image1040_jpg.src} 1040w, ${image2080_jpg.src} 2080w`
+const srcFallback = await getImage({
+  src: src as ImageMetadata,
+  width: Number(width) / 2,
+  format: 'jpg'
+})
+
+for (const format of formats) {
+  for (const size of sizes) {
+    const image = await getImage({
+      src: src as ImageMetadata,
+      width: size,
+      format
+    })
+
+    // Check if the original image size is smaller than the target size,
+    // if the image is smaller, add the original size instead
+    images.push({
+      format,
+      size: originalSize >= size ? size : originalSize,
+      src: image.src
+    })
+  }
+}
+
+// Generate srcSet strings
+const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
+  const filteredImages = images.filter((img) => img.format === format)
+  acc[format] = filteredImages
+    .map((img) => `${img.src} ${img.size}w`)
+    .join(', ')
+  return acc
+}, {})
 ---
 
 <figure
@@ -59,19 +82,25 @@ const srcSetPng = `${image260_jpg.src} 260w, ${image520_jpg.src} 520w, ${image10
     ) : null
   }
   <picture>
-    <source
-      type="image/webp"
-      srcset={srcSetWebP}
-      sizes={`(min-width: ${width}) ${width}, 100vw`}
-    />
+    {
+      formats
+        .filter((format) => format !== 'jpg')
+        .map((format) => (
+          <source
+            type={`image/${format}`}
+            srcset={srcSetStrings[format]}
+            sizes={`(min-width: ${width}) ${width}, 100vw`}
+          />
+        ))
+    }
     <img
       width={width}
       height={height}
       sizes={`(min-width: ${width}) ${width}, 100vw`}
       decoding="async"
       loading="lazy"
-      src={image260_jpg.src}
-      srcset={srcSetPng}
+      src={srcFallback.src}
+      srcset={srcSetStrings['jpg']}
       alt={alt}
     />
   </picture>

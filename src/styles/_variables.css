@@ -116,7 +116,7 @@
   /* Misc.
   ///////////////////////////////////// */
 
-  --maxWidthContent: 40rem;
+  --maxWidthContent: 41rem;
   --easing: cubic-bezier(0.75, 0, 0.08, 100%);
 }
 

@@ -8,7 +8,7 @@ import More from '@components/More.astro'
 
 const articles = (await loadAndFormatCollection('articles')).slice(
   0,
-  11
+  6
 ) as CollectionEntry<'articles'>[]
 // const links = await loadAndFormatCollection('links')
 const photos = (await loadAndFormatCollection('photos')).slice(
@@ -18,7 +18,7 @@ const photos = (await loadAndFormatCollection('photos')).slice(
 ---
 
 <style>
-  .section {
+  .section:not(:first-of-type) {
     margin-top: calc(var(--spacer) * 1.5);
   }
 
@@ -44,17 +44,6 @@ const photos = (await loadAndFormatCollection('photos')).slice(
     font-size: var(--font-size-h3);
   }
 
-  .articlesLast {
-    margin-top: calc(var(--spacer) * 1.5);
-  }
-
-  @media (min-width: 40rem) {
-    .articlesLast {
-      gap: calc(var(--spacer) * 1.5);
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
   .photos {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -71,27 +60,15 @@ const photos = (await loadAndFormatCollection('photos')).slice(
   <section class="section">
     <h2 class="sectionTitle">Articles</h2>
     <div class="articles">
-      {
-        articles
-          .slice(0, 6)
-          .map((article) => <PostTeaser post={article} hideDate />)
-      }
+      {articles.map((article) => <PostTeaser post={article} hideDate />)}
     </div>
-    <div class="articles articlesLast">
-      {
-        articles
-          .slice(6, 9)
-          .map((article) => <PostTeaser post={article} hideDate />)
-      }
-    </div>
-
     <More href="/archive/1">All Articles & Links</More>
   </section>
 
   <section class="section">
     <h2 class="sectionTitle">Photos</h2>
     <div class="photos">
-      {photos.slice(0, 12).map((photo) => <PhotoTeaser post={photo} />)}
+      {photos.map((photo) => <PhotoTeaser post={photo} />)}
     </div>
 
     <More href="/photos/1">All Photos</More>

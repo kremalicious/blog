@@ -24,7 +24,7 @@ const fuseOptions: Fuse.IFuseOptions<
   threshold: 0.8
 }
 // TODO; figure out how to remove any
-const allPostsWithoutCurrent = allPosts.filter(
+const allPostsWithoutCurrent = allPosts?.filter(
   (post) => post.slug !== Astro.props.post.slug
 )
 const fuse = new Fuse(allPostsWithoutCurrent as any, fuseOptions)
