@@ -15,6 +15,10 @@ export async function getRepo(name: string) {
     })
   })
 
+  if (!response.ok) {
+    console.error(response)
+  }
+
   const json = await response.json()
 
   if (json.errors) {

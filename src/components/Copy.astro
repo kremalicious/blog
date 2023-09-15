@@ -8,7 +8,7 @@ type Props = {
 const { text } = Astro.props as Props
 ---
 
-<button-copy class="button-copy">
+<button-copy>
   <button class="button" title="Copy to clipboard" data-text={text}>
     <CopyIcon />
   </button>
@@ -24,7 +24,7 @@ const { text } = Astro.props as Props
       button?.addEventListener('click', () => {
         if (text && navigator?.clipboard) {
           navigator.clipboard.writeText(text)
-          button.parentElement?.classList.add('copied')
+          button?.classList.add('copied')
         }
       })
     }
@@ -34,17 +34,14 @@ const { text } = Astro.props as Props
 </script>
 
 <style>
-  .button-copy {
+  .button {
+    padding: calc(var(--spacer) / 3);
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     display: flex;
     align-items: center;
-  }
-
-  .button {
-    padding: calc(var(--spacer) / 3);
   }
 
   .button svg {

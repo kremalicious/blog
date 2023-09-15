@@ -51,7 +51,7 @@ describe('getRepo Function', () => {
     window.fetch = originalFetch
 
     expect(repoInfo).toBeUndefined()
-    expect(consoleMock).toHaveBeenCalledOnce()
+    expect(consoleMock).toHaveBeenCalled()
     expect(consoleMock).toHaveBeenLastCalledWith(['Mock error message'])
 
     consoleMock.mockReset()

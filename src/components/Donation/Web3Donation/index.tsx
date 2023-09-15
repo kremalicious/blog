@@ -64,6 +64,8 @@ export default function Web3Donation({
     }
   }
 
+  const isDisabled = !account
+
   return (
     <form
       className={styles.web3}
@@ -81,7 +83,7 @@ export default function Web3Donation({
           amount={amount}
           symbol={chain?.nativeCurrency?.symbol || 'ETH'}
           setAmount={setAmount}
-          isDisabled={!account}
+          isDisabled={isDisabled}
         />
       )}
     </form>

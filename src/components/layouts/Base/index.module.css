@@ -1,7 +1,7 @@
 .content {
   padding: 0 calc(var(--spacer) / 1.5);
   width: 100%;
-  max-width: var(--maxWidthContainer);
+  max-width: var(--maxWidthContent);
   margin-left: auto;
   margin-right: auto;
 }
@@ -49,13 +49,6 @@
   }
 }
 
-.container {
-  width: 100%;
-  max-width: var(--maxWidthContent);
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .wide {
   max-width: none;
 }
@@ -67,8 +60,8 @@
 
 @media (min-width: 60rem) {
   .breakout {
-    margin-left: -8rem;
-    margin-right: -8rem;
+    margin-left: -10rem;
+    margin-right: -10rem;
   }
 }
 

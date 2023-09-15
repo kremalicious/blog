@@ -11,7 +11,7 @@
 
 .headerContent {
   padding: 0 calc(var(--spacer) / 1.5);
-  max-width: var(--maxWidthContainer);
+  max-width: var(--maxWidthContent);
   margin-left: auto;
   margin-right: auto;
   position: relative;

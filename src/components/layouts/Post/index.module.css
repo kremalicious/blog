@@ -1,5 +1,4 @@
 .entry {
-  composes: container from '../Base/index.module.css';
   padding-bottom: var(--spacer);
 }
 

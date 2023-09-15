@@ -73,14 +73,14 @@ const photos = (await loadAndFormatCollection('photos')).slice(
     <div class="articles">
       {
         articles
-          .slice(0, 2)
+          .slice(0, 6)
           .map((article) => <PostTeaser post={article} hideDate />)
       }
     </div>
     <div class="articles articlesLast">
       {
         articles
-          .slice(2, 11)
+          .slice(6, 9)
           .map((article) => <PostTeaser post={article} hideDate />)
       }
     </div>
