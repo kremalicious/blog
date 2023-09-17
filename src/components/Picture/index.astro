@@ -89,14 +89,14 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
           <source
             type={`image/${format}`}
             srcset={srcSetStrings[format]}
-            sizes={`(min-width: ${width}) ${width}, 100vw`}
+            sizes={`(min-width: ${width}px) ${width}px, 100vw`}
           />
         ))
     }
     <img
       width={width}
       height={height}
-      sizes={`(min-width: ${width}) ${width}, 100vw`}
+      sizes={`(min-width: ${width}px) ${width}px, 100vw`}
       decoding="async"
       loading="lazy"
       src={srcFallback.src}

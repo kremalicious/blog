@@ -5,7 +5,7 @@
 # AWS_SECRET_ACCESS_KEY
 # AWS_DEFAULT_REGION
 AWS_S3_BUCKET="kremalicious.com"
-SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap.xml"
+SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap-index.xml"
 
 #
 set -e;
