@@ -2,138 +2,24 @@
 import '../../../styles/global.css'
 import '../../../styles/imports.css'
 
-import Footer from '@components/Footer/index.astro'
-import Header from '@components/Header/index.astro'
-import config from '@config/blog.config.ts'
-import styles from './index.module.css'
-import { getImage } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
-import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
 import type { CollectionEntry } from 'astro:content'
-import { getUmamiConfig } from '@lib/umami'
-import faviconSrc from '@images/favicon.png'
-import faviconSvgSrc from '@images/favicon.svg'
+import Header from '@components/Header/index.astro'
+import Footer from '@components/Footer/index.astro'
+import styles from './index.module.css'
+import Head from './Head.astro'
 
-type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
+export type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
   pageTitle?: string
   description?: string
   image?: ImageMetadata
 }
 
-const { title, pageTitle, description, style, image, date, updated } =
-  Astro.props
-
-const titleFinal =
-  title && title !== ''
-    ? `${title} ¦ ${config.siteTitle}`
-    : `${config.siteTitle} ¦ ${config.siteDescription}`
-
-const descriptionFinal = description
-  ? description.slice(0, 160)
-  : config.siteDescription
-
-const canonicalURL =
-  (Astro.url.pathname === '/'
-    ? Astro.site?.href.replace(/\/$/, '')
-    : `${Astro.site?.href}${Astro.url.pathname.split('/')[1]}`) ||
-  config.siteUrl
-
-const imageFinal = image
-  ? (await getImage({ src: image, width: 800, format: 'jpg' })).src.replace(
-      '/',
-      ''
-    )
-  : faviconSrc.src
-
-const schema: SchemaProps = {
-  title: titleFinal,
-  url: canonicalURL,
-  image: imageFinal,
-  description: descriptionFinal,
-  ...(date && { datePublished: date.toISOString().substring(0, 10) }),
-  ...(updated && { dateModified: updated.toISOString().substring(0, 10) })
-}
-
-const isProduction = import.meta.env.PROD
-const typekitID = import.meta.env.PUBLIC_TYPEKIT_ID
-const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
-
-const appleTouchIcon = await getImage({
-  src: faviconSrc,
-  width: 180,
-  height: 180,
-  format: 'png'
-})
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
+const { pageTitle } = Astro.props
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="generator" content={Astro.generator} />
-
-    <title>{titleFinal}</title>
-
-    <link rel="canonical" href={canonicalURL} />
-    <meta name="description" content={descriptionFinal} />
-    <meta property="og:title" content={titleFinal} />
-    <meta property="og:image" content={imageFinal} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content={config.author.twitter} />
-
-    <meta name="theme-color" content="" />
-    <meta name="msapplication-TileColor" content="" />
-
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
-    <link rel="apple-touch-icon" href={appleTouchIcon.src} />
-    <link rel="manifest" href="/manifest.json" />
-
-    <link
-      rel="alternate"
-      title="kremalicious RSS Feed"
-      type="application/rss+xml"
-      href="/feed.xml"
-    />
-    <link
-      rel="alternate"
-      title="kremalicious JSON Feed"
-      type="application/json"
-      href="/feed.json"
-    />
-
-    <SchemaOrg {...schema} />
-
-    <link rel="sitemap" href="/sitemap-index.xml" />
-
-    {
-      typekitID && (
-        <link
-          rel="stylesheet"
-          href={`https://use.typekit.net/${typekitID}.css`}
-        />
-      )
-    }
-
-    {style && <link rel="stylesheet" href={style} />}
-
-    {
-      isProduction && (
-        <script
-          async
-          src={UMAMI_SCRIPT_URL}
-          data-website-id={UMAMI_WEBSITE_ID}
-        />
-      )
-    }
-  </head>
-
+  <Head {...Astro.props} />
   <body>
     <Header />
 

@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
 import config from '@config/blog.config.ts'
 import { getAllPosts } from '@lib/astro'
-import { getPostFeedContent } from '@lib/feed'
+import { getFeedContent } from '@lib/feed'
 import type { AstroConfig } from 'astro'
 
 const { siteTitle, siteDescription } = config
@@ -13,8 +13,8 @@ export async function GET(context: AstroConfig) {
     allPostsSorted.map(async (post) => ({
       title: post.data.title,
       pubDate: post.data.date as Date,
-      link: `/${post.slug}/`,
-      content: await getPostFeedContent(post)
+      link: `${context.site}${post.slug}/`,
+      content: await getFeedContent(post)
     }))
   )
 

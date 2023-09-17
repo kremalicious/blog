@@ -1,14 +1,14 @@
 import { it, describe, expect } from 'vitest'
-import { getPostFeedContent } from './feed'
+import { getFeedContent } from './feed'
 
-describe('getPostFeedContent Function', () => {
+describe('getFeedContent', () => {
   it('should generate post feed content with an image', async () => {
     const mockPost = {
       body: 'Mock post content in markdown format',
       data: { image: { src: 'https://example.com/image.jpg' } }
     }
 
-    const feedContent = await getPostFeedContent(mockPost as any)
+    const feedContent = await getFeedContent(mockPost as any)
 
     expect(feedContent).toContain('<img src="https://example.com/image.jpg" />')
     expect(feedContent).toContain('Mock post content in markdown format')
@@ -23,7 +23,7 @@ describe('getPostFeedContent Function', () => {
       data: {}
     }
 
-    const feedContent = await getPostFeedContent(mockPost as any)
+    const feedContent = await getFeedContent(mockPost as any)
 
     expect(feedContent).not.toContain('<img src="')
     expect(feedContent).toContain('Mock post content in markdown format')
