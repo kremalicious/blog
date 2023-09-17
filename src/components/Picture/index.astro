@@ -24,26 +24,26 @@ const {
 } = Astro.props
 
 const formats: ImageOutputFormat[] = ['avif', 'webp', 'jpg']
-const sizes = [Number(width) / 2, Number(width), Number(width) * 2]
+const sizes = [
+  Math.round(Number(width) / 2),
+  Number(width),
+  Math.round(Number(width) * 2)
+]
 
 const originalSize = (src as ImageMetadata).width
 const images: { format: ImageOutputFormat; size: number; src: string }[] = []
 
 const srcFallback = await getImage({
   src: src as ImageMetadata,
-  width: Number(width) / 2,
+  width: Math.round(Number(width) / 2),
   format: 'jpg'
 })
 
 for (const format of formats) {
   for (const size of sizes) {
-    const image = await getImage({
-      src: src as ImageMetadata,
-      width: size,
-      format
-    })
+    const image = await getImage({ src, width: size, format })
 
-    // Check if the original image size is smaller than the target size,
+    // Check if the original image is smaller than the target size,
     // if the image is smaller, add the original size instead
     images.push({
       format,
