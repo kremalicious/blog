@@ -1,6 +1,7 @@
 .title {
   font-size: var(--font-size-h3);
   margin-bottom: var(--spacer);
+  color: var(--text-color-light);
 }
 
 .relatedPosts ul {
@@ -39,13 +40,8 @@
   margin-bottom: 0;
 }
 
-.relatedPosts a h4 {
-  color: var(--text-color-light);
-}
-
-.relatedPosts a:hover h4,
-.relatedPosts a:focus h4 {
-  color: var(--link-color);
+.relatedPosts a h1 {
+  font-size: var(--font-size-h4);
 }
 
 .button {

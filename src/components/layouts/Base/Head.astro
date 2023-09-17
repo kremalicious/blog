@@ -31,6 +31,8 @@ const imageFinal = `${Astro.site?.origin}${
     : faviconSrc.src
 }`
 
+const imageFinalAlt = image ? `Teaser image for ${title}` : `Logo`
+
 const schema: SchemaProps = {
   title: titleFinal,
   url: canonicalURL as string,
@@ -68,6 +70,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <meta name="description" content={descriptionFinal} />
   <meta property="og:title" content={titleFinal} />
   <meta property="og:image" content={imageFinal} />
+  <meta property="og:image:alt" content={imageFinalAlt} />
   <meta property="og:url" content={canonicalURL} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content={config.author.twitter} />

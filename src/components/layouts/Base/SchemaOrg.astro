@@ -14,43 +14,38 @@ const { title, url, image, description, datePublished, dateModified } =
   Astro.props
 const { siteUrl, siteTitle, author } = config
 
-const schema = [
-  ...[
-    datePublished
-      ? {
-          '@context': 'http://schema.org',
-          '@type': 'BlogPosting',
-          author: {
-            '@type': 'Person',
-            name: author.name
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: author.name
-          },
-          url: url,
-          name: title,
-          headline: title,
-          image: {
-            '@type': 'ImageObject',
-            url: image
-          },
-          description: description,
-          datePublished: datePublished,
-          dateModified: dateModified || datePublished,
-          mainEntityOfPage: {
-            '@type': 'Blog',
-            '@id': siteUrl
-          }
-        }
-      : {
-          '@context': 'http://schema.org',
-          '@type': 'Blog',
-          url: siteUrl,
-          name: siteTitle
-        }
-  ]
-]
+const schema = datePublished
+  ? {
+      '@context': 'http://schema.org',
+      '@type': 'BlogPosting',
+      author: {
+        '@type': 'Person',
+        name: author.name
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: author.name
+      },
+      url,
+      headline: title,
+      image: {
+        '@type': 'ImageObject',
+        url: image
+      },
+      description,
+      datePublished,
+      dateModified: dateModified || datePublished,
+      mainEntityOfPage: {
+        '@type': 'Blog',
+        '@id': siteUrl
+      }
+    }
+  : {
+      '@context': 'http://schema.org',
+      '@type': 'Blog',
+      url: siteUrl,
+      name: siteTitle
+    }
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
