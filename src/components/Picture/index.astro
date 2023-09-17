@@ -3,12 +3,8 @@ import { getImage } from 'astro:assets'
 import styles from './index.module.css'
 import type { ImageMetadata, ImageOutputFormat } from 'astro'
 
-type Props = {
+type Props = HTMLImageElement & {
   src: ImageMetadata
-  alt: string
-  width: number
-  height?: number
-  title?: string
   class?: string
   objectFit?: boolean
 }
@@ -30,11 +26,11 @@ const sizes = [
   Math.round(Number(width) * 2)
 ]
 
-const originalSize = (src as ImageMetadata).width
+const originalSize = src.width
 const images: { format: ImageOutputFormat; size: number; src: string }[] = []
 
 const srcFallback = await getImage({
-  src: src as ImageMetadata,
+  src,
   width: Math.round(Number(width) / 2),
   format: 'jpg'
 })
@@ -72,8 +68,6 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
     objectFit ? (
       <div style={`max-width:${width}px;display:block`}>
         <img
-          alt=""
-          role="presentation"
           aria-hidden="true"
           src={`data:image/svg+xml;charset=utf-8,%3Csvg%20height="${height}"%20width="${width}"%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E`}
           style="max-width:100%;display:block;position:static"

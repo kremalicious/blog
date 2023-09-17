@@ -8,7 +8,7 @@ import More from '@components/More.astro'
 
 const articles = (await loadAndFormatCollection('articles')).slice(
   0,
-  6
+  4
 ) as CollectionEntry<'articles'>[]
 // const links = await loadAndFormatCollection('links')
 const photos = (await loadAndFormatCollection('photos')).slice(
