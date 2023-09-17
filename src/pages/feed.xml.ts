@@ -13,7 +13,7 @@ export async function GET(context: AstroConfig) {
     allPostsSorted.map(async (post) => ({
       title: post.data.title,
       pubDate: post.data.date as Date,
-      link: `${context.site}${post.slug}/`,
+      link: `${context.site}${post.slug}`,
       content: await getFeedContent(post)
     }))
   )

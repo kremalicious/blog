@@ -20,7 +20,7 @@ export async function GET(context: AstroConfig) {
   const items = await Promise.all(
     allPostsSorted.map(async (post) => ({
       id: post.id,
-      url: `${context.site}${post.slug}/`,
+      url: `${context.site}${post.slug}`,
       title: post.data.title,
       date_published: post.data.date as Date,
       ...(post.data.updated && { date_modified: post.data.updated as Date }),
