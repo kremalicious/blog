@@ -75,7 +75,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13]
+        os: [ubuntu-latest]
         node: ['18']
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
@@ -105,7 +105,7 @@ jobs:
       - name: Cache Astro build output
         uses: actions/cache@v3
         with:
-          path: ${{ github.workspace }}/dist
+          path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci

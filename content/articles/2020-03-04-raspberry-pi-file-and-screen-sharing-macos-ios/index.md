@@ -122,7 +122,7 @@ In there, scroll down to the `[homes]` section and set `read only = no` to make 
 
 To share more resources like an external drive, add another section at the end of your `smb.conf` and make it fully writable:
 
-```text title="smb.conf"
+```title="smb.conf"
 [sharename]
     path = /mnt/myexternaldrive/
     read only = no

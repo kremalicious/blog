@@ -11,6 +11,7 @@ import config from './blog.config'
 export default defineConfig({
   site: config.siteUrl,
   output: 'static',
+  cacheDir: '.astro',
   markdown: {
     remarkPlugins: [remarkLeadParagraph, remarkToc as any],
     shikiConfig: {
