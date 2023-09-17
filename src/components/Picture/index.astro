@@ -41,7 +41,7 @@ const srcFallback = await getImage({
 
 for (const format of formats) {
   for (const size of sizes) {
-    const image = await getImage({ src, width: size, format })
+    const image = await getImage({ src, width: size, format, quality: 75 })
 
     // Check if the original image is smaller than the target size,
     // if the image is smaller, add the original size instead
