@@ -106,7 +106,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/dist
-          key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('dist/**/*.html', 'dist/**/*.js', 'dist/**/*.css', 'dist/**/*.jpg') }}
+          key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci
       - run: npm run build
