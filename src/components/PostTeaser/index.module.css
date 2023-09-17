@@ -16,6 +16,10 @@
   display: block;
 }
 
+.post + .post {
+  margin-top: calc(var(--spacer) * var(--line-height));
+}
+
 .post:hover {
   text-decoration: none;
 }

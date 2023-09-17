@@ -27,24 +27,9 @@ const photos = (await loadAndFormatCollection('photos')).slice(
     color: var(--text-color-light);
   }
 
-  .articles,
   .photos {
     display: grid;
     gap: var(--spacer);
-  }
-
-  @media (min-width: 40rem) {
-    .articles {
-      gap: calc(var(--spacer) * 1.5);
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .articles:first-of-type :global(h1) {
-    font-size: var(--font-size-h3);
-  }
-
-  .photos {
     grid-template-columns: repeat(2, 1fr);
   }
 
