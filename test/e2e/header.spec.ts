@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('matches screenshot', async ({ page }) => {
-  await expect(page.locator('header[role="banner"]')).toHaveScreenshot()
+  await expect(page.locator('header[aria-label="Header"]')).toHaveScreenshot()
 })
 
 test('all menu buttons are present', async ({ page }) => {
