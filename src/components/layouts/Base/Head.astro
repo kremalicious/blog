@@ -25,12 +25,11 @@ const canonicalURL =
     ? Astro.site?.origin
     : `${Astro.site?.origin}${Astro.url.pathname}`
 
-const imageFinal = image
-  ? (await getImage({ src: image, width: 800, format: 'jpg' })).src.replace(
-      '/',
-      ''
-    )
-  : faviconSrc.src
+const imageFinal = `${Astro.site?.origin}${
+  image
+    ? (await getImage({ src: image, width: 800, format: 'jpg' })).src
+    : faviconSrc.src
+}`
 
 const schema: SchemaProps = {
   title: titleFinal,
@@ -68,7 +67,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <link rel="canonical" href={canonicalURL} />
   <meta name="description" content={descriptionFinal} />
   <meta property="og:title" content={titleFinal} />
-  <meta property="og:image" content={`${Astro.site?.origin}${imageFinal}`} />
+  <meta property="og:image" content={imageFinal} />
   <meta property="og:url" content={canonicalURL} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:creator" content={config.author.twitter} />

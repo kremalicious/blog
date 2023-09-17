@@ -1,10 +1,12 @@
 ---
-import { getImage } from 'astro:assets'
+import { getImage, type ImgAttributes } from 'astro:assets'
 import styles from './index.module.css'
 import type { ImageMetadata, ImageOutputFormat } from 'astro'
 
-type Props = HTMLImageElement & {
+type Props = ImgAttributes & {
   src: ImageMetadata
+  width: number
+  height?: number
   class?: string
   objectFit?: boolean
 }
