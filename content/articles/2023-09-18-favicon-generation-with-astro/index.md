@@ -1,5 +1,5 @@
 ---
-date: 2023-09-15T12:02:30.000Z
+date: 2023-09-18T00:47:30.000Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -10,7 +10,6 @@ tags:
   - astro
 
 toc: true
-draft: true
 ---
 
 Those small but impactful icons displayed next to a website's title in a browser tab seem like a minor detail, yet implementing favicons involves various considerations for different formats and sizes to fit a range of devices and browsers. Luckily, we can always count on Evil Martians to tell us [which files are needed](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs) in modern times. Those findings can be implemented quite easy in Astro.
