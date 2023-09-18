@@ -1,0 +1,28 @@
+.title {
+  margin-top: 0;
+  margin-bottom: calc(var(--spacer) / 8);
+}
+
+.titleLink {
+  font-size: var(--font-size-h3);
+}
+
+.titleLink svg {
+  width: var(--font-size-base);
+  height: var(--font-size-base);
+  display: inline-block;
+  stroke: var(--text-color-light);
+  margin-bottom: -0.1rem;
+  margin-left: 0.3rem;
+}
+
+.linkurl {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  color: var(--text-color-light);
+  margin-bottom: var(--spacer);
+}

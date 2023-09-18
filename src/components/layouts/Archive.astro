@@ -1,0 +1,58 @@
+---
+import LayoutBase from '@layouts/Base/index.astro'
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+import PostTeaser from '@components/PostTeaser/index.astro'
+import Pagination from '@components/Pagination/index.astro'
+import PhotoTeaser from '@components/PhotoTeaser.astro'
+
+type Props = {
+  page: Page<CollectionEntry<'articles' | 'links' | 'photos'>>
+  title: string
+  pageTitle: string
+}
+
+const { page, title, pageTitle } = Astro.props
+const classes = `posts ${
+  title && title !== '' && title.toLowerCase().includes('photos')
+    ? 'photos'
+    : ''
+}`
+---
+
+<style>
+  .photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 40rem) {
+    .photos {
+      gap: calc(var(--spacer) * 1.5);
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+</style>
+
+<LayoutBase title={title} pageTitle={pageTitle}>
+  <div class={classes}>
+    {
+      page?.data?.map((post) =>
+        post.collection === 'photos' ? (
+          <PhotoTeaser post={post} />
+        ) : (
+          <PostTeaser post={post} />
+        )
+      )
+    }
+  </div>
+
+  {
+    page.currentPage && (
+      <Pagination
+        currentPage={page.currentPage}
+        numPages={page.lastPage}
+        slug={`/${Astro.url.pathname.split('/')[1]}`}
+      />
+    )
+  }
+</LayoutBase>

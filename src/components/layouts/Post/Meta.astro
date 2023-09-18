@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import slugify from '@lib/slugify'
+import config from '@config/blog.config.ts'
+import Tag from '@components/Tag.astro'
+import styles from './Meta.module.css'
+import Date from './Date.astro'
+
+type Props = {
+  post: CollectionEntry<'articles' | 'links' | 'photos'>
+}
+
+const { collection, data } = Astro.props.post
+const { date, updated, author, tags } = data
+---
+
+<footer class={styles.entryMeta}>
+  <div class={styles.byline}>
+    <span class={styles.by}>by</span>
+    <a class="fn" rel="author" href={config.author.url}>
+      {author || config.author.name}
+    </a>
+  </div>
+
+  <Date date={date} updated={updated} />
+
+  {
+    collection === 'photos' && (
+      <div class={styles.type}>
+        <a href={`/${slugify(collection)}/`}>{collection}</a>
+      </div>
+    )
+  }
+
+  {
+    tags && (
+      <div class={styles.tags}>
+        {tags.map((tag: string) => (
+          <Tag name={slugify(tag)} url={`/tags/${slugify(tag)}/`} />
+        ))}
+      </div>
+    )
+  }
+</footer>

@@ -2,7 +2,7 @@
 date: 2019-10-24T00:00:00.000Z
 
 title: Ocean Protocol and IPFS, Sitting In The Merkle Tree
-image: ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png
+image: ./ocean-protocol-and-ipfs-sitting-in-the-merkle-tree-teaser.png
 
 tags:
   - oceanprotocol
@@ -52,17 +52,17 @@ Every file stored on IPFS is public by default, so it made perfect sense using t
 
 During the publish flow you will find an extended _Files_ section for adding a file from an existing URL, and for adding a local file from your device to IPFS.
 
-![Add existing IPFS asset under commons.oceanprotocol.com/publish](add-url.png)
+![Add existing IPFS asset under commons.oceanprotocol.com/publish](./add-url.png)
 
 The existing URL field now supports `ipfs://` in addition to `http(s)://` so if you have an existing asset on IPFS, you can add it here and everything works as before. With the exception that the asset files will be registered with this native IPFS URL.
 
 The new IPFS drop zone provides a convenient way to add and register unpublished asset files.
 
-![Add to IPFS from a local file under commons.oceanprotocol.com/publish](add-to-ipfs.png)
+![Add to IPFS from a local file under commons.oceanprotocol.com/publish](./add-to-ipfs.png)
 
 That drop zone allows you to add a file from your local machine and add it to IPFS during the asset publish flow in a snap:
 
-![The full IPFS adding flow](add.gif)
+![The full IPFS adding flow](./add.gif)
 
 ### The Tech Details
 
@@ -95,7 +95,7 @@ While developing this feature, it became clear we need to run our own IPFS node 
 
 So we created **ipfs.oceanprotocol.com**, run by us (that is, legally speaking, BigchainDB GmbH).
 
-![Frontpage for ipfs.oceanprotocol.com](ipfs-oceanprotocol.png)
+![Frontpage for ipfs.oceanprotocol.com](./ipfs-oceanprotocol.png)
 
 It is setup to be a public gateway, and provide some access to its node HTTP API for everyone. This means you can use it to address any content in the IPFS network, like:
 

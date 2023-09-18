@@ -1,0 +1,140 @@
+/* stylelint-disable custom-property-empty-line-before */
+
+:root {
+  /* Colors
+  ///////////////////////////////////// */
+
+  --brand-main: #015565;
+  --brand-cyan: #43a699;
+  --brand-main-light: #88bec8;
+  --brand-light: #e7eef4;
+
+  --brand-grey: #4e5d63;
+  --brand-grey-dark: #323c41;
+  --brand-grey-light: #7f97a1;
+  --brand-grey-dimmed: #c3d8e0;
+
+  --alert-info: rgb(248 241 227);
+  --alert-success: #dff0d8;
+  --alert-error: #f2dede;
+
+  /* Backgrounds
+  ///////////////////////////////////// */
+
+  --body-background-color: var(--brand-light);
+  --box-background-color: rgba(255 255 255 / 40%);
+
+  --box-shadow: 0 1.3px 5.4px rgba(1 85 101 / 15%),
+    0 4.5px 18.1px rgba(1 85 101 / 5%), 0 20px 81px rgba(1 85 101 / 2.5%);
+
+  /* Text Colors
+  ///////////////////////////////////// */
+
+  --text-color: var(--brand-grey);
+  --text-color-light: var(--brand-grey-light);
+  --text-color-dimmed: var(--brand-grey-dimmed);
+  --color-headings: var(--brand-main);
+  --link-color: var(--brand-cyan);
+  --link-color-hover: #4ab8a9;
+  --border-color: var(--brand-grey-dimmed);
+
+  /* Base Typography
+  ///////////////////////////////////// */
+
+  --font-size-root: 18px;
+
+  --font-size-base: 1rem;
+  --font-size-large: 1.15rem;
+  --font-size-small: 0.85rem;
+  --font-size-mini: 0.7rem;
+
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.2rem;
+  --font-size-h5: var(--font-size-large);
+  --font-size-h6: var(--font-size-base);
+
+  --line-height: 1.65;
+  --line-height-small: 1.1429;
+
+  --font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
+    'Helvetica', 'Arial', 'sans-serif';
+  --font-weight-base: 400;
+  --font-weight-bold: 600;
+
+  --font-family-monospace: 'SF Mono', sfmono-regular, ui-monospace,
+    'DejaVu Sans Mono', menlo, consolas, monospace;
+
+  /* Headings
+  ///////////////////////////////////// */
+
+  --font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
+    'Helvetica', 'Arial', 'sans-serif';
+  --font-weight-headings: 700;
+  --line-height-headings: 1.2;
+
+  /* Spacing
+  ///////////////////////////////////// */
+
+  --spacer: 2rem;
+  --padding-base-vertical: 0.75rem;
+  --padding-base-horizontal: 1.25rem;
+
+  --border-radius: 0.25rem;
+  --border-width: 0.125rem;
+
+  /* Code
+  ///////////////////////////////////// */
+
+  --code-color: var(--brand-grey-light);
+  --kbd-color: var(--code-color);
+
+  /* Responsive breakpoints
+  ///////////////////////////////////// */
+
+  --screen-xs: 30rem;
+  --screen-sm: 40rem;
+  --screen-md: 60rem;
+  --screen-lg: 87.5rem;
+
+  /* Forms
+  ///////////////////////////////////// */
+
+  --input-bg: var(--body-background-color);
+  --input-bg-disabled: var(--brand-grey-light);
+
+  --input-font-size: var(--font-size-base);
+  --input-font-weight: var(--font-weight-base);
+
+  --input-color: var(--text-color);
+  --input-color-placeholder: var(--text-color-light);
+
+  --input-border: var(--border-color);
+  --input-border-focus: var(--brand-cyan);
+
+  /* Misc.
+  ///////////////////////////////////// */
+
+  --maxWidthContent: 41rem;
+  --easing: cubic-bezier(0.75, 0, 0.08, 100%);
+}
+
+[data-theme='dark'] {
+  --body-background-color: #161a1b;
+  --box-background-color: rgba(255 255 255 / 3%);
+
+  --box-shadow: 0 1.3px 5.4px rgba(0 7 8 / 50%),
+    0 4.5px 18.1px rgba(0 7 8 / 30%), 0 20px 81px rgba(0 7 8 / 10%);
+
+  --text-color: var(--brand-grey-light);
+  --text-color-light: var(--brand-grey);
+  --text-color-dimmed: var(--brand-grey-dark);
+  --border-color: #253034;
+  --color-headings: var(--brand-main-light);
+
+  --input-bg: var(--body-background-color);
+  --input-color: var(--text-color);
+}
+
+/* stylelint-enable custom-property-empty-line-before */

@@ -1,0 +1,38 @@
+---
+import PostTitle from '../layouts/Post/Title.astro'
+import styles from './index.module.css'
+import Picture from '@components/Picture/index.astro'
+import type { CollectionEntry } from 'astro:content'
+
+type Props = {
+  post: CollectionEntry<'articles' | 'links'>
+  hideDate?: boolean
+}
+
+const { post, hideDate } = Astro.props
+const { slug } = post
+const { title, date, updated } = post.data
+const { image } = post.data as CollectionEntry<'articles'>['data']
+---
+
+<a class={styles.post} href={`/${slug}`}>
+  {
+    image ? (
+      <Picture
+        class={styles.image}
+        src={image}
+        alt={title}
+        width={686}
+        height={200}
+        objectFit
+      />
+    ) : null
+  }
+
+  <PostTitle
+    title={title}
+    date={hideDate ? undefined : date}
+    updated={updated}
+    className={styles.title}
+  />
+</a>

@@ -2,7 +2,7 @@
 date: 2021-07-29T00:00:00.000Z
 
 title: Ocean Makes Multi-Network Even Easier
-image: ocean-makes-multi-network-even-easier-teaser.png
+image: ./ocean-makes-multi-network-even-easier-teaser.png
 
 tags:
   - oceanprotocol
@@ -38,23 +38,23 @@ So we sat down and figured out the best patterns to solve these main pain points
 
 ## 🧜‍♀️ Multi-Network Market
 
-![Leeloo agrees words with “multi” in front are better.](multinetwork-01.jpeg)
+![Leeloo agrees words with “multi” in front are better.](./multinetwork-01.jpeg)
 
 Ultimately, we arrived at a solution tackling all this, where the main new paradigm is an interface showing assets mixed from multiple networks. All the time and on every screen where assets are listed. This detaches the metadata and financial data source from the user’s wallet network as it was before.
 
 The displayed networks are now controlled by the new network selector.
 
-![The new network selector and revised menubar in the Ocean Market interface.](multinetwork-02.png)
+![The new network selector and revised menubar in the Ocean Market interface.](./multinetwork-02.png)
 
 By default, we auto-select all production networks Ocean Protocol is deployed to. As soon as you interact with this new network switcher, your selection takes over and is saved in your browser so it will be the same the next time you come to the market.
 
 Selecting or de-selecting networks then modifies all Elasticsearch queries going to our new Aquarius, resulting in mixed assets on screen.
 
-![Mixed assets from multiple networks.](multinetwork-03.png)
+![Mixed assets from multiple networks.](./multinetwork-03.png)
 
 All assets now indicate which network they belong to, and you are prompted to switch to the asset’s network when we detect your wallet being connected to another network.
 
-![One remaining place where user wallet switching is still important.](multinetwork-04.png)
+![One remaining place where user wallet switching is still important.](./multinetwork-04.png)
 
 And in the case of using MetaMask, we added actions to switch your wallet network directly from the UI, which, as of right now, is pretty much the most streamlined user flow possible to switch networks with MetaMask from a Dapp.
 
@@ -62,15 +62,15 @@ With all this, wallet network switching is now only needed once you want to inte
 
 User wallet network also stays important for publishing an asset, so we based the whole publish form on the currently connected network to define onto which network an asset is published.
 
-![Publish form with network indicator.](multinetwork-05.png)
+![Publish form with network indicator.](./multinetwork-05.png)
 
 As for our key market statistics in the footer, we switched it to show consolidated numbers as a sum of all production networks. In its tooltip, you can find the values split up by network.
 
-![New consolidated market statistics based on each network.](multinetwork-06.png)
+![New consolidated market statistics based on each network.](./multinetwork-06.png)
 
 More assets on screen and more controls also led to further UI tweaks to get more space available to the actual main content. We completely refactored the main menu layout, added a global search box to it, and moved some warnings around. And, while we were at it, improved the mobile experience for it. ✨✨
 
-![Everything you need from our menu is all there in mobile viewports.](multinetwork-07.png)
+![Everything you need from our menu is all there in mobile viewports.](./multinetwork-07.png)
 
 And finally, we also automatically migrate all your existing bookmarks from all the networks and combine them into one list.
 
@@ -101,7 +101,7 @@ In addition to making an interface with mixed assets possible, this also brings 
 
 So multiple Aquarius instances are now reduced to one instance, where for every network a specific indexer is started. The [Aquarius API](https://docs.oceanprotocol.com/references/aquarius/) got a new endpoint exposing which chains are indexed under `/api/v1/aquarius/chains/list`.
 
-![`/chains/list` endpoint response exposing indexed chain IDs](multinetwork-08.png)
+![`/chains/list` endpoint response exposing indexed chain IDs](./multinetwork-08.png)
 
 ### Migration to Multi-Network Aquarius
 

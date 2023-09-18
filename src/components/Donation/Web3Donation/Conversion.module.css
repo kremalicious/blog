@@ -1,0 +1,12 @@
+.conversion {
+  font-size: var(--font-size-mini);
+  color: var(--text-color-light);
+  text-align: left;
+  margin-top: 0;
+  margin-left: calc(var(--spacer) * 2.4);
+  animation: fadeIn 0.5s 0.8s ease-out backwards;
+}
+
+.conversion span {
+  margin-left: calc(var(--spacer) / 2);
+}

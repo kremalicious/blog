@@ -1,0 +1,25 @@
+---
+import Time from '@components/Time.astro'
+
+type Props = {
+  date: Date | undefined
+  updated?: Date
+}
+
+const { date, updated } = Astro.props
+---
+
+<style>
+  .date {
+    font-style: italic;
+    font-size: var(--font-size-small);
+    color: var(--text-color-light);
+    margin-bottom: calc(var(--spacer) / 2);
+  }
+</style>
+
+<div class="date">
+  <Time date={date} />
+  {updated && ' • updated '}
+  {updated && <Time date={updated} />}
+</div>

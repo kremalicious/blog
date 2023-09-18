@@ -1,9 +1,9 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2021-11-29T00:25:12+00:00
+updated: 2023-09-11T00:25:12+00:00
 
 title: /uses
-image: uses-teaser.png
+image: ./uses-teaser.png
 
 tags:
   - personal
@@ -21,20 +21,30 @@ A continuously updated list of devices, tools, and services I use to get digital
 
 ## Hardware
 
-![The essentials.](uses-devices.png)
+![The essentials.](./uses-devices.png)
 
 My office is where my MacBook is, all these devices go wherever I travel to:
 
-- **[MacBook Pro (16-inch, 2019)](https://www.apple.com/macbook-pro-16/)**  
-  _Space Gray, 2.6GHz 6-Core Intel Core i7, 16 GB RAM, 512GB SSD, AMD Radeon Pro 5300M 4GB, US International keyboard_
-
-- **[iPhone 11 Pro](https://www.apple.com/iphone-11-pro/)**  
-  _Space Gray, 256GB_
+- **[MacBook Air M2 (13-inch, 2022)](https://www.apple.com/macbook-air-13-and-15-m2/)**  
+  _Midnight, M2 with 8-core CPU and 10-core GPU, 16 GB RAM, 1TB SSD, US International keyboard_
+  
+- **[iPhone 14](https://www.apple.com/iphone-14/)**  
+  _Midnight, 128GB_
 
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**
 
 - **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**  
   _Space Gray, 512GB, WiFi + Cellular_
+
+- **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
+  _40mm Space Gray Aluminum Case, Black Solo Loop_
+
+- **[Kindle Paperwhite 11th Gen](https://www.amazon.com/dp/B08KTZ8249)**
+
+Additionally, using the following devices in my homebase, those only leave my desk for longer trips:
+
+- **[MacBook Pro (16-inch, 2019)](https://www.apple.com/macbook-pro-16/)**  
+  _Space Gray, 2.6GHz 6-Core Intel Core i7, 16 GB RAM, 512GB SSD, AMD Radeon Pro 5300M 4GB, US International keyboard_
 
 - **[Logitech MX Master 3 for Mac](https://www.logitech.com/en-us/products/mice/mx-master-3-mac-wireless-mouse.910-005693.html)**  
   _Black & Space Gray_
@@ -42,13 +52,8 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 - **[Satechi Slim X1 Bluetooth Backlit Keyboard](https://satechi.net/products/slim-x1-bluetooth-backlit-keyboard)**  
   _US, Space Gray_
 
-- **[Apple Watch Series 5](https://www.apple.com/apple-watch-series-5/)**  
-  _40mm Space Gray Aluminum Case, Black Solo Loop_
-
 - **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**  
   _4GB RAM_
-
-- **[Kindle Paperwhite 11th Gen](https://www.amazon.com/dp/B08KTZ8249)**
 
 ## Software
 
@@ -63,19 +68,13 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 ### File Storage & Sync
 
 - **Finder & Files**  
-  So simple, yet powerful. I use Finder & the iOS Files app to access all my files from multiple sources: iCloud, Tresorit, SSH servers through [Secure ShellFish](https://secureshellfish.app), local [network drives attached to my Raspberry Pi](/raspberry-pi-file-and-screen-sharing-macos-ios).
+  So simple, yet powerful. I use Finder & the iOS Files app to access all my files from multiple sources: iCloud, SSH servers through [Secure ShellFish](https://secureshellfish.app), local [network drives attached to my Raspberry Pi](/raspberry-pi-file-and-screen-sharing-macos-ios), or version controlled projects in WorkingCopy.
 
 - **[iCloud Drive, 2 TB](https://www.icloud.com)**  
-  I have used Dropbox Pro for many years but it became too clunky and Apple's version turned into what I wanted Dropbox to be. Most of my non-code related files live there and are happily synced.
-
-- **[Tresorit Premium, 1 TB](https://tresorit.com)**  
-  Holds all the personal and sensitive documents. Works like Dropbox or iCloud Drive but with end-to-end encryption with my own private keys, and some nicely paranoid sharing features.
+  I have used Dropbox Pro for many years but it became too clunky and Apple's version turned into what I wanted Dropbox to be. Most of my non-code related files live there and are happily synced. Since [Advanced Data Protection](https://support.apple.com/guide/security/advanced-data-protection-for-icloud-sec973254c5f/web) also replaces [Tresorit](https://tresorit.com) for me.
 
 - **[Scanner Pro](https://readdle.com/scannerpro)**  
   Listed here because this app on my iPhone makes every piece of paper coming across my desk into a digital file helping me maintain a **paperless office**. Works like a charm with any document in multiple languages making them searchable with OCR. Every scan I do with it produces a high quality black & white PDF file, ready for digital filing. This gives me quick access to every official document I might need to give to someone no matter where I am in the world. Scanned paper documents are then destroyed and put into recycling.
-
-- **[Google Drive](https://www.google.com/drive/) & [Google Docs](https://docs.google.com)**  
-  Only used for work accounts, and only within the browser. It still deeply confuses me and never use it for personal stuff.
 
 ### Browsing
 
@@ -99,9 +98,9 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 
 ### Development
 
-![Terminal.app: Nord, SF Mono, Pure](terminal.png)
-![VS Code dark theme: Nord, SF Mono](vscode-dark.png)
-![VS Code light theme: Polar, SF Mono](vscode-light.png)
+![Terminal.app: Nord, SF Mono, Pure](./terminal.png)
+![VS Code dark theme: Nord, SF Mono](./vscode-dark.png)
+![VS Code light theme: Polar, SF Mono](./vscode-light.png)
 
 - **[VS Code](https://code.visualstudio.com)**  
   From Notepad, to Dreamweaver, to CSS Edit, to Coda, to Espresso, to TextMate, to Atom, and now I arrived at VS Code. Its feature set, coding experience, and ecosystem far outweigh the Electron drawbacks, and at least it is the most performant Electron app I know. I still miss [Espresso](https://www.espressoapp.com) as my personal gold standard for how a code editor UI on macOS should look and behave. Using only a small set of extensions mostly for automatic code formatting based on various tools:

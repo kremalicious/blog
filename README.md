@@ -2,7 +2,7 @@
   <a href="https://kremalicious.com"><img src="https://raw.githubusercontent.com/kremalicious/portfolio/main/public/github-header.png" /></a>
  </p>
 <p align="center">
-  <strong>🍭 My blog built with <a href="http://gatsbyjs.org">Gatsby</a> + TypeScript. Neat.</strong>
+  <strong>🍭 My blog built with <a href="https://astro.build">Astro</a> + TypeScript. Neat.</strong>
 </p>
 <p align="center">
   <a href="https://kremalicious.com">kremalicious.com</a>
@@ -16,20 +16,22 @@
 ---
 
 - [🎉 Features](#-features)
+  - [🌅 Image handling](#-image-handling)
   - [🎆 EXIF extraction](#-exif-extraction)
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
-  - [🏆 SEO component](#-seo-component)
-  - [gatsby-redirect-from](#gatsby-redirect-from)
-  - [💎 Importing SVG assets](#-importing-svg-assets)
-  - [🍬 Typekit component](#-typekit-component)
+  - [💎 SVG assets as components](#-svg-assets-as-components)
+  - [`redirect_from`](#redirect_from)
+  - [RSS \& JSON feeds](#rss--json-feeds)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
+  - [🔮 Type Checking](#-type-checking)
   - [👩‍🔬 Testing](#-testing)
-  - [🎈 Add a new post](#-add-a-new-post)
+- [🎈 Content creation helpers](#-content-creation-helpers)
+  - [Add a new post](#add-a-new-post)
 - [🚚 Deployment](#-deployment)
   - [S3 Deployment](#s3-deployment)
 - [🏛 Licenses](#-licenses)
@@ -40,119 +42,120 @@
 
 ## 🎉 Features
 
-The whole [blog](https://kremalicious.com) is a React-based Single Page App built with [Gatsby v2](https://www.gatsbyjs.org).
+The whole [blog](https://kremalicious.com) is a statically exported site built with [Astro](https://astro.build) and TypeScript. Almost all components are Astro or native Web Components, with some React components loaded client-side.
+
+Styling happens through a combination of basic global styles and on components level either through CSS modules or CSS in `<style>` tags within Astro components.
+
+Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets colocated inside.
+
+Retrieving content collections will enrich every post's frontmatter metadata, like extracting date and slug from the post folder name, or exif extraction for photos.
+
+### 🌅 Image handling
+
+Uses Astro's native `astro:assets` feature, all required image sizes are automatically generated from source images, working in combination with my own custom `<picture>` component. Making heavy use of Astro's `getImage()` and custom markup results in full image sizing control and properly `object-fit` images with varying aspect ratios.
+
+Teaser images are all defined in a post's frontmatter `image` key, which is then passed to the `<Picture />` component for display.
+
+If you want to know how this works, have a look at the respective files:
+
+- [`src/components/Picture/index.astro`](src/components/Picture/index.astro)
+- [`src/components/Picture/index.module.css`](src/components/Picture/index.module.css)
 
 ### 🎆 EXIF extraction
 
-Automatically extracts EXIF & IPTC metadata from my photos on build time. For minimal overhead, [fast-exif](https://github.com/titarenko/fast-exif) & [node-iptc](https://github.com/derekbaron/node-iptc) parse every JPG file upon Gatsby file node creation and add the extracted data as node fields.
-
-This way, EXIF data is only extracted at build time and can be simply queried with GraphQL at run time.
+Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts. For minimal overhead, [fast-exif](https://github.com/titarenko/fast-exif) & [node-iptc](https://github.com/derekbaron/node-iptc) is used to parse every JPG file whenever a content collection is accessed.
 
 In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
 
 <img width="1098" alt="screen shot 2018-10-14 at 20 27 39" src="https://user-images.githubusercontent.com/90316/46920507-9d6b7a00-cfef-11e8-84c8-a1997f471cae.png">
 
-If you want to know how this works, have a look at the respective component under
+If you want to know how this works, have a look at the respective files:
 
-- [`src/components/atoms/Exif.jsx`](src/components/atoms/Exif.jsx)
-- the EXIF node fields creation [`gatsby/createExif.js`](gatsby/createExif.js) running in [`gatsby-node.js`](gatsby-node.js)
+- EXIF extraction with `readOutExif()` helper in [`src/lib/exif/index.ts`](src/lib/exif/index.ts)
+- the `loadAndFormatCollection()` helper in [`src/lib/astro.ts`](src/lib/astro.ts)
+- output through [`src/components/Exif/`](src/components/Exif/)
 
 ### 💰 Cryptocurrency donation via Web3/MetaMask
 
-Lets visitors say thanks with Bitcoin or Ether. Uses [web3.js](https://github.com/ethereum/web3.js) for sending Ether transactions via MetaMask, Brave or Mist. Component listens to account & network changes and adapts accordingly.
-
-As a fallback, QR codes are generated with [react-qr-svg](https://github.com/no23reason/react-qr-svg) from the addresses defined in [`config.js`](config.js).
+Lets visitors say thanks with Bitcoin or Ether. Uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions via browser wallets.
 
 <img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/molecules/Web3Donation/index.jsx`](src/components/molecules/Web3Donation/index.jsx)
-- [`src/components/molecules/Web3Donation/Account.jsx`](src/components/molecules/Web3Donation/Account.jsx)
-- [`src/components/molecules/Web3Donation/InputGroup.jsx`](src/components/molecules/Web3Donation/InputGroup.jsx)
-- [`src/components/molecules/Web3Donation/Conversion.jsx`](src/components/molecules/Web3Donation/Conversion.jsx)
-- [`src/components/molecules/Web3Donation/Alerts.jsx`](src/components/molecules/Web3Donation/Alerts.jsx)
-- [`src/components/molecules/Web3Donation/utils.jsx`](src/components/molecules/Web3Donation/utils.jsx)
-- [`src/components/atoms/Qr.jsx`](src/components/atoms/Qr.jsx)
+- [`src/components/Donation/`](src/components/Donation/)
 
 ### 🔍 Search
 
-A global search is provided with [gatsby-plugin-lunr](https://github.com/humanseelabs/gatsby-plugin-lunr). That plugin creates a [Lunr](https://lunrjs.com) search index file of all posts on build time which is then queried against when the search field is used.
+A global search is provided with fuse.js. Whenever search is opened, all posts metadata is fetched, which is then queried against when the search field is used. This prevents a huge search index from being bundled in the site build.
 
 <img width="700" alt="screen shot 2018-11-18 at 19 44 30" src="https://user-images.githubusercontent.com/90316/48676679-634f4400-eb6a-11e8-936d-293505d5c5d9.png">
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/molecules/Search/Search.jsx`](src/components/molecules/Search/Search.jsx)
-- [`src/components/molecules/Search/SearchResults.jsx`](src/components/molecules/Search/SearchResults.jsx)
-- more in [`src/components/molecules/Search/`](src/components/molecules/Search/)
+- [`src/components/Search/`](src/components/Search/)
 
 ### 🕸 Related Posts
 
-Under each post a list of related posts is displayed which are based on the tags of the currently viewed post. Also allows loading more related posts in place.
+Under each post a list of related posts is displayed which are based on the tags and other metadata of the currently viewed post, also done with fuse.js.
 
 <img width="700" alt="screen shot 2018-10-11 at 21 03 03" src="https://user-images.githubusercontent.com/90316/46827531-14f39c00-cd99-11e8-84aa-0e851c32c89c.png" />
 
 If you want to know how this works, have a look at the respective component under
 
-- [`src/components/molecules/RelatedPosts.jsx`](src/components/molecules/RelatedPosts.jsx)
+- [`src/components/RelatedPosts/`](src/components/RelatedPosts/)
 
 ### 📝 GitHub changelog rendering
 
-Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API via [gatsby-source-graphql](https://www.gatsbyjs.org/packages/gatsby-source-graphql/).
+Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API.
 
 Adding this to a post's YAML frontmatter:
 
 ```yaml
-changelog: gatsby-plugin-matomo
+changelog: kremalicious/gatsby-plugin-matomo
 ```
 
 will render this at the end of the post:
 
 <img width="700" alt="screen shot 2018-11-21 at 23 03 38" src="https://user-images.githubusercontent.com/90316/48870593-bc74dd00-ede1-11e8-9051-df55ab7b48d1.png">
 
-See it live on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-plugin-matomo#changelog).
+See it live e.g. on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-plugin-matomo#changelog).
 
 If you want to know how this works, have a look at the respective component under
 
-- [`src/components/atoms/Changelog.jsx`](src/components/atoms/Changelog.jsx)
+- [`src/components/Changelog/`](src/components/Changelog/)
+- the `getRepo()` helper in [`src/lib/github.ts`](src/lib/github.ts)
 
 ### 🌗 Theme Switcher
 
-Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences utilizing [use-dark-mode](https://github.com/donavon/use-dark-mode).
+Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences. Uses [nanostores](https://github.com/nanostores/nanostores) to share its state between components/frameworks.
 
 If you want to know how, have a look at the respective components:
 
-- [`src/components/molecules/ThemeSwitch.jsx`](src/components/molecules/ThemeSwitch.jsx)
+- [`src/components/ThemeSwitch/`](src/components/ThemeSwitch/)
+- [`src/stores/theme.ts`](src/stores/theme.ts)
 
-### 🏆 SEO component
+### 💎 SVG assets as components
 
-Includes a SEO component which automatically switches all required `meta` tags for search engines, Twitter Cards, and Facebook OpenGraph tags based on the browsed route/page.
+All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML.
 
-If you want to know how this works, have a look at the respective component under
+All SVGs can then be imported from `@images/components` in all Astro components.
 
-- [`src/components/atoms/SEO.jsx`](src/components/atoms/SEO.jsx)
+If you want to know how this works, have a look at the respective files:
 
-### gatsby-redirect-from
+- [`scripts/create-icons/`](scripts/create-icons/)
 
-- [gatsby-redirect-from](https://github.com/kremalicious/gatsby-redirect-from)
+### `redirect_from`
 
-### 💎 Importing SVG assets
+Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived in [gatsby-redirect-from](/gatsby-redirect-from/) and now works in Astro. For all post slugs defined in a `redirect_from` frontmatter key, redirects will be put in place by Astro.
 
-All SVG assets under `src/images/` will be converted to React components with the help of [gatsby-plugin-svgr](https://github.com/zabute/gatsby-plugin-svgr). Makes use of [SVGR](https://github.com/smooth-code/svgr) so SVG assets can be imported like so:
+Before building the site, a script scans all markdown files and creates a json file under `.config/redirects.json`. This file is then imported into `astro.config.ts` under its `redirects` option.
 
-```jsx
-import { ReactComponent as Logo } from './components/svg/Logo'
-;<Logo />
-```
+If you want to know how, have a look at the respective files:
 
-### 🍬 Typekit component
+- [`scripts/redirect-from.ts`](scripts/redirect-from.ts)
 
-Includes a component for adding the Typekit snippet.
-
-If you want to know how this works, have a look at the respective component under
-
-- [`src/components/atoms/Typekit.jsx`](src/components/atoms/Typekit.jsx)
+### RSS & JSON feeds
 
 ## ✨ Development
 
@@ -160,7 +163,7 @@ If you want to know how this works, have a look at the respective component unde
 git clone git@github.com:kremalicious/blog.git
 cd blog/
 
-# GATSBY_GITHUB_TOKEN is required for some parts
+# required env vars
 cp .env.sample .env
 vi .env
 
@@ -180,22 +183,45 @@ To automatically format all code files:
 
 ```bash
 npm run format
-npm run format:css
+```
+
+### 🔮 Type Checking
+
+Type checking can be invoked to check all TypeScript code, including within .astro files:
+
+```bash
+npm run typecheck
 ```
 
 ### 👩‍🔬 Testing
 
-Test suite is setup with [Jest](https://jestjs.io) and [react-testing-library](https://github.com/kentcdodds/react-testing-library).
+Test suite is setup with [Vitest](https://vitest.dev), [react-testing-library](https://github.com/kentcdodds/react-testing-library), and [Playwright](https://playwright.dev).
 
-To run all tests, including all linting tests:
+All unit test files live beside the respective component with naming pattern `*.test.ts(x)`. Integration test files live under `./test/e2e/` exclusively, with naming pattern `*.spec.ts`.
+
+Testing setup, fixtures, and mocks shared between unit & integration tests can be found in `./test` folder.
+
+To run all unit tests:
 
 ```bash
-npm test
+npm run test:unit
 ```
 
-All test files live beside the respective component. Testing setup, fixtures, and mocks can be found in `./jest.config.js` and `./jest` folder.
+For End-to-End integration testing, ideally run against the production build:
 
-### 🎈 Add a new post
+```bash
+npm run build && npm run preview
+
+# mapping `playwright` command
+npm run test:e2e
+npm run test:e2e -- --ui
+npm run test:e2e -- path/to/file.spec.ts.
+npm run test:e2e -- --update-snapshots
+```
+
+## 🎈 Content creation helpers
+
+### Add a new post
 
 ```bash
 npm run new "Hello World"
@@ -206,22 +232,21 @@ Create a new photo post with date, title & description pre-filled from EXIF/IPTC
 
 ```bash
 npm run new photo /path/to/photo.jpg
+npm run new photo /path/to/photo.jpg "Hello Photo Post"
 ```
 
-- [`scripts/new.js`](scripts/new.js)
-- [`scripts/new-article.md`](scripts/new-article.md)
-- [`scripts/new-photo.md`](scripts/new-photo.md)
+- [`scripts/new/`](scripts/new/)
 
 ## 🚚 Deployment
 
-Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration. A link to a preview deployment will appear under each Pull Request. Because of Vercel's maximum cache size of 500MB, Vercel is not used for the production deployment.
+Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration. A link to a preview deployment will appear under each Pull Request. Vercel is not used for the production deployment.
 
 ### S3 Deployment
 
-The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `public/` folder to S3:
+The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3:
 
 ```bash
-npm run deploy
+npm run deploy:s3
 ```
 
 ## 🏛 Licenses
@@ -234,12 +259,12 @@ EXCEPT FOR:
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-All post content under `./content/posts` is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+All post content under `./content/articles` & `./content/links` is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ### Photos & images
 
 All photos & image assets are plain ol' copyright.
 
-Copyright (c) 2008–2018 Matthias Kretschmann
+Copyright (c) 2008–2023 Matthias Kretschmann
 
 Don't care if you fork & play with it, but you're not allowed to publish anything from it as a whole without my written permission. Also please be aware, the combination of typography, colors & layout makes up my brand identity. So please don't just clone everything, but rather do a remix!

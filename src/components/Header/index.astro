@@ -1,0 +1,21 @@
+---
+import Menu from '@components/Menu/index.astro'
+import Search from '@components/Search/index.astro'
+import ThemeSwitch from '@components/ThemeSwitch/index.astro'
+import { Logo } from '@images/components'
+import styles from './index.module.css'
+---
+
+<header class={styles.header} aria-label="Header">
+  <div class={styles.headerContent}>
+    <a href="/" class={styles.title}>
+      <Logo class={styles.logo} viewBox="0 0 191 36" /> kremalicious
+    </a>
+
+    <nav aria-label="Menu" class={styles.nav}>
+      <ThemeSwitch />
+      <Search />
+      <Menu />
+    </nav>
+  </div>
+</header>

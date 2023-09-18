@@ -1,0 +1,33 @@
+---
+import LayoutPost from '@layouts/Post/index.astro'
+import { getAllPosts } from '@lib/astro'
+import type { InferGetStaticPropsType } from 'astro'
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts()
+
+  return allPosts.map((entry) => {
+    if (!entry?.slug) {
+      throw new Error('Missing `slug` field in entry', entry)
+    }
+    return {
+      params: { slug: entry.slug },
+      props: { entry }
+    }
+  })
+}
+
+const { entry } = Astro.props
+const { Content, remarkPluginFrontmatter } = await entry.render()
+---
+
+<LayoutPost
+  {...entry}
+  lead={remarkPluginFrontmatter.lead}
+  leadRaw={remarkPluginFrontmatter.leadRaw}
+  tableOfContents={remarkPluginFrontmatter.tableOfContents}
+>
+  <Content />
+</LayoutPost>

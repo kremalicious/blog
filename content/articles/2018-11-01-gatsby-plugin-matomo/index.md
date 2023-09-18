@@ -2,8 +2,8 @@
 date: 2018-11-01T19:08:00.367Z
 
 title: Matomo plugin for Gatsby
-image: gatsby-plugin-matomo-teaser.png
-changelog: gatsby-plugin-matomo
+image: ./gatsby-plugin-matomo-teaser.png
+changelog: kremalicious/gatsby-plugin-matomo
 
 tags:
   - goodies
@@ -41,7 +41,7 @@ npm i gatsby-plugin-matomo
 
 Then load the plugin from your `gatsby-config.js` and set the required variables:
 
-```js
+```js title="gatsby-config.js"
 plugins: [
   {
     resolve: 'gatsby-plugin-matomo',

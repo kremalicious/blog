@@ -2,7 +2,7 @@
 date: 2019-04-09T00:00:00.000Z
 
 title: The Commons Marketplace
-image: the-commons-marketplace-teaser.png
+image: ./the-commons-marketplace-teaser.png
 
 tags:
   - oceanprotocol
@@ -34,13 +34,13 @@ The primary target audience for our [Commons Marketplace](https://commons.oceanp
 
 All permissions are handled through your wallet account in MetaMask, there’s no login or password or any of that old-school Web 2.0 stuff. You unlock your MetaMask account, and you’re ready to go.
 
-![Connected to Web3 Account](web3-account.png)
+![Connected to Web3 Account](./web3-account.png)
 
 You can discover the open data sets in Ocean’s Nile network, even if you don’t use a Web3-capable browser.
 
 While focusing on free data assets only, Commons has the full Ocean Protocol flow implemented for registering and consuming assets. All files attached to an asset have their URLs encrypted and when you want to consume a data asset, URLs are decrypted and the respective files are downloaded.
 
-![Consumption of data asset files](consume.png)
+![Consumption of data asset files](./consume.png)
 
 In its current state, the Commons marketplace is a minimum useful product to help you get a feel for what a data marketplace could look like in the future. Expect many more iterations in the next weeks and months. If you run into issues, or want to suggest new features, feel free to [report them on GitHub](https://github.com/oceanprotocol/commons/issues/new).
 
@@ -88,11 +88,11 @@ To connect to the Nile network:
 
 3. Hit _Save_, and you’re now connected to Nile:
 
-![MetaMask connected to Nile](metamask-nile.png)
+![MetaMask connected to Nile](./metamask-nile.png)
 
 The Commons marketplace includes a faucet functionality under [https://commons.oceanprotocol.com/faucet](https://commons.oceanprotocol.com/faucet) from where you can easily request some Ether to be added to your account by clicking the _Request Ether_ button:
 
-![Faucet under commons.oceanprotocol.com/faucet](commons-faucet.png)
+![Faucet under commons.oceanprotocol.com/faucet](./commons-faucet.png)
 
 ## Build on top of Commons
 

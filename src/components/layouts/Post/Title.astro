@@ -1,0 +1,36 @@
+---
+import Date from './Date.astro'
+import styles from './Title.module.css'
+import { ExternalLink } from '@images/components'
+
+type Props = {
+  linkurl?: string
+  title: string
+  date?: Date
+  updated?: Date
+  className?: string
+}
+
+const { linkurl, title, date, updated, className } = Astro.props
+const linkHostname = linkurl ? new URL(linkurl).hostname : null
+---
+
+{
+  linkurl ? (
+    <>
+      <h1
+        class={`${styles.title} ${styles.titleLink} ${className && className}`}
+      >
+        <a href={linkurl} title={`Go to source: ${linkurl}`}>
+          {title} <ExternalLink />
+        </a>
+      </h1>
+      <div class={styles.linkurl}>{linkHostname}</div>
+    </>
+  ) : (
+    <>
+      <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
+      {date && <Date date={date} updated={updated} />}
+    </>
+  )
+}

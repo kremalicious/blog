@@ -3,8 +3,8 @@ date: 2020-05-22T14:08:00.367Z
 updated: 2020-05-23T11:35:12+02:00
 
 title: Redirect plugin for Markdown Pages in Gatsby
-image: gatsby-redirect-from-teaser.png
-changelog: gatsby-redirect-from
+image: ./gatsby-redirect-from-teaser.png
+changelog: kremalicious/gatsby-redirect-from
 
 tags:
   - goodies
@@ -33,7 +33,7 @@ npm i gatsby-redirect-from gatsby-plugin-meta-redirect
 
 Then add it to your `gatsby-config.js` file under `plugins`:
 
-```js
+```js title="gatsby-config.js"
 plugins: [
   'gatsby-redirect-from',
   'gatsby-plugin-meta-redirect' // make sure this is always the last one
@@ -44,7 +44,7 @@ That's it for the configuration.
 
 Finally, use the key `redirect_from` followed by a list in your Markdown file's YAML frontmatter:
 
-```yaml
+```yaml title="post.md"
 ---
 title: Aperture File Types
 redirect_from:
@@ -92,7 +92,7 @@ Plugin does not require to be configured but additional customization options ar
 
 Add options to the plugins's configuration object in `gatsby-config.js` like so:
 
-```js
+```js title="gatsby-config.js"
 plugins: [
   {
     resolve: 'gatsby-redirect-from',

@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets'
+import Networks from './Networks.astro'
+import avatar from '@images/avatar.jpg'
+import config from '@config/blog.config.ts'
+import styles from './Vcard.module.css'
+
+const { author, rss, jsonfeed } = config
+const { mastodon, twitter, github, name, url } = author
+const links = [mastodon, github, twitter, rss, jsonfeed]
+---
+
+<Image
+  class={styles.avatar}
+  src={avatar}
+  width="160"
+  height="160"
+  alt="avatar"
+/>
+
+<p class={styles.description}>
+  {config.siteDescription.replace(name, '')}{' '}
+  <a class="fn" rel="author" href={url}>
+    {name}
+  </a>
+</p>
+
+<Networks links={links} />

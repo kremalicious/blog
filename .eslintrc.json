@@ -1,0 +1,54 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": { "jsx": true },
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:astro/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "settings": { "react": { "version": "detect" } },
+  "overrides": [
+    {
+      // Define the configuration for `.astro` file.
+      "files": ["*.astro"],
+      // Allows Astro components to be parsed.
+      "parser": "astro-eslint-parser",
+      // Parse the script in `.astro` as TypeScript by adding the following configuration.
+      // It's the setting you need when using TypeScript.
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"]
+      },
+      "rules": {
+        // override/add rules settings here, such as:
+        // "astro/no-set-html-directive": "error"
+      }
+    },
+    {
+      "files": ["**/?(*.)+(spec|test).[jt]sx"],
+      "extends": ["plugin:testing-library/react"],
+      "rules": {
+        "testing-library/no-node-access": "off",
+        "testing-library/no-container": "off"
+      }
+    }
+  ]
+}

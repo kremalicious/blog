@@ -1,6 +1,6 @@
 ---
 title: Simple Tor setup on macOS
-image: teaser-tor.png
+image: ./teaser-tor.png
 author: Matthias Kretschmann
 date: 2015-08-02 21:57:30.912218000 +02:00
 updated: 2019-11-08 00:52:46+02:00
@@ -22,7 +22,7 @@ I'm using macOS Catalina (10.15) for the following instructions but it should wo
 
 ## Tor Browser
 
-![Tor Browser](tor-browser.png)
+![Tor Browser](./tor-browser.png)
 
 The most simple way to surf anonymously with Tor is to just grab [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en). It's a modified version of [Firefox Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/) with Tor and some extensions (Torbutton, TorLauncher, NoScript, and HTTPS-Everywhere) built right in. Upon start, Tor Browser automatically starts the required Tor background processes and routes traffic through the Tor network. That's the way to go if you want the highest level of protection without much further configuration.
 
@@ -31,7 +31,7 @@ But it's based on an older version of Firefox and there might be more you want t
 For this you need to have Tor installed on your system and additionally set specific proxy values in your network preferences after you've started Tor.
 
 <div class="alert alert-info">
-    <p>Be aware that the instructions and the script mentioned below will not make whatever you do on the web anonymous. Much depends on your browsing habits, what apps you're using, and none of the methods below will offer the same level of protection than <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> out of the box. You have been warned.</p>
+  <p>Be aware that the instructions and the script mentioned below will not make whatever you do on the web anonymous. Much depends on your browsing habits, what apps you're using, and none of the methods below will offer the same level of protection than <a href="https://www.torproject.org/projects/torbrowser.html.en">Tor Browser</a> out of the box. You have been warned.</p>
 </div>
 
 ## Install Tor
@@ -65,7 +65,7 @@ You can do this under _System Preferences > Network_ by creating a specific Tor 
 - _SOCKS proxy server_: `localhost`
 - _Port_: `9050`
 
-![Network Settings](tor-osx-proxy.png)
+![Network Settings](./tor-osx-proxy.png)
 
 After hitting _OK_ & _Apply_ at the initial network screen, you can easily switch to this newly created location from your menu bar under _ > Location_ whenever you start up Tor.
 
@@ -121,7 +121,7 @@ tor.sh
 
 and Tor should run smoothly on your system without additional configuration:
 
-![Tor running in Terminal](tor-osx-terminal.png)
+![Tor running in Terminal](./tor-osx-terminal.png)
 
 Verify you're indeed browsing over the Tor network by going to [check.torproject.org](https://check.torproject.org).
 

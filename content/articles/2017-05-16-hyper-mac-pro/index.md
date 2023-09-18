@@ -3,7 +3,7 @@ date: 2017-05-16T19:50:52.281Z
 updated: 2018-10-30T19:50:52.281Z
 
 title: Hyper Mac Pro
-image: hyper-mac-pro-teaser.png
+image: ./hyper-mac-pro-teaser.png
 
 featured: true
 
@@ -24,7 +24,7 @@ If you use Hyper along with those apps, this theme is for you. It is purely a ta
 
 Install by adding `hyper-mac-pro` to the plugins property in your `~/.hyper.js`:
 
-```js
+```js title="~/.hyper.js"
 plugins: ['hyper-mac-pro']
 ```
 

@@ -1,0 +1,39 @@
+---
+import Hamburger from '@components/Hamburger.astro'
+import config from '@config/blog.config.ts'
+import styles from './index.module.css'
+
+const { menu } = config
+---
+
+<Hamburger id="menu-button" />
+
+<nav aria-label="Pages" class={styles.menu} aria-hidden>
+  <ul>
+    {
+      menu.map((item) => (
+        <li>
+          <a href={item.link}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  let menuOpen = false
+  const hamburger = document.querySelector('#menu-button')
+  const menu = document.querySelector('[aria-label="Pages"]')
+
+  hamburger?.addEventListener('click', () => {
+    menuOpen = !menuOpen
+
+    if (menuOpen) {
+      document.body.classList.add('has-menu-open')
+      menu?.removeAttribute('aria-hidden')
+    } else {
+      document.body.classList.remove('has-menu-open')
+      menu?.setAttribute('aria-hidden', 'true')
+    }
+  })
+</script>

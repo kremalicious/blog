@@ -1,6 +1,0 @@
-.time {
-  font-style: italic;
-  font-size: var(--font-size-small);
-  color: var(--text-color-light);
-  margin-bottom: calc(var(--spacer) / var(--line-height));
-}

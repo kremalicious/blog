@@ -1,0 +1,23 @@
+---
+import { Sun, Moon } from '@images/components'
+import styles from './index.module.css'
+---
+
+<div class={styles.themeSwitch} title="Toggle Theme" id="theme-toggle">
+  <label for="toggle" class={styles.checkbox}>
+    <span class={styles.label}>Toggle Theme</span>
+    <input
+      type="checkbox"
+      name="toggle"
+      id="toggle"
+      aria-describedby="theme-toggle"
+    />
+    <div aria-live="assertive">
+      <Sun id="sun" />
+      <Moon id="moon" hidden="true" />
+    </div>
+  </label>
+</div>
+
+<!-- ./theme.cjs is symlinked to public/theme.js before build -->
+<script is:inline src="/theme.js"></script>

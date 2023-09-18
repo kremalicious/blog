@@ -1,0 +1,12 @@
+# https://platform.openai.com/docs/gptbot
+User-agent: GPTBot
+Disallow: /
+
+User-agent: *
+Disallow: /search/
+Disallow: /page/
+Disallow: /*/page/
+Disallow: /tags/
+Disallow: /api/
+
+Sitemap: https://kremalicious.com/sitemap-index.xml

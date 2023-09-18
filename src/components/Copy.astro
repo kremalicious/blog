@@ -1,0 +1,63 @@
+---
+import { Copy as CopyIcon } from '@images/components'
+
+type Props = {
+  text: string
+}
+
+const { text } = Astro.props as Props
+---
+
+<button-copy>
+  <button class="button" title="Copy to clipboard" data-text={text}>
+    <CopyIcon />
+  </button>
+</button-copy>
+
+<script>
+  class ButtonCopy extends HTMLElement {
+    constructor() {
+      super()
+      const button = this.querySelector('button')
+      const text = button?.dataset.text
+
+      button?.addEventListener('click', () => {
+        if (text && navigator?.clipboard) {
+          navigator.clipboard.writeText(text)
+          button?.classList.add('copied')
+        }
+      })
+    }
+  }
+
+  customElements.define('button-copy', ButtonCopy)
+</script>
+
+<style>
+  .button {
+    padding: calc(var(--spacer) / 3);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .button svg {
+    stroke: var(--text-color-light);
+    transition: 0.15s ease-out;
+  }
+
+  .copied {
+    background: green;
+  }
+
+  .copied svg {
+    stroke: var(--text-color-dimmed);
+  }
+
+  .button:hover svg {
+    stroke: var(--text-color-dimmed);
+  }
+</style>

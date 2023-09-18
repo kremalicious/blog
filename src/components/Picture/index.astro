@@ -1,0 +1,105 @@
+---
+import { getImage, type ImgAttributes } from 'astro:assets'
+import styles from './index.module.css'
+import type { ImageMetadata, ImageOutputFormat } from 'astro'
+
+type Props = ImgAttributes & {
+  src: ImageMetadata
+  width: number
+  height?: number
+  class?: string
+  objectFit?: boolean
+}
+
+const {
+  title,
+  alt,
+  src,
+  class: className,
+  width,
+  height,
+  objectFit
+} = Astro.props
+
+const formats: ImageOutputFormat[] = ['webp', 'jpg']
+const sizes = [
+  Math.round(Number(width) / 2),
+  Number(width),
+  Math.round(Number(width) * 2)
+]
+
+const originalSize = src.width
+const images: { format: ImageOutputFormat; size: number; src: string }[] = []
+
+const srcFallback = await getImage({
+  src,
+  width: Math.round(Number(width) / 2),
+  format: 'jpg'
+})
+
+for (const format of formats) {
+  for (const size of sizes) {
+    const image = await getImage({ src, width: size, format, quality: 75 })
+
+    // Check if the original image is smaller than the target size,
+    // if the image is smaller, add the original size instead
+    images.push({
+      format,
+      size: originalSize >= size ? size : originalSize,
+      src: image.src
+    })
+  }
+}
+
+// Generate srcSet strings
+const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
+  const filteredImages = images.filter((img) => img.format === format)
+  acc[format] = filteredImages
+    .map((img) => `${img.src} ${img.size}w`)
+    .join(', ')
+  return acc
+}, {})
+---
+
+<figure
+  class={`picture ${styles.image} ${className ? className : ''} ${
+    objectFit ? styles['objectFit'] : ''
+  }`}
+>
+  {
+    objectFit ? (
+      <div style={`max-width:${width}px;display:block`}>
+        <img
+          aria-hidden="true"
+          src={`data:image/svg+xml;charset=utf-8,%3Csvg%20height="${height}"%20width="${width}"%20xmlns='http://www.w3.org/2000/svg'%20version='1.1'%3E%3C/svg%3E`}
+          style="max-width:100%;display:block;position:static"
+        />
+      </div>
+    ) : null
+  }
+  <picture>
+    {
+      formats
+        .filter((format) => format !== 'jpg')
+        .map((format) => (
+          <source
+            type={`image/${format}`}
+            srcset={srcSetStrings[format]}
+            sizes={`(min-width: ${width}px) ${width}px, 100vw`}
+          />
+        ))
+    }
+    <img
+      width={width}
+      height={height}
+      sizes={`(min-width: ${width}px) ${width}px, 100vw`}
+      decoding="async"
+      loading="lazy"
+      src={srcFallback.src}
+      srcset={srcSetStrings['jpg']}
+      alt={alt}
+    />
+  </picture>
+
+  {title && <figcaption class={styles.imageTitle}>{title}</figcaption>}
+</figure>

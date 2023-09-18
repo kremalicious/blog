@@ -1,0 +1,48 @@
+.menu {
+  margin-top: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.menu[aria-hidden] {
+  display: none;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.menu li::before {
+  display: none;
+}
+
+.menu a {
+  color: var(--text-color);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 calc(var(--spacer) / 4);
+  font-size: var(--font-size-small);
+  padding: var(--padding-base-horizontal);
+  display: block;
+  text-align: center;
+}
+
+.menu::-webkit-scrollbar,
+.menu::-moz-scrollbar,
+.menu::-webkit-scrollbar-thumb,
+.menu::-webkit-scrollbar-track {
+  display: none;
+}

@@ -1,0 +1,19 @@
+---
+import styles from './index.module.css'
+import { ChevronLeft, ChevronRight } from '@images/components'
+
+type Props = {
+  prevPagePath?: string
+  nextPagePath?: string
+}
+
+const { prevPagePath, nextPagePath } = Astro.props
+
+const link = prevPagePath || nextPagePath
+const rel = prevPagePath ? 'prev' : 'next'
+const title = prevPagePath ? 'Newer Posts' : 'Older Posts'
+---
+
+<a href={link} rel={rel} title={title} class={styles.number}>
+  {prevPagePath ? <ChevronLeft /> : <ChevronRight />}
+</a>
