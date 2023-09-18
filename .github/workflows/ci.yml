@@ -110,7 +110,7 @@ jobs:
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci
       - run: npm run build
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
@@ -136,9 +136,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v1
+      - uses: actions/download-artifact@v3
         with:
           name: dist-ubuntu-latest-18
+          path: dist
       - name: Deploy to S3
         run: npm run deploy:s3
         env:
