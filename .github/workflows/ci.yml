@@ -110,11 +110,14 @@ jobs:
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
       - run: npm ci
       - run: npm run build
+      - name: Zip artifact for deployment
+        if: github.ref == 'refs/heads/main'
+        run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v3
         if: github.ref == 'refs/heads/main'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
-          path: dist
+          path: dist.zip
 
   coverage:
     runs-on: ubuntu-latest
@@ -139,7 +142,9 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist-ubuntu-latest-18
-          path: dist
+          path: dist.zip
+      - name: unzip artifact
+        run: unzip dist.zip dist
       - name: Deploy to S3
         run: npm run deploy:s3
         env:
