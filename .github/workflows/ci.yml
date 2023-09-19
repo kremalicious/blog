@@ -67,6 +67,7 @@ jobs:
       - run: npm ci
       - run: npm run test:unit
       - uses: actions/upload-artifact@v3
+        if: matrix.os == 'ubuntu-latest' && matrix.node == '18'
         with:
           name: coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage/
@@ -111,10 +112,10 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Zip artifact for deployment
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '18'
         run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v3
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '18'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
           path: dist.zip
