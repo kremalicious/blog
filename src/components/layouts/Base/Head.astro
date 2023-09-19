@@ -105,7 +105,11 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   {
     typekitID && (
       <>
-        <link rel="preconnect" href="https://use.typekit.net" />
+        <link
+          rel="preload"
+          as="style"
+          href={`https://use.typekit.net/${typekitID}.css`}
+        />
         <link rel="preconnect" href="https://p.typekit.net" />
         <link
           rel="stylesheet"
