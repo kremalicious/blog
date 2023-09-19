@@ -18,6 +18,7 @@ function s3sync {
     --exclude "sw.js" \
     --exclude "*.json" \
     --exclude "*.txt" \
+    --exclude "favicon.ico" \
     --cache-control public,max-age=31536000,immutable \
     --delete \
     --acl public-read
@@ -30,6 +31,7 @@ function s3sync {
     --include "*.xml" \
     --include "*.json" \
     --include "*.txt" \
+    --include "favicon.ico" \
     --cache-control public,max-age=0,must-revalidate \
     --delete \
     --acl public-read
