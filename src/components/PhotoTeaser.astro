@@ -9,35 +9,22 @@ const { title, image } = data
 ---
 
 <style>
-  .photo a {
+  .photo {
     display: block;
-  }
-
-  .photo figure,
-  .photo figure > div {
-    margin: 0;
-  }
-
-  .photo figcaption {
-    font-size: var(--font-size-base);
-    padding-left: calc(var(--spacer) / 2);
-    padding-right: calc(var(--spacer) / 2);
   }
 </style>
 
-<article class="photo">
-  {
-    image ? (
-      <a href={`/${slug}`}>
-        <Picture
-          width={184}
-          height={184}
-          src={image}
-          alt={title}
-          title={title}
-          objectFit
-        />
-      </a>
-    ) : null
-  }
-</article>
+{
+  image ? (
+    <a class="photo" href={`/${slug}`}>
+      <Picture
+        width={202}
+        height={202}
+        src={image}
+        alt={title}
+        title={title}
+        objectFit
+      />
+    </a>
+  ) : null
+}

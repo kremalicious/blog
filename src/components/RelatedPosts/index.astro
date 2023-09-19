@@ -12,45 +12,35 @@ type Props = {
 }
 const { post, isPhotos } = Astro.props as Props
 const allPosts = await getAllPostsForSearch()
+const allPostsWithoutCurrent = allPosts?.filter(
+  (post) => post.slug !== Astro.props.post.slug
+) as CollectionEntry<'articles' | 'photos' | 'links'>[]
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
-const fuseOptions: Fuse.IFuseOptions<
-  CollectionEntry<'articles' | 'photos' | 'links'>
-> = {
-  keys: ['data.tags', 'data.title', 'data.lead', 'collection'],
+const fuse = new Fuse(allPostsWithoutCurrent, {
+  keys: ['data.tags', 'data.title', 'data.lead'],
   useExtendedSearch: true,
-  minMatchCharLength: 3,
-  threshold: 0.8
-}
-// TODO; figure out how to remove any
-const allPostsWithoutCurrent = allPosts?.filter(
-  (post) => post.slug !== Astro.props.post.slug
-)
-const fuse = new Fuse(allPostsWithoutCurrent as any, fuseOptions)
+  threshold: 0.6
+})
 const relatedPosts = fuse
   // https://www.fusejs.io/examples.html#extended-search
   .search(
-    `${post?.data?.tags?.join(' | ')} | ${post?.data?.title} | ${
-      (post?.data as any)?.lead
-    } | ${post?.collection}`
+    `${post?.data?.tags?.join(' | ')} | "${post?.data?.lead}" | "${
+      post?.data?.title
+    }"`
   )
   .map((result) => result.item)
   .slice(0, 6)
 ---
 
-<section class={styles.relatedPosts}>
-  <h1 class={styles.title}>
-    Related {isPhotos ? 'Photos' : 'Posts'}{' '}
-    <!-- <button class={styles.button} onClick={() => refreshPosts()}>
-      Refresh
-    </button> -->
-  </h1>
+<section class={`${styles.relatedPosts} ${isPhotos ? styles.photos : ''}`}>
+  <h1 class={styles.title}>Related</h1>
   <ul>
     {
       relatedPosts?.map((post) => (
         <li>
-          {isPhotos ? (
+          {post.collection === 'photos' ? (
             <PhotoTeaser post={post as CollectionEntry<'photos'>} />
           ) : (
             <PostTeaser

@@ -14,8 +14,11 @@
 
 @media (min-width: 40rem) {
   .relatedPosts ul {
-    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacer);
+  }
+
+  .relatedPosts.photos ul {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -28,26 +31,10 @@
   display: none;
 }
 
-.relatedPosts figure {
-  margin: 0;
-}
-
-.relatedPosts img {
-  margin-bottom: 0;
-}
-
 .relatedPosts a > div {
   margin-bottom: 0;
 }
 
 .relatedPosts a h1 {
-  font-size: var(--font-size-h4);
-}
-
-.button {
-  font-size: var(--font-size-mini);
-  display: inline-block;
-  color: var(--text-color-light);
-  text-transform: uppercase;
-  margin-left: calc(var(--spacer) / 2);
+  font-size: var(--font-size-h5);
 }

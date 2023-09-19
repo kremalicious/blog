@@ -35,7 +35,6 @@ const photos = (await loadAndFormatCollection('photos')).slice(
 
   @media (min-width: 40rem) {
     .photos {
-      gap: calc(var(--spacer) * 1.5);
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
   }

@@ -1,7 +1,7 @@
 ---
 date: 2021-11-26T15:32:28.000Z
 
-title: Forever Bicycles
+title: Ai Weiwei, Forever Bicycles
 image: ./2021-11-26-forever-bicycles.jpg
 ---
 

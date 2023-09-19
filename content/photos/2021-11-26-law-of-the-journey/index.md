@@ -1,7 +1,7 @@
 ---
 date: 2021-11-26T16:12:03.000Z
 
-title: Law of the Journey
+title: Ai Weiwei, Law of the Journey
 image: ./2021-11-26-law-of-the-journey.jpg
 ---
 
