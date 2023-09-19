@@ -6,6 +6,7 @@ import Search from './Search'
 let portalRoot: HTMLDivElement
 let unsubscribe: () => void
 let fetchSpy: any
+let originalFetch: any
 let storeState = false
 
 beforeEach(() => {
@@ -19,6 +20,7 @@ beforeEach(() => {
   })
 
   // Mock fetch API
+  originalFetch = globalThis.fetch
   globalThis.fetch = async () => {
     return {
       json: () =>
@@ -30,9 +32,9 @@ beforeEach(() => {
 })
 
 afterEach(() => {
-  // Cleanup
   portalRoot.remove()
   unsubscribe()
+  globalThis.fetch = originalFetch
 })
 
 test('Search component', async () => {

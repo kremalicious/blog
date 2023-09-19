@@ -1,0 +1,28 @@
+[
+  {
+    "id": "2013-11-20-why-we-are-allowed-to-hate-silicon-valley.md",
+    "slug": "2013-11-20-why-we-are-allowed-to-hate-silicon-valley",
+    "body": "\nDon't fully agree with Evgeny Morozov's culture pessimism but he makes some good points in this article:\n\n> It might even help bury some of the myths spun by Silicon Valley. Wouldn’t it be nice if one day, told that Google’s mission is to “organize the world’s information and make it universally accessible and useful,” we would finally read between the lines and discover its true meaning: “to monetize all of the world’s information and make it universally inaccessible and profitable”? With this act of subversive interpretation, we might eventually hit upon the greatest emancipatory insight of all: Letting Google organize all of the world’s information makes as much sense as letting Halliburton organize all of the world’s oil.\n",
+    "collection": "links",
+    "data": {
+      "title": "Why We Are Allowed to Hate Silicon Valley",
+      "tags": ["silicon valley", "google"],
+      "linkurl": "http://www.faz.net/aktuell/feuilleton/debatten/the-internet-ideology-why-we-are-allowed-to-hate-silicon-valley-12658406.html",
+      "date": "2013-11-20T00:00:00.000Z",
+      "githubLink": "https://github.com/kremalicious/blog/tree/main/content/links/2013-11-20-why-we-are-allowed-to-hate-silicon-valley.md"
+    }
+  },
+  {
+    "id": "2013-12-11-silicon-valley-isnt-a-meritocracy.md",
+    "slug": "2013-12-11-silicon-valley-isnt-a-meritocracy",
+    "body": "\nFrom [Silicon Valley Isn't a Meritocracy — And It's Dangerous to Hero-Worship Entrepreneurs](http://www.wired.com/opinion/2013/11/silicon-valley-isnt-a-meritocracy-and-the-cult-of-the-entrepreneur-holds-people-back/):\n\n> People in tech repeatedly portray Silicon Valley as places where the smartest, most motivated people from around the globe are changing the world for the better, and this rhetoric has been taken up and repeated often by traditional media outlets. Unlike, say, community activists, public schoolteachers, social workers, or health care providers, technologists are ultimately focused on a small slice of the population, and they are primarily looking for ideas that will prove profitable. These entrepreneurs may have a passion for better audio streaming or e-mail, but to say that such pursuits are world-changing is a bit disingenuous.\n",
+    "collection": "links",
+    "data": {
+      "title": "Silicon Valley Isn't a Meritocracy",
+      "tags": ["silicon valley"],
+      "linkurl": "https://www.wired.com/2013/11/silicon-valley-isnt-a-meritocracy-and-the-cult-of-the-entrepreneur-holds-people-back/",
+      "date": "2013-12-11T00:00:00.000Z",
+      "githubLink": "https://github.com/kremalicious/blog/tree/main/content/links/2013-12-11-silicon-valley-isnt-a-meritocracy.md"
+    }
+  }
+]

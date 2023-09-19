@@ -22,7 +22,6 @@ test('sortPosts sorts posts by date in descending order', () => {
 
   getAllPostsSpy.mockImplementationOnce(() => Promise.resolve(posts))
 
-  // getAllPostsSpy = vi.spyOn(getAllPosts, async () => posts)
   const sortedPosts = sortPosts(posts)
   expect(sortedPosts[0].data.date).toStrictEqual('2022-01-03')
   expect(sortedPosts[1].data.date).toStrictEqual('2022-01-02')
