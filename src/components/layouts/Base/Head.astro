@@ -43,6 +43,8 @@ const schema: SchemaProps = {
 }
 
 const isProduction = import.meta.env.PROD
+const shouldIncludeAnalytics =
+  isProduction && Astro.url.hostname === 'kremalicious.com'
 const typekitID = import.meta.env.PUBLIC_TYPEKIT_ID
 const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
 
@@ -102,18 +104,29 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
   {
     typekitID && (
-      <link
-        rel="stylesheet"
-        href={`https://use.typekit.net/${typekitID}.css`}
-      />
+      <>
+        <link rel="preconnect" href="https://use.typekit.net" />
+        <link rel="preconnect" href="https://p.typekit.net" />
+        <link
+          rel="stylesheet"
+          href={`https://use.typekit.net/${typekitID}.css`}
+        />
+      </>
     )
   }
 
   {style && <link rel="stylesheet" href={style} />}
 
   {
-    isProduction && (
-      <script async src={UMAMI_SCRIPT_URL} data-website-id={UMAMI_WEBSITE_ID} />
+    shouldIncludeAnalytics && (
+      <>
+        <link rel="preconnect" href={UMAMI_SCRIPT_URL} />
+        <script
+          async
+          src={UMAMI_SCRIPT_URL}
+          data-website-id={UMAMI_WEBSITE_ID}
+        />
+      </>
     )
   }
 </head>

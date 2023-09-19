@@ -28,6 +28,8 @@ export const GET: APIRoute = async () => {
     start_url: '/',
     display: 'standalone',
     id: `${config.siteTitle}-blog`,
+    theme_color: '#e7eef4',
+    background_color: '#e7eef4',
     icons
   }
 
