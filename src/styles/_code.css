@@ -88,8 +88,23 @@ pre::-webkit-scrollbar-track {
   margin: var(--spacer) 0;
 }
 
+div.expressive-code .frame .copy {
+  top: 0.1rem;
+  right: 0.3rem;
+}
+
+div.expressive-code .frame .copy button {
+  width: 1.7rem;
+  height: 1.7rem;
+  border: none;
+  border-radius: var(--border-radius);
+  opacity: 0.6 !important;
+  background: none;
+}
+
 div.expressive-code .frame.has-title:not(.is-terminal) .header .title {
   border: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: var(--border-radius);
+  padding: 0.3rem 1rem;
 }

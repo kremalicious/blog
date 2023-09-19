@@ -37,11 +37,16 @@ export default defineConfig({
       // https://github.com/expressive-code/expressive-code/blob/ad08cf74095b30055e841d59497990fade634c86/packages/%40expressive-code/core/src/common/core-styles.ts
       styleOverrides: {
         borderRadius: 'var(--border-radius)',
-        borderWidth: 'var(--border-width)',
         uiFontFamily: 'var(--font-family-monospace)',
         uiFontSize: 'var(--font-size-mini)',
         codeFontFamily: 'var(--font-family-monospace)',
         codeFontSize: '0.8rem'
+      },
+      frames: {
+        // https://github.com/expressive-code/expressive-code/blob/main/packages/%40expressive-code/plugin-frames/README.md#available-plugin-options
+        styleOverrides: {
+          frameBoxShadowCssValue: 'var(--box-shadow)'
+        }
       }
     }),
     sitemap({
