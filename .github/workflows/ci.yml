@@ -144,7 +144,7 @@ jobs:
           name: dist-ubuntu-latest-18
           path: dist.zip
       - name: unzip artifact
-        run: unzip dist.zip dist
+        run: unzip ./dist.zip
       - name: Deploy to S3
         run: npm run deploy:s3
         env:
