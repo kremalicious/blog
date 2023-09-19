@@ -142,7 +142,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist-ubuntu-latest-18
-          path: dist.zip
       - name: unzip artifact
         run: unzip dist.zip
       - name: Deploy to S3
