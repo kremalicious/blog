@@ -1,5 +1,5 @@
 import { getAllPosts } from '@lib/astro'
-import config from '@config/blog.config.ts'
+import config from '@config/blog.config'
 import type { AstroConfig } from 'astro'
 import { getFeedContent } from '@lib/feed'
 import faviconSrc from '@images/favicon.png'

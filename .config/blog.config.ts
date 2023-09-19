@@ -6,7 +6,6 @@ export default {
     name: 'Matthias Kretschmann',
     email: 'm@kretschmann.io',
     url: 'https://matthiaskretschmann.com',
-    twitter: 'https://twitter.com/kremalicious',
     mastodon: 'https://mas.to/@krema',
     github: 'https://github.com/kremalicious',
     bitcoin: '171qDmKEXm9YBgBLXyGjjPvopP5o9htQ1V',

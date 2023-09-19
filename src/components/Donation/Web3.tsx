@@ -1,5 +1,5 @@
 import Web3Donation from '@components/Donation/Web3Donation'
-import config from '@config/blog.config.ts'
+import config from '@config/blog.config'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { wagmiConfig, chains, theme } from '@lib/rainbowkit'

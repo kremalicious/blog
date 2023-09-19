@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss'
-import config from '@config/blog.config.ts'
+import config from '@config/blog.config'
 import { getAllPosts } from '@lib/astro'
 import { getFeedContent } from '@lib/feed'
 import type { AstroConfig } from 'astro'

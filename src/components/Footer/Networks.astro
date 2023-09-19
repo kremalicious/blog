@@ -1,6 +1,6 @@
 ---
 import styles from './Networks.module.css'
-import { Twitter, Rss, Mastodon, Github, Jsonfeed } from '@images/components'
+import { Rss, Mastodon, Github, Jsonfeed } from '@images/components'
 
 type Props = {
   links: string[]
@@ -15,8 +15,6 @@ const { links } = Astro.props
       <a class={styles.link} href={link} title={link} rel="me">
         {link.includes('mas.to') ? (
           <Mastodon />
-        ) : link.includes('twitter') ? (
-          <Twitter />
         ) : link.includes('github') ? (
           <Github />
         ) : link.includes('feed.xml') ? (
