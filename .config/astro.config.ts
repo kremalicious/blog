@@ -4,8 +4,9 @@ import remarkToc from '../src/lib/remark-toc'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import expressiveCode from 'astro-expressive-code'
-import redirects from './redirects.json'
+import redirectFrom from '../src/lib/astro-redirect-from'
 import config from './blog.config'
+import { getSlug } from '../src/lib/astro/getSlug'
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +23,6 @@ export default defineConfig({
     }
   },
   server: { host: true },
-  redirects,
   vite: {
     resolve: {
       // for making content -> src/content symlink work
@@ -49,6 +49,7 @@ export default defineConfig({
         }
       }
     }),
+    redirectFrom({ contentDir: './content', getSlug }),
     sitemap({
       filter: (page) =>
         !page.includes('page/') &&

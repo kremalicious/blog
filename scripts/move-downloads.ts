@@ -4,7 +4,7 @@
 //
 import fs from 'node:fs'
 import path from 'node:path'
-import { glob } from 'glob'
+import fg from 'fast-glob'
 import ora, { type Ora } from 'ora'
 import chalk from 'chalk'
 
@@ -30,7 +30,7 @@ function removeFolderContents(folderPath: string) {
   }
 }
 
-export function copyZipFiles(
+export async function copyZipFiles(
   source: string,
   destination: string,
   spinner: Ora
@@ -44,7 +44,7 @@ export function copyZipFiles(
   }
 
   // Find all files recursively in the source folder
-  const zipFiles = glob.sync(filesGlob, { cwd: source })
+  const zipFiles = await fg.glob(filesGlob, { cwd: source })
 
   zipFiles.forEach((zipFile: string) => {
     const sourcePath = path.join(source, zipFile)
@@ -70,4 +70,4 @@ export function copyZipFiles(
   )
 }
 
-copyZipFiles(sourceFolder, destinationFolder, spinner)
+await copyZipFiles(sourceFolder, destinationFolder, spinner)

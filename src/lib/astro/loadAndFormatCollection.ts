@@ -1,8 +1,9 @@
-import { getCollection, type CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { readOutExif } from '@lib/exif'
 import path from 'path'
 import config from '@config/blog.config'
 import { sortPosts } from './sortPosts'
+import { getSlug } from './getSlug'
 
 //
 // Main loader for all collections content.
@@ -29,19 +30,9 @@ export async function loadAndFormatCollection(
       : new Date(post.id.split('/')[0].substring(0, 10))
 
     //
-    // remove date from slug
+    // construct slug from folder or file name
     //
-    let slug = post.id.split('/')[0].substring(11) as CollectionEntry<
-      'articles' | 'photos' | 'links'
-    >['slug']
-
-    // links are not folders so remove .md from the end
-    if (post.collection === 'links') {
-      slug = slug.substring(
-        0,
-        slug.length - 3
-      ) as CollectionEntry<'links'>['slug']
-    }
+    const slug = getSlug(post.id)
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 

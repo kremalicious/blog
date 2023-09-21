@@ -3,7 +3,7 @@
 //
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import frontmatter from 'front-matter'
+import matter from 'gray-matter'
 import ora from 'ora'
 import chalk from 'chalk'
 
@@ -35,17 +35,16 @@ export async function findMarkdownFilesWithRedirects(
         !itemPath.includes('links')
       ) {
         const fileContent = await fs.readFile(itemPath, 'utf-8')
-        const { attributes }: { attributes: Frontmatter } =
-          frontmatter(fileContent)
+        const { data: frontmatter }: { data: Frontmatter } = matter(fileContent)
 
         // construct slug from frontmatter or folder name
         const postSlug =
-          attributes.slug || `/${itemPath.split('/')[2].substring(11)}`
+          frontmatter.slug || `/${itemPath.split('/')[2].substring(11)}`
 
         // Check if the Markdown file has a redirect_from field
-        if (attributes.redirect_from) {
+        if (frontmatter.redirect_from) {
           fileCount++
-          const redirectFromSlugs = attributes.redirect_from
+          const redirectFromSlugs = frontmatter.redirect_from
           for (const slug of redirectFromSlugs) {
             // Add entries to the redirects object
             redirects[slug] = postSlug
@@ -64,7 +63,7 @@ try {
   const redirectsJSON = JSON.stringify(redirects, null, 2)
 
   // Write the redirects object to the output file
-  fs.writeFile(outputFilePath, redirectsJSON, 'utf-8')
+  await fs.writeFile(outputFilePath, redirectsJSON, 'utf-8')
 
   spinner.succeed(
     `${chalk.bold('[redirect-from]')} Extracted ${
