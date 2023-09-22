@@ -4,7 +4,7 @@ import remarkToc from '../src/lib/remark-toc'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import expressiveCode from 'astro-expressive-code'
-import redirectFrom from '../src/lib/astro-redirect-from'
+import redirectFrom from '../src/lib/astro-redirect-from/src'
 import config from './blog.config'
 import { getSlug } from '../src/lib/astro/getSlug'
 
