@@ -87,6 +87,8 @@ export default defineConfig({
 
 That's it. Your redirects will be automatically added the next time you run `astro dev` or `astro build`. If any of them have a `redirect_from` field, that is.
 
+For easy debugging, a `redirect_from.json` is written out into Astro's `cacheDir` setting, which by default is under `node_modules/.astro`.
+
 [See Usage](#usage)
 
 ### Options
@@ -120,7 +122,7 @@ Specify a different directory for your Markdown files, relative to the project r
 
 _Default: `getSlugFromFilePath()`, see below_
 
-If you need a custom slug structure, pass a function to construct your slug from the file path.
+If you need a custom slug structure, pass a function to construct your slug from the file path. The file path should be relative to the content directory.
 
 If you use a `slug` field in your frontmatter, this will be preferred by the plugin and passing any `getSlug` function will have no effect in that case.
 
