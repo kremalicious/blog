@@ -1,10 +1,10 @@
 import { type CollectionEntry } from 'astro:content'
-import { getAllPosts } from './index'
+import { getAllPosts } from './getAllPosts'
 
 // helps to reduce DOM size
 export async function getAllPostsForSearch() {
   const allPosts = await getAllPosts()
-  if (!allPosts) return
+  if (!allPosts) return []
 
   const cleaned = await Promise.all(
     allPosts.map(async (post) => {

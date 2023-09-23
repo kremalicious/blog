@@ -9,11 +9,11 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('meta is correct', async ({ page }) => {
-  await expect(page).toHaveTitle(/Redirect plugin for Markdown Pages in Gatsby/)
+  await expect(page).toHaveTitle(/Redirect Plugin for Markdown Pages in Gatsby/)
 
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     'content',
-    /Redirect plugin for Markdown Pages in Gatsby/
+    /Redirect Plugin for Markdown Pages in Gatsby/
   )
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',

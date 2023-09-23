@@ -13,7 +13,7 @@ if (!repoInfo) {
   console.info(`Repo ${repo} not found`)
   return
 }
-const { url, owner, object } = repoInfo
+const { url, object } = repoInfo
 const changelogHtml = await markdownToHtml(
   object.text.replace('### Changelog', '')
 )
@@ -27,7 +27,7 @@ const changelogHtml = await markdownToHtml(
         <p class={styles.source}>
           sourced from{' '}
           <a href={`${url}/tree/main/CHANGELOG.md`}>
-            <code>{`${owner?.login}/${repo}:CHANGELOG.md`}</code>
+            <code>{`${repo}:CHANGELOG.md`}</code>
           </a>
         </p>
         <div class={styles.content} set:html={changelogHtml} />

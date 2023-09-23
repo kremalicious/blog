@@ -26,7 +26,7 @@ test('copyZipFiles should copy zip files', async () => {
     fail: vi.fn()
   }
 
-  copyZipFiles(sourceDir, destDir, mockOra as any)
+  await copyZipFiles(sourceDir, destDir, mockOra as any)
 
   const file1 = await fs.readFile(path.join(destDir, 'file1.zip'), 'utf-8')
   const file2 = await fs.readFile(path.join(destDir, 'file2.zip'), 'utf-8')
