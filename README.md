@@ -24,7 +24,7 @@
   - [📝 GitHub changelog rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
   - [💎 SVG assets as components](#-svg-assets-as-components)
-  - [`redirect_from`](#redirect_from)
+  - [astro-redirect-from](#astro-redirect-from)
   - [RSS \& JSON feeds](#rss--json-feeds)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
@@ -145,15 +145,11 @@ If you want to know how this works, have a look at the respective files:
 
 - [`scripts/create-icons/`](scripts/create-icons/)
 
-### `redirect_from`
+### astro-redirect-from
 
-Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived in [gatsby-redirect-from](/gatsby-redirect-from/) and now works in Astro. For all post slugs defined in a `redirect_from` frontmatter key, redirects will be put in place by Astro.
+Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived in [gatsby-redirect-from](https://kremalicious.com/gatsby-redirect-from/) and now works in Astro with [astro-redirect-from](https://kremalicious.com/astro-redirect-from/).
 
-Before building the site, a script scans all markdown files and creates a json file under `.config/redirects.json`. This file is then imported into `astro.config.ts` under its `redirects` option.
-
-If you want to know how, have a look at the respective files:
-
-- [`scripts/redirect-from.ts`](scripts/redirect-from.ts)
+For all post slugs defined in a `redirect_from` frontmatter key, redirects will be put in place by Astro.
 
 ### RSS & JSON feeds
 
