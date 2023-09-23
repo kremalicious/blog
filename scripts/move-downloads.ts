@@ -4,7 +4,7 @@
 //
 import fs from 'node:fs'
 import path from 'node:path'
-import fg from 'fast-glob'
+import globby from 'globby'
 import ora, { type Ora } from 'ora'
 import chalk from 'chalk'
 
@@ -44,7 +44,7 @@ export async function copyZipFiles(
   }
 
   // Find all files recursively in the source folder
-  const zipFiles = await fg.glob(filesGlob, { cwd: source })
+  const zipFiles = await globby(filesGlob, { cwd: source })
 
   zipFiles.forEach((zipFile: string) => {
     const sourcePath = path.join(source, zipFile)
