@@ -32,7 +32,7 @@ export async function loadAndFormatCollection(
     //
     // construct slug from folder or file name
     //
-    const slug = getSlug(post.id)
+    const slug = getSlug(`${post.collection}/${post.id}`)
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 

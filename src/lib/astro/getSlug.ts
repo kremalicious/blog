@@ -7,7 +7,7 @@ export function getSlug(filePath: string) {
 
   // construct slug as full path from either file or folder name,
   if (parsedPath.base === 'index.md') {
-    slug = `${parsedPath.dir}`
+    slug = parsedPath.dir
   } else {
     slug = `${parsedPath.dir}/${parsedPath.name}`
   }
