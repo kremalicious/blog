@@ -55,12 +55,7 @@ The plugin is designed to work without configuration, especially if your project
 ```bash
 cd yourproject/
 
-# Using NPM
 npx astro add astro-redirect-from
-# Using Yarn
-yarn astro add astro-redirect-from
-# Using PNPM
-pnpm astro add astro-redirect-from
 ```
 
 If installing manually:
@@ -78,7 +73,7 @@ import redirectFrom from 'astro-redirect-from'
 export default defineConfig({
   // ...
   integrations: [
-    // make sure this is listed before any hosting integration
+    // make sure this is listed BEFORE any hosting integration
     redirectFrom()
   ]
   // ...
