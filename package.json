@@ -37,7 +37,7 @@
     "@nanostores/react": "^0.7.1",
     "@rainbow-me/rainbowkit": "^1.0.11",
     "astro": "3.2.2",
-    "astro-expressive-code": "^0.26.0",
+    "astro-expressive-code": "^0.26.1",
     "astro-redirect-from": "^1.0.2",
     "date-fns": "^2.30.0",
     "dms2dec": "^1.1.0",
