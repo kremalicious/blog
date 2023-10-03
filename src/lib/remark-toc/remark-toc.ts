@@ -19,7 +19,7 @@ export interface MyFile extends VFile {
   }
 }
 
-export default function remarkToc(): Transformer {
+export function remarkToc(): Transformer {
   return (tree, file) => {
     // Check if the file is the type we want to process
     if (!file.history[0]?.includes('articles')) return

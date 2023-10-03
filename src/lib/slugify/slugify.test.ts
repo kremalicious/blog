@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import slugify, { slugifyAll } from './slugify'
+import { slugify, slugifyAll } from '.'
 
 test('slugify should convert text to slug', () => {
   const text = 'Hello World!'

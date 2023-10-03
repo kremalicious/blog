@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content'
-import { markdownToHtml } from './markdown'
+import { markdownToHtml } from '../markdown'
 
 export async function getFeedContent(
   post: CollectionEntry<'articles' | 'photos' | 'links'>

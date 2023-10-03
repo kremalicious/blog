@@ -4,7 +4,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import { VFile } from 'vfile'
 import { test, expect, beforeAll } from 'vitest'
-import remarkLeadParagraph, { type MyFile } from './remark-lead-paragraph'
+import { remarkLeadParagraph, type MyFile } from '.'
 
 let processor: ReturnType<typeof unified>
 

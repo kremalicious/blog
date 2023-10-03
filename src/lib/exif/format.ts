@@ -5,7 +5,7 @@ import getCoordinates from 'dms2dec'
 import Fraction from 'fraction.js'
 import type { ExifFormatted, FastExif } from './types.ts'
 
-function formatGps(gpsData: FastExif['gps']): {
+export function formatGps(gpsData: FastExif['gps']): {
   latitude: number
   longitude: number
 } {
@@ -24,18 +24,16 @@ function formatGps(gpsData: FastExif['gps']): {
   return { latitude, longitude }
 }
 
-function formatExposure(exposureMode: number) {
-  if (exposureMode === null || exposureMode === undefined) return
+export function formatExposure(exposureMode: number) {
+  if (!exposureMode || exposureMode === 0) return `+/- 0 ev`
 
   const exposureShortened = parseFloat(exposureMode.toFixed(2))
   let exposure
 
-  if (exposureMode === 0) {
-    exposure = `+/- ${exposureShortened} ev`
-  } else if (exposureMode > 0) {
+  if (exposureMode > 0) {
     exposure = `+ ${exposureShortened} ev`
   } else {
-    exposure = `${exposureShortened} ev`
+    exposure = `- ${Math.abs(exposureShortened)} ev`
   }
 
   return exposure
@@ -76,12 +74,12 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   const exposure = formatExposure(exposureValue)
 
   // Model
-  model === 'FC7203' ? 'DJI Mavic Mini' : model
+  const formattedModel = model === 'FC7203' ? 'DJI Mavic Mini' : model
 
   return {
     date: date as string,
     iso,
-    model,
+    model: formattedModel,
     fstop,
     shutterspeed,
     focalLength,

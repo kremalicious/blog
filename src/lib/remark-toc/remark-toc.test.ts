@@ -4,7 +4,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import { VFile } from 'vfile'
 import { test, expect } from 'vitest'
-import remarkToc, { type MyFile } from './remark-toc' // Replace with the actual path
+import { remarkToc, type MyFile } from '.'
 
 const expectedToc: string = `<ul>
 <li>

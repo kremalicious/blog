@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { getUmamiConfig } from './umami'
+import { getUmamiConfig } from '.'
 
 test('should throw an error if Umami environment variables are missing in production', () => {
   const mockEnv = {

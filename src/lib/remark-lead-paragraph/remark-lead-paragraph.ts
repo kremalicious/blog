@@ -17,7 +17,7 @@ export interface MyFile extends VFile {
   }
 }
 
-export default function remarkLeadParagraph(): Transformer {
+export function remarkLeadParagraph(): Transformer {
   return (tree, file) => {
     // Check if the file is the type we want to process
     if (!file.history[0]?.includes('articles')) return

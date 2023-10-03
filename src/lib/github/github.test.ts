@@ -1,5 +1,5 @@
 import { it, describe, expect, vi } from 'vitest'
-import { getRepo } from './github'
+import { getRepo } from '.'
 
 describe('getRepo Function', () => {
   const mockResponseData = {

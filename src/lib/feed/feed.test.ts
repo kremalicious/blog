@@ -1,5 +1,5 @@
 import { it, describe, expect } from 'vitest'
-import { getFeedContent } from './feed'
+import { getFeedContent } from '.'
 
 describe('getFeedContent', () => {
   it('should generate post feed content with an image', async () => {

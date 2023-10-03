@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import { existsSync, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import slugify from '../../src/lib/slugify.js'
+import { slugify } from '../../src/lib/slugify'
 import type { Ora } from 'ora'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

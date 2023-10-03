@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config'
-import remarkLeadParagraph from '../src/lib/remark-lead-paragraph'
-import remarkToc from '../src/lib/remark-toc'
+import { remarkLeadParagraph } from '../src/lib/remark-lead-paragraph/remark-lead-paragraph'
+import { remarkToc } from '../src/lib/remark-toc/remark-toc'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import expressiveCode from 'astro-expressive-code'
