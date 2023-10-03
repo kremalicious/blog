@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(`/thanks`)
+  await page.goto(`/thanks/`)
 })
 
 test('meta is correct', async ({ page }) => {

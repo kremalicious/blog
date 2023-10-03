@@ -5,7 +5,7 @@ const postSlug = 'gatsby-redirect-from'
 const canonical = `${siteConfig.siteUrl}/${postSlug}`
 
 test.beforeEach(async ({ page }) => {
-  await page.goto(`/${postSlug}`)
+  await page.goto(`/${postSlug}/`)
 })
 
 test('meta is correct', async ({ page }) => {

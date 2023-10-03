@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test'
 test.describe.configure({ mode: 'parallel' })
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/404')
+  await page.goto('/404/')
 })
 
 test('matches screenshot', async ({ page }) => {
