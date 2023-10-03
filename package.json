@@ -26,7 +26,9 @@
     "create:icons": "ts-node --esm scripts/create-icons/index.ts",
     "create:redirects": "ts-node --esm scripts/redirect-from.ts",
     "create:symlinks": "./scripts/create-symlinks.sh",
-    "move:downloads": "ts-node --esm scripts/move-downloads.ts"
+    "move:downloads": "ts-node --esm scripts/move-downloads.ts",
+    "prepare": "husky install .config/husky",
+    "validate": "run-p --silent typecheck lint"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.0",
@@ -73,6 +75,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-testing-library": "^6.0.1",
     "hast-util-to-html": "^9.0.0",
+    "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^22.1.0",
     "markdownlint-cli": "^0.37.0",
