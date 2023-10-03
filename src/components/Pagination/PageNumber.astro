@@ -10,7 +10,7 @@ type Props = {
 const { i, slug, current } = Astro.props
 
 const classes = current ? `${styles.number} ${styles.current}` : styles.number
-const link = i === 0 ? slug : `${slug}/${i + 1}`
+const link = i === 0 ? slug : `${slug}/${i + 1}/`
 ---
 
 <a class={classes} href={link}>

@@ -15,7 +15,7 @@ const { title, date, updated } = post.data
 const { image } = post.data as CollectionEntry<'articles'>['data']
 ---
 
-<a class={styles.post} href={`/${slug}`}>
+<a class={styles.post} href={`/${slug}/`}>
   {
     image ? (
       <Picture

@@ -13,6 +13,7 @@ export default defineConfig({
   site: config.siteUrl,
   output: 'static',
   cacheDir: '.astro',
+  trailingSlash: 'always',
   markdown: {
     remarkPlugins: [remarkLeadParagraph, remarkToc as any],
     shikiConfig: {

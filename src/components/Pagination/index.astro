@@ -15,11 +15,11 @@ const isLast = currentPage === numPages
 ---
 
 <div class={styles.pagination}>
-  {!isFirst && <PrevNext prevPagePath={`${slug}/${currentPage - 1}`} />}
+  {!isFirst && <PrevNext prevPagePath={`${slug}/${currentPage - 1}/`} />}
   {
     Array.from({ length: numPages }, (_, i) => (
       <PageNumber i={i} slug={slug} current={currentPage === i + 1} />
     ))
   }
-  {!isLast && <PrevNext nextPagePath={`${slug}/${currentPage + 1}`} />}
+  {!isLast && <PrevNext nextPagePath={`${slug}/${currentPage + 1}/`} />}
 </div>

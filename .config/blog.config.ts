@@ -18,23 +18,23 @@ export default {
   menu: [
     {
       title: 'Articles',
-      link: '/archive'
+      link: '/archive/'
     },
     {
       title: 'Photos',
-      link: '/photos'
+      link: '/photos/'
     },
     {
       title: 'Goodies',
-      link: '/tags/goodies'
+      link: '/tags/goodies/'
     },
     {
       title: 'Tags',
-      link: '/tags'
+      link: '/tags/'
     },
     {
       title: '/Uses',
-      link: '/uses'
+      link: '/uses/'
     }
   ]
 }
