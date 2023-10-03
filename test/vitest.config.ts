@@ -26,7 +26,8 @@ export default getViteConfig({
         'src/images/components',
         'src/pages',
         '**/content',
-        'public'
+        'public',
+        '**/tmp/**/*'
       ]
     }
   }

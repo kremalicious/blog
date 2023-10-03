@@ -23,7 +23,7 @@ const descriptionFinal = description
 const canonicalURL =
   Astro.url.pathname === '/'
     ? Astro.site?.origin
-    : `${Astro.site?.origin}${Astro.url.pathname.replace}`
+    : `${Astro.site?.origin}${Astro.url.pathname}`
 
 const imageFinal = `${Astro.site?.origin}${
   image
