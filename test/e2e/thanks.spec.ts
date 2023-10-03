@@ -8,8 +8,9 @@ test('meta is correct', async ({ page }) => {
   await expect(page).toHaveTitle(/Thanks/)
 })
 
-test('rainbowkit works', async ({ page }) => {
+test('rainbowkit modal works', async ({ page }) => {
   // open and close modal
+  await expect(page.getByTestId('rk-connect-button')).toBeVisible()
   await page.getByTestId('rk-connect-button').click()
   await page.getByLabel('Close').click()
 })
