@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "typecheck:astro": "astro check",
     "typecheck:tsc": "tsc --noEmit --pretty",
-    "typecheck": "run-p typecheck:astro typecheck:tsc",
+    "typecheck": "astro sync && run-p typecheck:astro typecheck:tsc",
     "prebuild": "run-p --silent --continue-on-error create:symlinks create:icons move:downloads",
     "test:unit": "vitest run --config './test/vitest.config.ts' --coverage",
     "test:e2e": "playwright test --config './test/playwright.config.ts'",
