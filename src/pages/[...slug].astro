@@ -3,8 +3,6 @@ import LayoutPost from '@layouts/Post/index.astro'
 import { getAllPosts } from '@lib/astro'
 import type { InferGetStaticPropsType } from 'astro'
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
-
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()
 
@@ -18,6 +16,8 @@ export async function getStaticPaths() {
     }
   })
 }
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { entry } = Astro.props
 const { Content, remarkPluginFrontmatter } = await entry.render()

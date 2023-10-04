@@ -11,42 +11,31 @@
     position: fixed;
     width: 100%;
     border: 0;
-    will-change: transform;
     z-index: 0;
     bottom: 0;
-    box-shadow: none;
   }
 }
 
-.btc code {
-  font-size: 0.6rem;
-  background: none;
-  color: var(--link-color);
-  padding: 0;
+.copyright {
+  margin-top: calc(var(--spacer) / var(--line-height));
+  font-size: var(--font-size-mini);
+  color: var(--text-color-light);
 }
 
 .copyright p {
   margin-bottom: 0;
-  font-size: var(--font-size-mini);
 }
 
-.copyright a,
-.copyright button code {
+.copyright a {
   color: var(--text-color-light);
-}
-
-.copyright a,
-.copyright button {
   margin-left: var(--spacer);
 }
 
-.copyright a:hover,
-.copyright button code {
+.copyright a:hover {
   color: var(--link-color);
 }
 
-.copyright a:first-child,
-.copyright button:first-child {
+.copyright a:first-child {
   margin-left: 0;
 }
 

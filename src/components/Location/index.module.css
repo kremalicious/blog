@@ -1,0 +1,41 @@
+.location {
+  font-size: var(--font-size-mini);
+  min-height: 36px;
+}
+
+.location span {
+  font-style: italic;
+}
+
+.emoji {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1em;
+  vertical-align: 'middle';
+  margin-right: calc(var(--spacer) / 6);
+}
+
+.next {
+  display: inline-block;
+  margin-left: calc(var(--spacer) / 3);
+}
+
+.loading {
+  display: inline-block;
+  margin-left: calc(var(--spacer) / 3);
+  animation: flicker 0.3s linear infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -68,7 +68,5 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
     {collection !== 'photos' && <Actions githubLink={githubLink as string} />}
 
     <RelatedPosts isPhotos={collection === 'photos'} post={Astro.props} />
-
-    {/* <PrevNext prev={prev} next={next} /> */}
   </article>
 </LayoutBase>

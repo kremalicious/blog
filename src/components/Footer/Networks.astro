@@ -9,7 +9,7 @@ type Props = {
 const { links } = Astro.props
 ---
 
-<p>
+<section class={styles.networks}>
   {
     links.map((link: string) => (
       <a class={styles.link} href={link} title={link} rel="me">
@@ -25,4 +25,4 @@ const { links } = Astro.props
       </a>
     ))
   }
-</p>
+</section>
