@@ -5,31 +5,33 @@ import { LocationItem } from './LocationItem'
 import styles from './index.module.css'
 
 export default function Location() {
-  const location = useStore($location)
-  const isDifferentCountry = location?.now?.country !== location?.next?.country
+  const { data, loading, error } = useStore($location)
+  if (error) console.error(`Failed to fetch location: ${error}`)
 
   return (
     <section aria-label="Location" className={styles.location}>
-      {location?.now?.city ? (
+      {loading && !data ? (
+        <span className={styles.loading}>...</span>
+      ) : data?.now?.city ? (
         <>
           <LocationItem
-            country={location?.now.country}
-            countryCode={location?.now.country_code}
-            city={location?.now?.city}
+            country={data.now.country}
+            countryCode={data.now.country_code}
+            city={data.now.city}
             time="now"
           />
 
           <div className={styles.next}>
-            {location?.next?.city && (
+            {data.next?.city && (
               <LocationItem
-                country={location?.next.country}
-                countryCode={location?.next.country_code}
-                city={location?.next?.city}
+                country={data.next.country}
+                countryCode={data.next.country_code}
+                city={data.next.city}
                 time={formatDistance(
-                  new Date(location?.next.date_start),
+                  new Date(data.next.date_start),
                   Date.now()
                 )}
-                showFlag={isDifferentCountry}
+                showFlag={data.now.country !== data.next.country}
               />
             )}
           </div>

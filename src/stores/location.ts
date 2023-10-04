@@ -1,4 +1,4 @@
-import { atom, onMount } from 'nanostores'
+import { createFetcherStore } from './fetcher'
 
 export type Location = {
   country: string
@@ -16,27 +16,9 @@ export type LocationStore =
     }
   | undefined
 
-export const $location = atom<LocationStore>(undefined)
+const url = 'https://location.kremalicious.com'
 
-onMount($location, () => {
-  const controller = new AbortController()
-  const signal = controller.signal
-
-  async function getLocation() {
-    try {
-      const response = await fetch('https://location.kremalicious.com', {
-        signal
-      })
-      const data = await response.json()
-      if (!data) return
-      $location.set(data)
-    } catch (error) {
-      console.error((error as Error).message)
-    }
-  }
-  getLocation()
-
-  return () => {
-    controller.abort()
-  }
+export const $location = createFetcherStore<LocationStore>([url], {
+  refetchOnReconnect: true,
+  refetchOnFocus: true
 })
