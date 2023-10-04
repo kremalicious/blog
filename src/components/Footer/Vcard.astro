@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import Networks from './Networks.astro'
+import Location from '../Location'
 import avatar from '@images/avatar.jpg'
 import config from '@config/blog.config'
 import styles from './Vcard.module.css'
@@ -19,10 +20,12 @@ const links = [mastodon, github, rss, jsonfeed]
 />
 
 <p class={styles.description}>
-  {config.siteDescription.replace(name, '')}{' '}
+  {config.siteDescription.replace(name, '')}<br />
   <a class="fn" rel="author" href={url}>
     {name}
   </a>
 </p>
+
+<Location client:idle />
 
 <Networks links={links} />
