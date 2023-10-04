@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { $location } from '@stores/location'
-import { formatDistance } from 'date-fns'
+import { formatDistanceToNowStrict } from 'date-fns'
 import { LocationItem } from './LocationItem'
 import styles from './index.module.css'
 
@@ -30,9 +30,9 @@ export default function Location() {
                 country={data.next.country}
                 countryCode={data.next.country_code}
                 city={data.next.city}
-                time={formatDistance(
+                time={formatDistanceToNowStrict(
                   new Date(data.next.date_start),
-                  Date.now()
+                  { addSuffix: true }
                 )}
                 showFlag={data.now.country !== data.next.country}
               />
