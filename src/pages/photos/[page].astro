@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, InferGetStaticPropsType } from 'astro'
 import { loadAndFormatCollection } from '@lib/astro'
-import LayoutArchive from '@components/layouts/Archive.astro'
+import LayoutArchive from '@layouts/Archive.astro'
 import config from '@config/blog.config'
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>

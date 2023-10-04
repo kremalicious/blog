@@ -6,7 +6,7 @@ import type {
   Page
 } from 'astro'
 import { getAllTags, getPostsByTag } from '@lib/astro'
-import LayoutArchive from '@components/layouts/Archive.astro'
+import LayoutArchive from '@layouts/Archive.astro'
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths> & {
   page: Page<CollectionEntry<'photos'>>

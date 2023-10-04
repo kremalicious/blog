@@ -11,10 +11,9 @@
     "paths": {
       "@config/*": [".config/*"],
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/components/layouts/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/images/*"],
       "@lib/*": ["src/lib/*"],
-      "@hooks/*": ["src/hooks/*"],
       "@stores/*": ["src/stores/*"],
       "@content/*": ["content/*"],
       "@test/*": ["test/*"]
