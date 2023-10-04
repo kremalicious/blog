@@ -6,7 +6,10 @@ import styles from './index.module.css'
 
 export default function Location() {
   const { data, loading, error } = useStore($location)
-  if (error) console.error(`Failed to fetch location: ${error}`)
+  if (error) {
+    console.error(`Failed to fetch location: ${error}`)
+    return null
+  }
 
   return (
     <section aria-label="Location" className={styles.location}>

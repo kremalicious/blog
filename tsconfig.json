@@ -2,10 +2,6 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "plugins": [
-      { "name": "typescript-plugin-css-modules" },
-      { "name": "@astrojs/ts-plugin" }
-    ],
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
@@ -20,7 +16,7 @@
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "exclude": ["node_modules", "dist", ".cache", "src/images/components"],
+  "exclude": ["src/images/components", "src/content"],
   "include": [
     "src/**/*",
     "content/**/*",
