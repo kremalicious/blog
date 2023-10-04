@@ -3,8 +3,9 @@ import config from '@config/blog.config'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { wagmiConfig, chains, theme } from '@lib/rainbowkit'
+import type { ReactElement } from 'react'
 
-export default function Web3() {
+export default function Web3(): ReactElement {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains} theme={theme}>

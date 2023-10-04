@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import { readOutExif } from '@lib/exif'
 import path from 'path'
 import config from '@config/blog.config'
@@ -13,7 +13,7 @@ import { getSlug } from './getSlug'
 //
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
-) {
+): Promise<CollectionEntry<'articles' | 'links' | 'photos'>[]> {
   let postsCollection = await getCollection(name)
 
   // filter out drafts, but only in production
@@ -36,7 +36,7 @@ export async function loadAndFormatCollection(
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
 
-    post.slug = slug
+    post.slug = slug as CollectionEntry<'articles' | 'links' | 'photos'>['slug']
     post.data.date = date
     post.data.githubLink = githubLink
 

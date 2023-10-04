@@ -12,15 +12,16 @@ export function getTransactionMessage(transactionHash?: string): {
   }
 }
 
-const constructMessage = (
+function constructMessage(
   transactionHash: string,
   message?: { text?: string }
-) =>
-  transactionHash
+): string | undefined {
+  return transactionHash
     ? message?.text +
-      '<br /><br />' +
-      getTransactionMessage(transactionHash).transaction
+        '<br /><br />' +
+        getTransactionMessage(transactionHash).transaction
     : message && message.text
+}
 
 const classes = (status: string) =>
   status === 'success'

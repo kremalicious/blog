@@ -1,10 +1,13 @@
 import { type ReactElement, useEffect, useState } from 'react'
 import styles from './Conversion.module.css'
 
-export async function getFiat(
-  amount: number,
+export async function getFiat({
+  amount,
   tokenId = 'ethereum'
-): Promise<{ [key: string]: string }> {
+}: {
+  amount: number
+  tokenId?: string
+}): Promise<{ [key: string]: string }> {
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${tokenId}&vs_currencies=eur%2Cusd`
   const response = await fetch(url)
   const json = await response.json()
@@ -34,7 +37,10 @@ export default function Conversion({
     async function getFiatResponse() {
       try {
         const tokenId = symbol === 'MATIC' ? 'matic-network' : 'ethereum'
-        const { dollar, euro } = await getFiat(Number(amount), tokenId)
+        const { dollar, euro } = await getFiat({
+          amount: Number(amount),
+          tokenId
+        })
         setConversion({ euro, dollar })
       } catch (error) {
         console.error((error as Error).message)

@@ -11,15 +11,15 @@
     "build": "astro build --config '.config/astro.config.ts'",
     "preview": "astro preview",
     "typecheck:astro": "astro check",
-    "typecheck:tsc": "tsc --noEmit",
-    "typecheck": "npm run typecheck:astro && npm run typecheck:tsc",
+    "typecheck:tsc": "tsc --noEmit --pretty",
+    "typecheck": "run-p typecheck:astro typecheck:tsc",
     "prebuild": "run-p --silent --continue-on-error create:symlinks create:icons move:downloads",
     "test:unit": "vitest run --config './test/vitest.config.ts' --coverage",
     "test:e2e": "playwright test --config './test/playwright.config.ts'",
     "lint": "run-p --silent lint:js lint:css lint:md",
-    "lint:js": "eslint --ignore-path .gitignore --ext .ts,.tsx,.astro,.mjs,.js,.cjs .",
+    "lint:js": "eslint --ignore-path .gitignore --ext .ts,.tsx,.astro,.mjs,.js,.cjs ./{src,test,scripts}/",
     "lint:css": "stylelint --config '.config/.stylelintrc.json' 'src/**/*.css'",
-    "lint:md": "markdownlint --config '.config/.markdownlint.json' './**/*.{md,markdown}' --ignore './{node_modules,public,.cache,dist,.git,coverage}/**/*'",
+    "lint:md": "markdownlint --config '.config/.markdownlint.json' --ignore-path .gitignore --dot './**/*.{md,markdown}'",
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,md,json,css,astro,yml}'",
     "deploy:s3": "./scripts/deploy-s3.sh",
     "new": "ts-node --esm scripts/new/index.ts",
@@ -107,10 +107,15 @@
     "type": "git",
     "url": "https://github.com/kremalicious/blog.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      "defaults",
+      ">0.2%"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

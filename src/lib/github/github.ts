@@ -1,4 +1,4 @@
-export async function getRepo(name: string) {
+export async function getRepo(name: string): Promise<any> {
   // name comes in as user/repo
   const user = name.split('/')[0]
   const repo = name.split('/')[1]

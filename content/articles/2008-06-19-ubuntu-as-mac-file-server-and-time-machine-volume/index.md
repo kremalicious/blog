@@ -91,7 +91,7 @@ sudo vi /etc/default/netatalk
 
 vim should pop up with the defined file loaded as superuser (needed for saving). Find the "#Set which daemons to run" part and replace the default values with these to enable just AFP and disable all unneeded services. Let the cnid_meta daemon run too and if you want to [share your Linux connected printer with your Mac](http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-netatalk-to-share-a-usb-printer/) also enable the pap daemon (set to yes):
 
-```
+```ini
 ATALKD_RUN=no
 PAPD_RUN=no
 CNID_METAD_RUN=yes
@@ -108,9 +108,9 @@ Press Ctrl + S to save the document or choose File > Save. Next we have to edit 
 sudo vi /etc/netatalk/afpd.conf
 ```
 
-Scroll to the very bottom of the document and add this to the bottom (replace the whole line in case there's already one). This is one line so be sure that there's no line break in your afpd.conf file:
+Scroll to the very bottom of the document and add this to the bottom (replace the whole line in case there's already one). This is one line so be sure that there's no line break in your `afpd.conf` file:
 
-```
+```ini
 -transall -uamlist uams_randnum.so,uams_dhx.so -nosavepassword -advertise_ssh
 ```
 
@@ -126,19 +126,19 @@ sudo vi /etc/netatalk/AppleVolumes.default
 
 Scroll to the bottom of the document and define your Volume shares. By adding the following line you will share each users home directory with the user name as the Volume name. To make things more secure you can define all users who are allowed to connect to your Ubuntu box via AFP:
 
-```
+```ini
 ~/      "$u"        allow:username1,username2       cnidscheme:cdb
 ```
 
 Because we want to use the Ubuntu machine as a backup server for Time Machine you should define a second volume just for Time Machine. Create a new folder in your home directory first and name it TimeMachine (or anything you like). Then add the following line to your AppleVolumes.default. This is one line so be sure that there’s no line break in your `AppleVolumes.default` file:
 
-```
+```ini
 /home/username/TimeMachine      TimeMachine     allow:username1,username2       cnidscheme:cdb options:usedots,upriv
 ```
 
 Thanks to [tsanga](http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume/#comment-50) for pointing out the usedots and upriv options. The usedots option is required if you want to use invisible files and folders (those starting with a dot in the name). Otherwise afpd would encode them as :2e which is bad if you have to use invisible files (like .htaccess). If you're on Leopard **and have no Tiger installed Macs in your network or mixed OS X versions in your network** you should use the upriv option which adds support for AFP3 unix privileges. If you have Macs with Tiger installed just use options:usedots to avoid unexpected behavior:
 
-```
+```ini
 /home/username/TimeMachine      TimeMachine     allow:username1,username2       cnidscheme:cdb options:usedots
 ```
 
@@ -171,7 +171,7 @@ sudo vi /etc/nsswitch.conf
 
 Just add `mdns` at the end of the line that starts with `hosts:`. Now the line should look like this:
 
-```
+```ini
 hosts:      files mdns4_minimal [NOTFOUND=return] dns mdns4 mdns
 ```
 
@@ -288,15 +288,11 @@ In short you have to allow communications over port 548 and 5353.
 
 If you get one of those errors:
 
-```
-Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
-```
+> Connection Failed - There was an error connection to the server. Check the server name or IP address and try again
 
 or
 
-```
-There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
-```
+> There was an error connecting to the server. Check the server name or IP address and try again. If you are unable to resolve the problem contact your system administrator.
 
 you should first be sure you have either no firewall on your Ubuntu box in use or have it configured to allow AFP communications as suggested in the above paragraph.
 
@@ -310,7 +306,7 @@ sudo vi /etc/hosts
 
 Add the following two lines at the very top of the file.
 
-```
+```ini
 127.0.0.1 localhost
 127.0.1.1 Rockhopper.local Rockhopper
 ```
@@ -383,7 +379,7 @@ Because I've just modified Apple's standard icons these icons are just available
 
 In the avahi configuration part in this article you have assigned the Xserve device info to your afpd.service file. All you have to do is to replace the generic Xserve icon (or whatever model you have assigned in your afpd.service file) with an icon from this icon package. Just rename the Ubuntu Server.icns to com.apple.xserve.icns and navigate to
 
-```
+```bash
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
 ```
 
@@ -393,7 +389,7 @@ If you've used another model in your afpd.service file, browse the Resources of 
 
 As for the Windows Vista server icon: Just rename the Windows Server.icns file to public.generic-pc.icns and navigate to
 
-```
+```bash
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
 ```
 

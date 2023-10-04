@@ -1,6 +1,9 @@
 import slugifyLib from 'slugify'
 
-export const slugify = (text: string) =>
-  slugifyLib(text, { lower: true, remove: /[*+~.()'"!:@]/g })
+export function slugify(text: string): string {
+  return slugifyLib(text, { lower: true, remove: /[*+~.()'"!:@]/g })
+}
 
-export const slugifyAll = (arr: string[]) => arr.map((str) => slugify(str))
+export function slugifyAll(arr: string[]): string[] {
+  return arr.map((str) => slugify(str))
+}

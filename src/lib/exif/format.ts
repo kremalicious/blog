@@ -24,7 +24,7 @@ export function formatGps(gpsData: FastExif['gps']): {
   return { latitude, longitude }
 }
 
-export function formatExposure(exposureMode: number) {
+export function formatExposure(exposureMode: number): string {
   if (!exposureMode || exposureMode === 0) return `+/- 0 ev`
 
   const exposureShortened = parseFloat(exposureMode.toFixed(2))

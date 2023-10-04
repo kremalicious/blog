@@ -85,7 +85,7 @@ In the background, the code base changed drastically. We now have only one Aquar
 
 If you’re interested in all the detailed code changes, you can follow along with the [main Pull Request](https://github.com/oceanprotocol/market/pull/628) which has references and screenshots for all other changes done against it. This is also the best place to start if you run your own fork of the market and want to integrate the latest multi-network changes without looking at just one big change in `main`.
 
-### Check it out!
+### Check it out
 
 Head to [market.oceanprotocol.com](https://market.oceanprotocol.com) and see assets currently mixed from 3 networks by default.
 

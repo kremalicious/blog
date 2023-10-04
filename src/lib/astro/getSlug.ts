@@ -1,7 +1,6 @@
-import type { CollectionEntry } from 'astro:content'
 import path from 'node:path'
 
-export function getSlug(filePath: string) {
+export function getSlug(filePath: string): string {
   const parsedPath = path.parse(filePath)
   let slug
 
@@ -18,5 +17,5 @@ export function getSlug(filePath: string) {
   // remove the date prefix
   slug = slug.substring(11)
 
-  return slug as CollectionEntry<'articles' | 'photos' | 'links'>['slug']
+  return slug
 }

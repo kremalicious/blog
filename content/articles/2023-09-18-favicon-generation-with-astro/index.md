@@ -28,7 +28,7 @@ One significant advantage of generating favicons dynamically is cache busting. W
 
 To begin, these are the source files we will deal with, with only 2 image assets:
 
-```
+```text
 my-astro-project/
 ├── src/
 │ ├── pages/
@@ -56,7 +56,7 @@ After building the project, the generated favicon files will be placed in the `d
 
 This should be present in your `dist/` folder after following the rest of this article:
 
-```
+```text
 my-astro-project/
 ├── dist/
 │   ├── favicon.ico

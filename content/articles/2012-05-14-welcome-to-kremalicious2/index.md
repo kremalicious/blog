@@ -90,7 +90,7 @@ I’ve decided to keep this functionality intact but hide the whole comment sect
 
 The RSS feeds for posts and comments have been moved to Feedburner. You can just use kremalicious.com/feed.xml.
 
-Currently it looks like Google has some problems recognizing kremalicious.com/feed as the replacement for www.kremalicious.com/feed so it may show you multiple entries if you search for it in Google Reader.
+Currently it looks like Google has some problems recognizing `kremalicious.com/feed` as the replacement for `www.kremalicious.com/feed` so it may show you multiple entries if you search for it in Google Reader.
 
 ### Twitter & Google+
 
