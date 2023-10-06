@@ -46,7 +46,7 @@ const photos = (await loadAndFormatCollection('photos')).slice(
     <div class="articles">
       {articles.map((article) => <PostTeaser post={article} hideDate />)}
     </div>
-    <More href="/archive/1">All Articles & Links</More>
+    <More href="/archive/1/">All Articles & Links</More>
   </section>
 
   <section class="section">
@@ -55,6 +55,6 @@ const photos = (await loadAndFormatCollection('photos')).slice(
       {photos.map((photo) => <PhotoTeaser post={photo} />)}
     </div>
 
-    <More href="/photos/1">All Photos</More>
+    <More href="/photos/1/">All Photos</More>
   </section>
 </LayoutBase>
