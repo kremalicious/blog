@@ -1,0 +1,29 @@
+---
+import PostTitle from '@layouts/Post/Title.astro'
+import styles from './index.module.css'
+import type { CollectionEntry } from 'astro:content'
+import LinkActions from '@layouts/Post/LinkActions.astro'
+
+type Props = {
+  post: CollectionEntry<'articles' | 'links'>
+  hideDate?: boolean
+}
+
+const { post, hideDate } = Astro.props
+const { slug } = post
+const { title, date, updated } = post.data
+const { linkurl } = post.data as CollectionEntry<'links'>['data']
+const { Content } = await post.render()
+---
+
+<article class={styles.post}>
+  <PostTitle
+    title={title}
+    date={hideDate ? undefined : date}
+    updated={updated}
+    linkurl={linkurl}
+    className={styles.title}
+  />
+  <Content />
+  <LinkActions slug={slug} linkurl={linkurl} />
+</article>

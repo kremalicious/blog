@@ -1,0 +1,9 @@
+.post {
+  display: block;
+  margin-top: calc(var(--spacer) * var(--line-height));
+  margin-bottom: calc(var(--spacer) * var(--line-height));
+}
+
+.post + .post {
+  margin-top: calc(var(--spacer) * var(--line-height));
+}

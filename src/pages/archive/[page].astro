@@ -1,5 +1,5 @@
 ---
-import { loadAndFormatCollection } from '@lib/astro'
+import { loadAndFormatCollection, sortPosts } from '@lib/astro'
 import type { GetStaticPathsOptions, InferGetStaticPropsType } from 'astro'
 import LayoutArchive from '@layouts/Archive.astro'
 import config from '@config/blog.config'
@@ -9,7 +9,8 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
-  return paginate([...articles, ...links], { pageSize: config.itemsPerPage })
+  const sorted = sortPosts([...articles, ...links])
+  return paginate(sorted, { pageSize: config.itemsPerPage })
 }
 // All paginated data + posts are passed on the "page" prop
 const { page } = Astro.props as Props

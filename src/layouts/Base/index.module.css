@@ -67,6 +67,7 @@
 
 .pagetitle {
   font-size: var(--font-size-h3);
+  color: var(--text-color-light);
   margin-top: 0;
   margin-bottom: var(--spacer);
   display: flex;

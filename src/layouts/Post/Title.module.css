@@ -5,6 +5,7 @@
 
 .titleLink {
   font-size: var(--font-size-h3);
+  margin-bottom: 0;
 }
 
 .titleLink svg {
@@ -24,5 +25,5 @@
   font-family: var(--font-family-base);
   font-size: var(--font-size-small);
   color: var(--text-color-light);
-  margin-bottom: var(--spacer);
+  margin-bottom: calc(var(--spacer) / 2);
 }

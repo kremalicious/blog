@@ -14,7 +14,7 @@ const { slug, linkurl } = Astro.props
   <a href={linkurl}>
     Go to source <ExternalLink />
   </a>
-  <a href={slug} rel="tooltip" title="Permalink">
+  <a href={`/${slug}/`} rel="tooltip" title="Permalink">
     <Link />
   </a>
 </div>
