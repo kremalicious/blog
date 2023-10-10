@@ -45,6 +45,9 @@ export async function GET(context: AstroConfig) {
         }
       ],
       items
-    })
+    }),
+    {
+      headers: { 'content-type': 'application/json' }
+    }
   )
 }

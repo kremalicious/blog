@@ -33,5 +33,7 @@ export const GET: APIRoute = async () => {
     icons
   }
 
-  return new Response(JSON.stringify(manifest))
+  return new Response(JSON.stringify(manifest), {
+    headers: { 'content-type': 'application/json' }
+  })
 }
