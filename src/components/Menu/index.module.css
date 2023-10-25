@@ -14,8 +14,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
 }
