@@ -2,35 +2,13 @@ import * as Select from '@radix-ui/react-select'
 import './Select.css'
 import { SelectItem } from './SelectItem'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
-import { useEffect, useState } from 'react'
-import { getBalance } from '../../api/getBalance'
-import { useAccount, useNetwork } from 'wagmi'
+import { useTokens } from '../../hooks/useTokens'
 
 export function TokenSelect() {
-  const { address } = useAccount()
-  const { chain } = useNetwork()
-
-  const [tokens, setTokens] = useState()
-
-  useEffect(() => {
-    if (!address || !chain) return
-
-    async function getTokens() {
-      try {
-        const response = await getBalance(address)
-        const tokens = response.filter(
-          (token: any) => parseInt(token.chainId) === chain?.id
-        )
-        setTokens(tokens)
-      } catch (error) {
-        console.error((error as Error).message)
-      }
-    }
-    getTokens()
-  }, [address, chain])
+  const { data: tokens } = useTokens()
 
   return (
-    <Select.Root disabled={!address}>
+    <Select.Root disabled={!tokens}>
       <Select.Trigger className="SelectTrigger" aria-label="Token">
         <Select.Value placeholder="…" />
         <Select.Icon>
