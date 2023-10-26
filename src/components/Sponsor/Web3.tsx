@@ -1,4 +1,4 @@
-import Web3Donation from '@components/Donation/Web3Donation'
+import Web3Donation from './Web3Donation'
 import config from '@config/blog.config'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'

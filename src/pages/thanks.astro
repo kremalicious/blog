@@ -1,9 +1,9 @@
 ---
 import BackButton from '@components/BackButton.astro'
 import LayoutBase from '@layouts/Base/index.astro'
-import Web3 from '@components/Donation/Web3'
+import Web3 from '@components/Sponsor/Web3'
 import config from '@config/blog.config'
-import Coin from '@components/Donation/Coin.astro'
+import Coin from '@components/Sponsor/Coin.astro'
 
 const coins = Object.entries(config.author).filter(
   ([key]) => key === 'bitcoin' || key === 'ether'
