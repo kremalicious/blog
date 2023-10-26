@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
-import InputGroup from './InputGroup'
+import { InputGroup } from '.'
 
 const setAmount = vi.fn()
 

@@ -1,6 +1,6 @@
 import { type Theme, getDefaultWallets } from '@rainbow-me/rainbowkit'
 import { configureChains, createConfig } from 'wagmi'
-import { mainnet, polygon } from 'wagmi/chains'
+import { mainnet, polygon, base, bsc } from 'wagmi/chains'
 import { infuraProvider } from 'wagmi/providers/infura'
 import { publicProvider } from 'wagmi/providers/public'
 
@@ -13,7 +13,7 @@ if (isProduction && (!PUBLIC_INFURA_ID || !PUBLIC_WALLETCONNECT_ID)) {
 }
 
 export const { chains, publicClient } = configureChains(
-  [mainnet, polygon],
+  [mainnet, polygon, base, bsc],
   [infuraProvider({ apiKey: PUBLIC_INFURA_ID }), publicProvider()]
 )
 

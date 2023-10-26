@@ -2,7 +2,7 @@ import Web3Donation from './Web3Donation'
 import config from '@config/blog.config'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
-import { wagmiConfig, chains, theme } from '@lib/rainbowkit'
+import { wagmiConfig, chains, theme } from './Web3Donation/lib/rainbowkit'
 import type { ReactElement } from 'react'
 
 export default function Web3(): ReactElement {

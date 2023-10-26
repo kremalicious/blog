@@ -9,8 +9,8 @@ import {
 } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
-import Alert, { getTransactionMessage } from './Alert'
-import InputGroup from './InputGroup'
+import Alert, { getTransactionMessage } from './components/Alert/Alert'
+import { InputGroup } from './components/Input'
 import styles from './index.module.css'
 
 export default function Web3Donation({

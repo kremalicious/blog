@@ -1,0 +1,52 @@
+.SelectItem {
+  font-size: var(--font-size-small);
+  line-height: 1;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  padding: calc(var(--spacer) / 4) calc(var(--spacer) / 4)
+    calc(var(--spacer) / 4) 25px;
+  position: relative;
+  user-select: none;
+}
+
+.SelectItem[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.SelectItem[data-highlighted] {
+  outline: none;
+  background-color: var(--text-color);
+  color: var(--body-background-color);
+}
+
+.SelectItem,
+.Token {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.Token {
+  min-width: 200px;
+}
+
+.Token img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  margin-right: calc(var(--spacer) / 4);
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--border-color);
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
