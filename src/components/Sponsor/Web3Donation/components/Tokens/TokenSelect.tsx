@@ -1,14 +1,25 @@
 import * as Select from '@radix-ui/react-select'
-import './Select.css'
-import { SelectItem } from './SelectItem'
+import './TokenSelect.css'
+import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { useTokens } from '../../hooks/useTokens'
 
-export function TokenSelect() {
+export function TokenSelect({
+  setToken
+}: {
+  setToken: (token: string) => void
+}) {
   const { data: tokens } = useTokens()
 
-  return (
-    <Select.Root disabled={!tokens}>
+  const items = tokens?.map((token) => (
+    <Token key={token.address} token={token} />
+  ))
+
+  return tokens ? (
+    <Select.Root
+      defaultValue={tokens[0].address}
+      onValueChange={(value) => setToken(value)}
+    >
       <Select.Trigger className="SelectTrigger" aria-label="Token">
         <Select.Value placeholder="…" />
         <Select.Icon>
@@ -26,16 +37,7 @@ export function TokenSelect() {
               <Select.Label className="SelectLabel">
                 In Your Wallet
               </Select.Label>
-
-              {tokens?.map((token: any) => (
-                <SelectItem
-                  key={token.token_address}
-                  value={token.token_address}
-                  icon={token.logo}
-                >
-                  {token.name}
-                </SelectItem>
-              ))}
+              {items}
             </Select.Group>
           </Select.Viewport>
           <Select.ScrollDownButton className="SelectScrollButton">
@@ -44,5 +46,5 @@ export function TokenSelect() {
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  )
+  ) : null
 }

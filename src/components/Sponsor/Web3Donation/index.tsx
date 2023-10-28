@@ -23,16 +23,22 @@ export default function Web3Donation({
 
   const [amount, setAmount] = useState('0.005')
   const [debouncedAmount] = useDebounce(amount, 500)
+  const [token, setToken] = useState<string>()
+  const [message, setMessage] = useState<{ status: string; text: string }>()
+  const [transactionHash, setTransactionHash] = useState<string>()
+
+  // dummy
+  if (token) {
+    console.log(token)
+  }
 
   const { config } = usePrepareSendTransaction({
+    chainId: chain?.id,
     to: address,
-    value: debouncedAmount ? parseEther(debouncedAmount) : undefined
+    value: parseEther(debouncedAmount)
   })
   const { sendTransactionAsync, isError, isSuccess } =
     useSendTransaction(config)
-
-  const [message, setMessage] = useState<{ status: string; text: string }>()
-  const [transactionHash, setTransactionHash] = useState<string>()
 
   async function handleSendTransaction() {
     setMessage({
@@ -83,6 +89,7 @@ export default function Web3Donation({
           amount={amount}
           symbol={chain?.nativeCurrency?.symbol || 'ETH'}
           setAmount={setAmount}
+          setToken={setToken}
           isDisabled={isDisabled}
         />
       )}

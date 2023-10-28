@@ -4,8 +4,8 @@
   color: var(--text-color);
   display: flex;
   align-items: center;
-  padding: calc(var(--spacer) / 4) calc(var(--spacer) / 4)
-    calc(var(--spacer) / 4) 25px;
+  padding: calc(var(--spacer) / 3) calc(var(--spacer) / 2)
+    calc(var(--spacer) / 3) 25px;
   position: relative;
   user-select: none;
 }
@@ -18,6 +18,10 @@
 .SelectItem[data-highlighted] {
   outline: none;
   background-color: var(--text-color);
+}
+
+.SelectItem[data-highlighted],
+.SelectItem[data-highlighted] * {
   color: var(--body-background-color);
 }
 
@@ -39,7 +43,22 @@
   margin-right: calc(var(--spacer) / 4);
   border-radius: 50%;
   border: 1px solid var(--border-color);
-  background: var(--border-color);
+  background: var(--brand-light);
+}
+
+.TokenName,
+.TokenBalance {
+  margin: 0;
+}
+
+.TokenName {
+  font-size: var(--font-size-base);
+  transition: none;
+}
+
+.TokenBalance {
+  font-size: var(--font-size-small);
+  font-variant: tabular-nums;
 }
 
 .SelectItemIndicator {

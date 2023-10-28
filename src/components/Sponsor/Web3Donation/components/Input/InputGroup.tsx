@@ -8,18 +8,20 @@ export function InputGroup({
   amount,
   isDisabled,
   symbol,
-  setAmount
+  setAmount,
+  setToken
 }: {
   amount: string
   isDisabled: boolean
   symbol: string
   setAmount(amount: string): void
+  setToken(token: string): void
 }): ReactElement {
   return (
     <>
       <div className={styles.inputGroup}>
-        <div className={styles.currency}>
-          <TokenSelect />
+        <div className={styles.token}>
+          <TokenSelect setToken={setToken} />
         </div>
         <Input
           type="text"

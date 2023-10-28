@@ -1,26 +1,23 @@
 import { useState, useEffect } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
-import { getBalance } from '../api/getBalance'
+import { getTokens, type GetTokens } from '../api/getTokens'
 
 export function useTokens() {
   const { address } = useAccount()
   const { chain } = useNetwork()
 
-  const [data, setData] = useState()
+  const [data, setData] = useState<GetTokens[]>()
   const [isLoading, setIsLoading] = useState<boolean>()
   const [isError, setIsError] = useState<boolean>()
 
   useEffect(() => {
-    if (!address || !chain) return
+    async function init() {
+      if (!address || !chain) return
 
-    async function getTokens() {
       setIsLoading(true)
 
       try {
-        const response = await getBalance(address)
-        const tokens = response.filter(
-          (token: any) => parseInt(token.chainId) === chain?.id
-        )
+        const tokens = await getTokens(address, chain.id)
         setData(tokens)
         setIsLoading(false)
       } catch (error) {
@@ -29,7 +26,7 @@ export function useTokens() {
         console.error((error as Error).message)
       }
     }
-    getTokens()
+    init()
   }, [address, chain])
 
   return { data, isLoading, isError }

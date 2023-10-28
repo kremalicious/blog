@@ -7,28 +7,35 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 70px;
+  width: 80px;
   height: 100%;
   font-size: var(--font-size-small);
   line-height: 1;
-  padding: 0 calc(var(--spacer) / 4);
-  background: var(--box-background-color);
-  border-right: 1px solid var(--text-color-dimmed);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }
 
 .SelectTrigger:hover {
-  background-color: whitesmoke;
+  background-color: var(--text-color);
+  color: var(--body-background-color);
 }
 
-.SelectTrigger:focus {
+/* .SelectTrigger:focus {
   box-shadow: 0 0 0 2px blue;
-}
+} */
 
 .SelectTrigger[data-disabled] {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.SelectTrigger img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--brand-light);
 }
 
 .SelectContent {
@@ -43,9 +50,9 @@ button {
 }
 
 .SelectLabel {
-  padding: 0 25px;
+  padding: calc(var(--spacer) / 4);
   font-size: var(--font-size-small);
-  color: var(--text-color-light);
+  color: var(--text-color);
   text-transform: capitalize;
   border-bottom: 1px solid var(--border-color);
 }

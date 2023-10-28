@@ -13,11 +13,13 @@
   }
 } */
 
-/* .currency {
-} */
-
-:global([data-theme='dark']) .currency {
-  border-right-color: #000;
+.token {
+  width: 80px;
+  background: var(--box-background-color);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  margin-right: -1px;
 }
 
 .inputInput {
@@ -32,9 +34,7 @@
 
 @media (min-width: 40rem) {
   .inputInput {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: var(--border-radius);
+    border-radius: 0;
     border-bottom: 1px solid var(--border-color);
     border-right: 0;
   }
@@ -52,7 +52,7 @@
   width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  border-color: var(--border-color);
+  border-color: var(--link-color);
 }
 
 @media (min-width: 40rem) {
