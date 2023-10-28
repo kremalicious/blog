@@ -6,6 +6,10 @@ export type GetToken = {
   symbol: string | null
   decimals: number | null
   logo: string | null
+  price: {
+    usd: number | null
+    eur: number | null
+  }
 }
 
 export async function getTokens(

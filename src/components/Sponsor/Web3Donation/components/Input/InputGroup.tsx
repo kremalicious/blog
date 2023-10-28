@@ -28,6 +28,7 @@ export function InputGroup({
           inputMode="decimal"
           pattern="[0-9.]*"
           value={amount}
+          placeholder="0.00"
           onChange={(e) => setAmount(e.target.value)}
           className={styles.inputInput}
           disabled={isDisabled}

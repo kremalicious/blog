@@ -19,9 +19,10 @@ export function TokenSelect({
     <Select.Root
       defaultValue={tokens[0].address}
       onValueChange={(value) => setToken(value)}
+      disabled={!tokens}
     >
       <Select.Trigger className="SelectTrigger" aria-label="Token">
-        <Select.Value placeholder="…" />
+        <Select.Value />
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>

@@ -19,23 +19,29 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
           })
         : 0
 
-    return balance && parseInt(balance) !== 0 ? (
+    const valueInUsd =
+      token.balance && token.price?.usd ? token.balance * token.price.usd : 0
+    const valueInUsdFormatted = formatCurrency(valueInUsd, 'USD', 'en')
+
+    return balance && parseInt(balance) !== 0 && valueInUsd >= 1 ? (
       <Select.Item
-        className={`${className} SelectItem`}
+        className={`${className ? className : ''} Token`}
         {...props}
         value={token.address}
         title={token.address}
         ref={forwardedRef}
       >
-        <div className="Token">
-          <Select.ItemText>
+        <Select.ItemText>
+          <span className="TokenLogo">
             <img src={token.logo || ''} width="32" height="32" />
-          </Select.ItemText>
-          <div>
-            <h3 className="TokenName">{token.name}</h3>
-            <p className="TokenBalance">{balance}</p>
-          </div>
+          </span>
+        </Select.ItemText>
+        <div>
+          <h3 className="TokenName">{token.name}</h3>
+          <p className="TokenBalance">{balance}</p>
         </div>
+        <div className="TokenValue">{valueInUsdFormatted}</div>
+
         <Select.ItemIndicator className="SelectItemIndicator">
           <Check />
         </Select.ItemIndicator>

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
-import { getTokens, type GetTokens } from '../api/getTokens'
+import { getTokens, type GetToken } from '../api/getTokens'
 
 export function useTokens() {
   const { address } = useAccount()
   const { chain } = useNetwork()
 
-  const [data, setData] = useState<GetTokens[]>()
+  const [data, setData] = useState<GetToken[]>()
   const [isLoading, setIsLoading] = useState<boolean>()
   const [isError, setIsError] = useState<boolean>()
 

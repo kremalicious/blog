@@ -1,4 +1,4 @@
-.SelectItem {
+.Token {
   font-size: var(--font-size-small);
   line-height: 1;
   color: var(--text-color);
@@ -10,40 +10,29 @@
   user-select: none;
 }
 
-.SelectItem[data-disabled] {
+.Token[data-disabled] {
   opacity: 0.5;
   pointer-events: none;
 }
 
-.SelectItem[data-highlighted] {
+.Token[data-highlighted] {
   outline: none;
-  background-color: var(--text-color);
+  background-color: var(--box-background-color);
 }
 
-.SelectItem[data-highlighted],
-.SelectItem[data-highlighted] * {
-  color: var(--body-background-color);
-}
-
-.SelectItem,
-.Token {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.Token {
-  min-width: 200px;
-}
-
-.Token img {
+.TokenLogo {
+  display: block;
   width: 32px;
   height: 32px;
-  margin: 0;
-  margin-right: calc(var(--spacer) / 4);
   border-radius: 50%;
+  margin-right: calc(var(--spacer) / 4);
   border: 1px solid var(--border-color);
   background: var(--brand-light);
+  overflow: hidden;
+}
+
+.TokenLogo img {
+  margin: 0;
 }
 
 .TokenName,
@@ -58,7 +47,14 @@
 
 .TokenBalance {
   font-size: var(--font-size-small);
-  font-variant: tabular-nums;
+}
+
+.TokenValue {
+  font-size: var(--font-size-small);
+  display: inline-flex;
+  align-self: flex-start;
+  margin-left: auto;
+  padding-left: calc(var(--spacer) * 2);
 }
 
 .SelectItemIndicator {

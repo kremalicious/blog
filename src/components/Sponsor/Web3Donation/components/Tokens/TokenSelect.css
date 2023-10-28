@@ -16,8 +16,7 @@ button {
 }
 
 .SelectTrigger:hover {
-  background-color: var(--text-color);
-  color: var(--body-background-color);
+  background-color: var(--box-background-color);
 }
 
 /* .SelectTrigger:focus {
@@ -29,13 +28,8 @@ button {
   pointer-events: none;
 }
 
-.SelectTrigger img {
-  width: 32px;
-  height: 32px;
-  margin: 0;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  background: var(--brand-light);
+.SelectTrigger .TokenLogo {
+  margin-right: calc(var(--spacer) / 12);
 }
 
 .SelectContent {

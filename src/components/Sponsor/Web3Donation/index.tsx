@@ -21,7 +21,7 @@ export default function Web3Donation({
   const { address: account } = useAccount()
   const { chain } = useNetwork()
 
-  const [amount, setAmount] = useState('0.005')
+  const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
   const [token, setToken] = useState<string>()
   const [message, setMessage] = useState<{ status: string; text: string }>()
