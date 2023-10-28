@@ -3,13 +3,14 @@ import './TokenSelect.css'
 import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { useTokens } from '../../hooks/useTokens'
+import { TokenLoading } from './TokenLoading'
 
 export function TokenSelect({
   setToken
 }: {
   setToken: (token: string) => void
 }) {
-  const { data: tokens } = useTokens()
+  const { data: tokens, isLoading } = useTokens()
 
   const items = tokens?.map((token) => (
     <Token key={token.address} token={token} />
@@ -17,12 +18,16 @@ export function TokenSelect({
 
   return tokens ? (
     <Select.Root
-      defaultValue={tokens[0].address}
+      defaultValue={tokens?.[0].address}
       onValueChange={(value) => setToken(value)}
-      disabled={!tokens}
+      disabled={!tokens || isLoading}
     >
-      <Select.Trigger className="SelectTrigger" aria-label="Token">
-        <Select.Value />
+      <Select.Trigger
+        className="SelectTrigger"
+        disabled={!tokens || isLoading}
+        aria-label="Token"
+      >
+        {isLoading ? <TokenLoading /> : <Select.Value />}
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>

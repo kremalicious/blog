@@ -21,14 +21,17 @@
 }
 
 .TokenLogo {
-  display: block;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   margin-right: calc(var(--spacer) / 4);
   border: 1px solid var(--border-color);
   background: var(--brand-light);
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-mini);
 }
 
 .TokenLogo img {

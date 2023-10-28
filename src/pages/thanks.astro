@@ -37,12 +37,12 @@ const coins = Object.entries(config.author).filter(
   <BackButton />
 
   <div class="content">
-    <h3 class="subTitle">Send ERC-20 tokens from your browser wallet.</h3>
+    <h3 class="subTitle">Send from your browser wallet.</h3>
     <Web3 client:only="react" />
   </div>
 
   <div class="content">
-    <h3 class="subTitle">Send Bitcoin or ERC-20 tokens from any wallet.</h3>
+    <h3 class="subTitle">Send from any wallet.</h3>
 
     {
       coins.map(([key, value]: [key: string, value: string]) => (

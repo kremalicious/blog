@@ -33,7 +33,11 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
       >
         <Select.ItemText>
           <span className="TokenLogo">
-            <img src={token.logo || ''} width="32" height="32" />
+            {token.logo ? (
+              <img src={token.logo} width="32" height="32" />
+            ) : (
+              token.symbol?.substring(0, 3)
+            )}
           </span>
         </Select.ItemText>
         <div>
