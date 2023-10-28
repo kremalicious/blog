@@ -19,7 +19,7 @@ export async function getTokens(
   if (!address || !chainId) return []
 
   // const url = `http://localhost:3000/api/balance?address=${address}&chainId=${chainId}`
-  const url = `https://web3-api-kremalicious.vercel.app/api/balance?address=${address}&chainId=${chainId}`
+  const url = `https://web3.kremalicious.com/api/balance?address=${address}&chainId=${chainId}`
   const response = await fetch(url)
   const json: GetToken[] = await response.json()
 
