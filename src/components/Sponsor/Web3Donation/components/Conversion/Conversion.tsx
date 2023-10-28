@@ -1,36 +1,20 @@
-import { type ReactElement, useEffect, useState } from 'react'
+import { type ReactElement } from 'react'
 import styles from './Conversion.module.css'
-import { getFiat } from '../../api/getFiat'
+import type { GetToken } from '../../api/getTokens'
 
 export function Conversion({
   amount,
-  symbol
+  token
 }: {
   amount: string
-  symbol: string
+  token: GetToken | undefined
 }): ReactElement {
-  const [conversion, setConversion] = useState({
-    euro: '0.00',
-    dollar: '0.00'
-  })
-  const { dollar, euro } = conversion
-
-  useEffect(() => {
-    async function getFiatResponse() {
-      try {
-        const tokenId = symbol === 'MATIC' ? 'matic-network' : 'ethereum'
-        const { dollar, euro } = await getFiat({
-          amount: Number(amount),
-          tokenId
-        })
-        setConversion({ euro, dollar })
-      } catch (error) {
-        console.error((error as Error).message)
-      }
-    }
-
-    getFiatResponse()
-  }, [amount, symbol])
+  const dollar = token?.price?.usd
+    ? (Number(amount) * token?.price?.usd).toFixed(2)
+    : '0.00'
+  const euro = token?.price?.eur
+    ? (Number(amount) * token?.price?.eur).toFixed(2)
+    : '0.00'
 
   return (
     <div className={styles.conversion}>

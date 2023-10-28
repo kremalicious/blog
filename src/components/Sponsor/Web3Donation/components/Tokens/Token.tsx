@@ -6,13 +6,13 @@ import { Check } from '@images/components/react'
 import type { GetToken } from '../../api/getTokens'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
-  token: GetToken
+  token: GetToken | undefined
 }
 
 export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
   ({ className, token, ...props }, forwardedRef) => {
     const balance =
-      token.balance && token.symbol
+      token?.balance && token?.symbol
         ? formatCurrency(token.balance, token.symbol, 'en', false, {
             decimalPlaces: 3,
             significantFigures: 3
@@ -20,28 +20,30 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
         : 0
 
     const valueInUsd =
-      token.balance && token.price?.usd ? token.balance * token.price.usd : 0
+      token?.balance && token?.price?.usd
+        ? token?.balance * token?.price.usd
+        : 0
     const valueInUsdFormatted = formatCurrency(valueInUsd, 'USD', 'en')
 
     return balance && parseInt(balance) !== 0 && valueInUsd >= 1 ? (
       <Select.Item
         className={`${className ? className : ''} Token`}
         {...props}
-        value={token.address}
-        title={token.address}
+        value={token?.address || ''}
+        title={token?.address}
         ref={forwardedRef}
       >
         <Select.ItemText>
           <span className="TokenLogo">
-            {token.logo ? (
+            {token?.logo ? (
               <img src={token.logo} width="32" height="32" />
             ) : (
-              token.symbol?.substring(0, 3)
+              token?.symbol?.substring(0, 3)
             )}
           </span>
         </Select.ItemText>
         <div>
-          <h3 className="TokenName">{token.name}</h3>
+          <h3 className="TokenName">{token?.name}</h3>
           <p className="TokenBalance">{balance}</p>
         </div>
         <div className="TokenValue">{valueInUsdFormatted}</div>

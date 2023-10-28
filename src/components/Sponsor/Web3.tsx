@@ -1,5 +1,4 @@
 import Web3Donation from './Web3Donation'
-import config from '@config/blog.config'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { wagmiConfig, chains, theme } from './Web3Donation/lib/rainbowkit'
@@ -9,7 +8,7 @@ export default function Web3(): ReactElement {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains} theme={theme}>
-        <Web3Donation address={config.author.ether} />
+        <Web3Donation />
       </RainbowKitProvider>
     </WagmiConfig>
   )

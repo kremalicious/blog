@@ -1,96 +1,100 @@
-import { type ReactElement, useState } from 'react'
+import { type ReactElement, useState, useEffect } from 'react'
 import { useDebounce } from 'use-debounce'
-import { parseEther } from 'viem'
-import {
-  useAccount,
-  useNetwork,
-  usePrepareSendTransaction,
-  useSendTransaction
-} from 'wagmi'
+import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-
 import Alert, { getTransactionMessage } from './components/Alert/Alert'
 import { InputGroup } from './components/Input'
 import styles from './index.module.css'
+import { SendNative, SendErc20 } from './components/Send'
+import type { GetToken } from './api/getTokens'
 
-export default function Web3Donation({
-  address
-}: {
-  address: string
-}): ReactElement {
+export default function Web3Donation(): ReactElement {
   const { address: account } = useAccount()
-  const { chain } = useNetwork()
 
   const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [token, setToken] = useState<string>()
+  const [tokenSelected, setTokenSelected] = useState<GetToken>({
+    address: '0x0'
+  } as any)
   const [message, setMessage] = useState<{ status: string; text: string }>()
-  const [transactionHash, setTransactionHash] = useState<string>()
+  const [sendFormData, setSendFormData] = useState<{
+    data: { hash: `0x${string}` }
+    send: () => Promise<void>
+    isLoading: boolean
+    isSuccess: boolean
+    isError: boolean
+    error: Error | null
+  }>()
 
-  // dummy
-  if (token) {
-    console.log(token)
-  }
+  const { data, send, isLoading, isSuccess, isError, error } =
+    sendFormData || {}
 
-  const { config } = usePrepareSendTransaction({
-    chainId: chain?.id,
-    to: address,
-    value: parseEther(debouncedAmount)
-  })
-  const { sendTransactionAsync, isError, isSuccess } =
-    useSendTransaction(config)
+  useEffect(() => {
+    if (!isError || !error) return
 
-  async function handleSendTransaction() {
+    setMessage(
+      error.message.includes('User rejected the request.')
+        ? undefined
+        : {
+            status: 'error',
+            text: error?.message as string
+          }
+    )
+  }, [isError])
+
+  useEffect(() => {
+    if (!isLoading) return
+
     setMessage({
       status: 'loading',
-      text: getTransactionMessage().waitingForUser
+      text: getTransactionMessage().waitingConfirmation
     })
+  }, [isLoading])
 
-    try {
-      const result = sendTransactionAsync && (await sendTransactionAsync())
+  useEffect(() => {
+    if (!isSuccess) return
 
-      if (isError) {
-        throw new Error(undefined)
-      }
-
-      setTransactionHash(result?.hash)
-      setMessage({
-        status: 'loading',
-        text: getTransactionMessage().waitingConfirmation
-      })
-
-      if (isSuccess) {
-        setMessage({
-          status: 'success',
-          text: getTransactionMessage().success
-        })
-      }
-    } catch (error) {
-      setMessage(undefined)
-    }
-  }
+    setMessage({
+      status: 'success',
+      text: getTransactionMessage().success
+    })
+  }, [isSuccess])
 
   const isDisabled = !account
 
   return (
     <form
       className={styles.web3}
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault()
-        handleSendTransaction()
+        if (!send || amount === '' || amount === '0') return
+        await send()
       }}
     >
       <ConnectButton chainStatus="icon" showBalance={false} />
 
       {message ? (
-        <Alert message={message} transactionHash={transactionHash} />
+        <Alert message={message} transactionHash={data?.hash} />
       ) : (
         <InputGroup
           amount={amount}
-          symbol={chain?.nativeCurrency?.symbol || 'ETH'}
+          token={tokenSelected}
           setAmount={setAmount}
-          setToken={setToken}
+          setTokenSelected={setTokenSelected}
           isDisabled={isDisabled}
+        />
+      )}
+
+      {tokenSelected?.address === '0x0' ? (
+        <SendNative
+          amount={debouncedAmount}
+          setSendFormData={setSendFormData}
+        />
+      ) : (
+        <SendErc20
+          amount={debouncedAmount}
+          tokenAddress={tokenSelected?.address}
+          setSendFormData={setSendFormData}
         />
       )}
     </form>

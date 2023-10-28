@@ -74,6 +74,10 @@
   color: var(--text-color-light);
 }
 
+.disclaimer code {
+  color: var(--text-color);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0.01;

@@ -4,11 +4,13 @@ import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { useTokens } from '../../hooks/useTokens'
 import { TokenLoading } from './TokenLoading'
+import type { GetToken } from '../../api/getTokens'
+import { useEffect } from 'react'
 
 export function TokenSelect({
-  setToken
+  setTokenSelected
 }: {
-  setToken: (token: string) => void
+  setTokenSelected: React.Dispatch<React.SetStateAction<GetToken>>
 }) {
   const { data: tokens, isLoading } = useTokens()
 
@@ -16,10 +18,19 @@ export function TokenSelect({
     <Token key={token.address} token={token} />
   ))
 
+  function handleValueChange(value: `0x${string}`) {
+    const token = tokens?.find((token) => token.address === value)
+    if (!token) return
+    setTokenSelected(token)
+  }
+
+  // set default token data
+  useEffect(() => handleValueChange('0x0'), [])
+
   return tokens ? (
     <Select.Root
       defaultValue={tokens?.[0].address}
-      onValueChange={(value) => setToken(value)}
+      onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={!tokens || isLoading}
     >
       <Select.Trigger
