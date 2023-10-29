@@ -4,17 +4,14 @@ import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { TokenLoading } from './TokenLoading'
 import { useEffect } from 'react'
-import { useTokens, type GetToken } from '../../hooks/useTokens'
+import { useTokens } from '../../hooks/useTokens'
 import { useAccount, useNetwork } from 'wagmi'
+import { $selectedToken, $setSelectedToken } from '../../stores/selectedToken'
+import { useStore } from '@nanostores/react'
 
-export function TokenSelect({
-  selectedToken,
-  setTokenSelected
-}: {
-  selectedToken: GetToken | undefined
-  setTokenSelected: React.Dispatch<React.SetStateAction<GetToken>>
-}) {
+export function TokenSelect() {
   const { data: tokens, isLoading } = useTokens()
+  const selectedToken = useStore($selectedToken)
   const { chain } = useNetwork()
   const { address } = useAccount()
 
@@ -25,21 +22,22 @@ export function TokenSelect({
   function handleValueChange(value: `0x${string}`) {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
-    setTokenSelected(token)
+    $setSelectedToken(token)
   }
 
   // Set default token data to native token
   useEffect(() => {
     if (!chain?.id || !address || !tokens) return
 
-    handleValueChange('0x0')
-  }, [chain?.id, address, tokens])
+    if (!selectedToken || !selectedToken?.address) handleValueChange('0x0')
+  }, [chain?.id, address, tokens, selectedToken])
 
   return (
     <Select.Root
       defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={!tokens || isLoading}
+      value={selectedToken?.address}
     >
       <Select.Trigger
         className="SelectTrigger"

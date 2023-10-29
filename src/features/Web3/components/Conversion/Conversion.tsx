@@ -1,33 +1,28 @@
 import { useEffect, type ReactElement, useState } from 'react'
 import styles from './Conversion.module.css'
-import type { GetToken } from '../../hooks/useTokens'
+import { $selectedToken } from '../../stores/selectedToken'
+import { useStore } from '@nanostores/react'
 
-export function Conversion({
-  amount,
-  token
-}: {
-  amount: string
-  token: GetToken | undefined
-}): ReactElement {
+export function Conversion({ amount }: { amount: string }): ReactElement {
+  const selectedToken = useStore($selectedToken)
+
   const [dollar, setDollar] = useState('0.00')
   const [euro, setEuro] = useState('0.00')
 
   useEffect(() => {
-    if (!token?.price || !amount) {
+    if (!selectedToken?.price || !amount) {
       setDollar('0.00')
       setEuro('0.00')
       return
     }
 
-    const dollar = token?.price?.usd
-      ? (Number(amount) * token?.price?.usd).toFixed(2)
-      : '0.00'
-    const euro = token?.price?.eur
-      ? (Number(amount) * token?.price?.eur).toFixed(2)
-      : '0.00'
+    const { eur, usd } = selectedToken.price
+
+    const dollar = usd ? (Number(amount) * usd).toFixed(2) : '0.00'
+    const euro = eur ? (Number(amount) * eur).toFixed(2) : '0.00'
     setDollar(dollar)
     setEuro(euro)
-  }, [token?.price, amount])
+  }, [selectedToken?.price, amount])
 
   return (
     <div className={styles.conversion}>

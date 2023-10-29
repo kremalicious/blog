@@ -1,23 +1,28 @@
-import { parseEther } from 'viem'
+import { parseUnits } from 'viem'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import siteConfig from '@config/blog.config'
 import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
+import { useStore } from '@nanostores/react'
+import { $selectedToken } from '@features/Web3/stores/selectedToken'
 
 export function SendErc20({
   amount,
-  tokenAddress,
   setSendFormData
 }: {
   amount: string
-  tokenAddress: `0x${string}` | undefined
   setSendFormData: any
 }) {
+  const selectedToken = useStore($selectedToken)
+
   const { config } = usePrepareContractWrite({
-    address: tokenAddress,
+    address: selectedToken.address,
     abi: abiErc20Transfer,
     functionName: 'transfer',
-    args: [siteConfig.author.ether, parseEther(amount)]
+    args: [
+      siteConfig.author.ether,
+      parseUnits(amount, selectedToken?.decimals || 18)
+    ]
   })
 
   const {

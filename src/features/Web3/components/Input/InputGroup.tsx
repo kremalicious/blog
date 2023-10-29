@@ -4,29 +4,21 @@ import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
 import config from '@config/blog.config'
-import type { GetToken } from '../../hooks/useTokens'
 
 export function InputGroup({
   amount,
-  token,
   isDisabled,
-  setAmount,
-  setTokenSelected
+  setAmount
 }: {
   amount: string
-  token: GetToken | undefined
   isDisabled: boolean
   setAmount: React.Dispatch<React.SetStateAction<string>>
-  setTokenSelected: React.Dispatch<React.SetStateAction<GetToken>>
 }): ReactElement {
   return (
     <>
       <div className={styles.inputGroup}>
         <div className={styles.token}>
-          <TokenSelect
-            selectedToken={token}
-            setTokenSelected={setTokenSelected}
-          />
+          <TokenSelect />
         </div>
         <Input
           type="text"
@@ -45,7 +37,7 @@ export function InputGroup({
           Make it rain
         </button>
       </div>
-      <Conversion amount={amount} token={token} />
+      <Conversion amount={amount} />
       <div className={styles.disclaimer}>
         This form sends tokens to my account <code>{config.author.ether}</code>
       </div>

@@ -6,19 +6,17 @@ import Alert from '../Alert/Alert'
 import { InputGroup } from '../Input'
 import styles from './index.module.css'
 import { SendNative, SendErc20 } from '../Send'
-import type { GetToken } from '../../hooks/useTokens'
-import { useSend } from '@features/Web3/hooks/useSend'
+import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
+import { $selectedToken } from '../../stores/selectedToken'
+import { useStore } from '@nanostores/react'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
+  const selectedToken = useStore($selectedToken)
 
   const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [tokenSelected, setTokenSelected] = useState<GetToken>({
-    address: '0x0'
-  } as any)
-
   const [sendFormData, setSendFormData] = useState<SendFormData>()
 
   const { data, send } = sendFormData || {}
@@ -31,7 +29,7 @@ export default function Web3Form(): ReactElement {
       className={styles.web3}
       onSubmit={async (e) => {
         e.preventDefault()
-        if (!send || amount === '' || amount === '0') return
+        if (!send || debouncedAmount === '' || debouncedAmount === '0') return
         await send()
       }}
     >
@@ -42,24 +40,18 @@ export default function Web3Form(): ReactElement {
       ) : (
         <InputGroup
           amount={amount}
-          token={tokenSelected}
           setAmount={setAmount}
-          setTokenSelected={setTokenSelected}
           isDisabled={isDisabled}
         />
       )}
 
-      {tokenSelected?.address === '0x0' ? (
+      {selectedToken?.address === '0x0' ? (
         <SendNative
           amount={debouncedAmount}
           setSendFormData={setSendFormData}
         />
       ) : (
-        <SendErc20
-          amount={debouncedAmount}
-          tokenAddress={tokenSelected?.address}
-          setSendFormData={setSendFormData}
-        />
+        <SendErc20 amount={debouncedAmount} setSendFormData={setSendFormData} />
       )}
     </form>
   )
