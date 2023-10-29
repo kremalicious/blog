@@ -2,17 +2,22 @@ import * as Select from '@radix-ui/react-select'
 import './TokenSelect.css'
 import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
-import { useTokens } from '../../hooks/useTokens'
+import { useTokens } from '../../hooks/useTokens/useTokens'
 import { TokenLoading } from './TokenLoading'
-import type { GetToken } from '../../api/getTokens'
 import { useEffect } from 'react'
+import type { GetToken } from '../../hooks/useTokens'
+import { useAccount, useNetwork } from 'wagmi'
 
 export function TokenSelect({
+  selectedToken,
   setTokenSelected
 }: {
+  selectedToken: GetToken | undefined
   setTokenSelected: React.Dispatch<React.SetStateAction<GetToken>>
 }) {
   const { data: tokens, isLoading } = useTokens()
+  const { chain } = useNetwork()
+  const { address } = useAccount()
 
   const items = tokens?.map((token) => (
     <Token key={token.address} token={token} />
@@ -24,12 +29,16 @@ export function TokenSelect({
     setTokenSelected(token)
   }
 
-  // set default token data
-  useEffect(() => handleValueChange('0x0'), [])
+  // Set default token data to native token
+  useEffect(() => {
+    if (!chain?.id || !address || !tokens) return
 
-  return tokens ? (
+    handleValueChange('0x0')
+  }, [chain?.id, address, tokens])
+
+  return (
     <Select.Root
-      defaultValue={tokens?.[0].address}
+      defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={!tokens || isLoading}
     >
@@ -63,5 +72,5 @@ export function TokenSelect({
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  ) : null
+  )
 }

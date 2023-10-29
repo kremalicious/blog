@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAccount, useNetwork } from 'wagmi'
-import { getTokens, type GetToken } from '../api/getTokens'
+import { getTokens } from './getTokens'
+import type { GetToken } from './types'
 
 export function useTokens() {
   const { address } = useAccount()
@@ -11,23 +12,35 @@ export function useTokens() {
   const [isError, setIsError] = useState<boolean>()
 
   useEffect(() => {
+    const abortController = new AbortController()
+    const { signal } = abortController
+
     async function init() {
-      if (!address || !chain) return
+      if (!address || !chain?.id) return
 
       setIsLoading(true)
 
       try {
-        const tokens = await getTokens(address, chain.id)
+        const tokens = await getTokens(address, chain.id, signal)
         setData(tokens)
         setIsLoading(false)
-      } catch (error) {
+      } catch (error: any) {
         setIsError(true)
         setIsLoading(false)
-        console.error((error as Error).message)
+        if ((error as Error).name !== 'AbortError') {
+          console.error((error as Error).message)
+        }
       }
     }
     init()
-  }, [address, chain])
+
+    return () => {
+      abortController.abort()
+      setData(undefined)
+      setIsLoading(undefined)
+      setIsError(undefined)
+    }
+  }, [address, chain?.id])
 
   return { data, isLoading, isError }
 }

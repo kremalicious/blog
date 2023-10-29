@@ -6,7 +6,7 @@ import Alert, { getTransactionMessage } from './components/Alert/Alert'
 import { InputGroup } from './components/Input'
 import styles from './index.module.css'
 import { SendNative, SendErc20 } from './components/Send'
-import type { GetToken } from './api/getTokens'
+import type { GetToken } from './hooks/useTokens'
 
 export default function Web3Donation(): ReactElement {
   const { address: account } = useAccount()

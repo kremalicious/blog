@@ -1,7 +1,7 @@
 import { parseEther } from 'viem'
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import siteConfig from '@config/blog.config'
-import { abi } from './abi'
+import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
 
 export function SendErc20({
@@ -15,7 +15,7 @@ export function SendErc20({
 }) {
   const { config } = usePrepareContractWrite({
     address: tokenAddress,
-    abi,
+    abi: abiErc20Transfer,
     functionName: 'transfer',
     args: [siteConfig.author.ether, parseEther(amount)]
   })

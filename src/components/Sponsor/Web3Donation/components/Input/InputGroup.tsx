@@ -4,7 +4,7 @@ import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../Tokens'
 import config from '@config/blog.config'
-import type { GetToken } from '../../api/getTokens'
+import type { GetToken } from '../../hooks/useTokens'
 
 export function InputGroup({
   amount,
@@ -23,7 +23,10 @@ export function InputGroup({
     <>
       <div className={styles.inputGroup}>
         <div className={styles.token}>
-          <TokenSelect setTokenSelected={setTokenSelected} />
+          <TokenSelect
+            selectedToken={token}
+            setTokenSelected={setTokenSelected}
+          />
         </div>
         <Input
           type="text"
