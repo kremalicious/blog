@@ -1,12 +1,14 @@
-import { type ReactElement, useState, useEffect } from 'react'
+import { type ReactElement, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import Alert, { getTransactionMessage } from '../Alert/Alert'
+import Alert from '../Alert/Alert'
 import { InputGroup } from '../Input'
 import styles from './index.module.css'
 import { SendNative, SendErc20 } from '../Send'
 import type { GetToken } from '../../hooks/useTokens'
+import { useSend } from '@features/Web3/hooks/useSend'
+import type { SendFormData } from './types'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
@@ -16,49 +18,11 @@ export default function Web3Form(): ReactElement {
   const [tokenSelected, setTokenSelected] = useState<GetToken>({
     address: '0x0'
   } as any)
-  const [message, setMessage] = useState<{ status: string; text: string }>()
-  const [sendFormData, setSendFormData] = useState<{
-    data: { hash: `0x${string}` }
-    send: () => Promise<void>
-    isLoading: boolean
-    isSuccess: boolean
-    isError: boolean
-    error: Error | null
-  }>()
 
-  const { data, send, isLoading, isSuccess, isError, error } =
-    sendFormData || {}
+  const [sendFormData, setSendFormData] = useState<SendFormData>()
 
-  useEffect(() => {
-    if (!isError || !error) return
-
-    setMessage(
-      error.message.includes('User rejected the request.')
-        ? undefined
-        : {
-            status: 'error',
-            text: error?.message as string
-          }
-    )
-  }, [isError])
-
-  useEffect(() => {
-    if (!isLoading) return
-
-    setMessage({
-      status: 'loading',
-      text: getTransactionMessage().waitingConfirmation
-    })
-  }, [isLoading])
-
-  useEffect(() => {
-    if (!isSuccess) return
-
-    setMessage({
-      status: 'success',
-      text: getTransactionMessage().success
-    })
-  }, [isSuccess])
+  const { data, send } = sendFormData || {}
+  const { message } = useSend(sendFormData)
 
   const isDisabled = !account
 

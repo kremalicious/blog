@@ -2,7 +2,7 @@ import { type ReactElement } from 'react'
 import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
-import { TokenSelect } from '../Tokens'
+import { TokenSelect } from '../TokenSelect'
 import config from '@config/blog.config'
 import type { GetToken } from '../../hooks/useTokens'
 
