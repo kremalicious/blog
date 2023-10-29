@@ -6,13 +6,6 @@
   display: flex;
 }
 
-/* @media (min-width: 40rem) {
-  .inputGroup {
-    display: flex;
-    flex-wrap: wrap;
-  }
-} */
-
 .token {
   width: 80px;
   background: var(--box-background-color);
@@ -66,12 +59,13 @@
 }
 
 .message {
-  composes: message from '../../index.module.css';
+  composes: message from '../Form/index.module.css';
 }
 
 .disclaimer {
   font-size: var(--font-size-mini);
   color: var(--text-color-light);
+  margin-top: calc(var(--spacer) / 3);
 }
 
 .disclaimer code {

@@ -2,10 +2,9 @@ import * as Select from '@radix-ui/react-select'
 import './TokenSelect.css'
 import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
-import { useTokens } from '../../hooks/useTokens/useTokens'
 import { TokenLoading } from './TokenLoading'
 import { useEffect } from 'react'
-import type { GetToken } from '../../hooks/useTokens'
+import { useTokens, type GetToken } from '../../hooks/useTokens'
 import { useAccount, useNetwork } from 'wagmi'
 
 export function TokenSelect({

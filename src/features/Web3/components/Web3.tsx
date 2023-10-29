@@ -1,14 +1,13 @@
-import Web3Donation from './Web3Donation'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
-import { wagmiConfig, chains, theme } from './Web3Donation/lib/rainbowkit'
-import type { ReactElement } from 'react'
+import { wagmiConfig, chains, theme } from '../lib/rainbowkit'
+import Web3Form from './Form'
 
-export default function Web3(): ReactElement {
+export function Web3() {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains} theme={theme}>
-        <Web3Donation />
+        <Web3Form />
       </RainbowKitProvider>
     </WagmiConfig>
   )

@@ -2,13 +2,13 @@ import { type ReactElement, useState, useEffect } from 'react'
 import { useDebounce } from 'use-debounce'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import Alert, { getTransactionMessage } from './components/Alert/Alert'
-import { InputGroup } from './components/Input'
+import Alert, { getTransactionMessage } from '../Alert/Alert'
+import { InputGroup } from '../Input'
 import styles from './index.module.css'
-import { SendNative, SendErc20 } from './components/Send'
-import type { GetToken } from './hooks/useTokens'
+import { SendNative, SendErc20 } from '../Send'
+import type { GetToken } from '../../hooks/useTokens'
 
-export default function Web3Donation(): ReactElement {
+export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
 
   const [amount, setAmount] = useState('')

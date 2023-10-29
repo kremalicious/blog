@@ -1,9 +1,9 @@
 import { test, expect } from 'vitest'
 import { render, fireEvent, screen, waitFor } from '@testing-library/react'
-import Web3Donation from '.'
+import Web3Form from '.'
 
 test('Web3Donation component', async () => {
-  render(<Web3Donation address="0x456" />)
+  render(<Web3Form />)
 
   const submitButton = screen.getByRole('button')
   expect(submitButton).toBeInTheDocument()
