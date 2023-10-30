@@ -6,14 +6,7 @@ const setAmount = vi.fn()
 
 describe('InputGroup', () => {
   it('renders without crashing', async () => {
-    render(
-      <InputGroup
-        amount="1"
-        setAmount={setAmount}
-        isDisabled={false}
-        symbol="ETH"
-      />
-    )
+    render(<InputGroup amount="1" setAmount={setAmount} isDisabled={false} />)
 
     const input = await screen.findByRole('textbox')
     const button = await screen.findByRole('button')
@@ -23,14 +16,7 @@ describe('InputGroup', () => {
   })
 
   it('renders disabled', async () => {
-    render(
-      <InputGroup
-        amount="1"
-        setAmount={setAmount}
-        isDisabled={true}
-        symbol="ETH"
-      />
-    )
+    render(<InputGroup amount="1" setAmount={setAmount} isDisabled={true} />)
 
     const input = await screen.findByRole('textbox')
     expect(input).toBeDefined()

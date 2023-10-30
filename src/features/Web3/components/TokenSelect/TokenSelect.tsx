@@ -4,16 +4,20 @@ import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { TokenLoading } from './TokenLoading'
 import { useEffect } from 'react'
-import { useTokens } from '../../hooks/useTokens'
 import { useAccount, useNetwork } from 'wagmi'
-import { $selectedToken, $setSelectedToken } from '../../stores/selectedToken'
+import { useTokensStore } from '@features/Web3/hooks/useTokensStore'
+import { $selectedToken, $setSelectedToken } from '@features/Web3/stores/tokens'
 import { useStore } from '@nanostores/react'
 
 export function TokenSelect() {
-  const { data: tokens, isLoading: tokensIsLoading } = useTokens()
-  const selectedToken = useStore($selectedToken)
   const { chain } = useNetwork()
   const { address } = useAccount()
+
+  const { data: tokens, loading } = useTokensStore({
+    chainId: chain?.id,
+    address
+  })
+  const selectedToken = useStore($selectedToken)
 
   const items = tokens?.map((token) => (
     <Token key={token.address} token={token} />
@@ -28,7 +32,7 @@ export function TokenSelect() {
   // Set default token data to first item,
   // which most of time is native token
   useEffect(() => {
-    if (!chain?.id || !address || !tokens) return
+    if (!tokens) return
 
     if (!selectedToken || !selectedToken?.address)
       handleValueChange(tokens[0].address)
@@ -38,15 +42,15 @@ export function TokenSelect() {
     <Select.Root
       defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
-      disabled={!tokens || tokensIsLoading}
+      disabled={!tokens || loading}
       value={selectedToken?.address}
     >
       <Select.Trigger
         className="SelectTrigger"
-        disabled={!tokens || tokensIsLoading}
+        disabled={!tokens || loading}
         aria-label="Token"
       >
-        {tokensIsLoading ? <TokenLoading /> : <Select.Value />}
+        {loading ? <TokenLoading /> : <Select.Value />}
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>

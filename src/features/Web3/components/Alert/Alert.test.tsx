@@ -3,7 +3,7 @@ import { describe, it } from 'vitest'
 import Alert from './Alert'
 
 describe('Alert', () => {
-  it('renders without crashing', async () => {
+  it('renders without crashing', () => {
     render(
       <Alert
         message={{ status: 'loading', text: 'Loading' }}

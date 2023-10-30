@@ -1,6 +1,6 @@
 import { useEffect, type ReactElement, useState } from 'react'
 import styles from './Conversion.module.css'
-import { $selectedToken } from '../../stores/selectedToken'
+import { $selectedToken } from '../../stores/tokens/selectedToken'
 import { useStore } from '@nanostores/react'
 
 export function Conversion({ amount }: { amount: string }): ReactElement {

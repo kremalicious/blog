@@ -4,7 +4,7 @@ import siteConfig from '@config/blog.config'
 import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
 import { useStore } from '@nanostores/react'
-import { $selectedToken } from '@features/Web3/stores/selectedToken'
+import { $selectedToken } from '@features/Web3/stores/tokens/selectedToken'
 
 export function SendErc20({
   amount,
@@ -16,7 +16,7 @@ export function SendErc20({
   const selectedToken = useStore($selectedToken)
 
   const { config } = usePrepareContractWrite({
-    address: selectedToken.address,
+    address: selectedToken?.address,
     abi: abiErc20Transfer,
     functionName: 'transfer',
     args: [

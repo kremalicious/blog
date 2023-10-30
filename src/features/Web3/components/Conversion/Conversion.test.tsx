@@ -3,7 +3,7 @@ import { describe, it } from 'vitest'
 import { Conversion } from './Conversion'
 
 describe('Conversion', () => {
-  it('renders without crashing', async () => {
-    render(<Conversion amount="1" symbol="ETH" />)
+  it('renders without crashing', () => {
+    render(<Conversion amount="1" />)
   })
 })

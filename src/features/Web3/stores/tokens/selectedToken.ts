@@ -1,10 +1,10 @@
 import { action } from 'nanostores'
 import { persistentAtom } from '@nanostores/persistent'
-import type { GetToken } from '../hooks/useTokens'
+import type { GetToken } from './types'
 
-export const $selectedToken = persistentAtom<GetToken>(
+export const $selectedToken = persistentAtom<GetToken | undefined>(
   '@kremalicious/selectedToken',
-  { address: '0x0' } as any,
+  undefined,
   {
     encode: JSON.stringify,
     decode: JSON.parse

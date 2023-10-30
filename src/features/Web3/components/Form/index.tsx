@@ -8,7 +8,7 @@ import styles from './index.module.css'
 import { SendNative, SendErc20 } from '../Send'
 import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
-import { $selectedToken } from '../../stores/selectedToken'
+import { $selectedToken } from '../../stores/tokens/selectedToken'
 import { useStore } from '@nanostores/react'
 
 export default function Web3Form(): ReactElement {
