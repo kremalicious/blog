@@ -10,7 +10,7 @@ import { $selectedToken, $setSelectedToken } from '../../stores/selectedToken'
 import { useStore } from '@nanostores/react'
 
 export function TokenSelect() {
-  const { data: tokens, isLoading } = useTokens()
+  const { data: tokens, isLoading: tokensIsLoading } = useTokens()
   const selectedToken = useStore($selectedToken)
   const { chain } = useNetwork()
   const { address } = useAccount()
@@ -38,15 +38,15 @@ export function TokenSelect() {
     <Select.Root
       defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
-      disabled={!tokens || isLoading}
+      disabled={!tokens || tokensIsLoading}
       value={selectedToken?.address}
     >
       <Select.Trigger
         className="SelectTrigger"
-        disabled={!tokens || isLoading}
+        disabled={!tokens || tokensIsLoading}
         aria-label="Token"
       >
-        {isLoading ? <TokenLoading /> : <Select.Value />}
+        {tokensIsLoading ? <TokenLoading /> : <Select.Value />}
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>
