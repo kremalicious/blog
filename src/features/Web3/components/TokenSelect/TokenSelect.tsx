@@ -25,11 +25,13 @@ export function TokenSelect() {
     $setSelectedToken(token)
   }
 
-  // Set default token data to native token
+  // Set default token data to first item,
+  // which most of time is native token
   useEffect(() => {
     if (!chain?.id || !address || !tokens) return
 
-    if (!selectedToken || !selectedToken?.address) handleValueChange('0x0')
+    if (!selectedToken || !selectedToken?.address)
+      handleValueChange(tokens[0].address)
   }, [chain?.id, address, tokens, selectedToken])
 
   return (
