@@ -31,14 +31,14 @@
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx,astro}": [
-      "npm run lint:js"
+    "*.{ts,tsx,astro.json}": [
+      "eslint"
     ],
     "*.css": [
-      "npm run lint:css"
+      "stylelint --config '.config/.stylelintrc.json'"
     ],
     "*.md": [
-      "npm run lint:md"
+      "markdownlint --config '.config/.markdownlint.json'"
     ]
   },
   "dependencies": {
