@@ -6,8 +6,18 @@
   text-align: center;
 }
 
-.rainbowkit button div {
+.rainbowkit button > div {
   padding-left: 0 !important;
+}
+
+/* hide the account icon, and hope nothing else */
+.rainbowkit button [aria-hidden] {
+  display: none;
+}
+
+/* hide the network icon, and hope nothing else */
+.rainbowkit [aria-label='Chain Selector'] [role='img'] {
+  display: none;
 }
 
 .rainbowkit > div:first-child {
@@ -19,14 +29,13 @@
 
 /* connect button */
 .rainbowkit > div:first-child > button:only-child {
-  margin-left: auto;
   margin-right: auto;
 }
 
 .disclaimer {
-  text-align: left;
   font-size: var(--font-size-mini);
-  margin-top: calc(var(--spacer) / 3);
+  margin-top: calc(var(--spacer) / 1.5);
+  margin-bottom: calc(var(--spacer) / 6);
 }
 
 .message {

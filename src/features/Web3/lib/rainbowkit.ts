@@ -29,7 +29,7 @@ export const wagmiConfig = createConfig({
   publicClient
 })
 
-export const theme = {
+export const theme: Theme = {
   colors: {
     accentColor: 'var(--brand-cyan)',
     accentColorForeground: '#161a1b',
@@ -58,7 +58,9 @@ export const theme = {
     profileActionHover: 'var(--box-background-color)',
     profileForeground: 'var(--body-background-color)',
     selectedOptionBorder: 'var(--border-color)',
-    standby: 'var(--text-color-dimmed)'
+    standby: 'var(--text-color-light)',
+    downloadBottomCardBackground: 'var(--body-background-color)',
+    downloadTopCardBackground: 'var(--body-background-color)'
   },
   fonts: {
     body: 'var(--font-family-base)'
@@ -77,5 +79,8 @@ export const theme = {
     selectedOption: 'none',
     selectedWallet: 'none',
     walletLogo: 'var(--box-shadow)'
+  },
+  blurs: {
+    modalOverlay: 'initial'
   }
-} as Theme
+}

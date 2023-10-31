@@ -25,9 +25,12 @@ export function Conversion({ amount }: { amount: string }): ReactElement {
   }, [selectedToken?.price, amount])
 
   return (
-    <div className={styles.conversion}>
-      <span>{dollar !== '0.00' && `= $ ${dollar}`}</span>
-      <span>{euro !== '0.00' && `= € ${euro}`}</span>
+    <div
+      className={styles.conversion}
+      title="Value in USD & EUR at current spot price for selected token on Coingecko."
+    >
+      <span>{`= $ ${dollar}`}</span>
+      <span>{`= € ${euro}`}</span>
     </div>
   )
 }

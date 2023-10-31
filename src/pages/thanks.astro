@@ -3,8 +3,8 @@
 import LayoutBase from '@layouts/Base/index.astro'
 import { Web3 } from '@features/Web3'
 import config from '@config/blog.config'
-import Coin from '@components/Thanks/Coin.astro'
-import { Bitcoin } from '@images/components'
+import { Bitcoin, Wallet } from '@images/components'
+import CodeCopy from '@components/CopyCode.astro'
 ---
 
 <style>
@@ -45,10 +45,10 @@ import { Bitcoin } from '@images/components'
     margin-right: calc(var(--spacer) / -1.5);
   }
 
-  .coinTitle {
-    margin-top: calc(var(--spacer) / 1.5);
-    margin-bottom: calc(var(--spacer) / 3);
+  .titleCoin {
     font-size: var(--font-size-base);
+    margin-top: var(--spacer);
+    margin-bottom: calc(var(--spacer) / 2);
   }
 </style>
 
@@ -59,15 +59,12 @@ import { Bitcoin } from '@images/components'
     <div class="content">
       <h3 class="subTitle">Send Magic Internet Money</h3>
 
-      <h4 class="coinTitle">Browser wallet</h4>
-
+      <h4 class="titleCoin"><Wallet /> Browser wallet</h4>
       <Web3 client:load />
+      <CodeCopy address={config.author.ether} />
 
-      <Coin address={config.author.ether} />
-
-      <Coin address={config.author.bitcoin}>
-        <Bitcoin /> Bitcoin
-      </Coin>
+      <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
+      <CodeCopy address={config.author.bitcoin} />
     </div>
 
     <div>

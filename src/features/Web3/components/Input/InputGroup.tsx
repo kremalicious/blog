@@ -31,7 +31,7 @@ export function InputGroup({
         />
         <button
           className={`${styles.submit} btn btn-primary`}
-          disabled={isDisabled}
+          disabled={isDisabled || !amount}
         >
           Make it rain
         </button>

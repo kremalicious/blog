@@ -34,7 +34,7 @@ export default function Web3Form(): ReactElement {
       }}
     >
       <div className={styles.rainbowkit}>
-        <ConnectButton chainStatus="icon" showBalance={false} />
+        <ConnectButton chainStatus="full" showBalance={false} />
       </div>
 
       {message ? (
@@ -57,8 +57,7 @@ export default function Web3Form(): ReactElement {
       )}
 
       <div className={styles.disclaimer}>
-        This form sends tokens to the following account which you can also use
-        for manually sending any ERC-20 token.
+        Sends tokens to this address, suitable for any ERC-20 token.
       </div>
     </form>
   )
