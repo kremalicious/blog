@@ -3,7 +3,6 @@ import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
-import config from '@config/blog.config'
 
 export function InputGroup({
   amount,
@@ -38,9 +37,6 @@ export function InputGroup({
         </button>
       </div>
       <Conversion amount={amount} />
-      <div className={styles.disclaimer}>
-        This form sends tokens to my account <code>{config.author.ether}</code>
-      </div>
     </>
   )
 }

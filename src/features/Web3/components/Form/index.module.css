@@ -6,17 +6,27 @@
   text-align: center;
 }
 
-.web3 > div:first-child {
+.rainbowkit button div {
+  padding-left: 0 !important;
+}
+
+.rainbowkit > div:first-child {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
-  font-size: var(--font-size-small);
-  margin-bottom: var(--spacer);
+  font-size: var(--font-size-mini);
 }
 
 /* connect button */
-.web3 > div:first-child > button:only-child {
+.rainbowkit > div:first-child > button:only-child {
   margin-left: auto;
   margin-right: auto;
+}
+
+.disclaimer {
+  text-align: left;
+  font-size: var(--font-size-mini);
+  margin-top: calc(var(--spacer) / 3);
 }
 
 .message {

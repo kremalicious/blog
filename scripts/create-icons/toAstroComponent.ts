@@ -24,14 +24,16 @@ height = toAttributeSize(height)
 ---
 <style is:global>
 .icon {
-  width: 1em;
-  height: 1em;
+  width: .85em;
+  height: .85em;
   stroke: currentcolor;
   stroke-width: var(--border-width);
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
   vertical-align: baseline;
+  margin: 0;
+  display: inline-block;
 }
 </style>
 <svg width={width} height={height} {...props} class="icon">{title ? (<title>{title}</title>) : ''}${innerSVG}</svg>`

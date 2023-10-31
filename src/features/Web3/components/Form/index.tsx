@@ -33,7 +33,9 @@ export default function Web3Form(): ReactElement {
         await send()
       }}
     >
-      <ConnectButton chainStatus="icon" showBalance={false} />
+      <div className={styles.rainbowkit}>
+        <ConnectButton chainStatus="icon" showBalance={false} />
+      </div>
 
       {message ? (
         <Alert message={message} transactionHash={data?.hash} />
@@ -53,6 +55,11 @@ export default function Web3Form(): ReactElement {
       ) : (
         <SendErc20 amount={debouncedAmount} setSendFormData={setSendFormData} />
       )}
+
+      <div className={styles.disclaimer}>
+        This form sends tokens to the following account which you can also use
+        for manually sending any ERC-20 token.
+      </div>
     </form>
   )
 }

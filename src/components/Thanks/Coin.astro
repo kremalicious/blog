@@ -3,20 +3,25 @@ import Copy from '@components/Copy.astro'
 
 type Props = {
   address: string
-  title: string
+  title?: string
 }
 
-const { address, title }: Props = Astro.props
+const { address }: Props = Astro.props
 ---
 
 <style>
   .coin {
-    margin-top: var(--spacer);
+    margin-top: calc(var(--spacer) / 6);
   }
 
   .titleCoin {
-    margin-bottom: 0;
     font-size: var(--font-size-base);
+    margin-top: var(--spacer);
+    margin-bottom: calc(var(--spacer) / 6);
+  }
+
+  .titleCoin:empty {
+    display: none;
   }
 
   .code {
@@ -29,12 +34,12 @@ const { address, title }: Props = Astro.props
     display: block;
     padding: calc(var(--spacer) / 2);
     padding-right: 2rem;
-    font-size: 0.65rem;
+    font-size: var(--font-size-mini);
   }
 </style>
 
 <div class="coin">
-  <h4 class="titleCoin">{title}</h4>
+  <h4 class="titleCoin"><slot /></h4>
   <div class="code">
     <code>{address}</code>
     <Copy text={address} />

@@ -2,7 +2,7 @@
   margin: auto;
   position: relative;
   animation: fadeIn 0.8s ease-out backwards;
-  margin-top: var(--spacer);
+  margin-top: calc(var(--spacer) / 3);
   display: flex;
 }
 
@@ -56,20 +56,6 @@
     border-bottom-left-radius: 0;
     border-left: 0;
   }
-}
-
-.message {
-  composes: message from '../Form/index.module.css';
-}
-
-.disclaimer {
-  font-size: var(--font-size-mini);
-  color: var(--text-color-light);
-  margin-top: calc(var(--spacer) / 3);
-}
-
-.disclaimer code {
-  color: var(--text-color);
 }
 
 @keyframes fadeIn {

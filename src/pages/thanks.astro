@@ -1,54 +1,82 @@
 ---
-import BackButton from '@components/BackButton.astro'
+// import BackButton from '@components/BackButton.astro'
 import LayoutBase from '@layouts/Base/index.astro'
 import { Web3 } from '@features/Web3'
 import config from '@config/blog.config'
-import Coin from '@components/Coin.astro'
-
-const coins = Object.entries(config.author).filter(
-  ([key]) => key === 'bitcoin' || key === 'ether'
-)
+import Coin from '@components/Thanks/Coin.astro'
+import { Bitcoin } from '@images/components'
 ---
 
 <style>
+  .grid {
+    display: grid;
+    grid-gap: var(--spacer);
+  }
+
+  @media (min-width: 40rem) {
+    .grid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
   .content {
     margin-left: auto;
     margin-right: auto;
-    max-width: 25rem;
     width: 100%;
     background-color: var(--box-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 0 var(--spacer) var(--spacer) var(--spacer);
+    padding: 0 calc(var(--spacer) / 1.5) calc(var(--spacer) / 1.5)
+      calc(var(--spacer) / 1.5);
     margin-bottom: var(--spacer);
   }
 
   .subTitle {
     font-size: var(--font-size-large);
     border-bottom: 1px solid var(--border-color);
-    padding: calc(var(--spacer) / 2);
     margin-top: 0;
-    margin-left: calc(var(--spacer) * -1);
-    margin-right: calc(var(--spacer) * -1);
+    margin-bottom: calc(var(--spacer) / 1.5);
+    padding: calc(var(--spacer) / 2) 0;
+  }
+
+  .content .subTitle {
+    padding: calc(var(--spacer) / 2);
+    margin-left: calc(var(--spacer) / -1.5);
+    margin-right: calc(var(--spacer) / -1.5);
+  }
+
+  .coinTitle {
+    margin-top: calc(var(--spacer) / 1.5);
+    margin-bottom: calc(var(--spacer) / 3);
+    font-size: var(--font-size-base);
   }
 </style>
 
-<LayoutBase title="Say Thanks">
-  <BackButton />
+<LayoutBase title="Say Thanks" pageTitle="Say Thanks">
+  <!-- <BackButton /> -->
 
-  <div class="content">
-    <h3 class="subTitle">Send from your browser wallet</h3>
-    <Web3 client:only="react" />
-  </div>
+  <div class="grid">
+    <div class="content">
+      <h3 class="subTitle">Send Magic Internet Money</h3>
 
-  <div class="content">
-    <h3 class="subTitle">Send from any wallet</h3>
+      <h4 class="coinTitle">Browser wallet</h4>
 
-    {
-      coins.map(([key, value]: [key: string, value: string]) => (
-        <Coin title={key} address={value} />
-      ))
-    }
+      <Web3 client:load />
+
+      <Coin address={config.author.ether} />
+
+      <Coin address={config.author.bitcoin}>
+        <Bitcoin /> Bitcoin
+      </Coin>
+    </div>
+
+    <div>
+      <h3 class="subTitle">Sponsor</h3>
+      <a href="https://github.com/sponsors/kremalicious/">
+        <img
+          src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
+        />
+      </a>
+    </div>
   </div>
 </LayoutBase>
- @components/Sponsor/Web3/Web3 @components/Web3
