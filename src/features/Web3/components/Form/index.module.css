@@ -15,6 +15,11 @@
   display: none;
 }
 
+.rainbowkit [aria-label='Chain Selector'],
+.rainbowkit [data-testid='rk-account-button'] div {
+  font-weight: var(--font-weight-base);
+}
+
 /* hide the network icon, and hope nothing else */
 .rainbowkit [aria-label='Chain Selector'] [role='img'] {
   display: none;
@@ -24,7 +29,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  font-size: var(--font-size-mini);
+  font-size: var(--font-size-small);
 }
 
 /* connect button */

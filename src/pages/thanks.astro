@@ -10,7 +10,7 @@ import CodeCopy from '@components/CopyCode.astro'
 <style>
   .grid {
     display: grid;
-    grid-gap: var(--spacer);
+    gap: var(--spacer);
   }
 
   @media (min-width: 40rem) {
@@ -19,56 +19,76 @@ import CodeCopy from '@components/CopyCode.astro'
     }
   }
 
-  .content {
+  .box {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    background-color: var(--box-background-color);
+    background-color: var(--body-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 0 calc(var(--spacer) / 1.5) calc(var(--spacer) / 1.5)
-      calc(var(--spacer) / 1.5);
     margin-bottom: var(--spacer);
   }
 
   .subTitle {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-h3);
     border-bottom: 1px solid var(--border-color);
-    margin-top: 0;
-    margin-bottom: calc(var(--spacer) / 1.5);
+    margin: 0;
     padding: calc(var(--spacer) / 2) 0;
   }
 
-  .content .subTitle {
+  .box .subTitle {
     padding: calc(var(--spacer) / 2);
-    margin-left: calc(var(--spacer) / -1.5);
-    margin-right: calc(var(--spacer) / -1.5);
   }
 
   .titleCoin {
-    font-size: var(--font-size-base);
-    margin-top: var(--spacer);
-    margin-bottom: calc(var(--spacer) / 2);
+    font-size: var(--font-size-large);
+    margin-top: 0;
+    margin-bottom: calc(var(--spacer) / 4);
+  }
+
+  .section {
+    padding: calc(var(--spacer) / 1.5) 0;
+  }
+
+  .box .section {
+    padding: calc(var(--spacer) / 1.5);
+  }
+
+  .section.highlight {
+    background-color: var(--box-background-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
   }
 </style>
 
-<LayoutBase title="Say Thanks" pageTitle="Say Thanks">
+<LayoutBase title="Say Thanks">
   <!-- <BackButton /> -->
-
   <div class="grid">
-    <div class="content">
+    <div class="box">
       <h3 class="subTitle">Send Magic Internet Money</h3>
 
-      <h4 class="titleCoin"><Wallet /> Browser wallet</h4>
-      <Web3 client:load />
-      <CodeCopy address={config.author.ether} />
+      <section class="section">
+        If you like what I do and want to support me in a decentralized way, you
+        can send me some Ether or Bitcoin.
+      </section>
 
-      <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
-      <CodeCopy address={config.author.bitcoin} />
+      <section class="section highlight">
+        <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
+        <Web3 client:load />
+        <CodeCopy address={config.author.ether} />
+      </section>
+
+      <section class="section">
+        <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
+        <CodeCopy address={config.author.bitcoin} />
+      </section>
     </div>
 
     <div>
       <h3 class="subTitle">Sponsor</h3>
+      <section class="section">
+        If you want to support me the old way, you can sponsor me on GitHub.
+      </section>
       <a href="https://github.com/sponsors/kremalicious/">
         <img
           src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
