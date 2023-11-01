@@ -2,7 +2,7 @@ import { forwardRef, type HTMLAttributes } from 'react'
 import * as Select from '@radix-ui/react-select'
 import { formatCurrency } from '@coingecko/cryptoformat'
 import './Token.css'
-import { Check } from '@images/components/react'
+import { Icon as Check } from '@images/components/react/Check'
 import type { GetToken } from '@features/Web3/stores/tokens'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
