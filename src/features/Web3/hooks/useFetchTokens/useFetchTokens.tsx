@@ -6,6 +6,7 @@ import { $setTokens } from '@features/Web3/stores/tokens'
 import { $setSelectedToken } from '@features/Web3/stores/selectedToken'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const apiUrl = import.meta.env.PUBLIC_WEB3_API_URL
 
 //
 // Wrapper for fetching user tokens with swr.
@@ -24,7 +25,7 @@ export function useFetchTokens() {
   useEffect(() => {
     if (!address || !chain?.id) return
 
-    const url = `https://web3.kremalicious.com/api/balance?address=${address}&chainId=${chain?.id}`
+    const url = `${apiUrl}/balance?address=${address}&chainId=${chain?.id}`
     setUrl(url)
     console.log('useFetchTokens', url)
   }, [address, chain?.id])
