@@ -9,7 +9,7 @@ afterAll(() => {
   fs.rm(path.resolve(__dirname, 'tmp'), { recursive: true })
 })
 
-test('should generate Astro components from SVG files', async () => {
+test('should generate Astro & React components from SVG files', async () => {
   // Act
   await generateIcons(distDir)
 
@@ -27,13 +27,22 @@ test('should generate Astro components from SVG files', async () => {
     throw new Error('Props.d.ts does not exist')
   }
 
-  // Assert: Check if an example Astro component exists
-  const exampleComponentPath = path.join(distDir, 'Bitcoin.astro')
+  // Assert: Check if an example Astro & React component exists
+  const exampleComponentPathAstro = path.join(distDir, 'Bitcoin.astro')
+  const exampleComponentPathReact = path.join(distDir, 'react', 'Bitcoin.tsx')
   try {
-    await fs.stat(exampleComponentPath)
+    await fs.stat(exampleComponentPathAstro)
   } catch (err) {
     throw new Error(
-      `Example Astro component does not exist: ${exampleComponentPath}`
+      `Example Astro component does not exist: ${exampleComponentPathAstro}`
+    )
+  }
+
+  try {
+    await fs.stat(exampleComponentPathReact)
+  } catch (err) {
+    throw new Error(
+      `Example React component does not exist: ${exampleComponentPathReact}`
     )
   }
 })
