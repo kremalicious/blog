@@ -3,17 +3,16 @@ import useSWR from 'swr'
 import type { GetToken } from './types'
 import { useNetwork, useAccount } from 'wagmi'
 import { fetcher } from '@stores/fetcher'
+import { $setSelectedToken } from '@features/Web3/stores/selectedToken'
 
 //
-// Wrapper for fetching user tokens with swr,
-// and simple store for selected token.
+// Wrapper for fetching user tokens with swr.
 //
 export function useTokens() {
   const { chain } = useNetwork()
   const { address } = useAccount()
 
   const [url, setUrl] = useState<string | undefined>(undefined)
-  const [selectedToken, setSelectedToken] = useState<GetToken | undefined>()
 
   const fetchResults = useSWR<GetToken[] | undefined>(url, fetcher)
   const { data: tokens } = fetchResults
@@ -32,8 +31,8 @@ export function useTokens() {
   useEffect(() => {
     if (!tokens?.[0]?.chainId) return
 
-    setSelectedToken(tokens?.[0])
+    $setSelectedToken(tokens?.[0])
   }, [tokens?.[0]?.chainId])
 
-  return { ...fetchResults, selectedToken, setSelectedToken }
+  return fetchResults
 }

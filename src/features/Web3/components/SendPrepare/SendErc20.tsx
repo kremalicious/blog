@@ -3,7 +3,8 @@ import { useContractWrite, useEnsAddress, usePrepareContractWrite } from 'wagmi'
 import siteConfig from '@config/blog.config'
 import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
-import { useTokens } from '@features/Web3/hooks/useTokens'
+import { useStore } from '@nanostores/react'
+import { $selectedToken } from '@features/Web3/stores/selectedToken'
 
 export function SendPrepareErc20({
   amount,
@@ -12,7 +13,7 @@ export function SendPrepareErc20({
   amount: string
   setSendFormData: any
 }) {
-  const { selectedToken } = useTokens()
+  const selectedToken = useStore($selectedToken)
   const { data: to } = useEnsAddress({
     name: siteConfig.author.ether.ens,
     chainId: 1

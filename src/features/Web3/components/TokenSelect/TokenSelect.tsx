@@ -4,14 +4,15 @@ import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { TokenLoading } from './TokenLoading'
 import { useTokens } from '@features/Web3/hooks/useTokens'
+import { useStore } from '@nanostores/react'
+import {
+  $selectedToken,
+  $setSelectedToken
+} from '@features/Web3/stores/selectedToken'
 
 export function TokenSelect() {
-  const {
-    data: tokens,
-    isLoading,
-    selectedToken,
-    setSelectedToken
-  } = useTokens()
+  const { data: tokens, isLoading } = useTokens()
+  const selectedToken = useStore($selectedToken)
 
   const items = tokens?.map((token) => (
     <Token key={token.address} token={token} />
@@ -20,7 +21,7 @@ export function TokenSelect() {
   function handleValueChange(value: `0x${string}`) {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
-    setSelectedToken(token)
+    $setSelectedToken(token)
   }
 
   return (

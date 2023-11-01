@@ -8,11 +8,12 @@ import styles from './index.module.css'
 import { SendPrepareNative, SendPrepareErc20 } from '../SendPrepare'
 import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
-import { useTokens } from '@features/Web3/hooks/useTokens'
+import { useStore } from '@nanostores/react'
+import { $selectedToken } from '@features/Web3/stores/selectedToken'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
-  const { selectedToken } = useTokens()
+  const selectedToken = useStore($selectedToken)
 
   const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
