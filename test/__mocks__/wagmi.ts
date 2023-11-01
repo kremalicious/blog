@@ -71,6 +71,12 @@ export function useEnsName() {
   }
 }
 
+export function useEnsAddress() {
+  return {
+    data: '0x0000000000000000000000000000000000000000'
+  }
+}
+
 export function useBalance() {
   return {
     data: { formatted: '0.22', symbol: 'ETH' }
