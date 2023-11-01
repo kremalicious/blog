@@ -4,11 +4,26 @@
   animation: fadeIn 0.8s ease-out backwards;
   margin-top: calc(var(--spacer) / 3);
   display: flex;
+  flex-direction: column;
   min-height: 54px;
+}
+
+@media (min-width: 40rem) {
+  .inputGroup {
+    flex-direction: row;
+  }
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .token {
   width: 80px;
+  height: 100%;
+  min-height: 54px;
   background: var(--box-background-color);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
@@ -43,10 +58,13 @@
 }
 
 .submit {
-  width: 100%;
+  width: calc(100% - calc(var(--spacer) / 2) - 2px);
+  max-width: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-color: var(--link-color);
+  padding-left: calc(var(--spacer) / 4);
+  padding-right: calc(var(--spacer) / 4);
 }
 
 @media (min-width: 40rem) {

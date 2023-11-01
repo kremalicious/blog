@@ -38,6 +38,7 @@ export function TokenSelect() {
         className="SelectTrigger"
         disabled={isLoading}
         aria-label="Token"
+        placeholder="..."
       >
         {isLoading ? <TokenLoading /> : <Select.Value />}
         <Select.Icon>

@@ -16,18 +16,21 @@ export function InputGroup({
   return (
     <>
       <div className={styles.inputGroup}>
-        <div className={styles.token}>
-          <TokenSelect />
+        <div className={styles.inputWrap}>
+          <div className={styles.token}>
+            <TokenSelect />
+          </div>
+          <Input
+            type="text"
+            inputMode="decimal"
+            pattern="[0-9.]*"
+            value={amount}
+            placeholder="0.00"
+            onChange={(e) => setAmount(e.target.value)}
+            className={styles.inputInput}
+          />
         </div>
-        <Input
-          type="text"
-          inputMode="decimal"
-          pattern="[0-9.]*"
-          value={amount}
-          placeholder="0.00"
-          onChange={(e) => setAmount(e.target.value)}
-          className={styles.inputInput}
-        />
+
         <button
           className={`${styles.submit} btn btn-primary`}
           disabled={isDisabled || !amount}
