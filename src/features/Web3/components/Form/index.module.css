@@ -35,9 +35,24 @@
 }
 
 /* connect button */
-.rainbowkit > div:first-child > button:only-child {
+.rainbowkit [data-testid='rk-connect-button'] {
   margin-right: auto;
-  margin-left: auto;
+  font-family: var(--font-family-headings) !important;
+  font-weight: var(--font-weight-headings) !important;
+  text-transform: uppercase;
+  color: var(--link-color);
+  background: none;
+  border: none;
+  font-size: var(--font-size-small);
+  padding: 0;
+}
+
+.rainbowkit [data-testid='rk-connect-button']:hover,
+.rainbowkit [data-testid='rk-connect-button']:focus {
+  color: var(--link-color-hover);
+  background: none;
+  border: none;
+  transform: none;
 }
 
 .disclaimer {
