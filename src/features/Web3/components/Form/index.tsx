@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react'
+import { type ReactElement, useState, useEffect } from 'react'
 import { useDebounce } from 'use-debounce'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
@@ -23,6 +23,11 @@ export default function Web3Form(): ReactElement {
   const { message } = useSend(sendFormData)
 
   const isDisabled = !account
+
+  useEffect(() => {
+    if (!selectedToken) return
+    setAmount('')
+  }, [selectedToken])
 
   return (
     <form
