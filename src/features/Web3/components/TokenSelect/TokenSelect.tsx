@@ -3,21 +3,15 @@ import './TokenSelect.css'
 import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { TokenLoading } from './TokenLoading'
-import { useEffect } from 'react'
-import { useAccount, useNetwork } from 'wagmi'
-import { useTokensStore } from '@features/Web3/hooks/useTokensStore'
-import { $selectedToken, $setSelectedToken } from '@features/Web3/stores/tokens'
-import { useStore } from '@nanostores/react'
+import { useTokens } from '@features/Web3/hooks/useTokens'
 
 export function TokenSelect() {
-  const { chain } = useNetwork()
-  const { address } = useAccount()
-
-  const { data: tokens, loading } = useTokensStore({
-    chainId: chain?.id,
-    address
-  })
-  const selectedToken = useStore($selectedToken)
+  const {
+    data: tokens,
+    isLoading,
+    selectedToken,
+    setSelectedToken
+  } = useTokens()
 
   const items = tokens?.map((token) => (
     <Token key={token.address} token={token} />
@@ -26,31 +20,22 @@ export function TokenSelect() {
   function handleValueChange(value: `0x${string}`) {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
-    $setSelectedToken(token)
+    setSelectedToken(token)
   }
-
-  // Set default token data to first item,
-  // which most of time is native token
-  useEffect(() => {
-    if (!tokens) return
-
-    if (!selectedToken || !selectedToken?.address)
-      handleValueChange(tokens[0].address)
-  }, [chain?.id, address, tokens, selectedToken])
 
   return (
     <Select.Root
       defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
-      disabled={!tokens || loading}
+      disabled={!tokens || isLoading}
       value={selectedToken?.address}
     >
       <Select.Trigger
         className="SelectTrigger"
-        disabled={!tokens || loading}
+        disabled={!tokens || isLoading}
         aria-label="Token"
       >
-        {loading ? <TokenLoading /> : <Select.Value />}
+        {isLoading ? <TokenLoading /> : <Select.Value />}
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>

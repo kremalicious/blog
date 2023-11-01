@@ -27,7 +27,6 @@ export function InputGroup({
           placeholder="0.00"
           onChange={(e) => setAmount(e.target.value)}
           className={styles.inputInput}
-          disabled={isDisabled}
         />
         <button
           className={`${styles.submit} btn btn-primary`}

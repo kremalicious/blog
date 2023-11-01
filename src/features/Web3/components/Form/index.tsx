@@ -8,12 +8,11 @@ import styles from './index.module.css'
 import { SendNative, SendErc20 } from '../Send'
 import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
-import { $selectedToken } from '../../stores/tokens/selectedToken'
-import { useStore } from '@nanostores/react'
+import { useTokens } from '@features/Web3/hooks/useTokens'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
-  const selectedToken = useStore($selectedToken)
+  const { selectedToken } = useTokens()
 
   const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
@@ -37,7 +36,7 @@ export default function Web3Form(): ReactElement {
         <ConnectButton chainStatus="full" showBalance={false} />
       </div>
 
-      {message ? (
+      {message && message.status !== 'error' ? (
         <Alert message={message} transactionHash={data?.hash} />
       ) : (
         <InputGroup
@@ -46,6 +45,10 @@ export default function Web3Form(): ReactElement {
           isDisabled={isDisabled}
         />
       )}
+
+      {message && message?.status === 'error' ? (
+        <Alert message={message} />
+      ) : null}
 
       {selectedToken?.address === '0x0' ? (
         <SendNative
