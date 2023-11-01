@@ -67,21 +67,20 @@ import CodeCopy from '@components/CopyCode.astro'
   }
 </style>
 
-<LayoutBase title="Say Thanks">
+<LayoutBase title="Say Thanks" pageTitle="Say Thanks">
   <!-- <BackButton /> -->
   <div class="grid">
     <div class="box">
-      <h3 class="subTitle">Send Magic Internet Money</h3>
+      <h3 class="subTitle">Magic Internet Money</h3>
 
       <section class="section">
-        If you like what I do and want to support me in a decentralized way,
-        send me some Ether, ERC-20 token, or Bitcoin.
+        If you like what I do and want to support me in a decentralized way, you
+        can send me some Ether, ERC-20 token, or Bitcoin.
       </section>
 
       <section class="section highlight">
         <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
         <Web3 client:load />
-        <CodeCopy address={config.author.ether.ens} />
       </section>
 
       <section class="section">
@@ -92,9 +91,7 @@ import CodeCopy from '@components/CopyCode.astro'
 
     <div>
       <h3 class="subTitle">Sponsor</h3>
-      <section class="section">
-        If you want to support me the old way, you can sponsor me on GitHub.
-      </section>
+      <section class="section">You can also sponsor me on GitHub.</section>
       <a href="https://github.com/sponsors/kremalicious/">
         <img
           src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"

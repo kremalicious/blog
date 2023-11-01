@@ -3,15 +3,17 @@ import './TokenSelect.css'
 import { Token } from './Token'
 import { ChevronDown, ChevronsDown, ChevronsUp } from '@images/components/react'
 import { TokenLoading } from './TokenLoading'
-import { useTokens } from '@features/Web3/hooks/useTokens'
+import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
 import { useStore } from '@nanostores/react'
+import { $tokens } from '@features/Web3/stores/tokens'
 import {
   $selectedToken,
   $setSelectedToken
 } from '@features/Web3/stores/selectedToken'
 
 export function TokenSelect() {
-  const { data: tokens, isLoading } = useTokens()
+  const { isLoading } = useFetchTokens()
+  const tokens = useStore($tokens)
   const selectedToken = useStore($selectedToken)
 
   const items = tokens?.map((token) => (
@@ -24,16 +26,15 @@ export function TokenSelect() {
     $setSelectedToken(token)
   }
 
-  return (
+  return tokens ? (
     <Select.Root
       defaultValue={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
-      disabled={!tokens || isLoading}
-      value={selectedToken?.address}
+      disabled={isLoading}
     >
       <Select.Trigger
         className="SelectTrigger"
-        disabled={!tokens || isLoading}
+        disabled={isLoading}
         aria-label="Token"
       >
         {isLoading ? <TokenLoading /> : <Select.Value />}
@@ -61,5 +62,11 @@ export function TokenSelect() {
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  )
+  ) : isLoading ? (
+    <>
+      <div className="Token">
+        <TokenLoading />
+      </div>
+    </>
+  ) : null
 }

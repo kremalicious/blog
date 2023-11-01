@@ -27,7 +27,6 @@
   margin-right: calc(var(--spacer) / 4);
   border: 1px solid var(--border-color);
   background: var(--brand-light);
-  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +35,9 @@
 
 .TokenLogo img {
   margin: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 .TokenName,

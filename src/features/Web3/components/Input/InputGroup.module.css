@@ -4,6 +4,7 @@
   animation: fadeIn 0.8s ease-out backwards;
   margin-top: calc(var(--spacer) / 3);
   display: flex;
+  min-height: 54px;
 }
 
 .token {

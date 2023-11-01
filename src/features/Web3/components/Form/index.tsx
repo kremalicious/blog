@@ -10,6 +10,7 @@ import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
 import { useStore } from '@nanostores/react'
 import { $selectedToken } from '@features/Web3/stores/selectedToken'
+import siteConfig from '@config/blog.config'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
@@ -38,23 +39,24 @@ export default function Web3Form(): ReactElement {
         await send()
       }}
     >
-      <div className={styles.rainbowkit}>
-        <ConnectButton chainStatus="full" showBalance={false} />
-      </div>
-
       {message && message.status !== 'error' ? (
         <Alert message={message} transactionHash={data?.hash} />
       ) : (
-        <InputGroup
-          amount={amount}
-          setAmount={setAmount}
-          isDisabled={isDisabled}
-        />
+        <>
+          <div className={styles.rainbowkit}>
+            <ConnectButton chainStatus="full" showBalance={false} />
+          </div>
+          <InputGroup
+            amount={amount}
+            setAmount={setAmount}
+            isDisabled={isDisabled}
+          />
+          <div className={styles.disclaimer}>
+            Sends tokens to my account{' '}
+            <code>{siteConfig.author.ether.ens}</code>
+          </div>
+        </>
       )}
-
-      {message && message?.status === 'error' ? (
-        <Alert message={message} />
-      ) : null}
 
       {selectedToken?.address === '0x0' ? (
         <SendPrepareNative
@@ -67,10 +69,6 @@ export default function Web3Form(): ReactElement {
           setSendFormData={setSendFormData}
         />
       )}
-
-      <div className={styles.disclaimer}>
-        Sends tokens to my account, suitable for any ERC-20 token.
-      </div>
     </form>
   )
 }

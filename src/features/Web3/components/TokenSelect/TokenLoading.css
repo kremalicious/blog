@@ -4,6 +4,7 @@
   --gap: 5deg;
   --color: var(--text-color);
 
+  display: block;
   width: 100px;
   aspect-ratio: 1;
   border-radius: 50%;
