@@ -63,12 +63,12 @@ export default function Web3Form(): ReactElement {
           amount={debouncedAmount}
           setSendFormData={setSendFormData}
         />
-      ) : (
+      ) : selectedToken ? (
         <SendPrepareErc20
           amount={debouncedAmount}
           setSendFormData={setSendFormData}
         />
-      )}
+      ) : null}
     </form>
   )
 }

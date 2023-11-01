@@ -25,6 +25,7 @@ export function useFetchTokens() {
 
     const url = `https://web3.kremalicious.com/api/balance?address=${address}&chainId=${chain?.id}`
     setUrl(url)
+    console.log('useFetchTokens', url)
   }, [address, chain?.id])
 
   // Sync with $tokens store

@@ -51,9 +51,24 @@ export function usePrepareSendTransaction() {
   }
 }
 
+export function usePrepareContractWrite() {
+  return {
+    config: {}
+  }
+}
+
 export function useSendTransaction() {
   return {
     sendTransactionAsync: () => null,
+    isError: undefined,
+    isSuccess: undefined
+  }
+}
+
+export function useContractWrite() {
+  return {
+    writeAsync: () => null,
+    isLoading: false,
     isError: undefined,
     isSuccess: undefined
   }
