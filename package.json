@@ -46,7 +46,7 @@
     "fast-exif": "^2.0.1",
     "feather-icons": "^4.29.1",
     "fraction.js": "^4.3.7",
-    "fuse.js": "^6.6.2",
+    "fuse.js": "^7.0.0",
     "motion": "^10.16.4",
     "nanostores": "^0.9.4",
     "pigeon-maps": "^0.21.3",
