@@ -63,7 +63,7 @@ export default function Web3Form(): ReactElement {
       )}
 
       <div className={styles.disclaimer}>
-        Sends tokens to this address, suitable for any ERC-20 token.
+        Sends tokens to my account, suitable for any ERC-20 token.
       </div>
     </form>
   )

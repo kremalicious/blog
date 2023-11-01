@@ -1,5 +1,6 @@
 import { parseEther } from 'viem'
 import {
+  useEnsAddress,
   useNetwork,
   usePrepareSendTransaction,
   useSendTransaction
@@ -15,9 +16,13 @@ export function SendPrepareNative({
   setSendFormData: any
 }) {
   const { chain } = useNetwork()
+  const { data: to } = useEnsAddress({
+    name: siteConfig.author.ether.ens,
+    chainId: 1
+  })
   const { config } = usePrepareSendTransaction({
     chainId: chain?.id,
-    to: siteConfig.author.ether,
+    to: to || undefined,
     value: parseEther(amount)
   })
   const {

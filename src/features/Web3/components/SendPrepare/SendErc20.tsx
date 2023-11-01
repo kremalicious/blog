@@ -1,5 +1,5 @@
 import { parseUnits } from 'viem'
-import { useContractWrite, usePrepareContractWrite } from 'wagmi'
+import { useContractWrite, useEnsAddress, usePrepareContractWrite } from 'wagmi'
 import siteConfig from '@config/blog.config'
 import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
@@ -13,15 +13,16 @@ export function SendPrepareErc20({
   setSendFormData: any
 }) {
   const { selectedToken } = useTokens()
+  const { data: to } = useEnsAddress({
+    name: siteConfig.author.ether.ens,
+    chainId: 1
+  })
 
   const { config } = usePrepareContractWrite({
     address: selectedToken?.address,
     abi: abiErc20Transfer,
     functionName: 'transfer',
-    args: [
-      siteConfig.author.ether,
-      parseUnits(amount, selectedToken?.decimals || 18)
-    ]
+    args: [to || undefined, parseUnits(amount, selectedToken?.decimals || 18)]
   })
 
   const {

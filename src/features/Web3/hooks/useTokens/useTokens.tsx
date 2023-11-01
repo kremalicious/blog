@@ -30,10 +30,10 @@ export function useTokens() {
   // Set default token data to first item,
   // which most of time is native token
   useEffect(() => {
-    if (!tokens?.[0]?.address) return
+    if (!tokens?.[0]?.chainId) return
 
     setSelectedToken(tokens?.[0])
-  }, [tokens?.[0]?.address])
+  }, [tokens?.[0]?.chainId])
 
   return { ...fetchResults, selectedToken, setSelectedToken }
 }

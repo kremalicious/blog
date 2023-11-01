@@ -59,6 +59,12 @@ import CodeCopy from '@components/CopyCode.astro'
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
   }
+
+  .metaText {
+    display: block;
+    font-size: var(--font-size-mini);
+    margin: calc(var(--spacer) / 6) 0;
+  }
 </style>
 
 <LayoutBase title="Say Thanks">
@@ -68,14 +74,14 @@ import CodeCopy from '@components/CopyCode.astro'
       <h3 class="subTitle">Send Magic Internet Money</h3>
 
       <section class="section">
-        If you like what I do and want to support me in a decentralized way, you
-        can send me some Ether or Bitcoin.
+        If you like what I do and want to support me in a decentralized way,
+        send me some Ether, ERC-20 token, or Bitcoin.
       </section>
 
       <section class="section highlight">
         <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
         <Web3 client:load />
-        <CodeCopy address={config.author.ether} />
+        <CodeCopy address={config.author.ether.ens} />
       </section>
 
       <section class="section">
