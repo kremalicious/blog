@@ -27,7 +27,6 @@ export function useFetchTokens() {
 
     const url = `${apiUrl}/balance?address=${address}&chainId=${chain?.id}`
     setUrl(url)
-    console.log('useFetchTokens', url)
   }, [address, chain?.id])
 
   // Sync with $tokens store

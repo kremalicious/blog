@@ -5,6 +5,7 @@
   width: 100%;
   text-align: center;
   min-height: 165px;
+  margin-top: calc(var(--spacer) / 4);
 }
 
 .rainbowkit button > div {
@@ -36,6 +37,7 @@
 /* connect button */
 .rainbowkit > div:first-child > button:only-child {
   margin-right: auto;
+  margin-left: auto;
 }
 
 .disclaimer {
