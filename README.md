@@ -21,7 +21,7 @@
   - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
-  - [📝 GitHub changelog rendering](#-github-changelog-rendering)
+  - [📝 GitHub Changelog Rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
   - [💎 SVG assets as components](#-svg-assets-as-components)
   - [astro-redirect-from](#astro-redirect-from)
@@ -46,7 +46,7 @@ The whole [blog](https://kremalicious.com) is a statically exported site built w
 
 Styling happens through a combination of basic global styles and on components level either through CSS modules or CSS in `<style>` tags within Astro components.
 
-Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets colocated inside.
+Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets co-located inside.
 
 Retrieving content collections will enrich every post's frontmatter metadata, like extracting date and slug from the post folder name, or exif extraction for photos.
 
@@ -77,13 +77,13 @@ If you want to know how this works, have a look at the respective files:
 
 ### 💰 Cryptocurrency donation via Web3/MetaMask
 
-Lets visitors say thanks with Bitcoin or Ether. Uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions via browser wallets.
+Lets visitors say thanks with Ether, any ERC-20, or Bitcoin. The Web3 wallet integration uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions.
 
 <img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/Donation/`](src/components/Donation/)
+- [`src/features/Web3/`](src/features/Web3/)
 
 ### 🔍 Search
 
@@ -93,7 +93,7 @@ A global search is provided with fuse.js. Whenever search is opened, all posts m
 
 If you want to know how this works, have a look at the respective components under
 
-- [`src/components/Search/`](src/components/Search/)
+- [`src/features/Search/`](src/features/Search/)
 
 ### 🕸 Related Posts
 
@@ -105,7 +105,7 @@ If you want to know how this works, have a look at the respective component unde
 
 - [`src/components/RelatedPosts/`](src/components/RelatedPosts/)
 
-### 📝 GitHub changelog rendering
+### 📝 GitHub Changelog Rendering
 
 Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API.
 
