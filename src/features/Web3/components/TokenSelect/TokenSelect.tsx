@@ -45,6 +45,7 @@ export function TokenSelect() {
         </Select.Icon>
       </Select.Trigger>
 
+      {/* @ts-expect-error-next-line: style actually is passed through and is needed in our case */}
       <Select.Portal style={{ zIndex: 10 }}>
         <Select.Content className="SelectContent">
           <Select.ScrollUpButton className="SelectScrollButton">

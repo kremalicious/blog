@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import type { GetToken } from '@features/Web3/stores/tokens'
 import { useNetwork, useAccount } from 'wagmi'
-import { fetcher } from '@stores/fetcher'
 import { $setTokens } from '@features/Web3/stores/tokens'
 import { $setSelectedToken } from '@features/Web3/stores/selectedToken'
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 //
 // Wrapper for fetching user tokens with swr.

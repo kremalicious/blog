@@ -1,6 +1,8 @@
-import { nanoquery } from '@nanostores/query'
+import { type Fetcher, nanoquery } from '@nanostores/query'
 
-export async function fetcher(...args: (string | number)[]) {
+export const fetcher: Fetcher<unknown> = async (
+  ...args: any[]
+): Promise<unknown> => {
   const res = await fetch(args.join(''))
   return await res.json()
 }
