@@ -5,7 +5,7 @@ import { abiErc20Transfer } from './abiErc20Transfer'
 import { useEffect } from 'react'
 import { useTokens } from '@features/Web3/hooks/useTokens'
 
-export function SendErc20({
+export function SendPrepareErc20({
   amount,
   setSendFormData
 }: {

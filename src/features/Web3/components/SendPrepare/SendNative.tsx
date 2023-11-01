@@ -7,7 +7,7 @@ import {
 import siteConfig from '@config/blog.config'
 import { useEffect } from 'react'
 
-export function SendNative({
+export function SendPrepareNative({
   amount,
   setSendFormData
 }: {

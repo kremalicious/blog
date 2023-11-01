@@ -5,7 +5,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import Alert from '../Alert/Alert'
 import { InputGroup } from '../Input'
 import styles from './index.module.css'
-import { SendNative, SendErc20 } from '../Send'
+import { SendPrepareNative, SendPrepareErc20 } from '../SendPrepare'
 import { useSend } from '../../hooks/useSend'
 import type { SendFormData } from './types'
 import { useTokens } from '@features/Web3/hooks/useTokens'
@@ -51,12 +51,15 @@ export default function Web3Form(): ReactElement {
       ) : null}
 
       {selectedToken?.address === '0x0' ? (
-        <SendNative
+        <SendPrepareNative
           amount={debouncedAmount}
           setSendFormData={setSendFormData}
         />
       ) : (
-        <SendErc20 amount={debouncedAmount} setSendFormData={setSendFormData} />
+        <SendPrepareErc20
+          amount={debouncedAmount}
+          setSendFormData={setSendFormData}
+        />
       )}
 
       <div className={styles.disclaimer}>
