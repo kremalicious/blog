@@ -64,12 +64,12 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-color: var(--link-color-hover);
-  padding: 0 calc(var(--spacer) / 4);
+  padding: 0 calc(var(--spacer) / 2);
 }
 
 @media (min-width: 40rem) {
   .submit {
-    width: fit-content;
+    width: 115px;
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

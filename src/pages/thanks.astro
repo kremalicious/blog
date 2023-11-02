@@ -67,6 +67,35 @@ import CodeCopy from '@components/CopyCode.astro'
   }
 </style>
 
+<style is:global>
+  html.isInitSend #header,
+  html.isInitSend #footer,
+  html.isInitSend section:not(.isInitSend),
+  html.isInitSend h2,
+  html.isInitSend h3 {
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+  }
+
+  html.isInitSend #web3 {
+    opacity: 1;
+    pointer-events: all;
+  }
+</style>
+
+<script>
+  import { $isInitSend } from '@features/Web3/stores'
+
+  $isInitSend.subscribe((value) => {
+    const html = document.querySelector('html')
+
+    value
+      ? html?.classList.add('isInitSend')
+      : html?.classList.remove('isInitSend')
+  })
+</script>
+
 <LayoutBase title="Say Thanks" pageTitle="Say Thanks">
   <!-- <BackButton /> -->
   <div class="grid">
@@ -78,7 +107,7 @@ import CodeCopy from '@components/CopyCode.astro'
         can send me some Ether, ERC-20 token, or Bitcoin.
       </section>
 
-      <section class="section highlight">
+      <section class="section highlight" id="web3">
         <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
         <Web3 client:load />
       </section>
@@ -91,12 +120,27 @@ import CodeCopy from '@components/CopyCode.astro'
 
     <div>
       <h3 class="subTitle">Sponsor</h3>
-      <section class="section">You can also sponsor me on GitHub.</section>
-      <a href="https://github.com/sponsors/kremalicious/">
-        <img
-          src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
-        />
-      </a>
+      <section class="section">
+        <p>You can also sponsor me on GitHub.</p>
+        <a href="https://github.com/sponsors/kremalicious/">
+          <img
+            src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
+          />
+        </a>
+      </section>
+
+      <h3 class="subTitle">Hire Me</h3>
+      <section class="section">
+        <p>
+          Available for contract work to solve your design, front-end, and web3
+          problems.
+        </p>
+        <p>
+          Get in touch on <a href="https://matthiaskretschmann.com"
+            >my portfolio</a
+          >.
+        </p>
+      </section>
     </div>
   </div>
 </LayoutBase>

@@ -5,34 +5,35 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { InputGroup } from '../Input'
 import styles from './index.module.css'
 import { useStore } from '@nanostores/react'
-import { $selectedToken } from '@features/Web3/stores/selectedToken'
+import { $selectedToken, $isInitSend } from '@features/Web3/stores'
 import siteConfig from '@config/blog.config'
-import { Send } from '../Send/Send'
+import { Send } from '../Send'
 
 export default function Web3Form(): ReactElement {
   const { address: account } = useAccount()
   const selectedToken = useStore($selectedToken)
+  const isInitSend = useStore($isInitSend)
 
   const [amount, setAmount] = useState('')
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [initSend, setInitSend] = useState(false)
 
   const isDisabled = !account
 
+  // reset amount whenever token changes
   useEffect(() => {
     if (!selectedToken) return
     setAmount('')
   }, [selectedToken])
 
-  return initSend ? (
-    <Send amount={debouncedAmount} setInitSend={setInitSend} />
+  return isInitSend ? (
+    <Send amount={debouncedAmount} />
   ) : (
     <form
       className={styles.web3}
       onSubmit={(e) => {
         e.preventDefault()
-        if (debouncedAmount !== '' || debouncedAmount === '0') return
-        setInitSend(true)
+        if (debouncedAmount === '' || debouncedAmount === '0') return
+        $isInitSend.set(true)
       }}
     >
       <>
@@ -42,7 +43,6 @@ export default function Web3Form(): ReactElement {
         <InputGroup
           amount={amount}
           setAmount={setAmount}
-          setInitSend={setInitSend}
           isDisabled={isDisabled}
         />
         <div className={styles.disclaimer}>

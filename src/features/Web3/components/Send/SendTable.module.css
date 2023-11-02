@@ -1,0 +1,40 @@
+.amount,
+.network,
+.to {
+  /* font-weight: var(--font-weight-bold); */
+}
+
+.to {
+  display: block;
+  word-break: break-all;
+  background: none;
+  padding: 0;
+}
+
+.to:last-child {
+  padding-left: 14px;
+  font-size: var(--font-size-mini);
+}
+
+.to:last-child::first-letter {
+  margin-left: -14px;
+}
+
+.table {
+  /* max-width: 386px; */
+  margin-bottom: calc(var(--spacer) / 1.5);
+}
+
+table[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.table td {
+  padding: calc(var(--spacer) / 4);
+}
+
+.label {
+  color: var(--text-color-light);
+  vertical-align: top;
+}

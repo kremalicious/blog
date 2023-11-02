@@ -1,27 +1,27 @@
-import { useStore } from '@nanostores/react'
-import { $selectedToken } from '@features/Web3/stores/selectedToken'
-import { useNetwork, useEnsAddress } from 'wagmi'
-import siteConfig from '@config/blog.config'
 import { useState, type FormEvent, useEffect } from 'react'
-import { prepareTransaction } from './prepareTransaction'
-import { sendTransaction } from './sendTransaction'
+import { useStore } from '@nanostores/react'
+import { useNetwork, useEnsAddress, useEnsName } from 'wagmi'
 import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
 } from 'wagmi/actions'
-import { formatEther } from 'viem'
+import { $selectedToken, $isInitSend } from '@features/Web3/stores'
+import siteConfig from '@config/blog.config'
+import { prepareTransaction, sendTransaction } from './actions'
+import styles from './Send.module.css'
+import { SendTable } from './SendTable'
+import { Loader } from '@components/Loader'
 
-export function Send({
-  amount,
-  setInitSend
-}: {
-  amount: string
-  setInitSend: (initSend: boolean) => void
-}) {
+export function Send({ amount }: { amount: string }) {
+  const { ens } = siteConfig.author.ether
   const { chain } = useNetwork()
   const selectedToken = useStore($selectedToken)
-  const { data: to } = useEnsAddress({
-    name: siteConfig.author.ether.ens,
+
+  // Always resolve to address from ENS name and vice versa
+  // so nobody has to trust my config values.
+  const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
+  const { data: ensResolved } = useEnsName({
+    address: to as `0x${string}` | undefined,
     chainId: 1
   })
 
@@ -29,6 +29,7 @@ export function Send({
     SendTransactionArgs | WriteContractPreparedArgs
   >()
   const [txHash, setTxHash] = useState<string>()
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function init() {
@@ -47,27 +48,47 @@ export function Send({
 
   async function handleSend(event: FormEvent<HTMLButtonElement>) {
     event?.preventDefault()
-    const result = await sendTransaction(selectedToken, txConfig)
-    setTxHash(result?.hash)
+    try {
+      setIsLoading(true)
+      const result = await sendTransaction(selectedToken, txConfig)
+      setTxHash(result?.hash)
+      setIsLoading(false)
+    } catch (error: unknown) {
+      console.error((error as Error).message)
+      setIsLoading(false)
+    }
   }
 
-  const value =
-    (txConfig as SendTransactionArgs)?.value ||
-    (txConfig as WriteContractPreparedArgs)?.request?.args[1] ||
-    '0'
-  const displayAmountFromConfig = formatEther(value)
   console.log(txHash)
 
   return (
     <>
-      <div>
-        <p>You are about to send</p>
-        <p>
-          {displayAmountFromConfig} {selectedToken?.symbol} to <code>{to}</code>{' '}
-          on {chain?.name}
-        </p>
-        <button onClick={(e) => handleSend(e)}>Confirm</button>
-        <button onClick={() => setInitSend(false)}>Cancel</button>
+      <div className={styles.send}>
+        {/* <h5 className={styles.title}>You are sending</h5> */}
+
+        <SendTable
+          to={to}
+          ensResolved={ensResolved}
+          txConfig={txConfig}
+          isDisabled={isLoading}
+        />
+
+        <footer className={styles.actions}>
+          <button
+            onClick={(e) => handleSend(e)}
+            className="btn btn-primary"
+            disabled={isLoading}
+          >
+            {isLoading ? <Loader /> : 'Make it rain'}
+          </button>
+          <button
+            onClick={() => $isInitSend.set(false)}
+            className="link"
+            disabled={isLoading}
+          >
+            Cancel
+          </button>
+        </footer>
       </div>
     </>
   )

@@ -319,7 +319,6 @@ table {
 
 th {
   text-align: left;
-  border-top: 1px solid var(--border-color);
 }
 
 th,
@@ -329,6 +328,10 @@ td {
   word-break: normal;
   overflow-wrap: normal;
   border-bottom: 1px solid var(--border-color);
+}
+
+tr:last-child td {
+  border-bottom: none;
 }
 
 /* Selection

@@ -3,17 +3,16 @@ import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
+import { $isInitSend } from '@features/Web3/stores'
 
 export function InputGroup({
   amount,
   isDisabled,
-  setAmount,
-  setInitSend
+  setAmount
 }: {
   amount: string
   isDisabled: boolean
   setAmount: React.Dispatch<React.SetStateAction<string>>
-  setInitSend: React.Dispatch<React.SetStateAction<boolean>>
 }): ReactElement {
   return (
     <>
@@ -36,9 +35,9 @@ export function InputGroup({
         <button
           className={`${styles.submit} btn btn-primary`}
           disabled={isDisabled || !amount}
-          onClick={() => setInitSend(true)}
+          onClick={() => $isInitSend.set(true)}
         >
-          Make it rain
+          Preview
         </button>
       </div>
       <Conversion amount={amount} />

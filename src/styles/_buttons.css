@@ -33,9 +33,11 @@ a.btn {
   transition: none;
 }
 
-/* // Disabled State */
+/* Disabled State */
 .btn.disabled,
-.btn[disabled] {
+.btn[disabled],
+button:disabled,
+.btn:disabled {
   /* TODO: cursor & pointer values can't be used together */
   cursor: not-allowed;
   pointer-events: none;
