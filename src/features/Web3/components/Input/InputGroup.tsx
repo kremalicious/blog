@@ -7,11 +7,13 @@ import { TokenSelect } from '../TokenSelect'
 export function InputGroup({
   amount,
   isDisabled,
-  setAmount
+  setAmount,
+  setInitSend
 }: {
   amount: string
   isDisabled: boolean
   setAmount: React.Dispatch<React.SetStateAction<string>>
+  setInitSend: React.Dispatch<React.SetStateAction<boolean>>
 }): ReactElement {
   return (
     <>
@@ -34,6 +36,7 @@ export function InputGroup({
         <button
           className={`${styles.submit} btn btn-primary`}
           disabled={isDisabled || !amount}
+          onClick={() => setInitSend(true)}
         >
           Make it rain
         </button>
