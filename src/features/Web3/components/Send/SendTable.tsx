@@ -1,5 +1,5 @@
 import { formatEther } from 'viem'
-import { useNetwork } from 'wagmi'
+import { useAccount, useEnsName, useNetwork } from 'wagmi'
 import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
@@ -20,6 +20,8 @@ export function SendTable({
   isDisabled: boolean
 }) {
   const { chain } = useNetwork()
+  const { address: from } = useAccount()
+  const { data: ensFrom } = useEnsName({ address: from, chainId: 1 })
   const selectedToken = useStore($selectedToken)
 
   // Derive display values in preview from actual tx config
@@ -34,25 +36,35 @@ export function SendTable({
     <table className={styles.table} aria-disabled={isDisabled}>
       <tbody>
         <tr>
-          <td className={styles.label}>Sending</td>
+          <td className={styles.label}>You are</td>
+          {ensFrom ? (
+            <td title={`${ensFrom} successfully resolved to ${from}`}>
+              <code className={styles.from}>{ensFrom}</code>
+              <code className={styles.from}>{`→ ${from}`}</code>
+            </td>
+          ) : (
+            <td>
+              <code className={styles.from}>{from}</code>
+            </td>
+          )}
+        </tr>
+
+        <tr>
+          <td className={styles.label}>sending</td>
           <td>
             <span className={styles.amount}>
               {displayAmountFromConfig} {selectedToken?.symbol}
             </span>
           </td>
         </tr>
+
         <tr>
           <td className={styles.label}>on</td>
           <td>
             <span className={styles.network}>{chain?.name}</span>
           </td>
         </tr>
-        {/* <tr>
-        <td>From</td>
-        <td>
-          <code className={styles.from}>{from}</code>
-        </td>
-      </tr> */}
+
         <tr>
           <td className={styles.label}>to</td>
           <td title={`${ensResolved} successfully resolved to ${to}`}>

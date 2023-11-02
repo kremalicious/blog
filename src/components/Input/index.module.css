@@ -1,6 +1,5 @@
 .input {
   display: block;
-  width: 100%;
   padding: var(--padding-base-vertical) var(--padding-base-horizontal);
   font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
@@ -25,7 +24,8 @@
 /* stylelint-enable selector-no-vendor-prefix */
 
 .input:focus {
-  border-color: var(--input-border-focus);
+  /* box-shadow: 0 0 0 var(--border-width) var(--input-border-focus); */
+  border-color: var(--input-border-focus) !important;
   outline: 0;
 }
 

@@ -46,6 +46,12 @@ export function Send({ amount }: { amount: string }) {
     init()
   }, [selectedToken || amount || to || chain?.id])
 
+  // Cancel send flow if chain changes as this can mess with token selection
+  // useEffect(() => {
+  //   if (!chain?.id || $isInitSend.get() === false) return
+  //   $isInitSend.set(false)
+  // }, [chain?.id])
+
   async function handleSend(event: FormEvent<HTMLButtonElement>) {
     event?.preventDefault()
     try {

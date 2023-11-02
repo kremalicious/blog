@@ -1,6 +1,6 @@
 .web3 {
   margin: calc(var(--spacer) / 2) auto calc(var(--spacer) / 4) auto;
-  max-width: 25rem;
+  max-width: 100%;
   width: 100%;
   text-align: center;
   min-height: 165px;
