@@ -6,7 +6,7 @@ import {
   type WriteContractPreparedArgs
 } from 'wagmi/actions'
 
-export async function sendTransaction(
+export async function send(
   selectedToken: GetToken | undefined,
   config: SendTransactionArgs | WriteContractPreparedArgs | undefined
 ) {

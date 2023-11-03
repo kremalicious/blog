@@ -6,9 +6,9 @@ import {
   type SendTransactionArgs,
   type WriteContractPreparedArgs
 } from 'wagmi/actions'
-import { abiErc20Transfer } from '../abiErc20Transfer'
+import { abiErc20Transfer } from './abiErc20Transfer'
 
-export async function prepareTransaction(
+export async function prepare(
   selectedToken: GetToken | undefined,
   amount: string | undefined,
   to: `0x${string}` | null | undefined,
@@ -18,8 +18,9 @@ export async function prepareTransaction(
     return
 
   const isNative = selectedToken.address === '0x0'
-  const setupNative = { chainId, to, value: parseEther(amount) }
-  const setupErc20 = {
+  const requestNative = { chainId, to, value: parseEther(amount) }
+  const requestErc20 = {
+    chainId,
     address: selectedToken.address,
     abi: abiErc20Transfer,
     functionName: 'transfer',
@@ -27,8 +28,8 @@ export async function prepareTransaction(
   }
 
   const config = isNative
-    ? ((await prepareSendTransaction(setupNative)) as SendTransactionArgs)
-    : ((await prepareWriteContract(setupErc20)) as WriteContractPreparedArgs)
+    ? ((await prepareSendTransaction(requestNative)) as SendTransactionArgs)
+    : ((await prepareWriteContract(requestErc20)) as WriteContractPreparedArgs)
 
   return config
 }

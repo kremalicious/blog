@@ -22,3 +22,8 @@
   padding-top: 0;
   padding-bottom: 0;
 }
+
+.alert {
+  font-size: var(--font-size-small);
+  display: inline-block;
+}

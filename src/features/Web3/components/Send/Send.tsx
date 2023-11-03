@@ -1,69 +1,37 @@
-import { useState, type FormEvent, useEffect } from 'react'
 import { useStore } from '@nanostores/react'
-import { useNetwork, useEnsAddress, useEnsName } from 'wagmi'
-import type {
-  SendTransactionArgs,
-  WriteContractPreparedArgs
-} from 'wagmi/actions'
-import { $selectedToken, $isInitSend, $txHash } from '@features/Web3/stores'
+import { useEnsAddress, useEnsName } from 'wagmi'
+import { $isInitSend, $txHash } from '@features/Web3/stores'
 import siteConfig from '@config/blog.config'
-import { prepareTransaction, sendTransaction } from './actions'
 import styles from './Send.module.css'
 import { SendTable } from './SendTable'
 import { Loader } from '@components/Loader'
+import { usePrepareSend } from '@features/Web3/hooks/usePrepareSend'
+import { useSend } from '@features/Web3/hooks/useSend'
 
 export function Send({ amount }: { amount: string }) {
-  const { ens } = siteConfig.author.ether
-  const { chain } = useNetwork()
-  const selectedToken = useStore($selectedToken)
   const txHash = useStore($txHash)
 
   // Always resolve to address from ENS name and vice versa
   // so nobody has to trust my config values.
+  const { ens } = siteConfig.author.ether
   const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
   const { data: ensResolved } = useEnsName({
     address: to as `0x${string}` | undefined,
     chainId: 1
   })
 
-  const [txConfig, setTxConfig] = useState<
-    SendTransactionArgs | WriteContractPreparedArgs
-  >()
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    async function init() {
-      if (!selectedToken || !amount || !to || !chain?.id) return
-
-      const config = await prepareTransaction(
-        selectedToken,
-        amount,
-        to,
-        chain.id
-      )
-      setTxConfig(config)
-    }
-    init()
-  }, [selectedToken || amount || to || chain?.id])
+  const {
+    data: txConfig,
+    error: prepareError,
+    isError: isPrepareError
+  } = usePrepareSend({ amount, to })
+  const { handleSend, isLoading, error } = useSend({ txConfig })
 
   // Cancel send flow if chain changes as this can mess with token selection
   // useEffect(() => {
   //   if (!chain?.id || $isInitSend.get() === false) return
   //   $isInitSend.set(false)
   // }, [chain?.id])
-
-  async function handleSend(event: FormEvent<HTMLButtonElement>) {
-    event?.preventDefault()
-    try {
-      setIsLoading(true)
-      const result = await sendTransaction(selectedToken, txConfig)
-      $txHash.set(result?.hash)
-      setIsLoading(false)
-    } catch (error: unknown) {
-      console.error((error as Error).message)
-      setIsLoading(false)
-    }
-  }
 
   console.log(txHash)
 
@@ -79,11 +47,13 @@ export function Send({ amount }: { amount: string }) {
           isDisabled={isLoading}
         />
 
+        <div className={styles.alert}>{error || prepareError}</div>
+
         <footer className={styles.actions}>
           <button
             onClick={(e) => handleSend(e)}
             className="btn btn-primary"
-            disabled={isLoading}
+            disabled={isLoading || !txConfig || isPrepareError}
           >
             {isLoading ? <Loader /> : 'Make it rain'}
           </button>
