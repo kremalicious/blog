@@ -6,14 +6,17 @@ import { Icon as ChevronsDown } from '@images/components/react/ChevronsDown'
 import { Icon as ChevronsUp } from '@images/components/react/ChevronsUp'
 import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
 import { useStore } from '@nanostores/react'
-import { $tokens } from '@features/Web3/stores/tokens'
+import { $setTokens, $tokens } from '@features/Web3/stores'
 import {
   $selectedToken,
   $setSelectedToken
 } from '@features/Web3/stores/selectedToken'
 import { Loader } from '@components/Loader'
+import { useAccount } from 'wagmi'
+import { useEffect } from 'react'
 
 export function TokenSelect() {
+  const { address } = useAccount()
   const { isLoading } = useFetchTokens()
   const tokens = useStore($tokens)
   const selectedToken = useStore($selectedToken)
@@ -28,6 +31,13 @@ export function TokenSelect() {
     $setSelectedToken(token)
   }
 
+  // reset when no account connected
+  useEffect(() => {
+    if (!address && tokens?.length) {
+      $setTokens(undefined)
+    }
+  }, [address])
+
   return tokens && selectedToken ? (
     <Select.Root
       defaultValue={selectedToken?.address}
@@ -38,7 +48,6 @@ export function TokenSelect() {
         className="SelectTrigger"
         disabled={isLoading}
         aria-label="Token"
-        placeholder="..."
       >
         <Select.Value />
         <Select.Icon>

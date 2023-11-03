@@ -2,9 +2,11 @@ import { useEffect, type ReactElement, useState } from 'react'
 import styles from './Conversion.module.css'
 import { useStore } from '@nanostores/react'
 import { $selectedToken } from '@features/Web3/stores/selectedToken'
+import { $amount } from '@features/Web3/stores'
 
-export function Conversion({ amount }: { amount: string }): ReactElement {
+export function Conversion(): ReactElement {
   const selectedToken = useStore($selectedToken)
+  const amount = useStore($amount)
 
   const [dollar, setDollar] = useState('0.00')
   const [euro, setEuro] = useState('0.00')

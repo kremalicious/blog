@@ -4,11 +4,11 @@ import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
 } from 'wagmi/actions'
-import styles from './SendTable.module.css'
+import styles from './Data.module.css'
 import { useStore } from '@nanostores/react'
 import { $selectedToken } from '@features/Web3/stores'
 
-export function SendTable({
+export function Data({
   to,
   ensResolved,
   txConfig,

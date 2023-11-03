@@ -5,18 +5,17 @@ import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
 } from 'wagmi/actions'
-import { $selectedToken } from '@features/Web3/stores'
+import { $amount, $selectedToken } from '@features/Web3/stores'
 import { prepare } from './prepare'
 
 export function usePrepareSend({
-  amount,
   to
 }: {
-  amount: string
   to: `0x${string}` | null | undefined
 }) {
-  const { chain } = useNetwork()
   const selectedToken = useStore($selectedToken)
+  const amount = useStore($amount)
+  const { chain } = useNetwork()
 
   const [txConfig, setTxConfig] = useState<
     SendTransactionArgs | WriteContractPreparedArgs

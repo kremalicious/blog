@@ -1,9 +1,3 @@
-.amount,
-.network,
-.to {
-  /* font-weight: var(--font-weight-bold); */
-}
-
 .to,
 .from {
   display: block;
@@ -23,7 +17,7 @@
   margin-left: -14px;
 }
 
-.from .table {
+.table {
   /* max-width: 386px; */
   margin-bottom: calc(var(--spacer) / 1.5);
 }

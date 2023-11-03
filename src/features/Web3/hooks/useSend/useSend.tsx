@@ -1,6 +1,6 @@
 import { $txHash, $selectedToken } from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
@@ -18,9 +18,7 @@ export function useSend({
   const [isError, setIsError] = useState(false)
   const [error, setError] = useState<string | undefined>()
 
-  async function handleSend(event: FormEvent<HTMLButtonElement>) {
-    event?.preventDefault()
-
+  async function handleSend() {
     try {
       setIsError(false)
       setError(undefined)

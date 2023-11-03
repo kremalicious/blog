@@ -3,17 +3,20 @@ import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
-import { $isInitSend } from '@features/Web3/stores'
+import { $amount, $isInitSend } from '@features/Web3/stores'
+import { useStore } from '@nanostores/react'
 
 export function InputGroup({
-  amount,
-  isDisabled,
-  setAmount
+  isDisabled
 }: {
-  amount: string
   isDisabled: boolean
-  setAmount: React.Dispatch<React.SetStateAction<string>>
 }): ReactElement {
+  const amount = useStore($amount)
+
+  function handleChange(newAmount: string) {
+    $amount.set(newAmount)
+  }
+
   return (
     <>
       <div className={styles.inputGroup}>
@@ -27,7 +30,7 @@ export function InputGroup({
             pattern="[0-9.]*"
             value={amount}
             placeholder="0.00"
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             className={styles.inputInput}
           />
         </div>
@@ -40,7 +43,7 @@ export function InputGroup({
           Preview
         </button>
       </div>
-      <Conversion amount={amount} />
+      <Conversion />
     </>
   )
 }
