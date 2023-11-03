@@ -5,7 +5,7 @@ import type {
   SendTransactionArgs,
   WriteContractPreparedArgs
 } from 'wagmi/actions'
-import { $selectedToken, $isInitSend } from '@features/Web3/stores'
+import { $selectedToken, $isInitSend, $txHash } from '@features/Web3/stores'
 import siteConfig from '@config/blog.config'
 import { prepareTransaction, sendTransaction } from './actions'
 import styles from './Send.module.css'
@@ -16,6 +16,7 @@ export function Send({ amount }: { amount: string }) {
   const { ens } = siteConfig.author.ether
   const { chain } = useNetwork()
   const selectedToken = useStore($selectedToken)
+  const txHash = useStore($txHash)
 
   // Always resolve to address from ENS name and vice versa
   // so nobody has to trust my config values.
@@ -28,7 +29,6 @@ export function Send({ amount }: { amount: string }) {
   const [txConfig, setTxConfig] = useState<
     SendTransactionArgs | WriteContractPreparedArgs
   >()
-  const [txHash, setTxHash] = useState<string>()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export function Send({ amount }: { amount: string }) {
     try {
       setIsLoading(true)
       const result = await sendTransaction(selectedToken, txConfig)
-      setTxHash(result?.hash)
+      $txHash.set(result?.hash)
       setIsLoading(false)
     } catch (error: unknown) {
       console.error((error as Error).message)

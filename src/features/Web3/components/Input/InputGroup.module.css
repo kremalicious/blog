@@ -60,12 +60,13 @@
 }
 
 .submit {
-  width: calc(100% - calc(var(--spacer) / 2) - 2px);
   max-width: none;
-  height: calc(- var(--border-width));
+  height: calc(var(--height) - calc(var(--border-width) * 2));
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border: var(--border-width) solid var(--link-color);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 @media (min-width: 40rem) {
