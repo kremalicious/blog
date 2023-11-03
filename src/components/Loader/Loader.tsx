@@ -1,5 +1,5 @@
 import styles from './Loader.module.css'
-import { Loader as LoaderIcon } from '@images/components/react'
+import { Icon as LoaderIcon } from '@images/components/react/Loader'
 
 export function Loader() {
   // TODO: fix React props for generated SVG components for class/className
