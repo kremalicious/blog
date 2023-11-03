@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest'
 import { render, fireEvent, screen } from '@testing-library/react'
-import Web3Form from '.'
+import { Web3Form } from './Form'
 
 test('Web3Donation component', async () => {
   render(<Web3Form />)

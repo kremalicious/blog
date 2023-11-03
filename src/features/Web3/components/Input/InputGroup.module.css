@@ -1,9 +1,8 @@
 .inputGroup {
-  --height: 60px;
+  --height: 50px;
 
   margin: auto;
   position: relative;
-  animation: fadeIn 0.8s ease-out backwards;
   margin-top: calc(var(--spacer) / 3);
   display: flex;
   flex-direction: column;
@@ -51,10 +50,6 @@
   }
 }
 
-.inputInput::-webkit-inner-spin-button {
-  margin-left: -1rem;
-}
-
 :global([data-theme='dark']) .inputInput {
   border-color: var(--border-color);
 }
@@ -85,13 +80,3 @@
   color: var(--text-color);
   border-color: var(--text-color-light);
 } */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0.01;
-  }
-
-  to {
-    opacity: 1;
-  }
-}

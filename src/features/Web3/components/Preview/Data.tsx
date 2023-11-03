@@ -1,4 +1,4 @@
-import { formatEther } from 'viem'
+import { formatEther, formatUnits } from 'viem'
 import { useAccount, useEnsName, useNetwork } from 'wagmi'
 import type {
   SendTransactionArgs,
@@ -30,7 +30,12 @@ export function Data({
     (txConfig as SendTransactionArgs)?.value ||
     (txConfig as WriteContractPreparedArgs)?.request?.args?.[1] ||
     '0'
-  const displayAmountFromConfig = formatEther(value as bigint)
+  const displayAmountFromConfig =
+    selectedToken?.decimals === 18
+      ? formatEther(value as bigint)
+      : selectedToken?.decimals
+      ? formatUnits(value as bigint, selectedToken.decimals)
+      : '0'
 
   return (
     <table className={styles.table} aria-disabled={isDisabled}>

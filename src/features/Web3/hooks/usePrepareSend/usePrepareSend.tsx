@@ -46,8 +46,6 @@ export function usePrepareSend({
             'this transaction exceeds the balance of the account.'
           )
         ) {
-          setError('Insufficient funds')
-        } else {
           setError(undefined)
         }
       } finally {

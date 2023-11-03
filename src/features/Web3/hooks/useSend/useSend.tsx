@@ -27,7 +27,13 @@ export function useSend({
       $txHash.set(result?.hash)
     } catch (error: unknown) {
       console.error((error as Error).message)
-      setError((error as Error).message)
+
+      // only expose useful errors in UI
+      if ((error as Error).message.includes('User rejected the request.')) {
+        setError(undefined)
+      } else {
+        setError((error as Error).message)
+      }
       setIsError(true)
     } finally {
       setIsLoading(false)

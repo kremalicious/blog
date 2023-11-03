@@ -3,7 +3,7 @@ import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
-import { $amount, $isInitSend } from '@features/Web3/stores'
+import { $amount, $isInitSend, $selectedToken } from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
 
 export function InputGroup({
@@ -12,6 +12,7 @@ export function InputGroup({
   isDisabled: boolean
 }): ReactElement {
   const amount = useStore($amount)
+  const selectedToken = useStore($selectedToken)
 
   function handleChange(newAmount: string) {
     $amount.set(newAmount)
@@ -37,7 +38,7 @@ export function InputGroup({
 
         <button
           className={`${styles.submit} btn btn-primary`}
-          disabled={isDisabled || !amount}
+          disabled={isDisabled || !amount || !selectedToken}
           onClick={() => $isInitSend.set(true)}
         >
           Preview

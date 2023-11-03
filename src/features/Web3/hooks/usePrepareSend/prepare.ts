@@ -14,7 +14,14 @@ export async function prepare(
   to: `0x${string}` | null | undefined,
   chainId: number | undefined
 ) {
-  if (!chainId || !to || !amount || !selectedToken || !selectedToken?.address)
+  if (
+    !chainId ||
+    !to ||
+    !amount ||
+    !selectedToken ||
+    !selectedToken?.address ||
+    !selectedToken?.decimals
+  )
     return
 
   const isNative = selectedToken.address === '0x0'
@@ -24,7 +31,7 @@ export async function prepare(
     address: selectedToken.address,
     abi: abiErc20Transfer,
     functionName: 'transfer',
-    args: [to, parseUnits(amount, selectedToken.decimals || 18)]
+    args: [to, parseUnits(amount, selectedToken.decimals)]
   }
 
   const config = isNative

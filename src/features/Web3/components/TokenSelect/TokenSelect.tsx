@@ -6,11 +6,7 @@ import { Icon as ChevronsDown } from '@images/components/react/ChevronsDown'
 import { Icon as ChevronsUp } from '@images/components/react/ChevronsUp'
 import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
 import { useStore } from '@nanostores/react'
-import { $setTokens, $tokens } from '@features/Web3/stores'
-import {
-  $selectedToken,
-  $setSelectedToken
-} from '@features/Web3/stores/selectedToken'
+import { $tokens, $selectedToken } from '@features/Web3/stores'
 import { Loader } from '@components/Loader'
 import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
@@ -28,19 +24,20 @@ export function TokenSelect() {
   function handleValueChange(value: `0x${string}`) {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
-    $setSelectedToken(token)
+    $selectedToken.set(token)
   }
 
-  // reset when no account connected
+  // TODO: reset when no account connected
   useEffect(() => {
-    if (!address && tokens?.length) {
-      $setTokens(undefined)
+    if (!address && tokens?.length && selectedToken) {
+      $tokens.set(undefined)
+      $selectedToken.set(undefined)
     }
   }, [address])
 
-  return tokens && selectedToken ? (
+  return tokens ? (
     <Select.Root
-      defaultValue={selectedToken?.address}
+      defaultValue={selectedToken?.address || tokens[0].address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}
     >

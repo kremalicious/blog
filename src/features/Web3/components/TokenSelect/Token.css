@@ -21,8 +21,8 @@
 }
 
 .TokenLogo {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   margin-right: calc(var(--spacer) / 4);
   border: 1px solid var(--border-color);
@@ -34,8 +34,8 @@
 
 .TokenLogo img {
   margin: 0;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
 }
 
