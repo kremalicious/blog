@@ -18,7 +18,7 @@
 - [🎉 Features](#-features)
   - [🌅 Image handling](#-image-handling)
   - [🎆 EXIF extraction](#-exif-extraction)
-  - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
+  - [💰 Cryptocurrency donation via Web3 browser wallets](#-cryptocurrency-donation-via-web3-browser-wallets)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
   - [📝 GitHub Changelog Rendering](#-github-changelog-rendering)
@@ -75,9 +75,9 @@ If you want to know how this works, have a look at the respective files:
 - the `loadAndFormatCollection()` helper in [`src/lib/astro.ts`](src/lib/astro.ts)
 - output through [`src/components/Exif/`](src/components/Exif/)
 
-### 💰 Cryptocurrency donation via Web3/MetaMask
+### 💰 Cryptocurrency donation via Web3 browser wallets
 
-Lets visitors say thanks with Ether, any ERC-20, or Bitcoin. The Web3 wallet integration uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions.
+Lets visitors say thanks with Ether, any ERC-20, or Bitcoin. The Web3 wallet integration uses [RainbowKit](https://www.rainbowkit.com) for wallet connection, my own custom web3 API to fetch wallet token balances and metadata, and [wagmi](https://wagmi.sh) for sending transactions.
 
 <img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
 

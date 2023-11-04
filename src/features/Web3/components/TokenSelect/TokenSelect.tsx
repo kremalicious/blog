@@ -16,7 +16,7 @@ import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
 
 export function TokenSelect() {
-  const { address } = useAccount()
+  const { address, isConnecting } = useAccount()
   const { isLoading } = useFetchTokens()
   const tokens = useStore($tokens)
   const selectedToken = useStore($selectedToken)
@@ -37,14 +37,14 @@ export function TokenSelect() {
       $tokens.set(undefined)
       $setSelectedToken(undefined)
     }
-  }, [address])
+  }, [address, tokens, selectedToken])
 
   // Auto-select native token
   useEffect(() => {
-    if (tokens && !selectedToken) {
+    if (tokens && !selectedToken && !isConnecting) {
       $setSelectedToken(tokens[0])
     }
-  }, [tokens])
+  }, [tokens, isConnecting, selectedToken])
 
   return tokens ? (
     <Select.Root
