@@ -19,6 +19,7 @@ export function InputGroup({
   function handleChange(newAmount: string) {
     $amount.set(newAmount)
   }
+
   return (
     <>
       <div className={`${styles.inputGroup} ${isFocus ? styles.focus : ''}`}>
