@@ -10,7 +10,7 @@
 .actions button:first-child {
   margin-right: var(--spacer);
   width: 115px;
-  height: 50px;
+  height: 45px;
   padding-top: 0;
   padding-bottom: 0;
 }

@@ -11,11 +11,13 @@
 }
 
 .SelectTrigger:hover {
-  background-color: var(--box-background-color);
+  background-color: var(--text-color-dimmed);
 }
 
 .SelectTrigger:focus {
-  box-shadow: 0 0 0 var(--border-width) var(--input-border-focus);
+  background-color: var(--text-color-dimmed);
+
+  /* box-shadow: 0 0 0 var(--border-width) var(--input-border-focus); */
 
   /* border-color: var(--input-border-focus) !important; */
 }

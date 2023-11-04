@@ -114,7 +114,7 @@
   --input-color-placeholder: var(--text-color-light);
 
   --input-border: var(--border-color);
-  --input-border-focus: var(--brand-cyan);
+  --input-border-focus: var(--link-color);
 
   /* Misc.
   ///////////////////////////////////// */

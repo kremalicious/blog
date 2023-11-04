@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react'
+import { useState, type ReactElement } from 'react'
 import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
@@ -14,28 +14,28 @@ export function InputGroup({
   const amount = useStore($amount)
   const selectedToken = useStore($selectedToken)
 
+  const [isFocus, setIsFocus] = useState(false)
+
   function handleChange(newAmount: string) {
     $amount.set(newAmount)
   }
-
   return (
     <>
-      <div className={styles.inputGroup}>
-        <div className={styles.inputWrap}>
-          <div className={styles.token}>
-            <TokenSelect />
-          </div>
-          <Input
-            type="text"
-            inputMode="decimal"
-            pattern="[0-9.]*"
-            value={amount}
-            placeholder="0.00"
-            onChange={(e) => handleChange(e.target.value)}
-            className={styles.inputInput}
-          />
+      <div className={`${styles.inputGroup} ${isFocus ? styles.focus : ''}`}>
+        <div className={styles.token}>
+          <TokenSelect />
         </div>
-
+        <Input
+          type="text"
+          inputMode="decimal"
+          pattern="[0-9.]*"
+          value={amount}
+          placeholder="0.00"
+          onChange={(e) => handleChange(e.target.value)}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          className={styles.inputInput}
+        />
         <button
           className={`${styles.submit} btn btn-primary`}
           disabled={isDisabled || !amount || !selectedToken}
@@ -44,6 +44,7 @@ export function InputGroup({
           Preview
         </button>
       </div>
+
       <Conversion />
     </>
   )
