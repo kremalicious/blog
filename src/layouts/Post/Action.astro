@@ -32,12 +32,13 @@ const Icon = icon
       calc(var(--spacer) * 1.5);
     position: relative;
     text-align: left;
+    text-decoration: none;
   }
 
-  .action:hover,
-  .action:focus {
-    cursor: pointer;
-    color: var(--text-color-light);
+  .action:hover .actionTitle,
+  .action:focus .actionTitle {
+    color: var(--link-color-hover);
+    text-decoration: underline;
   }
 
   .action svg {

@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.entryMeta a {
+  text-decoration: none;
+}
+
 .byline {
   margin-bottom: 0;
   font-style: italic;
@@ -41,6 +45,10 @@
   background: var(--link-color);
   top: 0;
   color: #fff;
+}
+
+.entryMeta a:hover {
+  text-decoration: underline;
 }
 
 .tags {

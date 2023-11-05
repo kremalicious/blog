@@ -5,7 +5,7 @@
   ///////////////////////////////////// */
 
   --brand-main: #015565;
-  --brand-cyan: #43a699;
+  --brand-cyan: rgb(67 166 153);
   --brand-main-light: #88bec8;
   --brand-light: #e7eef4;
 
@@ -34,8 +34,11 @@
   --text-color-light: var(--brand-grey-light);
   --text-color-dimmed: var(--brand-grey-dimmed);
   --color-headings: var(--brand-main);
+
   --link-color: var(--brand-cyan);
   --link-color-hover: #4ab8a9;
+  --link-underline-color: rgba(67 166 153 / 35%);
+
   --border-color: var(--brand-grey-dimmed);
 
   /* Base Typography

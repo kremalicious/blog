@@ -2,6 +2,7 @@
   font-size: var(--font-size-h3);
   margin-bottom: var(--spacer);
   color: var(--text-color-light);
+  text-decoration: none;
 }
 
 .relatedPosts ul {
@@ -29,6 +30,10 @@
 
 .relatedPosts li::before {
   display: none;
+}
+
+.relatedPosts a {
+  text-decoration: none;
 }
 
 .relatedPosts a > div {

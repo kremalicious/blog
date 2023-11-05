@@ -2,12 +2,16 @@
   padding-bottom: var(--spacer);
 }
 
-.entry > a {
-  display: block;
+.entry a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--link-underline-color);
 }
 
-.entry p:only-child {
-  margin-bottom: 0;
+.entry a:hover,
+.entry a:focus {
+  color: var(--link-color-hover);
+  text-decoration-color: var(--link-color-hover);
 }
 
 .entry hr {

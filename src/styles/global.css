@@ -73,14 +73,16 @@ button:active {
 ///////////////////////////////////// */
 
 a {
-  color: var(--brand-cyan);
+  color: var(--link-color);
   text-decoration: none;
   transition: 0.2s ease-out;
 }
 
 a:hover,
 a:focus {
+  color: var(--link-color-hover);
   text-decoration: underline;
+  text-decoration-color: var(--link-color);
 }
 
 /* Headings
