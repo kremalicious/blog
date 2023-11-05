@@ -7,6 +7,7 @@
     "paths": {
       "@config/*": [".config/*"],
       "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
       "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/images/*"],
       "@lib/*": ["src/lib/*"],
@@ -16,7 +17,11 @@
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "exclude": ["src/images/components", "src/content"],
+  "exclude": [
+    "src/images/components/**/*",
+    "src/content",
+    "scripts/create-icons/tmp/"
+  ],
   "include": [
     "src/**/*",
     "content/**/*",

@@ -1,0 +1,61 @@
+.SelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: var(--font-size-small);
+  line-height: 1;
+}
+
+.SelectTrigger:hover {
+  background-color: var(--text-color-dimmed);
+}
+
+.SelectTrigger:focus {
+  background-color: var(--text-color-dimmed);
+}
+
+.SelectTrigger[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.SelectTrigger .TokenLogo {
+  margin-right: calc(var(--spacer) / 12);
+}
+
+.SelectContent {
+  overflow: hidden;
+  background-color: var(--body-background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.SelectViewport {
+  padding: 0;
+}
+
+.SelectLabel {
+  padding: calc(var(--spacer) / 4);
+  font-size: var(--font-size-small);
+  color: var(--text-color);
+  text-transform: capitalize;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.SelectSeparator {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 5px;
+}
+
+.SelectScrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+  cursor: default;
+}

@@ -1,0 +1,33 @@
+import { useEffect, useState } from 'react'
+import useSWR from 'swr'
+import { useNetwork, useAccount } from 'wagmi'
+import type { GetToken } from './types'
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
+const apiUrl = import.meta.env.PUBLIC_WEB3_API_URL
+
+//
+// Wrapper for fetching user tokens with swr.
+//
+export function useFetchTokens() {
+  const { chain } = useNetwork()
+  const { address } = useAccount()
+
+  const [url, setUrl] = useState<string | undefined>()
+
+  const fetchResults = useSWR<GetToken[] | undefined>(url, fetcher)
+
+  // Set url only after we have all data loaded on client,
+  // preventing initial fetch.
+  useEffect(() => {
+    if (!address || !chain?.id) {
+      setUrl(undefined)
+      return
+    }
+
+    const url = `${apiUrl}/balance?address=${address}&chainId=${chain?.id}`
+    setUrl(url)
+  }, [address, chain?.id])
+
+  return fetchResults
+}

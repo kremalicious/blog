@@ -8,7 +8,7 @@ const year = new Date().getFullYear()
 const { name, url, github } = config.author
 ---
 
-<footer role="contentinfo" class={styles.footer}>
+<footer role="contentinfo" class={styles.footer} id="footer">
   <Vcard />
   <section class={styles.copyright}>
     <p>
@@ -18,12 +18,10 @@ const { name, url, github } = config.author
         {name}
       </a>
       <a href={`${github}/blog`}>
-        <Github />
-         View source
+        <Github />View source
       </a>
       <a href="/thanks/">
-        <Bitcoin />
-         Say Thanks
+        <Bitcoin />Say Thanks
       </a>
     </p>
   </section>

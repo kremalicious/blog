@@ -22,7 +22,7 @@
   ///////////////////////////////////// */
 
   --body-background-color: var(--brand-light);
-  --box-background-color: rgba(255 255 255 / 40%);
+  --box-background-color: #f1f5f8;
 
   --box-shadow: 0 1.3px 5.4px rgba(1 85 101 / 15%),
     0 4.5px 18.1px rgba(1 85 101 / 5%), 0 20px 81px rgba(1 85 101 / 2.5%);
@@ -114,7 +114,7 @@
   --input-color-placeholder: var(--text-color-light);
 
   --input-border: var(--border-color);
-  --input-border-focus: var(--brand-cyan);
+  --input-border-focus: var(--link-color);
 
   /* Misc.
   ///////////////////////////////////// */
@@ -125,7 +125,7 @@
 
 [data-theme='dark'] {
   --body-background-color: #161a1b;
-  --box-background-color: rgba(255 255 255 / 3%);
+  --box-background-color: #1e2122;
 
   --box-shadow: 0 1.3px 5.4px rgba(0 7 8 / 50%),
     0 4.5px 18.1px rgba(0 7 8 / 30%), 0 20px 81px rgba(0 7 8 / 10%);

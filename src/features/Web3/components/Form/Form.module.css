@@ -1,0 +1,24 @@
+.web3 {
+  margin-top: calc(var(--spacer) / 2);
+  margin-bottom: calc(var(--spacer) / 4);
+}
+
+.form {
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  min-height: 165px;
+}
+
+.disclaimer {
+  color: var(--text-color-light);
+  font-size: var(--font-size-small);
+  margin-top: calc(var(--spacer) / 2);
+  margin-bottom: calc(var(--spacer) / 6);
+}
+
+.disclaimer code {
+  background: none;
+  color: var(--text-color);
+  padding-left: 2px;
+}

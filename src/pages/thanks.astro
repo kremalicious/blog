@@ -1,53 +1,146 @@
 ---
-import BackButton from '@components/BackButton.astro'
+// import BackButton from '@components/BackButton.astro'
 import LayoutBase from '@layouts/Base/index.astro'
-import Web3 from '@components/Donation/Web3'
+import { Web3 } from '@features/Web3'
 import config from '@config/blog.config'
-import Coin from '@components/Donation/Coin.astro'
-
-const coins = Object.entries(config.author).filter(
-  ([key]) => key === 'bitcoin' || key === 'ether'
-)
+import { Bitcoin, Wallet } from '@images/components'
+import CodeCopy from '@components/CopyCode.astro'
 ---
 
 <style>
-  .content {
+  .grid {
+    display: grid;
+    gap: var(--spacer);
+  }
+
+  @media (min-width: 40rem) {
+    .grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  .box {
     margin-left: auto;
     margin-right: auto;
-    max-width: 25rem;
     width: 100%;
-    background-color: var(--box-background-color);
+    background-color: var(--body-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 0 var(--spacer) var(--spacer) var(--spacer);
     margin-bottom: var(--spacer);
   }
 
   .subTitle {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-h3);
     border-bottom: 1px solid var(--border-color);
+    margin: 0;
+    padding: calc(var(--spacer) / 2) 0;
+  }
+
+  .box .subTitle {
     padding: calc(var(--spacer) / 2);
+  }
+
+  .titleCoin {
+    font-size: var(--font-size-large);
     margin-top: 0;
-    margin-left: calc(var(--spacer) * -1);
-    margin-right: calc(var(--spacer) * -1);
+    margin-bottom: calc(var(--spacer) / 4);
+  }
+
+  .section {
+    padding: calc(var(--spacer) / 1.5) 0;
+  }
+
+  .box .section {
+    padding: calc(var(--spacer) / 1.5);
+  }
+
+  .section.highlight {
+    background-color: var(--box-background-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .metaText {
+    display: block;
+    font-size: var(--font-size-mini);
+    margin: calc(var(--spacer) / 6) 0;
   }
 </style>
 
-<LayoutBase title="Thanks" pageTitle="Say Thanks">
-  <BackButton />
+<style is:global>
+  html.isInitSend #header,
+  html.isInitSend #footer,
+  html.isInitSend section:not(.isInitSend),
+  html.isInitSend h2,
+  html.isInitSend h3 {
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+  }
 
-  <div class="content">
-    <h3 class="subTitle">Send ETH from your browser wallet.</h3>
-    <Web3 client:only="react" />
-  </div>
+  html.isInitSend #web3 {
+    opacity: 1;
+    pointer-events: all;
+  }
+</style>
 
-  <div class="content">
-    <h3 class="subTitle">Send Bitcoin or ERC-20 tokens from any wallet.</h3>
+<script>
+  import { $isInitSend } from '@features/Web3/stores'
 
-    {
-      coins.map(([key, value]: [key: string, value: string]) => (
-        <Coin title={key} address={value} />
-      ))
-    }
+  $isInitSend.subscribe((value) => {
+    const html = document.querySelector('html')
+
+    value
+      ? html?.classList.add('isInitSend')
+      : html?.classList.remove('isInitSend')
+  })
+</script>
+
+<LayoutBase title="Say Thanks" pageTitle="Say Thanks">
+  <!-- <BackButton /> -->
+  <div class="grid">
+    <div class="box">
+      <h3 class="subTitle">Magic Internet Money</h3>
+
+      <section class="section">
+        If you like what I do and want to support me in a decentralized way, you
+        can send me some Ether, ERC-20 token, or Bitcoin.
+      </section>
+
+      <section class="section highlight" id="web3">
+        <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
+        <Web3 client:load />
+      </section>
+
+      <section class="section">
+        <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
+        <CodeCopy address={config.author.bitcoin} />
+      </section>
+    </div>
+
+    <div>
+      <h3 class="subTitle">Sponsor</h3>
+      <section class="section">
+        <p>You can also sponsor me on GitHub.</p>
+        <a href="https://github.com/sponsors/kremalicious/">
+          <img
+            src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
+          />
+        </a>
+      </section>
+
+      <h3 class="subTitle">Hire Me</h3>
+      <section class="section">
+        <p>
+          Available for contract work to solve your design, front-end, and web3
+          problems.
+        </p>
+        <p>
+          Get in touch on <a href="https://matthiaskretschmann.com"
+            >my portfolio</a
+          >.
+        </p>
+      </section>
+    </div>
   </div>
 </LayoutBase>

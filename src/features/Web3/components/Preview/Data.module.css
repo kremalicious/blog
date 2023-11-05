@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  display: table;
+  margin-bottom: calc(var(--spacer) / 1.5);
+}
+
+table[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.table td {
+  padding: calc(var(--spacer) / 4) calc(var(--spacer) / 3);
+}
+
+.to,
+.from {
+  display: block;
+  word-break: break-all;
+  background: none;
+  padding: 0;
+}
+
+.label {
+  color: var(--text-color-light);
+  vertical-align: top;
+  width: 6rem;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+}
+
+.table :global(.TokenLogo),
+.table :global(.TokenLogo) img {
+  width: 18px;
+  height: 18px;
+}

@@ -1,0 +1,126 @@
+.inputGroup {
+  --height: 50px;
+  --border: var(--border-width) solid var(--border-color);
+  --tokenWidth: 75px;
+
+  margin: auto;
+  margin-top: calc(var(--spacer) / 3);
+  min-height: var(--height);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  overflow: hidden;
+  transition: border-color 0.2s ease-out;
+  position: relative;
+}
+
+@media (min-width: 25rem) {
+  .inputGroup {
+    display: flex;
+    align-items: center;
+  }
+
+  :global([data-theme='dark']) .inputGroup {
+    border-color: var(--border-color);
+  }
+}
+
+.inputGroup.focus {
+  /* box-shadow: 0 0 0 1px var(--input-border-focus); */
+  border-color: var(--input-border-focus);
+}
+
+.inputGroup.error,
+.inputGroup.focus.error {
+  border-color: red !important;
+}
+
+.token {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--tokenWidth);
+  height: calc(var(--height) - var(--border-width));
+  background: var(--box-background-color);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+}
+
+.inputInput {
+  text-align: center;
+  border: 0;
+  font-size: var(--font-size-large);
+  padding: 0;
+  padding-left: var(--tokenWidth);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: var(--border);
+  height: var(--height);
+  width: 100%;
+}
+
+.inputInput:focus {
+  border: 0;
+}
+
+@media (min-width: 25rem) {
+  .token {
+    height: 100%;
+  }
+
+  .inputInput {
+    border-radius: 0;
+    border-bottom: 0;
+  }
+}
+
+.submit {
+  width: 100%;
+  max-width: none;
+  height: var(--height);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+@media (min-width: 25rem) {
+  .submit {
+    width: fit-content;
+    padding: 0 calc(var(--spacer) / 1.5);
+    border-radius: 0;
+  }
+}
+
+.submit:disabled {
+  background: var(--box-background-color);
+  color: var(--text-color-light);
+  text-shadow: none;
+}
+
+.errorOutput {
+  color: red;
+  font-size: var(--font-size-mini);
+  margin-left: var(--tokenWidth);
+  position: absolute;
+  right: calc(var(--spacer) / 3);
+  bottom: -3px;
+  width: 100%;
+  text-align: right;
+}
+
+.conversion {
+  text-align: center;
+  margin-top: calc(var(--spacer) / 6);
+  animation: fadeIn 0.5s 0.8s ease-out backwards;
+}
+
+@media screen and (min-width: 40rem) {
+  .conversion {
+    text-align: left;
+    margin-top: 0;
+    margin-left: calc(var(--spacer) * 3);
+  }
+}

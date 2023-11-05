@@ -1,0 +1,57 @@
+.rainbowkit button > div {
+  padding-left: 0 !important;
+}
+
+.rainbowkit > div:first-child {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-size: var(--font-size-small);
+}
+
+/* hide the account icon, and hope nothing else */
+
+/* .rainbowkit button [aria-hidden] {
+  display: none;
+} */
+
+.rainbowkit [aria-label='Chain Selector'],
+.rainbowkit [data-testid='rk-account-button'] div {
+  font-weight: var(--font-weight-base);
+}
+
+.rainbowkit [aria-label='Chain Selector']:hover,
+.rainbowkit [data-testid='rk-account-button']:hover,
+.rainbowkit [data-testid='rk-account-button']:hover div,
+.rainbowkit [aria-label='Chain Selector']:focus,
+.rainbowkit [data-testid='rk-account-button']:focus,
+.rainbowkit [data-testid='rk-account-button']:focus div {
+  transform: none !important;
+  color: var(--link-color-hover) !important;
+}
+
+/* hide the network icon, and hope nothing else */
+.rainbowkit [aria-label='Chain Selector'] [role='img'] {
+  display: none;
+}
+
+/* connect button */
+.rainbowkit [data-testid='rk-connect-button'] {
+  margin-right: auto;
+  font-family: var(--font-family-headings) !important;
+  font-weight: var(--font-weight-headings) !important;
+  text-transform: uppercase;
+  color: var(--link-color);
+  background: none;
+  border: none;
+  font-size: var(--font-size-small);
+  padding: 0;
+}
+
+.rainbowkit [data-testid='rk-connect-button']:hover,
+.rainbowkit [data-testid='rk-connect-button']:focus {
+  color: var(--link-color-hover);
+  background: none;
+  border: none;
+  transform: none;
+}

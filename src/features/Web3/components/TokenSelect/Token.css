@@ -1,0 +1,71 @@
+.Token {
+  font-size: var(--font-size-small);
+  line-height: 1;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  padding: calc(var(--spacer) / 3) calc(var(--spacer) / 2)
+    calc(var(--spacer) / 3) 25px;
+  position: relative;
+  user-select: none;
+}
+
+.Token[data-disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.Token[data-highlighted] {
+  outline: none;
+  background-color: var(--box-background-color);
+}
+
+.TokenLogo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: calc(var(--spacer) / 4);
+  border: 1px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-mini);
+}
+
+.TokenLogo img {
+  margin: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.TokenName,
+.TokenBalance {
+  margin: 0;
+}
+
+.TokenName {
+  font-size: var(--font-size-base);
+  transition: none;
+}
+
+.TokenBalance {
+  font-size: var(--font-size-small);
+}
+
+.TokenValue {
+  font-size: var(--font-size-small);
+  display: inline-flex;
+  align-self: flex-start;
+  margin-left: auto;
+  padding-left: calc(var(--spacer) * 2);
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

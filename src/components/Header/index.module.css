@@ -6,6 +6,7 @@
     top: 0;
     border: 0;
     will-change: transform;
+    padding-top: calc(var(--spacer) / 3);
   }
 }
 
@@ -56,5 +57,23 @@
 }
 
 .nav {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+}
+
+.nav > div,
+.nav > button {
+  padding: calc(var(--spacer) / 2);
+}
+
+.nav > div,
+.nav > button,
+.nav > div > label,
+.nav > div > label > div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav > button:last-of-type {
+  padding-right: 0;
 }

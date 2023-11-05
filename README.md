@@ -18,10 +18,10 @@
 - [🎉 Features](#-features)
   - [🌅 Image handling](#-image-handling)
   - [🎆 EXIF extraction](#-exif-extraction)
-  - [💰 Cryptocurrency donation via Web3/MetaMask](#-cryptocurrency-donation-via-web3metamask)
+  - [💰 Cryptocurrency donation via Web3 browser wallets](#-cryptocurrency-donation-via-web3-browser-wallets)
   - [🔍 Search](#-search)
   - [🕸 Related Posts](#-related-posts)
-  - [📝 GitHub changelog rendering](#-github-changelog-rendering)
+  - [📝 GitHub Changelog Rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
   - [💎 SVG assets as components](#-svg-assets-as-components)
   - [astro-redirect-from](#astro-redirect-from)
@@ -46,7 +46,7 @@ The whole [blog](https://kremalicious.com) is a statically exported site built w
 
 Styling happens through a combination of basic global styles and on components level either through CSS modules or CSS in `<style>` tags within Astro components.
 
-Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets colocated inside.
+Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets co-located inside.
 
 Retrieving content collections will enrich every post's frontmatter metadata, like extracting date and slug from the post folder name, or exif extraction for photos.
 
@@ -75,15 +75,17 @@ If you want to know how this works, have a look at the respective files:
 - the `loadAndFormatCollection()` helper in [`src/lib/astro.ts`](src/lib/astro.ts)
 - output through [`src/components/Exif/`](src/components/Exif/)
 
-### 💰 Cryptocurrency donation via Web3/MetaMask
+### 💰 Cryptocurrency donation via Web3 browser wallets
 
-Lets visitors say thanks with Bitcoin or Ether. Uses [RainbowKit](https://www.rainbowkit.com) for wallet connection & [wagmi](https://wagmi.sh) for sending transactions via browser wallets.
+Lets visitors say thanks with Ether, any ERC-20, or Bitcoin. The Web3 wallet integration uses [RainbowKit](https://www.rainbowkit.com) for wallet connection, my own custom web3 API to fetch wallet token balances and metadata, and [wagmi](https://wagmi.sh) for sending transactions.
 
-<img width="700" alt="screen shot 2018-10-14 at 22 03 57" src="https://user-images.githubusercontent.com/90316/46921544-1a512080-cffd-11e8-919f-d3e86dbd5cc5.png" />
+<img width="502" alt="Screenshot 2023-11-05 at 20 18 50" src="https://github.com/kremalicious/blog/assets/90316/7eadf4e9-6e98-4cf6-9639-aebf42ac0d4e">
 
-If you want to know how this works, have a look at the respective components under
+<img width="487" alt="Screenshot 2023-11-05 at 20 20 04" src="https://github.com/kremalicious/blog/assets/90316/2421e64c-2d98-4e2a-a67a-ab1b5640bfb6">
 
-- [`src/components/Donation/`](src/components/Donation/)
+If you want to know how this works, have a look at the respective feature under
+
+- [`src/features/Web3/`](src/features/Web3/)
 
 ### 🔍 Search
 
@@ -91,9 +93,9 @@ A global search is provided with fuse.js. Whenever search is opened, all posts m
 
 <img width="700" alt="screen shot 2018-11-18 at 19 44 30" src="https://user-images.githubusercontent.com/90316/48676679-634f4400-eb6a-11e8-936d-293505d5c5d9.png">
 
-If you want to know how this works, have a look at the respective components under
+If you want to know how this works, have a look at the respective feature under
 
-- [`src/components/Search/`](src/components/Search/)
+- [`src/features/Search/`](src/features/Search/)
 
 ### 🕸 Related Posts
 
@@ -105,7 +107,7 @@ If you want to know how this works, have a look at the respective component unde
 
 - [`src/components/RelatedPosts/`](src/components/RelatedPosts/)
 
-### 📝 GitHub changelog rendering
+### 📝 GitHub Changelog Rendering
 
 Adds ability to show contents of a changelog, rendered from a `CHANGELOG.md` on GitHub from the given repository. The use case is to enhance release posts about projects hosted on GitHub. Makes use of the GitHub GraphQL API.
 
@@ -124,24 +126,23 @@ See it live e.g. on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-p
 If you want to know how this works, have a look at the respective component under
 
 - [`src/components/Changelog/`](src/components/Changelog/)
-- the `getRepo()` helper in [`src/lib/github.ts`](src/lib/github.ts)
+- the `getRepo()` helper in [`src/lib/github/github.ts`](src/lib/github/github.ts)
 
 ### 🌗 Theme Switcher
 
-Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences. Uses [nanostores](https://github.com/nanostores/nanostores) to share its state between components/frameworks.
+Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences.
 
 If you want to know how, have a look at the respective components:
 
 - [`src/components/ThemeSwitch/`](src/components/ThemeSwitch/)
-- [`src/stores/theme.ts`](src/stores/theme.ts)
 
 ### 💎 SVG assets as components
 
-All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML.
+All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro & React components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML.
 
-All SVGs can then be imported from `@images/components` in all Astro components.
+All SVGs can then be imported from `@images/components` in all Astro or React components.
 
-If you want to know how this works, have a look at the respective files:
+If you want to know how this works, have a look at the script:
 
 - [`scripts/create-icons/`](scripts/create-icons/)
 
@@ -152,6 +153,13 @@ Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived i
 For all post slugs defined in a `redirect_from` frontmatter key, redirects will be put in place by Astro.
 
 ### RSS & JSON feeds
+
+Generates rss & json feeds upon build time.
+
+If you want to know how this works, have a look at the respective files:
+
+- [`src/pages/feed.json.ts`](src/pages/feed.json.ts)
+- [`src/pages/feed.xml.ts`](src/pages/feed.xml.ts)
 
 ## ✨ Development
 
@@ -201,6 +209,9 @@ To run all unit tests:
 
 ```bash
 npm run test:unit
+
+# watch mode
+npm run test:unit:watch
 ```
 
 For End-to-End integration testing, ideally run against the production build:

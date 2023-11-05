@@ -1,0 +1,21 @@
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  line-height: 1;
+}
+
+.actions button:first-child {
+  margin-right: var(--spacer);
+  width: 115px;
+  height: 45px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.alert {
+  font-size: var(--font-size-small);
+  display: inline-block;
+}

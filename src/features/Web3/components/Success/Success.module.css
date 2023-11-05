@@ -1,0 +1,23 @@
+.success {
+  text-align: center;
+  margin-top: var(--spacer);
+}
+
+.title {
+  font-size: var(--font-size-h3);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  width: 115px;
+  height: 45px;
+  padding: 0;
+}
+
+.success code {
+  font-size: var(--font-size-small);
+}

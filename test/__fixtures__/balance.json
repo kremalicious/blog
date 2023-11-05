@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Ether",
+    "symbol": "ETH",
+    "decimals": 18,
+    "logo": "https://token-icons.s3.amazonaws.com/eth.png",
+    "chainId": 1,
+    "address": "0x0",
+    "balance": 0.7574821030725639,
+    "balanceInUsd": 1403.0538002371873,
+    "price": {
+      "eur": 1752.3,
+      "usd": 1852.26
+    }
+  }
+]

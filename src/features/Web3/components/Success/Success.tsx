@@ -1,0 +1,41 @@
+import { $txHash, $isInitSend } from '@features/Web3/stores'
+import { useStore } from '@nanostores/react'
+import styles from './Success.module.css'
+import { useNetwork } from 'wagmi'
+import { ExplorerLink } from './ExplorerLink'
+
+const title = `You're amazing, thanks!`
+const description = `Your transaction is on its way. You can check the status on`
+
+export function Success() {
+  const { chain } = useNetwork()
+  const txHash = useStore($txHash)
+
+  const explorerName = chain?.blockExplorers?.default.name
+  const explorerUrl = chain?.blockExplorers?.default.url
+
+  return (
+    <div className={styles.success}>
+      <h5 className={styles.title}>{title}</h5>
+
+      <p>
+        {description}{' '}
+        <ExplorerLink url={explorerUrl}>{explorerName}</ExplorerLink>.
+      </p>
+      <p>
+        <ExplorerLink url={explorerUrl}>
+          <code>{txHash}</code>
+        </ExplorerLink>
+      </p>
+
+      <footer className={styles.actions}>
+        <button
+          onClick={() => $isInitSend.set(false)}
+          className="btn btn-primary"
+        >
+          Reset
+        </button>
+      </footer>
+    </div>
+  )
+}

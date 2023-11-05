@@ -1,0 +1,16 @@
+.loader {
+  will-change: transform;
+  animation: spin 1s linear infinite;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
