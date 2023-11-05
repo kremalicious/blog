@@ -23,6 +23,7 @@ export function TokenSelect() {
   function handleValueChange(value: `0x${string}`) {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
+
     $setSelectedToken(token)
   }
 
@@ -31,9 +32,7 @@ export function TokenSelect() {
   useEffect(() => {
     if (selectedToken?.address || !tokens || !tokens?.length) return
 
-    console.log(tokens)
     handleValueChange('0x0')
-    console.log('auto-select 0x0')
   }, [tokens, selectedToken])
 
   return tokens && address ? (
