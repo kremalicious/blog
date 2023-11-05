@@ -26,10 +26,21 @@ export function useSend({
       const result = await send(selectedToken, txConfig)
       $txHash.set(result?.hash)
     } catch (error: unknown) {
-      console.error((error as Error).message)
+      const errorMessage = (error as Error).message
+      console.error(errorMessage)
 
       // only expose useful errors in UI
-      if ((error as Error).message.includes('User rejected the request.')) {
+      const terribleErrorMessages = [
+        'User rejected the request.',
+        'User denied transaction signature.',
+        'Cannot read properties of undefined'
+      ]
+
+      if (
+        terribleErrorMessages.some((terribleMessage) =>
+          errorMessage.includes(terribleMessage)
+        )
+      ) {
         setError(undefined)
       } else {
         setError((error as Error).message)

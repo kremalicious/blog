@@ -44,8 +44,7 @@ export function Data({
           <td className={styles.label}>You are</td>
           {ensFrom ? (
             <td title={`${ensFrom} successfully resolved to ${from}`}>
-              <code className={styles.from}>{ensFrom}</code>
-              <code className={styles.from}>{`→ ${from}`}</code>
+              <span className={styles.from}>{ensFrom}</span>
             </td>
           ) : (
             <td>
@@ -73,7 +72,7 @@ export function Data({
         <tr>
           <td className={styles.label}>to</td>
           <td title={`${ensResolved} successfully resolved to ${to}`}>
-            <code className={styles.to}>{ensResolved}</code>
+            <span className={styles.to}>{ensResolved}</span>
             <code className={styles.to}>{`→ ${to}`}</code>
           </td>
         </tr>

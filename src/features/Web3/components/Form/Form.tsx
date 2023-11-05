@@ -19,7 +19,10 @@ export function Web3Form(): ReactElement {
   const [error, setError] = useState<string>()
 
   useEffect(() => {
-    if (!amount || amount === '' || !selectedToken?.balance) return
+    if (!amount || amount === '' || !selectedToken?.balance) {
+      setError(undefined)
+      return
+    }
 
     if (Number(amount) > Number(selectedToken?.balance)) {
       setError('Exceeds balance')

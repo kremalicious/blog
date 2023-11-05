@@ -103,13 +103,13 @@
   text-shadow: none;
 }
 
-.error {
+.errorOutput {
   color: red;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-mini);
   margin-left: var(--tokenWidth);
-  text-align: left;
   position: absolute;
-  left: 0;
-  bottom: 0;
+  right: calc(var(--spacer) / 3);
+  bottom: -3px;
   width: 100%;
+  text-align: right;
 }

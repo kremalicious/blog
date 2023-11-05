@@ -57,7 +57,7 @@ export function InputGroup({
           Preview
         </button>
 
-        {error ? <span className={styles.error}>{error}</span> : null}
+        {error ? <span className={styles.errorOutput}>{error}</span> : null}
       </div>
 
       <Conversion />

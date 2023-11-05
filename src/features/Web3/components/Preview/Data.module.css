@@ -4,16 +4,18 @@
   word-break: break-all;
   background: none;
   padding: 0;
+}
+
+code.to,
+code.from {
   font-size: var(--font-size-mini);
 }
 
-.to:last-child:not(:only-child),
-.from:last-child:not(:only-child) {
+.to:last-child {
   padding-left: 14px;
 }
 
-.to:last-child:not(:only-child)::first-letter,
-.from:last-child:not(:only-child)::first-letter {
+.to:last-child::first-letter {
   margin-left: -14px;
 }
 
