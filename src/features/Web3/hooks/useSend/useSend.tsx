@@ -6,6 +6,7 @@ import type {
   WriteContractPreparedArgs
 } from 'wagmi/actions'
 import { send } from './send'
+import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
 
 export function useSend({
   txConfig
@@ -30,17 +31,7 @@ export function useSend({
       console.error(errorMessage)
 
       // only expose useful errors in UI
-      const terribleErrorMessages = [
-        'User rejected the request',
-        'User denied transaction signature',
-        'Cannot read properties of undefined'
-      ]
-
-      if (
-        terribleErrorMessages.some((terribleMessage) =>
-          errorMessage.includes(terribleMessage)
-        )
-      ) {
+      if (isUnhelpfulErrorMessage(errorMessage)) {
         setError(undefined)
       } else {
         setError((error as Error).message)
