@@ -102,6 +102,11 @@ div.expressive-code .frame .copy button {
   background: none;
 }
 
+/* hide the border */
+div.expressive-code .frame .copy button::before {
+  display: none;
+}
+
 div.expressive-code .frame.has-title:not(.is-terminal) .header .title {
   border: 0;
   border-top-right-radius: 0;
