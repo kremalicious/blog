@@ -1,8 +1,5 @@
 .themeSwitch {
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: calc(var(--spacer) / 4);
 }
 
 .themeSwitch svg {
@@ -19,7 +16,6 @@
 .checkbox {
   position: relative;
   cursor: pointer;
-  padding: calc(var(--spacer) / 2);
   display: block;
 }
 
