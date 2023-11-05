@@ -16,7 +16,7 @@ import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
 
 export function TokenSelect() {
-  const { address, isConnecting } = useAccount()
+  const { address } = useAccount()
   const { isLoading } = useFetchTokens()
   const tokens = useStore($tokens)
   const selectedToken = useStore($selectedToken)
@@ -37,18 +37,18 @@ export function TokenSelect() {
       $tokens.set(undefined)
       $setSelectedToken(undefined)
     }
-  }, [address, tokens, selectedToken])
+  }, [address])
 
   // Auto-select native token
   useEffect(() => {
-    if (tokens && !selectedToken && !isConnecting) {
-      $setSelectedToken(tokens[0])
-    }
-  }, [tokens, isConnecting, selectedToken])
+    if (isLoading || !tokens || selectedToken) return
+
+    handleValueChange('0x0')
+  }, [tokens, selectedToken])
 
   return tokens ? (
     <Select.Root
-      defaultValue={selectedToken?.address || tokens[0].address}
+      // defaultValue={selectedToken?.address || tokens[0].address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}
     >
@@ -57,7 +57,7 @@ export function TokenSelect() {
         disabled={isLoading}
         aria-label="Token"
       >
-        <Select.Value />
+        <Select.Value placeholder="..." />
         <Select.Icon>
           <ChevronDown />
         </Select.Icon>

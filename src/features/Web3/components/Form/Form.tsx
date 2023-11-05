@@ -1,4 +1,4 @@
-import { type ReactElement, useEffect } from 'react'
+import { type ReactElement, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
 import { InputGroup } from '../Input'
 import styles from './Form.module.css'
@@ -15,6 +15,18 @@ export function Web3Form(): ReactElement {
   const amount = useStore($amount)
 
   const isDisabled = !account
+
+  const [error, setError] = useState<string>()
+
+  useEffect(() => {
+    if (!amount || amount === '' || !selectedToken?.balance) return
+
+    if (Number(amount) > Number(selectedToken?.balance)) {
+      setError('Exceeds balance')
+    } else {
+      setError(undefined)
+    }
+  }, [amount, selectedToken?.balance])
 
   // reset amount whenever token changes
   useEffect(() => {
@@ -36,7 +48,7 @@ export function Web3Form(): ReactElement {
           }}
         >
           <RainbowKit />
-          <InputGroup isDisabled={isDisabled} />
+          <InputGroup isDisabled={isDisabled} error={error} />
           <div className={styles.disclaimer}>
             Sends tokens to my account{' '}
             <code>{siteConfig.author.ether.ens}</code>

@@ -7,9 +7,11 @@ import { $amount, $isInitSend, $selectedToken } from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
 
 export function InputGroup({
-  isDisabled
+  isDisabled,
+  error
 }: {
   isDisabled: boolean
+  error: string | undefined
 }): ReactElement {
   const amount = useStore($amount)
   const selectedToken = useStore($selectedToken)
@@ -22,7 +24,11 @@ export function InputGroup({
 
   return (
     <>
-      <div className={`${styles.inputGroup} ${isFocus ? styles.focus : ''}`}>
+      <div
+        className={`${styles.inputGroup} ${isFocus ? styles.focus : ''} ${
+          error ? styles.error : ''
+        }`}
+      >
         <div className={styles.token}>
           <TokenSelect />
         </div>
@@ -39,11 +45,19 @@ export function InputGroup({
         />
         <button
           className={`${styles.submit} btn btn-primary`}
-          disabled={isDisabled || !amount || !selectedToken}
+          disabled={
+            isDisabled ||
+            !amount ||
+            amount === '' ||
+            !selectedToken ||
+            Boolean(error)
+          }
           onClick={() => $isInitSend.set(true)}
         >
           Preview
         </button>
+
+        {error ? <span className={styles.error}>{error}</span> : null}
       </div>
 
       <Conversion />

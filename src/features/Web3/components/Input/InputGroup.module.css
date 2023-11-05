@@ -29,6 +29,11 @@
   border-color: var(--input-border-focus);
 }
 
+.inputGroup.error,
+.inputGroup.focus.error {
+  border-color: red !important;
+}
+
 .token {
   position: absolute;
   left: 0;
@@ -96,4 +101,15 @@
   background: var(--box-background-color);
   color: var(--text-color-light);
   text-shadow: none;
+}
+
+.error {
+  color: red;
+  font-size: var(--font-size-small);
+  margin-left: var(--tokenWidth);
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
