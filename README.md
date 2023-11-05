@@ -209,6 +209,9 @@ To run all unit tests:
 
 ```bash
 npm run test:unit
+
+# watch mode
+npm run test:unit:watch
 ```
 
 For End-to-End integration testing, ideally run against the production build:
