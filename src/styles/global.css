@@ -257,9 +257,10 @@ em,
 abbr[title],
 dfn {
   text-transform: none;
+  text-decoration-color: var(--text-color-dimmed);
+  text-underline-offset: 0.15em;
   font-style: normal;
   font-size: inherit;
-  border-bottom: 1px dashed var(--brand-grey-dimmed);
   cursor: help;
   font-feature-settings: inherit;
 }

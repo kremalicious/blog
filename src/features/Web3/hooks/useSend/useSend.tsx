@@ -31,8 +31,8 @@ export function useSend({
 
       // only expose useful errors in UI
       const terribleErrorMessages = [
-        'User rejected the request.',
-        'User denied transaction signature.',
+        'User rejected the request',
+        'User denied transaction signature',
         'Cannot read properties of undefined'
       ]
 

@@ -1,4 +1,3 @@
-import type { GetToken } from '@features/Web3/stores/tokens'
 import { parseEther, parseUnits } from 'viem'
 import {
   prepareSendTransaction,
@@ -7,6 +6,7 @@ import {
   type WriteContractPreparedArgs
 } from 'wagmi/actions'
 import { abiErc20Transfer } from './abiErc20Transfer'
+import type { GetToken } from '../useFetchTokens'
 
 export async function prepare(
   selectedToken: GetToken | undefined,

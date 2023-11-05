@@ -7,6 +7,7 @@ import type {
 import styles from './Data.module.css'
 import { useStore } from '@nanostores/react'
 import { $selectedToken } from '@features/Web3/stores'
+import { truncateAddress } from '@features/Web3/lib/truncateAddress'
 
 export function Data({
   to,
@@ -42,20 +43,28 @@ export function Data({
       <tbody>
         <tr>
           <td className={styles.label}>You are</td>
-          {ensFrom ? (
-            <td title={`${ensFrom} successfully resolved to ${from}`}>
-              <span className={styles.from}>{ensFrom}</span>
-            </td>
-          ) : (
-            <td>
-              <code className={styles.from}>{from}</code>
-            </td>
-          )}
+          <td>
+            {ensFrom ? (
+              <abbr title={`${ensFrom} successfully resolved to ${from}`}>
+                <span className={styles.from}>{ensFrom}</span>
+              </abbr>
+            ) : (
+              <code className={styles.from}>
+                {from ? truncateAddress(from) : ''}
+              </code>
+            )}
+          </td>
         </tr>
 
         <tr>
           <td className={styles.label}>sending</td>
-          <td>
+          <td className={styles.amount}>
+            <div className="TokenLogo">
+              <img
+                src={selectedToken?.logo || ''}
+                alt={selectedToken?.name || ''}
+              />
+            </div>
             <span className={styles.amount}>
               {displayAmountFromConfig} {selectedToken?.symbol}
             </span>
@@ -71,9 +80,10 @@ export function Data({
 
         <tr>
           <td className={styles.label}>to</td>
-          <td title={`${ensResolved} successfully resolved to ${to}`}>
-            <span className={styles.to}>{ensResolved}</span>
-            <code className={styles.to}>{`→ ${to}`}</code>
+          <td>
+            <abbr title={`${ensResolved} successfully resolved to ${to}`}>
+              <span className={styles.to}>{ensResolved}</span>
+            </abbr>
           </td>
         </tr>
       </tbody>

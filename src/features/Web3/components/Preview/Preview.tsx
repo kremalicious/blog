@@ -39,6 +39,8 @@ export function Preview() {
         isDisabled={isLoading}
       />
 
+      {console.log(txConfig)}
+
       {error || prepareError ? (
         <div className={styles.alert}>{error || prepareError}</div>
       ) : null}

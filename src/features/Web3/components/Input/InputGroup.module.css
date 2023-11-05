@@ -78,7 +78,7 @@
 .submit {
   width: 100%;
   max-width: none;
-  height: calc(var(--height) - 2px);
+  height: var(--height);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border: 0;
@@ -90,10 +90,7 @@
   .submit {
     width: fit-content;
     padding: 0 calc(var(--spacer) / 1.5);
-    border-top-right-radius: var(--border-radius);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-right: 1px;
+    border-radius: 0;
   }
 }
 
@@ -112,4 +109,18 @@
   bottom: -3px;
   width: 100%;
   text-align: right;
+}
+
+.conversion {
+  text-align: center;
+  margin-top: calc(var(--spacer) / 6);
+  animation: fadeIn 0.5s 0.8s ease-out backwards;
+}
+
+@media screen and (min-width: 40rem) {
+  .conversion {
+    text-align: left;
+    margin-top: 0;
+    margin-left: calc(var(--spacer) * 3);
+  }
 }

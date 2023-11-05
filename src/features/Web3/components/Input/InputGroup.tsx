@@ -60,7 +60,9 @@ export function InputGroup({
         {error ? <span className={styles.errorOutput}>{error}</span> : null}
       </div>
 
-      <Conversion />
+      <div className={styles.conversion}>
+        <Conversion />
+      </div>
     </>
   )
 }
