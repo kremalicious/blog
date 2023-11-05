@@ -3,7 +3,7 @@ import * as Select from '@radix-ui/react-select'
 import { formatCurrency } from '@coingecko/cryptoformat'
 import './Token.css'
 import { Icon as Check } from '@images/components/react/Check'
-import type { GetToken } from '@features/Web3/stores/tokens'
+import type { GetToken } from '@features/Web3/hooks/useFetchTokens'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
   token: GetToken | undefined

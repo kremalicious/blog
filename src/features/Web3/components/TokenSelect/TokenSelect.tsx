@@ -6,19 +6,14 @@ import { Icon as ChevronsDown } from '@images/components/react/ChevronsDown'
 import { Icon as ChevronsUp } from '@images/components/react/ChevronsUp'
 import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
 import { useStore } from '@nanostores/react'
-import {
-  $tokens,
-  $selectedToken,
-  $setSelectedToken
-} from '@features/Web3/stores'
+import { $selectedToken, $setSelectedToken } from '@features/Web3/stores'
 import { Loader } from '@components/Loader'
 import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
 
 export function TokenSelect() {
   const { address } = useAccount()
-  const { isLoading } = useFetchTokens()
-  const tokens = useStore($tokens)
+  const { data: tokens, isLoading } = useFetchTokens()
   const selectedToken = useStore($selectedToken)
 
   const items = tokens?.map((token) => (
@@ -31,24 +26,20 @@ export function TokenSelect() {
     $setSelectedToken(token)
   }
 
-  // reset when no account connected
-  useEffect(() => {
-    if (!address && tokens?.length && selectedToken) {
-      $tokens.set(undefined)
-      $setSelectedToken(undefined)
-    }
-  }, [address])
-
   // Auto-select native token
+  // when no selection was made yet
   useEffect(() => {
-    if (isLoading || !tokens || selectedToken) return
+    if (selectedToken?.address || !tokens || !tokens?.length) return
 
+    console.log(tokens)
     handleValueChange('0x0')
+    console.log('auto-select 0x0')
   }, [tokens, selectedToken])
 
-  return tokens ? (
+  return tokens && address ? (
     <Select.Root
-      // defaultValue={selectedToken?.address || tokens[0].address}
+      defaultValue={selectedToken?.address || tokens[0].address}
+      value={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}
     >
