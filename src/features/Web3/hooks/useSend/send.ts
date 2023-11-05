@@ -1,10 +1,10 @@
-import type { GetToken } from '@features/Web3/stores/tokens'
 import {
   sendTransaction as sendNative,
   writeContract,
   type SendTransactionArgs,
   type WriteContractPreparedArgs
 } from 'wagmi/actions'
+import type { GetToken } from '../useFetchTokens'
 
 export async function send(
   selectedToken: GetToken | undefined,

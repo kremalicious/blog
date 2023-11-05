@@ -6,7 +6,6 @@ import { useNetwork } from 'wagmi'
 export function Success() {
   const { chain } = useNetwork()
   const txHash = useStore($txHash)
-  console.log(chain)
 
   const explorerName = chain?.blockExplorers?.default.name
   const explorerLink = `${chain?.blockExplorers?.default.url}/tx/${txHash}`
