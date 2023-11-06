@@ -8,6 +8,7 @@ import getCollectionPhotos from '@test/__fixtures__/getCollectionPhotos.json'
 
 let getCollectionSpy: any
 let readOutExifSpy: any
+let consoleErrorSpy: any
 
 beforeEach(() => {
   getCollectionSpy = vi.spyOn(astroContent, 'getCollection')
@@ -17,11 +18,14 @@ beforeEach(() => {
     exif: 'mocked exif',
     iptc: 'mocked iptc'
   }))
+
+  // Silence console.error
+  consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 })
 
 afterEach(() => {
   getCollectionSpy.mockRestore()
-  readOutExifSpy.mockRestore()
+  consoleErrorSpy.mockRestore()
 })
 
 describe('loadAndFormatCollection', () => {

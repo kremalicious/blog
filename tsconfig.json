@@ -17,11 +17,7 @@
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "exclude": [
-    "src/images/components/**/*",
-    "src/content",
-    "scripts/create-icons/tmp/"
-  ],
+  "exclude": ["src/images/components/**/*", "src/content"],
   "include": [
     "src/**/*",
     "content/**/*",

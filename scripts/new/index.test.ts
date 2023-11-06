@@ -9,7 +9,7 @@ const destFolder = path.join('.', 'test/__fixtures__/tmp')
 
 describe('npm run new', () => {
   afterEach(async () => {
-    await fs.rmdir(destFolder, { recursive: true })
+    await fs.rm(destFolder, { recursive: true })
   })
 
   // Mock spinner

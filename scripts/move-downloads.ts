@@ -22,7 +22,7 @@ function removeFolderContents(folderPath: string) {
       const filePath = path.join(folderPath, file)
       if (fs.lstatSync(filePath).isDirectory()) {
         removeFolderContents(filePath)
-        fs.rmdirSync(filePath)
+        fs.rmSync(filePath)
       } else {
         fs.unlinkSync(filePath)
       }

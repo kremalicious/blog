@@ -19,6 +19,7 @@ export default getViteConfig({
       all: true,
       exclude: [
         '**/*.d.ts',
+        '**/types.ts',
         '**/*.test.ts',
         '**/*.spec.ts',
         '**/test/**/*',

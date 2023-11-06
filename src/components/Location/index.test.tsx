@@ -77,7 +77,9 @@ describe('Location component', () => {
   })
 
   it('renders nothing and logs error when error is encountered', () => {
-    const consoleErrorSpy = vi.spyOn(console, 'error')
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
     useStoreSpy.mockImplementationOnce(() => ({
       data: null,
       loading: false,
@@ -90,5 +92,8 @@ describe('Location component', () => {
     expect(consoleErrorSpy).toHaveBeenCalledWith(
       'Failed to fetch location: Error'
     )
+
+    // Restore the original console.error function after the test
+    consoleErrorSpy.mockRestore()
   })
 })

@@ -1,13 +1,9 @@
-import { afterAll, test } from 'vitest'
+import { test } from 'vitest'
 import fs from 'fs/promises'
 import path from 'path'
 import { generateIcons } from './index'
 
 const distDir = path.resolve(__dirname, 'tmp')
-
-afterAll(() => {
-  fs.rm(path.resolve(__dirname, 'tmp'), { recursive: true })
-})
 
 test('should generate Astro & React components from SVG files', async () => {
   // Act
@@ -45,4 +41,7 @@ test('should generate Astro & React components from SVG files', async () => {
       `Example React component does not exist: ${exampleComponentPathReact}`
     )
   }
+
+  // cleanup
+  await fs.rm(distDir, { recursive: true, force: true })
 })
