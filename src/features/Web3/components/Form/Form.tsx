@@ -3,7 +3,12 @@ import { useAccount } from 'wagmi'
 import { InputGroup } from '../Input'
 import styles from './Form.module.css'
 import { useStore } from '@nanostores/react'
-import { $selectedToken, $isInitSend, $amount } from '@features/Web3/stores'
+import {
+  $selectedToken,
+  $isInitSend,
+  $amount,
+  $setAmount
+} from '@features/Web3/stores'
 import siteConfig from '@config/blog.config'
 import { Send } from '../Send'
 import { RainbowKit } from '../RainbowKit/RainbowKit'
@@ -18,6 +23,7 @@ export function Web3Form(): ReactElement {
 
   const [error, setError] = useState<string>()
 
+  // Error Validation
   useEffect(() => {
     if (!amount || amount === '' || !selectedToken?.balance) {
       setError(undefined)
@@ -34,7 +40,7 @@ export function Web3Form(): ReactElement {
   // reset amount whenever token changes
   useEffect(() => {
     if (!selectedToken) return
-    $amount.set('')
+    $setAmount('')
   }, [selectedToken])
 
   return (

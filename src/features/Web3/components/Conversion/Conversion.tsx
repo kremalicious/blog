@@ -12,7 +12,7 @@ export function Conversion(): ReactElement {
   const [euro, setEuro] = useState('0.00')
 
   useEffect(() => {
-    if (!selectedToken?.price || !amount) {
+    if (!selectedToken?.price || !amount || amount === '') {
       setDollar('0.00')
       setEuro('0.00')
       return

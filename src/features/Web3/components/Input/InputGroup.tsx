@@ -3,7 +3,12 @@ import Input from '@components/Input'
 import { Conversion } from '../Conversion'
 import styles from './InputGroup.module.css'
 import { TokenSelect } from '../TokenSelect'
-import { $amount, $isInitSend, $selectedToken } from '@features/Web3/stores'
+import {
+  $amount,
+  $setAmount,
+  $isInitSend,
+  $selectedToken
+} from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
 
 export function InputGroup({
@@ -19,7 +24,7 @@ export function InputGroup({
   const [isFocus, setIsFocus] = useState(false)
 
   function handleChange(newAmount: string) {
-    $amount.set(newAmount)
+    $setAmount(newAmount)
   }
 
   return (
@@ -36,6 +41,7 @@ export function InputGroup({
           type="text"
           inputMode="decimal"
           pattern="[0-9.]*"
+          lang="en-US"
           value={amount}
           placeholder="0.00"
           onChange={(e) => handleChange(e.target.value)}

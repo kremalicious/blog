@@ -11,9 +11,10 @@ interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
   ({ className, token, ...props }, forwardedRef) => {
+    const locale = window?.navigator?.language || 'en'
     const balance =
       token?.balance && token?.symbol
-        ? formatCurrency(token.balance, token.symbol, 'en', false, {
+        ? formatCurrency(token.balance, token.symbol, locale, false, {
             decimalPlaces: 3,
             significantFigures: 3
           })
@@ -23,7 +24,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
       token?.balance && token?.price?.usd
         ? token?.balance * token?.price.usd
         : 0
-    const valueInUsdFormatted = formatCurrency(valueInUsd, 'USD', 'en')
+    const valueInUsdFormatted = formatCurrency(valueInUsd, 'USD', locale)
 
     return balance && parseInt(balance) !== 0 && valueInUsd >= 1 ? (
       <Select.Item
