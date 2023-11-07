@@ -1,7 +1,8 @@
 const terribleErrorMessages = [
   'User rejected the request',
   'User denied transaction signature',
-  'Cannot read properties of undefined'
+  'Cannot read properties of undefined',
+  'User cancelled the request'
 ]
 
 export function isUnhelpfulErrorMessage(message: string) {
