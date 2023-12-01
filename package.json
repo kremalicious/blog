@@ -60,7 +60,7 @@
     "@radix-ui/react-select": "^2.0.0",
     "@rainbow-me/rainbowkit": "^1.2.0",
     "astro": "3.4.3",
-    "astro-expressive-code": "^0.26.2",
+    "astro-expressive-code": "^0.29.2",
     "astro-redirect-from": "^1.0.4",
     "date-fns": "^2.30.0",
     "dms2dec": "^1.1.0",
