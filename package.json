@@ -98,7 +98,7 @@
     "hast-util-to-html": "^9.0.0",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
-    "jsdom": "^22.1.0",
+    "jsdom": "^23.0.1",
     "markdownlint-cli": "^0.37.0",
     "mdast-util-to-hast": "^13.0.2",
     "mdast-util-to-string": "^4.0.0",
