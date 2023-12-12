@@ -5,8 +5,9 @@ import rehypeStringify from 'rehype-stringify'
 import { VFile } from 'vfile'
 import { test, expect, beforeAll } from 'vitest'
 import { remarkLeadParagraph, type MyFile } from '.'
+import { type Processor } from 'unified'
 
-let processor: ReturnType<typeof unified>
+let processor: Processor<any, any, any, any, string>
 
 beforeAll(() => {
   processor = unified()

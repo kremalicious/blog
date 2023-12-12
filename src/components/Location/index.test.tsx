@@ -5,7 +5,7 @@ import {
   beforeAll,
   afterAll,
   vi,
-  type SpyInstance
+  type MockInstance
 } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import * as nanostores from '@nanostores/react'
@@ -26,7 +26,7 @@ const mockData = {
 }
 
 describe('Location component', () => {
-  let useStoreSpy: SpyInstance
+  let useStoreSpy: MockInstance
 
   beforeAll(() => {
     vi.mock('@nanostores/react')
