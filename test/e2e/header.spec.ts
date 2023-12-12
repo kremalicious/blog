@@ -11,7 +11,7 @@ test('matches screenshot', async ({ page }) => {
 test('all menu buttons are present', async ({ page }) => {
   const theme = page.getByTitle('Toggle Theme')
   const search = page.getByRole('button', { name: 'Search' })
-  const menu = page.getByRole('button', { name: 'Menu' })
+  const menu = page.getByTitle('Menu')
 
   await expect(theme).toBeVisible()
   await expect(search).toBeVisible()
@@ -19,7 +19,7 @@ test('all menu buttons are present', async ({ page }) => {
 })
 
 test('page menu is working', async ({ page }) => {
-  const menuButton = page.getByRole('button', { name: 'Menu' })
+  const menuButton = page.getByTitle('Menu')
   const menu = page.locator('nav[aria-label="Pages"]')
   const body = page.locator('body')
 
