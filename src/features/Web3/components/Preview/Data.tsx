@@ -35,8 +35,8 @@ export function Data({
     selectedToken?.decimals === 18
       ? formatEther(value as bigint)
       : selectedToken?.decimals
-      ? formatUnits(value as bigint, selectedToken.decimals)
-      : '0'
+        ? formatUnits(value as bigint, selectedToken.decimals)
+        : '0'
 
   return (
     <table className={styles.table} aria-disabled={isDisabled}>

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://kremalicious.com"><img src="https://raw.githubusercontent.com/kremalicious/portfolio/main/public/github-header.png" /></a>
+  <a href="https://kremalicious.com"><img src="https://raw.githubusercontent.com/kremalicious/portfolio/main/public/github-header.png" alt="GitHub Header" /></a>
  </p>
 <p align="center">
   <strong>🍭 My blog built with <a href="https://astro.build">Astro</a> + TypeScript. Neat.</strong>
@@ -8,9 +8,9 @@
   <a href="https://kremalicious.com">kremalicious.com</a>
 </p>
 <p align="center">
-  <a href="https://github.com/kremalicious/blog/actions"><img src="https://github.com/kremalicious/blog/workflows/CI/badge.svg" /></a>
-  <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" /></a>
-  <a href="https://codeclimate.com/github/kremalicious/blog/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/test_coverage" /></a>
+  <a href="https://github.com/kremalicious/blog/actions"><img src="https://github.com/kremalicious/blog/workflows/CI/badge.svg" alt="CI workflow badge" /></a>
+  <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" alt="CodeClimate maintainability badge" /></a>
+  <a href="https://codeclimate.com/github/kremalicious/blog/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/test_coverage" alt="CodeClimate coverage badge" /></a>
 </p>
 
 ---

@@ -27,7 +27,6 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[MacBook Air M2 (13-inch, 2022)](https://www.apple.com/macbook-air-13-and-15-m2/)**  
   _Midnight, M2 with 8-core CPU and 10-core GPU, 16 GB RAM, 1TB SSD, US International keyboard_
-  
 - **[iPhone 14](https://www.apple.com/iphone-14/)**  
   _Midnight, 128GB_
 
