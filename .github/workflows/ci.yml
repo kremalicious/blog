@@ -110,6 +110,7 @@ jobs:
           path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
+      - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: npm ci
       - run: npm run build
       - name: Zip artifact for deployment
