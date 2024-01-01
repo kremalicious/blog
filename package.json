@@ -53,7 +53,7 @@
     "@astrojs/react": "^3.0.7",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "@coingecko/cryptoformat": "^0.7.0",
+    "@coingecko/cryptoformat": "^0.8.0",
     "@nanostores/persistent": "^0.9.1",
     "@nanostores/query": "^0.2.8",
     "@nanostores/react": "^0.7.1",
