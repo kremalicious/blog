@@ -111,7 +111,7 @@
     "prettier-plugin-astro": "^0.12.2",
     "sharp-ico": "^0.1.5",
     "stylelint": "^15.11.0",
-    "stylelint-config-css-modules": "^4.3.0",
+    "stylelint-config-css-modules": "^4.4.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.2",
     "svgo": "^3.1.0",
