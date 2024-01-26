@@ -106,7 +106,7 @@
     "mdast-util-toc": "^7.0.0",
     "node-iptc": "^1.0.5",
     "npm-run-all": "^4.1.5",
-    "ora": "^7.0.1",
+    "ora": "^8.0.1",
     "prettier": "^3.1.1",
     "prettier-plugin-astro": "^0.12.2",
     "sharp-ico": "^0.1.5",
