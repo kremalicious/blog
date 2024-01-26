@@ -24,8 +24,6 @@
     "keyframes-name-pattern": null,
     "custom-property-pattern": null,
     "selector-id-pattern": null,
-    "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null,
     "media-feature-range-notation": "prefix"
   }
 }
