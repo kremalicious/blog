@@ -51,7 +51,7 @@
   "dependencies": {
     "@astrojs/check": "^0.3.2",
     "@astrojs/react": "^3.0.7",
-    "@astrojs/rss": "^4.0.1",
+    "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.3",
     "@coingecko/cryptoformat": "^0.8.0",
     "@nanostores/persistent": "^0.9.1",
