@@ -62,7 +62,7 @@
     "astro": "4.4.6",
     "astro-expressive-code": "^0.29.4",
     "astro-redirect-from": "^1.0.6",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.3.1",
     "dms2dec": "^1.1.0",
     "fast-exif": "^2.0.1",
     "feather-icons": "^4.29.1",
