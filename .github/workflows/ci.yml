@@ -67,7 +67,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run test:unit
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.node == '20'
         with:
           name: coverage-${{ matrix.os }}-${{ matrix.node }}
@@ -90,12 +90,6 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npm run test:e2e
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report-${{ matrix.os }}-${{ matrix.node }}
-          path: playwright-report/
-          retention-days: 30
 
   build:
     strategy:
@@ -121,7 +115,7 @@ jobs:
       - name: Zip artifact for deployment
         if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
         run: zip dist.zip ./dist -r
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
@@ -133,7 +127,7 @@ jobs:
     if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: coverage-ubuntu-latest-20
       - uses: paambaati/codeclimate-action@v5.0.0
@@ -147,7 +141,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: dist-ubuntu-latest-20
       - name: unzip artifact
