@@ -6,7 +6,7 @@ import { Icon as ChevronsDown } from '@images/components/react/ChevronsDown'
 import { Icon as ChevronsUp } from '@images/components/react/ChevronsUp'
 import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
 import { useStore } from '@nanostores/react'
-import { $selectedToken, $setSelectedToken } from '@features/Web3/stores'
+import { $selectedToken } from '@features/Web3/stores'
 import { Loader } from '@components/Loader'
 import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
@@ -24,7 +24,7 @@ export function TokenSelect() {
     const token = tokens?.find((token) => token.address === value)
     if (!token) return
 
-    $setSelectedToken(token)
+    $selectedToken.set(token)
   }
 
   // Auto-select native token
@@ -37,7 +37,7 @@ export function TokenSelect() {
 
   return tokens && address ? (
     <Select.Root
-      defaultValue={selectedToken?.address || tokens[0].address}
+      // defaultValue={selectedToken?.address || tokens[0].address}
       value={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}

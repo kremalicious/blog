@@ -23,12 +23,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13]
-        node: ['18']
+        os: [ubuntu-latest, macos-14]
+        node: ['20']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -39,12 +39,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13]
-        node: ['18']
+        os: [ubuntu-latest, macos-14]
+        node: ['20']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -56,19 +56,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13]
-        node: ['18']
+        os: [ubuntu-latest, macos-14]
+        node: ['20']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
       - run: npm ci
       - run: npm run test:unit
       - uses: actions/upload-artifact@v3
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '18'
+        if: matrix.os == 'ubuntu-latest' && matrix.node == '20'
         with:
           name: coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage/
@@ -78,12 +78,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        node: ['18']
+        node: ['20']
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
@@ -95,17 +95,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-13]
-        node: ['18']
+        os: [ubuntu-latest, macos-14]
+        node: ['20']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
       - name: Cache Astro build output
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
@@ -113,10 +113,10 @@ jobs:
       - run: npm ci
       - run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
       - name: Zip artifact for deployment
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '18'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
         run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v3
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '18'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
           path: dist.zip
@@ -126,10 +126,10 @@ jobs:
     needs: [test-unit]
     if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
         with:
-          name: coverage-ubuntu-latest-18
+          name: coverage-ubuntu-latest-20
       - uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
@@ -140,10 +140,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
         with:
-          name: dist-ubuntu-latest-18
+          name: dist-ubuntu-latest-20
       - name: unzip artifact
         run: unzip dist.zip
       - name: Deploy to S3
