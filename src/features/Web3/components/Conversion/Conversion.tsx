@@ -4,7 +4,7 @@ import { useStore } from '@nanostores/react'
 import { $selectedToken } from '@features/Web3/stores/selectedToken'
 import { $amount } from '@features/Web3/stores'
 
-export function Conversion(): ReactElement {
+export function Conversion(): ReactElement | null {
   const selectedToken = useStore($selectedToken)
   const amount = useStore($amount)
 
@@ -26,7 +26,7 @@ export function Conversion(): ReactElement {
     setEuro(euro)
   }, [selectedToken?.price, amount])
 
-  return (
+  return selectedToken?.price?.usd ? (
     <div
       className={styles.conversion}
       title="Value in USD & EUR at current spot price for selected token on Coingecko."
@@ -34,5 +34,5 @@ export function Conversion(): ReactElement {
       <span>{`= $ ${dollar}`}</span>
       <span>{`= € ${euro}`}</span>
     </div>
-  )
+  ) : null
 }

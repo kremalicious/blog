@@ -42,6 +42,7 @@
 .TokenName,
 .TokenBalance {
   margin: 0;
+  text-align: left;
 }
 
 .TokenName {

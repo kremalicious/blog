@@ -30,6 +30,8 @@
   background-color: var(--body-background-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  z-index: 100;
+  position: relative;
 }
 
 .SelectViewport {

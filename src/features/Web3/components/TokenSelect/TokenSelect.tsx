@@ -41,6 +41,7 @@ export function TokenSelect() {
       value={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}
+      name="selectedToken"
     >
       <Select.Trigger
         className="SelectTrigger"
@@ -53,25 +54,20 @@ export function TokenSelect() {
         </Select.Icon>
       </Select.Trigger>
 
-      {/* @ts-expect-error-next-line: style actually is passed through and is needed in our case */}
-      <Select.Portal style={{ zIndex: 10 }}>
-        <Select.Content className="SelectContent">
-          <Select.ScrollUpButton className="SelectScrollButton">
-            <ChevronsUp />
-          </Select.ScrollUpButton>
-          <Select.Viewport className="SelectViewport">
-            <Select.Group>
-              <Select.Label className="SelectLabel">
-                In Your Wallet
-              </Select.Label>
-              {items}
-            </Select.Group>
-          </Select.Viewport>
-          <Select.ScrollDownButton className="SelectScrollButton">
-            <ChevronsDown />
-          </Select.ScrollDownButton>
-        </Select.Content>
-      </Select.Portal>
+      <Select.Content className="SelectContent">
+        <Select.ScrollUpButton className="SelectScrollButton">
+          <ChevronsUp />
+        </Select.ScrollUpButton>
+        <Select.Viewport className="SelectViewport">
+          <Select.Group>
+            <Select.Label className="SelectLabel">In Your Wallet</Select.Label>
+            {items}
+          </Select.Group>
+        </Select.Viewport>
+        <Select.ScrollDownButton className="SelectScrollButton">
+          <ChevronsDown />
+        </Select.ScrollDownButton>
+      </Select.Content>
     </Select.Root>
   ) : isLoading ? (
     <div className="Token">
