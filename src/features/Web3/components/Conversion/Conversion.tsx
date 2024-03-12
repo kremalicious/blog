@@ -26,7 +26,7 @@ export function Conversion(): ReactElement | null {
     setEuro(euro)
   }, [selectedToken?.price, amount])
 
-  return selectedToken?.price?.usd ? (
+  return selectedToken?.price?.usd !== 0 ? (
     <div
       className={styles.conversion}
       title="Value in USD & EUR at current spot price for selected token on Coingecko."
