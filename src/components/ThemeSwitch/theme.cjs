@@ -1,5 +1,4 @@
 const htmlEl = document.documentElement
-const themeToggle = document.querySelector('#toggle')
 const currentTheme = localStorage.getItem('@kremalicious/theme')
 
 function getPreferTheme() {
@@ -17,11 +16,6 @@ function getThemeColor(theme) {
 let themeValue = getPreferTheme()
 let themeColor = getThemeColor(themeValue)
 
-function setPreference() {
-  localStorage.setItem('@kremalicious/theme', themeValue)
-  reflectPreference()
-}
-
 function reflectPreference() {
   const sun = document.querySelector('#sun')
   const moon = document.querySelector('#moon')
@@ -35,6 +29,7 @@ function reflectPreference() {
   metaThemeColor?.setAttribute('content', themeColor)
   metaThemeColorMs?.setAttribute('content', themeColor)
 
+  const themeToggle = document.querySelector('#theme-toggle')
   themeToggle?.setAttribute('checked', `${themeValue === 'dark'}`)
 
   if (themeValue === 'dark') {
@@ -46,29 +41,34 @@ function reflectPreference() {
   }
 }
 
-function themeInit() {
-  // set early so no page flashes / CSS is made aware
+function setPreference() {
+  localStorage.setItem('@kremalicious/theme', themeValue)
+  reflectPreference()
+}
+
+// set early so no page flashes / CSS is made aware
+reflectPreference()
+
+window.onload = () => {
+  // set on load again so screen readers
+  // can get the latest value on the button
   reflectPreference()
 
-  window.onload = () => {
-    // set on load so screen readers can get the latest value on the button
-    reflectPreference()
+  const themeToggle = document.querySelector('#theme-toggle')
 
-    themeToggle?.addEventListener('change', () => {
-      themeValue = themeValue === 'light' ? 'dark' : 'light'
+  themeToggle?.addEventListener('change', () => {
+    console.log('themeToggle change')
+    themeValue = themeValue === 'light' ? 'dark' : 'light'
+    themeColor = getThemeColor(themeValue)
+    setPreference()
+  })
+
+  // sync with system changes
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches: isDark }) => {
+      themeValue = isDark ? 'dark' : 'light'
       themeColor = getThemeColor(themeValue)
       setPreference()
     })
-
-    // sync with system changes
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', ({ matches: isDark }) => {
-        themeValue = isDark ? 'dark' : 'light'
-        themeColor = getThemeColor(themeValue)
-        setPreference()
-      })
-  }
 }
-
-themeInit()
