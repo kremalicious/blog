@@ -12,7 +12,7 @@ export function Preview() {
   const { ens } = siteConfig.author.ether
   const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
   const { data: ensResolved } = useEnsName({
-    address: to as `0x${string}` | undefined,
+    address: to as `0x${string}`,
     chainId: 1
   })
 

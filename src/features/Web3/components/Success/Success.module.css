@@ -10,14 +10,11 @@
 .actions {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .actions button {
   width: 115px;
   height: 45px;
   padding: 0;
-}
-
-.success code {
-  font-size: var(--font-size-small);
 }

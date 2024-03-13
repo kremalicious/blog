@@ -3,13 +3,16 @@ import { useStore } from '@nanostores/react'
 import { useState } from 'react'
 import { send } from './send'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
-import { useAccount, useConfig } from 'wagmi'
+import { useAccount, useConfig, useEnsAddress } from 'wagmi'
+import siteConfig from '@config/blog.config'
 
 export function useSend() {
   const selectedToken = useStore($selectedToken)
   const amount = useStore($amount)
   const config = useConfig()
-  const { address, chainId } = useAccount()
+  const { chainId } = useAccount()
+  const { ens } = siteConfig.author.ether
+  const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
 
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
@@ -20,7 +23,7 @@ export function useSend() {
       setIsError(false)
       setError(undefined)
       setIsLoading(true)
-      const hash = await send(config, selectedToken, amount, address, chainId)
+      const hash = await send(config, selectedToken, amount, to, chainId)
       if (hash) $txHash.set(hash)
     } catch (error: unknown) {
       const errorMessage = (error as Error).message

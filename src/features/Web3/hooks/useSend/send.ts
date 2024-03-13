@@ -8,7 +8,7 @@ export async function send(
   config: UseConfigReturnType,
   selectedToken: GetToken | undefined,
   amount: string | undefined,
-  to: `0x${string}` | undefined,
+  to: `0x${string}` | null | undefined,
   chainId: number | undefined
 ) {
   if (!selectedToken?.decimals || !amount || !to) return
