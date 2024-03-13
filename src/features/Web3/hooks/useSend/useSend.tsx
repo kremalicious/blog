@@ -1,19 +1,15 @@
-import { $txHash, $selectedToken } from '@features/Web3/stores'
+import { $txHash, $selectedToken, $amount } from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import { useState } from 'react'
-import type {
-  SendTransactionArgs,
-  WriteContractPreparedArgs
-} from 'wagmi/actions'
 import { send } from './send'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
+import { useAccount, useConfig } from 'wagmi'
 
-export function useSend({
-  txConfig
-}: {
-  txConfig: SendTransactionArgs | WriteContractPreparedArgs | undefined
-}) {
+export function useSend() {
   const selectedToken = useStore($selectedToken)
+  const amount = useStore($amount)
+  const config = useConfig()
+  const { address, chainId } = useAccount()
 
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
@@ -24,8 +20,8 @@ export function useSend({
       setIsError(false)
       setError(undefined)
       setIsLoading(true)
-      const result = await send(selectedToken, txConfig)
-      $txHash.set(result?.hash)
+      const hash = await send(config, selectedToken, amount, address, chainId)
+      if (hash) $txHash.set(hash)
     } catch (error: unknown) {
       const errorMessage = (error as Error).message
       console.error(errorMessage)

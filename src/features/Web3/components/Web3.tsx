@@ -1,14 +1,20 @@
+import '../lib/polyfills'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { WagmiConfig } from 'wagmi'
-import { wagmiConfig, chains, theme } from '../lib/rainbowkit'
+import { WagmiProvider } from 'wagmi'
+import { wagmiConfig, theme } from '../lib/rainbowkit'
 import { Web3Form } from './Form'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 export function Web3() {
   return (
-    <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} theme={theme}>
-        <Web3Form />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider theme={theme}>
+          <Web3Form />
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   )
 }

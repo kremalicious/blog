@@ -1,5 +1,4 @@
 import { Loader } from '@components/Loader'
-import { usePrepareSend } from '@features/Web3/hooks/usePrepareSend'
 import { useSend } from '@features/Web3/hooks/useSend'
 import { $isInitSend } from '@features/Web3/stores'
 import { useEnsAddress, useEnsName } from 'wagmi'
@@ -17,12 +16,7 @@ export function Preview() {
     chainId: 1
   })
 
-  const {
-    data: txConfig,
-    error: prepareError,
-    isError: isPrepareError
-  } = usePrepareSend({ to })
-  const { handleSend, isLoading, error } = useSend({ txConfig })
+  const { handleSend, isLoading, error } = useSend()
 
   // TODO: Cancel flow if chain changes in preview as this can mess with token selection
   // useEffect(() => {
@@ -32,16 +26,9 @@ export function Preview() {
 
   return (
     <>
-      <Data
-        to={to}
-        ensResolved={ensResolved}
-        txConfig={txConfig}
-        isDisabled={isLoading}
-      />
+      <Data to={to} ensResolved={ensResolved} isDisabled={isLoading} />
 
-      {error || prepareError ? (
-        <div className={styles.alert}>{error || prepareError}</div>
-      ) : null}
+      {error ? <div className={styles.alert}>{error}</div> : null}
 
       <footer className={styles.actions}>
         <button
@@ -50,7 +37,7 @@ export function Preview() {
             await handleSend()
           }}
           className="btn btn-primary"
-          disabled={isLoading || !txConfig || isPrepareError}
+          disabled={isLoading}
         >
           {isLoading ? <Loader /> : 'Make it rain'}
         </button>

@@ -1,42 +1,22 @@
-import { formatEther, formatUnits } from 'viem'
-import { useAccount, useEnsName, useNetwork } from 'wagmi'
-import type {
-  SendTransactionArgs,
-  WriteContractPreparedArgs
-} from 'wagmi/actions'
+import { useAccount, useEnsName } from 'wagmi'
 import styles from './Data.module.css'
 import { useStore } from '@nanostores/react'
-import { $selectedToken } from '@features/Web3/stores'
+import { $amount, $selectedToken } from '@features/Web3/stores'
 import { truncateAddress } from '@features/Web3/lib/truncateAddress'
 
 export function Data({
   to,
   ensResolved,
-  txConfig,
   isDisabled
 }: {
   to: `0x${string}` | null | undefined
   ensResolved: string | null | undefined
-  txConfig: SendTransactionArgs | WriteContractPreparedArgs | undefined
   isDisabled: boolean
 }) {
-  const { chain } = useNetwork()
-  const { address: from } = useAccount()
+  const { address: from, chain } = useAccount()
   const { data: ensFrom } = useEnsName({ address: from, chainId: 1 })
   const selectedToken = useStore($selectedToken)
-
-  // Derive display values in preview from actual tx config
-  // instead from our form stores
-  const value =
-    (txConfig as SendTransactionArgs)?.value ||
-    (txConfig as WriteContractPreparedArgs)?.request?.args?.[1] ||
-    '0'
-  const displayAmountFromConfig =
-    selectedToken?.decimals === 18
-      ? formatEther(value as bigint)
-      : selectedToken?.decimals
-        ? formatUnits(value as bigint, selectedToken.decimals)
-        : '0'
+  const amount = useStore($amount)
 
   return (
     <table className={styles.table} aria-disabled={isDisabled}>
@@ -66,7 +46,7 @@ export function Data({
               />
             </div>
             <span className={styles.amount}>
-              {displayAmountFromConfig} {selectedToken?.symbol}
+              {amount} {selectedToken?.symbol}
             </span>
           </td>
         </tr>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import useSWR, { type SWRResponse } from 'swr'
-import { useNetwork, useAccount } from 'wagmi'
+import { useChainId, useAccount } from 'wagmi'
 import type { GetToken } from './types'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -10,7 +10,7 @@ const apiUrl = import.meta.env.PUBLIC_WEB3_API_URL
 // Wrapper for fetching user tokens with swr.
 //
 export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
-  const { chain } = useNetwork()
+  const chainId = useChainId()
   const { address } = useAccount()
 
   const [url, setUrl] = useState<string | undefined>()
@@ -20,14 +20,14 @@ export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
   // Set url only after we have all data loaded on client,
   // preventing initial fetch.
   useEffect(() => {
-    if (!address || !chain?.id) {
+    if (!address || !chainId) {
       setUrl(undefined)
       return
     }
 
-    const url = `${apiUrl}/balance?address=${address}&chainId=${chain?.id}`
+    const url = `${apiUrl}/balance?address=${address}&chainId=${chainId}`
     setUrl(url)
-  }, [address, chain?.id])
+  }, [address, chainId])
 
   return fetchResults
 }

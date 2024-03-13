@@ -1,32 +1,17 @@
-import { type Theme, getDefaultWallets } from '@rainbow-me/rainbowkit'
-import { configureChains, createConfig } from 'wagmi'
+import { type Theme, getDefaultConfig } from '@rainbow-me/rainbowkit'
 import { mainnet, polygon, base, optimism } from 'wagmi/chains'
-import { infuraProvider } from 'wagmi/providers/infura'
-import { publicProvider } from 'wagmi/providers/public'
 
-const PUBLIC_INFURA_ID = import.meta.env.PUBLIC_INFURA_ID
 const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID
 const isProduction = import.meta.env.PROD
 
-if (isProduction && (!PUBLIC_INFURA_ID || !PUBLIC_WALLETCONNECT_ID)) {
+if (isProduction && !PUBLIC_WALLETCONNECT_ID) {
   throw new Error('Missing web3-related environment variables')
 }
 
-export const { chains, publicClient } = configureChains(
-  [mainnet, polygon, base, optimism],
-  [infuraProvider({ apiKey: PUBLIC_INFURA_ID }), publicProvider()]
-)
-
-export const { connectors } = getDefaultWallets({
+export const wagmiConfig = getDefaultConfig({
   appName: 'kremalicious.com',
   projectId: PUBLIC_WALLETCONNECT_ID,
-  chains
-})
-
-export const wagmiConfig = createConfig({
-  autoConnect: true,
-  connectors,
-  publicClient
+  chains: [mainnet, polygon, base, optimism]
 })
 
 export const theme: Theme = {

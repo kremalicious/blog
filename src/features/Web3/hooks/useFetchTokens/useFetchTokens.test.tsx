@@ -4,7 +4,7 @@ import { useFetchTokens } from './useFetchTokens'
 
 test('useFetchTokens does not fetch anything when no chain or address are present', async () => {
   vi.mock('wagmi', () => ({
-    useNetwork: () => ({ chain: undefined }),
+    useChainId: () => undefined,
     useAccount: () => ({ address: undefined })
   }))
 

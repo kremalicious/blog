@@ -1,21 +1,31 @@
-import {
-  sendTransaction as sendNative,
-  writeContract,
-  type SendTransactionArgs,
-  type WriteContractPreparedArgs
-} from 'wagmi/actions'
+import { sendTransaction, writeContract } from 'wagmi/actions'
 import type { GetToken } from '../useFetchTokens'
+import { parseEther, parseUnits } from 'viem'
+import { abiErc20Transfer } from './abiErc20Transfer'
+import type { UseConfigReturnType } from 'wagmi'
 
 export async function send(
+  config: UseConfigReturnType,
   selectedToken: GetToken | undefined,
-  config: SendTransactionArgs | WriteContractPreparedArgs | undefined
+  amount: string | undefined,
+  to: `0x${string}` | undefined,
+  chainId: number | undefined
 ) {
-  if (!config || !selectedToken) return
+  if (!selectedToken?.decimals || !amount || !to) return
 
-  const result =
-    selectedToken?.address === '0x0'
-      ? await sendNative(config as SendTransactionArgs)
-      : await writeContract(config as WriteContractPreparedArgs)
+  const isNative = selectedToken.address === '0x0'
+  const requestNative = { chainId, to, value: parseEther(amount) }
+  const requestErc20 = {
+    chainId,
+    address: selectedToken.address,
+    abi: abiErc20Transfer,
+    functionName: 'transfer',
+    args: [to, parseUnits(amount, selectedToken.decimals)]
+  }
+
+  const result = isNative
+    ? await sendTransaction(config, requestNative)
+    : await writeContract(config, requestErc20)
 
   return result
 }

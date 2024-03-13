@@ -31,29 +31,14 @@ const mainnet = {
   serializers: undefined
 }
 
-export function useNetwork() {
-  return {
-    chain: mainnet
-  }
+export function useChainId() {
+  return 1
 }
 
 export function useAccount() {
   return {
-    address: '0x0000000000000000000000000000000000000000'
-  }
-}
-
-export function usePrepareSendTransaction() {
-  return {
-    data: {
-      address: '0x0000000000000000000000000000000000000000'
-    }
-  }
-}
-
-export function usePrepareContractWrite() {
-  return {
-    config: {}
+    address: '0x0000000000000000000000000000000000000000',
+    chain: mainnet
   }
 }
 
@@ -114,7 +99,9 @@ export function useProvider() {
   return {}
 }
 
-export const chain = mainnet
+export function useConfig() {
+  return {}
+}
 
 export function createClient() {
   return {

@@ -1,18 +1,18 @@
 import { $txHash, $isInitSend } from '@features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import styles from './Success.module.css'
-import { useNetwork } from 'wagmi'
+import { useAccount } from 'wagmi'
 import { ExplorerLink } from './ExplorerLink'
 
 const title = `You're amazing, thanks!`
 const description = `Your transaction is on its way. You can check the status on`
 
 export function Success() {
-  const { chain } = useNetwork()
+  const account = useAccount()
   const txHash = useStore($txHash)
 
-  const explorerName = chain?.blockExplorers?.default.name
-  const explorerUrl = chain?.blockExplorers?.default.url
+  const explorerName = account?.chain?.blockExplorers?.default.name
+  const explorerUrl = account?.chain?.blockExplorers?.default.url
 
   return (
     <div className={styles.success}>
