@@ -12,6 +12,7 @@ const apiUrl = import.meta.env.PUBLIC_WEB3_API_URL
 export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
   const chainId = useChainId()
   const { address } = useAccount()
+  // const { chains } = useConfig()
 
   const [url, setUrl] = useState<string | undefined>()
 
@@ -25,7 +26,8 @@ export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
       return
     }
 
-    const url = `${apiUrl}/balance?address=${address}&chainId=${chainId}`
+    // const chainIds = chains.map((chain) => chain.id).join(',')
+    const url = `${apiUrl}/balance?address=${address}&chainIds=${chainId}`
     setUrl(url)
   }, [address, chainId])
 
