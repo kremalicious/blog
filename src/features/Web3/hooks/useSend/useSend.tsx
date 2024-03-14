@@ -3,7 +3,7 @@ import { useStore } from '@nanostores/react'
 import { useState } from 'react'
 import { send } from './send'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
-import { useAccount, useConfig, useEnsAddress } from 'wagmi'
+import { useAccount, useConfig, useEnsAddress, useSwitchChain } from 'wagmi'
 import siteConfig from '@config/blog.config'
 
 export function useSend() {
@@ -13,17 +13,31 @@ export function useSend() {
   const { chainId } = useAccount()
   const { ens } = siteConfig.author.ether
   const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
+  const { switchChain } = useSwitchChain()
 
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const [error, setError] = useState<string | undefined>()
 
   async function handleSend() {
+    if (!selectedToken || !amount || !to) return
+
+    // switch chains first
+    if (chainId !== selectedToken.chainId) {
+      switchChain({ chainId: selectedToken.chainId })
+    }
+
     try {
       setIsError(false)
       setError(undefined)
       setIsLoading(true)
-      const hash = await send(config, selectedToken, amount, to, chainId)
+      const hash = await send(
+        config,
+        selectedToken,
+        amount,
+        to,
+        selectedToken.chainId
+      )
       if (hash) $txHash.set(hash)
     } catch (error: unknown) {
       const errorMessage = (error as Error).message

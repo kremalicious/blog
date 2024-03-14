@@ -18,12 +18,6 @@ export function Preview() {
 
   const { handleSend, isLoading, error } = useSend()
 
-  // TODO: Cancel flow if chain changes in preview as this can mess with token selection
-  // useEffect(() => {
-  //   if (!chain?.id || $isInitSend.get() === false) return
-  //   $isInitSend.set(false)
-  // }, [chain?.id])
-
   return (
     <>
       <Data to={to} ensResolved={ensResolved} isDisabled={isLoading} />

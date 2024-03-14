@@ -13,7 +13,7 @@ export async function send(
 ) {
   if (!selectedToken?.decimals || !amount || !to) return
 
-  const isNative = selectedToken.address === '0x0'
+  const isNative = selectedToken.address.startsWith('0x0')
   const requestNative = { chainId, to, value: parseEther(amount) }
   const requestErc20 = {
     chainId,

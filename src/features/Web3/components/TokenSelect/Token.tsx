@@ -41,10 +41,21 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
         <Select.ItemText>
           <span className="TokenLogo">
             {token?.logo ? (
-              <img src={token.logo} width="32" height="32" />
+              <img
+                src={token.logo}
+                width="32"
+                height="32"
+                className="TokenLogoImage"
+              />
             ) : (
               token?.symbol?.substring(0, 3)
             )}
+            <img
+              src={token?.chainLogo}
+              width="20"
+              height="20"
+              className="TokenChainLogo"
+            />
           </span>
         </Select.ItemText>
         <div>

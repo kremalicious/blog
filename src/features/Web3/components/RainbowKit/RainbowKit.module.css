@@ -3,17 +3,11 @@
 }
 
 .rainbowkit > div:first-child {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  /* display: flex;
+   flex-direction: row-reverse;
+  justify-content: space-between; */
   font-size: var(--font-size-small);
 }
-
-/* hide the account icon, and hope nothing else */
-
-/* .rainbowkit button [aria-hidden] {
-  display: none;
-} */
 
 .rainbowkit [aria-label='Chain Selector'],
 .rainbowkit [data-testid='rk-account-button'] div {

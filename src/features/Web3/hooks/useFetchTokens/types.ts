@@ -2,12 +2,13 @@ export type GetToken = {
   address: `0x${string}`
   balance: number | undefined
   chainId: number
-  name: string | null
-  symbol: string | null
-  decimals: number | null
-  logo: string | null
+  chainLogo: string | undefined
+  name: string | undefined
+  symbol: string | undefined
+  decimals: number | undefined
+  logo: string | undefined
   price: {
-    usd: number | null
-    eur: number | null
+    usd: number | undefined
+    eur: number | undefined
   }
 }

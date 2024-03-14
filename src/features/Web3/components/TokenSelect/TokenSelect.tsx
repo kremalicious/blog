@@ -17,7 +17,7 @@ export function TokenSelect() {
   const selectedToken = useStore($selectedToken)
 
   const items = tokens?.map((token) => (
-    <Token key={token.address} token={token} />
+    <Token key={`${token.address}-${token.chainId}`} token={token} />
   ))
 
   function handleValueChange(value: `0x${string}`) {
@@ -32,12 +32,12 @@ export function TokenSelect() {
   useEffect(() => {
     if (selectedToken?.address || !tokens || !tokens?.length) return
 
-    handleValueChange('0x0')
+    // select ETH mainnet token
+    handleValueChange('0x0-1')
   }, [tokens, selectedToken])
 
   return tokens && address ? (
     <Select.Root
-      // defaultValue={selectedToken?.address || tokens[0].address}
       value={selectedToken?.address}
       onValueChange={(value: `0x${string}`) => handleValueChange(value)}
       disabled={isLoading}

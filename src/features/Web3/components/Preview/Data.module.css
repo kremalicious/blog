@@ -32,8 +32,15 @@ table[aria-disabled='true'] {
   align-items: center;
 }
 
-.table :global(.TokenLogo),
-.table :global(.TokenLogo) img {
+.table :global(.TokenLogo) {
   width: 18px;
   height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+
+.table :global(.TokenLogo) img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }

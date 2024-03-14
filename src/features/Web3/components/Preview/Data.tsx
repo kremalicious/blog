@@ -1,4 +1,4 @@
-import { useAccount, useEnsName } from 'wagmi'
+import { useAccount, useChains, useEnsName } from 'wagmi'
 import styles from './Data.module.css'
 import { useStore } from '@nanostores/react'
 import { $amount, $selectedToken } from '@features/Web3/stores'
@@ -13,10 +13,16 @@ export function Data({
   ensResolved: string | null | undefined
   isDisabled: boolean
 }) {
-  const { address: from, chain } = useAccount()
+  const chains = useChains()
+  const { address: from } = useAccount()
   const { data: ensFrom } = useEnsName({ address: from, chainId: 1 })
+
   const selectedToken = useStore($selectedToken)
   const amount = useStore($amount)
+
+  const networkName = chains.filter(
+    (chain) => chain.id === selectedToken?.chainId
+  )[0].name
 
   return (
     <table className={styles.table} aria-disabled={isDisabled}>
@@ -54,7 +60,10 @@ export function Data({
         <tr>
           <td className={styles.label}>on</td>
           <td>
-            <span className={styles.network}>{chain?.name}</span>
+            <div className="TokenLogo">
+              <img src={selectedToken?.chainLogo || ''} />
+            </div>
+            <span className={styles.network}>{networkName}</span>
           </td>
         </tr>
 
