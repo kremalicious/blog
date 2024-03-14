@@ -35,6 +35,16 @@ export function useChainId() {
   return 1
 }
 
+export function useChains() {
+  return [mainnet]
+}
+
+export function useSwitchChain() {
+  return {
+    switchChain: vi.fn()
+  }
+}
+
 export function useAccount() {
   return {
     address: '0x0000000000000000000000000000000000000000',

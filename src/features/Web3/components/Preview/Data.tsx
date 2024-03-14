@@ -22,7 +22,7 @@ export function Data({
 
   const networkName = chains.filter(
     (chain) => chain.id === selectedToken?.chainId
-  )[0].name
+  )?.[0]?.name
 
   return (
     <table className={styles.table} aria-disabled={isDisabled}>
