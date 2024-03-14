@@ -11,7 +11,7 @@ export function Web3() {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider theme={theme}>
+        <RainbowKitProvider modalSize="compact" theme={theme}>
           <Web3Form />
         </RainbowKitProvider>
       </QueryClientProvider>
