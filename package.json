@@ -78,7 +78,7 @@
     "slugify": "^1.6.6",
     "swr": "^2.2.5",
     "viem": "^2.8.5",
-    "wagmi": "^2.5.7"
+    "wagmi": "^2.9.10"
   },
   "devDependencies": {
     "@playwright/test": "^1.42.1",
