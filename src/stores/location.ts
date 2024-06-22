@@ -19,6 +19,6 @@ export type LocationStore =
 const url = 'https://location.kremalicious.com'
 
 export const $location = createFetcherStore<LocationStore>([url], {
-  refetchOnReconnect: true,
-  refetchOnFocus: true
+  revalidateOnReconnect: true,
+  revalidateOnFocus: true
 })
