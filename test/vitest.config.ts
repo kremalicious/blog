@@ -13,7 +13,11 @@ export default getViteConfig({
       './scripts/**/*.test.?(c|m)[jt]s?(x)'
     ],
     deps: {
-      moduleDirectories: ['node_modules', './test/__mocks__']
+      moduleDirectories: [
+        'node_modules',
+        './test/__mocks__',
+        './src/images/components/react'
+      ]
     },
     coverage: {
       all: true,
