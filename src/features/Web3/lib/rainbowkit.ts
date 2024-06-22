@@ -1,5 +1,5 @@
 import { type Theme, getDefaultConfig } from '@rainbow-me/rainbowkit'
-import { mainnet, polygon, base, optimism, arbitrum } from 'wagmi/chains'
+import { mainnet, polygon, base, optimism, arbitrum, zora } from 'wagmi/chains'
 
 const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID
 const isProduction = import.meta.env.PROD
@@ -11,7 +11,7 @@ if (isProduction && !PUBLIC_WALLETCONNECT_ID) {
 export const wagmiConfig = getDefaultConfig({
   appName: 'kremalicious.com',
   projectId: PUBLIC_WALLETCONNECT_ID,
-  chains: [mainnet, polygon, base, optimism, arbitrum]
+  chains: [mainnet, polygon, base, optimism, arbitrum, zora]
 })
 
 export const theme: Theme = {
