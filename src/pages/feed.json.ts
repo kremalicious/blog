@@ -1,9 +1,9 @@
-import { getAllPosts } from '@lib/astro'
+import { getImage } from 'astro:assets'
+import faviconSrc from '@/images/favicon.png'
+import { getAllPosts } from '@/lib/astro'
+import { getFeedContent } from '@/lib/feed'
 import config from '@config/blog.config'
 import type { AstroConfig } from 'astro'
-import { getFeedContent } from '@lib/feed'
-import faviconSrc from '@images/favicon.png'
-import { getImage } from 'astro:assets'
 
 const { siteTitle, siteDescription, author } = config
 

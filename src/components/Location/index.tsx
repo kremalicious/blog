@@ -1,5 +1,5 @@
+import { $location } from '@/stores/location'
 import { useStore } from '@nanostores/react'
-import { $location } from '@stores/location'
 import { formatDistanceToNowStrict } from 'date-fns'
 import { LocationItem } from './LocationItem'
 import styles from './index.module.css'

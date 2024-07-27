@@ -1,9 +1,9 @@
-import { test, expect, describe, afterEach } from 'vitest'
-import { createPhotoPost } from './createPhotoPost'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import type { Ora } from 'ora'
+import { afterEach, describe, expect, test } from 'vitest'
 import { createArticlePost } from './createArticlePost'
+import { createPhotoPost } from './createPhotoPost'
 
 const destFolder = path.join('.', 'test/__fixtures__/tmp')
 
@@ -67,7 +67,7 @@ describe('npm run new', () => {
         .catch(() => false))
 
     expect(fileExists).toBe(true)
-    expect(spinner.text).toContain(`New photo post`)
+    expect(spinner.text).toContain('New photo post')
 
     // Compare the generated index.md with the fixture new-photo.md
     const generatedContent =

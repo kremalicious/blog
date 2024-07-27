@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { normalizeAmount } from './normalizeAmount'
 
 test('normalizeAmount replaces comma with a period', () => {

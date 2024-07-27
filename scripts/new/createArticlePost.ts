@@ -1,9 +1,9 @@
-import fs from 'node:fs/promises'
 import { existsSync, mkdirSync, readFileSync } from 'node:fs'
+import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { slugify } from '../../src/lib/slugify/slugify.js'
 import type { Ora } from 'ora'
+import { slugify } from '../../src/lib/slugify/slugify.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const templatePath = path.join(__dirname, 'new-article.md')
@@ -14,7 +14,7 @@ export async function createArticlePost(
   title: string,
   newDate?: string
 ) {
-  let file
+  let file = ''
   const date = newDate
     ? new Date(newDate).toISOString()
     : new Date().toISOString()
@@ -44,7 +44,7 @@ export async function createArticlePost(
     // create post file
     await fs.appendFile(file, newContents)
     spinner.succeed(`New post '${title}' created.`)
-  } catch (error: any) {
+  } catch (error: unknown) {
     spinner.fail((error as Error).message)
   }
 

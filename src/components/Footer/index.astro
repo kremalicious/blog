@@ -1,8 +1,8 @@
 ---
-import { Github, Bitcoin } from '@images/components'
+import { Bitcoin, Github } from '@/images/components'
+import config from '@config/blog.config'
 import Vcard from './Vcard.astro'
 import styles from './index.module.css'
-import config from '@config/blog.config'
 
 const year = new Date().getFullYear()
 const { name, url, github } = config.author

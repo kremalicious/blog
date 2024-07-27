@@ -1,14 +1,14 @@
-import {
-  describe,
-  it,
-  expect,
-  beforeAll,
-  afterAll,
-  vi,
-  type MockInstance
-} from 'vitest'
-import { render, screen } from '@testing-library/react'
 import * as nanostores from '@nanostores/react'
+import { render, screen } from '@testing-library/react'
+import {
+  type MockInstance,
+  afterAll,
+  beforeAll,
+  describe,
+  expect,
+  it,
+  vi
+} from 'vitest'
 import Location from '.'
 
 const mockData = {

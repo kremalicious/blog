@@ -1,15 +1,15 @@
-import { useState, type ReactElement } from 'react'
-import Input from '@components/Input'
-import { Conversion } from '../Conversion'
-import styles from './InputGroup.module.css'
-import { TokenSelect } from '../TokenSelect'
+import Input from '@/components/Input'
 import {
   $amount,
-  $setAmount,
   $isInitSend,
-  $selectedToken
-} from '@features/Web3/stores'
+  $selectedToken,
+  $setAmount
+} from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
+import { type ReactElement, useState } from 'react'
+import { Conversion } from '../Conversion'
+import { TokenSelect } from '../TokenSelect'
+import styles from './InputGroup.module.css'
 
 export function InputGroup({
   isDisabled,
@@ -50,6 +50,7 @@ export function InputGroup({
           className={styles.inputInput}
         />
         <button
+          type="button"
           className={`${styles.submit} btn btn-primary`}
           disabled={
             isDisabled ||

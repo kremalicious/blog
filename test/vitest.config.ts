@@ -32,7 +32,8 @@ export default getViteConfig({
         'src/pages',
         '**/content',
         'public',
-        '**/tmp/**/*'
+        '**/tmp/**/*',
+        '**/dist/**/*'
       ]
     }
   }

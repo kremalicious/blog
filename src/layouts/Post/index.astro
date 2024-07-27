@@ -1,17 +1,17 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import LayoutBase from '@layouts/Base/index.astro'
-import Title from './Title.astro'
+import Changelog from '@/components/Changelog/index.astro'
+import Exif from '@/components/Exif/index.astro'
+import Picture from '@/components/Picture/index.astro'
+import RelatedPosts from '@/components/RelatedPosts/index.astro'
+import Toc from '@/components/Toc.astro'
+import LayoutBase from '@/layouts/Base/index.astro'
+import type { Exif as ExifType } from '@/lib/exif'
 import Actions from './Actions.astro'
-import styles from './index.module.css'
-import Meta from './Meta.astro'
-import Picture from '@components/Picture/index.astro'
-import Toc from '@components/Toc.astro'
-import Exif from '@components/Exif/index.astro'
-import type { Exif as ExifType } from '@lib/exif'
-import Changelog from '@components/Changelog/index.astro'
-import RelatedPosts from '@components/RelatedPosts/index.astro'
 import LinkActions from './LinkActions.astro'
+import Meta from './Meta.astro'
+import Title from './Title.astro'
+import styles from './index.module.css'
 
 type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
   lead?: string // comes in through remark plugin as html

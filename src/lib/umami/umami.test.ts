@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { getUmamiConfig } from '.'
 
 test('should throw an error if Umami environment variables are missing in production', () => {

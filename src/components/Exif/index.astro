@@ -1,16 +1,16 @@
 ---
-import type { Exif } from '@lib/exif'
 import {
+  Aperture,
   Camera,
   Crosshair,
-  Aperture,
+  Maximize,
   Stopwatch,
-  Sun,
-  Maximize
-} from '@images/components'
+  Sun
+} from '@/images/components'
+import type { Exif } from '@/lib/exif'
 import ExifData from './ExifData.astro'
-import styles from './index.module.css'
 import ExifMap from './ExifMap.tsx'
+import styles from './index.module.css'
 
 type Props = {
   exif: Exif

@@ -1,10 +1,10 @@
-import { unified } from 'unified'
+import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
+import { unified } from 'unified'
 import { VFile } from 'vfile'
-import { test, expect } from 'vitest'
-import { remarkToc, type MyFile } from '.'
+import { expect, test } from 'vitest'
+import { type MyFile, remarkToc } from '.'
 
 const expectedToc: string = `<ul>
 <li>

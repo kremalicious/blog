@@ -1,10 +1,10 @@
-import { visit, type Visitor } from 'unist-util-visit'
-import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
-import { toString } from 'mdast-util-to-string'
-import { type VFile } from 'vfile'
-import { type Transformer } from 'unified'
+import { toHast } from 'mdast-util-to-hast'
+import { toString as toStringMdast } from 'mdast-util-to-string'
 import type { Paragraph } from 'node_modules/mdast-util-to-hast/lib/handlers/paragraph'
+import type { Transformer } from 'unified'
+import { type Visitor, visit } from 'unist-util-visit'
+import type { VFile } from 'vfile'
 
 export interface MyFile extends VFile {
   data: {
@@ -38,7 +38,7 @@ export function remarkLeadParagraph(): Transformer {
     if (firstParagraph) {
       const hast = toHast(firstParagraph)
       const html = toHtml(hast)
-      const string = toString(firstParagraph)
+      const string = toStringMdast(firstParagraph)
 
       // Add lead to frontmatter
       ;(file.data as MyFile['data']).astro.frontmatter.lead = html

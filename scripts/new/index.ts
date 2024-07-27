@@ -1,7 +1,7 @@
 import path from 'node:path'
 import ora from 'ora'
-import { createPhotoPost } from './createPhotoPost.js'
 import { createArticlePost } from './createArticlePost.js'
+import { createPhotoPost } from './createPhotoPost.js'
 
 const postsPath = path.join('.', 'content', 'articles')
 const photosPath = path.join('.', 'content', 'photos')

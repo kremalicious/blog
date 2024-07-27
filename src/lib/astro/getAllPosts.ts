@@ -1,6 +1,6 @@
-import { sortPosts } from './sortPosts'
-import { loadAndFormatCollection } from './loadAndFormatCollection'
 import type { CollectionEntry } from 'astro:content'
+import { loadAndFormatCollection } from './loadAndFormatCollection'
+import { sortPosts } from './sortPosts'
 
 export async function getAllPosts(): Promise<
   CollectionEntry<'articles' | 'links' | 'photos'>[]

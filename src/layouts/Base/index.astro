@@ -2,12 +2,12 @@
 import '../../styles/global.css'
 import '../../styles/imports.css'
 
-import type { ImageMetadata } from 'astro'
 import type { CollectionEntry } from 'astro:content'
-import Header from '@components/Header/index.astro'
-import Footer from '@components/Footer/index.astro'
-import styles from './index.module.css'
+import Footer from '@/components/Footer/index.astro'
+import Header from '@/components/Header/index.astro'
+import type { ImageMetadata } from 'astro'
 import Head from './Head.astro'
+import styles from './index.module.css'
 
 export type Props = CollectionEntry<'articles' | 'links' | 'photos'>['data'] & {
   pageTitle?: string

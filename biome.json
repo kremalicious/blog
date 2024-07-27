@@ -1,0 +1,26 @@
+{
+  "extends": ["@kremalicious/config/biome"],
+  "overrides": [
+    {
+      "include": ["*.astro"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["*.test.ts", "*.test.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    }
+  ]
+}

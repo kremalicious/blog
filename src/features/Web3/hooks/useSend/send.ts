@@ -1,8 +1,8 @@
+import { parseEther, parseUnits } from 'viem'
+import type { UseConfigReturnType } from 'wagmi'
 import { sendTransaction, writeContract } from 'wagmi/actions'
 import type { GetToken } from '../useFetchTokens'
-import { parseEther, parseUnits } from 'viem'
 import { abiErc20Transfer } from './abiErc20Transfer'
-import type { UseConfigReturnType } from 'wagmi'
 
 export async function send(
   config: UseConfigReturnType,

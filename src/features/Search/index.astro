@@ -1,5 +1,5 @@
 ---
-import { Search as SearchIcon } from '@images/components'
+import { Search as SearchIcon } from '@/images/components'
 import Search from './Search.tsx'
 ---
 
@@ -10,7 +10,7 @@ import Search from './Search.tsx'
 <Search client:only="react" />
 
 <script>
-  import { isSearchOpen } from '@stores/search'
+  import { isSearchOpen } from '@/stores/search'
   const button = document.querySelector('#search-button')
 
   isSearchOpen.subscribe((value) =>

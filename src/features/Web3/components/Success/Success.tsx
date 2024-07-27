@@ -1,10 +1,11 @@
-import { $isInitSend } from '@features/Web3/stores'
-import styles from './Success.module.css'
+import { $isInitSend } from '@/features/Web3/stores'
 import { useAccount } from 'wagmi'
 import { ExplorerLink } from './ExplorerLink'
+import styles from './Success.module.css'
 
 const title = `You're amazing, thanks!`
-const description = `Your transaction is on its way. You can check the status on`
+const description =
+  'Your transaction is on its way. You can check the status on'
 
 export function Success() {
   const account = useAccount()
@@ -23,6 +24,7 @@ export function Success() {
 
       <footer className={styles.actions}>
         <button
+          type="button"
           onClick={() => $isInitSend.set(false)}
           className="btn btn-primary"
         >

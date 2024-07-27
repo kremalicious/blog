@@ -1,10 +1,12 @@
-import { type ReactElement, useState, useEffect } from 'react'
-import { Map, Marker } from 'pigeon-maps'
+import type { Gps } from '@/lib/exif'
+import { Marker, Map as PigeonMap } from 'pigeon-maps'
+import { type ReactElement, useEffect, useState } from 'react'
 
 const mapbox =
-  (mapboxId: string) => (x: string, y: string, z: string, dpr: number) =>
+  (mapboxId: string) =>
+  (x: number, y: number, z: number, dpr: number | undefined) =>
     `https://api.mapbox.com/styles/v1/mapbox/${mapboxId}/tiles/256/${z}/${x}/${y}${
-      dpr >= 2 ? '@2x' : ''
+      dpr && dpr >= 2 ? '@2x' : ''
     }?access_token=${import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN}`
 
 const providers = {
@@ -14,11 +16,7 @@ const providers = {
 
 type Theme = 'light' | 'dark'
 
-export default function ExifMap({
-  gps
-}: {
-  gps: { latitude: number; longitude: number }
-}): ReactElement {
+export default function ExifMap({ gps }: { gps: Gps }): ReactElement {
   const theme = document?.documentElement?.getAttribute('data-theme') as Theme
 
   const [zoom, setZoom] = useState(12)
@@ -29,6 +27,7 @@ export default function ExifMap({
     setProvider(() => providers[theme])
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: handleThemeChange not needed in deps
   useEffect(() => {
     if (!window) return
 
@@ -41,17 +40,17 @@ export default function ExifMap({
   const { latitude, longitude } = gps
 
   return (
-    <Map
+    <PigeonMap
       center={[latitude, longitude]}
       zoom={zoom}
       height={220}
       dprs={[1, 2]}
       attribution={false}
-      provider={provider as any}
+      provider={provider}
       metaWheelZoom={true}
       metaWheelZoomWarning={'META+wheel to zoom'}
     >
       <Marker anchor={[latitude, longitude]} payload={1} onClick={zoomIn} />
-    </Map>
+    </PigeonMap>
   )
 }

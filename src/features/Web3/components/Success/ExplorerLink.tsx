@@ -1,4 +1,4 @@
-import { $txHash } from '@features/Web3/stores'
+import { $txHash } from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
 
 export function ExplorerLink({

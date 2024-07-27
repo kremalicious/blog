@@ -1,10 +1,10 @@
 ---
-// import BackButton from '@components/BackButton.astro'
-import LayoutBase from '@layouts/Base/index.astro'
-import { Web3 } from '@features/Web3'
+import CodeCopy from '@/components/CopyCode.astro'
+import { Web3 } from '@/features/Web3'
+import { Bitcoin, Wallet } from '@/images/components'
+// import BackButton from '@/components/BackButton.astro'
+import LayoutBase from '@/layouts/Base/index.astro'
 import config from '@config/blog.config'
-import { Bitcoin, Wallet } from '@images/components'
-import CodeCopy from '@components/CopyCode.astro'
 ---
 
 <style>
@@ -85,7 +85,7 @@ import CodeCopy from '@components/CopyCode.astro'
 </style>
 
 <script>
-  import { $isInitSend } from '@features/Web3/stores'
+  import { $isInitSend } from '@/features/Web3/stores'
 
   $isInitSend.subscribe((value) => {
     const html = document.querySelector('html')

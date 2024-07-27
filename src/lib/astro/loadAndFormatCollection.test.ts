@@ -1,10 +1,10 @@
-import { test, expect, vi, beforeEach, afterEach, describe } from 'vitest'
 import * as astroContent from 'astro:content'
-import * as exifLib from '@lib/exif'
-import { loadAndFormatCollection } from './loadAndFormatCollection'
+import * as exifLib from '@/lib/exif'
 import getCollectionArticles from '@test/__fixtures__/getCollectionArticles.json'
 import getCollectionLinks from '@test/__fixtures__/getCollectionLinks.json'
 import getCollectionPhotos from '@test/__fixtures__/getCollectionPhotos.json'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import { loadAndFormatCollection } from './loadAndFormatCollection'
 
 let getCollectionSpy: any
 let readOutExifSpy: any

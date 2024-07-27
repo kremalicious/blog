@@ -1,11 +1,11 @@
-import { type ReactElement, useEffect, useState } from 'react'
-import Fuse from 'fuse.js'
+import type { CollectionEntry } from 'astro:content'
+import Input from '@/components/Input'
+import { isSearchOpen } from '@/stores/search'
 import { useStore } from '@nanostores/react'
-import { isSearchOpen } from '@stores/search'
+import Fuse from 'fuse.js'
+import { type ReactElement, useEffect, useState } from 'react'
 import SearchResults from './Results'
 import styles from './Search.module.css'
-import type { CollectionEntry } from 'astro:content'
-import Input from '@components/Input'
 
 export type Post = CollectionEntry<'articles' | 'links' | 'photos'>
 
@@ -37,6 +37,7 @@ export default function Search(): ReactElement {
   // Handle search and set results
   const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: fuse not needed
   useEffect(() => {
     if (!query || query === '' || !fuse) {
       setResults([])
@@ -73,6 +74,7 @@ export default function Search(): ReactElement {
           onClick={toggleSearch}
           title="Close search"
         >
+          {/* biome-ignore lint/a11y/noSvgWithoutTitle: the button has title already */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -42,7 +42,7 @@
 .imageWrapper {
   display: flex;
   justify-content: center;
-  composes: breakout from '@layouts/Base/index.module.css';
+  composes: breakout from '@/layouts/Base/index.module.css';
 }
 
 .image {

@@ -1,7 +1,7 @@
 ---
-import { getImage, type ImgAttributes } from 'astro:assets'
-import styles from './index.module.css'
+import { type ImgAttributes, getImage } from 'astro:assets'
 import type { ImageMetadata, ImageOutputFormat } from 'astro'
+import styles from './index.module.css'
 
 type Props = ImgAttributes & {
   src: ImageMetadata

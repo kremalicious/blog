@@ -1,5 +1,5 @@
 import { type Theme, getDefaultConfig } from '@rainbow-me/rainbowkit'
-import { mainnet, polygon, base, optimism, arbitrum, zora } from 'wagmi/chains'
+import { arbitrum, base, mainnet, optimism, polygon, zora } from 'wagmi/chains'
 
 const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID
 const isProduction = import.meta.env.PROD

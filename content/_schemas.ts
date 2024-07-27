@@ -1,4 +1,4 @@
-import { z, type ImageFunction } from 'astro:content'
+import { type ImageFunction, z } from 'astro:content'
 
 const schemaShared = {
   title: z.string(),

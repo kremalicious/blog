@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, type ReactElement } from 'react'
+import type { InputHTMLAttributes, ReactElement } from 'react'
 import styles from './index.module.css'
 
 export default function Input({

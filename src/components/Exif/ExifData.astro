@@ -1,8 +1,10 @@
 ---
+import type React from 'react'
+
 type Props = {
   title: string
   value: string
-  icon: any
+  icon: React.FunctionComponent
 }
 
 const { title, value, icon } = Astro.props

@@ -1,8 +1,8 @@
-import { test, expect, beforeAll } from 'vitest'
+import { beforeAll, expect, test } from 'vitest'
 
 function resetDocument() {
   globalThis.localStorage = {
-    getItem: () => undefined,
+    getItem: () => null,
     setItem: () => {}
   } as any
 
@@ -63,11 +63,14 @@ test('data-theme attribute is set based on system preference', async () => {
 })
 
 test('data-theme attribute changes on system preference change', async () => {
-  let changeCallback: any = () => {}
+  let changeCallback: ({ matches }: { matches: boolean }) => void = () => {}
   globalThis.window.matchMedia = () =>
     ({
       matches: false,
-      addEventListener: (_: any, callback: any) => {
+      addEventListener: (
+        _: any,
+        callback: ({ matches }: { matches: boolean }) => void
+      ) => {
         changeCallback = callback
       }
     }) as any

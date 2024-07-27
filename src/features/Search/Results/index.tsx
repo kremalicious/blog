@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
 import ReactDOM from 'react-dom'
-import styles from './index.module.css'
-import ResultsEmpty from './Empty'
 import type { Post } from '../Search'
+import ResultsEmpty from './Empty'
+import styles from './index.module.css'
 
 function SearchResultsPure({
   query,

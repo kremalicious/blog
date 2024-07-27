@@ -1,10 +1,11 @@
-import { test, expect, vi } from 'vitest'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { glob } from 'glob'
-import { copyZipFiles } from './move-downloads'
 import { fileURLToPath } from 'node:url'
 import chalk from 'chalk'
+import { glob } from 'glob'
+import type { Ora } from 'ora'
+import { expect, test, vi } from 'vitest'
+import { copyZipFiles } from './move-downloads'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -21,12 +22,13 @@ test('copyZipFiles should copy zip files', async () => {
   globMock.mockReturnValue(['file1.zip', 'file2.zip'])
 
   const mockOra = {
+    text: '',
     start: vi.fn(),
     succeed: vi.fn(),
     fail: vi.fn()
   }
 
-  await copyZipFiles(sourceDir, destDir, mockOra as any)
+  await copyZipFiles(sourceDir, destDir, mockOra as unknown as Ora)
 
   const file1 = await fs.readFile(path.join(destDir, 'file1.zip'), 'utf-8')
   const file2 = await fs.readFile(path.join(destDir, 'file2.zip'), 'utf-8')

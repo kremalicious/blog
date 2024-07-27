@@ -1,6 +1,6 @@
-import { test, expect, vi } from 'vitest'
-import { send } from './send'
+import { expect, test, vi } from 'vitest'
 import * as wagmiActionsMock from '../../../../../test/__mocks__/wagmi/actions'
+import { send } from './send'
 
 test('with undefined params', async () => {
   const result = await send(

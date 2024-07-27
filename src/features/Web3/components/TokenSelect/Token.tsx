@@ -1,9 +1,9 @@
-import { forwardRef, type HTMLAttributes } from 'react'
-import * as Select from '@radix-ui/react-select'
 import { formatCurrency } from '@coingecko/cryptoformat'
+import * as Select from '@radix-ui/react-select'
+import { type HTMLAttributes, forwardRef } from 'react'
 import './Token.css'
-import { Icon as Check } from '@images/components/react/Check'
-import type { GetToken } from '@features/Web3/hooks/useFetchTokens'
+import type { GetToken } from '@/features/Web3/hooks/useFetchTokens'
+import { Icon as Check } from '@/images/components/react/Check'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
   token: GetToken | undefined
@@ -28,7 +28,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
 
     // const hasBalanceAndValue =
     //   balance && parseInt(balance) !== 0 && valueInUsd >= 1
-    const hasBalance = balance && parseInt(balance) !== 0
+    const hasBalance = balance && Number.parseInt(balance) !== 0
 
     return hasBalance ? (
       <Select.Item
@@ -46,6 +46,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
                 width="32"
                 height="32"
                 className="TokenLogoImage"
+                alt={token?.symbol?.substring(0, 3)}
               />
             ) : (
               token?.symbol?.substring(0, 3)
@@ -55,6 +56,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
               width="20"
               height="20"
               className="TokenChainLogo"
+              alt="Chain"
             />
           </span>
         </Select.ItemText>

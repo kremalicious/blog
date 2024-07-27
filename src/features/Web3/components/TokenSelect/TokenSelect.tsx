@@ -1,15 +1,15 @@
 import * as Select from '@radix-ui/react-select'
 import './TokenSelect.css'
-import { Token } from './Token'
-import { Icon as ChevronDown } from '@images/components/react/ChevronDown'
-import { Icon as ChevronsDown } from '@images/components/react/ChevronsDown'
-import { Icon as ChevronsUp } from '@images/components/react/ChevronsUp'
-import { useFetchTokens } from '@features/Web3/hooks/useFetchTokens'
+import { Loader } from '@/components/Loader'
+import { useFetchTokens } from '@/features/Web3/hooks/useFetchTokens'
+import { $selectedToken } from '@/features/Web3/stores'
+import { Icon as ChevronDown } from '@/images/components/react/ChevronDown'
+import { Icon as ChevronsDown } from '@/images/components/react/ChevronsDown'
+import { Icon as ChevronsUp } from '@/images/components/react/ChevronsUp'
 import { useStore } from '@nanostores/react'
-import { $selectedToken } from '@features/Web3/stores'
-import { Loader } from '@components/Loader'
-import { useAccount } from 'wagmi'
 import { useEffect } from 'react'
+import { useAccount } from 'wagmi'
+import { Token } from './Token'
 
 export function TokenSelect() {
   const { address } = useAccount()
@@ -29,6 +29,7 @@ export function TokenSelect() {
 
   // Auto-select native token
   // when no selection was made yet
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (selectedToken?.address || !tokens || !tokens?.length) return
 

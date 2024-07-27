@@ -1,11 +1,11 @@
-import { unified } from 'unified'
+import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
+import { unified } from 'unified'
+import type { Processor } from 'unified'
 import { VFile } from 'vfile'
-import { test, expect, beforeAll } from 'vitest'
-import { remarkLeadParagraph, type MyFile } from '.'
-import { type Processor } from 'unified'
+import { beforeAll, expect, test } from 'vitest'
+import { type MyFile, remarkLeadParagraph } from '.'
 
 let processor: Processor<any, any, any, any, string>
 

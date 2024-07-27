@@ -1,5 +1,6 @@
-import { it, describe, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { getRepo } from '.'
+import type { Repo } from './types'
 
 describe('getRepo Function', () => {
   const mockResponseData = {
@@ -18,7 +19,7 @@ describe('getRepo Function', () => {
             id: 'mockObjectID',
             text: 'Mock changelog content'
           }
-        }
+        } as Repo
       }
     }
   }
@@ -54,7 +55,6 @@ describe('getRepo Function', () => {
       .mockImplementation(() => undefined)
 
     const originalFetch = window.fetch
-
     ;(window as any).fetch = async () => ({
       json: async () => ({ errors: ['Mock error message'] })
     })

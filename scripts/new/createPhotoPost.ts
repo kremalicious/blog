@@ -1,9 +1,9 @@
-import { existsSync, mkdirSync, readFileSync, promises as fs } from 'node:fs'
-import { slugify } from '../../src/lib/slugify/slugify.js'
-import { readOutExif } from '../../src/lib/exif/readOutExif.js'
+import { promises as fs, existsSync, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Ora } from 'ora'
+import { readOutExif } from '../../src/lib/exif/readOutExif.js'
+import { slugify } from '../../src/lib/slugify/slugify.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const templatePathPhoto = path.join(__dirname, 'new-photo.md')
@@ -14,10 +14,10 @@ export async function createPhotoPost(
   photo: string,
   photoTitle?: string
 ) {
-  let title
-  let titleSlug
-  let date
-  let postPhotoFile
+  let title: string | undefined
+  let titleSlug: string
+  let date: string
+  let postPhotoFile = ''
 
   try {
     const templatePhoto = readFileSync(templatePathPhoto).toString()
@@ -25,7 +25,7 @@ export async function createPhotoPost(
     if (!exifData) throw new Error('No exif data found in image')
     const { iptc, exif } = exifData
 
-    title = iptc?.object_name || iptc?.title || photoTitle
+    title = iptc?.object_name || iptc?.caption || photoTitle
     if (!title)
       throw new Error(
         'No title given. Add to IPTC, or use the format `npm run new photo path/to/photo.jpg "Title of post"'
@@ -36,7 +36,7 @@ export async function createPhotoPost(
     date = new Date(exif?.date).toISOString()
     const dateShort = date.slice(0, 10)
     const description = iptc?.caption
-    const keywords = (iptc?.keywords as string[])?.join(`\n  - `)
+    const keywords = (iptc?.keywords as string[])?.join('\n  - ')
     const folderName = `${dateShort}-${titleSlug}`
     const destination = `${dest}/${folderName}`
     postPhotoFile = `${destination}/index.md`
@@ -68,7 +68,7 @@ export async function createPhotoPost(
     spinner.succeed(
       `New photo post '${title}' under '${postPhotoFile}' created.`
     )
-  } catch (error: any) {
+  } catch (error: unknown) {
     spinner.fail((error as Error).message)
   }
 

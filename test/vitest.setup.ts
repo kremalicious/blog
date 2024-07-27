@@ -1,13 +1,13 @@
-import { vi, afterEach } from 'vitest'
 import { cleanup } from '@testing-library/react'
+import { afterEach, vi } from 'vitest'
+import balanceMock from './__fixtures__/balance.json'
+import * as rainbowkitMock from './__mocks__/@rainbow-me/rainbowkit'
 import * as wagmiMock from './__mocks__/wagmi'
 import * as wagmiActionsMock from './__mocks__/wagmi/actions'
-import * as rainbowkitMock from './__mocks__/@rainbow-me/rainbowkit'
-import balanceMock from './__fixtures__/balance.json'
 import '@testing-library/jest-dom'
 
 // viem uses TextEncoder and TextDecoder which are not available with jsdom 16+
-import { TextEncoder, TextDecoder } from 'node:util'
+import { TextDecoder, TextEncoder } from 'node:util'
 Object.assign(global, { TextDecoder, TextEncoder })
 
 Object.defineProperty(window, 'localStorage', {
@@ -22,11 +22,11 @@ Object.defineProperty(window, 'localStorage', {
 vi.mock('wagmi', () => wagmiMock)
 vi.mock('wagmi/actions', () => wagmiActionsMock)
 vi.mock('@rainbow-me/rainbowkit', () => rainbowkitMock)
-vi.mock('@features/Web3/hooks/useFetchTokens', () => ({
+vi.mock('@/features/Web3/hooks/useFetchTokens', () => ({
   useFetchTokens: () => ({ isLoading: false, data: balanceMock })
 }))
 
-// vi.mock('@features/Web3/stores', () => ({
+// vi.mock('@/features/Web3/stores', () => ({
 //   $selectedToken: balanceMock[0],
 //   $amount: '1'
 // }))
