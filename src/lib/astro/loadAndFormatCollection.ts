@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { type CollectionEntry, getCollection } from 'astro:content'
+import { readOutExif } from '@/lib/exif'
 import config from '@config/blog.config'
-import { readOutExif } from '@lib/exif'
 import { getSlug } from './getSlug'
 import { sortPosts } from './sortPosts'
 

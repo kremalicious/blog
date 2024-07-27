@@ -1,10 +1,10 @@
-import Input from '@components/Input'
+import Input from '@/components/Input'
 import {
   $amount,
   $isInitSend,
   $selectedToken,
   $setAmount
-} from '@features/Web3/stores'
+} from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useState } from 'react'
 import { Conversion } from '../Conversion'

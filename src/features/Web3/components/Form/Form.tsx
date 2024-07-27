@@ -1,10 +1,10 @@
-import siteConfig from '@config/blog.config'
 import {
   $amount,
   $isInitSend,
   $selectedToken,
   $setAmount
-} from '@features/Web3/stores'
+} from '@/features/Web3/stores'
+import siteConfig from '@config/blog.config'
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'

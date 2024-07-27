@@ -1,4 +1,4 @@
-import { Icon as LoaderIcon } from '@images/components/react/Loader'
+import { Icon as LoaderIcon } from '@/images/components/react/Loader'
 import styles from './Loader.module.css'
 
 export function Loader() {

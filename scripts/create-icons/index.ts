@@ -25,24 +25,26 @@ const distDir = ps.resolve(currentDir, 'src/images/components')
 // Data related to each icon exported by this package.
 const icons = []
 
-export async function generateIcons(distDir: string) {
+export async function generateIcons(_distDir: string) {
   const spinner = ora(
     `${chalk.bold('[create-icons]')} Create icon components`
   ).start()
 
+  const dist = _distDir || distDir
+
   // clean the distribution directory
-  await fs.rm(distDir, { force: true, recursive: true })
-  await fs.mkdir(distDir, { recursive: true })
-  await fs.mkdir(`${distDir}/react`, { recursive: true })
+  await fs.rm(dist, { force: true, recursive: true })
+  await fs.mkdir(dist, { recursive: true })
+  await fs.mkdir(`${dist}/react`, { recursive: true })
 
   // copy the attribute typings file
   await fs.copyFile(
     ps.resolve(currentDir, 'scripts/create-icons/Props.d.ts'),
-    ps.resolve(distDir, 'Props.d.ts')
+    ps.resolve(dist, 'Props.d.ts')
   )
   await fs.copyFile(
     ps.resolve(currentDir, 'scripts/create-icons/Props.d.ts'),
-    ps.resolve(`${distDir}/react`, 'Props.d.ts')
+    ps.resolve(`${dist}/react`, 'Props.d.ts')
   )
 
   // convert the SVG files into Astro & React components
@@ -86,14 +88,14 @@ export async function generateIcons(distDir: string) {
 
       // write the astro component to a file
       await fs.writeFile(
-        ps.resolve(distDir, `${baseName}.astro`),
+        ps.resolve(dist, `${baseName}.astro`),
         toAstroComponent(innerSVG, title),
         'utf8'
       )
 
       // write the react component to a file
       await fs.writeFile(
-        ps.resolve(`${distDir}/react`, `${baseName}.tsx`),
+        ps.resolve(`${dist}/react`, `${baseName}.tsx`),
         toReactComponent(innerSVG, title),
         'utf8'
       )
@@ -109,11 +111,11 @@ export async function generateIcons(distDir: string) {
   }
 
   // write the main Astro entry `index.ts` file
-  await fs.writeFile(ps.resolve(distDir, 'index.ts'), contentOfIndexJS, 'utf8')
+  await fs.writeFile(ps.resolve(dist, 'index.ts'), contentOfIndexJS, 'utf8')
 
   // write the main React entry `react/index.ts` file
   await fs.writeFile(
-    ps.resolve(`${distDir}/react`, 'index.ts'),
+    ps.resolve(`${dist}/react`, 'index.ts'),
     contentOfIndexReactJS,
     'utf8'
   )
@@ -121,7 +123,7 @@ export async function generateIcons(distDir: string) {
   spinner.succeed(
     `${chalk.bold('[create-icons]')} Generated ${
       icons.length
-    } icons into @images/components.`
+    } icons into @/images/components.`
   )
 }
 

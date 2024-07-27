@@ -22,11 +22,11 @@ Object.defineProperty(window, 'localStorage', {
 vi.mock('wagmi', () => wagmiMock)
 vi.mock('wagmi/actions', () => wagmiActionsMock)
 vi.mock('@rainbow-me/rainbowkit', () => rainbowkitMock)
-vi.mock('@features/Web3/hooks/useFetchTokens', () => ({
+vi.mock('@/features/Web3/hooks/useFetchTokens', () => ({
   useFetchTokens: () => ({ isLoading: false, data: balanceMock })
 }))
 
-// vi.mock('@features/Web3/stores', () => ({
+// vi.mock('@/features/Web3/stores', () => ({
 //   $selectedToken: balanceMock[0],
 //   $amount: '1'
 // }))

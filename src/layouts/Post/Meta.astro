@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import Tag from '@components/Tag.astro'
+import Tag from '@/components/Tag.astro'
+import { slugify } from '@/lib/slugify'
 import config from '@config/blog.config'
-import { slugify } from '@lib/slugify'
 import DateComponent from './Date.astro'
 import styles from './Meta.module.css'
 

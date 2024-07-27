@@ -1,4 +1,4 @@
-import { isSearchOpen } from '@stores/search'
+import { isSearchOpen } from '@/stores/search'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import {
   type MockInstance,

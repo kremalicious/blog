@@ -2,8 +2,8 @@ import { formatCurrency } from '@coingecko/cryptoformat'
 import * as Select from '@radix-ui/react-select'
 import { type HTMLAttributes, forwardRef } from 'react'
 import './Token.css'
-import type { GetToken } from '@features/Web3/hooks/useFetchTokens'
-import { Icon as Check } from '@images/components/react/Check'
+import type { GetToken } from '@/features/Web3/hooks/useFetchTokens'
+import { Icon as Check } from '@/images/components/react/Check'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
   token: GetToken | undefined

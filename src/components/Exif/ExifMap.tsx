@@ -1,4 +1,4 @@
-import type { Gps } from '@lib/exif'
+import type { Gps } from '@/lib/exif'
 import { Marker, Map as PigeonMap } from 'pigeon-maps'
 import { type ReactElement, useEffect, useState } from 'react'
 

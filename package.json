@@ -30,7 +30,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,astro,css,json,md}": ["biome check --write ."],
-    "*.md": ["markdownlint --config '.config/.markdownlint.json'"]
+    "*.md": ["markdownlint --config '.config/markdownlint.json'"]
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",

@@ -1,4 +1,4 @@
-import { $amount, $selectedToken } from '@features/Web3/stores'
+import { $amount, $selectedToken } from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import styles from './Conversion.module.css'

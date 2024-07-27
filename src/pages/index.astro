@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import More from '@components/More.astro'
-import PhotoTeaser from '@components/PhotoTeaser.astro'
-import PostTeaser from '@components/PostTeaser/index.astro'
-import LayoutBase from '@layouts/Base/index.astro'
-import { loadAndFormatCollection } from '@lib/astro'
+import More from '@/components/More.astro'
+import PhotoTeaser from '@/components/PhotoTeaser.astro'
+import PostTeaser from '@/components/PostTeaser/index.astro'
+import LayoutBase from '@/layouts/Base/index.astro'
+import { loadAndFormatCollection } from '@/lib/astro'
 
 const articles = (await loadAndFormatCollection('articles')).slice(
   0,
