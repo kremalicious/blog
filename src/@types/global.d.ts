@@ -3,7 +3,7 @@ interface Window {
     readonly [language: string]: {
       readonly index: lunr.Index
       readonly store: {
-        readonly [key: string]: any
+        readonly [key: string]: unknown
       }
     }
   }

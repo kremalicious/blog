@@ -3,7 +3,7 @@ type Props = {
   name: string
   url: string
   count?: number
-  style?: any
+  style?: string | astroHTML.JSX.CSSProperties | null | undefined
 }
 
 const { name, url, count, style } = Astro.props

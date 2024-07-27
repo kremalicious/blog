@@ -1,9 +1,9 @@
 import { Loader } from '@components/Loader'
+import siteConfig from '@config/blog.config'
 import { useSend } from '@features/Web3/hooks/useSend'
 import { $isInitSend } from '@features/Web3/stores'
 import { useEnsAddress, useEnsName } from 'wagmi'
 import { Data } from './Data'
-import siteConfig from '@config/blog.config'
 import styles from './Preview.module.css'
 
 export function Preview() {
@@ -26,6 +26,7 @@ export function Preview() {
 
       <footer className={styles.actions}>
         <button
+          type="button"
           onClick={async (e) => {
             e?.preventDefault()
             await handleSend()
@@ -36,6 +37,7 @@ export function Preview() {
           {isLoading ? <Loader /> : 'Make it rain'}
         </button>
         <button
+          type="button"
           onClick={() => $isInitSend.set(false)}
           className="link"
           disabled={isLoading}

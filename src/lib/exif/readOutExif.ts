@@ -2,8 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { read } from 'fast-exif'
 import iptc from 'node-iptc'
-import type { Exif, ExifFormatted } from './types.ts'
 import { formatExif } from './format.ts'
+import type { Exif, ExifFormatted, FastExif } from './types.ts'
 
 export async function readOutExif(filePath: string): Promise<Exif | undefined> {
   if (!filePath) return
@@ -12,7 +12,7 @@ export async function readOutExif(filePath: string): Promise<Exif | undefined> {
 
   try {
     // exif
-    const exifData = await read(filePath, true)
+    const exifData = (await read(filePath, true)) as FastExif
     if (!exifData) return
 
     // iptc
@@ -29,7 +29,7 @@ export async function readOutExif(filePath: string): Promise<Exif | undefined> {
     }
 
     return exif
-  } catch (error: any) {
-    console.error(`${imageId}: ${error.message}`)
+  } catch (error: unknown) {
+    console.error(`${imageId}: ${(error as Error).message}`)
   }
 }

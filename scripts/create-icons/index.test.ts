@@ -1,6 +1,6 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import { test } from 'vitest'
-import fs from 'fs/promises'
-import path from 'path'
 import { generateIcons } from './index'
 
 const distDir = path.resolve(__dirname, 'tmp')

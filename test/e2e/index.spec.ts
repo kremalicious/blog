@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test'
 import config from '@config/blog.config'
+import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')

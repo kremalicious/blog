@@ -1,5 +1,5 @@
-import { test, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { expect, test, vi } from 'vitest'
 import { useFetchTokens } from './useFetchTokens'
 
 test('useFetchTokens does not fetch anything when no chain or address are present', async () => {

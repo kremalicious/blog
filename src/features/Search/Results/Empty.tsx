@@ -1,6 +1,6 @@
-import { type ReactElement } from 'react'
-import styles from './Empty.module.css'
+import type { ReactElement } from 'react'
 import type { Post } from '../Search'
+import styles from './Empty.module.css'
 
 const SearchResultsEmpty = ({
   query,

@@ -1,13 +1,13 @@
-import { vi, afterEach } from 'vitest'
 import { cleanup } from '@testing-library/react'
+import { afterEach, vi } from 'vitest'
+import balanceMock from './__fixtures__/balance.json'
+import * as rainbowkitMock from './__mocks__/@rainbow-me/rainbowkit'
 import * as wagmiMock from './__mocks__/wagmi'
 import * as wagmiActionsMock from './__mocks__/wagmi/actions'
-import * as rainbowkitMock from './__mocks__/@rainbow-me/rainbowkit'
-import balanceMock from './__fixtures__/balance.json'
 import '@testing-library/jest-dom'
 
 // viem uses TextEncoder and TextDecoder which are not available with jsdom 16+
-import { TextEncoder, TextDecoder } from 'node:util'
+import { TextDecoder, TextEncoder } from 'node:util'
 Object.assign(global, { TextDecoder, TextEncoder })
 
 Object.defineProperty(window, 'localStorage', {

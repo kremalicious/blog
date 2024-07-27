@@ -1,17 +1,17 @@
+import siteConfig from '@config/blog.config'
+import {
+  $amount,
+  $isInitSend,
+  $selectedToken,
+  $setAmount
+} from '@features/Web3/stores'
+import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
 import { InputGroup } from '../Input'
-import styles from './Form.module.css'
-import { useStore } from '@nanostores/react'
-import {
-  $selectedToken,
-  $isInitSend,
-  $amount,
-  $setAmount
-} from '@features/Web3/stores'
-import siteConfig from '@config/blog.config'
-import { Send } from '../Send'
 import { RainbowKit } from '../RainbowKit/RainbowKit'
+import { Send } from '../Send'
+import styles from './Form.module.css'
 
 export function Web3Form(): ReactElement {
   const { address: account } = useAccount()

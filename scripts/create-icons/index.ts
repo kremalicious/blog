@@ -4,8 +4,8 @@
 //
 import fs from 'node:fs/promises'
 import ps from 'node:path/posix'
-import ora from 'ora'
 import chalk from 'chalk'
+import ora from 'ora'
 import { toInnerSvg } from './svg.ts'
 import { toAstroComponent } from './toAstroComponent.ts'
 import { toReactComponent } from './toReactComponent.ts'

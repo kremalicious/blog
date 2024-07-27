@@ -3,19 +3,16 @@
 //
 import getCoordinates from 'dms2dec'
 import Fraction from 'fraction.js'
-import type { ExifFormatted, FastExif } from './types.ts'
+import type { ExifFormatted, FastExif, Gps, GpsFastExif } from './types.ts'
 
-export function formatGps(gpsData: FastExif['gps']): {
-  latitude: number
-  longitude: number
-} {
+export function formatGps(gpsData: GpsFastExif): Gps {
   const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
 
   const GPSdec = getCoordinates(
-    GPSLatitude as number[],
-    GPSLatitudeRef as string,
-    GPSLongitude as number[],
-    GPSLongitudeRef as string
+    GPSLatitude,
+    GPSLatitudeRef,
+    GPSLongitude,
+    GPSLongitudeRef
   )
 
   const latitude = Number(GPSdec[0])
@@ -25,10 +22,10 @@ export function formatGps(gpsData: FastExif['gps']): {
 }
 
 export function formatExposure(exposureMode: number): string {
-  if (!exposureMode || exposureMode === 0) return `+/- 0 ev`
+  if (!exposureMode || exposureMode === 0) return '+/- 0 ev'
 
-  const exposureShortened = parseFloat(exposureMode.toFixed(2))
-  let exposure
+  const exposureShortened = Number.parseFloat(exposureMode.toFixed(2))
+  let exposure: string
 
   if (exposureMode > 0) {
     exposure = `+ ${exposureShortened} ev`
@@ -64,7 +61,7 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   const shutterspeed = `${n}/${d}s`
 
   // GPS
-  let gps
+  let gps: Gps | undefined
   if (exifData.gps) {
     gps = formatGps(exifData.gps)
   }
@@ -83,7 +80,7 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
     fstop,
     shutterspeed,
     focalLength,
-    lensModel: LensModel,
+    lensModel: LensModel as string,
     exposure,
     gps
   }

@@ -1,7 +1,7 @@
-import { test, expect, afterEach, beforeEach, vi } from 'vitest'
-import { getPostsByTag, getAllTags } from '.'
-import { sortPosts } from './sortPosts'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
+import { getAllTags, getPostsByTag } from '.'
 import * as indexModule from './index'
+import { sortPosts } from './sortPosts'
 
 let getAllPostsSpy: any
 

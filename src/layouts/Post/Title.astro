@@ -1,7 +1,7 @@
 ---
-import Date from './Date.astro'
-import styles from './Title.module.css'
 import { ExternalLink } from '@images/components'
+import DateComponent from './Date.astro'
+import styles from './Title.module.css'
 
 type Props = {
   linkurl?: string
@@ -30,7 +30,7 @@ const linkHostname = linkurl ? new URL(linkurl).hostname : null
   ) : (
     <>
       <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
-      {date && <Date date={date} updated={updated} />}
+      {date && <DateComponent date={date} updated={updated} />}
     </>
   )
 }

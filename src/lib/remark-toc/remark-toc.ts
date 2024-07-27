@@ -1,13 +1,13 @@
+import { toHtml } from 'hast-util-to-html'
+import { toHast } from 'mdast-util-to-hast'
 //
 // Extract headings from markdown and add them as HTML to the frontmatter
 // Similiar to https://github.com/remarkjs/remark-toc
 //
 import { toc } from 'mdast-util-toc'
-import { toHast } from 'mdast-util-to-hast'
-import { toHtml } from 'hast-util-to-html'
-import { type VFile } from 'vfile'
-import { type Transformer } from 'unified'
 import type { Nodes } from 'node_modules/mdast-util-toc/lib'
+import type { Transformer } from 'unified'
+import type { VFile } from 'vfile'
 
 export interface MyFile extends VFile {
   data: {

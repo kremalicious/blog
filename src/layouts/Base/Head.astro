@@ -1,11 +1,11 @@
 ---
 import { getImage } from 'astro:assets'
-import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
 import config from '@config/blog.config'
-import { getUmamiConfig } from '@lib/umami'
 import faviconSrc from '@images/favicon.png'
 import faviconSvgSrc from '@images/favicon.svg'
-import { type Props as IndexProps } from './index.astro'
+import { getUmamiConfig } from '@lib/umami'
+import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
+import type { Props as IndexProps } from './index.astro'
 
 type Props = IndexProps
 
@@ -31,7 +31,7 @@ const imageFinal = `${Astro.site?.origin}${
     : faviconSrc.src
 }`
 
-const imageFinalAlt = image ? `Teaser image for ${title}` : `Logo`
+const imageFinalAlt = image ? `Teaser image for ${title}` : 'Logo'
 
 const schema: SchemaProps = {
   title: titleFinal,

@@ -16,9 +16,7 @@
   background-color: var(--body-background-color);
   padding-bottom: calc(var(--spacer) * 2);
   border-top: 1px solid rgba(255 255 255 / 85%);
-  box-shadow:
-    0 1px 10px rgba(1 85 101 / 10%),
-    0 -1px 4px rgba(1 85 101 / 5%);
+  box-shadow: 0 1px 10px rgba(1 85 101 / 10%), 0 -1px 4px rgba(1 85 101 / 5%);
 
   /* animates the page menu opening/closing */
   transition: 0.2s ease-out;
@@ -32,9 +30,7 @@
 
 [data-theme='dark'] .document {
   border-top-color: rgba(255 255 255 / 5%);
-  box-shadow:
-    0 1px 8px rgba(0 7 8 / 30%),
-    0 -1px 4px rgba(0 21 25 / 80%);
+  box-shadow: 0 1px 8px rgba(0 7 8 / 30%), 0 -1px 4px rgba(0 21 25 / 80%);
 }
 
 @media (min-width: 40rem) and (min-height: 500px) {

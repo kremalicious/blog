@@ -1,25 +1,37 @@
+export type Gps = {
+  latitude: number
+  longitude: number
+}
+
+export type GpsFastExif = {
+  GPSLatitudeRef: string
+  GPSLatitude: number[]
+  GPSLongitudeRef: string
+  GPSLongitude: number[]
+}
+
 export type FastExif = {
   image?: Record<string, unknown> | undefined
   thumbnail?: Record<string, unknown> | undefined
   exif?: Record<string, unknown> | undefined
-  gps?: any | undefined
+  gps?: GpsFastExif | undefined
   interoperability?: Record<string, unknown> | undefined
 }
 
 export type ExifFormatted = {
   date: string
   iso: string
-  model: any
+  model: string
   fstop: string
   shutterspeed: string
   focalLength: string
-  lensModel: any
+  lensModel: string
   exposure: string | undefined
-  gps: { latitude: number; longitude: number } | undefined
+  gps: Gps | undefined
 }
 
 export type Exif = {
   image: string
   exif: ExifFormatted
-  iptc: any
+  iptc: IptcData
 }

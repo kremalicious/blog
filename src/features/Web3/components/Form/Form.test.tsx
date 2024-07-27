@@ -1,5 +1,5 @@
-import { test, expect } from 'vitest'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { expect, test } from 'vitest'
 import { Web3Form } from './Form'
 
 test('Web3Donation component', async () => {

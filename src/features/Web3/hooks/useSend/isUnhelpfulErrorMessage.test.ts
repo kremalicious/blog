@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest'
+import { expect, test } from 'vitest'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
 
 test('returns true for unhelpful error messages', () => {

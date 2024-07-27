@@ -1,11 +1,11 @@
-import { type ReactElement, useEffect, useState } from 'react'
-import Fuse from 'fuse.js'
-import { useStore } from '@nanostores/react'
-import { isSearchOpen } from '@stores/search'
-import SearchResults from './Results'
-import styles from './Search.module.css'
 import type { CollectionEntry } from 'astro:content'
 import Input from '@components/Input'
+import { useStore } from '@nanostores/react'
+import { isSearchOpen } from '@stores/search'
+import Fuse from 'fuse.js'
+import { type ReactElement, useEffect, useState } from 'react'
+import SearchResults from './Results'
+import styles from './Search.module.css'
 
 export type Post = CollectionEntry<'articles' | 'links' | 'photos'>
 
@@ -49,7 +49,7 @@ export default function Search(): ReactElement {
       .slice(0, 6)
 
     setResults(results)
-  }, [query])
+  }, [query, fuse])
 
   // animate closing of search
   async function toggleSearch(): Promise<void> {
@@ -84,6 +84,7 @@ export default function Search(): ReactElement {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
+            <title>Close search</title>
             <path d="M18 6 6 18M6 6l12 12" />
           </svg>
         </button>

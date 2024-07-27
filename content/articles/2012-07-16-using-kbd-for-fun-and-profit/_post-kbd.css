@@ -21,11 +21,7 @@ article kbd {
     rgb(0 0 0 / 0%)
   );
   background-repeat: repeat-x;
-  box-shadow:
-    0 2px 0 #bbb,
-    0 3px 1px #999,
-    0 3px 0 #bbb,
-    inset 0 1px 1px #fff,
+  box-shadow: 0 2px 0 #bbb, 0 3px 1px #999, 0 3px 0 #bbb, inset 0 1px 1px #fff,
     inset 0 -1px 3px #ccc;
 }
 
@@ -40,11 +36,8 @@ article kbd.dark {
     rgb(0 0 0 / 0%)
   );
   background-repeat: no-repeat;
-  box-shadow:
-    0 2px 0 #000,
-    0 3px 1px #999,
-    inset 0 1px 1px #aaa,
-    inset 0 -1px 3px #272727;
+  box-shadow: 0 2px 0 #000, 0 3px 1px #999, inset 0 1px 1px #aaa, inset 0 -1px
+    3px #272727;
 }
 
 article kbd.ios {
@@ -55,10 +48,8 @@ article kbd.ios {
   background-color: #b7b7bc;
   background-image: linear-gradient(to bottom, #efeff0, #b7b7bc);
   background-repeat: repeat-x;
-  box-shadow:
-    0 1px 2px rgb(0 0 0 / 60%),
-    0 2px 3px rgb(0 0 0 / 10%),
-    inset 0 1px 0 #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 60%), 0 2px 3px rgb(0 0 0 / 10%), inset 0
+    1px 0 #fff;
 }
 
 article kbd.android {
@@ -70,24 +61,15 @@ article kbd.android {
   border-radius: 3px;
   background-clip: padding-box;
   background-color: #5e5e5e;
-  box-shadow:
-    0 2px 2px rgb(0 0 0 / 30%),
-    0 1px 0 #444,
-    inset 0 1px 0 #868686;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 30%), 0 1px 0 #444, inset 0 1px 0 #868686;
 }
 
 article kbd.android.dark {
   background: #222;
-  box-shadow:
-    0 2px 2px rgb(0 0 0 / 70%),
-    0 1px 0 #444,
-    inset 0 1px 0 #505050;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 70%), 0 1px 0 #444, inset 0 1px 0 #505050;
 }
 
 article kbd.android.color {
   background: #083c5b;
-  box-shadow:
-    0 2px 2px rgb(0 0 0 / 70%),
-    0 1px 0 #444,
-    inset 0 1px 0 #36647b;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 70%), 0 1px 0 #444, inset 0 1px 0 #36647b;
 }

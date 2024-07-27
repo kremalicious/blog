@@ -4,9 +4,9 @@
 //
 import fs from 'node:fs'
 import path from 'node:path'
-import globby from 'globby'
-import ora, { type Ora } from 'ora'
 import chalk from 'chalk'
+import { globby } from 'globby'
+import ora, { type Ora } from 'ora'
 
 const sourceFolder = './content/articles/'
 const destinationFolder = './public/get/'
@@ -18,7 +18,7 @@ const spinner = ora(
 
 function removeFolderContents(folderPath: string) {
   if (fs.existsSync(folderPath)) {
-    fs.readdirSync(folderPath).forEach((file) => {
+    for (const file of fs.readdirSync(folderPath)) {
       const filePath = path.join(folderPath, file)
       if (fs.lstatSync(filePath).isDirectory()) {
         removeFolderContents(filePath)
@@ -26,7 +26,7 @@ function removeFolderContents(folderPath: string) {
       } else {
         fs.unlinkSync(filePath)
       }
-    })
+    }
   }
 }
 
@@ -46,22 +46,21 @@ export async function copyZipFiles(
   // Find all files recursively in the source folder
   const zipFiles = await globby(filesGlob, { cwd: source })
 
-  zipFiles.forEach((zipFile: string) => {
+  for (const zipFile of zipFiles) {
     const sourcePath = path.join(source, zipFile)
     const destinationPath = path.join(destination, path.basename(zipFile))
 
     try {
       // Copy the file to the destination folder
       fs.copyFileSync(sourcePath, destinationPath)
-    } catch (error: any) {
+    } catch (error: unknown) {
       spinner.fail(
         `${chalk.bold('[move-downloads]')} Error copying ${zipFile}: ${
           (error as Error).message
         }`
       )
-      return
     }
-  })
+  }
 
   spinner.succeed(
     `${chalk.bold('[move-downloads]')} Copied ${

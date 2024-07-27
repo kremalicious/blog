@@ -1,12 +1,22 @@
-import { test, expect, vi, afterEach, beforeEach } from 'vitest'
-import { render, fireEvent, waitFor, screen, act } from '@testing-library/react'
 import { isSearchOpen } from '@stores/search'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  type MockInstance,
+  afterEach,
+  beforeEach,
+  expect,
+  test,
+  vi
+} from 'vitest'
 import Search from './Search'
 
 let portalRoot: HTMLDivElement
 let unsubscribe: () => void
-let fetchSpy: any
-let originalFetch: any
+let fetchSpy: MockInstance<
+  [input: string | Request | URL, init?: RequestInit | undefined],
+  Promise<Response>
+>
+let originalFetch: GlobalFetch['fetch']
 let storeState = false
 
 beforeEach(() => {
@@ -34,7 +44,7 @@ beforeEach(() => {
 afterEach(() => {
   portalRoot.remove()
   unsubscribe()
-  globalThis.fetch = originalFetch
+  ;(globalThis.fetch as GlobalFetch['fetch']) = originalFetch
 })
 
 test('Search component', async () => {

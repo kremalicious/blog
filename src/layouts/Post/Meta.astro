@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { slugify } from '@lib/slugify'
-import config from '@config/blog.config'
 import Tag from '@components/Tag.astro'
+import config from '@config/blog.config'
+import { slugify } from '@lib/slugify'
+import DateComponent from './Date.astro'
 import styles from './Meta.module.css'
-import Date from './Date.astro'
 
 type Props = {
   post: CollectionEntry<'articles' | 'links' | 'photos'>
@@ -22,7 +22,7 @@ const { date, updated, author, tags } = data
     </a>
   </div>
 
-  <Date date={date} updated={updated} />
+  <DateComponent date={date} updated={updated} />
 
   {
     collection === 'photos' && (

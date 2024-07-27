@@ -1,6 +1,6 @@
-import { it, describe, expect } from 'vitest'
-import { formatGps, formatExposure, formatExif } from './format'
+import { describe, expect, it } from 'vitest'
 import type { FastExif } from '.'
+import { formatExif, formatExposure, formatGps } from './format'
 
 describe('Exif formatting functions', () => {
   describe('formatGps', () => {

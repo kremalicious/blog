@@ -177,16 +177,10 @@ npm start
 
 ### 🔮 Linting
 
-ESlint, Prettier, and Stylelint are setup for all linting purposes:
+[Biome](https://biomejs.dev) is setup for all linting and formatting purposes:
 
 ```bash
 npm run lint
-```
-
-To automatically format all code files:
-
-```bash
-npm run format
 ```
 
 ### 🔮 Type Checking

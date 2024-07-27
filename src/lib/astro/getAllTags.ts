@@ -1,5 +1,5 @@
-import { getAllPosts } from './index'
 import { slugifyAll } from '../slugify'
+import { getAllPosts } from './index'
 
 export type AllTags = {
   name: string
@@ -10,8 +10,7 @@ export async function getAllTags(): Promise<AllTags> {
   const allPosts = await getAllPosts()
   const allTagsArray = allPosts
     .filter((post) => post.data.tags)
-    .map((post) => post.data.tags)
-    .flat() as string[]
+    .flatMap((post) => post.data.tags) as string[]
   const allTagsArrayCleaned = slugifyAll(allTagsArray)
 
   // Explicitly define the type of tagCounts

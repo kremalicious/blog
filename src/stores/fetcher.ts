@@ -1,7 +1,7 @@
 import { type Fetcher, nanoquery } from '@nanostores/query'
 
 export const fetcher: Fetcher<unknown> = async (
-  ...args: any[]
+  ...args: unknown[]
 ): Promise<unknown> => {
   const res = await fetch(args.join(''))
   return await res.json()

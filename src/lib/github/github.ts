@@ -1,4 +1,6 @@
-export async function getRepo(name: string): Promise<any> {
+import type { Repo } from './types'
+
+export async function getRepo(name: string): Promise<Repo> {
   // name comes in as user/repo
   const user = name.split('/')[0]
   const repo = name.split('/')[1]

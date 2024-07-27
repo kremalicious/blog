@@ -1,9 +1,9 @@
-import { test, expect, vi, describe, beforeEach, afterEach } from 'vitest'
-import * as loadAndFormatCollectionModule from './loadAndFormatCollection'
-import { getAllPosts } from './getAllPosts'
 import mockArticles from '@test/__fixtures__/getCollectionArticles.json'
 import mockLinks from '@test/__fixtures__/getCollectionLinks.json'
 import mockPhotos from '@test/__fixtures__/getCollectionPhotos.json'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import { getAllPosts } from './getAllPosts'
+import * as loadAndFormatCollectionModule from './loadAndFormatCollection'
 
 let loadAndFormatCollectionSpy: any
 

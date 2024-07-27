@@ -2,7 +2,7 @@ import path from 'node:path'
 
 export function getSlug(filePath: string): string {
   const parsedPath = path.parse(filePath)
-  let slug
+  let slug: string
 
   // construct slug as full path from either file or folder name,
   if (parsedPath.base === 'index.md') {

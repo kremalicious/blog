@@ -1,4 +1,4 @@
-import { type CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 import { getAllPosts } from './getAllPosts'
 
 // helps to reduce DOM size
