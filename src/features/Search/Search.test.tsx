@@ -12,10 +12,7 @@ import Search from './Search'
 
 let portalRoot: HTMLDivElement
 let unsubscribe: () => void
-let fetchSpy: MockInstance<
-  [input: string | Request | URL, init?: RequestInit | undefined],
-  Promise<Response>
->
+let fetchSpy: MockInstance<GlobalFetch['fetch']>
 let originalFetch: GlobalFetch['fetch']
 let storeState = false
 
