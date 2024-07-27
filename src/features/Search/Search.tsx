@@ -37,6 +37,7 @@ export default function Search(): ReactElement {
   // Handle search and set results
   const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: fuse not needed
   useEffect(() => {
     if (!query || query === '' || !fuse) {
       setResults([])
@@ -49,7 +50,7 @@ export default function Search(): ReactElement {
       .slice(0, 6)
 
     setResults(results)
-  }, [query, fuse])
+  }, [query])
 
   // animate closing of search
   async function toggleSearch(): Promise<void> {
@@ -73,6 +74,7 @@ export default function Search(): ReactElement {
           onClick={toggleSearch}
           title="Close search"
         >
+          {/* biome-ignore lint/a11y/noSvgWithoutTitle: the button has title already */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -84,7 +86,6 @@ export default function Search(): ReactElement {
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <title>Close search</title>
             <path d="M18 6 6 18M6 6l12 12" />
           </svg>
         </button>
