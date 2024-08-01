@@ -33,7 +33,7 @@
     "*.md": ["markdownlint --config '.config/markdownlint.json'"]
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.3",
+    "@astrojs/check": "^0.9.1",
     "@astrojs/react": "^3.6.0",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
