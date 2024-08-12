@@ -152,6 +152,12 @@ redirect_from:
 ---
 ```
 
+Alternatively, you can use a string instead of a list for a single redirect:
+
+```yaml
+redirect_from: /old-url
+```
+
 ## Check out & contribute
 
 Head over to GitHub to take a peek into the code, or to report some bugs.
