@@ -78,7 +78,7 @@
     "globby": "^14.0.2",
     "hast-util-to-html": "^9.0.1",
     "husky": "^9.1.4",
-    "jsdom": "^24.1.1",
+    "jsdom": "^25.0.0",
     "markdownlint-cli": "^0.41.0",
     "mdast-util-to-hast": "^13.2.0",
     "mdast-util-to-string": "^4.0.0",
