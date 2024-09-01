@@ -61,7 +61,7 @@
     "sharp": "^0.33.4",
     "slugify": "^1.6.6",
     "swr": "^2.2.5",
-    "viem": "^2.19.4",
+    "viem": "^2.21.1",
     "wagmi": "^2.12.5"
   },
   "devDependencies": {
