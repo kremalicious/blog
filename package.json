@@ -62,7 +62,7 @@
     "slugify": "^1.6.6",
     "swr": "^2.2.5",
     "viem": "^2.19.4",
-    "wagmi": "^2.12.5"
+    "wagmi": "^2.12.8"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
