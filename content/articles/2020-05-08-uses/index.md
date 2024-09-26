@@ -1,6 +1,6 @@
 ---
 date: 2020-05-10T21:51:12Z
-updated: 2023-09-11T00:25:12+00:00
+updated: 2024-09-26T18:41:12+00:00
 
 title: /uses
 image: ./uses-teaser.png
@@ -27,8 +27,9 @@ My office is where my MacBook is, all these devices go wherever I travel to:
 
 - **[MacBook Air M2 (13-inch, 2022)](https://www.apple.com/macbook-air-13-and-15-m2/)**  
   _Midnight, M2 with 8-core CPU and 10-core GPU, 16 GB RAM, 1TB SSD, US International keyboard_
-- **[iPhone 14](https://www.apple.com/iphone-14/)**  
-  _Midnight, 128GB_
+
+- **[iPhone 16 Pro](https://www.apple.com/iphone-16-pro/)**  
+  _Black Titanium, 256GB_
 
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**
 
@@ -51,12 +52,12 @@ Additionally, using the following devices in my homebase, those only leave my de
 - **[Satechi Slim X1 Bluetooth Backlit Keyboard](https://satechi.net/products/slim-x1-bluetooth-backlit-keyboard)**  
   _US, Space Gray_
 
-- **[Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/)**  
-  _4GB RAM_
+- **[Raspberry Pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/)**  
+  _8GB RAM_
 
 ## Software
 
-It's [macOS](https://www.apple.com/macos/) & [iOS](https://www.apple.com/ios/) & [iPadOS](https://www.apple.com/ipados/) & [watchOS](https://www.apple.com/watchos/) all around. The majority of my work is done on macOS. My main web and development server is a droplet on [DigitalOcean](https://m.do.co/c/9882a054acf6) running [Ubuntu](https://ubuntu.com), allowing me to work from the iPad, among other things.
+It's [macOS](https://www.apple.com/macos/) & [iOS](https://www.apple.com/ios/) & [iPadOS](https://www.apple.com/ipados/) & [watchOS](https://www.apple.com/watchos/) all around. The majority of my work is done on macOS.
 
 I keep it simple and use most of the default Apple apps across devices for all basic computing needs: **Mail**, **Calendar**, **Notes**, **Reminders**, **Contacts**, **Messages**, **Photos**, **Music**. Most of the additional apps I use have versions for macOS & iOS.
 
@@ -86,14 +87,15 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **[1Blocker](https://1blocker.com)**  
   My content blocker of choice for Safari so I rarely see any ad tech bullshit even outside of my network without Pi-Hole. Fast, effective, and completely unobtrusive on every device.
 
-- **[Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)**  
-  My secondary browser on macOS mainly used for development and debugging. Running with those extensions:
+- **[Thorium](https://thorium.rocks)**  
+  My secondary browser on macOS mainly used for all things crypto, development and debugging. Sadly Firefox stopped support for connecting hardware wallets so had to switch to a browser based on Chromium. Running with those extensions:
 
   - [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
-  - [MetaMask](https://metamask.io): my browser wallet for all Web3 and Dapp testing.
-  - [Privacy Badger](https://privacybadger.org/): I wish Safari content blockers could also be used in Firefox but Privacy Badger from EFF does a good job too.
+  - Switching between [Zerion](https://zerion.io) & [Rainbow](https://rainbow.me) as daily drivers for web3 stuff.
+  - [MetaMask](https://metamask.io): the wallet for Dapp testing.
+  - [uBlock Origin](https://ublockorigin.com): I wish Safari content blockers could also be used in other browsers but uBlock Origin does a good job too.
 
-- Test browsers: **Chrome**, **Edge**, **Brave**, **Opera**
+- Test browsers: **Firefox**, **Chrome**, **Edge**, **Brave**, **Opera**
 
 ### Development
 
@@ -199,9 +201,6 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **Music**  
   Used iTunes to manage my music library since I use a Mac. Digitalized my CD library in Apple Lossless into it in the 2000s, first synced to mobile devices (iPod, then iPhone) via cable, then "synced" with iTunes Match without any cables. Now this library is running with Music, in a mix with Apple Music. This library with the lossless files is living on a network drive in my home network and is accessed from there when sitting at a Mac.
 
-- **[iTunes Match](https://support.apple.com/en-us/HT204146)**  
-  Yup, still using that. I try to buy music I like from the artist in a lossless format and store it in my Music library, and iTunes Match gives me access to its version from the Apple Music catalogue on all mobile devices.
-
 - **[Apple Music](https://www.apple.com/apple-music/)**  
   Used for discovering new music and its excellent playlist curation.
 
@@ -219,7 +218,7 @@ I live with **automatic dark mode** where all my devices and apps have a light t
 - **[Signal](https://www.signal.org)**  
   In an ideal world everybody would use this so all our private messaging is not controlled by some single, closed-source entity with varying degrees of ad tech evilness.
 
-- **[Slack](https://slack.com)**  
+- **[Discord](https://discord.com)**  
   The main work communication tool, mostly used on macOS. Loved and hated in equal parts.
 
 ### Writing
@@ -251,13 +250,6 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 - **[Books](https://www.apple.com/apple-books/)**  
   I prefer buying ePub files directly from book authors which then end up in Books. Pretty much all my technical books live here and are synced via iCloud.
 
-### Social Media
-
-- **Twitter: [Twitterific](https://twitterrific.com/ios/)**  
-  Using it since the first macOS version, now primarily used on the iPhone and the only way I interact with Twitter.
-
-- **Reddit: [Apollo](https://apolloapp.io)**
-
 ### Health & Fitness
 
 - **[Health](https://www.apple.com/ios/health/)** & **[Fitness](https://www.apple.com/watch/close-your-rings/)**  
@@ -281,8 +273,6 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 
 - I host my **[blog](https://kremalicious.com)** (which also includes my photo stream) and **[portfolio](https://matthiaskretschmann.com)** on **[AWS S3](https://aws.amazon.com/s3/)**, with **[Cloudflare](https://www.cloudflare.com)** in front of it.
 
-- I run my own **web and development server**, a droplet on **[DigitalOcean](https://m.do.co/c/9882a054acf6)**, running **[Nginx](https://nginx.org)**.
-
 - I run my own **analytics server** with **[Umami](https://umami.is)**.
 
 - I run my own **Git repository hosting** with **[Gitea](https://gitea.com)** for private projects, and for automatically mirroring every GitHub repository I touch into it. A VPS running within **[Amazon Lightsail](https://aws.amazon.com/lightsail/)**.
@@ -291,4 +281,4 @@ Except within Notes.app, everything I write is composed as [GitHub Flavored Mark
 
 - I run multiple **[Tor](https://www.torproject.org)** exit relays, VPS distributed between **[Scaleway](https://www.scaleway.com)** & **[OVH](https://www.ovh.com)**.
 
-- For every other serverless and JAMstack need I prefer **[Vercel](https://vercel.com)**.
+- For every other serverless and JAMstack need I prefer **[Vercel](https://vercel.com)** for its simplicity.
