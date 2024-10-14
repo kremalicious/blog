@@ -44,7 +44,7 @@
     "@radix-ui/react-select": "^2.1.1",
     "@rainbow-me/rainbowkit": "^2.1.4",
     "@tanstack/react-query": "^5.51.23",
-    "astro": "4.13.3",
+    "astro": "4.16.3",
     "astro-expressive-code": "^0.35.6",
     "astro-redirect-from": "^1.2.0",
     "date-fns": "^3.6.0",
