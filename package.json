@@ -42,7 +42,7 @@
     "@nanostores/query": "^0.3.4",
     "@nanostores/react": "^0.7.3",
     "@radix-ui/react-select": "^2.1.1",
-    "@rainbow-me/rainbowkit": "^2.1.4",
+    "@rainbow-me/rainbowkit": "^2.2.0",
     "@tanstack/react-query": "^5.51.23",
     "astro": "4.13.3",
     "astro-expressive-code": "^0.35.6",
