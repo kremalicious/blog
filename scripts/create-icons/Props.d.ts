@@ -275,6 +275,7 @@ export type AriaRole =
   | 'treeitem'
   | (string & object)
 
+// biome-ignore lint/style/useNamingConvention: external spec
 export interface HTMLAttributes extends AriaAttributes {
   accesskey?: string
   autocapitalize?: string

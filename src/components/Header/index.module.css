@@ -26,7 +26,7 @@
 
 .title {
   display: block;
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  /* biome-ignore lint/a11y/useGenericFontNames: hack */
   font: 0 / 0 a;
   color: transparent;
   text-shadow: none;

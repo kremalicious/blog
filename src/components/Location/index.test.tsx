@@ -14,13 +14,16 @@ import Location from '.'
 const mockData = {
   now: {
     country: 'USA',
+    // biome-ignore lint/style/useNamingConvention: external spec
     country_code: 'US',
     city: 'New York'
   },
   next: {
     country: 'Canada',
+    // biome-ignore lint/style/useNamingConvention: external spec
     country_code: 'CA',
     city: 'Toronto',
+    // biome-ignore lint/style/useNamingConvention: external spec
     date_start: '2023-10-05'
   }
 }

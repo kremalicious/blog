@@ -4,9 +4,13 @@ export type Gps = {
 }
 
 export type GpsFastExif = {
+  // biome-ignore lint/style/useNamingConvention: external library
   GPSLatitudeRef: string
+  // biome-ignore lint/style/useNamingConvention: external library
   GPSLatitude: number[]
+  // biome-ignore lint/style/useNamingConvention: external library
   GPSLongitudeRef: string
+  // biome-ignore lint/style/useNamingConvention: external library
   GPSLongitude: number[]
 }
 

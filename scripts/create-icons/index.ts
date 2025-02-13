@@ -48,8 +48,8 @@ export async function generateIcons(_distDir: string) {
   )
 
   // convert the SVG files into Astro & React components
-  let contentOfIndexJS = '// @ts-nocheck\n'
-  let contentOfIndexReactJS = '// @ts-nocheck\n'
+  let contentOfIndexJs = '// @ts-nocheck\n'
+  let contentOfIndexReactJs = '// @ts-nocheck\n'
 
   for (const src of srcDirs) {
     for (let filepath of await fs.readdir(src, { encoding: 'utf8' })) {
@@ -63,7 +63,7 @@ export async function generateIcons(_distDir: string) {
       filepath = ps.resolve(src, filepath)
 
       // Inner contents of the SVG file.
-      const innerSVG = toInnerSvg(await fs.readFile(filepath, 'utf8'))
+      const innerSvg = toInnerSvg(await fs.readFile(filepath, 'utf8'))
 
       // Formatted title.
       const title = name
@@ -89,34 +89,34 @@ export async function generateIcons(_distDir: string) {
       // write the astro component to a file
       await fs.writeFile(
         ps.resolve(dist, `${baseName}.astro`),
-        toAstroComponent(innerSVG, title),
+        toAstroComponent(innerSvg, title),
         'utf8'
       )
 
       // write the react component to a file
       await fs.writeFile(
         ps.resolve(`${dist}/react`, `${baseName}.tsx`),
-        toReactComponent(innerSVG, title),
+        toReactComponent(innerSvg, title),
         'utf8'
       )
 
       // add the astro component export to the main entry `index.ts` file
-      contentOfIndexJS += `\nexport { default as ${baseName} } from './${baseName}.astro'`
+      contentOfIndexJs += `\nexport { default as ${baseName} } from './${baseName}.astro'`
 
       // add the react component export to the main entry `react/index.ts` file
-      contentOfIndexReactJS += `\nexport { Icon as ${baseName} }  from './${baseName}.tsx'`
+      contentOfIndexReactJs += `\nexport { Icon as ${baseName} }  from './${baseName}.tsx'`
 
       icons.push({ name, baseName, title })
     }
   }
 
   // write the main Astro entry `index.ts` file
-  await fs.writeFile(ps.resolve(dist, 'index.ts'), contentOfIndexJS, 'utf8')
+  await fs.writeFile(ps.resolve(dist, 'index.ts'), contentOfIndexJs, 'utf8')
 
   // write the main React entry `react/index.ts` file
   await fs.writeFile(
     ps.resolve(`${dist}/react`, 'index.ts'),
-    contentOfIndexReactJS,
+    contentOfIndexReactJs,
     'utf8'
   )
 

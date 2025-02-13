@@ -25,7 +25,7 @@ export async function getAllPostsForSearch() {
         data: {
           title: post.data.title,
           tags: post.data.tags,
-          lead: post.body.substring(0, 200),
+          lead: post.body?.substring(0, 200),
           image: imageSrc
         }
       }

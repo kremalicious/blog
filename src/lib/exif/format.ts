@@ -8,15 +8,15 @@ import type { ExifFormatted, FastExif, Gps, GpsFastExif } from './types.ts'
 export function formatGps(gpsData: GpsFastExif): Gps {
   const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
 
-  const GPSdec = getCoordinates(
+  const gpSdec = getCoordinates(
     GPSLatitude,
     GPSLatitudeRef,
     GPSLongitude,
     GPSLongitudeRef
   )
 
-  const latitude = Number(GPSdec[0])
-  const longitude = Number(GPSdec[1])
+  const latitude = Number(gpSdec[0])
+  const longitude = Number(gpSdec[1])
 
   return { latitude, longitude }
 }
@@ -39,6 +39,7 @@ export function formatExposure(exposureMode: number): string {
 export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   if (!exifData?.exif) return
 
+  // biome-ignore lint/style/useNamingConvention: external library
   const { Model: model } = exifData.image as { Model: string }
   const {
     ISO,

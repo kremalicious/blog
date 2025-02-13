@@ -13,6 +13,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'github' : 'list',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // biome-ignore lint/style/useNamingConvention: external library
     baseURL: 'http://localhost:4321',
     trace: 'on-first-retry'
   },

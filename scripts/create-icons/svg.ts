@@ -1,7 +1,7 @@
-import { optimize as optimizeSVGNative } from 'svgo'
+import { optimize as optimizeSvgNative } from 'svgo'
 
 export const toInnerSvg = (input: string) =>
-  optimizeSVGNative(input, {
+  optimizeSvgNative(input, {
     plugins: [
       'removeDoctype',
       'removeXMLProcInst',

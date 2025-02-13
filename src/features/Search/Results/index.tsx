@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import ReactDOM from 'react-dom'
+import { createPortal } from 'react-dom'
 import type { Post } from '../Search'
 import ResultsEmpty from './Empty'
 import styles from './index.module.css'
@@ -42,7 +42,7 @@ export default function SearchResults({
 }): ReactElement {
   // creating portal to break out of DOM node we're in
   // and render the results in content container
-  return ReactDOM.createPortal(
+  return createPortal(
     <SearchResultsPure results={results} query={query} />,
     document.querySelector('#document') as Element
   )

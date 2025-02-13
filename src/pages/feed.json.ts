@@ -22,8 +22,11 @@ export async function GET(context: AstroConfig) {
       id: post.id,
       url: `${context.site}${post.slug}`,
       title: post.data.title,
+      // biome-ignore lint/style/useNamingConvention: external spec
       date_published: post.data.date as Date,
+      // biome-ignore lint/style/useNamingConvention: external spec
       ...(post.data.updated && { date_modified: post.data.updated as Date }),
+      // biome-ignore lint/style/useNamingConvention: external spec
       content_html: await getFeedContent(post)
     }))
   )
@@ -33,7 +36,9 @@ export async function GET(context: AstroConfig) {
       version: 'https://jsonfeed.org/version/1.1',
       title: siteTitle,
       description: siteDescription,
+      // biome-ignore lint/style/useNamingConvention: external spec
       home_page_url: context.site,
+      // biome-ignore lint/style/useNamingConvention: external spec
       feed_url: `${context.site}feed.json`,
       favicon: `${context.site}${favicon}`,
       icon: `${context.site}${faviconSrc.src}`,

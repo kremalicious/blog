@@ -1,60 +1,60 @@
 ---
-import { getImage } from 'astro:assets'
-import faviconSrc from '@/images/favicon.png'
-import faviconSvgSrc from '@/images/favicon.svg'
-import { getUmamiConfig } from '@/lib/umami'
-import config from '@config/blog.config'
-import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
-import type { Props as IndexProps } from './index.astro'
+import { getImage } from "astro:assets";
+import faviconSrc from "@/images/favicon.png";
+import faviconSvgSrc from "@/images/favicon.svg";
+import { getUmamiConfig } from "@/lib/umami";
+import config from "@config/blog.config";
+import SchemaOrg, { type Props as SchemaProps } from "./SchemaOrg.astro";
+import type { Props as IndexProps } from "./index.astro";
 
-type Props = IndexProps
+type Props = IndexProps;
 
-const { title, description, style, image, date, updated } = Astro.props
+const { title, description, style, image, date, updated } = Astro.props;
 
 const titleFinal =
-  title && title !== ''
+  title && title !== ""
     ? `${title} ¦ ${config.siteTitle}`
-    : `${config.siteTitle} ¦ ${config.siteDescription}`
+    : `${config.siteTitle} ¦ ${config.siteDescription}`;
 
 const descriptionFinal = description
   ? description.slice(0, 160)
-  : config.siteDescription
+  : config.siteDescription;
 
-const canonicalURL =
-  Astro.url.pathname === '/'
+const canonicalUrl =
+  Astro.url.pathname === "/"
     ? Astro.site?.origin
-    : `${Astro.site?.origin}${Astro.url.pathname}`
+    : `${Astro.site?.origin}${Astro.url.pathname}`;
 
 const imageFinal = `${Astro.site?.origin}${
   image
-    ? (await getImage({ src: image, width: 800, format: 'jpg' })).src
+    ? (await getImage({ src: image, width: 800, format: "jpg" })).src
     : faviconSrc.src
-}`
+}`;
 
-const imageFinalAlt = image ? `Teaser image for ${title}` : 'Logo'
+const imageFinalAlt = image ? `Teaser image for ${title}` : "Logo";
 
 const schema: SchemaProps = {
   title: titleFinal,
-  url: canonicalURL as string,
+  url: canonicalUrl as string,
   image: imageFinal,
   description: descriptionFinal,
   ...(date && { datePublished: date.toISOString().substring(0, 10) }),
-  ...(updated && { dateModified: updated.toISOString().substring(0, 10) })
-}
+  ...(updated && { dateModified: updated.toISOString().substring(0, 10) }),
+};
 
-const isProduction = import.meta.env.PROD
+const isProduction = import.meta.env.PROD;
 const shouldIncludeAnalytics =
-  isProduction && Astro.url.hostname === 'kremalicious.com'
-const typekitID = import.meta.env.PUBLIC_TYPEKIT_ID
-const { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } = getUmamiConfig()
+  isProduction && Astro.url.hostname === "kremalicious.com";
+const typekitId = import.meta.env.PUBLIC_TYPEKIT_ID;
+const { scriptUrl, websiteId } = getUmamiConfig();
 
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   width: 180,
   height: 180,
-  format: 'png'
-})
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
+  format: "png",
+});
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: "svg" });
 ---
 
 <head>
@@ -68,12 +68,12 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
   <title>{titleFinal}</title>
 
-  <link rel="canonical" href={canonicalURL} />
+  <link rel="canonical" href={canonicalUrl} />
   <meta name="description" content={descriptionFinal} />
   <meta property="og:title" content={titleFinal} />
   <meta property="og:image" content={imageFinal} />
   <meta property="og:image:alt" content={imageFinalAlt} />
-  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:url" content={canonicalUrl} />
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="theme-color" content="" />
@@ -103,17 +103,17 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   {
-    typekitID && (
+    typekitId && (
       <>
         <link
           rel="preload"
           as="style"
-          href={`https://use.typekit.net/${typekitID}.css`}
+          href={`https://use.typekit.net/${typekitId}.css`}
         />
         <link rel="preconnect" href="https://p.typekit.net" />
         <link
           rel="stylesheet"
-          href={`https://use.typekit.net/${typekitID}.css`}
+          href={`https://use.typekit.net/${typekitId}.css`}
         />
       </>
     )
@@ -129,13 +129,8 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   {
     shouldIncludeAnalytics && (
       <>
-        <link rel="preconnect" href={UMAMI_SCRIPT_URL} />
-        <script
-          async
-          src={UMAMI_SCRIPT_URL}
-          data-website-id={UMAMI_WEBSITE_ID}
-          is:inline
-        />
+        <link rel="preconnect" href={scriptUrl} />
+        <script async src={scriptUrl} data-website-id={websiteId} is:inline />
       </>
     )
   }

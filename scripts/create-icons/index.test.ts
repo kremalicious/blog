@@ -12,14 +12,14 @@ test('should generate Astro & React components from SVG files', async () => {
   // Assert: Check if the distribution directory exists
   try {
     await fs.stat(distDir)
-  } catch (err) {
+  } catch (_err) {
     throw new Error(`Distribution directory does not exist: ${distDir}`)
   }
 
   // Assert: Check if Props.d.ts exists
   try {
     await fs.stat(path.join(distDir, 'Props.d.ts'))
-  } catch (err) {
+  } catch (_err) {
     throw new Error('Props.d.ts does not exist')
   }
 
@@ -28,7 +28,7 @@ test('should generate Astro & React components from SVG files', async () => {
   const exampleComponentPathReact = path.join(distDir, 'react', 'Bitcoin.tsx')
   try {
     await fs.stat(exampleComponentPathAstro)
-  } catch (err) {
+  } catch (_err) {
     throw new Error(
       `Example Astro component does not exist: ${exampleComponentPathAstro}`
     )
@@ -36,7 +36,7 @@ test('should generate Astro & React components from SVG files', async () => {
 
   try {
     await fs.stat(exampleComponentPathReact)
-  } catch (err) {
+  } catch (_err) {
     throw new Error(
       `Example React component does not exist: ${exampleComponentPathReact}`
     )

@@ -10,10 +10,12 @@ import {
 } from 'vitest'
 import Search from './Search'
 
+type GlobalFetch = typeof globalThis.fetch
+
 let portalRoot: HTMLDivElement
 let unsubscribe: () => void
-let fetchSpy: MockInstance<GlobalFetch['fetch']>
-let originalFetch: GlobalFetch['fetch']
+let fetchSpy: MockInstance<GlobalFetch>
+let originalFetch: GlobalFetch
 let storeState = false
 
 beforeEach(() => {
@@ -28,11 +30,12 @@ beforeEach(() => {
 
   // Mock fetch API
   originalFetch = globalThis.fetch
+  // @ts-ignore
   globalThis.fetch = async () => {
     return {
       json: () =>
         Promise.resolve([{ data: { title: 'Test Post' }, slug: 'test-post' }])
-    } as Response
+    }
   }
 
   fetchSpy = vi.spyOn(globalThis, 'fetch')
@@ -41,7 +44,7 @@ beforeEach(() => {
 afterEach(() => {
   portalRoot.remove()
   unsubscribe()
-  ;(globalThis.fetch as GlobalFetch['fetch']) = originalFetch
+  ;(globalThis.fetch as GlobalFetch) = originalFetch
 })
 
 test('Search component', async () => {

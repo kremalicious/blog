@@ -1,4 +1,4 @@
-export const toAstroComponent = (innerSVG: string, title: string) => `---
+export const toAstroComponent = (innerSvg: string, title: string) => `---
 import type { Props } from './Props.d.ts';
 export type { Props };
 
@@ -36,4 +36,4 @@ height = toAttributeSize(height)
   display: inline-block;
 }
 </style>
-<svg width={width} height={height} {...props} class="icon">{title ? (<title>{title}</title>) : ''}${innerSVG}</svg>`
+<svg width={width} height={height} {...props} class="icon">{title ? (<title>{title}</title>) : ''}${innerSvg}</svg>`

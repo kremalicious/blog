@@ -12,7 +12,14 @@
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "exclude": ["src/images/components/**/*", "src/content"],
+  "exclude": [
+    "src/content",
+    "node_modules",
+    "dist/",
+    ".astro/",
+    "coverage/",
+    "test-results/"
+  ],
   "include": [
     "src/**/*",
     "content/**/*",

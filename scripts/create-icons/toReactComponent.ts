@@ -1,4 +1,4 @@
-export const toReactComponent = (innerSVG: string, title: string) => `
+export const toReactComponent = (innerSvg: string, title: string) => `
 import type { Props } from './Props.d.ts';
 
 export function Icon(props: Props) {
@@ -30,6 +30,6 @@ export function Icon(props: Props) {
     verticalAlign: 'baseline'
   }
 
-  return <svg width={width} height={height} fill="none" viewBox="0 0 24 24" {...props} style={style as any}>{title ? (<title>{title}</title>) : ''}${innerSVG}</svg>
+  return <svg width={width} height={height} fill="none" viewBox="0 0 24 24" {...props} style={style as any}>{title ? (<title>{title}</title>) : ''}${innerSvg}</svg>
 }
 `

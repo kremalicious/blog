@@ -1,26 +1,25 @@
 ---
-import LayoutPost from '@/layouts/Post/index.astro'
-import { getAllPosts } from '@/lib/astro'
-import type { InferGetStaticPropsType } from 'astro'
+import LayoutPost from "@/layouts/Post/index.astro";
+import { getAllPosts } from "@/lib/astro";
+import type { InferGetStaticPropsType } from "astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPosts()
+  const allPosts = await getAllPosts();
 
   return allPosts.map((entry) => {
-    if (!entry?.slug) {
-      throw new Error('Missing `slug` field in entry', entry)
-    }
+    if (!entry?.slug) throw new Error("Missing `slug` field in entry");
+
     return {
       params: { slug: entry.slug },
-      props: { entry }
-    }
-  })
+      props: { entry },
+    };
+  });
 }
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { entry } = Astro.props
-const { Content, remarkPluginFrontmatter } = await entry.render()
+const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await entry.render();
 ---
 
 <LayoutPost

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import useSWR, { type SWRResponse } from 'swr'
+import useSwr, { type SWRResponse } from 'swr'
 import { useAccount, useChains } from 'wagmi'
 import type { GetToken } from './types'
 
@@ -13,7 +13,7 @@ export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
   const { address } = useAccount()
   const chains = useChains()
   const [url, setUrl] = useState<string | undefined>()
-  const fetchResults = useSWR<GetToken[] | undefined>(url, fetcher)
+  const fetchResults = useSwr<GetToken[] | undefined>(url, fetcher)
 
   // Set url only after we have all data loaded on client,
   // preventing initial fetch.

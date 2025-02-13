@@ -25,10 +25,13 @@ export const GET: APIRoute = async () => {
   const manifest = {
     name: config.siteTitle,
     description: config.siteDescription,
+    // biome-ignore lint/style/useNamingConvention: external spec
     start_url: '/',
     display: 'standalone',
     id: `${config.siteTitle}-blog`,
+    // biome-ignore lint/style/useNamingConvention: external spec
     theme_color: '#e7eef4',
+    // biome-ignore lint/style/useNamingConvention: external spec
     background_color: '#e7eef4',
     icons
   }

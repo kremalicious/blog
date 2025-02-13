@@ -8,8 +8,8 @@ export async function getRepo(name: string): Promise<Repo> {
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`
+      'content-type': 'application/json',
+      authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`
     },
     body: JSON.stringify({
       query: CHANGELOG_QUERY,
