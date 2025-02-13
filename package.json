@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "npm run prebuild && astro dev --config '.config/astro.config.ts'",
+    "dev": "npm run prebuild && astro dev --config '.config/astro.config.ts'",
     "build": "astro build --config '.config/astro.config.ts'",
     "preview": "astro preview",
     "typecheck:astro": "astro check",
