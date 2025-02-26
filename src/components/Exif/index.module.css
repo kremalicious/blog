@@ -12,8 +12,10 @@
 }
 
 .data span {
-  display: block;
+  display: flex;
   flex: 1 1 auto;
+  align-items: center;
+  flex-direction: column;
   white-space: nowrap;
   padding: var(--spacer) calc(var(--spacer) / 1.5);
   border-bottom: 1px dashed var(--border-color);
@@ -25,13 +27,8 @@
   opacity: 0.65;
 }
 
-.data span:first-child {
-  flex-basis: 100%;
-}
-
 @media (min-width: 40rem) {
   .data {
-    margin-bottom: 0;
     font-size: var(--font-size-small);
   }
 
@@ -39,24 +36,12 @@
     border-left: 1px dashed var(--border-color);
     border-bottom: 0;
   }
-
-  .data span:first-child {
-    flex-basis: auto;
-    border-left: 0;
-  }
 }
 
 .map {
   composes: breakout from '@/layouts/Base/index.module.css';
   composes: frame from '@/components/Picture/index.module.css';
   height: 220px;
-  margin-top: calc(var(--spacer) * 2);
-}
-
-@media (min-width: 40rem) {
-  .map {
-    margin-top: 0;
-  }
 }
 
 .map img {
