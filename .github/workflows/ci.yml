@@ -68,7 +68,7 @@ jobs:
       - run: npm ci
       - run: npm run test:unit
       - uses: actions/upload-artifact@v4
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '20'
+        if: matrix.os == 'ubuntu-latest' && matrix.node == '22'
         with:
           name: coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage/
@@ -113,10 +113,10 @@ jobs:
       - run: npm ci
       - run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
       - name: Zip artifact for deployment
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '22'
         run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v4
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '20'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '22'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
           path: dist.zip
@@ -129,7 +129,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-ubuntu-latest-20
+          name: coverage-ubuntu-latest-22
       - uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
@@ -143,7 +143,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: dist-ubuntu-latest-20
+          name: dist-ubuntu-latest-22
       - name: unzip artifact
         run: unzip dist.zip
       - name: Deploy to S3
