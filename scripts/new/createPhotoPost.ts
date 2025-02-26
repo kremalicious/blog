@@ -24,8 +24,8 @@ export async function createPhotoPost(
     const exifData = await readOutExif(photo)
     if (!exifData) throw new Error('No exif data found in image')
     const { iptc, exif } = exifData
-
     title = iptc?.object_name || iptc?.caption || photoTitle
+    console.log(title)
     if (!title)
       throw new Error(
         'No title given. Add to IPTC, or use the format `npm run new photo path/to/photo.jpg "Title of post"'

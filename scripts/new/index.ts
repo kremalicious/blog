@@ -18,6 +18,7 @@ const isPhoto = process.argv[2] === 'photo'
 if (isPhoto) {
   const photo = process.argv[3]
   const photoTitle = process.argv[4]
+  console.log(photoTitle)
   createPhotoPost(photosPath, spinner, photo, photoTitle)
 } else {
   const title = process.argv[2]
