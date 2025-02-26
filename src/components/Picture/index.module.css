@@ -31,7 +31,7 @@ a:focus .frame {
 }
 
 .imageTitle {
-  font-size: var(--font-size-h3);
+  font-size: var(--font-size-base);
   font-family: var(--font-family-headings);
   line-height: var(--line-height-headings);
   font-weight: var(--font-weight-headings);
@@ -40,7 +40,7 @@ a:focus .frame {
   margin: 0;
   position: absolute;
   top: 10%;
-  padding: calc(var(--spacer) / 3) var(--spacer);
+  padding: calc(var(--spacer) / 3);
   background: var(--link-color);
   color: #fff !important;
   text-shadow: 0 1px 0 #000;
