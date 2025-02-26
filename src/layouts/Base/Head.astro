@@ -1,37 +1,37 @@
 ---
-import { getImage } from "astro:assets";
-import faviconSrc from "@/images/favicon.png";
-import faviconSvgSrc from "@/images/favicon.svg";
-import { getUmamiConfig } from "@/lib/umami";
-import config from "@config/blog.config";
-import SchemaOrg, { type Props as SchemaProps } from "./SchemaOrg.astro";
-import type { Props as IndexProps } from "./index.astro";
+import { getImage } from 'astro:assets'
+import faviconSrc from '@/images/favicon.png'
+import faviconSvgSrc from '@/images/favicon.svg'
+import { getUmamiConfig } from '@/lib/umami'
+import config from '@config/blog.config'
+import SchemaOrg, { type Props as SchemaProps } from './SchemaOrg.astro'
+import type { Props as IndexProps } from './index.astro'
 
-type Props = IndexProps;
+type Props = IndexProps
 
-const { title, description, style, image, date, updated } = Astro.props;
+const { title, description, style, image, date, updated } = Astro.props
 
 const titleFinal =
-  title && title !== ""
+  title && title !== ''
     ? `${title} ¦ ${config.siteTitle}`
-    : `${config.siteTitle} ¦ ${config.siteDescription}`;
+    : `${config.siteTitle} ¦ ${config.siteDescription}`
 
 const descriptionFinal = description
   ? description.slice(0, 160)
-  : config.siteDescription;
+  : config.siteDescription
 
 const canonicalUrl =
-  Astro.url.pathname === "/"
+  Astro.url.pathname === '/'
     ? Astro.site?.origin
-    : `${Astro.site?.origin}${Astro.url.pathname}`;
+    : `${Astro.site?.origin}${Astro.url.pathname}`
 
 const imageFinal = `${Astro.site?.origin}${
   image
-    ? (await getImage({ src: image, width: 800, format: "jpg" })).src
+    ? (await getImage({ src: image, width: 800, format: 'jpg' })).src
     : faviconSrc.src
-}`;
+}`
 
-const imageFinalAlt = image ? `Teaser image for ${title}` : "Logo";
+const imageFinalAlt = image ? `Teaser image for ${title}` : 'Logo'
 
 const schema: SchemaProps = {
   title: titleFinal,
@@ -39,22 +39,22 @@ const schema: SchemaProps = {
   image: imageFinal,
   description: descriptionFinal,
   ...(date && { datePublished: date.toISOString().substring(0, 10) }),
-  ...(updated && { dateModified: updated.toISOString().substring(0, 10) }),
-};
+  ...(updated && { dateModified: updated.toISOString().substring(0, 10) })
+}
 
-const isProduction = import.meta.env.PROD;
+const isProduction = import.meta.env.PROD
 const shouldIncludeAnalytics =
-  isProduction && Astro.url.hostname === "kremalicious.com";
-const typekitId = import.meta.env.PUBLIC_TYPEKIT_ID;
-const { scriptUrl, websiteId } = getUmamiConfig();
+  isProduction && Astro.url.hostname === 'kremalicious.com'
+const typekitId = import.meta.env.PUBLIC_TYPEKIT_ID
+const { scriptUrl, websiteId } = getUmamiConfig()
 
 const appleTouchIcon = await getImage({
   src: faviconSrc,
   width: 180,
   height: 180,
-  format: "png",
-});
-const faviconSvg = await getImage({ src: faviconSvgSrc, format: "svg" });
+  format: 'png'
+})
+const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 ---
 
 <head>
