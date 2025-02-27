@@ -6,7 +6,7 @@ import PostMeta from '@/components/PostMeta/index.astro'
 import RelatedPosts from '@/components/RelatedPosts/index.astro'
 import Title from '@/components/Title/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
-import styles from '../Post/index.module.css'
+import stylesPost from '../Post/index.module.css'
 
 type Props = CollectionEntry<'links'> & {
   leadRaw?: string // comes in through remark plugin as plain text
@@ -18,7 +18,7 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
 ---
 
 <LayoutBase {...data} description={leadRaw}>
-  <article class={styles.entry}>
+  <article class={stylesPost.entry}>
     <header>
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />
     </header>

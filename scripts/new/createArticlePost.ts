@@ -37,9 +37,7 @@ export async function createArticlePost(
       .join(date)
 
     // Create the destination folder if it doesn't exist
-    if (!existsSync(destination)) {
-      mkdirSync(destination, { recursive: true })
-    }
+    if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
 
     // create post file
     await fs.appendFile(file, newContents)

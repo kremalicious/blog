@@ -85,15 +85,15 @@ import config from '@config/blog.config'
 </style>
 
 <script>
-  import { $isInitSend } from '@/features/Web3/stores'
+  import { $isInitSend } from "@/features/Web3/stores";
 
   $isInitSend.subscribe((value) => {
-    const html = document.querySelector('html')
+    const html = document.querySelector("html");
 
     value
-      ? html?.classList.add('isInitSend')
-      : html?.classList.remove('isInitSend')
-  })
+      ? html?.classList.add("isInitSend")
+      : html?.classList.remove("isInitSend");
+  });
 </script>
 
 <LayoutBase title="Say Thanks" pageTitle="Say Thanks">

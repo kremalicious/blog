@@ -6,7 +6,7 @@ import PostMeta from '@/components/PostMeta/index.astro'
 import Title from '@/components/Title/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
 import type { Exif as ExifType } from '@/lib/exif'
-import styles from '../Post/index.module.css'
+import stylesPost from '../Post/index.module.css'
 
 type Props = CollectionEntry<'photos'> & {
   lead?: string // comes in through remark plugin as html
@@ -19,16 +19,16 @@ const { image, exif } = data as CollectionEntry<'photos'>['data']
 ---
 
 <LayoutBase {...data} description={leadRaw}>
-  <article class={styles.entry}>
+  <article class={stylesPost.entry}>
     <header>
       <Title title={title} date={date} updated={updated} />
     </header>
 
     <slot />
 
-    <div class={styles.imageWrapper}>
+    <div class={stylesPost.imageWrapper}>
       <Picture
-        class={styles.image}
+        class={stylesPost.image}
         width={1028}
         height={460}
         src={image}

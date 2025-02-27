@@ -7,8 +7,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "npm run prebuild && astro dev --config '.config/astro.config.ts'",
-    "build": "astro build --config '.config/astro.config.ts'",
+    "dev": "npm run prebuild && astro dev --config 'config/astro.config.ts'",
+    "build": "astro build --config 'config/astro.config.ts'",
     "preview": "astro preview",
     "typecheck:astro": "astro check",
     "typecheck:tsc": "tsc --noEmit --pretty",
@@ -17,7 +17,7 @@
     "test:unit": "vitest run --config './test/vitest.config.ts' --coverage",
     "test:unit:watch": "vitest watch --config './test/vitest.config.ts' --coverage",
     "test:e2e": "playwright test --config './test/playwright.config.ts'",
-    "lint:md": "markdownlint --config '.config/markdownlint.json' --ignore-path .gitignore --dot './**/*.{md,markdown}'",
+    "lint:md": "markdownlint --config 'config/markdownlint.json' --ignore-path .gitignore --dot './**/*.{md,markdown}'",
     "lint:biome": "biome check .",
     "lint": "run-p --silent lint:biome lint:md",
     "format": "biome check --write .",
@@ -27,7 +27,7 @@
     "create:redirects": "tsx scripts/redirect-from.ts",
     "create:symlinks": "./scripts/create-symlinks.sh",
     "move:downloads": "tsx scripts/move-downloads.ts",
-    "prepare": "husky .config/husky"
+    "prepare": "husky config/husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

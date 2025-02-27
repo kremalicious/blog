@@ -21,19 +21,19 @@ const { menu } = config
 </nav>
 
 <script>
-  let menuOpen = false
-  const hamburger = document.querySelector('#menu-button')
-  const menu = document.querySelector('[aria-label="Pages"]')
+  let menuOpen = false;
+  const hamburger = document.querySelector("#menu-button");
+  const menu = document.querySelector('[aria-label="Pages"]');
 
-  hamburger?.addEventListener('click', () => {
-    menuOpen = !menuOpen
+  hamburger?.addEventListener("click", () => {
+    menuOpen = !menuOpen;
 
     if (menuOpen) {
-      document.body.classList.add('has-menu-open')
-      menu?.removeAttribute('aria-hidden')
+      document.body.classList.add("has-menu-open");
+      menu?.removeAttribute("aria-hidden");
     } else {
-      document.body.classList.remove('has-menu-open')
-      menu?.setAttribute('aria-hidden', 'true')
+      document.body.classList.remove("has-menu-open");
+      menu?.setAttribute("aria-hidden", "true");
     }
-  })
+  });
 </script>

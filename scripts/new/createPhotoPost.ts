@@ -24,8 +24,7 @@ export async function createPhotoPost(
     const exifData = await readOutExif(photo)
     if (!exifData) throw new Error('No exif data found in image')
     const { iptc, exif } = exifData
-    title = iptc?.object_name || iptc?.caption || photoTitle
-    console.log(title)
+    title = iptc?.object_name || photoTitle
     if (!title)
       throw new Error(
         'No title given. Add to IPTC, or use the format `npm run new photo path/to/photo.jpg "Title of post"'
@@ -56,9 +55,7 @@ export async function createPhotoPost(
       .join(keywords)
 
     // Create the destination folder if it doesn't exist
-    if (!existsSync(destination)) {
-      mkdirSync(destination, { recursive: true })
-    }
+    if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
 
     // copy photo file in place
     await fs.copyFile(photo, `${destination}/${folderName}.jpg`)

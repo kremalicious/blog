@@ -28,7 +28,7 @@ export default getViteConfig({
         '**/*.spec.*',
         '**/test/**/*',
         '**/*.astro',
-        '**/.config',
+        '**/config',
         'src/images/components',
         'src/pages',
         '**/content',

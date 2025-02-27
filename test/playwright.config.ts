@@ -48,7 +48,6 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
   webServer: {
     command: 'npm run dev',
     url: 'http://localhost:4321',
