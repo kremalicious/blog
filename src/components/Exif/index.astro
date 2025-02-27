@@ -16,8 +16,9 @@ type Props = {
   exif: Exif
 }
 
-const { model, focalLength, fstop, shutterspeed, exposure, iso, gps } =
-  Astro.props.exif.exif
+const exif = Astro.props.exif?.exif
+if (!exif) return null
+const { model, focalLength, fstop, shutterspeed, exposure, iso, gps } = exif
 ---
 
 <aside class={styles.exif}>
