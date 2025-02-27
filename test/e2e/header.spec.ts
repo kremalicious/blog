@@ -42,7 +42,7 @@ test('search ui is working', async ({ page }) => {
   const emptyMessage = 'Awaiting your input fellow web wanderer'
 
   // Mock the api call before search
-  await page.route('*/**/api/posts', async (route) => {
+  await page.route('*/**/api/posts/', async (route) => {
     const json = [
       { data: { title: 'MomCorp Wallpaper' }, slug: 'momcorp-wallpaper' }
     ]
