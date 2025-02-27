@@ -17,10 +17,11 @@ const { name, url, count, style } = Astro.props
     margin-bottom: calc(var(--spacer) / 2);
     white-space: nowrap;
     display: inline-block;
+    text-decoration: none !important;
   }
 
   .tag::before {
-    content: '#';
+    content: "#";
     margin-right: 1px;
     opacity: 0.65;
   }

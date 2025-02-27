@@ -29,7 +29,7 @@ export default function Search(): ReactElement {
   useEffect(() => {
     if (!$isSearchOpen) return
 
-    fetch('/api/posts')
+    fetch('/api/posts/')
       .then((res) => res.json())
       .then((json) => setAllPosts(json))
   }, [$isSearchOpen])

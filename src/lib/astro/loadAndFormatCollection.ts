@@ -14,7 +14,9 @@ import { sortPosts } from './sortPosts'
 export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
 ): Promise<CollectionEntry<'articles' | 'links' | 'photos'>[]> {
-  let postsCollection = await getCollection(name)
+  let postsCollection = (await getCollection(name)) as CollectionEntry<
+    'articles' | 'links' | 'photos'
+  >[]
 
   // filter out drafts, but only in production
   if (import.meta.env.PROD) {

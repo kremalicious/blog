@@ -36,6 +36,10 @@
     border-left: 1px dashed var(--border-color);
     border-bottom: 0;
   }
+
+  .data span:last-child {
+    border-right: 1px dashed var(--border-color);
+  }
 }
 
 .map {

@@ -1,43 +1,33 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import Changelog from '@/components/Changelog/index.astro'
-import Exif from '@/components/Exif/index.astro'
 import Picture from '@/components/Picture/index.astro'
+import PostActions from '@/components/PostActions/index.astro'
+import PostMeta from '@/components/PostMeta/index.astro'
 import RelatedPosts from '@/components/RelatedPosts/index.astro'
+import Title from '@/components/Title/index.astro'
 import Toc from '@/components/Toc.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
-import type { Exif as ExifType } from '@/lib/exif'
-import Actions from './Actions.astro'
-import LinkActions from './LinkActions.astro'
-import Meta from './Meta.astro'
-import Title from './Title.astro'
 import styles from './index.module.css'
 
-type Props = CollectionEntry<'articles' | 'links' | 'photos'> & {
+type Props = CollectionEntry<'articles'> & {
   lead?: string // comes in through remark plugin as html
   leadRaw?: string // comes in through remark plugin as plain text
   tableOfContents?: string // comes in through remark plugin as html
 }
 
-const { data, collection, lead, leadRaw, tableOfContents, slug } = Astro.props
+const { data, lead, leadRaw, tableOfContents } = Astro.props
 const { title, date, updated, toc, githubLink, changelog } = data
-const { image, exif } = data as CollectionEntry<'photos'>['data']
-const { linkurl } = data as CollectionEntry<'links'>['data']
+const { image } = data as CollectionEntry<'articles'>['data']
 ---
 
 <LayoutBase {...data} description={leadRaw}>
   <article class={styles.entry}>
     <header>
-      <Title linkurl={linkurl} title={title} date={date} updated={updated} />
+      <Title title={title} date={date} updated={updated} />
     </header>
 
-    {
-      collection === 'articles' && lead ? (
-        <div class={styles.lead} set:html={lead} />
-      ) : collection === 'photos' ? (
-        <slot />
-      ) : null
-    }
+    <div class={styles.lead} set:html={lead} />
 
     {
       image && (
@@ -53,20 +43,16 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
       )
     }
 
-    {collection === 'photos' && exif && <Exif exif={exif as ExifType} />}
-
     {toc && tableOfContents && <Toc tableOfContents={tableOfContents} />}
 
-    {collection !== 'photos' && <slot />}
+    <slot />
 
     {changelog && <Changelog repo={changelog} />}
 
-    {collection === 'links' && <LinkActions slug={slug} linkurl={linkurl} />}
+    <PostMeta post={Astro.props} />
 
-    <Meta post={Astro.props} />
+    <PostActions githubLink={githubLink as string} />
 
-    {collection !== 'photos' && <Actions githubLink={githubLink as string} />}
-
-    <RelatedPosts isPhotos={collection === 'photos'} post={Astro.props} />
+    <RelatedPosts post={Astro.props} />
   </article>
 </LayoutBase>

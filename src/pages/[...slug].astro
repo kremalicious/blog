@@ -1,7 +1,9 @@
 ---
+import { render } from 'astro:content'
+import LayoutLink from '@/layouts/Link/index.astro'
+import LayoutPhoto from '@/layouts/Photo/index.astro'
 import LayoutPost from '@/layouts/Post/index.astro'
 import { getAllPosts } from '@/lib/astro'
-import type { InferGetStaticPropsType } from 'astro'
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()
@@ -16,17 +18,24 @@ export async function getStaticPaths() {
   })
 }
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
-
 const { entry } = Astro.props
-const { Content, remarkPluginFrontmatter } = await entry.render()
+const { Content, remarkPluginFrontmatter } = await render(entry)
+
+const layoutComponents = {
+  articles: LayoutPost,
+  links: LayoutLink,
+  photos: LayoutPhoto
+}
+
+const collection = entry.collection as 'articles' | 'links' | 'photos'
+const Layout = layoutComponents[collection]
 ---
 
-<LayoutPost
+<Layout
   {...entry}
   lead={remarkPluginFrontmatter.lead}
   leadRaw={remarkPluginFrontmatter.leadRaw}
   tableOfContents={remarkPluginFrontmatter.tableOfContents}
 >
   <Content />
-</LayoutPost>
+</Layout>

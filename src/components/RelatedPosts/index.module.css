@@ -33,7 +33,7 @@
 }
 
 .relatedPosts a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .relatedPosts a > div {

@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Exif from '@/components/Exif/index.astro'
+import Picture from '@/components/Picture/index.astro'
+import PostMeta from '@/components/PostMeta/index.astro'
+import Title from '@/components/Title/index.astro'
+import LayoutBase from '@/layouts/Base/index.astro'
+import type { Exif as ExifType } from '@/lib/exif'
+import styles from '../Post/index.module.css'
+
+type Props = CollectionEntry<'photos'> & {
+  lead?: string // comes in through remark plugin as html
+  leadRaw?: string // comes in through remark plugin as plain text
+}
+
+const { data, leadRaw } = Astro.props
+const { title, date, updated } = data
+const { image, exif } = data as CollectionEntry<'photos'>['data']
+---
+
+<LayoutBase {...data} description={leadRaw}>
+  <article class={styles.entry}>
+    <header>
+      <Title title={title} date={date} updated={updated} />
+    </header>
+
+    <slot />
+
+    <div class={styles.imageWrapper}>
+      <Picture
+        class={styles.image}
+        width={1028}
+        height={460}
+        src={image}
+        alt={title}
+      />
+    </div>
+
+    <Exif exif={exif as ExifType} />
+    <PostMeta post={Astro.props} />
+  </article>
+</LayoutBase>

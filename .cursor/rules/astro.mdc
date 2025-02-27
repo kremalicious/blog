@@ -1,6 +1,7 @@
 ---
 description: Using Astro framework
 globs: 
+alwaysApply: false
 ---
 
 You are an expert with the Astro framework for front-end development.
@@ -60,7 +61,7 @@ You are an expert with the Astro framework for front-end development.
 ## Data Fetching
 - Use Astro.props for passing data to components.
 - Implement getStaticPaths() for fetching data at build time.
-- Use Astro.glob() for working with local files efficiently.
+- Use import.meta.glob() for working with local files efficiently.
 - Implement proper error handling for data fetching operations.
 
 ## SEO and Meta Tags

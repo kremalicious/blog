@@ -1,20 +1,19 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import PhotoTeaser from '@/components/PhotoTeaser.astro'
 import PostTeaser from '@/components/PostTeaser/index.astro'
 import { getAllPostsForSearch } from '@/lib/astro'
 import Fuse from 'fuse.js'
 import styles from './index.module.css'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'photos' | 'links'>
-  isPhotos?: boolean
+  post: CollectionEntry<'articles' | 'links'>
 }
-const { post, isPhotos } = Astro.props as Props
+
+const { post } = Astro.props as Props
 const allPosts = await getAllPostsForSearch()
 const allPostsWithoutCurrent = allPosts?.filter(
   (post) => post.slug !== Astro.props.post.slug
-) as CollectionEntry<'articles' | 'photos' | 'links'>[]
+) as CollectionEntry<'articles' | 'links'>[]
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
@@ -34,20 +33,13 @@ const relatedPosts = fuse
   .slice(0, 6)
 ---
 
-<section class={`${styles.relatedPosts} ${isPhotos ? styles.photos : ''}`}>
+<section class={styles.relatedPosts}>
   <h1 class={styles.title}>Related</h1>
   <ul>
     {
       relatedPosts?.map((post) => (
         <li>
-          {post.collection === 'photos' ? (
-            <PhotoTeaser post={post as CollectionEntry<'photos'>} />
-          ) : (
-            <PostTeaser
-              post={post as CollectionEntry<'articles' | 'links'>}
-              hideDate
-            />
-          )}
+          <PostTeaser post={post} hideDate />
         </li>
       ))
     }

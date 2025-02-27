@@ -33,6 +33,7 @@
   padding: 4px 8px;
   margin: 0;
   display: inline-block;
+  text-decoration: none !important;
 }
 
 .type a:hover,

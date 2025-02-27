@@ -24,23 +24,27 @@ const schemaShared = {
   author: z.string().optional(),
   featured: z.boolean().optional(),
   style: z.string().optional(),
-  toc: z.boolean().optional(),
-  githubLink: z.string().optional(),
-  changelog: z.string().optional(),
-  lead: z.string().optional()
+  githubLink: z.string().optional()
 }
 
 export const schemaArticles = (image: ImageFunction) =>
   z
     .object({
       ...schemaShared,
-      image: image()
-        // .refine((img) => img.width >= 1040, {
-        //   message: 'Cover image must be at least 1040 pixels wide!'
-        // })
-        .optional(),
+      image: image().optional(),
+      lead: z.string().optional(),
+      toc: z.boolean().optional(),
       download: z.string().optional(),
       changelog: z.string().optional()
+    })
+    .strict()
+
+export const schemaPhotos = (image: ImageFunction) =>
+  z
+    .object({
+      ...schemaShared,
+      image: image(),
+      exif: z.object({}).optional()
     })
     .strict()
 
@@ -50,18 +54,6 @@ export const schemaLinks = z
     linkurl: z.string()
   })
   .strict()
-
-export const schemaPhotos = (image: ImageFunction) =>
-  z
-    .object({
-      ...schemaShared,
-      image: image(),
-      // .refine((img) => img.width >= 1040, {
-      //   message: 'Cover image must be at least 1040 pixels wide!'
-      // })
-      exif: z.object({}).optional()
-    })
-    .strict()
 
 // export type ArticleFrontmatter = z.infer<typeof schemaArticles>
 // export type LinkFrontmatter = z.infer<typeof schemaLinks>
