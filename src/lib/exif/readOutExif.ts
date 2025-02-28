@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { read } from 'fast-exif'
-import iptc from 'node-iptc'
+import { IptcParser } from 'ts-node-iptc'
 import { formatExif } from './format.ts'
 import type { Exif, ExifFormatted, FastExif } from './types.ts'
 
@@ -17,7 +17,8 @@ export async function readOutExif(filePath: string): Promise<Exif | undefined> {
 
     // iptc
     const file = fs.readFileSync(filePath)
-    const iptcData = iptc(file)
+    // biome-ignore lint/suspicious/noExplicitAny: needed for compatibility with IptcParser
+    const iptcData = IptcParser.parse(file as any)
 
     // format before output
     const exifDataFormatted = formatExif(exifData)
@@ -30,6 +31,7 @@ export async function readOutExif(filePath: string): Promise<Exif | undefined> {
 
     return exif
   } catch (error: unknown) {
-    console.error(`${imageId}: ${(error as Error).message}`)
+    console.error(`EXIF error for ${imageId}: ${error as Error}`)
+    return undefined
   }
 }

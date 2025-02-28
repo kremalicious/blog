@@ -1,14 +1,18 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import LinkTeaser from '@/components/LinkTeaser/index.astro'
 import Pagination from '@/components/Pagination/index.astro'
 import PhotoTeaser from '@/components/PhotoTeaser.astro'
 import PostTeaser from '@/components/PostTeaser/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
+import type {
+  ArticleEntry,
+  LinkEntry,
+  PhotoEntry
+} from '@config/content.schema'
 import type { Page } from 'astro'
 
 type Props = {
-  page: Page<CollectionEntry<'articles' | 'links' | 'photos'>>
+  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
   title: string
   pageTitle: string
 }
@@ -39,13 +43,13 @@ const classes = `posts ${
   <div class={classes}>
     {
       page?.data?.map((post) =>
-        post.collection === 'photos' ? (
+        post.collection === "photos" ? (
           <PhotoTeaser post={post} />
-        ) : post.collection === 'links' ? (
+        ) : post.collection === "links" ? (
           <LinkTeaser post={post} />
         ) : (
           <PostTeaser post={post} />
-        )
+        ),
       )
     }
   </div>
@@ -55,7 +59,7 @@ const classes = `posts ${
       <Pagination
         currentPage={page.currentPage}
         numPages={page.lastPage}
-        slug={`/${Astro.url.pathname.split('/')[1]}`}
+        slug={`/${Astro.url.pathname.split("/")[1]}`}
       />
     )
   }

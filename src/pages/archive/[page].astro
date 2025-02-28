@@ -2,9 +2,16 @@
 import LayoutArchive from '@/layouts/Archive.astro'
 import { loadAndFormatCollection, sortPosts } from '@/lib/astro'
 import config from '@config/blog.config'
-import type { GetStaticPathsOptions, InferGetStaticPropsType } from 'astro'
+import type {
+  ArticleEntry,
+  LinkEntry,
+  PhotoEntry
+} from '@config/content.schema'
+import type { GetStaticPathsOptions, Page } from 'astro'
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = {
+  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
+}
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await loadAndFormatCollection('articles')

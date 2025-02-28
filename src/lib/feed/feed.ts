@@ -8,7 +8,7 @@ export async function getFeedContent(
 ): Promise<string> {
   const footer =
     '<hr />This post was published on <a href="https://kremalicious.com">kremalicious.com</a>'
-  const content = await markdownToHtml(post.body)
+  const content = await markdownToHtml(post.body as string)
 
   return post?.data?.image
     ? `<img src="${post.data.image?.src}" /><br />${content}${footer}`

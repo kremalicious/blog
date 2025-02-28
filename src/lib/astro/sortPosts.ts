@@ -1,11 +1,8 @@
-import type { CollectionEntry } from 'astro:content'
-
+import type { BlogEntry } from '@config/content.schema'
 //
 // Sort posts by date, newest first
 //
-export function sortPosts(
-  posts: CollectionEntry<'articles' | 'links' | 'photos'>[]
-): CollectionEntry<'articles' | 'links' | 'photos'>[] {
+export function sortPosts(posts: BlogEntry[]): BlogEntry[] {
   return posts.sort(
     (a, b) =>
       Math.floor(new Date(b.data.date as Date)?.getTime() / 1000) -

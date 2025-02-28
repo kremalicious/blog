@@ -1,18 +1,19 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import Picture from '@/components/Picture/index.astro'
 import PostTitle from '@/components/Title/index.astro'
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
+import type { BlogEntry } from '@config/content.schema'
 import styles from './index.module.css'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links'>
+  post: BlogEntry | SearchResultItem
   hideDate?: boolean
 }
 
 const { post, hideDate } = Astro.props
 const { slug } = post
 const { title, date, updated } = post.data
-const { image } = post.data as CollectionEntry<'articles'>['data']
+const image = 'image' in post.data ? post.data.image : undefined
 ---
 
 <a class={styles.post} href={`/${slug}/`}>

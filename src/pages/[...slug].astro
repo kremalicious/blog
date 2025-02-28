@@ -1,8 +1,8 @@
 ---
 import { render } from 'astro:content'
+import LayoutArticle from '@/layouts/Article/index.astro'
 import LayoutLink from '@/layouts/Link/index.astro'
 import LayoutPhoto from '@/layouts/Photo/index.astro'
-import LayoutPost from '@/layouts/Post/index.astro'
 import { getAllPosts } from '@/lib/astro'
 
 export async function getStaticPaths() {
@@ -21,21 +21,37 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content, remarkPluginFrontmatter } = await render(entry)
 
-const layoutComponents = {
-  articles: LayoutPost,
-  links: LayoutLink,
-  photos: LayoutPhoto
-}
-
-const collection = entry.collection as 'articles' | 'links' | 'photos'
-const Layout = layoutComponents[collection]
+// Add the remark plugin frontmatter data
+const lead = remarkPluginFrontmatter.lead || undefined
+const leadRaw = remarkPluginFrontmatter.leadRaw || undefined
+const tableOfContents = remarkPluginFrontmatter.tableOfContents || undefined
 ---
 
-<Layout
-  {...entry}
-  lead={remarkPluginFrontmatter.lead}
-  leadRaw={remarkPluginFrontmatter.leadRaw}
-  tableOfContents={remarkPluginFrontmatter.tableOfContents}
->
-  <Content />
-</Layout>
+{
+  entry.collection === "articles" && (
+    <LayoutArticle
+      {...entry}
+      lead={lead}
+      leadRaw={leadRaw}
+      tableOfContents={tableOfContents}
+    >
+      <Content />
+    </LayoutArticle>
+  )
+}
+
+{
+  entry.collection === "links" && (
+    <LayoutLink {...entry}>
+      <Content />
+    </LayoutLink>
+  )
+}
+
+{
+  entry.collection === "photos" && (
+    <LayoutPhoto {...entry}>
+      <Content />
+    </LayoutPhoto>
+  )
+}

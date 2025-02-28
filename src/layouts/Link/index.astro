@@ -1,24 +1,21 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import LinkActions from '@/components/LinkActions/index.astro'
 import PostActions from '@/components/PostActions/index.astro'
 import PostMeta from '@/components/PostMeta/index.astro'
-import RelatedPosts from '@/components/RelatedPosts/index.astro'
 import Title from '@/components/Title/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
-import stylesPost from '../Post/index.module.css'
+import type { LinkEntry } from '@config/content.schema'
+import stylesArticle from '../Article/index.module.css'
 
-type Props = CollectionEntry<'links'> & {
-  leadRaw?: string // comes in through remark plugin as plain text
-}
+type Props = LinkEntry
 
-const { data, leadRaw, slug } = Astro.props
-const { title, date, updated, githubLink } = data
-const { linkurl } = data as CollectionEntry<'links'>['data']
+const post: Props = Astro.props
+const { data, slug } = post
+const { title, date, updated, githubLink, linkurl } = data
 ---
 
-<LayoutBase {...data} description={leadRaw}>
-  <article class={stylesPost.entry}>
+<LayoutBase {...data}>
+  <article class={stylesArticle.entry}>
     <header>
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />
     </header>
@@ -27,10 +24,8 @@ const { linkurl } = data as CollectionEntry<'links'>['data']
 
     <LinkActions slug={slug} linkurl={linkurl} />
 
-    <PostMeta post={Astro.props} />
+    <PostMeta post={post} />
 
     <PostActions githubLink={githubLink as string} />
-
-    <RelatedPosts post={Astro.props} />
   </article>
 </LayoutBase>

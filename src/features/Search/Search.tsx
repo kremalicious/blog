@@ -1,13 +1,11 @@
-import type { CollectionEntry } from 'astro:content'
 import Input from '@/components/Input'
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import { isSearchOpen } from '@/stores/search'
 import { useStore } from '@nanostores/react'
 import Fuse from 'fuse.js'
 import { type ReactElement, useEffect, useState } from 'react'
 import SearchResults from './Results'
 import styles from './Search.module.css'
-
-export type Post = CollectionEntry<'articles' | 'links' | 'photos'>
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
@@ -22,8 +20,8 @@ export default function Search(): ReactElement {
   const $isSearchOpen = useStore(isSearchOpen)
 
   const [query, setQuery] = useState('')
-  const [results, setResults] = useState<Post[]>()
-  const [allPosts, setAllPosts] = useState<Post[]>()
+  const [results, setResults] = useState<SearchResultItem[]>()
+  const [allPosts, setAllPosts] = useState<SearchResultItem[]>()
 
   // fetch all post data on open
   useEffect(() => {

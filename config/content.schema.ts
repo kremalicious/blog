@@ -1,4 +1,5 @@
-import { type ImageFunction, z } from 'astro:content'
+import { type CollectionEntry, type ImageFunction, z } from 'astro:content'
+import type { ExifFormatted } from '@/lib/exif'
 
 const schemaShared = {
   title: z.string(),
@@ -32,7 +33,6 @@ export const schemaArticles = (image: ImageFunction) =>
     .object({
       ...schemaShared,
       image: image().optional(),
-      lead: z.string().optional(),
       toc: z.boolean().optional(),
       download: z.string().optional(),
       changelog: z.string().optional()
@@ -55,10 +55,22 @@ export const schemaLinks = z
   })
   .strict()
 
-// export type ArticleFrontmatter = z.infer<typeof schemaArticles>
-// export type LinkFrontmatter = z.infer<typeof schemaLinks>
-// export type PhotoFrontmatter = z.infer<typeof schemaPhotos>
-// export type PostFrontmatter =
-//   | ArticleFrontmatter
-//   | LinkFrontmatter
-//   | PhotoFrontmatter
+export type BlogEntry = CollectionEntry<'articles' | 'links' | 'photos'> & {
+  slug: string
+}
+
+export type ArticleEntry = BlogEntry & {
+  collection: 'articles'
+  lead: string
+  leadRaw: string
+  tableOfContents: string
+}
+
+export type PhotoEntry = BlogEntry & {
+  collection: 'photos'
+  exif?: ExifFormatted
+}
+
+export type LinkEntry = BlogEntry & {
+  collection: 'links'
+}

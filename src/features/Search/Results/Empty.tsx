@@ -1,5 +1,5 @@
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import type { ReactElement } from 'react'
-import type { Post } from '../Search'
 import styles from './Empty.module.css'
 
 const SearchResultsEmpty = ({
@@ -7,7 +7,7 @@ const SearchResultsEmpty = ({
   results
 }: {
   query: string
-  results: Post[] | undefined
+  results: SearchResultItem[] | undefined
 }): ReactElement => (
   <div className={styles.empty}>
     <header className={styles.emptyMessage}>

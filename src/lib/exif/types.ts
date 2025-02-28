@@ -1,3 +1,5 @@
+import type { IptcData } from 'ts-node-iptc'
+
 export type Gps = {
   latitude: number
   longitude: number

@@ -9,7 +9,7 @@ import type {
 } from 'astro'
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths> & {
-  page: Page<CollectionEntry<'photos'>>
+  page: Page<CollectionEntry<'photos'> & { slug: string }>
 }
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 

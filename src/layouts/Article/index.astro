@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import Changelog from '@/components/Changelog/index.astro'
 import Picture from '@/components/Picture/index.astro'
 import PostActions from '@/components/PostActions/index.astro'
@@ -8,26 +7,24 @@ import RelatedPosts from '@/components/RelatedPosts/index.astro'
 import Title from '@/components/Title/index.astro'
 import Toc from '@/components/Toc.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
+import type { ArticleEntry } from '@config/content.schema'
 import styles from './index.module.css'
 
-type Props = CollectionEntry<'articles'> & {
-  lead?: string // comes in through remark plugin as html
-  leadRaw?: string // comes in through remark plugin as plain text
-  tableOfContents?: string // comes in through remark plugin as html
-}
+// Allow for both directly passing an ArticleEntry or setting all props separately
+type Props = ArticleEntry
 
-const { data, lead, leadRaw, tableOfContents } = Astro.props
-const { title, date, updated, toc, githubLink, changelog } = data
-const { image } = data as CollectionEntry<'articles'>['data']
+const post: Props = Astro.props
+const { data, tableOfContents } = post
+const { title, date, updated, image, toc, githubLink, changelog } = data
 ---
 
-<LayoutBase {...data} description={leadRaw}>
+<LayoutBase {...data} description={post.leadRaw}>
   <article class={styles.entry}>
     <header>
       <Title title={title} date={date} updated={updated} />
     </header>
 
-    <div class={styles.lead} set:html={lead} />
+    <div class={styles.lead} set:html={post.lead} />
 
     {
       image && (
@@ -49,10 +46,10 @@ const { image } = data as CollectionEntry<'articles'>['data']
 
     {changelog && <Changelog repo={changelog} />}
 
-    <PostMeta post={Astro.props} />
+    <PostMeta post={post} />
 
     <PostActions githubLink={githubLink as string} />
 
-    <RelatedPosts post={Astro.props} />
+    <RelatedPosts post={post} />
   </article>
 </LayoutBase>

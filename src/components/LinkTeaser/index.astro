@@ -1,18 +1,18 @@
 ---
-import { type CollectionEntry, render } from 'astro:content'
+import { render } from 'astro:content'
 import LinkActions from '@/components/LinkActions/index.astro'
 import PostTitle from '@/components/Title/index.astro'
+import type { BlogEntry } from '@config/content.schema'
 import styles from './index.module.css'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links'>
+  post: BlogEntry & { data: { linkurl: string } }
   hideDate?: boolean
 }
 
 const { post, hideDate } = Astro.props
 const { slug } = post
-const { title, date, updated } = post.data
-const { linkurl } = post.data as CollectionEntry<'links'>['data']
+const { title, date, updated, linkurl } = post.data
 const { Content } = await render(post)
 ---
 

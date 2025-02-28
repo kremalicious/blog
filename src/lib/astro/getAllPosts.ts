@@ -1,10 +1,8 @@
-import type { CollectionEntry } from 'astro:content'
+import type { BlogEntry } from '@config/content.schema'
 import { loadAndFormatCollection } from './loadAndFormatCollection'
 import { sortPosts } from './sortPosts'
 
-export async function getAllPosts(): Promise<
-  CollectionEntry<'articles' | 'links' | 'photos'>[]
-> {
+export async function getAllPosts(): Promise<BlogEntry[]> {
   const articles = await loadAndFormatCollection('articles')
   const links = await loadAndFormatCollection('links')
   const photos = await loadAndFormatCollection('photos')

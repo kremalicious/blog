@@ -1,6 +1,6 @@
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import type { ReactElement } from 'react'
 import { createPortal } from 'react-dom'
-import type { Post } from '../Search'
 import ResultsEmpty from './Empty'
 import styles from './index.module.css'
 
@@ -8,7 +8,7 @@ function SearchResultsPure({
   query,
   results
 }: {
-  results: Post[] | undefined
+  results: SearchResultItem[] | undefined
   query: string
 }) {
   return (
@@ -38,7 +38,7 @@ export default function SearchResults({
   results
 }: {
   query: string
-  results: Post[] | undefined
+  results: SearchResultItem[] | undefined
 }): ReactElement {
   // creating portal to break out of DOM node we're in
   // and render the results in content container

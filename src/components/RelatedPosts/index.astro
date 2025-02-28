@@ -1,19 +1,17 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import PostTeaser from '@/components/PostTeaser/index.astro'
 import { getAllPostsForSearch } from '@/lib/astro'
+import type { BlogEntry } from '@config/content.schema'
 import Fuse from 'fuse.js'
 import styles from './index.module.css'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links'>
+  post: BlogEntry
 }
 
 const { post } = Astro.props as Props
 const allPosts = await getAllPostsForSearch()
-const allPostsWithoutCurrent = allPosts?.filter(
-  (post) => post.slug !== Astro.props.post.slug
-) as CollectionEntry<'articles' | 'links'>[]
+const allPostsWithoutCurrent = allPosts?.filter((p) => p.slug !== post.slug)
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
@@ -22,12 +20,14 @@ const fuse = new Fuse(allPostsWithoutCurrent, {
   useExtendedSearch: true,
   threshold: 0.6
 })
+
+// Get lead text from leadRaw property, checking first if lead exists (only on ArticleEntry)
+const leadText = ('leadRaw' in post ? post.leadRaw : undefined) || ''
+
 const relatedPosts = fuse
   // https://www.fusejs.io/examples.html#extended-search
   .search(
-    `${post?.data?.tags?.join(' | ')} | "${post?.data?.lead}" | "${
-      post?.data?.title
-    }"`
+    `${post?.data?.tags?.join(' | ')} | "${leadText}" | "${post?.data?.title}"`
   )
   .map((result) => result.item)
   .slice(0, 6)

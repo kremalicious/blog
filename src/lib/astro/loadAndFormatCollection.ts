@@ -1,7 +1,13 @@
 import path from 'node:path'
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { getCollection } from 'astro:content'
 import { readOutExif } from '@/lib/exif'
 import config from '@config/blog.config'
+import type {
+  ArticleEntry,
+  BlogEntry,
+  LinkEntry,
+  PhotoEntry
+} from '@config/content.schema'
 import { getSlug } from './getSlug'
 import { sortPosts } from './sortPosts'
 
@@ -12,11 +18,18 @@ import { sortPosts } from './sortPosts'
 // from components, but this helper method instead.
 //
 export async function loadAndFormatCollection(
+  name: 'articles'
+): Promise<ArticleEntry[]>
+export async function loadAndFormatCollection(
+  name: 'links'
+): Promise<LinkEntry[]>
+export async function loadAndFormatCollection(
+  name: 'photos'
+): Promise<PhotoEntry[]>
+export async function loadAndFormatCollection(
   name: 'articles' | 'links' | 'photos'
-): Promise<CollectionEntry<'articles' | 'links' | 'photos'>[]> {
-  let postsCollection = (await getCollection(name)) as CollectionEntry<
-    'articles' | 'links' | 'photos'
-  >[]
+): Promise<ArticleEntry[] | LinkEntry[] | PhotoEntry[]> {
+  let postsCollection = (await getCollection(name)) as BlogEntry[]
 
   // filter out drafts, but only in production
   if (import.meta.env.PROD) {
@@ -35,12 +48,12 @@ export async function loadAndFormatCollection(
     // construct slug from folder or file name
     //
     const slug = getSlug(`${post.collection}/${post.id}`)
+    post.slug = slug
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
-
-    post.slug = slug as CollectionEntry<'articles' | 'links' | 'photos'>['slug']
-    post.data.date = date
     post.data.githubLink = githubLink
+
+    post.data.date = date
 
     //
     // extract exif & iptc data from photos
@@ -68,6 +81,15 @@ export async function loadAndFormatCollection(
     }
   }
 
-  const posts = sortPosts(postsCollection)
-  return posts
+  const sortedPosts = sortPosts(postsCollection as unknown as BlogEntry[])
+
+  if (name === 'articles') {
+    return sortedPosts as ArticleEntry[]
+  }
+
+  if (name === 'photos') {
+    return sortedPosts as PhotoEntry[]
+  }
+
+  return sortedPosts as LinkEntry[]
 }

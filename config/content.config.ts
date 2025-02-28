@@ -1,6 +1,10 @@
 import { defineCollection } from 'astro:content'
+import {
+  schemaArticles,
+  schemaLinks,
+  schemaPhotos
+} from '@config/content.schema'
 import { glob } from 'astro/loaders'
-import { schemaArticles, schemaLinks, schemaPhotos } from './content.schema'
 
 const articles = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './content/articles' }),
