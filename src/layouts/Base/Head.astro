@@ -19,7 +19,7 @@ const titleFinal =
     : `${config.siteTitle} ¦ ${config.siteDescription}`
 
 const descriptionFinal = description
-  ? description.slice(0, 160)
+  ? description.trim().slice(0, 160)
   : config.siteDescription
 
 const canonicalUrl =

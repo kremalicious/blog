@@ -42,7 +42,7 @@ const tableOfContents = remarkPluginFrontmatter.tableOfContents || undefined
 
 {
   entry.collection === "links" && (
-    <LayoutLink {...entry}>
+    <LayoutLink {...entry} lead={lead} leadRaw={leadRaw}>
       <Content />
     </LayoutLink>
   )
@@ -50,7 +50,7 @@ const tableOfContents = remarkPluginFrontmatter.tableOfContents || undefined
 
 {
   entry.collection === "photos" && (
-    <LayoutPhoto {...entry}>
+    <LayoutPhoto {...entry} lead={lead} leadRaw={leadRaw}>
       <Content />
     </LayoutPhoto>
   )

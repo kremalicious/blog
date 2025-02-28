@@ -10,11 +10,11 @@ import stylesArticle from '../Article/index.module.css'
 type Props = LinkEntry
 
 const post: Props = Astro.props
-const { data, slug } = post
+const { data, slug, leadRaw } = post
 const { title, date, updated, githubLink, linkurl } = data
 ---
 
-<LayoutBase {...data}>
+<LayoutBase {...data} description={leadRaw}>
   <article class={stylesArticle.entry}>
     <header>
       <Title linkurl={linkurl} title={title} date={date} updated={updated} />

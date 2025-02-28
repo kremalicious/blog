@@ -38,16 +38,23 @@ test('remarkLeadParagraph should extract the first paragraph', async () => {
   ) // Assuming the first paragraph is removed
 })
 
-test('remarkLeadParagraph should skip processing if path does not include "articles"', async () => {
+test('remarkLeadParagraph should process photos but not remove the paragraph', async () => {
   const file = new VFile({
     value:
-      '# My Article\n\nThis is the lead paragraph.\n\nThis is another paragraph.',
-    history: ['some-other-folder/my-article.md'],
+      '# My Photo\n\nThis is the lead paragraph.\n\nThis is another paragraph.',
+    history: ['photos/my-photo.md'],
     data: { astro: { frontmatter: { lead: '', leadRaw: '' } } }
   })
 
-  await processor.process(file)
+  const result = await processor.process(file)
 
-  expect((file.data as MyFile['data']).astro.frontmatter.lead).toBe('')
-  expect((file.data as MyFile['data']).astro.frontmatter.leadRaw).toBe('')
+  expect((file.data as MyFile['data']).astro.frontmatter.lead).toBe(
+    '<p>This is the lead paragraph.</p>'
+  )
+  expect((file.data as MyFile['data']).astro.frontmatter.leadRaw).toBe(
+    'This is the lead paragraph.'
+  )
+  expect(String(result)).toBe(
+    '<h1>My Photo</h1>\n<p>This is the lead paragraph.</p>\n<p>This is another paragraph.</p>'
+  ) // Paragraph should not be removed
 })

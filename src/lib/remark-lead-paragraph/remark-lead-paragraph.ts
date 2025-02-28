@@ -19,9 +19,6 @@ export interface MyFile extends VFile {
 
 export function remarkLeadParagraph(): Transformer {
   return (tree, file) => {
-    // Check if the file is the type we want to process
-    if (!file.history[0]?.includes('articles')) return
-
     let firstParagraph: Paragraph | undefined
 
     // Find the first paragraph node
@@ -29,8 +26,11 @@ export function remarkLeadParagraph(): Transformer {
       if (!firstParagraph) {
         firstParagraph = node
 
-        // Remove the first paragraph from the tree
-        parent?.children.splice(index as number, 1)
+        // Remove the first paragraph from the tree for articles
+        // This preserves the content for photos and links
+        if (file.history[0]?.includes('articles')) {
+          parent?.children.splice(index as number, 1)
+        }
       }
     }
     visit(tree, 'paragraph', visitor)

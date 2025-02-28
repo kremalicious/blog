@@ -1,15 +1,15 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import LayoutArchive from '@/layouts/Archive.astro'
 import { getAllTags, getPostsByTag } from '@/lib/astro'
 import type {
-  InferGetStaticParamsType,
-  InferGetStaticPropsType,
-  Page
-} from 'astro'
+  ArticleEntry,
+  LinkEntry,
+  PhotoEntry
+} from '@config/content.schema'
+import type { InferGetStaticParamsType, Page } from 'astro'
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths> & {
-  page: Page<CollectionEntry<'photos'> & { slug: string }>
+type Props = {
+  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
 }
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 

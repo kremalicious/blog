@@ -11,11 +11,11 @@ import stylesArticle from '../Article/index.module.css'
 type Props = PhotoEntry
 
 const post: Props = Astro.props
-const { data } = post
+const { data, leadRaw } = post
 const { title, date, updated, image, exif } = data
 ---
 
-<LayoutBase {...data}>
+<LayoutBase {...data} description={leadRaw}>
   <article class={stylesArticle.entry}>
     <header>
       <Title title={title} date={date} updated={updated} />
