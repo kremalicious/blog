@@ -63,7 +63,7 @@ If you want to know how this works, have a look at the respective files:
 
 ### 🎆 EXIF extraction
 
-Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts. For minimal overhead, [fast-exif](https://github.com/titarenko/fast-exif) & [node-iptc](https://github.com/derekbaron/node-iptc) is used to parse every JPG file whenever a content collection is accessed.
+Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts during build time. Utilizing [sharp](https://github.com/lovell/sharp) for extracting image metadata, and [exif-reader](https://github.com/devongovett/exif-reader) & [node-iptc](https://github.com/derekbaron/node-iptc) to parse the metadata.
 
 In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
 
@@ -71,8 +71,8 @@ In the end looks like this, including location display with [pigeon-maps](https:
 
 If you want to know how this works, have a look at the respective files:
 
-- EXIF extraction with `readOutExif()` helper in [`src/lib/exif/index.ts`](src/lib/exif/index.ts)
-- the `loadAndFormatCollection()` helper in [`src/lib/astro.ts`](src/lib/astro.ts)
+- EXIF extraction with `readOutExif()` helper in [`src/lib/exif/readOutExif.ts`](src/lib/exif/readOutExif.ts)
+- the `loadAndFormatCollection()` helper in [`src/lib/astro/loadAndFormatCollection.ts`](src/lib/astro/loadAndFormatCollection.ts)
 - output through [`src/components/Exif/`](src/components/Exif/)
 
 ### 💰 Cryptocurrency donation via Web3 browser wallets

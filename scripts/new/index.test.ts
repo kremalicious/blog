@@ -1,13 +1,31 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import type { Ora } from 'ora'
-import { afterEach, describe, expect, test } from 'vitest'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
 import { createArticlePost } from './createArticlePost'
 import { createPhotoPost } from './createPhotoPost'
+
+// Mock the readOutExif function
+vi.mock('../../src/lib/exif/readOutExif.js', () => ({
+  readOutExif: vi.fn().mockImplementation(() => ({
+    image: 'image-with-metadata',
+    exif: { date: new Date('2023-08-23T20:38:39.000Z') },
+    iptc: {
+      // biome-ignore lint/style/useNamingConvention: The implementation expects snake_case
+      object_name: 'Test title',
+      caption: 'Beach cliffs',
+      keywords: ['portugal', 'sand']
+    }
+  }))
+}))
 
 const destFolder = path.join('.', 'test/__fixtures__/tmp')
 
 describe('npm run new', () => {
+  beforeEach(async () => {
+    await fs.mkdir(destFolder, { recursive: true })
+  })
+
   afterEach(async () => {
     await fs.rm(destFolder, { recursive: true })
   })
@@ -49,8 +67,8 @@ describe('npm run new', () => {
   })
 
   test('createPhotoPost should create a new photo post', async () => {
-    const photoPath = path.join(
-      '.',
+    const photoPath = path.resolve(
+      process.cwd(),
       'test/__fixtures__/image-with-metadata.jpg'
     )
     const fixturePath = path.join('.', 'test/__fixtures__/new-photo.md')

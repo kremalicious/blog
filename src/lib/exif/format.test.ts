@@ -1,11 +1,10 @@
+import type { Exif as ExifReader, GPSInfoTags, PhotoTags } from 'exif-reader'
 import { describe, expect, it } from 'vitest'
-import type { FastExif } from '.'
 import { formatExif, formatExposure, formatGps } from './format'
-
 describe('Exif formatting functions', () => {
   describe('formatGps', () => {
     it('should format GPS data correctly', () => {
-      const input: FastExif['gps'] = {
+      const input: Partial<GPSInfoTags> = {
         // biome-ignore lint/style/useNamingConvention: external library
         GPSLatitudeRef: 'N',
         // biome-ignore lint/style/useNamingConvention: external library
@@ -39,12 +38,19 @@ describe('Exif formatting functions', () => {
 
   describe('formatExif', () => {
     it('should format EXIF data correctly', () => {
-      const input: FastExif = {
+      const date = new Date('2020-12-31T23:59:59.000Z')
+
+      const input: ExifReader = {
+        bigEndian: true,
         // biome-ignore lint/style/useNamingConvention: external library
-        image: { Model: 'FC7203' },
-        exif: {
+        Image: {
           // biome-ignore lint/style/useNamingConvention: external library
-          ISO: 100,
+          Model: 'FC7203'
+        },
+        // biome-ignore lint/style/useNamingConvention: external library
+        Photo: {
+          // biome-ignore lint/style/useNamingConvention: external library
+          ISOSpeedRatings: 100,
           // biome-ignore lint/style/useNamingConvention: external library
           FNumber: 2.8,
           // biome-ignore lint/style/useNamingConvention: external library
@@ -54,9 +60,10 @@ describe('Exif formatting functions', () => {
           // biome-ignore lint/style/useNamingConvention: external library
           ExposureBiasValue: 0,
           // biome-ignore lint/style/useNamingConvention: external library
-          DateTimeOriginal: '2020-12-31T23:59:59.000Z'
-        },
-        gps: {
+          DateTimeOriginal: date
+        } as PhotoTags,
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSInfo: {
           // biome-ignore lint/style/useNamingConvention: external library
           GPSLatitudeRef: 'N',
           // biome-ignore lint/style/useNamingConvention: external library
@@ -67,9 +74,10 @@ describe('Exif formatting functions', () => {
           GPSLongitude: [13, 23, 0]
         }
       }
+
       const result = formatExif(input)
       expect(result).toEqual({
-        date: expect.any(String),
+        date: date.toISOString(),
         iso: 'ISO 100',
         model: 'DJI Mavic Mini',
         fstop: 'ƒ/2.8',
@@ -85,7 +93,7 @@ describe('Exif formatting functions', () => {
     })
 
     it('returns nothing when no exif received', () => {
-      const input: FastExif = {}
+      const input = undefined as unknown as ExifReader
       const result = formatExif(input)
       expect(result).toBeUndefined()
     })

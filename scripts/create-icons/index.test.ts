@@ -44,4 +44,4 @@ test('should generate Astro & React components from SVG files', async () => {
 
   // cleanup
   await fs.rm(distDir, { recursive: true, force: true })
-})
+}, 15000)

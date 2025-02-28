@@ -2,11 +2,14 @@
 // Format EXIF data
 //
 import getCoordinates from 'dms2dec'
+import type { Exif as ExifReader, GPSInfoTags, PhotoTags } from 'exif-reader'
 import Fraction from 'fraction.js'
-import type { ExifFormatted, FastExif, Gps, GpsFastExif } from './types.ts'
+import type { ExifFormatted, Gps } from './types.ts'
 
-export function formatGps(gpsData: GpsFastExif): Gps {
+export function formatGps(gpsData: Partial<GPSInfoTags>): Gps | undefined {
   const { GPSLatitudeRef, GPSLatitude, GPSLongitudeRef, GPSLongitude } = gpsData
+  if (!GPSLatitude || !GPSLongitude || !GPSLatitudeRef || !GPSLongitudeRef)
+    return
 
   const gpSdec = getCoordinates(
     GPSLatitude,
@@ -36,26 +39,26 @@ export function formatExposure(exposureMode: number): string {
   return exposure
 }
 
-export function formatExif(exifData: FastExif): ExifFormatted | undefined {
-  if (!exifData?.exif) return
+export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
+  if (!exifData) return
 
   // biome-ignore lint/style/useNamingConvention: external library
-  const { Model: model } = exifData.image as { Model: string }
+  const { Model: model } = exifData.Image as { Model: string }
   const {
-    ISO,
+    ISOSpeedRatings,
     FNumber,
     ExposureTime,
     FocalLength,
-    FocalLengthIn35mmFormat,
+    FocalLengthIn35mmFilm,
     ExposureBiasValue,
     ExposureMode,
     LensModel,
     DateTimeOriginal: date
-  } = exifData.exif
+  } = exifData.Photo as PhotoTags
 
-  const iso = `ISO ${ISO}`
+  const iso = `ISO ${ISOSpeedRatings}`
   const fstop = `ƒ/${FNumber}`
-  const focalLength = `${FocalLengthIn35mmFormat || FocalLength}mm`
+  const focalLength = `${FocalLengthIn35mmFilm || FocalLength}mm`
 
   // Shutter speed
   const { n, d } = new Fraction(ExposureTime as number)
@@ -63,8 +66,8 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
 
   // GPS
   let gps: Gps | undefined
-  if (exifData.gps) {
-    gps = formatGps(exifData.gps)
+  if (exifData.GPSInfo) {
+    gps = formatGps(exifData.GPSInfo)
   }
 
   // Exposure
@@ -75,7 +78,7 @@ export function formatExif(exifData: FastExif): ExifFormatted | undefined {
   const formattedModel = model === 'FC7203' ? 'DJI Mavic Mini' : model
 
   return {
-    date: date as string,
+    date: date?.toISOString(),
     iso,
     model: formattedModel,
     fstop,
