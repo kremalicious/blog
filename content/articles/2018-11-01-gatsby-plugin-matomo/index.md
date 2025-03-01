@@ -11,7 +11,6 @@ tags:
   - matomo
   - development
 
-featured: true
 toc: true
 ---
 

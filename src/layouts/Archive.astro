@@ -1,43 +1,30 @@
 ---
-import LinkTeaser from '@/components/LinkTeaser/index.astro'
-import Pagination from '@/components/Pagination/index.astro'
-import PhotoTeaser from '@/components/PhotoTeaser.astro'
-import PostTeaser from '@/components/PostTeaser/index.astro'
-import LayoutBase from '@/layouts/Base/index.astro'
+import LinkTeaser from "@/components/LinkTeaser/index.astro";
+import Pagination from "@/components/Pagination/index.astro";
+import PhotoTeaser from "@/components/PhotoTeaser.astro";
+import PostTeaser from "@/components/PostTeaser/index.astro";
+import LayoutBase from "@/layouts/Base/index.astro";
 import type {
   ArticleEntry,
   LinkEntry,
-  PhotoEntry
-} from '@config/content.schema'
-import type { Page } from 'astro'
+  PhotoEntry,
+} from "@config/content.schema";
+import type { Page } from "astro";
+import styles from "./Archive.module.css";
 
 type Props = {
-  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
-  title: string
-  pageTitle: string
-}
+  page: Page<ArticleEntry | LinkEntry | PhotoEntry>;
+  title: string;
+  pageTitle: string;
+};
 
-const { page, title, pageTitle } = Astro.props
-const classes = `posts ${
-  title && title !== '' && title.toLowerCase().includes('photos')
-    ? 'photos'
-    : ''
-}`
+const { page, title, pageTitle } = Astro.props;
+const classes = `${styles.posts} ${
+  title && title !== "" && title.toLowerCase().includes("photos")
+    ? styles.photos
+    : ""
+}`;
 ---
-
-<style>
-  .photos {
-    display: grid;
-    gap: var(--spacer);
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 40rem) {
-    .photos {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    }
-  }
-</style>
 
 <LayoutBase title={title} pageTitle={pageTitle}>
   <div class={classes}>

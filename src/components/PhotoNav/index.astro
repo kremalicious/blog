@@ -1,0 +1,103 @@
+---
+import Picture from "@/components/Picture/index.astro";
+import { loadAndFormatCollection } from "@/lib/astro";
+import type { PhotoEntry } from "@config/content.schema";
+import styles from "./index.module.css";
+
+type Props = {
+  currentPhoto: PhotoEntry;
+};
+
+const { currentPhoto } = Astro.props;
+const currentSlug = currentPhoto.slug;
+
+const allPhotos = await loadAndFormatCollection("photos");
+const currentIndex = allPhotos.findIndex((photo) => photo.slug === currentSlug);
+
+// Get up to 4 photos before and 4 photos after the current photo
+const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 5);
+const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex);
+---
+
+<div class={styles.photoNavContainer}>
+  <div class={styles.photoNav} id="photo-nav">
+    {
+      nextPhotos.map((photo) => (
+        <a
+          href={`/${photo.slug}/`}
+          class={styles.photoLink}
+          title={photo.data.title}
+        >
+          <Picture
+            width={100}
+            height={100}
+            src={photo.data.image}
+            alt={photo.data.title}
+            objectFit
+          />
+        </a>
+      ))
+    }
+
+    <a
+      href={`/${currentPhoto.slug}/`}
+      class={`${styles.photoLink} ${styles.currentPhoto}`}
+      title={currentPhoto.data.title}
+      id="current-photo"
+    >
+      <Picture
+        width={100}
+        height={100}
+        src={currentPhoto.data.image}
+        alt={currentPhoto.data.title}
+        objectFit
+      />
+    </a>
+
+    {
+      prevPhotos.map((photo) => (
+        <a
+          href={`/${photo.slug}/`}
+          class={styles.photoLink}
+          title={photo.data.title}
+        >
+          <Picture
+            width={100}
+            height={100}
+            src={photo.data.image}
+            alt={photo.data.title}
+            objectFit
+          />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const photoNav = document.getElementById("photo-nav");
+    const currentPhoto = document.getElementById("current-photo");
+
+    if (!photoNav || !currentPhoto) return;
+
+    // Center the current photo in the view
+    function centerCurrentPhoto() {
+      if (!photoNav || !currentPhoto) return;
+
+      const photoRect = currentPhoto.getBoundingClientRect();
+      const containerRect = photoNav.getBoundingClientRect();
+
+      const scrollPosition =
+        photoNav.scrollLeft +
+        (photoRect.left - containerRect.left) -
+        containerRect.width / 2 +
+        photoRect.width / 2;
+
+      photoNav.scrollLeft = scrollPosition;
+    }
+
+    window.addEventListener("load", centerCurrentPhoto);
+    window.addEventListener("resize", centerCurrentPhoto);
+  });
+</script>

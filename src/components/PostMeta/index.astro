@@ -1,17 +1,17 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import DateComponent from '@/components/Date/index.astro'
-import Tag from '@/components/Tag.astro'
-import { slugify } from '@/lib/slugify'
-import config from '@config/blog.config'
-import styles from './index.module.css'
+import type { CollectionEntry } from "astro:content";
+import DateComponent from "@/components/Date/index.astro";
+import Tag from "@/components/Tag.astro";
+import { slugify } from "@/lib/slugify";
+import config from "@config/blog.config";
+import styles from "./index.module.css";
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links' | 'photos'>
-}
+  post: CollectionEntry<"articles" | "links" | "photos">;
+};
 
-const { collection, data } = Astro.props.post
-const { date, updated, author, tags } = data
+const { collection, data } = Astro.props.post;
+const { date, updated, author, tags } = data;
 ---
 
 <footer class={styles.entryMeta}>
@@ -23,14 +23,6 @@ const { date, updated, author, tags } = data
   </div>
 
   <DateComponent date={date} updated={updated} />
-
-  {
-    collection === "photos" && (
-      <div class={styles.type}>
-        <a href={`/${slugify(collection)}/`}>{collection}</a>
-      </div>
-    )
-  }
 
   {
     tags && (

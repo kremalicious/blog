@@ -1,0 +1,15 @@
+.posts > * {
+  margin-bottom: calc(var(--spacer) * 3);
+}
+
+.photos {
+  display: grid;
+  gap: var(--spacer);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 40rem) {
+  .photos {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}

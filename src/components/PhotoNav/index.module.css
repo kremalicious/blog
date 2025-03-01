@@ -1,0 +1,63 @@
+.photoNavContainer {
+  composes: breakout from '@/layouts/Base/index.module.css';
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.photoNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.photoNav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.photoNav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.photoNav::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 2px;
+}
+
+.photoLink {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  flex-shrink: 0;
+  border-radius: var(--border-radius);
+}
+
+/* Push first photo to create space for centering */
+.photoLink:first-child {
+  margin-left: auto;
+}
+
+.photoLink img {
+  border-radius: 0;
+}
+
+.currentPhoto {
+  transform: scale(1.15);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .photoNav {
+    padding: 1rem 0;
+    gap: .75rem;
+  }
+
+  .photoLink img {
+    width: 110px;
+    height: 110px;
+  }
+}
