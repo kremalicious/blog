@@ -89,7 +89,7 @@
     "typescript": "^5.7.3",
     "unist-util-visit": "^5.0.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.6"
+    "vitest": "^3.0.7"
   },
   "engines": {
     "node": "22"
