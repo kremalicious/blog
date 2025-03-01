@@ -1,22 +1,22 @@
 ---
-import Picture from "@/components/Picture/index.astro";
-import { loadAndFormatCollection } from "@/lib/astro";
-import type { PhotoEntry } from "@config/content.schema";
-import styles from "./index.module.css";
+import Picture from '@/components/Picture/index.astro'
+import { loadAndFormatCollection } from '@/lib/astro'
+import type { PhotoEntry } from '@config/content.schema'
+import styles from './index.module.css'
 
 type Props = {
-  currentPhoto: PhotoEntry;
-};
+  currentPhoto: PhotoEntry
+}
 
-const { currentPhoto } = Astro.props;
-const currentSlug = currentPhoto.slug;
+const { currentPhoto } = Astro.props
+const currentSlug = currentPhoto.slug
 
-const allPhotos = await loadAndFormatCollection("photos");
-const currentIndex = allPhotos.findIndex((photo) => photo.slug === currentSlug);
+const allPhotos = await loadAndFormatCollection('photos')
+const currentIndex = allPhotos.findIndex((photo) => photo.slug === currentSlug)
 
 // Get up to 4 photos before and 4 photos after the current photo
-const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 5);
-const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex);
+const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 5)
+const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex)
 ---
 
 <div class={styles.photoNavContainer}>

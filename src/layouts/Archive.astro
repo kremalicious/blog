@@ -1,29 +1,29 @@
 ---
-import LinkTeaser from "@/components/LinkTeaser/index.astro";
-import Pagination from "@/components/Pagination/index.astro";
-import PhotoTeaser from "@/components/PhotoTeaser.astro";
-import PostTeaser from "@/components/PostTeaser/index.astro";
-import LayoutBase from "@/layouts/Base/index.astro";
+import LinkTeaser from '@/components/LinkTeaser/index.astro'
+import Pagination from '@/components/Pagination/index.astro'
+import PhotoTeaser from '@/components/PhotoTeaser.astro'
+import PostTeaser from '@/components/PostTeaser/index.astro'
+import LayoutBase from '@/layouts/Base/index.astro'
 import type {
   ArticleEntry,
   LinkEntry,
-  PhotoEntry,
-} from "@config/content.schema";
-import type { Page } from "astro";
-import styles from "./Archive.module.css";
+  PhotoEntry
+} from '@config/content.schema'
+import type { Page } from 'astro'
+import styles from './Archive.module.css'
 
 type Props = {
-  page: Page<ArticleEntry | LinkEntry | PhotoEntry>;
-  title: string;
-  pageTitle: string;
-};
+  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
+  title: string
+  pageTitle: string
+}
 
-const { page, title, pageTitle } = Astro.props;
+const { page, title, pageTitle } = Astro.props
 const classes = `${styles.posts} ${
-  title && title !== "" && title.toLowerCase().includes("photos")
+  title && title !== '' && title.toLowerCase().includes('photos')
     ? styles.photos
-    : ""
-}`;
+    : ''
+}`
 ---
 
 <LayoutBase title={title} pageTitle={pageTitle}>
