@@ -27,7 +27,7 @@ const classes = `${styles.posts} ${
 ---
 
 <LayoutBase title={title} pageTitle={pageTitle}>
-  <div class={classes}>
+  <div id="posts" class={classes}>
     {
       page?.data?.map((post) =>
         post.collection === "photos" ? (
@@ -50,4 +50,6 @@ const classes = `${styles.posts} ${
       />
     )
   }
+
+  <slot />
 </LayoutBase>

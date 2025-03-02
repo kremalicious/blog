@@ -1,3 +1,40 @@
 ---
-return Astro.redirect('/photos/1/')
+import InfiniteScroll from '@/components/InfiniteScroll.astro'
+import LayoutArchive from '@/layouts/Archive.astro'
+import { loadAndFormatCollection } from '@/lib/astro'
+import config from '@config/blog.config'
+
+// Load all photos for the first page
+const photos = await loadAndFormatCollection('photos')
+const totalPages = Math.ceil(photos.length / config.itemsPerPage)
+const firstPagePhotos = photos.slice(0, config.itemsPerPage)
+
+// Create a page object for the first page
+const page = {
+  data: firstPagePhotos,
+  start: 0,
+  end: Math.min(config.itemsPerPage - 1, photos.length - 1),
+  size: config.itemsPerPage,
+  total: photos.length,
+  currentPage: 1,
+  lastPage: totalPages,
+  url: {
+    current: '/photos/',
+    prev: undefined,
+    next: totalPages > 1 ? '/photos/2/' : undefined,
+    first: '/photos/',
+    last: totalPages > 1 ? `/photos/${totalPages}/` : '/photos/'
+  }
+}
+
+const contentSelector = '#posts'
 ---
+
+<LayoutArchive title="Photos" pageTitle="Photos" page={page}>
+  <InfiniteScroll
+    currentPage={page.currentPage}
+    lastPage={page.lastPage}
+    baseUrl="/photos/"
+    contentSelector={contentSelector}
+  />
+</LayoutArchive>
