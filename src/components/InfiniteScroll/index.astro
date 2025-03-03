@@ -1,0 +1,60 @@
+---
+/**
+ * InfiniteScroll component for loading more content as the user scrolls
+ */
+
+import styles from './index.module.css'
+
+type Props = {
+  currentPage: number
+  lastPage: number
+  baseUrl: string
+  contentSelector?: string
+}
+
+const {
+  currentPage,
+  lastPage,
+  baseUrl,
+  contentSelector = '#posts'
+} = Astro.props
+
+const showInfiniteScroll = lastPage > 1
+---
+
+{
+  showInfiniteScroll && (
+    <div
+      id="infinite-scroll-sentinel"
+      data-current-page={currentPage}
+      data-last-page={lastPage}
+      data-base-url={baseUrl}
+      data-content-selector={contentSelector}
+    />
+    <button id="load-more-button" class={styles.loadMoreButton}>
+      Load More
+    </button>
+  )
+}
+
+<script>
+  import { loadNextPage, handleIntersection } from "./script";
+
+  const sentinel = document.getElementById("infinite-scroll-sentinel");
+  const button = document.getElementById(
+    "load-more-button",
+  ) as HTMLButtonElement;
+
+  if (sentinel && button) {
+    const observer = new IntersectionObserver(
+      (entries) => handleIntersection(entries, sentinel, button, observer),
+      { rootMargin: "200px" },
+    );
+
+    observer.observe(sentinel);
+
+    button.addEventListener("click", () => {
+      loadNextPage(sentinel, button, observer);
+    });
+  }
+</script>

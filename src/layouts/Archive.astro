@@ -19,11 +19,8 @@ type Props = {
 }
 
 const { page, title, pageTitle } = Astro.props
-const classes = `${styles.posts} ${
-  title && title !== '' && title.toLowerCase().includes('photos')
-    ? styles.photos
-    : ''
-}`
+const isPhotos = title && title !== '' && title.toLowerCase().includes('photos')
+const classes = `${styles.posts} ${isPhotos ? styles.photos : ''}`
 ---
 
 <LayoutBase title={title} pageTitle={pageTitle}>
@@ -42,7 +39,7 @@ const classes = `${styles.posts} ${
   </div>
 
   {
-    page.currentPage && (
+    page.currentPage && !isPhotos && (
       <Pagination
         currentPage={page.currentPage}
         numPages={page.lastPage}

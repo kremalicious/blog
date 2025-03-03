@@ -1,5 +1,4 @@
 ---
-import InfiniteScroll from '@/components/InfiniteScroll.astro'
 import LayoutArchive from '@/layouts/Archive.astro'
 import { loadAndFormatCollection } from '@/lib/astro'
 import config from '@config/blog.config'
@@ -11,34 +10,16 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const photos = await loadAndFormatCollection('photos')
   const pages = paginate(photos, { pageSize: config.itemsPerPage })
 
-  // Filter out the first page, so it doesn't create a /photos/1/ route
+  // Filter out the first page, it will be handled by index.astro
   return pages.filter((page) => page.params.page !== '1')
 }
 
-// All paginated data is passed on the "page" prop
 const { page } = Astro.props
-
-// Define the content selector for photos - correctly targeting CSS Modules
-// We use an attribute selector to target the div with a class name that *contains* "posts"
-// since CSS Modules transform class names to something like "_posts_1j3b7_1"
-const contentSelector = 'div[class*="posts"]'
-
-// Check if this is an API request from infinite scroll
-// We could set this in the fetch headers but for Astro's static generation
-// we'll just let the component figure this out client-side
-// const isApiRequest = Astro.request.headers.get('x-requested-with') === 'XMLHttpRequest';
-// API mode handling will be done client-side in the InfiniteScroll component
 ---
 
+<!-- This page is never exposed to users, it's just used to generate the static paths for the photos as it's most simple way to get Astro's image processing working. -->
 <LayoutArchive
   title="Photos"
-  pageTitle={`Photos ¦ Page ${page.currentPage} of ${page.lastPage} `}
+  pageTitle={`Photos ¦ Page ${page.currentPage} of ${page.lastPage}`}
   page={page}
->
-  <InfiniteScroll
-    currentPage={page.currentPage}
-    lastPage={page.lastPage}
-    baseUrl="/photos/"
-    contentSelector={contentSelector}
-  />
-</LayoutArchive>
+/>
