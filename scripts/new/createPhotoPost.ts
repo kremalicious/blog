@@ -33,7 +33,7 @@ export async function createPhotoPost(
     spinner.text = `Adding '${title}'.`
 
     titleSlug = slugify(title)
-    date = new Date(exif?.date).toISOString()
+    date = new Date(exif?.date || new Date()).toISOString()
     const dateShort = date.slice(0, 10)
     const description = iptc?.caption
     const keywords = (iptc?.keywords as string[])?.join('\n  - ')
