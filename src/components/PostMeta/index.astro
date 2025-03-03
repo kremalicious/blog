@@ -10,7 +10,7 @@ type Props = {
   post: CollectionEntry<'articles' | 'links' | 'photos'>
 }
 
-const { collection, data } = Astro.props.post
+const { data } = Astro.props.post
 const { date, updated, author, tags } = data
 ---
 
