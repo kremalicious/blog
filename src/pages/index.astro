@@ -48,6 +48,6 @@ const photos = (await loadAndFormatCollection('photos')).slice(0, 12)
       {photos.map((photo) => <PhotoTeaser post={photo} />)}
     </div>
 
-    <More href="/photos/1/">All Photos</More>
+    <More href="/photos/">All Photos</More>
   </section>
 </LayoutBase>

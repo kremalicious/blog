@@ -36,7 +36,6 @@ export async function createPhotoPost(
     date = new Date(exif?.date || new Date()).toISOString()
     const dateShort = date.slice(0, 10)
     const description = iptc?.caption
-    const keywords = (iptc?.keywords as string[])?.join('\n  - ')
     const folderName = `${dateShort}-${titleSlug}`
     const destination = `${dest}/${folderName}`
     postPhotoFile = `${destination}/index.md`
@@ -52,13 +51,9 @@ export async function createPhotoPost(
       .join(dateShort)
       .split('DESCRIPTION')
       .join(description)
-      .split('TAGS')
-      .join(keywords)
-
-    // Create the destination folder if it doesn't exist
-    if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
 
     // copy photo file in place
+    if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
     await fs.copyFile(photo, `${destination}/${folderName}.jpg`)
 
     // create photo post file
