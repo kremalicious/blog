@@ -57,7 +57,7 @@ export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
   } = exifData.Photo as PhotoTags
 
   const iso = `ISO ${ISOSpeedRatings}`
-  const fstop = `ƒ/${typeof FNumber === 'number' ? FNumber.toFixed(2) : FNumber}`
+  const fstop = `ƒ/${typeof FNumber === 'number' ? Number.parseFloat(FNumber.toFixed(2)) : FNumber}`
   const focalLength = `${FocalLengthIn35mmFilm || FocalLength}mm`
 
   // Shutter speed
