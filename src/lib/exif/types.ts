@@ -4,15 +4,15 @@ export type Gps = {
 }
 
 export type ExifFormatted = {
-  date: string
-  iso: string
-  model: string
-  fstop: string
-  shutterspeed: string
-  focalLength: string
-  lensModel: string
-  exposure: string | undefined
-  gps: Gps | undefined
+  date?: string
+  iso?: string
+  model?: string
+  fstop?: string
+  shutterspeed?: string
+  focalLength?: string
+  lensModel?: string
+  exposure?: string
+  gps?: Gps
 }
 
 export type Exif = {

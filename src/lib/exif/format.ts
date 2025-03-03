@@ -39,11 +39,36 @@ export function formatExposure(exposureMode: number): string {
   return exposure
 }
 
+// Helper function to format exposure data
+function formatExposureData(
+  ExposureBiasValue?: number,
+  ExposureMode?: number
+): string | undefined {
+  if (ExposureBiasValue === undefined && ExposureMode === undefined) {
+    return
+  }
+
+  const exposureValue = (ExposureBiasValue ?? ExposureMode ?? 0) as number
+  return formatExposure(exposureValue)
+}
+
+// Extract and format camera information
+function formatCameraInfo(model?: string): string | undefined {
+  if (!model) return
+  return model === 'FC7203' ? 'DJI Mavic Mini' : model
+}
+
+// Format shutter speed
+function formatShutterSpeed(ExposureTime?: number): string | undefined {
+  if (!ExposureTime) return
+  const { n, d } = new Fraction(ExposureTime)
+  return `${n}/${d}s`
+}
+
 export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
   if (!exifData) return
 
-  // biome-ignore lint/style/useNamingConvention: external library
-  const { Model: model } = exifData.Image as { Model: string }
+  const model = exifData.Image?.Model
   const {
     ISOSpeedRatings,
     FNumber,
@@ -52,40 +77,42 @@ export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
     FocalLengthIn35mmFilm,
     ExposureBiasValue,
     ExposureMode,
-    LensModel,
+    LensModel: lensModel,
     DateTimeOriginal: date
-  } = exifData.Photo as PhotoTags
+  } = exifData.Photo ?? ({} as Partial<PhotoTags>)
 
-  const iso = `ISO ${ISOSpeedRatings}`
-  const fstop = `ƒ/${typeof FNumber === 'number' ? Number.parseFloat(FNumber.toFixed(2)) : FNumber}`
-  const focalLength = `${FocalLengthIn35mmFilm || FocalLength}mm`
+  const formattedIso = ISOSpeedRatings ? `ISO ${ISOSpeedRatings}` : undefined
+  const formattedFstop = FNumber
+    ? `ƒ/${typeof FNumber === 'number' ? Number.parseFloat(FNumber.toFixed(2)) : FNumber}`
+    : undefined
+  const formattedFocalLength =
+    FocalLength || FocalLengthIn35mmFilm
+      ? `${FocalLengthIn35mmFilm || FocalLength}mm`
+      : undefined
+  const formattedShutterspeed = formatShutterSpeed(ExposureTime as number)
+  const formattedModel = formatCameraInfo(model)
+  const formattedDate = date?.toISOString()
 
-  // Shutter speed
-  const { n, d } = new Fraction(ExposureTime as number)
-  const shutterspeed = `${n}/${d}s`
-
-  // GPS
-  let gps: Gps | undefined
+  // GPS and exposure
+  let formattedGps: Gps | undefined
   if (exifData.GPSInfo) {
-    gps = formatGps(exifData.GPSInfo)
+    formattedGps = formatGps(exifData.GPSInfo)
   }
 
-  // Exposure
-  const exposureValue = (ExposureBiasValue || ExposureMode) as number
-  const exposure = formatExposure(exposureValue)
-
-  // Model
-  const formattedModel = model === 'FC7203' ? 'DJI Mavic Mini' : model
+  const formattedExposure = formatExposureData(
+    ExposureBiasValue as number,
+    ExposureMode as number
+  )
 
   return {
-    date: date?.toISOString(),
-    iso,
+    date: formattedDate,
+    iso: formattedIso,
     model: formattedModel,
-    fstop,
-    shutterspeed,
-    focalLength,
-    lensModel: LensModel as string,
-    exposure,
-    gps
+    fstop: formattedFstop,
+    shutterspeed: formattedShutterspeed,
+    focalLength: formattedFocalLength,
+    lensModel,
+    exposure: formattedExposure,
+    gps: formattedGps
   }
 }

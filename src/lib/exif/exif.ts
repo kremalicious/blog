@@ -21,16 +21,16 @@ export async function extractExifData(
     const metadata = await sharp(filePath).metadata()
 
     if (!metadata?.exif) {
-      console.warn(`No EXIF data found for ${imageId}`)
-      return undefined
+      // console.warn(`No EXIF data found for ${imageId}`)
+      return
     }
 
     // Parse EXIF data
     try {
       const exifData = exifReader(metadata.exif)
       if (!exifData) {
-        console.warn(`No EXIF data could be parsed for ${imageId}`)
-        return undefined
+        // console.warn(`No EXIF data could be parsed for ${imageId}`)
+        return
       }
 
       // Format EXIF data
@@ -40,12 +40,12 @@ export async function extractExifData(
       console.error(
         `Failed to parse EXIF data for ${imageId}: ${error instanceof Error ? error.message : String(error)}`
       )
-      return undefined
+      return
     }
   } catch (error: unknown) {
     console.error(
       `Failed to extract metadata for ${imageId}: ${error instanceof Error ? error.message : String(error)}`
     )
-    return undefined
+    return
   }
 }
