@@ -236,6 +236,13 @@ npm run new photo /path/to/photo.jpg
 npm run new photo /path/to/photo.jpg "Hello Photo Post"
 ```
 
+You can also create multiple photo posts at once by providing multiple photo paths:
+
+```bash
+npm run new photo /path/to/photo1.jpg /path/to/photo2.jpg /path/to/photo3.jpg
+npm run new photo /path/to/photo1.jpg /path/to/photo2.jpg "Shared Title For Photos"
+```
+
 - [`scripts/new/`](scripts/new/)
 
 ## 🚚 Deployment

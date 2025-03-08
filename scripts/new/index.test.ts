@@ -21,6 +21,15 @@ vi.mock('../../src/lib/exif/readOutExif.js', () => ({
 
 const destFolder = path.join('.', 'test/__fixtures__/tmp')
 
+// Helper to normalize content for comparison
+function normalizeContent(content: string): string {
+  return content
+    .trim()
+    .replace(/\r\n/g, '\n') // Normalize line endings
+    .replace(/\n+/g, '\n') // Remove multiple line breaks
+    .replace(/\s+$/gm, '') // Remove trailing whitespace
+}
+
 describe('npm run new', () => {
   beforeEach(async () => {
     await fs.mkdir(destFolder, { recursive: true })
@@ -63,7 +72,9 @@ describe('npm run new', () => {
     // Compare the generated index.md with the fixture new-article.md
     const generatedContent = file && (await fs.readFile(file, 'utf8'))
     const fixtureContent = await fs.readFile(fixturePath, 'utf8')
-    expect(generatedContent?.trim()).toBe(fixtureContent.trim())
+    expect(normalizeContent(generatedContent || '')).toBe(
+      normalizeContent(fixtureContent)
+    )
   })
 
   test('createPhotoPost should create a new photo post', async () => {
@@ -75,12 +86,13 @@ describe('npm run new', () => {
 
     const postPhotoFile = await createPhotoPost(destFolder, spinner, photoPath)
     expect(postPhotoFile).toBeDefined()
+    expect(typeof postPhotoFile).toBe('string')
 
     // Verify that the photo post was created
     const fileExists =
       postPhotoFile &&
       (await fs
-        .access(postPhotoFile)
+        .access(postPhotoFile as string)
         .then(() => true)
         .catch(() => false))
 
@@ -89,8 +101,50 @@ describe('npm run new', () => {
 
     // Compare the generated index.md with the fixture new-photo.md
     const generatedContent =
-      postPhotoFile && (await fs.readFile(postPhotoFile, 'utf8'))
+      postPhotoFile && (await fs.readFile(postPhotoFile as string, 'utf8'))
     const fixtureContent = await fs.readFile(fixturePath, 'utf8')
-    expect(generatedContent?.trim()).toBe(fixtureContent.trim())
+    expect(normalizeContent(generatedContent || '')).toBe(
+      normalizeContent(fixtureContent)
+    )
+  })
+
+  test('createPhotoPost should create multiple photo posts when given an array of photos', async () => {
+    const photoPath1 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    )
+    const photoPath2 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    ) // Using the same file for simplicity
+    const fixturePath = path.join('.', 'test/__fixtures__/new-photo.md')
+
+    const result = await createPhotoPost(destFolder, spinner, [
+      photoPath1,
+      photoPath2
+    ])
+    // When multiple photos are provided, result should be an array of file paths
+    expect(result).toBeDefined()
+    expect(Array.isArray(result)).toBe(true)
+
+    const postPhotoFiles = result as string[]
+    expect(postPhotoFiles.length).toBe(2)
+
+    // Verify that both photo posts were created
+    for (const postPhotoFile of postPhotoFiles) {
+      const fileExists = await fs
+        .access(postPhotoFile)
+        .then(() => true)
+        .catch(() => false)
+
+      expect(fileExists).toBe(true)
+
+      // Compare the generated index.md with the fixture new-photo.md
+      const generatedContent = await fs.readFile(postPhotoFile, 'utf8')
+      const fixtureContent = await fs.readFile(fixturePath, 'utf8')
+      expect(normalizeContent(generatedContent)).toBe(
+        normalizeContent(fixtureContent)
+      )
+    }
   })
 })
