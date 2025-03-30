@@ -5,4 +5,4 @@ title: Rajamangala National Stadium
 image: ./2025-03-29-rajamangala-national-stadium.jpg
 ---
 
-Outside the Rajamangala National Stadium (ราชมังคลากีฬาสถาน) in Bangkok, Thailand.
+Outside the [Rajamangala National Stadium](https://en.wikipedia.org/wiki/Rajamangala_Stadium) (ราชมังคลากีฬาสถาน) in Bangkok, Thailand.

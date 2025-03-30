@@ -5,7 +5,7 @@ import PostTeaser from '@/components/PostTeaser/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
 import { loadAndFormatCollection } from '@/lib/astro'
 
-const articles = (await loadAndFormatCollection('articles')).slice(0, 4)
+const articles = (await loadAndFormatCollection('articles')).slice(0, 2)
 // const links = await loadAndFormatCollection('links')
 const photos = (await loadAndFormatCollection('photos')).slice(0, 12)
 ---
