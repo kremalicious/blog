@@ -1,6 +1,7 @@
 import type { Exif as ExifReader, GPSInfoTags, PhotoTags } from 'exif-reader'
 import { describe, expect, it } from 'vitest'
 import { formatExif, formatExposure, formatGps } from './format'
+
 describe('Exif formatting functions', () => {
   describe('formatGps', () => {
     it('should format GPS data correctly', () => {

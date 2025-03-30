@@ -78,7 +78,8 @@ export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
     ExposureBiasValue,
     ExposureMode,
     LensModel: lensModel,
-    DateTimeOriginal: date
+    DateTimeOriginal: date,
+    OffsetTimeOriginal
   } = exifData.Photo ?? ({} as Partial<PhotoTags>)
 
   const formattedIso = ISOSpeedRatings ? `ISO ${ISOSpeedRatings}` : undefined
@@ -91,7 +92,20 @@ export function formatExif(exifData: ExifReader): ExifFormatted | undefined {
       : undefined
   const formattedShutterspeed = formatShutterSpeed(ExposureTime as number)
   const formattedModel = formatCameraInfo(model)
-  const formattedDate = date?.toISOString()
+
+  // Format date with timezone information from OffsetTimeOriginal
+  let formattedDate: string | undefined
+  if (date instanceof Date) {
+    if (OffsetTimeOriginal) {
+      // Convert the date to ISO string with the original timezone offset
+      const [hours, minutes] = OffsetTimeOriginal.split(':').map(Number)
+      const offsetMs = (hours * 60 + (minutes || 0)) * 60 * 1000
+      const utcDate = new Date(date.getTime() - offsetMs)
+      formattedDate = utcDate.toISOString().replace('Z', OffsetTimeOriginal)
+    } else {
+      formattedDate = date.toISOString()
+    }
+  }
 
   // GPS and exposure
   let formattedGps: Gps | undefined

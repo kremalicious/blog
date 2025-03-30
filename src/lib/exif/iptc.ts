@@ -11,14 +11,27 @@ export async function extractIptcData(
     const iptcData = iptc(fileBuffer)
 
     if (!iptcData || Object.keys(iptcData).length === 0) {
-      // console.warn(`No IPTC data found or empty IPTC data for ${imageId}`)
+      console.warn(
+        `No IPTC data found or empty IPTC data for ${imageId}. File path: ${filePath}`
+      )
       return undefined
     }
 
+    // Debug log the found IPTC data
+    // console.log(
+    //   'Found IPTC data for',
+    //   imageId,
+    //   ':',
+    //   Object.entries(iptcData)
+    //     .filter(([_, value]) => value !== undefined)
+    //     .map(([key, value]) => `${key}: ${value}`)
+    //     .join('\n')
+    // )
+
     return iptcData
-  } catch (iptcError) {
+  } catch (error) {
     console.warn(
-      `IPTC parsing error for ${imageId}: ${iptcError instanceof Error ? iptcError.message : String(iptcError)}`
+      `IPTC parsing error for ${imageId}: ${error instanceof Error ? error.message : String(error)}`
     )
     return undefined
   }

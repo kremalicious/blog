@@ -9,7 +9,7 @@ const spinner = ora('Adding new post').start()
 
 if (!process.argv[2]) {
   spinner.fail(
-    'Use the format `npm run new "Title of post"` or `npm run new photo path/to/photo.jpg`'
+    'Use the format `npm run new "Title of post"` or `npm run new photo path/to/photo.jpg "Title of post"`'
   )
 }
 
@@ -17,27 +17,19 @@ const isPhoto = process.argv[2] === 'photo'
 
 if (isPhoto) {
   // Get all arguments after 'photo'
-  const photos: string[] = []
-  let photoTitle: string | undefined
+  const args = process.argv.slice(3)
 
-  // Process all arguments, looking for file paths
-  for (let i = 3; i < process.argv.length; i++) {
-    const arg = process.argv[i]
-    // If argument starts with a quote, consider it a title rather than a file path
-    if (arg.startsWith('"') || arg.startsWith("'")) {
-      photoTitle = arg.replace(/^["']|["']$/g, '') // Remove quotes
-    } else {
-      photos.push(arg)
-    }
-  }
+  // The last argument is the title if provided, everything else is photo paths
+  const photoTitle = args.length > 1 ? args[args.length - 1] : undefined
+  const photos = photoTitle ? args.slice(0, -1) : args
 
   if (photos.length === 0) {
     spinner.fail(
-      'No photo paths provided. Use the format `npm run new photo path/to/photo.jpg`'
+      'No photo paths provided. Use the format `npm run new photo path/to/photo.jpg "Title of post"`'
     )
   } else {
     spinner.text = `Processing ${photos.length} photo${photos.length > 1 ? 's' : ''}...`
-    createPhotoPost(photosPath, spinner, photos, photoTitle)
+    await createPhotoPost(photosPath, spinner, photos, photoTitle)
   }
 } else {
   const title = process.argv[2]

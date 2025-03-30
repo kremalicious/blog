@@ -29,7 +29,6 @@ export async function createPhotoPost(
   for (const photo of photoArray) {
     let title: string | undefined
     let titleSlug: string
-    let date: string
     let postPhotoFile = ''
 
     try {
@@ -39,14 +38,20 @@ export async function createPhotoPost(
 
       const { iptc, exif } = exifData
       title = iptc?.object_name || photoTitle
-      if (!title)
+      if (!title) {
+        const foundIptcFields = Object.entries(iptc || {})
+          .filter(([_, value]) => value !== undefined)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join('\n')
+
         throw new Error(
-          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"\``
+          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"\`\n\nFound IPTC data:\n${foundIptcFields || 'No IPTC data found'}`
         )
+      }
       spinner.text = `Adding '${title}'.`
 
       titleSlug = slugify(title)
-      date = new Date(exif?.date || new Date()).toISOString()
+      const date = exif?.date || new Date().toISOString()
       const dateShort = date.slice(0, 10)
       const description = iptc?.caption
       const folderName = `${dateShort}-${titleSlug}`
@@ -79,8 +84,9 @@ export async function createPhotoPost(
       createdFiles.push(postPhotoFile)
     } catch (error: unknown) {
       spinner.fail(`Error processing ${photo}: ${(error as Error).message}`)
+      throw error
     }
   }
 
-  return createdFiles.length === 1 ? createdFiles[0] : createdFiles
+  return Array.isArray(photos) ? createdFiles : createdFiles[0]
 }

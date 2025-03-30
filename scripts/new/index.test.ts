@@ -1,7 +1,15 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import type { Ora } from 'ora'
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import {
+  afterAll,
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  vi
+} from 'vitest'
 import { createArticlePost } from './createArticlePost'
 import { createPhotoPost } from './createPhotoPost'
 
@@ -9,7 +17,11 @@ import { createPhotoPost } from './createPhotoPost'
 vi.mock('../../src/lib/exif/readOutExif.js', () => ({
   readOutExif: vi.fn().mockImplementation(() => ({
     image: 'image-with-metadata',
-    exif: { date: new Date('2023-08-23T20:38:39.000Z') },
+    exif: {
+      date: '2023-08-23T19:38:39.000+02:00',
+      // biome-ignore lint/style/useNamingConvention: EXIF spec uses this naming
+      OffsetTimeOriginal: '+02:00'
+    },
     iptc: {
       // biome-ignore lint/style/useNamingConvention: The implementation expects snake_case
       object_name: 'Test title',
@@ -37,6 +49,10 @@ describe('npm run new', () => {
 
   afterEach(async () => {
     await fs.rm(destFolder, { recursive: true })
+  })
+
+  afterAll(() => {
+    vi.restoreAllMocks()
   })
 
   // Mock spinner
@@ -84,26 +100,27 @@ describe('npm run new', () => {
     )
     const fixturePath = path.join('.', 'test/__fixtures__/new-photo.md')
 
-    const postPhotoFile = await createPhotoPost(destFolder, spinner, photoPath)
-    expect(postPhotoFile).toBeDefined()
-    expect(typeof postPhotoFile).toBe('string')
+    const result = await createPhotoPost(destFolder, spinner, photoPath)
+    expect(result).toBeDefined()
+    expect(result).not.toBe(undefined)
+
+    // For a single photo, result should be a string (the file path)
+    expect(typeof result).toBe('string')
+    const postPhotoFile = result as string
 
     // Verify that the photo post was created
-    const fileExists =
-      postPhotoFile &&
-      (await fs
-        .access(postPhotoFile as string)
-        .then(() => true)
-        .catch(() => false))
+    const fileExists = await fs
+      .access(postPhotoFile)
+      .then(() => true)
+      .catch(() => false)
 
     expect(fileExists).toBe(true)
     expect(spinner.text).toContain('New photo post')
 
     // Compare the generated index.md with the fixture new-photo.md
-    const generatedContent =
-      postPhotoFile && (await fs.readFile(postPhotoFile as string, 'utf8'))
+    const generatedContent = await fs.readFile(postPhotoFile, 'utf8')
     const fixtureContent = await fs.readFile(fixturePath, 'utf8')
-    expect(normalizeContent(generatedContent || '')).toBe(
+    expect(normalizeContent(generatedContent)).toBe(
       normalizeContent(fixtureContent)
     )
   })
