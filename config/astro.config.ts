@@ -24,6 +24,11 @@ export default defineConfig({
       wrap: true
     }
   },
+  image: {
+    service: {
+      entrypoint: 'src/lib/astro/imageService.ts'
+    }
+  },
   server: { host: true },
   integrations: [
     react(),
