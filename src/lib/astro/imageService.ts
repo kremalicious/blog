@@ -12,23 +12,25 @@ const extendedSharpService: LocalImageService = {
       config
     )
 
-    // pass through SVG like astro:assets does
-    if (result.format === 'svg') return result
-
-    // Modify the result to include the keepMetadata option,
-    // preserving all metadata, including ICC profile
-    const sharpInstance = sharp(result.data)
-    try {
-      const { data, info } = await sharpInstance
-        .keepMetadata()
-        .toFormat(result.format as keyof FormatEnum)
-        .toBuffer({ resolveWithObject: true })
-
-      return { data, format: info.format }
-    } catch (error) {
-      console.error('Error processing image:', error)
-      throw error
+    // Modify the result to include the keepMetadata option
+    if (result.format !== 'svg') {
+      const sharpInstance = sharp(result.data)
+      try {
+        const { data, info } = await sharpInstance
+          .keepMetadata()
+          .toFormat(result.format as keyof FormatEnum)
+          .toBuffer({ resolveWithObject: true })
+        return {
+          data: data,
+          format: info.format
+        }
+      } catch (error) {
+        console.error('Error processing image:', error)
+        throw error
+      }
     }
+
+    return result
   }
 }
 
