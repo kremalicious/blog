@@ -1,6 +1,6 @@
 ---
-description: Using Astro framework
-globs: 
+description: 
+globs: *.astro
 alwaysApply: false
 ---
 
