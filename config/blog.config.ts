@@ -14,6 +14,9 @@ export default {
       address: '0xf50F267b5689b005FE107cfdb34619f24c014457'
     }
   },
+  photos: {
+    copyrightNotice: '© Matthias Kretschmann. All Rights Reserved.'
+  },
   rss: '/feed.xml',
   jsonfeed: '/feed.json',
   itemsPerPage: 30,

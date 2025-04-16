@@ -27,6 +27,7 @@
     "create:redirects": "tsx scripts/redirect-from.ts",
     "create:symlinks": "./scripts/create-symlinks.sh",
     "move:downloads": "tsx scripts/move-downloads.ts",
+    "iptc:add": "tsx scripts/iptc-add.ts",
     "prepare": "husky config/husky"
   },
   "dependencies": {
@@ -70,6 +71,7 @@
     "@vitest/ui": "3.1.1",
     "dms2dec": "^1.1.0",
     "exif-reader": "^2.0.2",
+    "exiftool-vendored": "29.3.0",
     "globby": "^14.1.0",
     "hast-util-to-html": "^9.0.5",
     "husky": "^9.1.7",
@@ -80,7 +82,7 @@
     "mdast-util-toc": "^7.1.0",
     "node-iptc": "^1.0.5",
     "npm-run-all": "^4.1.5",
-    "ora": "^8.1.1",
+    "ora": "^8.2.0",
     "sharp": "^0.33.5",
     "sharp-ico": "^0.1.5",
     "svgo": "^3.3.2",
