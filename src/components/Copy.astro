@@ -1,5 +1,5 @@
 ---
-import { Copy as CopyIcon } from '@/images/components'
+import CopyIcon from 'feather-icons/dist/icons/copy.svg'
 
 type Props = {
   text: string
@@ -17,20 +17,20 @@ const { text } = Astro.props as Props
 <script>
   class ButtonCopy extends HTMLElement {
     constructor() {
-      super()
-      const button = this.querySelector('button')
-      const text = button?.dataset.text
+      super();
+      const button = this.querySelector("button");
+      const text = button?.dataset.text;
 
-      button?.addEventListener('click', () => {
+      button?.addEventListener("click", () => {
         if (text && navigator?.clipboard) {
-          navigator.clipboard.writeText(text)
-          button?.classList.add('copied')
+          navigator.clipboard.writeText(text);
+          button?.classList.add("copied");
         }
-      })
+      });
     }
   }
 
-  customElements.define('button-copy', ButtonCopy)
+  customElements.define("button-copy", ButtonCopy);
 </script>
 
 <style>

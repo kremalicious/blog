@@ -138,9 +138,9 @@ If you want to know how, have a look at the respective components:
 
 ### 💎 SVG assets as components
 
-All SVG assets under `src/images/` and from select iconset dependencies are converted to Astro & React components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML.
+Within all Astro files, SVGs can be imported as components with Astro's [native support for SVG components](https://docs.astro.build/en/components/images/#importing-svgs).
 
-All SVGs can then be imported from `@/images/components` in all Astro or React components.
+All SVG assets under `src/images/` and from select iconset dependencies are converted to React components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML. All SVGs can then be imported from `@/images/components` in all React components.
 
 If you want to know how this works, have a look at the script:
 

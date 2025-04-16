@@ -1,7 +1,8 @@
 ---
 import CodeCopy from '@/components/CopyCode.astro'
 import { Web3 } from '@/features/Web3'
-import { Bitcoin, Wallet } from '@/images/components'
+import Bitcoin from '@/images/bitcoin.svg'
+import Wallet from '@/images/wallet.svg'
 // import BackButton from '@/components/BackButton.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
 import config from '@config/blog.config'
@@ -44,6 +45,17 @@ import config from '@config/blog.config'
     font-size: var(--font-size-large);
     margin-top: 0;
     margin-bottom: calc(var(--spacer) / 4);
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+  }
+
+  .titleCoin svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: 0;
+    color: var(--text-color-light);
   }
 
   .section {

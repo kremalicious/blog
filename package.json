@@ -98,10 +98,7 @@
     "url": "https://github.com/kremalicious/blog.git"
   },
   "browserslist": {
-    "production": [
-      "defaults",
-      ">0.2%"
-    ],
+    "production": ["defaults", ">0.2%"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

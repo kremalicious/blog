@@ -1,5 +1,5 @@
 //
-// Generate Astro components from SVG files.
+// Generate React components from SVG files.
 // adapted from https://github.com/astro-community/icons
 //
 import fs from 'node:fs/promises'
@@ -7,7 +7,6 @@ import ps from 'node:path/posix'
 import chalk from 'chalk'
 import ora from 'ora'
 import { toInnerSvg } from './svg.ts'
-import { toAstroComponent } from './toAstroComponent.ts'
 import { toReactComponent } from './toReactComponent.ts'
 
 // Current directory.
@@ -27,15 +26,16 @@ const icons = []
 
 export async function generateIcons(_distDir: string) {
   const spinner = ora(
-    `${chalk.bold('[create-icons]')} Create icon components`
+    `${chalk.bold('[create-icons]')} Create React icon components`
   ).start()
 
   const dist = _distDir || distDir
+  const reactDist = `${dist}/react`
 
   // clean the distribution directory
   await fs.rm(dist, { force: true, recursive: true })
   await fs.mkdir(dist, { recursive: true })
-  await fs.mkdir(`${dist}/react`, { recursive: true })
+  await fs.mkdir(reactDist, { recursive: true })
 
   // copy the attribute typings file
   await fs.copyFile(
@@ -44,11 +44,10 @@ export async function generateIcons(_distDir: string) {
   )
   await fs.copyFile(
     ps.resolve(currentDir, 'scripts/create-icons/Props.d.ts'),
-    ps.resolve(`${dist}/react`, 'Props.d.ts')
+    ps.resolve(reactDist, 'Props.d.ts')
   )
 
-  // convert the SVG files into Astro & React components
-  let contentOfIndexJs = '// @ts-nocheck\n'
+  // convert the SVG files into React components
   let contentOfIndexReactJs = '// @ts-nocheck\n'
 
   for (const src of srcDirs) {
@@ -86,22 +85,12 @@ export async function generateIcons(_distDir: string) {
       // Base name, which is the formatted title without spaces (PascalCase)
       const baseName = title.replace(/ /g, '')
 
-      // write the astro component to a file
-      await fs.writeFile(
-        ps.resolve(dist, `${baseName}.astro`),
-        toAstroComponent(innerSvg, title),
-        'utf8'
-      )
-
       // write the react component to a file
       await fs.writeFile(
-        ps.resolve(`${dist}/react`, `${baseName}.tsx`),
+        ps.resolve(reactDist, `${baseName}.tsx`),
         toReactComponent(innerSvg, title),
         'utf8'
       )
-
-      // add the astro component export to the main entry `index.ts` file
-      contentOfIndexJs += `\nexport { default as ${baseName} } from './${baseName}.astro'`
 
       // add the react component export to the main entry `react/index.ts` file
       contentOfIndexReactJs += `\nexport { Icon as ${baseName} }  from './${baseName}.tsx'`
@@ -110,20 +99,22 @@ export async function generateIcons(_distDir: string) {
     }
   }
 
-  // write the main Astro entry `index.ts` file
-  await fs.writeFile(ps.resolve(dist, 'index.ts'), contentOfIndexJs, 'utf8')
-
   // write the main React entry `react/index.ts` file
   await fs.writeFile(
-    ps.resolve(`${dist}/react`, 'index.ts'),
+    ps.resolve(reactDist, 'index.ts'),
     contentOfIndexReactJs,
     'utf8'
   )
 
+  // Create a simple index.ts in the root directory that re-exports from react
+  const rootIndexContent =
+    "// Re-export React components\nexport * from './react'\n"
+  await fs.writeFile(ps.resolve(dist, 'index.ts'), rootIndexContent, 'utf8')
+
   spinner.succeed(
     `${chalk.bold('[create-icons]')} Generated ${
       icons.length
-    } icons into @/images/components.`
+    } React icon components into @/images/components.`
   )
 }
 

@@ -1,5 +1,8 @@
 ---
-import { Github, Jsonfeed, Mastodon, Rss } from '@/images/components'
+import Jsonfeed from '@/images/jsonfeed.svg'
+import Mastodon from '@/images/mastodon.svg'
+import Github from 'feather-icons/dist/icons/github.svg'
+import Rss from 'feather-icons/dist/icons/rss.svg'
 import styles from './Networks.module.css'
 
 type Props = {
@@ -13,13 +16,13 @@ const { links } = Astro.props
   {
     links.map((link: string) => (
       <a class={styles.link} href={link} title={link} rel="me">
-        {link.includes('mas.to') ? (
+        {link.includes("mas.to") ? (
           <Mastodon />
-        ) : link.includes('github') ? (
+        ) : link.includes("github") ? (
           <Github />
-        ) : link.includes('feed.xml') ? (
+        ) : link.includes("feed.xml") ? (
           <Rss />
-        ) : link.includes('feed.json') ? (
+        ) : link.includes("feed.json") ? (
           <Jsonfeed />
         ) : null}
       </a>

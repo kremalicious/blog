@@ -1,5 +1,5 @@
 ---
-import { Search as SearchIcon } from '@/images/components'
+import SearchIcon from 'feather-icons/dist/icons/search.svg'
 import Search from './Search.tsx'
 ---
 
@@ -10,14 +10,16 @@ import Search from './Search.tsx'
 <Search client:only="react" />
 
 <script>
-  import { isSearchOpen } from '@/stores/search'
-  const button = document.querySelector('#search-button')
+  import { isSearchOpen } from "@/stores/search";
+  const button = document.querySelector("#search-button");
 
   isSearchOpen.subscribe((value) =>
-    document.body.classList.toggle('hasSearchOpen', value)
-  )
+    document.body.classList.toggle("hasSearchOpen", value),
+  );
 
-  button?.addEventListener('click', () => isSearchOpen.set(!isSearchOpen.get()))
+  button?.addEventListener("click", () =>
+    isSearchOpen.set(!isSearchOpen.get()),
+  );
 </script>
 
 <style>

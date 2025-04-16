@@ -5,7 +5,7 @@ import { generateIcons } from './index'
 
 const distDir = path.resolve(__dirname, 'tmp')
 
-test('should generate Astro & React components from SVG files', async () => {
+test('should generate React components from SVG files', async () => {
   // Act
   await generateIcons(distDir)
 
@@ -23,23 +23,34 @@ test('should generate Astro & React components from SVG files', async () => {
     throw new Error('Props.d.ts does not exist')
   }
 
-  // Assert: Check if an example Astro & React component exists
-  const exampleComponentPathAstro = path.join(distDir, 'Bitcoin.astro')
-  const exampleComponentPathReact = path.join(distDir, 'react', 'Bitcoin.tsx')
+  // Assert: Check if Props.d.ts exists in react directory
   try {
-    await fs.stat(exampleComponentPathAstro)
+    await fs.stat(path.join(distDir, 'react', 'Props.d.ts'))
   } catch (_err) {
-    throw new Error(
-      `Example Astro component does not exist: ${exampleComponentPathAstro}`
-    )
+    throw new Error('React Props.d.ts does not exist')
   }
 
+  // Assert: Check if an example React component exists
+  const exampleComponentPathReact = path.join(distDir, 'react', 'Bitcoin.tsx')
   try {
     await fs.stat(exampleComponentPathReact)
   } catch (_err) {
     throw new Error(
       `Example React component does not exist: ${exampleComponentPathReact}`
     )
+  }
+
+  // Assert: Check if the index files exist
+  try {
+    await fs.stat(path.join(distDir, 'index.ts'))
+  } catch (_err) {
+    throw new Error('Main index.ts does not exist')
+  }
+
+  try {
+    await fs.stat(path.join(distDir, 'react', 'index.ts'))
+  } catch (_err) {
+    throw new Error('React index.ts does not exist')
   }
 
   // cleanup

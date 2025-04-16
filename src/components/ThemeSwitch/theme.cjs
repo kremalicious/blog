@@ -33,11 +33,11 @@ function reflectPreference() {
   themeToggle?.setAttribute('checked', `${themeValue === 'dark'}`)
 
   if (themeValue === 'dark') {
-    sun?.removeAttribute('hidden')
-    moon?.setAttribute('hidden', '')
+    if (sun) sun.style.display = 'inline'
+    if (moon) moon.style.display = 'none'
   } else {
-    sun?.setAttribute('hidden', '')
-    moon?.removeAttribute('hidden')
+    if (sun) sun.style.display = 'none'
+    if (moon) moon.style.display = 'inline'
   }
 }
 
