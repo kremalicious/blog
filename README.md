@@ -54,12 +54,15 @@ Retrieving content collections will enrich every post's frontmatter metadata, li
 
 Uses Astro's native `astro:assets` feature, all required image sizes are automatically generated from source images, working in combination with my own custom `<picture>` component. Making heavy use of Astro's `getImage()` and custom markup results in full image sizing control and properly `object-fit` images with varying aspect ratios.
 
+Astro's sharp-based image service is extended as a custom image service to keep all image metadata intact when doing sharp transforms, making use of the [`keepMetadata`](https://sharp.pixelplumbing.com/api-output/#keepmetadata) output option.
+
 Teaser images are all defined in a post's frontmatter `image` key, which is then passed to the `<Picture />` component for display.
 
 If you want to know how this works, have a look at the respective files:
 
 - [`src/components/Picture/index.astro`](src/components/Picture/index.astro)
 - [`src/components/Picture/index.module.css`](src/components/Picture/index.module.css)
+- [`src/lib/astro/imageService.ts`](src/lib/astro/imageService.ts)
 
 ### 🎆 EXIF extraction
 
