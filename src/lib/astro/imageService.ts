@@ -1,5 +1,8 @@
-// fork of https://github.com/withastro/astro/blob/99af0d135b04304c1138fb57bb1809657184f7ce/packages/astro/src/assets/services/sharp.ts
-// to include the sharp keepMetadata option
+// Keep all image metadata when doing sharp transforms, making use
+// of the `keepMetadata` option.
+//
+// Forked from Astro's sharp image service, overwriting the transform method
+// https://github.com/withastro/astro/blob/99af0d135b04304c1138fb57bb1809657184f7ce/packages/astro/src/assets/services/sharp.ts
 
 import sharp, { type FormatEnum, type FitEnum } from 'sharp'
 import type { LocalImageService } from '../../../node_modules/astro/dist/assets/services/service'
