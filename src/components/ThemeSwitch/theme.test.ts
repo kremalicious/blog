@@ -99,15 +99,15 @@ test('meta tags are updated', async () => {
   expect(metaThemeColorMs?.getAttribute('content')).toBe('#1d2224')
 })
 
-test('sun and moon hidden attributes are updated', async () => {
+test('sun and moon display style is updated', async () => {
   globalThis.window.matchMedia = () =>
     ({ matches: true, addEventListener: () => {} }) as any
 
   await import('./theme.cjs')
 
-  const sun = document.querySelector('#sun')
-  const moon = document.querySelector('#moon')
+  const sun = document.querySelector('#sun') as HTMLElement
+  const moon = document.querySelector('#moon') as HTMLElement
 
-  expect(sun?.hasAttribute('hidden')).toBe(false)
-  expect(moon?.hasAttribute('hidden')).toBe(true)
+  expect(sun?.style.display).toBe('inline')
+  expect(moon?.style.display).toBe('none')
 })
