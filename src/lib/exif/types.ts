@@ -160,9 +160,9 @@ export interface ExifrIfd0 {
 }
 
 export interface ExifrMetadata {
-  ifd0: ExifrIfd0
-  iptc: ExifrIptc
-  exif: ExifrExif
+  ifd0?: ExifrIfd0
+  iptc?: ExifrIptc
+  exif?: ExifrExif
   gps?: ExifrGps
 }
 

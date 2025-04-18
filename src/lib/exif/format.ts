@@ -24,16 +24,16 @@ export function formatImageMetadata(
 
   const exif: ExifFormatted = {
     date: formatDate(
-      metadata.exif.DateTimeOriginal || metadata.exif.CreateDate,
-      metadata.exif.OffsetTimeOriginal
+      metadata.exif?.DateTimeOriginal || metadata.exif?.CreateDate,
+      metadata.exif?.OffsetTimeOriginal
     ),
-    iso: formatIso(metadata.exif.ISO),
-    model: formatCameraModel(metadata.ifd0.Model),
-    fstop: formatFstop(metadata.exif.FNumber),
-    shutterspeed: formatShutterSpeed(metadata.exif.ExposureTime),
-    focalLength: formatFocalLength(metadata.exif.FocalLengthIn35mmFormat),
-    lensModel: metadata.exif.LensModel ? metadata.exif.LensModel : undefined,
-    exposure: formatExposure(metadata.exif.ExposureCompensation)
+    iso: formatIso(metadata.exif?.ISO),
+    model: formatCameraModel(metadata.ifd0?.Model),
+    fstop: formatFstop(metadata.exif?.FNumber),
+    shutterspeed: formatShutterSpeed(metadata.exif?.ExposureTime),
+    focalLength: formatFocalLength(metadata.exif?.FocalLengthIn35mmFormat),
+    lensModel: metadata.exif?.LensModel ? metadata.exif.LensModel : undefined,
+    exposure: formatExposure(metadata.exif?.ExposureCompensation)
   }
 
   const iptc: IptcFormatted = {

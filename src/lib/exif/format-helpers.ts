@@ -68,13 +68,7 @@ export function formatShutterSpeed(
 
 export function formatGps(gps: ExifrGps | undefined): GpsFormatted | undefined {
   if (!gps || !gps?.latitude || !gps?.longitude) return undefined
-
-  const latitude: number =
-    gps.GPSLatitudeRef === 'S' ? -Number(gps.latitude) : Number(gps.latitude)
-  const longitude: number =
-    gps.GPSLongitudeRef === 'W' ? -Number(gps.longitude) : Number(gps.longitude)
-
-  return { latitude, longitude }
+  return { latitude: gps.latitude, longitude: gps.longitude }
 }
 
 export function formatExposure(
