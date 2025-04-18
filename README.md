@@ -66,7 +66,7 @@ If you want to know how this works, have a look at the respective files:
 
 ### 🎆 EXIF extraction
 
-Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts during build time. Utilizing [exiftool](https://exiftool.org) and [exiftool-vendored](https://github.com/photostructure/exiftool-vendored.js) to extract all image metadata.
+Automatically extracts EXIF & IPTC & GPS metadata from my photos and adds it to markdown frontmatter of respective photo posts during build time. Utilizing [exifr](https://github.com/MikeKovarik/exifr) to extract all image metadata.
 
 In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
 

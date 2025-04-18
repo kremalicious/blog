@@ -15,7 +15,6 @@ export async function readImageMetadata(
       gps: true,
       mergeOutput: false
     })
-    console.log('exifRaw', exifRaw)
     if (!exifRaw) return undefined
 
     return formatImageMetadata(exifRaw)
