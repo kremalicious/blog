@@ -32,11 +32,22 @@ describe('Exif formatting functions', () => {
       expect(actual).toBeUndefined()
     })
 
-    it('should append offset if provided', () => {
+    it('parses ISO string to date', () => {
       const input = '2020-12-31T23:59:59.000Z'
-      const offset = '+02:00'
-      const actual = formatDate(input, offset)
-      expect(actual).toBe('2020-12-31T23:59:59.000+02:00')
+      const actual = formatDate(input)
+      expect(actual).toBe('2020-12-31T23:59:59.000Z')
+    })
+
+    it('returns ISO string for Date instance', () => {
+      const input: Date = new Date('2020-12-31T23:59:59.000Z')
+      const actual: string | undefined = formatDate(input)
+      expect(actual).toBe('2020-12-31T23:59:59.000Z')
+    })
+
+    it('returns undefined for invalid date type', () => {
+      // @ts-expect-error
+      const actual = formatDate(12345)
+      expect(actual).toBeUndefined()
     })
   })
 
@@ -88,6 +99,16 @@ describe('Exif formatting functions', () => {
       const input = 0
       const result = formatExposure(input)
       expect(result).toBe('+/- 0 ev')
+    })
+
+    it('parses numeric string', () => {
+      const actual = formatExposure('1.5')
+      expect(actual).toBe('+ 1.5 ev')
+    })
+
+    it('returns undefined for non-numeric string', () => {
+      const actual = formatExposure('not-a-number')
+      expect(actual).toBeUndefined()
     })
   })
 
@@ -222,5 +243,12 @@ describe('Exif formatting functions', () => {
         }
       })
     })
+  })
+
+  it('wraps keywords string in array', () => {
+    // biome-ignore lint/style/useNamingConvention: external library
+    const input = { Keywords: 'foo' } as any
+    const actual = formatImageMetadata(input)
+    expect(actual?.iptc.keywords).toEqual(['foo'])
   })
 })

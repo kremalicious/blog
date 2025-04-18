@@ -17,8 +17,10 @@ export function formatImageMetadata(
 
   const exif: ExifFormatted = {
     date: formatDate(
-      metadata.DateTimeOriginal || metadata.CreateDate,
-      metadata.OffsetTimeOriginal
+      metadata.DateTimeOriginal ||
+        metadata.CreateDate ||
+        metadata.ModifyDate ||
+        metadata.FileModifyDate
     ),
     iso: formatIso(metadata.ISO),
     model: formatCameraModel(metadata.Model),
@@ -50,12 +52,10 @@ export function formatImageMetadata(
 }
 
 export function formatDate(
-  date: string | ExifDateTime | Date | undefined,
-  offsetTimeOriginal?: string
+  date: string | ExifDateTime | Date | undefined
 ): string | undefined {
   if (!date) return undefined
 
-  // ExifDateTime: use toISOString if available
   if (
     typeof date === 'object' &&
     'toISOString' in date &&
@@ -63,23 +63,13 @@ export function formatDate(
   )
     return date.toISOString()
 
-  // Parse string or Date
-  const parsedDate: Date =
-    typeof date === 'string'
-      ? new Date(date)
-      : date instanceof Date
-        ? date
-        : (undefined as never)
-
-  if (!parsedDate || Number.isNaN(parsedDate.getTime())) return undefined
-
-  // Validate offset
-  if (offsetTimeOriginal && /^[+-]\d{2}:\d{2}$/.test(offsetTimeOriginal)) {
-    // Remove Z and append offset
-    return parsedDate.toISOString().replace('Z', offsetTimeOriginal)
+  if (typeof date === 'string') {
+    const parsedDate: Date = new Date(date)
+    if (Number.isNaN(parsedDate.getTime())) return undefined
+    return parsedDate.toISOString()
   }
 
-  return parsedDate.toISOString()
+  return undefined
 }
 
 export function formatFstop(fstop: number | undefined): string | undefined {
@@ -112,6 +102,7 @@ export function formatExposure(
       ? Number.parseFloat(exposureValue)
       : exposureValue
 
+  if (Number.isNaN(expValue)) return undefined
   if (expValue === 0) return '+/- 0 ev'
 
   const exposureShortened = Number.parseFloat(expValue.toFixed(2))
