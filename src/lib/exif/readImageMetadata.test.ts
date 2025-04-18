@@ -20,9 +20,9 @@ describe('readImageMetadata', () => {
     expect(metadata?.exif.iso).toBeDefined()
 
     // GPS data should be present
-    expect(metadata?.exif.gps).toBeDefined()
-    expect(metadata?.exif.gps?.latitude).toBeDefined()
-    expect(metadata?.exif.gps?.longitude).toBeDefined()
+    expect(metadata?.gps).toBeDefined()
+    expect(metadata?.gps?.latitude).toBeDefined()
+    expect(metadata?.gps?.longitude).toBeDefined()
 
     // Title, caption, keywords (formerly IPTC) should be present
     expect(metadata?.iptc.title).toBe('Test title')

@@ -65,7 +65,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-      - uses: ./.github/actions/setup-exiftool
       - run: npm ci
       - run: npm run test:unit
       - uses: actions/upload-artifact@v4
@@ -88,7 +87,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
-      - uses: ./.github/actions/setup-exiftool
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npm run test:e2e
@@ -112,7 +110,6 @@ jobs:
           path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-${{ matrix.node }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-${{ matrix.node }}-astro-build-
-      - uses: ./.github/actions/setup-exiftool
       - run: npm ci
       - run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
       - name: Zip artifact for deployment

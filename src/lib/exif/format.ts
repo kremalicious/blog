@@ -1,122 +1,48 @@
-//
-// Format EXIF data
-//
-import type { ExifDateTime, Tags } from 'exiftool-vendored'
+import {
+  formatCameraModel,
+  formatDate,
+  formatExposure,
+  formatFocalLength,
+  formatFstop,
+  formatGps,
+  formatIso,
+  formatKeywords,
+  formatShutterSpeed
+} from './format-helpers.ts'
 import type {
   ExifFormatted,
-  ExitToolTags,
-  Gps,
+  ExifrMetadata,
+  GpsFormatted,
   ImageMetadataFormatted,
   IptcFormatted
 } from './types.ts'
 
 export function formatImageMetadata(
-  metadata: ExitToolTags | undefined
+  metadata: ExifrMetadata | undefined
 ): ImageMetadataFormatted | undefined {
   if (!metadata) return undefined
 
   const exif: ExifFormatted = {
     date: formatDate(
-      metadata.DateTimeOriginal ||
-        metadata.CreateDate ||
-        metadata.ModifyDate ||
-        metadata.FileModifyDate
+      metadata.exif.DateTimeOriginal || metadata.exif.CreateDate,
+      metadata.exif.OffsetTimeOriginal
     ),
-    iso: formatIso(metadata.ISO),
-    model: formatCameraModel(metadata.Model),
-    fstop: formatFstop(metadata.FNumber),
-    shutterspeed: metadata.ShutterSpeed
-      ? `${metadata.ShutterSpeed}s`
-      : undefined,
-    focalLength: metadata.FocalLengthIn35mmFormat
-      ? metadata.FocalLengthIn35mmFormat
-      : undefined,
-    lensModel: metadata.LensModel ? metadata.LensModel : undefined,
-    exposure: formatExposure(metadata.ExposureCompensation),
-    gps: formatGps(metadata)
+    iso: formatIso(metadata.exif.ISO),
+    model: formatCameraModel(metadata.ifd0.Model),
+    fstop: formatFstop(metadata.exif.FNumber),
+    shutterspeed: formatShutterSpeed(metadata.exif.ExposureTime),
+    focalLength: formatFocalLength(metadata.exif.FocalLengthIn35mmFormat),
+    lensModel: metadata.exif.LensModel ? metadata.exif.LensModel : undefined,
+    exposure: formatExposure(metadata.exif.ExposureCompensation)
   }
 
   const iptc: IptcFormatted = {
-    title: metadata.ObjectName ? metadata.ObjectName : undefined,
-    caption: metadata['Caption-Abstract']
-      ? metadata['Caption-Abstract']
-      : undefined,
-    keywords: Array.isArray(metadata.Keywords)
-      ? metadata.Keywords
-      : metadata.Keywords
-        ? [metadata.Keywords]
-        : []
+    title: metadata.iptc?.ObjectName ? metadata.iptc.ObjectName : undefined,
+    caption: metadata.iptc?.Caption ? metadata.iptc.Caption : undefined,
+    keywords: formatKeywords(metadata.iptc?.Keywords)
   }
 
-  return { exif, iptc }
-}
+  const gps: GpsFormatted | undefined = formatGps(metadata.gps)
 
-export function formatDate(
-  date: string | ExifDateTime | Date | undefined
-): string | undefined {
-  if (!date) return undefined
-
-  if (
-    typeof date === 'object' &&
-    'toISOString' in date &&
-    typeof date.toISOString === 'function'
-  )
-    return date.toISOString()
-
-  if (typeof date === 'string') {
-    const parsedDate: Date = new Date(date)
-    if (Number.isNaN(parsedDate.getTime())) return undefined
-    return parsedDate.toISOString()
-  }
-
-  return undefined
-}
-
-export function formatFstop(fstop: number | undefined): string | undefined {
-  if (!fstop) return undefined
-
-  const fstopShortened = Number.parseFloat(fstop.toFixed(2))
-  return `ƒ/${fstopShortened}`
-}
-
-export function formatIso(iso: number | undefined): string | undefined {
-  return iso ? `ISO ${iso}` : undefined
-}
-
-export function formatGps(metadata: Tags): Gps | undefined {
-  if (!metadata.GPSLatitude || !metadata.GPSLongitude) return undefined
-
-  const latitude: number = Number(metadata.GPSLatitude)
-  const longitude: number = Number(metadata.GPSLongitude)
-
-  return { latitude, longitude }
-}
-
-export function formatExposure(
-  exposureValue: number | string | undefined
-): string | undefined {
-  if (exposureValue === undefined) return undefined
-
-  const expValue =
-    typeof exposureValue === 'string'
-      ? Number.parseFloat(exposureValue)
-      : exposureValue
-
-  if (Number.isNaN(expValue)) return undefined
-  if (expValue === 0) return '+/- 0 ev'
-
-  const exposureShortened = Number.parseFloat(expValue.toFixed(2))
-
-  if (expValue > 0) {
-    return `+ ${exposureShortened} ev`
-  }
-
-  return `- ${Math.abs(exposureShortened)} ev`
-}
-
-export function formatCameraModel(
-  model: string | undefined
-): string | undefined {
-  if (!model) return undefined
-  return model === 'FC7203' ? 'DJI Mavic Mini' : model
+  return { exif, iptc, gps }
 }

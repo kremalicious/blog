@@ -1,6 +1,6 @@
-import { exiftool } from 'exiftool-vendored'
+import exifr from 'exifr'
 import { formatImageMetadata } from './format.ts'
-import type { ExitToolTags, ImageMetadataFormatted } from './types.ts'
+import type { ImageMetadataFormatted } from './types.ts'
 
 export async function readImageMetadata(
   filePath: string
@@ -8,10 +8,17 @@ export async function readImageMetadata(
   if (!filePath) return undefined
 
   try {
-    const metadataExiftool: ExitToolTags = await exiftool.read(filePath)
-    if (!metadataExiftool) throw new Error('No metadata found')
+    const exifRaw = await exifr.parse(filePath, {
+      exif: true,
+      iptc: true,
+      icc: false,
+      gps: true,
+      mergeOutput: false
+    })
+    console.log('exifRaw', exifRaw)
+    if (!exifRaw) return undefined
 
-    return formatImageMetadata(metadataExiftool)
+    return formatImageMetadata(exifRaw)
   } catch (error) {
     console.error(
       `Failed to extract metadata: ${error instanceof Error ? error.message : String(error)}`

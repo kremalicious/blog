@@ -43,7 +43,7 @@ export const schemaPhotos = (image: ImageFunction) =>
     .object({
       ...schemaShared,
       image: image(),
-      exif: z.object({}).optional()
+      imageMetadata: z.object({}).optional()
     })
     .strict()
 
