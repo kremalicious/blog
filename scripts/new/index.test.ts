@@ -1,5 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import type { ImageMetadataFormatted } from '@/lib/exif'
 import type { Ora } from 'ora'
 import {
   afterAll,
@@ -13,22 +14,20 @@ import {
 import { createArticlePost } from './createArticlePost'
 import { createPhotoPost } from './createPhotoPost'
 
-// Mock the readOutExif function
-vi.mock('../../src/lib/exif/readOutExif.js', () => ({
-  readOutExif: vi.fn().mockImplementation(() => ({
-    image: 'image-with-metadata',
-    exif: {
-      date: '2023-08-23T19:38:39.000+02:00',
-      // biome-ignore lint/style/useNamingConvention: EXIF spec uses this naming
-      OffsetTimeOriginal: '+02:00'
-    },
-    iptc: {
-      // biome-ignore lint/style/useNamingConvention: The implementation expects snake_case
-      object_name: 'Test title',
-      caption: 'Beach cliffs',
-      keywords: ['portugal', 'sand']
-    }
-  }))
+// Mock the readImageMetadata function
+const mockExifFormatted: ImageMetadataFormatted = {
+  exif: {
+    date: '2023-08-23T19:38:39.000+02:00'
+  },
+  iptc: {
+    title: 'Test title',
+    caption: 'Beach cliffs',
+    keywords: ['portugal', 'sand']
+  }
+}
+
+vi.mock('../../src/lib/exif/readImageMetadata.js', () => ({
+  readImageMetadata: vi.fn().mockImplementation(() => mockExifFormatted)
 }))
 
 const destFolder = path.join('.', 'test/__fixtures__/tmp')

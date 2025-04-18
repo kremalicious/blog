@@ -1,3 +1,11 @@
+import type { Tags } from 'exiftool-vendored'
+
+export interface ExitToolTags extends Tags {
+  // set by iPhone and read out by exiftools but missing in exiftool typings
+  // biome-ignore lint/style/useNamingConvention: external library
+  ExposureCompensation?: number
+}
+
 export type Gps = {
   latitude: number
   longitude: number
@@ -15,8 +23,13 @@ export type ExifFormatted = {
   gps?: Gps
 }
 
-export type Exif = {
-  image: string
+export type IptcFormatted = {
+  title?: string
+  caption?: string
+  keywords?: string[]
+}
+
+export type ImageMetadataFormatted = {
   exif: ExifFormatted
-  iptc: IptcData
+  iptc: IptcFormatted
 }

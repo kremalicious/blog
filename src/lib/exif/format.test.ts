@@ -1,37 +1,73 @@
-import type { Exif as ExifReader, GPSInfoTags, PhotoTags } from 'exif-reader'
 import { describe, expect, it } from 'vitest'
-import { formatExif, formatExposure, formatGps } from './format'
+import {
+  formatDate,
+  formatExposure,
+  formatGps,
+  formatImageMetadata
+} from './format'
+import type { ExitToolTags } from './types'
 
 describe('Exif formatting functions', () => {
+  describe('formatDate', () => {
+    it('should format ISO string date', () => {
+      const input = '2020-12-31T23:59:59.000Z'
+      const actual = formatDate(input)
+      expect(actual).toBe('2020-12-31T23:59:59.000Z')
+    })
+
+    it('should format Date object', () => {
+      const input = new Date('2020-12-31T23:59:59.000Z')
+      const actual = formatDate(input)
+      expect(actual).toBe('2020-12-31T23:59:59.000Z')
+    })
+
+    it('should return undefined for invalid date string', () => {
+      const input = 'not-a-date'
+      const actual = formatDate(input)
+      expect(actual).toBeUndefined()
+    })
+
+    it('should return undefined for undefined', () => {
+      const actual = formatDate(undefined)
+      expect(actual).toBeUndefined()
+    })
+
+    it('should append offset if provided', () => {
+      const input = '2020-12-31T23:59:59.000Z'
+      const offset = '+02:00'
+      const actual = formatDate(input, offset)
+      expect(actual).toBe('2020-12-31T23:59:59.000+02:00')
+    })
+  })
+
   describe('formatGps', () => {
     it('should format GPS data correctly', () => {
-      const input: Partial<GPSInfoTags> = {
+      const input: ExitToolTags = {
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSLatitude: 52.5,
         // biome-ignore lint/style/useNamingConvention: external library
         GPSLatitudeRef: 'N',
         // biome-ignore lint/style/useNamingConvention: external library
-        GPSLatitude: [52, 30, 0],
+        GPSLongitude: 13.383333333333333,
         // biome-ignore lint/style/useNamingConvention: external library
-        GPSLongitudeRef: 'E',
-        // biome-ignore lint/style/useNamingConvention: external library
-        GPSLongitude: [13, 23, 0]
+        GPSLongitudeRef: 'E'
       }
-      const result = formatGps(input)
-      expect(result).toEqual({
+
+      const actualGps = formatGps(input)
+      expect(actualGps).toEqual({
         latitude: 52.5,
         longitude: 13.383333333333333
       })
     })
 
     it('should return undefined when GPS data is incomplete', () => {
-      const input: Partial<GPSInfoTags> = {
+      const input: ExitToolTags = {
         // biome-ignore lint/style/useNamingConvention: external library
-        GPSLatitudeRef: 'N',
-        // biome-ignore lint/style/useNamingConvention: external library
-        GPSLatitude: [52, 30, 0]
+        GPSLatitudeRef: 'N'
         // Missing longitude data
       }
-      const result = formatGps(input)
-      expect(result).toBeUndefined()
+      const actualGps = formatGps(input)
+      expect(actualGps).toBeUndefined()
     })
   })
 
@@ -58,172 +94,132 @@ describe('Exif formatting functions', () => {
   describe('formatExif', () => {
     it('should format EXIF data correctly', () => {
       const date = new Date('2020-12-31T23:59:59.000Z')
-
-      const input: ExifReader = {
-        bigEndian: true,
+      const input: ExitToolTags = {
         // biome-ignore lint/style/useNamingConvention: external library
-        Image: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          Model: 'FC7203'
-        },
+        ObjectName: 'Test title',
+        'Caption-Abstract': 'Test caption',
         // biome-ignore lint/style/useNamingConvention: external library
-        Photo: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          ISOSpeedRatings: 100,
-          // biome-ignore lint/style/useNamingConvention: external library
-          FNumber: 2.8,
-          // biome-ignore lint/style/useNamingConvention: external library
-          ExposureTime: 1 / 50,
-          // biome-ignore lint/style/useNamingConvention: external library
-          FocalLength: 24,
-          // biome-ignore lint/style/useNamingConvention: external library
-          ExposureBiasValue: 0,
-          // biome-ignore lint/style/useNamingConvention: external library
-          DateTimeOriginal: date
-        } as PhotoTags,
+        Keywords: ['foo', 'bar'],
         // biome-ignore lint/style/useNamingConvention: external library
-        GPSInfo: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          GPSLatitudeRef: 'N',
-          // biome-ignore lint/style/useNamingConvention: external library
-          GPSLatitude: [52, 30, 0],
-          // biome-ignore lint/style/useNamingConvention: external library
-          GPSLongitudeRef: 'E',
-          // biome-ignore lint/style/useNamingConvention: external library
-          GPSLongitude: [13, 23, 0]
-        }
+        DateTimeOriginal: date.toISOString(),
+        // biome-ignore lint/style/useNamingConvention: external library
+        ISO: 100,
+        // biome-ignore lint/style/useNamingConvention: external library
+        Model: 'FC7203',
+        // biome-ignore lint/style/useNamingConvention: external library
+        FNumber: 2.8,
+        // biome-ignore lint/style/useNamingConvention: external library
+        ShutterSpeed: '1/50',
+        // biome-ignore lint/style/useNamingConvention: external library
+        FocalLengthIn35mmFormat: '24mm',
+        // biome-ignore lint/style/useNamingConvention: external library
+        LensModel: 'Test Lens',
+        // biome-ignore lint/style/useNamingConvention: external library
+        ExposureCompensation: 0,
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSLatitudeRef: 'N',
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSLatitude: 52.5,
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSLongitudeRef: 'E',
+        // biome-ignore lint/style/useNamingConvention: external library
+        GPSLongitude: 13.383333333333333
       }
-
-      const result = formatExif(input)
-      expect(result).toEqual({
-        date: date.toISOString(),
-        iso: 'ISO 100',
-        model: 'DJI Mavic Mini',
-        fstop: 'ƒ/2.8',
-        shutterspeed: '1/50s',
-        focalLength: '24mm',
-        lensModel: undefined,
-        exposure: '+/- 0 ev',
-        gps: {
-          latitude: 52.5,
-          longitude: 13.383333333333333
+      const actualExif = formatImageMetadata(input)
+      expect(actualExif).toEqual({
+        exif: {
+          date: date.toISOString(),
+          iso: 'ISO 100',
+          model: 'DJI Mavic Mini',
+          fstop: 'ƒ/2.8',
+          shutterspeed: '1/50s',
+          focalLength: '24mm',
+          lensModel: 'Test Lens',
+          exposure: '+/- 0 ev',
+          gps: {
+            latitude: 52.5,
+            longitude: 13.383333333333333
+          }
+        },
+        iptc: {
+          title: 'Test title',
+          caption: 'Test caption',
+          keywords: ['foo', 'bar']
         }
       })
     })
 
     it('returns nothing when no exif received', () => {
-      const input = undefined as unknown as ExifReader
-      const result = formatExif(input)
-      expect(result).toBeUndefined()
+      const actualExif = formatImageMetadata(
+        undefined as unknown as ExitToolTags
+      )
+      expect(actualExif).toBeUndefined()
     })
 
-    it('should handle missing Image data', () => {
-      const input: ExifReader = {
-        bigEndian: true,
+    it('should handle missing Model', () => {
+      const input: ExitToolTags = {
         // biome-ignore lint/style/useNamingConvention: external library
-        Photo: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          ISOSpeedRatings: 100,
-          // biome-ignore lint/style/useNamingConvention: external library
-          FNumber: 2.8,
-          // biome-ignore lint/style/useNamingConvention: external library
-          ExposureTime: 1 / 50
-        } as PhotoTags
+        ISO: 100,
+        // biome-ignore lint/style/useNamingConvention: external library
+        FNumber: 2.8,
+        // biome-ignore lint/style/useNamingConvention: external library
+        ShutterSpeed: '1/50'
       }
-
-      const result = formatExif(input)
-      expect(result).toHaveProperty('model', undefined)
+      const actualExif = formatImageMetadata(input)
+      expect(actualExif).toHaveProperty('exif.model', undefined)
     })
 
-    it('should handle missing Photo data', () => {
-      const input: ExifReader = {
-        bigEndian: true,
+    it('should handle missing photo fields', () => {
+      const input: ExitToolTags = {
         // biome-ignore lint/style/useNamingConvention: external library
-        Image: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          Model: 'Camera Model'
+        Model: 'Camera Model'
+      }
+      const actualExif = formatImageMetadata(input)
+      expect(actualExif).toEqual({
+        exif: {
+          date: undefined,
+          iso: undefined,
+          model: 'Camera Model',
+          fstop: undefined,
+          shutterspeed: undefined,
+          focalLength: undefined,
+          lensModel: undefined,
+          exposure: undefined,
+          gps: undefined
+        },
+        iptc: {
+          title: undefined,
+          caption: undefined,
+          keywords: []
         }
-      }
-
-      const result = formatExif(input)
-      expect(result).toEqual({
-        date: undefined,
-        iso: undefined,
-        model: 'Camera Model',
-        fstop: undefined,
-        shutterspeed: undefined,
-        focalLength: undefined,
-        lensModel: undefined,
-        exposure: undefined,
-        gps: undefined
       })
     })
 
-    it('should handle FNumber with long decimal value', () => {
-      const input: ExifReader = {
-        bigEndian: true,
-        // biome-ignore lint/style/useNamingConvention: external library
-        Image: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          Model: 'Camera Model'
-        },
-        // biome-ignore lint/style/useNamingConvention: external library
-        Photo: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          FNumber: 1.7799999713880652
-        } as PhotoTags
-      }
-
-      const result = formatExif(input)
-      expect(result).toHaveProperty('fstop', 'ƒ/1.78')
-    })
-
-    it('should handle FNumber with trailing zeros', () => {
-      const input: ExifReader = {
-        bigEndian: true,
-        // biome-ignore lint/style/useNamingConvention: external library
-        Image: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          Model: 'Camera Model'
-        },
-        // biome-ignore lint/style/useNamingConvention: external library
-        Photo: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          FNumber: 2.8
-        } as PhotoTags
-      }
-
-      const result = formatExif(input)
-      expect(result).toHaveProperty('fstop', 'ƒ/2.8')
-    })
-
     it('should handle missing individual EXIF fields', () => {
-      const input: ExifReader = {
-        bigEndian: true,
+      const input: ExitToolTags = {
         // biome-ignore lint/style/useNamingConvention: external library
-        Image: {
-          // biome-ignore lint/style/useNamingConvention: external library
-          Model: 'Camera Model'
-        },
+        Model: 'Camera Model',
         // biome-ignore lint/style/useNamingConvention: external library
-        Photo: {
-          // Missing most fields
-          // biome-ignore lint/style/useNamingConvention: external library
-          ISOSpeedRatings: 400
-        } as PhotoTags
+        ISO: 400
       }
-
-      const result = formatExif(input)
-      expect(result).toEqual({
-        date: undefined,
-        iso: 'ISO 400',
-        model: 'Camera Model',
-        fstop: undefined,
-        shutterspeed: undefined,
-        focalLength: undefined,
-        lensModel: undefined,
-        exposure: undefined,
-        gps: undefined
+      const actualExif = formatImageMetadata(input)
+      expect(actualExif).toEqual({
+        exif: {
+          date: undefined,
+          iso: 'ISO 400',
+          model: 'Camera Model',
+          fstop: undefined,
+          shutterspeed: undefined,
+          focalLength: undefined,
+          lensModel: undefined,
+          exposure: undefined,
+          gps: undefined
+        },
+        iptc: {
+          title: undefined,
+          caption: undefined,
+          keywords: []
+        }
       })
     })
   })

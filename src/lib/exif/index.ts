@@ -1,2 +1,2 @@
-export * from './readOutExif'
+export * from './readImageMetadata'
 export * from './types'

@@ -66,7 +66,7 @@ If you want to know how this works, have a look at the respective files:
 
 ### 🎆 EXIF extraction
 
-Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts during build time. Utilizing [sharp](https://github.com/lovell/sharp) for extracting image metadata, and [exif-reader](https://github.com/devongovett/exif-reader) & [node-iptc](https://github.com/derekbaron/node-iptc) to parse the metadata.
+Automatically extracts EXIF & IPTC metadata from my photos and adds it to markdown frontmatter of respective photo posts during build time. Utilizing [exiftool](https://exiftool.org) and [exiftool-vendored](https://github.com/photostructure/exiftool-vendored.js) to extract all image metadata.
 
 In the end looks like this, including location display with [pigeon-maps](https://github.com/mariusandra/pigeon-maps):
 
@@ -74,7 +74,7 @@ In the end looks like this, including location display with [pigeon-maps](https:
 
 If you want to know how this works, have a look at the respective files:
 
-- EXIF extraction with `readOutExif()` helper in [`src/lib/exif/readOutExif.ts`](src/lib/exif/readOutExif.ts)
+- EXIF extraction with `readImageMetadata()` helper in [`src/lib/exif/readImageMetadata.ts`](src/lib/exif/readImageMetadata.ts)
 - the `loadAndFormatCollection()` helper in [`src/lib/astro/loadAndFormatCollection.ts`](src/lib/astro/loadAndFormatCollection.ts)
 - output through [`src/components/Exif/`](src/components/Exif/)
 
@@ -173,6 +173,9 @@ cd blog/
 # required env vars
 cp .env.sample .env
 vi .env
+
+# exiftool required, for macOS
+brew install exiftool
 
 npm i
 npm run dev

@@ -1,6 +1,6 @@
 ---
 import Stopwatch from '@/images/stopwatch.svg'
-import type { Exif } from '@/lib/exif'
+import type { ImageMetadataFormatted } from '@/lib/exif'
 import Aperture from 'feather-icons/dist/icons/aperture.svg'
 import Camera from 'feather-icons/dist/icons/camera.svg'
 import Crosshair from 'feather-icons/dist/icons/crosshair.svg'
@@ -11,7 +11,7 @@ import ExifMap from './ExifMap.tsx'
 import styles from './index.module.css'
 
 type Props = {
-  exif: Exif
+  exif: ImageMetadataFormatted | undefined
 }
 
 const exif = Astro.props.exif?.exif

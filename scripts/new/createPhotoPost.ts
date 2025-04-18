@@ -2,7 +2,7 @@ import { promises as fs, existsSync, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Ora } from 'ora'
-import { readOutExif } from '../../src/lib/exif/readOutExif.js'
+import { readImageMetadata } from '../../src/lib/exif/readImageMetadata.js'
 import { slugify } from '../../src/lib/slugify/slugify.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -33,19 +33,14 @@ export async function createPhotoPost(
 
     try {
       const templatePhoto = readFileSync(templatePathPhoto).toString()
-      const exifData = await readOutExif(photo)
+      const exifData = await readImageMetadata(photo)
       if (!exifData) throw new Error(`No exif data found in image: ${photo}`)
 
-      const { iptc, exif } = exifData
-      title = iptc?.object_name || photoTitle
+      const { exif, iptc } = exifData
+      title = iptc?.title || photoTitle
       if (!title) {
-        const foundIptcFields = Object.entries(iptc || {})
-          .filter(([_, value]) => value !== undefined)
-          .map(([key, value]) => `${key}: ${value}`)
-          .join('\n')
-
         throw new Error(
-          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"\`\n\nFound IPTC data:\n${foundIptcFields || 'No IPTC data found'}`
+          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"`
         )
       }
       spinner.text = `Adding '${title}'.`

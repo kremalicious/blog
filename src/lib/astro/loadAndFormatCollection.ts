@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { getCollection } from 'astro:content'
-import { readOutExif } from '@/lib/exif'
+import { readImageMetadata } from '@/lib/exif'
 import config from '@config/blog.config'
 import type {
   ArticleEntry,
@@ -76,7 +76,7 @@ export async function loadAndFormatCollection(
             post.data.image.src.split('/')[2].split('.')[0].concat('.jpg')
           )
         : post.data.image.src.split('?')[0].split('/@fs')[1]
-      const exif = await readOutExif(imagePath)
+      const exif = await readImageMetadata(imagePath)
       post.data.exif = exif
     }
   }

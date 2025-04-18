@@ -4,7 +4,7 @@ import PhotoNav from '@/components/PhotoNav/index.astro'
 import Picture from '@/components/Picture/index.astro'
 import Title from '@/components/Title/index.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
-import type { Exif as ExifType } from '@/lib/exif'
+import type { ImageMetadataFormatted } from '@/lib/exif'
 import type { PhotoEntry } from '@config/content.schema'
 import stylesArticle from '../Article/index.module.css'
 
@@ -33,7 +33,7 @@ const { title, date, updated, image, exif } = data
       />
     </div>
 
-    <Exif exif={exif as ExifType} />
+    <Exif exif={exif as ImageMetadataFormatted} />
 
     <PhotoNav currentPhoto={post} />
   </article>
