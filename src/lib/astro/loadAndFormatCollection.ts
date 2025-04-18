@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { getCollection } from 'astro:content'
-import { readOutExif } from '@/lib/exif'
+import { readImageMetadata } from '@/lib/exif'
 import config from '@config/blog.config'
 import type {
   ArticleEntry,
@@ -76,20 +76,14 @@ export async function loadAndFormatCollection(
             post.data.image.src.split('/')[2].split('.')[0].concat('.jpg')
           )
         : post.data.image.src.split('?')[0].split('/@fs')[1]
-      const exif = await readOutExif(imagePath)
-      post.data.exif = exif
+      const imageMetadata = await readImageMetadata(imagePath)
+      post.data.imageMetadata = imageMetadata
     }
   }
 
   const sortedPosts = sortPosts(postsCollection as unknown as BlogEntry[])
 
-  if (name === 'articles') {
-    return sortedPosts as ArticleEntry[]
-  }
-
-  if (name === 'photos') {
-    return sortedPosts as PhotoEntry[]
-  }
-
+  if (name === 'articles') return sortedPosts as ArticleEntry[]
+  if (name === 'photos') return sortedPosts as PhotoEntry[]
   return sortedPosts as LinkEntry[]
 }

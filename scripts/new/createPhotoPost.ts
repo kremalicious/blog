@@ -1,8 +1,9 @@
+import { exec } from 'node:child_process'
 import { promises as fs, existsSync, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Ora } from 'ora'
-import { readOutExif } from '../../src/lib/exif/readOutExif.js'
+import { readImageMetadata } from '../../src/lib/exif/readImageMetadata.js'
 import { slugify } from '../../src/lib/slugify/slugify.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -33,19 +34,14 @@ export async function createPhotoPost(
 
     try {
       const templatePhoto = readFileSync(templatePathPhoto).toString()
-      const exifData = await readOutExif(photo)
+      const exifData = await readImageMetadata(photo)
       if (!exifData) throw new Error(`No exif data found in image: ${photo}`)
 
-      const { iptc, exif } = exifData
-      title = iptc?.object_name || photoTitle
+      const { exif, iptc } = exifData
+      title = iptc?.title || photoTitle
       if (!title) {
-        const foundIptcFields = Object.entries(iptc || {})
-          .filter(([_, value]) => value !== undefined)
-          .map(([key, value]) => `${key}: ${value}`)
-          .join('\n')
-
         throw new Error(
-          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"\`\n\nFound IPTC data:\n${foundIptcFields || 'No IPTC data found'}`
+          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"`
         )
       }
       spinner.text = `Adding '${title}'.`
@@ -74,6 +70,18 @@ export async function createPhotoPost(
       // copy photo file in place
       if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
       await fs.copyFile(photo, `${destination}/${folderName}.jpg`)
+
+      // write IPTC copyright data into photo file with `npm run iptc:add`
+      await new Promise((resolve, reject) => {
+        exec(`npm run iptc:add ${destination}/`, (error) => {
+          if (error) {
+            spinner.fail(`Error adding IPTC data: ${error.message}`)
+            reject(error)
+          } else {
+            resolve(true)
+          }
+        })
+      })
 
       // create photo post file
       await fs.writeFile(postPhotoFile, newContentsPhoto, 'utf8')

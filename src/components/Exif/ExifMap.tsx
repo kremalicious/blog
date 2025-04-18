@@ -1,4 +1,4 @@
-import type { Gps } from '@/lib/exif'
+import type { GpsFormatted } from '@/lib/exif'
 import { Marker, Map as PigeonMap } from 'pigeon-maps'
 import { type ReactElement, useEffect, useState } from 'react'
 
@@ -16,7 +16,7 @@ const providers = {
 
 type Theme = 'light' | 'dark'
 
-export default function ExifMap({ gps }: { gps: Gps }): ReactElement {
+export default function ExifMap({ gps }: { gps: GpsFormatted }): ReactElement {
   const theme = document?.documentElement?.getAttribute('data-theme') as Theme
 
   const [zoom, setZoom] = useState(12)
