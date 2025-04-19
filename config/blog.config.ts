@@ -19,7 +19,7 @@ export default {
   },
   rss: '/feed.xml',
   jsonfeed: '/feed.json',
-  itemsPerPage: 30,
+  itemsPerPage: 12,
   repoContentPath: 'https://github.com/kremalicious/blog/tree/main/content',
   menu: [
     {
