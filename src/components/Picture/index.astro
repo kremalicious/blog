@@ -18,7 +18,8 @@ const {
   class: className,
   width,
   height,
-  objectFit
+  objectFit,
+  loading = 'lazy'
 } = Astro.props
 
 const formats: ImageOutputFormat[] = ['webp', 'jpg']
@@ -62,8 +63,8 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
 ---
 
 <figure
-  class={`picture ${styles.image} ${className ? className : ''} ${
-    objectFit ? styles['objectFit'] : ''
+  class={`picture ${styles.image} ${className ? className : ""} ${
+    objectFit ? styles["objectFit"] : ""
   }`}
 >
   {
@@ -81,7 +82,7 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
   <picture>
     {
       formats
-        .filter((format) => format !== 'jpg')
+        .filter((format) => format !== "jpg")
         .map((format) => (
           <source
             type={`image/${format}`}
@@ -95,9 +96,9 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
       height={height}
       sizes={`(min-width: ${width}px) ${width}px, 100vw`}
       decoding="async"
-      loading="lazy"
+      loading={loading}
       src={srcFallback.src}
-      srcset={srcSetStrings['jpg']}
+      srcset={srcSetStrings["jpg"]}
       alt={alt}
     />
   </picture>
