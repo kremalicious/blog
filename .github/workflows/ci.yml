@@ -68,7 +68,7 @@ jobs:
       - run: npm ci
       - run: npm run test:unit
       - uses: actions/upload-artifact@v4
-        if: matrix.os == 'ubuntu-latest' && matrix.node == '22'
+        if: matrix.os == 'macos-latest' && matrix.node == '22'
         with:
           name: coverage-${{ matrix.os }}-${{ matrix.node }}
           path: coverage/
@@ -113,23 +113,23 @@ jobs:
       - run: npm ci
       - run: NODE_OPTIONS="--max-old-space-size=4096" npm run build
       - name: Zip artifact for deployment
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '22'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest' && matrix.node == '22'
         run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v4
-        if: github.ref == 'refs/heads/main' && matrix.os == 'ubuntu-latest' && matrix.node == '22'
+        if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest' && matrix.node == '22'
         with:
           name: dist-${{ matrix.os }}-${{ matrix.node }}
           path: dist.zip
 
   coverage:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: [test-unit]
     if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-ubuntu-latest-22
+          name: coverage-macos-latest-22
       - uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
@@ -137,13 +137,13 @@ jobs:
   deploy:
     needs: [lint, typecheck, test-unit, test-e2e, build]
     if: success() && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: dist-ubuntu-latest-22
+          name: dist-macos-latest-22
       - name: unzip artifact
         run: unzip dist.zip
       - name: Deploy to S3
