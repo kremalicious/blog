@@ -10,15 +10,6 @@ import '@testing-library/jest-dom'
 import { TextDecoder, TextEncoder } from 'node:util'
 Object.assign(global, { TextDecoder, TextEncoder })
 
-Object.defineProperty(window, 'localStorage', {
-  value: {
-    getItem: vi.fn(() => null),
-    removeItem: vi.fn(() => null),
-    setItem: vi.fn(() => null)
-  },
-  writable: true
-})
-
 vi.mock('wagmi', () => wagmiMock)
 vi.mock('wagmi/actions', () => wagmiActionsMock)
 vi.mock('@rainbow-me/rainbowkit', () => rainbowkitMock)

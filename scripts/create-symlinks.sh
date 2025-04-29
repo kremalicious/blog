@@ -3,7 +3,6 @@
 paths=(
   "config/content.config.ts:src/content.config.ts"
   "content/articles/2012-07-16-using-kbd-for-fun-and-profit/_post-kbd.css:public/post-kbd.css"
-  "src/components/ThemeSwitch/theme.cjs:public/theme.js"
 )
 
 # Initialize a counter for created symlinks

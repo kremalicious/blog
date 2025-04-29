@@ -62,12 +62,6 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 <head>
   <meta charset="utf-8" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-  <meta name="generator" content={Astro.generator} />
-
   <title>{titleFinal}</title>
 
   <link rel="canonical" href={canonicalUrl} />
@@ -79,7 +73,10 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="theme-color" content="" />
-  <meta name="msapplication-TileColor" content="" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
   <meta name="robots" content="noai, noimageai" />
 
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -104,6 +101,8 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
   <link rel="sitemap" href="/sitemap-index.xml" />
 
+  <script src="@/components/ThemeSwitch/theme"></script>
+
   {
     typekitId && (
       <>
@@ -120,11 +119,6 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
       </>
     )
   }
-
-  {
-    /* src/components/ThemeSwitch/theme.cjs is symlinked to public/theme.js before build */
-  }
-  <script is:inline src="/theme.js"></script>
 
   {style && <link rel="stylesheet" href={style} />}
 
