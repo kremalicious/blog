@@ -18,6 +18,5 @@ test-results/
 playwright-report/
 playwright/.cache/
 **/tmp/
-public/theme.js
 src/lib/astro-redirect-from
 src/content.config.ts
