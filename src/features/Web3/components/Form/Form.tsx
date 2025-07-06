@@ -1,13 +1,13 @@
+import siteConfig from '@config/blog.config'
+import { useStore } from '@nanostores/react'
+import { type ReactElement, useEffect, useState } from 'react'
+import { useAccount } from 'wagmi'
 import {
   $amount,
   $isInitSend,
   $selectedToken,
   $setAmount
 } from '@/features/Web3/stores'
-import siteConfig from '@config/blog.config'
-import { useStore } from '@nanostores/react'
-import { type ReactElement, useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
 import { InputGroup } from '../Input'
 import { RainbowKit } from '../RainbowKit/RainbowKit'
 import { Send } from '../Send'

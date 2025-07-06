@@ -1,8 +1,8 @@
 ---
-import PostTeaser from '@/components/PostTeaser/index.astro'
-import { getAllPostsForSearch } from '@/lib/astro'
 import type { BlogEntry } from '@config/content.schema'
 import Fuse from 'fuse.js'
+import PostTeaser from '@/components/PostTeaser/index.astro'
+import { getAllPostsForSearch } from '@/lib/astro'
 import styles from './index.module.css'
 
 type Props = {

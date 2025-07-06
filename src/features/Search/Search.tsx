@@ -1,9 +1,9 @@
-import Input from '@/components/Input'
-import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
-import { isSearchOpen } from '@/stores/search'
 import { useStore } from '@nanostores/react'
 import Fuse from 'fuse.js'
 import { type ReactElement, useEffect, useState } from 'react'
+import Input from '@/components/Input'
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
+import { isSearchOpen } from '@/stores/search'
 import SearchResults from './Results'
 import styles from './Search.module.css'
 
@@ -16,7 +16,7 @@ const fuseOptions = {
   threshold: 0.5
 }
 
-export default function Search(): ReactElement {
+export default function Search(): ReactElement | null {
   const $isSearchOpen = useStore(isSearchOpen)
 
   const [query, setQuery] = useState('')
@@ -35,7 +35,6 @@ export default function Search(): ReactElement {
   // Handle search and set results
   const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: fuse not needed
   useEffect(() => {
     if (!query || query === '' || !fuse) {
       setResults([])
@@ -91,7 +90,5 @@ export default function Search(): ReactElement {
 
       <SearchResults query={query} results={results} />
     </>
-  ) : (
-    <></>
-  )
+  ) : null
 }

@@ -1,8 +1,8 @@
-import { $amount, $selectedToken, $txHash } from '@/features/Web3/stores'
 import siteConfig from '@config/blog.config'
 import { useStore } from '@nanostores/react'
 import { useState } from 'react'
 import { useAccount, useConfig, useEnsAddress, useSwitchChain } from 'wagmi'
+import { $amount, $selectedToken, $txHash } from '@/features/Web3/stores'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
 import { send } from './send'
 

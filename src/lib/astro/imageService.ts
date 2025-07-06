@@ -4,7 +4,7 @@
 // Forked from Astro's sharp image service, overwriting the transform method
 // https://github.com/withastro/astro/blob/99af0d135b04304c1138fb57bb1809657184f7ce/packages/astro/src/assets/services/sharp.ts
 
-import sharp, { type FormatEnum, type FitEnum } from 'sharp'
+import sharp, { type FitEnum, type FormatEnum } from 'sharp'
 import type { LocalImageService } from '../../../node_modules/astro/dist/assets/services/service'
 import sharpService from '../../../node_modules/astro/dist/assets/services/sharp'
 import type {
@@ -33,7 +33,6 @@ const fitMap: Record<ImageFit, keyof FitEnum> = {
 const extendedSharpService: LocalImageService = {
   ...sharpService,
 
-  // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: complexity comes from Astro implementation
   async transform(inputBuffer, transformOptions, config) {
     // Return SVGs as-is
     if (transformOptions.format === 'svg') {

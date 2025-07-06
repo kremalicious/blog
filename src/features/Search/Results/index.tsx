@@ -1,6 +1,6 @@
-import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import type { ReactElement } from 'react'
 import { createPortal } from 'react-dom'
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import ResultsEmpty from './Empty'
 import styles from './index.module.css'
 

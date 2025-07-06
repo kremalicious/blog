@@ -1,6 +1,5 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import type { ImageMetadataFormatted } from '@/lib/exif'
 import type { Ora } from 'ora'
 import {
   afterAll,
@@ -11,6 +10,7 @@ import {
   test,
   vi
 } from 'vitest'
+import type { ImageMetadataFormatted } from '@/lib/exif'
 import { createArticlePost } from './createArticlePost'
 import { createPhotoPost } from './createPhotoPost'
 

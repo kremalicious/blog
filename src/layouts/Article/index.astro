@@ -1,4 +1,5 @@
 ---
+import type { ArticleEntry } from '@config/content.schema'
 import Changelog from '@/components/Changelog/index.astro'
 import Picture from '@/components/Picture/index.astro'
 import PostActions from '@/components/PostActions/index.astro'
@@ -7,7 +8,6 @@ import RelatedPosts from '@/components/RelatedPosts/index.astro'
 import Title from '@/components/Title/index.astro'
 import Toc from '@/components/Toc.astro'
 import LayoutBase from '@/layouts/Base/index.astro'
-import type { ArticleEntry } from '@config/content.schema'
 import styles from './index.module.css'
 
 // Allow for both directly passing an ArticleEntry or setting all props separately

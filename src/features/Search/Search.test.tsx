@@ -1,13 +1,13 @@
-import { isSearchOpen } from '@/stores/search'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import {
-  type MockInstance,
   afterEach,
   beforeEach,
   expect,
+  type MockInstance,
   test,
   vi
 } from 'vitest'
+import { isSearchOpen } from '@/stores/search'
 import Search from './Search'
 
 type GlobalFetch = typeof globalThis.fetch

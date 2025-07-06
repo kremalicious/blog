@@ -19,7 +19,6 @@ const schemaShared = {
     ),
   tags: z.array(z.string()).optional(),
   draft: z.boolean().optional(),
-  // biome-ignore lint/style/useNamingConvention: external spec
   redirect_from: z.array(z.string()).optional(),
   author: z.string().optional(),
   featured: z.boolean().optional(),

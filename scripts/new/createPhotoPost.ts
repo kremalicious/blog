@@ -1,5 +1,5 @@
 import { exec } from 'node:child_process'
-import { promises as fs, existsSync, mkdirSync, readFileSync } from 'node:fs'
+import { existsSync, promises as fs, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Ora } from 'ora'

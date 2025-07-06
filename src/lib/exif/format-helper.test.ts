@@ -34,10 +34,8 @@ describe('formatGps', () => {
   it('should format GPS data correctly', () => {
     const input: ExifrGps = {
       latitude: 52.5,
-      // biome-ignore lint/style/useNamingConvention: external library
       GPSLatitudeRef: 'N',
       longitude: 13.383333333333333,
-      // biome-ignore lint/style/useNamingConvention: external library
       GPSLongitudeRef: 'E'
     }
 

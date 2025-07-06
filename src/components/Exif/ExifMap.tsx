@@ -1,6 +1,6 @@
-import type { GpsFormatted } from '@/lib/exif'
 import { Marker, Map as PigeonMap } from 'pigeon-maps'
 import { type ReactElement, useEffect, useState } from 'react'
+import type { GpsFormatted } from '@/lib/exif'
 
 const mapbox =
   (mapboxId: string) =>
@@ -27,7 +27,6 @@ export default function ExifMap({ gps }: { gps: GpsFormatted }): ReactElement {
     setProvider(() => providers[theme])
   }
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: handleThemeChange not needed in deps
   useEffect(() => {
     if (!window) return
 

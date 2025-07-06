@@ -1,6 +1,6 @@
-import { $amount, $selectedToken } from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
+import { $amount, $selectedToken } from '@/features/Web3/stores'
 import styles from './Conversion.module.css'
 
 export function Conversion(): ReactElement | null {

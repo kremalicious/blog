@@ -1,5 +1,5 @@
-import { $isInitSend } from '@/features/Web3/stores'
 import { useAccount } from 'wagmi'
+import { $isInitSend } from '@/features/Web3/stores'
 import { ExplorerLink } from './ExplorerLink'
 import styles from './Success.module.css'
 

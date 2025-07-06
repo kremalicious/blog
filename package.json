@@ -59,8 +59,8 @@
     "wagmi": "2.15.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@kremalicious/config": "1.1.0",
+    "@biomejs/biome": "2.0.6",
+    "@kremalicious/config": "2.0.0",
     "@playwright/test": "1.53.2",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
@@ -98,7 +98,10 @@
     "url": "https://github.com/kremalicious/blog.git"
   },
   "browserslist": {
-    "production": ["defaults", ">0.2%"],
+    "production": [
+      "defaults",
+      ">0.2%"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

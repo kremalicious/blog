@@ -1,5 +1,5 @@
-import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import type { ReactElement } from 'react'
+import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
 import styles from './Empty.module.css'
 
 const SearchResultsEmpty = ({

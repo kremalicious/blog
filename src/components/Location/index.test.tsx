@@ -1,12 +1,12 @@
 import * as nanostores from '@nanostores/react'
 import { render, screen } from '@testing-library/react'
 import {
-  type MockInstance,
   afterAll,
   beforeAll,
   describe,
   expect,
   it,
+  type MockInstance,
   vi
 } from 'vitest'
 import Location from '.'

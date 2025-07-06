@@ -1,8 +1,8 @@
+import siteConfig from '@config/blog.config'
+import { useEnsAddress, useEnsName } from 'wagmi'
 import { Loader } from '@/components/Loader'
 import { useSend } from '@/features/Web3/hooks/useSend'
 import { $isInitSend } from '@/features/Web3/stores'
-import siteConfig from '@config/blog.config'
-import { useEnsAddress, useEnsName } from 'wagmi'
 import { Data } from './Data'
 import styles from './Preview.module.css'
 

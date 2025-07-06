@@ -10,19 +10,15 @@
 
 import { resolve } from 'node:path'
 import blogConfig from '@config/blog.config'
-import { type WriteTags, exiftool } from 'exiftool-vendored'
+import { exiftool, type WriteTags } from 'exiftool-vendored'
 import { globby } from 'globby'
 import { oraPromise } from 'ora'
 
 const IPTC_METADATA: WriteTags = {
-  // biome-ignore lint/style/useNamingConvention: IPTC tag names
   Copyright: blogConfig.photos.copyrightNotice,
-  // biome-ignore lint/style/useNamingConvention: IPTC tag names
   CopyrightNotice: blogConfig.photos.copyrightNotice,
-  // biome-ignore lint/style/useNamingConvention: IPTC tag names
   Creator: blogConfig.author.name,
   'By-line': blogConfig.author.name,
-  // biome-ignore lint/style/useNamingConvention: IPTC tag names
   Contact: blogConfig.author.email
 }
 

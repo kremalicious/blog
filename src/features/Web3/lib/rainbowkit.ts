@@ -1,4 +1,4 @@
-import { type Theme, getDefaultConfig } from '@rainbow-me/rainbowkit'
+import { getDefaultConfig, type Theme } from '@rainbow-me/rainbowkit'
 import { arbitrum, base, mainnet, optimism, polygon, zora } from 'wagmi/chains'
 
 const PUBLIC_WALLETCONNECT_ID = import.meta.env.PUBLIC_WALLETCONNECT_ID

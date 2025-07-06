@@ -8,6 +8,7 @@ import '@testing-library/jest-dom'
 
 // viem uses TextEncoder and TextDecoder which are not available with jsdom 16+
 import { TextDecoder, TextEncoder } from 'node:util'
+
 Object.assign(global, { TextDecoder, TextEncoder })
 
 vi.mock('wagmi', () => wagmiMock)

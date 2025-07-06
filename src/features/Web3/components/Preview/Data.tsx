@@ -1,7 +1,7 @@
-import { truncateAddress } from '@/features/Web3/lib/truncateAddress'
-import { $amount, $selectedToken } from '@/features/Web3/stores'
 import { useStore } from '@nanostores/react'
 import { useAccount, useChains, useEnsName } from 'wagmi'
+import { truncateAddress } from '@/features/Web3/lib/truncateAddress'
+import { $amount, $selectedToken } from '@/features/Web3/stores'
 import styles from './Data.module.css'
 
 export function Data({

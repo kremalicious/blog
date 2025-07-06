@@ -1,3 +1,5 @@
+import { useStore } from '@nanostores/react'
+import { type ReactElement, useState } from 'react'
 import Input from '@/components/Input'
 import {
   $amount,
@@ -5,8 +7,6 @@ import {
   $selectedToken,
   $setAmount
 } from '@/features/Web3/stores'
-import { useStore } from '@nanostores/react'
-import { type ReactElement, useState } from 'react'
 import { Conversion } from '../Conversion'
 import { TokenSelect } from '../TokenSelect'
 import styles from './InputGroup.module.css'

@@ -1,7 +1,7 @@
 import { getImage } from 'astro:assets'
-import favicon from '@/images/favicon.png'
 import config from '@config/blog.config'
 import type { APIRoute } from 'astro'
+import favicon from '@/images/favicon.png'
 
 const faviconPngSizes = [192, 512]
 
@@ -25,13 +25,10 @@ export const GET: APIRoute = async () => {
   const manifest = {
     name: config.siteTitle,
     description: config.siteDescription,
-    // biome-ignore lint/style/useNamingConvention: external spec
     start_url: '/',
     display: 'standalone',
     id: `${config.siteTitle}-blog`,
-    // biome-ignore lint/style/useNamingConvention: external spec
     theme_color: '#e7eef4',
-    // biome-ignore lint/style/useNamingConvention: external spec
     background_color: '#e7eef4',
     icons
   }

@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+import config from '@config/blog.config'
 import DateComponent from '@/components/Date/index.astro'
 import Tag from '@/components/Tag.astro'
 import { slugify } from '@/lib/slugify'
-import config from '@config/blog.config'
 import styles from './index.module.css'
 
 type Props = {

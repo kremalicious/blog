@@ -24,8 +24,9 @@
   --body-background-color: var(--brand-light);
   --box-background-color: #f1f5f8;
 
-  --box-shadow: 0 1.3px 5.4px rgba(1 85 101 / 15%), 0 4.5px 18.1px
-    rgba(1 85 101 / 5%), 0 20px 81px rgba(1 85 101 / 2.5%);
+  --box-shadow:
+    0 1.3px 5.4px rgba(1 85 101 / 15%), 0 4.5px 18.1px rgba(1 85 101 / 5%), 0
+    20px 81px rgba(1 85 101 / 2.5%);
 
   /* Text Colors
   ///////////////////////////////////// */
@@ -61,19 +62,22 @@
   --line-height: 1.65;
   --line-height-small: 1.1429;
 
-  --font-family-base: 'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue',
-    'Helvetica', 'Arial', 'sans-serif';
+  --font-family-base:
+    'ff-tisa-sans-web-pro', 'Trebuchet MS', 'Helvetica Neue', 'Helvetica',
+    'Arial', 'sans-serif';
   --font-weight-base: 400;
   --font-weight-bold: 600;
 
-  --font-family-monospace: 'SF Mono', sfmono-regular, ui-monospace,
-    'DejaVu Sans Mono', menlo, consolas, monospace;
+  --font-family-monospace:
+    'SF Mono', sfmono-regular, ui-monospace, 'DejaVu Sans Mono', menlo, consolas,
+    monospace;
 
   /* Headings
   ///////////////////////////////////// */
 
-  --font-family-headings: 'brandon-grotesque', 'Avenir Next', 'Helvetica Neue',
-    'Helvetica', 'Arial', 'sans-serif';
+  --font-family-headings:
+    'brandon-grotesque', 'Avenir Next', 'Helvetica Neue', 'Helvetica', 'Arial',
+    'sans-serif';
   --font-weight-headings: 700;
   --line-height-headings: 1.2;
 
@@ -127,8 +131,9 @@
   --body-background-color: #161a1b;
   --box-background-color: #1e2122;
 
-  --box-shadow: 0 1.3px 5.4px rgba(0 7 8 / 50%), 0 4.5px 18.1px
-    rgba(0 7 8 / 30%), 0 20px 81px rgba(0 7 8 / 10%);
+  --box-shadow:
+    0 1.3px 5.4px rgba(0 7 8 / 50%), 0 4.5px 18.1px rgba(0 7 8 / 30%), 0 20px
+    81px rgba(0 7 8 / 10%);
 
   --text-color: var(--brand-grey-light);
   --text-color-light: var(--brand-grey);
