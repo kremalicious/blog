@@ -19,7 +19,7 @@ export default function Location() {
         <>
           <LocationItem
             country={data.now.country}
-            countryCode={data.now.country_code}
+            countryCode={data.now.countryCode}
             city={data.now.city}
             time="now"
           />
@@ -28,12 +28,11 @@ export default function Location() {
             {data.next?.city && (
               <LocationItem
                 country={data.next.country}
-                countryCode={data.next.country_code}
+                countryCode={data.next.countryCode}
                 city={data.next.city}
-                time={formatDistanceToNowStrict(
-                  new Date(data.next.date_start),
-                  { addSuffix: true }
-                )}
+                time={formatDistanceToNowStrict(new Date(data.next.startDate), {
+                  addSuffix: true
+                })}
                 showFlag={data.now.country !== data.next.country}
               />
             )}
