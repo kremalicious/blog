@@ -15,7 +15,7 @@ Here's a new desktop goodie for your pleasure. It's a replacement dock icon for 
 
 ![Adiumeetie Teaser](./Adiumeetie-Teaser.jpg)
 
-While the Tweetie Mac icon (and it's UI) was discussed quite controversial (which caused some very nice Tweetie replacement icons to appear, like [here](http://jonasraskdesign.com/medias/medias.html), [here](http://iconblock.deviantart.com/art/Tweetie-Mix-120360482), [here](http://macthemes2.net/forum/viewtopic.php?id=16795744) or [here](http://www.flickr.com/photos/marcelomarfil/3611311439/)), I grew to like the style of it. But Adium beside Tweetie in the Dock just looked weird... (No offense, [Adam](http://www.artofadambetts.com/weblog/?p=108)) So I redrew the whole icon and used Adium's duck silhouette on it and made some obvious and subtle changes in comparison to the Tweetie icon. And thanks to [Loren](http://blog.atebits.com/) who kind of rubber-stamped this icon release.
+While the Tweetie Mac icon (and it's UI) was discussed quite controversial (which caused some very nice Tweetie replacement icons to appear, I grew to like the style of it. But Adium beside Tweetie in the Dock just looked weird... (No offense, [Adam](http://www.artofadambetts.com/weblog/?p=108)) So I redrew the whole icon and used Adium's duck silhouette on it and made some obvious and subtle changes in comparison to the Tweetie icon. And thanks to [Loren](http://blog.atebits.com/) who kind of rubber-stamped this icon release.
 
 The icon comes in various formats (iContainer, icns, png) in sizes from 512px-16px and as an Adium dock icon package. This icon package uses some more icons (just 128px each) for the different states of Adium (online, offline, alert etc.) and includes the application icon too.
 
