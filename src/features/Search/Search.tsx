@@ -27,7 +27,7 @@ export default function Search(): ReactElement | null {
   useEffect(() => {
     if (!$isSearchOpen) return
 
-    fetch('/api/posts/')
+    fetch('/api/posts.json')
       .then((res) => res.json())
       .then((json) => setAllPosts(json))
   }, [$isSearchOpen])
