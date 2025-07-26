@@ -9,8 +9,8 @@
 </p>
 <p align="center">
   <a href="https://github.com/kremalicious/blog/actions"><img src="https://github.com/kremalicious/blog/workflows/CI/badge.svg" alt="CI workflow badge" /></a>
-  <a href="https://codeclimate.com/github/kremalicious/blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/maintainability" alt="CodeClimate maintainability badge" /></a>
-  <a href="https://codeclimate.com/github/kremalicious/blog/test_coverage"><img src="https://api.codeclimate.com/v1/badges/4e86c791349cd12368cd/test_coverage" alt="CodeClimate coverage badge" /></a>
+  <a href="https://qlty.sh/gh/kremalicious/projects/blog"><img src="https://qlty.sh/gh/kremalicious/projects/blog/maintainability.svg" alt="Maintainability" /></a>
+  <a href="https://qlty.sh/gh/kremalicious/projects/blog"><img src="https://qlty.sh/gh/kremalicious/projects/blog/coverage.svg" alt="Code Coverage" /></a>
 </p>
 
 ---

@@ -130,9 +130,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: coverage-ubuntu-latest-22
-      - uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - uses: qltysh/qlty-action/coverage@v1
+        with:
+            token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+            files: coverage/coverage-final.json
+
 
   deploy:
     needs: [lint, typecheck, test-unit, test-e2e, build]
