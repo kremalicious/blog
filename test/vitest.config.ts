@@ -20,6 +20,7 @@ export default getViteConfig({
       ]
     },
     coverage: {
+      reporter: ['text', 'json', 'html', 'lcov'],
       all: true,
       exclude: [
         '**/*.d.ts',
