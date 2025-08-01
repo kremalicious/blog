@@ -59,7 +59,7 @@
     "wagmi": "2.16.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.2",
+    "@biomejs/biome": "2.1.3",
     "@kremalicious/config": "2.0.0",
     "@playwright/test": "1.54.1",
     "@testing-library/jest-dom": "6.6.4",
