@@ -34,7 +34,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/react": "4.3.0",
     "@astrojs/rss": "4.0.12",
-    "@astrojs/sitemap": "3.4.1",
+    "@astrojs/sitemap": "3.4.2",
     "@coingecko/cryptoformat": "0.8.2",
     "@nanostores/persistent": "1.1.0",
     "@nanostores/query": "0.3.4",
