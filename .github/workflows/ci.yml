@@ -61,13 +61,17 @@ jobs:
             files: coverage/lcov.info
 
   test-e2e:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install
-      - run: npx playwright install --with-deps
+      - run: bunx playwright install --with-deps
       - run: bun run test:e2e
 
   build:
