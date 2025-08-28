@@ -5,7 +5,6 @@
 # AWS_SECRET_ACCESS_KEY
 # AWS_DEFAULT_REGION
 AWS_S3_BUCKET="kremalicious.com"
-SITEMAP_URL="https%3A%2F%2Fkremalicious.com%2Fsitemap-index.xml"
 
 #
 set -e;
@@ -43,9 +42,3 @@ function s3sync {
 }
 
 s3sync $AWS_S3_BUCKET
-
-# ping search engines
-# returns: HTTP_STATUSCODE URL
-curl -sL -w "%{http_code} %{url_effective}\\n" \
-  "http://www.google.com/webmasters/tools/ping?sitemap=$SITEMAP_URL" -o /dev/null \
-  "http://www.bing.com/webmaster/ping.aspx?siteMap=$SITEMAP_URL" -o /dev/null
