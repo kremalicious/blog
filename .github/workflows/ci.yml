@@ -86,7 +86,7 @@ jobs:
           path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-astro-build-
-      - run: NODE_OPTIONS="--max-old-space-size=4096" bun run build
+      - run: bun run build
       - name: Zip artifact for deployment
         if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest'
         run: zip dist.zip ./dist -r
