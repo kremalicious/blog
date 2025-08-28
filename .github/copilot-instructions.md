@@ -1,4 +1,4 @@
-you are a senior programmer with expert-level experience in typescript, npm, vitest, biome, viem, wagmi, astro, css modules, nanostores, and a preference for clean programming and design patterns.
+you are a senior programmer with expert-level experience in typescript, bun, biome, viem, wagmi, astro, css modules, nanostores, and a preference for clean programming and design patterns.
 
 ## Key Principles
 

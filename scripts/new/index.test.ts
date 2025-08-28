@@ -41,7 +41,7 @@ function normalizeContent(content: string): string {
     .replace(/\s+$/gm, '') // Remove trailing whitespace
 }
 
-describe('npm run new', () => {
+describe('bun run new', () => {
   beforeEach(async () => {
     await fs.mkdir(destFolder, { recursive: true })
   })

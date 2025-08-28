@@ -41,7 +41,7 @@ export async function createPhotoPost(
       title = iptc?.title || photoTitle
       if (!title) {
         throw new Error(
-          `No title found for ${photo}. Add to IPTC, or use the format \`npm run new photo path/to/photo.jpg "Title of post"`
+          `No title found for ${photo}. Add to IPTC, or use the format \`bun run new photo path/to/photo.jpg "Title of post"`
         )
       }
       spinner.text = `Adding '${title}'.`
@@ -71,9 +71,9 @@ export async function createPhotoPost(
       if (!existsSync(destination)) mkdirSync(destination, { recursive: true })
       await fs.copyFile(photo, `${destination}/${folderName}.jpg`)
 
-      // write IPTC copyright data into photo file with `npm run iptc:add`
+      // write IPTC copyright data into photo file with `bun run iptc:add`
       await new Promise((resolve, reject) => {
-        exec(`npm run iptc:add ${destination}/`, (error) => {
+        exec(`bun run iptc:add ${destination}/`, (error) => {
           if (error) {
             spinner.fail(`Error adding IPTC data: ${error.message}`)
             reject(error)
