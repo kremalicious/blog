@@ -61,11 +61,7 @@ jobs:
             files: coverage/lcov.info
 
   test-e2e:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -90,7 +86,6 @@ jobs:
           path: ${{ github.workspace }}/.astro
           key: ${{ matrix.os }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
           restore-keys: ${{ matrix.os }}-astro-build-
-      - run: bun install
       - run: NODE_OPTIONS="--max-old-space-size=4096" bun run build
       - name: Zip artifact for deployment
         if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest'
@@ -108,6 +103,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
       - uses: actions/download-artifact@v4
         with:
           name: dist-macos-latest
