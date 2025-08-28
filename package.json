@@ -27,8 +27,7 @@
     "create:redirects": "bun run scripts/redirect-from.ts",
     "create:symlinks": "./scripts/create-symlinks.sh",
     "move:downloads": "bun run scripts/move-downloads.ts",
-    "iptc:add": "bun run scripts/iptc-add.ts",
-    "prepare": "husky config/husky"
+    "iptc:add": "bun run scripts/iptc-add.ts"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -75,7 +74,6 @@
     "exiftool-vendored": "30.4.0",
     "globby": "14.1.0",
     "hast-util-to-html": "^9.0.5",
-    "husky": "9.1.7",
     "jsdom": "26.1.0",
     "markdownlint-cli": "0.45.0",
     "mdast-util-to-hast": "13.2.0",
