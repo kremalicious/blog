@@ -3,7 +3,8 @@ you are a senior programmer with expert-level experience in typescript, bun, bio
 ## Prerequisites
 
 **Bun runtime**: Install with:
-```
+
+```bash
 curl -fsSL https://bun.sh/install | bash && source ~/.bashrc
 ```
 
