@@ -20,3 +20,4 @@ playwright/.cache/
 **/tmp/
 src/lib/astro-redirect-from
 src/content.config.ts
+package-lock.json

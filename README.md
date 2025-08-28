@@ -178,7 +178,7 @@ vi .env
 brew install exiftool
 
 npm i
-npm run dev
+bun run dev
 ```
 
 ### 🔮 Linting
@@ -186,7 +186,7 @@ npm run dev
 [Biome](https://biomejs.dev) is setup for all linting and formatting purposes:
 
 ```bash
-npm run lint
+bun run lint
 ```
 
 ### 🔮 Type Checking
@@ -194,7 +194,7 @@ npm run lint
 Type checking can be invoked to check all TypeScript code, including within .astro files:
 
 ```bash
-npm run typecheck
+bun run typecheck
 ```
 
 ### 👩‍🔬 Testing
@@ -208,22 +208,22 @@ Testing setup, fixtures, and mocks shared between unit & integration tests can b
 To run all unit tests:
 
 ```bash
-npm run test:unit
+bun run test:unit
 
 # watch mode
-npm run test:unit:watch
+bun run test:unit:watch
 ```
 
 For End-to-End integration testing, ideally run against the production build:
 
 ```bash
-npm run build && npm run preview
+bun run build && bun run preview
 
 # mapping `playwright` command
-npm run test:e2e
-npm run test:e2e -- --ui
-npm run test:e2e -- path/to/file.spec.ts.
-npm run test:e2e -- --update-snapshots
+bun run test:e2e
+bun run test:e2e -- --ui
+bun run test:e2e -- path/to/file.spec.ts.
+bun run test:e2e -- --update-snapshots
 ```
 
 ## 🎈 Content creation helpers
@@ -231,22 +231,22 @@ npm run test:e2e -- --update-snapshots
 ### Add a new post
 
 ```bash
-npm run new "Hello World"
-npm run new "Hello World" 2017-12-27
+bun run new "Hello World"
+bun run new "Hello World" 2017-12-27
 ```
 
 Create a new photo post with date, title & description pre-filled from EXIF/IPTC data of a given image file:
 
 ```bash
-npm run new photo /path/to/photo.jpg
-npm run new photo /path/to/photo.jpg "Hello Photo Post"
+bun run new photo /path/to/photo.jpg
+bun run new photo /path/to/photo.jpg "Hello Photo Post"
 ```
 
 You can also create multiple photo posts at once by providing multiple photo paths:
 
 ```bash
-npm run new photo /path/to/photo1.jpg /path/to/photo2.jpg /path/to/photo3.jpg
-npm run new photo /path/to/photo1.jpg /path/to/photo2.jpg "Shared Title For Photos"
+bun run new photo /path/to/photo1.jpg /path/to/photo2.jpg /path/to/photo3.jpg
+bun run new photo /path/to/photo1.jpg /path/to/photo2.jpg "Shared Title For Photos"
 ```
 
 - [`scripts/new/`](scripts/new/)
@@ -260,7 +260,7 @@ Every branch or Pull Request is automatically deployed by [Vercel](https://verce
 The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3:
 
 ```bash
-npm run deploy:s3
+bun run deploy:s3
 ```
 
 ## 🏛 Licenses

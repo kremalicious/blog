@@ -9,7 +9,7 @@ const spinner = ora('Adding new post').start()
 
 if (!process.argv[2]) {
   spinner.fail(
-    'Use the format `npm run new "Title of post"` or `npm run new photo path/to/photo.jpg "Title of post"`'
+    'Use the format `bun run new "Title of post"` or `bun run new photo path/to/photo.jpg "Title of post"`'
   )
 }
 
@@ -25,7 +25,7 @@ if (isPhoto) {
 
   if (photos.length === 0) {
     spinner.fail(
-      'No photo paths provided. Use the format `npm run new photo path/to/photo.jpg "Title of post"`'
+      'No photo paths provided. Use the format `bun run new photo path/to/photo.jpg "Title of post"`'
     )
     process.exit(1)
   } else {
