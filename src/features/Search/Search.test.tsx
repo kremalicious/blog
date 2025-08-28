@@ -30,7 +30,7 @@ beforeEach(() => {
 
   // Mock fetch API
   originalFetch = globalThis.fetch
-  // @ts-ignore
+  // @ts-expect-error
   globalThis.fetch = async () => {
     return {
       json: () =>

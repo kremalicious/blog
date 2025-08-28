@@ -50,9 +50,9 @@
 }
 
 .map img {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 .map > div:first-child {
-  background: none !important;
+  background: none;
 }

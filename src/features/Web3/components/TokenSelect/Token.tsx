@@ -28,7 +28,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
 
     // const hasBalanceAndValue =
     //   balance && parseInt(balance) !== 0 && valueInUsd >= 1
-    const hasBalance = balance && Number.parseInt(balance) !== 0
+    const hasBalance = balance && Number.parseInt(balance, 10) !== 0
 
     return hasBalance ? (
       <Select.Item

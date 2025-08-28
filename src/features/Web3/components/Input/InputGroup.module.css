@@ -31,7 +31,7 @@
 
 .inputGroup.error,
 .inputGroup.focus.error {
-  border-color: red !important;
+  border-color: red;
 }
 
 .token {

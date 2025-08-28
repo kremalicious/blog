@@ -1,5 +1,5 @@
 .rainbowkit button > div {
-  padding-left: 0 !important;
+  padding-left: 0;
 }
 
 .rainbowkit > div:first-child {
@@ -20,8 +20,8 @@
 .rainbowkit [aria-label='Chain Selector']:focus,
 .rainbowkit [data-testid='rk-account-button']:focus,
 .rainbowkit [data-testid='rk-account-button']:focus div {
-  transform: none !important;
-  color: var(--link-color-hover) !important;
+  transform: none;
+  color: var(--link-color-hover);
 }
 
 /* hide the network icon, and hope nothing else */
@@ -32,8 +32,8 @@
 /* connect button */
 .rainbowkit [data-testid='rk-connect-button'] {
   margin-right: auto;
-  font-family: var(--font-family-headings) !important;
-  font-weight: var(--font-weight-headings) !important;
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
   text-transform: uppercase;
   color: var(--link-color);
   background: none;

@@ -1,8 +1,8 @@
 .loader {
   will-change: transform;
   animation: spin 1s linear infinite;
-  width: 18px !important;
-  height: 18px !important;
+  width: 18px;
+  height: 18px;
 }
 
 @keyframes spin {

@@ -20,7 +20,7 @@
 }
 
 .themeSwitch [hidden] {
-  display: none !important;
+  display: none;
 }
 
 /* hide visually */
