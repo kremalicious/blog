@@ -16,12 +16,15 @@ function s3sync {
     --exclude "*.html" \
     --exclude "*.zip" \
     --exclude "sw.js" \
+    --exclude "*.xml" \
     --exclude "*.json" \
     --exclude "*.txt" \
     --exclude "favicon.ico" \
     --cache-control public,max-age=31536000,immutable \
     --delete \
-    --acl public-read
+    --acl public-read \
+    --only-show-errors \
+    --size-only &
 
   aws s3 sync ./dist s3://"$1" \
     --exclude "*" \
@@ -34,7 +37,9 @@ function s3sync {
     --include "favicon.ico" \
     --cache-control public,max-age=0,must-revalidate \
     --delete \
-    --acl public-read
+    --acl public-read \
+    --only-show-errors &
+  wait
 }
 
 s3sync $AWS_S3_BUCKET

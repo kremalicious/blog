@@ -111,6 +111,19 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist-macos-latest
+      - name: Tune AWS CLI concurrency
+        run: |
+          # Fixed tuning for 2-core GitHub Actions runners (fast enough without thrash)
+          CONC=32
+          mkdir -p ~/.aws
+          cat > ~/.aws/config <<EOF
+          [default]
+          s3 =
+            max_concurrent_requests = $CONC
+            max_queue_size = 10000
+            multipart_threshold = 64MB
+            multipart_chunksize = 16MB
+          EOF
       - name: unzip artifact
         run: unzip dist.zip
       - name: Deploy to S3
