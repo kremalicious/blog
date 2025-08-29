@@ -177,7 +177,7 @@ vi .env
 # exiftool required, for macOS
 brew install exiftool
 
-npm i
+bun i
 bun run dev
 ```
 

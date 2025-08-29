@@ -40,7 +40,7 @@ curl -fsSL https://bun.sh/install | bash && source ~/.bashrc
 
 ## Dependencies and libraries
 
-- use npm
+- use bun
 - when adding new dependencies always use the latest version for each dependency
 - prefer using least amount of dependencies for features suggested
 - prioritize small, minimal, focused, and well-maintained libraries when introducing new dependencies
