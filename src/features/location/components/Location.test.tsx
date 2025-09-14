@@ -9,7 +9,7 @@ import {
   type MockInstance,
   vi
 } from 'vitest'
-import Location from '.'
+import { Location } from './Location'
 
 const mockData = {
   now: {

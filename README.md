@@ -88,7 +88,7 @@ Lets visitors say thanks with Ether, any ERC-20, or Bitcoin. The Web3 wallet int
 
 If you want to know how this works, have a look at the respective feature under
 
-- [`src/features/Web3/`](src/features/Web3/)
+- [`src/features/web3/`](src/features/web3/)
 
 ### 🔍 Search
 
@@ -98,7 +98,7 @@ A global search is provided with fuse.js. Whenever search is opened, all posts m
 
 If you want to know how this works, have a look at the respective feature under
 
-- [`src/features/Search/`](src/features/Search/)
+- [`src/features/search/`](src/features/search/)
 
 ### 🕸 Related Posts
 

@@ -1,10 +1,10 @@
 import { useStore } from '@nanostores/react'
 import { formatDistanceToNowStrict } from 'date-fns'
-import { $location } from '@/stores/location'
-import styles from './index.module.css'
+import { $location } from '../stores'
+import styles from './Location.module.css'
 import { LocationItem } from './LocationItem'
 
-export default function Location() {
+export function Location() {
   const { data, loading, error } = useStore($location)
   if (error) {
     console.error(`Failed to fetch location: ${error}`)
