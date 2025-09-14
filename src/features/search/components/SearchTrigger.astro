@@ -1,6 +1,6 @@
 ---
 import SearchIcon from 'feather-icons/dist/icons/search.svg'
-import Search from './Search.tsx'
+import { Search } from './Search'
 ---
 
 <button id="search-button" type="button" title="Search" class="searchButton">
@@ -10,7 +10,7 @@ import Search from './Search.tsx'
 <Search client:only="react" />
 
 <script>
-  import { isSearchOpen } from "@/stores/search";
+  import { isSearchOpen } from "../stores";
   const button = document.querySelector("#search-button");
 
   isSearchOpen.subscribe((value) =>

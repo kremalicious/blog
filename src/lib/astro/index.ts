@@ -1,5 +1,4 @@
 export * from './getAllPosts'
-export * from './getAllPostsForSearch'
 export * from './getAllTags'
 export * from './getPostsByTag'
 export * from './getSlug'

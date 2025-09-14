@@ -2,7 +2,6 @@
   position: absolute;
   left: calc(var(--spacer) / 2);
   right: calc(var(--spacer) / 2);
-  top: calc(var(--spacer) / 3);
   z-index: 10;
 }
 

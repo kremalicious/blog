@@ -7,8 +7,8 @@ import {
   test,
   vi
 } from 'vitest'
-import { isSearchOpen } from '@/stores/search'
-import Search from './Search'
+import { isSearchOpen } from '@/features/search/stores/search'
+import { Search } from './Search'
 
 type GlobalFetch = typeof globalThis.fetch
 

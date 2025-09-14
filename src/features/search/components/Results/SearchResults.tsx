@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
 import { createPortal } from 'react-dom'
-import type { SearchResultItem } from '@/lib/astro/getAllPostsForSearch'
-import ResultsEmpty from './Empty'
-import styles from './index.module.css'
+import type { SearchResultItem } from '../../types'
+import { SearchResultsEmpty } from './Empty'
+import styles from './SearchResults.module.css'
 
 function SearchResultsPure({
   query,
@@ -27,13 +27,13 @@ function SearchResultsPure({
           ))}
         </ul>
       ) : (
-        <ResultsEmpty query={query} results={results} />
+        <SearchResultsEmpty query={query} results={results} />
       )}
     </div>
   )
 }
 
-export default function SearchResults({
+export function SearchResults({
   query,
   results
 }: {

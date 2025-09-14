@@ -1,24 +1,7 @@
 import type { BlogEntry } from '@config/content.schema'
-import { getAllPosts } from './getAllPosts'
-
-// Type for search results that have a simplified structure
-export type SearchResultItem = {
-  slug: string
-  collection: string
-  data: {
-    title: string
-    tags?: string[]
-    lead?: string
-    date?: Date
-    updated?: Date
-    image?: {
-      src: string
-      width: number
-      height: number
-      format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif'
-    }
-  }
-}
+import type { ImageMetadata } from 'astro'
+import { getAllPosts } from '@/lib/astro/getAllPosts'
+import type { SearchResultItem } from '../types'
 
 // helps to reduce DOM size
 export async function getAllPostsForSearch(): Promise<SearchResultItem[]> {

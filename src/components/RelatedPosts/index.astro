@@ -2,7 +2,7 @@
 import type { BlogEntry } from '@config/content.schema'
 import Fuse from 'fuse.js'
 import PostTeaser from '@/components/PostTeaser/index.astro'
-import { getAllPostsForSearch } from '@/lib/astro'
+import { getAllPostsForSearch } from '@/features/search/lib/get-all-posts'
 import styles from './index.module.css'
 
 type Props = {
