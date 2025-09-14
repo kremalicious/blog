@@ -1,5 +1,6 @@
 ---
 date: 2023-09-18T00:47:30.000Z
+updated: 2025-09-14T12:00:03.153Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -47,12 +48,12 @@ my-astro-project/
 - `src/layouts/index.astro`\
   This can be any layout template or page that contains your HTML `head` content, as we will add the links to the favicons and the manifest file in there.
 
-- `src/pages/manifest.json.ts`\
-  This is an Astro Static File Endpoint that dynamically generates the `/manifest.json` file, referencing the generated favicons. This file uses Astro's `getImage()` function to create various sizes of PNG icons from a single source image, and then includes these in the generated manifest.
+- `src/pages/manifest.webmanifest.ts`\
+  This is an Astro Static File Endpoint that dynamically generates the `/manifest.webmanifest` file, referencing the generated favicons. This file uses Astro's `getImage()` function to create various sizes of PNG icons from a single source image, and then includes these in the generated manifest.
 
 ### Final Generated Files
 
-After building the project, the generated favicon files will be placed in the `dist/_astro/` directory (`dist/_image/` during development) with dynamic filenames, and correctly referenced in your `head` and `/manifest.json`. This happens automatically during the site build, so there's no need to keep track of these files manually.
+After building the project, the generated favicon files will be placed in the `dist/_astro/` directory (`dist/_image/` during development) with dynamic filenames, and correctly referenced in your `head` and `/manifest.webmanifest`. This happens automatically during the site build, so there's no need to keep track of these files manually.
 
 This should be present in your `dist/` folder after following the rest of this article:
 
@@ -60,7 +61,7 @@ This should be present in your `dist/` folder after following the rest of this a
 my-astro-project/
 ├── dist/
 │   ├── favicon.ico
-│   ├── manifest.json
+│   ├── manifest.webmanifest
 │   ├── _astro/
 │   │   └── favicon.HASH.png
 │   │   └── favicon.HASH.png
@@ -79,11 +80,11 @@ In this example layout file, let's add:
 ```astro title="src/layouts/index.astro"
 ---
 import { getImage } from 'astro:assets'
-import faviconSrc from '../images/favicon.png'
+import faviconPngSrc from '../images/favicon.png'
 import faviconSvgSrc from '../images/favicon.svg'
 
 const appleTouchIcon = await getImage({
-  src: faviconSrc,
+  src: faviconPngSrc,
   width: 180,
   height: 180,
   format: 'png'
@@ -97,7 +98,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={appleTouchIcon.src} />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     {'...'}
   </head>
   <body>
@@ -114,9 +115,9 @@ The SVG favicon is not generated anew but is essentially passed through the `get
 
 In this setup, the [manifest file](https://developer.mozilla.org/en-US/docs/Web/Manifest) is dynamically generated using Astro's [Static File Endpoints feature](https://docs.astro.build/en/core-concepts/endpoints/).
 
-Add the following code to `src/pages/manifest.json.ts`:
+Add the following code to `src/pages/manifest.webmanifest.ts`:
 
-```typescript title="src/pages/manifest.json.ts"
+```typescript title="src/pages/manifest.webmanifest.ts"
 import type { APIRoute } from 'astro'
 import { getImage } from 'astro:assets'
 import favicon from '../images/favicon.png'
@@ -153,11 +154,11 @@ export const GET: APIRoute = async () => {
 }
 ```
 
-This will generate the manifest file into `/manifest.json` with additional favicon assets being created and referenced in the newly created manifest file.
+This will generate the manifest file into `/manifest.webmanifest` with additional favicon assets being created and referenced in the newly created manifest file.
 
 The code above is written in TypeScript but you can use trusty old JavaScript by using a `.js` file ending and removing the `: APIRoute` type annotation.
 
-With this, the `manifest.json` also has the minimally required keys to make your site installable as a [Progressive Web App](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app).
+With this, the `manifest.webmanifest` also has the minimally required keys to make your site installable as a [Progressive Web App](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app).
 
 ## Generating the Favicon.ico
 
@@ -187,30 +188,27 @@ import ico from 'sharp-ico'
 import path from 'node:path'
 
 // relative to project root
-const faviconSrc = path.resolve('src/images/favicon.png')
+const faviconSrc = path.resolve('src/assets/favicon.png')
+const sizes = [16, 32, 48]
 
 export const GET: APIRoute = async () => {
-  // resize to 32px PNG
-  const buffer = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()
+  // resize to defined sizes as PNG
+  const buffers = await Promise.all(
+    sizes.map(async (size) => {
+      return await sharp(faviconSrc).resize(size).toFormat('png').toBuffer()
+    })
+  )
   // generate ico
-  const icoBuffer = ico.encode([buffer])
+  const icoBuffer = ico.encode(buffers)
+  const bytes = new Uint8Array(icoBuffer)
 
-  return new Response(icoBuffer, {
+  return new Response(bytes, {
     headers: { 'Content-Type': 'image/x-icon' }
   })
 }
 ```
 
-Only one size in the final ico should be fine for most use cases. If you want to get more sizes into the final ico, you can pass more buffers to that array passed to `ico.encode()`:
-
-```typescript title="src/pages/favicon.ico.ts"
-const buffer32 = await sharp(faviconSrc).resize(32).toFormat('png').toBuffer()
-const buffer16 = await sharp(faviconSrc).resize(16).toFormat('png').toBuffer()
-
-ico.encode([buffer16, buffer32])
-```
-
-In the end, this will return our dynamically generated ico file under `/favicon.ico`.
+In the end, this will return our dynamically generated ico file with different sizes embedded under `/favicon.ico`.
 
 We have to work around Astro's native asset handling here, I could not get `sharp` to work with `astro:assets` generated urls, or with the raw old `?url` import way. Which is why a Node.js native module `path` is used, which might lead to problems during SSR depending on your setup so be aware. Would love to know a way of passing Astro-generated image URLs so sharp understands them, if you know a way, do let me know!
 
@@ -218,6 +216,6 @@ We have to work around Astro's native asset handling here, I could not get `shar
 
 All the required favicon assets are now integrated in an Astro project, covering most modern browsers and devices. Make sure to look through all he other tidbits in the Evil Martian post and explore the Astro docs:
 
-- [How to Favicon in 2023: Six files that fit most needs](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
+- [How to Favicon in 2025: Six files that fit most needs](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
 - [Astro: Static File Endpoints](https://docs.astro.build/en/core-concepts/endpoints/)
 - [Astro: `getImage()`](https://docs.astro.build/en/guides/images/#generating-images-with-getimage)
