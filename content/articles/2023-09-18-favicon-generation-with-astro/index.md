@@ -1,6 +1,6 @@
 ---
 date: 2023-09-18T00:47:30.000Z
-updated: 2025-09-14T12:00:03.153Z
+updated: 2025-09-14T13:00:03.153Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -19,11 +19,15 @@ This article outlines how to implement just that with [Astro](https://astro.buil
 
 This procedure assumes you are fine with all sizes being generated from one big size. If you require more control e.g. over the smaller sizes you can use the following walkthrough as a starting point.
 
-But you might wonder why there's a need for a dynamic approach when these images could simply be added to the `public/` directory manually.
+## But, Why?
 
-If you're fine with never changing your favicon assets, the most simple approach would be to generate all files manually into the `public/` folder, including the `manifest.json`. And then reference them with their absolute path in your `head` as described further down, skipping the dynamic image generation and manifest creation.
+You might wonder why there's a need for a dynamic approach when these images could simply be added to the `public/` directory manually.
+
+If you're fine with never changing your favicon assets, the most simple approach would be to generate all files manually into the `public/` folder, including the `manifest.webmanifest`. And then reference them with their absolute path in your `head` as described further down, skipping the dynamic image generation and manifest creation.
 
 One significant advantage of generating favicons dynamically is cache busting. When you update your favicon, browsers might still serve the old one from cache. By generating favicons dynamically, you can ensure that the latest version is served, as, if they have changed, each build will create new, uniquely named files that bypass the cache.
+
+Another advantage are maintenance considerations, as you only need to maintain one or at most two images as source files and keep updating only those. All other required sizes will be generated automatically into their respective places.
 
 ## Project Structure
 
@@ -33,8 +37,8 @@ To begin, these are the source files we will deal with, with only 2 image assets
 my-astro-project/
 ├── src/
 │ ├── pages/
-│ │ └── manifest.json.ts
 │ │ └── favicon.ico.ts
+│ │ └── manifest.webmanifest.ts
 │ ├── layouts/
 │ │ └── index.astro
 │ └── images/
@@ -124,8 +128,8 @@ import favicon from '../images/favicon.png'
 
 const faviconPngSizes = [192, 512]
 
-export const GET: APIRoute = async () => {
-  const icons = await Promise.all(
+async function getIcons() {
+  return Promise.all(
     faviconPngSizes.map(async (size) => {
       const image = await getImage({
         src: favicon,
@@ -133,6 +137,7 @@ export const GET: APIRoute = async () => {
         height: size,
         format: 'png'
       })
+
       return {
         src: image.src,
         type: `image/${image.options.format}`,
@@ -140,17 +145,26 @@ export const GET: APIRoute = async () => {
       }
     })
   )
+}
 
-  const manifest = {
-    name: 'Your site title',
-    description: 'Your site description',
-    start_url: '/',
-    display: 'standalone',
-    id: 'some-unique-id',
-    icons
-  }
+export const GET: APIRoute = async () => {
+  const icons = await getIcons()
 
-  return new Response(JSON.stringify(manifest))
+  return new Response(
+    JSON.stringify({
+      name: 'Nummus Alatus',
+      short_name: 'Nummus',
+      start_url: '/',
+      display: 'standalone',
+      icons
+    }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/manifest+json'
+      }
+    }
+  )
 }
 ```
 
@@ -203,6 +217,7 @@ export const GET: APIRoute = async () => {
   const bytes = new Uint8Array(icoBuffer)
 
   return new Response(bytes, {
+    status: 200,
     headers: { 'Content-Type': 'image/x-icon' }
   })
 }
@@ -211,6 +226,94 @@ export const GET: APIRoute = async () => {
 In the end, this will return our dynamically generated ico file with different sizes embedded under `/favicon.ico`.
 
 We have to work around Astro's native asset handling here, I could not get `sharp` to work with `astro:assets` generated urls, or with the raw old `?url` import way. Which is why a Node.js native module `path` is used, which might lead to problems during SSR depending on your setup so be aware. Would love to know a way of passing Astro-generated image URLs so sharp understands them, if you know a way, do let me know!
+
+## Server Side Rendering (SSR) Considerations
+
+If you run Astro as a server-rendered app you should not generate all the sizes in your `head` upon every request on all pages as this could lead to significant performance overhead. But only when the image files are actually requested.
+
+For this you can have the `favicon.svg` & `apple-touch-icon` also generated through an endpoint so you would end up with this project structure instead:
+
+```text
+my-astro-project/
+├── src/
+│ ├── pages/
+│ │ └── apple-touch-icon.png.ts
+│ │ └── favicon.ico.ts
+│ │ └── favicon.png.ts
+│ │ └── manifest.webmanifest.ts
+│ └── images/
+│ │ └── favicon.png
+│ │ └── favicon.svg
+```
+
+Then adapt the strategy where your `head` references the absolute paths without any image generation:
+
+```astro title="src/layouts/index.astro"
+---
+---
+
+<html>
+  <head>
+    {'...'}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    {'...'}
+  </head>
+  <body>
+    {'...'}
+  </body>
+</html>
+```
+
+And then create server endpoints for `/favicon.svg` and `/apple-touch-icon.png`:
+
+```typescript title="src/pages/favicon.svg.ts"
+import type { APIRoute } from 'astro'
+import faviconSvgRaw from '../images/favicon.svg?raw'
+
+export const GET: APIRoute = async () => {
+  // just a passthrough for cache busting
+  const body = new TextEncoder().encode(faviconSvgRaw)
+
+  return new Response(body, {
+    status: 200,
+    headers: {
+      'Content-Type': 'image/svg+xml'
+    }
+  })
+}
+```
+
+As Astro's `getImage()` does not return any buffer, we're going to use sharp directly for the `apple-touch-icon.png`:
+
+```typescript title="src/pages/apple-touch-icon.png.ts"
+import path from 'node:path'
+import type { APIRoute } from 'astro'
+import sharp from 'sharp'
+
+const size = 180
+const faviconSrc = path.resolve('src/assets/favicon.png')
+
+export const GET: APIRoute = async () => {
+  const png = await sharp(faviconSrc)
+    .resize(size, size)
+    .toFormat('png')
+    .toBuffer()
+
+  const bytes = new Uint8Array(png)
+
+  return new Response(bytes, {
+    status: 200,
+    headers: {
+      'Content-Type': 'image/png'
+    }
+  })
+}
+```
+
+And with those two endpoints in place you would then remove all other assets from your `public` folder.
 
 ## Conclusion
 
