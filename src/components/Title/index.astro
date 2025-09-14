@@ -1,6 +1,6 @@
 ---
 import ExternalLink from 'feather-icons/dist/icons/external-link.svg'
-import DateComponent from '@/components/Date/index.astro'
+import PostDate from '@/components/PostDate.astro'
 import styles from './index.module.css'
 
 type Props = {
@@ -30,7 +30,7 @@ const linkHostname = linkurl ? new URL(linkurl).hostname : null
   ) : (
     <>
       <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
-      {date && <DateComponent date={date} updated={updated} />}
+      {date && <PostDate date={date} updated={updated} />}
     </>
   )
 }

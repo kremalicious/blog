@@ -1,13 +1,12 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import type { RemarkPlugins } from 'astro'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
 import { getSlug } from '../src/lib/astro/getSlug'
-import { remarkLeadParagraph } from '../src/lib/remark-lead-paragraph/remark-lead-paragraph'
-import { remarkToc } from '../src/lib/remark-toc/remark-toc'
 import config from './blog.config'
+
+const isProd = process.env.NODE_ENV === 'production'
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,7 +15,7 @@ export default defineConfig({
   cacheDir: '.astro',
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkLeadParagraph, remarkToc] as unknown as RemarkPlugins,
+    // remarkPlugins: [remarkLeadParagraph, remarkToc] as unknown as RemarkPlugins,
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
       theme: 'nord',
@@ -24,11 +23,11 @@ export default defineConfig({
       wrap: true
     }
   },
-  image: {
-    service: {
-      entrypoint: 'src/lib/astro/imageService.ts'
-    }
-  },
+  // image: {
+  //   service: {
+  //     entrypoint: 'src/lib/astro/imageService.ts'
+  //   }
+  // },
   server: { host: true },
   integrations: [
     react(),
@@ -46,13 +45,17 @@ export default defineConfig({
         }
       }
     }),
-    redirectFrom({ contentDir: './content', getSlug }),
-    sitemap({
-      filter: (page) =>
-        !page.includes('page/') &&
-        !page.includes('tags/') &&
-        !page.includes('archive/') &&
-        !page.includes('404')
-    })
+    ...(isProd ? [redirectFrom({ contentDir: './content', getSlug })] : []),
+    ...(isProd
+      ? [
+          sitemap({
+            filter: (page) =>
+              !page.includes('page/') &&
+              !page.includes('tags/') &&
+              !page.includes('archive/') &&
+              !page.includes('404')
+          })
+        ]
+      : [])
   ]
 })
