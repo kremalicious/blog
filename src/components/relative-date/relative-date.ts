@@ -19,7 +19,7 @@ class RelativeDate extends HTMLElement {
   #timeEl!: HTMLTimeElement
   #timer: number | null = null
   #rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' })
-  #onVis = () =>
+  readonly #onVis = () =>
     document.visibilityState === 'visible' ? this.#tick() : this.#stop()
 
   connectedCallback() {
