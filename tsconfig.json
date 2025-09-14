@@ -10,7 +10,7 @@
       "@content/*": ["content/*"],
       "@test/*": ["test/*"]
     },
-    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    "types": ["astro/client", "@types/bun"]
   },
   "include": [
     "src/**/*",
