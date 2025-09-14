@@ -1,5 +1,5 @@
 ---
-import Time from '@/components/Time.astro'
+import Time from './Time.astro'
 
 type Props = {
   date: Date | undefined
@@ -20,6 +20,6 @@ const { date, updated } = Astro.props
 
 <div class="date">
   <Time date={date} />
-  {updated && ' • updated '}
+  {updated && " • updated "}
   {updated && <Time date={updated} />}
 </div>

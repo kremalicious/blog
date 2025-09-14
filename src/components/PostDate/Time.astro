@@ -1,0 +1,17 @@
+---
+type Props = {
+  date: Date | undefined
+}
+
+const { date } = Astro.props
+---
+
+{
+  date ? (
+    <relative-date datetime={date.toISOString()} lang="en">
+      <time>{date.toLocaleDateString()}</time>
+    </relative-date>
+  ) : null
+}
+
+<script src="@/components/relative-date/relative-date"></script>
