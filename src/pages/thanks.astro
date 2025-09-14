@@ -1,7 +1,7 @@
 ---
 import config from '@config/blog.config'
 import CodeCopy from '@/components/CopyCode.astro'
-import { Web3 } from '@/features/Web3'
+import { Web3 } from '@/features/web3/components'
 import Bitcoin from '@/images/bitcoin.svg'
 import Wallet from '@/images/wallet.svg'
 // import BackButton from '@/components/BackButton.astro'
@@ -97,7 +97,7 @@ import LayoutBase from '@/layouts/Base/index.astro'
 </style>
 
 <script>
-  import { $isInitSend } from "@/features/Web3/stores";
+  import { $isInitSend } from "@/features/web3/stores";
 
   $isInitSend.subscribe((value) => {
     const html = document.querySelector("html");
