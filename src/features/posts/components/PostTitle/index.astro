@@ -9,27 +9,31 @@ type Props = {
   date?: Date
   updated?: Date
   className?: string
+  as?: string
 }
 
-const { linkurl, title, date, updated, className } = Astro.props
+const { linkurl, title, date, updated, className, as } = Astro.props
 const linkHostname = linkurl ? new URL(linkurl).hostname : null
+const Element = as || 'h1'
 ---
 
 {
   linkurl ? (
     <>
-      <h1
+      <Element
         class={`${styles.title} ${styles.titleLink} ${className && className}`}
       >
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
           {title} <ExternalLink />
         </a>
-      </h1>
+      </Element>
       <div class={styles.linkurl}>{linkHostname}</div>
     </>
   ) : (
     <>
-      <h1 class={`${styles.title} ${className && className}`}>{title}</h1>
+      <Element class={`${styles.title} ${className && className}`}>
+        {title}
+      </Element>
       {date && <PostDate date={date} updated={updated} />}
     </>
   )
