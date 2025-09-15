@@ -1,6 +1,11 @@
 import type { GithubRepo } from '../types'
 
-export async function getGithubRepo(name: string): Promise<GithubRepo> {
+function getGitHubToken(): string {
+  return process.env.GITHUB_TOKEN || import.meta.env.GITHUB_TOKEN || ''
+}
+
+export async function getGitHubRepo(name: string): Promise<GithubRepo> {
+  const token = getGitHubToken()
   // name comes in as user/repo
   const user = name.split('/')[0]
   const repo = name.split('/')[1]
@@ -9,7 +14,7 @@ export async function getGithubRepo(name: string): Promise<GithubRepo> {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${import.meta.env.GITHUB_TOKEN}`
+      authorization: `Bearer ${token}`
     },
     body: JSON.stringify({
       query: CHANGELOG_QUERY,

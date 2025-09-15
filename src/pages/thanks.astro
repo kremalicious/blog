@@ -5,7 +5,7 @@ import { Web3 } from '@/features/web3/components'
 import Bitcoin from '@/images/bitcoin.svg'
 import Wallet from '@/images/wallet.svg'
 // import BackButton from '@/components/BackButton.astro'
-import LayoutBase from '@/layouts/Base/index.astro'
+import { BaseLayout } from '@/layouts'
 ---
 
 <style>
@@ -108,7 +108,7 @@ import LayoutBase from '@/layouts/Base/index.astro'
   });
 </script>
 
-<LayoutBase title="Say Thanks" pageTitle="Say Thanks">
+<BaseLayout title="Say Thanks" pageTitle="Say Thanks">
   <!-- <BackButton /> -->
   <div class="grid">
     <div class="box">
@@ -156,4 +156,4 @@ import LayoutBase from '@/layouts/Base/index.astro'
       </section>
     </div>
   </div>
-</LayoutBase>
+</BaseLayout>

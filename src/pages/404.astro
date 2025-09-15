@@ -1,5 +1,5 @@
 ---
-import LayoutBase from '@/layouts/Base/index.astro'
+import { BaseLayout } from '@/layouts'
 
 const title = `I'm sorry Dave`
 const description = `I'm afraid I can't do that`
@@ -42,7 +42,7 @@ const description = `I'm afraid I can't do that`
 
   /* // eye */
   .hal9000::before {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -61,7 +61,7 @@ const description = `I'm afraid I can't do that`
 
   /* // gloss */
   .hal9000::after {
-    content: '';
+    content: "";
     position: absolute;
     width: var(--hal-size);
     height: var(--hal-size);
@@ -91,12 +91,12 @@ const description = `I'm afraid I can't do that`
   }
 </style>
 
-<LayoutBase title={title}>
+<BaseLayout title={title}>
   <div class="wrapper">
     <div class="hal9000"></div>
 
-    <h1 class="title">{title}</h1>{' '}
+    <h1 class="title">{title}</h1>{" "}
     <p class="text">{description}</p>
-    <a href={'/'}>Back to homepage</a>
+    <a href={"/"}>Back to homepage</a>
   </div>
-</LayoutBase>
+</BaseLayout>

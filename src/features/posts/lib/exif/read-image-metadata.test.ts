@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { describe, expect, test } from 'vitest'
-import { readImageMetadata } from '.'
+import { readImageMetadata } from './read-image-metadata'
 
 describe('readImageMetadata', () => {
   test('should extract EXIF data from image with metadata', async () => {

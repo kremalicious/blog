@@ -2,7 +2,7 @@
 import type { InferGetStaticParamsType, Page } from 'astro'
 import { getAllTags, getPostsByTag } from '@/features/posts/lib'
 import type { BlogEntry } from '@/features/posts/types'
-import LayoutArchive from '@/layouts/Archive.astro'
+import { ArchiveLayout } from '@/layouts'
 
 type Props = {
   page: Page<BlogEntry>
@@ -31,4 +31,4 @@ const { page } = Astro.props as Props
 const { tag } = Astro.params as Params
 ---
 
-<LayoutArchive title={`#${tag}`} pageTitle={`#${tag}`} page={page} />
+<ArchiveLayout title={`#${tag}`} pageTitle={`#${tag}`} page={page} />

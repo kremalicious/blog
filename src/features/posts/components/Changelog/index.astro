@@ -1,14 +1,13 @@
 ---
-import { getGithubRepo } from '@/features/posts/api/get-github-repo'
-import { markdownToHtml } from '@/features/posts/lib/markdown'
+import { getGitHubRepo, markdownToHtml } from '../../lib'
 import styles from './index.module.css'
 
 type Props = {
   repo: string
 }
 
-const { repo } = Astro.props as Props
-const repoInfo = await getGithubRepo(repo)
+const { repo } = Astro.props
+const repoInfo = await getGitHubRepo(repo)
 if (!repoInfo) {
   console.info(`Repo ${repo} not found`)
   return

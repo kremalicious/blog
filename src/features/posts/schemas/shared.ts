@@ -25,6 +25,6 @@ export const schemaShared = {
   style: z.string().optional(),
   githubLink: z.string().optional(),
 
-  // data enhancements not set in frontmatter by loadAndFormatCollection, hence optional
+  // data enhancements not set in frontmatter by getCollectionEnhanced, hence optional
   slug: z.string().optional()
 }

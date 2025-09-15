@@ -24,7 +24,7 @@ const { post, title, description, pageTitle } = Astro.props
 
 <html lang="en">
   <Head
-    title={title}
+    title={title || post?.data.title}
     description={description}
     date={post?.data.date}
     updated={post?.data.updated}

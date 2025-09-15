@@ -36,7 +36,11 @@ export default defineConfig({
         '**/content',
         'public',
         '**/tmp/**/*',
-        '**/dist/**/*'
+        '**/dist/**/*',
+        '**/schemas/**/*',
+        '**/types/**/*',
+        '**/index.ts', // assuming they are barrel files,
+        'src/content.config.ts'
       ]
     }
   }

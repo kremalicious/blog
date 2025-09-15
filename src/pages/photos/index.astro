@@ -1,11 +1,11 @@
 ---
 import InfiniteScroll from '@/components/InfiniteScroll/index.astro'
 import config from '@/config/blog.config'
-import { loadAndFormatCollection } from '@/features/posts/lib'
-import LayoutArchive from '@/layouts/Archive.astro'
+import { getCollectionEnhanced } from '@/features/posts/lib'
+import { ArchiveLayout } from '@/layouts'
 
 // Load photos for the first page
-const photos = await loadAndFormatCollection('photos')
+const photos = await getCollectionEnhanced('photos')
 const totalPages = Math.ceil(photos.length / config.itemsPerPage)
 const firstPagePhotos = photos.slice(0, config.itemsPerPage)
 
@@ -28,11 +28,11 @@ const page = {
 }
 ---
 
-<LayoutArchive title="Photos" page={page}>
+<ArchiveLayout title="Photos" page={page}>
   <InfiniteScroll
     currentPage={page.currentPage}
     lastPage={page.lastPage}
     baseUrl="/photos/"
     contentSelector="#posts"
   />
-</LayoutArchive>
+</ArchiveLayout>

@@ -1,7 +1,7 @@
 ---
 import Picture from '@/components/Picture/index.astro'
 import type { PhotoEntry } from '@/features/posts/types'
-import { loadAndFormatCollection } from '../../lib'
+import { getCollectionEnhanced } from '../../lib'
 import styles from './index.module.css'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 const { currentPhoto } = Astro.props
 const { slug, title, image } = currentPhoto.data
 
-const allPhotos = (await loadAndFormatCollection('photos')) as PhotoEntry[]
+const allPhotos = (await getCollectionEnhanced('photos')) as PhotoEntry[]
 const currentIndex = allPhotos.findIndex((photo) => photo.data.slug === slug)
 
 // Get up to 4 photos before and 4 photos after the current photo

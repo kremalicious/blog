@@ -1,9 +1,7 @@
 ---
 import { render } from 'astro:content'
 import { getAllPosts } from '@/features/posts/lib'
-import LayoutArticle from '@/layouts/Article/index.astro'
-import LayoutLink from '@/layouts/Link/index.astro'
-import LayoutPhoto from '@/layouts/Photo/index.astro'
+import { ArticleLayout, LinkLayout, PhotoLayout } from '@/layouts'
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()
@@ -24,29 +22,29 @@ const leadRaw = remarkPluginFrontmatter.leadRaw || undefined
 
 {
   post.collection === "articles" && (
-    <LayoutArticle
+    <ArticleLayout
       post={post}
       headings={headings}
       lead={lead}
       leadRaw={leadRaw}
     >
       <Content />
-    </LayoutArticle>
+    </ArticleLayout>
   )
 }
 
 {
   post.collection === "links" && (
-    <LayoutLink post={post} leadRaw={leadRaw}>
+    <LinkLayout post={post} leadRaw={leadRaw}>
       <Content />
-    </LayoutLink>
+    </LinkLayout>
   )
 }
 
 {
   post.collection === "photos" && (
-    <LayoutPhoto post={post} leadRaw={leadRaw}>
+    <PhotoLayout post={post} leadRaw={leadRaw}>
       <Content />
-    </LayoutPhoto>
+    </PhotoLayout>
   )
 }

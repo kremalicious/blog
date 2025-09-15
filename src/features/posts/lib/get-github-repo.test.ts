@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import type { GithubRepo } from '../types'
-import { getGithubRepo } from './get-github-repo'
+import { getGitHubRepo } from './get-github-repo'
 
 describe('getRepo Function', () => {
   const mockResponseData = {
@@ -38,7 +38,7 @@ describe('getRepo Function', () => {
 
     window.fetch = mockFetch as any
 
-    const repoInfo = await getGithubRepo('mockuser/mockrepo')
+    const repoInfo = await getGitHubRepo('mockuser/mockrepo')
 
     expect(repoInfo).toEqual(mockResponseData.data.user.repository)
 
@@ -59,7 +59,7 @@ describe('getRepo Function', () => {
       json: async () => ({ errors: ['Mock error message'] })
     })
 
-    const repoInfo = await getGithubRepo('mockuser/mockrepo')
+    const repoInfo = await getGitHubRepo('mockuser/mockrepo')
 
     window.fetch = originalFetch
 

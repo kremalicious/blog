@@ -4,7 +4,7 @@ import type { RemarkPlugins } from 'astro'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
-import { getSlug } from '../features/posts/lib/getSlug'
+import { getSlug } from '../features/posts/lib/get-slug'
 import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
 import config from './blog.config'
 
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   image: {
     service: {
-      entrypoint: 'src/features/posts/lib/imageService.ts'
+      entrypoint: 'src/features/posts/lib/image-service.ts'
     }
   },
   server: { host: true },

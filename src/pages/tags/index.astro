@@ -1,7 +1,7 @@
 ---
 import { Tag } from '@/features/posts/components'
 import { getAllTags } from '@/features/posts/lib'
-import LayoutBase from '@/layouts/Base/index.astro'
+import { BaseLayout } from '@/layouts'
 
 const allTags = await getAllTags()
 ---
@@ -24,7 +24,7 @@ const allTags = await getAllTags()
   }
 </style>
 
-<LayoutBase
+<BaseLayout
   title="Tags"
   pageTitle="All Tags"
   description="All tags used on this site"
@@ -45,4 +45,4 @@ const allTags = await getAllTags()
         ))
     }
   </ul>
-</LayoutBase>
+</BaseLayout>

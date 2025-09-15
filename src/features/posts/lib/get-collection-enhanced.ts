@@ -3,8 +3,8 @@ import path from 'node:path'
 import config from '@/config/blog.config'
 import { readImageMetadata } from '@/features/posts/lib'
 import type { BlogCollection, BlogEntry } from '@/features/posts/types'
-import { getSlug } from './getSlug'
-import { sortPosts } from './sortPosts'
+import { getSlug } from './get-slug'
+import { sortPosts } from './sort-posts'
 
 //
 // Main loader for all collections content.
@@ -12,7 +12,7 @@ import { sortPosts } from './sortPosts'
 // Astro's `getCollection()` is never called
 // from components, but this helper method instead.
 //
-export async function loadAndFormatCollection(
+export async function getCollectionEnhanced(
   name: BlogCollection
 ): Promise<BlogEntry[]> {
   let postsCollection = await getCollection(name)

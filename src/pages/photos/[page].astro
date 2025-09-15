@@ -1,16 +1,16 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro'
 import config from '@/config/blog.config'
-import { loadAndFormatCollection } from '@/features/posts/lib'
+import { getCollectionEnhanced } from '@/features/posts/lib'
 import type { PhotoEntry } from '@/features/posts/types'
-import LayoutArchive from '@/layouts/Archive.astro'
+import { ArchiveLayout } from '@/layouts'
 
 type Props = {
   page: Page<PhotoEntry>
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const photos = await loadAndFormatCollection('photos')
+  const photos = await getCollectionEnhanced('photos')
   const pages = paginate(photos, { pageSize: config.itemsPerPage })
 
   // Filter out the first page, it will be handled by index.astro
@@ -21,7 +21,7 @@ const { page } = Astro.props
 ---
 
 <!-- This page is never exposed to users, it's just used to generate the static paths for the photos as it's most simple way to get Astro's image processing working. -->
-<LayoutArchive
+<ArchiveLayout
   title="Photos"
   pageTitle={`Photos ¦ Page ${page.currentPage} of ${page.lastPage}`}
   page={page}

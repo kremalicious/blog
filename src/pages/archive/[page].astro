@@ -1,21 +1,21 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro'
 import config from '@/config/blog.config'
-import { loadAndFormatCollection, sortPosts } from '@/features/posts/lib'
+import { getCollectionEnhanced, sortPosts } from '@/features/posts/lib'
 import type {
   ArticleEntry,
   LinkEntry,
   PhotoEntry
 } from '@/features/posts/types'
-import LayoutArchive from '@/layouts/Archive.astro'
+import { ArchiveLayout } from '@/layouts'
 
 type Props = {
   page: Page<ArticleEntry | LinkEntry | PhotoEntry>
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const articles = await loadAndFormatCollection('articles')
-  const links = await loadAndFormatCollection('links')
+  const articles = await getCollectionEnhanced('articles')
+  const links = await getCollectionEnhanced('links')
   const sorted = sortPosts([...articles, ...links])
   return paginate(sorted, { pageSize: config.itemsPerPage })
 }
@@ -23,7 +23,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const { page } = Astro.props as Props
 ---
 
-<LayoutArchive
+<ArchiveLayout
   title="Archive"
   pageTitle={`Archive ¦ Page ${page.currentPage} of ${page.lastPage} `}
   page={page}

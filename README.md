@@ -62,7 +62,7 @@ If you want to know how this works, have a look at the respective files:
 
 - [`src/components/Picture/index.astro`](src/components/Picture/index.astro)
 - [`src/components/Picture/index.module.css`](src/components/Picture/index.module.css)
-- [`src/lib/astro/imageService.ts`](src/lib/astro/imageService.ts)
+- [`src/features/posts/lib/image-service.ts`](src/features/posts/lib/image-service.ts)
 
 ### 🎆 EXIF extraction
 
@@ -74,9 +74,9 @@ In the end looks like this, including location display with [pigeon-maps](https:
 
 If you want to know how this works, have a look at the respective files:
 
-- EXIF extraction with `readImageMetadata()` helper in [`src/lib/exif/readImageMetadata.ts`](src/lib/exif/readImageMetadata.ts)
-- the `loadAndFormatCollection()` helper in [`src/lib/astro/loadAndFormatCollection.ts`](src/lib/astro/loadAndFormatCollection.ts)
-- output through [`src/components/Exif/`](src/components/Exif/)
+- EXIF extraction with `readImageMetadata()` helper in [`src/features/posts/lib/exif/read-image-metadata.ts`](src/features/posts/lib/exif/read-image-metadata.ts)
+- the `getCollectionEnhanced()` helper in [`src/features/posts/lib/get-collection-enhanced.ts`](src/features/posts/lib/get-collection-enhanced.ts)
+- output through [`src/features/posts/components/Exif/`](src/features/posts/components/Exif/)
 
 ### 💰 Cryptocurrency donation via Web3 browser wallets
 
@@ -108,7 +108,7 @@ Under each post a list of related posts is displayed which are based on the tags
 
 If you want to know how this works, have a look at the respective component under
 
-- [`src/components/RelatedPosts/`](src/components/RelatedPosts/)
+- [`src/features/posts/components/RelatedPosts/`](src/features/posts/components/RelatedPosts/)
 
 ### 📝 GitHub Changelog Rendering
 
@@ -128,8 +128,8 @@ See it live e.g. on [Matomo plugin for Gatsby](https://kremalicious.com/gatsby-p
 
 If you want to know how this works, have a look at the respective component under
 
-- [`src/components/Changelog/`](src/components/Changelog/)
-- the `getRepo()` helper in [`src/lib/github/github.ts`](src/lib/github/github.ts)
+- [`src/features/posts/components/Changelog/`](src/features/posts/components/Changelog/)
+- the `getGitHubRepo()` helper in [`src/features/posts/lib/get-github-repo.ts`](src/features/posts/lib/get-github-repo.ts)
 
 ### 🌗 Theme Switcher
 
