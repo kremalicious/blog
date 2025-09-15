@@ -1,6 +1,6 @@
 import { getImage } from 'astro:assets'
 import type { APIRoute } from 'astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import favicon from '@/images/favicon.png'
 
 const faviconPngSizes = [192, 512]
@@ -23,11 +23,11 @@ export const GET: APIRoute = async () => {
   )
 
   const manifest = {
-    name: config.siteTitle,
-    description: config.siteDescription,
+    name: metadata.siteTitle,
+    description: metadata.siteDescription,
     start_url: '/',
     display: 'standalone',
-    id: `${config.siteTitle}-blog`,
+    id: `${metadata.siteTitle}-blog`,
     theme_color: '#e7eef4',
     background_color: '#e7eef4',
     icons

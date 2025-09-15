@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test'
-import siteConfig from '@/config/blog.config'
+import { metadata } from '@/config'
 
 const postSlug = 'gatsby-redirect-from'
-const canonical = `${siteConfig.siteUrl}/${postSlug}/`
+const canonical = `${metadata.siteUrl}/${postSlug}/`
 
 test.beforeEach(async ({ page }) => {
   await page.goto(`/${postSlug}/`)

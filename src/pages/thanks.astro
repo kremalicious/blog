@@ -1,6 +1,6 @@
 ---
 import CodeCopy from '@/components/CopyCode.astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { Web3 } from '@/features/web3/components'
 import Bitcoin from '@/images/bitcoin.svg'
 import Wallet from '@/images/wallet.svg'
@@ -126,7 +126,7 @@ import { BaseLayout } from '@/layouts'
 
       <section class="section">
         <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
-        <CodeCopy address={config.author.bitcoin} />
+        <CodeCopy address={metadata.author.bitcoin} />
       </section>
     </div>
 

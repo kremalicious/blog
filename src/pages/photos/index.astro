@@ -1,20 +1,20 @@
 ---
 import InfiniteScroll from '@/components/InfiniteScroll/index.astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { getCollectionEnhanced } from '@/features/posts/lib'
 import { ArchiveLayout } from '@/layouts'
 
 // Load photos for the first page
 const photos = await getCollectionEnhanced('photos')
-const totalPages = Math.ceil(photos.length / config.itemsPerPage)
-const firstPagePhotos = photos.slice(0, config.itemsPerPage)
+const totalPages = Math.ceil(photos.length / metadata.itemsPerPage)
+const firstPagePhotos = photos.slice(0, metadata.itemsPerPage)
 
 // Create page object for the first page
 const page = {
   data: firstPagePhotos,
   start: 0,
-  end: Math.min(config.itemsPerPage - 1, photos.length - 1),
-  size: config.itemsPerPage,
+  end: Math.min(metadata.itemsPerPage - 1, photos.length - 1),
+  size: metadata.itemsPerPage,
   total: photos.length,
   currentPage: 1,
   lastPage: totalPages,

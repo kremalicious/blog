@@ -1,9 +1,9 @@
 import rss from '@astrojs/rss'
 import type { AstroConfig } from 'astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { getAllPosts, getFeedContent } from '@/features/posts/lib'
 
-const { siteTitle, siteDescription } = config
+const { siteTitle, siteDescription } = metadata
 
 export async function GET(context: AstroConfig) {
   const allPostsSorted = await getAllPosts()

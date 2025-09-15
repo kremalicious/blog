@@ -1,6 +1,6 @@
 ---
 import Github from 'feather-icons/dist/icons/github.svg'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import Bitcoin from '@/images/bitcoin.svg'
 import Mastodon from '@/images/mastodon.svg'
 import type { BlogEntry } from '../../types'
@@ -17,7 +17,7 @@ const actions = [
   {
     title: 'Have a comment?',
     text: 'Hit me up @krema@mas.to',
-    url: config.author.mastodon,
+    url: metadata.author.mastodon,
     icon: Mastodon
   },
   {

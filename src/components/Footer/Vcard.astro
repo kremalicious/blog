@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { Location } from '@/features/location/components'
 import avatar from '@/images/avatar.jpg'
 import Networks from './Networks.astro'
 import styles from './Vcard.module.css'
 
-const { author, rss, jsonfeed } = config
+const { author, rss, jsonfeed } = metadata
 const { mastodon, github, name, url } = author
 const links = [mastodon, github, rss, jsonfeed]
 ---
@@ -20,7 +20,7 @@ const links = [mastodon, github, rss, jsonfeed]
 />
 
 <p class={styles.description}>
-  {config.siteDescription.replace(name, "")}<br />
+  {metadata.siteDescription.replace(name, "")}<br />
   <a class="fn" rel="author" href={url}>
     {name}
   </a>

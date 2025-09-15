@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { useState } from 'react'
 import { useAccount, useConfig, useEnsAddress, useSwitchChain } from 'wagmi'
-import siteConfig from '@/config/blog.config'
+import { metadata } from '@/config'
 import { $amount, $selectedToken, $txHash } from '@/features/web3/stores'
 import { isUnhelpfulErrorMessage } from './isUnhelpfulErrorMessage'
 import { send } from './send'
@@ -11,7 +11,7 @@ export function useSend() {
   const amount = useStore($amount)
   const config = useConfig()
   const { chainId } = useAccount()
-  const { ens } = siteConfig.author.ether
+  const { ens } = metadata.author.ether
   const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
   const { switchChain } = useSwitchChain()
 

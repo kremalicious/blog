@@ -1,5 +1,5 @@
 ---
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 
 export type Props = {
   title: string
@@ -12,7 +12,7 @@ export type Props = {
 
 const { title, url, image, description, datePublished, dateModified } =
   Astro.props
-const { siteUrl, siteTitle, author } = config
+const { siteUrl, siteTitle, author } = metadata
 
 const schema = datePublished
   ? {

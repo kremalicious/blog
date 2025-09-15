@@ -12,14 +12,14 @@ import { resolve } from 'node:path'
 import { exiftool, type WriteTags } from 'exiftool-vendored'
 import { globby } from 'globby'
 import { oraPromise } from 'ora'
-import blogConfig from '@/config/blog.config'
+import { metadata } from '@/config'
 
 const IPTC_METADATA: WriteTags = {
-  Copyright: blogConfig.photos.copyrightNotice,
-  CopyrightNotice: blogConfig.photos.copyrightNotice,
-  Creator: blogConfig.author.name,
-  'By-line': blogConfig.author.name,
-  Contact: blogConfig.author.email
+  Copyright: metadata.photos.copyrightNotice,
+  CopyrightNotice: metadata.photos.copyrightNotice,
+  Creator: metadata.author.name,
+  'By-line': metadata.author.name,
+  Contact: metadata.author.email
 }
 
 const SUPPORTED_EXTENSIONS = ['.jpg', '.jpeg', '.tiff', '.tif', '.png']

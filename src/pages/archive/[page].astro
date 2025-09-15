@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { getCollectionEnhanced, sortPosts } from '@/features/posts/lib'
 import type {
   ArticleEntry,
@@ -17,7 +17,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await getCollectionEnhanced('articles')
   const links = await getCollectionEnhanced('links')
   const sorted = sortPosts([...articles, ...links])
-  return paginate(sorted, { pageSize: config.itemsPerPage })
+  return paginate(sorted, { pageSize: metadata.itemsPerPage })
 }
 // All paginated data + posts are passed on the "page" prop
 const { page } = Astro.props as Props

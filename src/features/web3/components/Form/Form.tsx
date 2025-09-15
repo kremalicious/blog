@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
-import siteConfig from '@/config/blog.config'
+import { metadata } from '@/config'
 import {
   $amount,
   $isInitSend,
@@ -59,8 +59,7 @@ export function Web3Form(): ReactElement {
           <RainbowKit />
           <InputGroup isDisabled={isDisabled} error={error} />
           <div className={styles.disclaimer}>
-            Sends tokens to my account{' '}
-            <code>{siteConfig.author.ether.ens}</code>
+            Sends tokens to my account <code>{metadata.author.ether.ens}</code>
           </div>
         </form>
       )}

@@ -1,23 +1,22 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import type { RemarkPlugins } from 'astro'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
 import { getSlug } from '../features/posts/lib/get-slug'
 import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
-import config from './blog.config'
+import { metadata } from './metadata'
 
 const isProd = import.meta.env.PROD
 
 // https://astro.build/config
 export default defineConfig({
-  site: config.siteUrl,
+  site: metadata.siteUrl,
   output: 'static',
   cacheDir: '.astro',
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkLeadParagraph] as unknown as RemarkPlugins,
+    remarkPlugins: [remarkLeadParagraph],
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
       theme: 'nord',

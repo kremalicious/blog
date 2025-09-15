@@ -1,6 +1,6 @@
 ---
 import { getImage } from 'astro:assets'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import faviconSrc from '@/images/favicon.png'
 import faviconSvgSrc from '@/images/favicon.svg'
 import { getUmamiConfig } from '@/lib/umami'
@@ -19,12 +19,12 @@ const { title, description, date, updated, image, style } = Astro.props
 
 const titleFinal =
   title && title !== ''
-    ? `${title} ¦ ${config.siteTitle}`
-    : `${config.siteTitle} ¦ ${config.siteDescription}`
+    ? `${title} ¦ ${metadata.siteTitle}`
+    : `${metadata.siteTitle} ¦ ${metadata.siteDescription}`
 
 const descriptionFinal = description
   ? description.trim().slice(0, 160)
-  : config.siteDescription
+  : metadata.siteDescription
 
 const canonicalUrl =
   Astro.url.pathname === '/'
@@ -68,7 +68,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 
   <script
     is:inline
-    define:vars={{ sessionStorageName: config.sessionStorageName }}
+    define:vars={{ sessionStorageName: metadata.sessionStorageName }}
   >
     // run early so no page flashes
     (function () {

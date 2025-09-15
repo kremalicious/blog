@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content'
 import path from 'node:path'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { readImageMetadata } from '@/features/posts/lib'
 import type { BlogCollection, BlogEntry } from '@/features/posts/types'
 import { getSlug } from './get-slug'
@@ -36,7 +36,7 @@ export async function getCollectionEnhanced(
     const slug = getSlug(`${post.collection}/${post.id}`)
     post.data.slug = slug
 
-    const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
+    const githubLink = `${metadata.repoContentPath}/${post.collection}/${post.id}`
     post.data.githubLink = githubLink
 
     post.data.date = date

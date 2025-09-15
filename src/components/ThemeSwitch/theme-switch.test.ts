@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 
 const baseHtml = `
   <html>
@@ -137,7 +137,7 @@ describe('Theme toggle', () => {
 
   it('toggles theme when toggle is clicked', async () => {
     setupMatchMedia(false) // Light mode
-    const sessionStorageName = config.sessionStorageName
+    const sessionStorageName = metadata.sessionStorageName
     const { reflectPreference } = await loadThemeModule()
     reflectPreference()
     triggerWindowLoad()

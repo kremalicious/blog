@@ -1,60 +1,81 @@
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import type { Processor } from 'unified'
-import { unified } from 'unified'
+import type { Root } from 'mdast'
 import { VFile } from 'vfile'
-import { beforeAll, expect, test } from 'vitest'
-import { type MyFile, remarkLeadParagraph } from '.'
+import { expect, test } from 'vitest'
+import { extractLeadParagraph, type MyFile } from './remark-lead-paragraph'
 
-let processor: Processor<any, any, any, any, string>
-
-beforeAll(() => {
-  processor = unified()
-    .use(remarkParse)
-    .use(remarkLeadParagraph)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-})
+function createMockTree(title: string, lead: string, body: string): Root {
+  return {
+    type: 'root',
+    children: [
+      {
+        type: 'heading',
+        depth: 1,
+        children: [{ type: 'text', value: title }]
+      },
+      {
+        type: 'paragraph',
+        children: [{ type: 'text', value: lead }]
+      },
+      {
+        type: 'paragraph',
+        children: [{ type: 'text', value: body }]
+      }
+    ]
+  }
+}
 
 test('remarkLeadParagraph should extract the first paragraph', async () => {
   const file = new VFile({
-    value:
-      '# My Article\n\nThis is the lead paragraph.\n\nThis is another paragraph.',
     history: ['articles/my-article.md'],
     data: { astro: { frontmatter: { lead: '', leadRaw: '' } } }
-  })
+  }) as MyFile
 
-  const result = await processor.process(file)
+  const tree = createMockTree(
+    'My Article',
+    'This is the lead paragraph.',
+    'This is another paragraph.'
+  )
 
-  expect((file.data as MyFile['data']).astro.frontmatter.lead).toBe(
+  extractLeadParagraph(tree, file)
+
+  expect(file.data.astro.frontmatter.lead).toBe(
     '<p>This is the lead paragraph.</p>'
   )
-  expect((file.data as MyFile['data']).astro.frontmatter.leadRaw).toBe(
+  expect(file.data.astro.frontmatter.leadRaw).toBe(
     'This is the lead paragraph.'
   )
-  expect(String(result)).toBe(
-    '<h1>My Article</h1>\n<p>This is another paragraph.</p>'
-  ) // Assuming the first paragraph is removed
+  // First paragraph is removed for articles
+  expect(tree.children.length).toBe(2)
+  expect(tree.children[0].type).toBe('heading')
+  expect(tree.children[1].type).toBe('paragraph')
+  // Remaining paragraph content
+  // @ts-expect-error narrow for test
+  expect(tree.children[1].children[0].value).toBe('This is another paragraph.')
 })
 
 test('remarkLeadParagraph should process photos but not remove the paragraph', async () => {
   const file = new VFile({
-    value:
-      '# My Photo\n\nThis is the lead paragraph.\n\nThis is another paragraph.',
     history: ['photos/my-photo.md'],
     data: { astro: { frontmatter: { lead: '', leadRaw: '' } } }
-  })
+  }) as MyFile
 
-  const result = await processor.process(file)
+  const tree = createMockTree(
+    'My Photo',
+    'This is the lead paragraph.',
+    'This is another paragraph.'
+  )
 
-  expect((file.data as MyFile['data']).astro.frontmatter.lead).toBe(
+  extractLeadParagraph(tree, file)
+
+  expect(file.data.astro.frontmatter.lead).toBe(
     '<p>This is the lead paragraph.</p>'
   )
-  expect((file.data as MyFile['data']).astro.frontmatter.leadRaw).toBe(
+  expect(file.data.astro.frontmatter.leadRaw).toBe(
     'This is the lead paragraph.'
   )
-  expect(String(result)).toBe(
-    '<h1>My Photo</h1>\n<p>This is the lead paragraph.</p>\n<p>This is another paragraph.</p>'
-  ) // Paragraph should not be removed
+  // Paragraph is not removed for photos
+  expect(tree.children.length).toBe(3)
+  expect(tree.children[1].type).toBe('paragraph')
+  // @ts-expect-error narrow for test
+  expect(tree.children[1].children[0].value).toBe('This is the lead paragraph.')
 })

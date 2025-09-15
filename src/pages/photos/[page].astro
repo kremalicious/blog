@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { getCollectionEnhanced } from '@/features/posts/lib'
 import type { PhotoEntry } from '@/features/posts/types'
 import { ArchiveLayout } from '@/layouts'
@@ -11,7 +11,7 @@ type Props = {
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const photos = await getCollectionEnhanced('photos')
-  const pages = paginate(photos, { pageSize: config.itemsPerPage })
+  const pages = paginate(photos, { pageSize: metadata.itemsPerPage })
 
   // Filter out the first page, it will be handled by index.astro
   return pages.filter((page) => page.params.page !== '1')

@@ -1,5 +1,5 @@
 ---
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import type { BlogEntry } from '@/features/posts/types'
 import { slugify } from '@/lib/slugify'
 import { PostDate, Tag } from '../../components'
@@ -16,8 +16,8 @@ const { date, updated, author, tags } = post.data
 <footer class={styles.entryMeta}>
   <div class={styles.byline}>
     <span class={styles.by}>by</span>
-    <a class="fn" rel="author" href={config.author.url}>
-      {author || config.author.name}
+    <a class="fn" rel="author" href={metadata.author.url}>
+      {author || metadata.author.name}
     </a>
   </div>
 

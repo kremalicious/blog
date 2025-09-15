@@ -8,14 +8,14 @@
 // - Script is imported into the <head> of the site for earliest possible load.
 //
 
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 
 const themeToggle = document.querySelector(
   '#theme-toggle'
 ) as HTMLElement | null
 
 export function getPreferTheme() {
-  const savedTheme = sessionStorage.getItem(config.sessionStorageName)
+  const savedTheme = sessionStorage.getItem(metadata.sessionStorageName)
   if (savedTheme) return savedTheme
 
   const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -55,7 +55,7 @@ export function reflectPreference() {
 }
 
 export function setPreference() {
-  sessionStorage.setItem(config.sessionStorageName, themeValue)
+  sessionStorage.setItem(metadata.sessionStorageName, themeValue)
   reflectPreference()
 }
 

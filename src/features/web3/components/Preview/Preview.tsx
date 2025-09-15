@@ -1,6 +1,6 @@
 import { useEnsAddress, useEnsName } from 'wagmi'
 import { Loader } from '@/components/Loader'
-import siteConfig from '@/config/blog.config'
+import { metadata } from '@/config'
 import { useSend } from '@/features/web3/hooks/useSend'
 import { $isInitSend } from '@/features/web3/stores'
 import { Data } from './Data'
@@ -9,7 +9,7 @@ import styles from './Preview.module.css'
 export function Preview() {
   // Always resolve to address from ENS name and vice versa
   // so nobody has to trust my config values.
-  const { ens } = siteConfig.author.ether
+  const { ens } = metadata.author.ether
   const { data: to } = useEnsAddress({ name: ens, chainId: 1 })
   const { data: ensResolved } = useEnsName({
     address: to as `0x${string}`,

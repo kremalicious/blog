@@ -1,27 +1,27 @@
 import { expect, test } from '@playwright/test'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
 
 test('meta is correct', async ({ page }) => {
-  await expect(page).toHaveTitle(RegExp(`${config.siteDescription}`, 'g'))
+  await expect(page).toHaveTitle(RegExp(`${metadata.siteDescription}`, 'g'))
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     'content',
-    RegExp(`${config.siteDescription}`, 'g')
+    RegExp(`${metadata.siteDescription}`, 'g')
   )
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    config.siteUrl
+    metadata.siteUrl
   )
   await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
     'content',
-    config.siteUrl
+    metadata.siteUrl
   )
   await expect(page.locator('meta[name="description"]')).toHaveAttribute(
     'content',
-    config.siteDescription
+    metadata.siteDescription
   )
 })
 

@@ -1,10 +1,10 @@
 import { getImage } from 'astro:assets'
 import type { AstroConfig } from 'astro'
-import config from '@/config/blog.config'
+import { metadata } from '@/config'
 import { getAllPosts, getFeedContent } from '@/features/posts/lib'
 import faviconSrc from '@/images/favicon.png'
 
-const { siteTitle, siteDescription, author } = config
+const { siteTitle, siteDescription, author } = metadata
 
 const favicon = await getImage({
   src: faviconSrc,

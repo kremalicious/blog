@@ -26,7 +26,7 @@ const mockExifFormatted: ImageMetadataFormatted = {
   }
 }
 
-vi.mock('../../src/features/posts/lib/exif/readImageMetadata.js', () => ({
+vi.mock('../../src/features/posts/lib/exif/read-image-metadata.js', () => ({
   readImageMetadata: vi.fn().mockImplementation(() => mockExifFormatted)
 }))
 

@@ -1,4 +1,4 @@
-export default {
+export const metadata = {
   siteTitle: 'kremalicious',
   siteDescription: 'Blog of designer & developer Matthias Kretschmann',
   siteUrl: 'https://kremalicious.com',
@@ -21,27 +21,5 @@ export default {
   jsonfeed: '/feed.json',
   itemsPerPage: 12,
   repoContentPath: 'https://github.com/kremalicious/blog/tree/main/content',
-  menu: [
-    {
-      title: 'Articles',
-      link: '/archive/'
-    },
-    {
-      title: 'Photos',
-      link: '/photos/'
-    },
-    {
-      title: 'Goodies',
-      link: '/tags/goodies/'
-    },
-    {
-      title: 'Tags',
-      link: '/tags/'
-    },
-    {
-      title: '/Uses',
-      link: '/uses/'
-    }
-  ],
   sessionStorageName: '@kremalicious/theme'
 }
