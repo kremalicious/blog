@@ -42,5 +42,6 @@ export default {
       title: '/Uses',
       link: '/uses/'
     }
-  ]
+  ],
+  sessionStorageName: '@kremalicious/theme'
 }

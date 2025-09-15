@@ -9,7 +9,7 @@ import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-pa
 import { remarkToc } from '../lib/remark-toc/remark-toc'
 import config from './blog.config'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = import.meta.env.PROD
 
 // https://astro.build/config
 export default defineConfig({

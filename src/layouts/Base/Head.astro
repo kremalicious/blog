@@ -62,6 +62,45 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 <head>
   <meta charset="utf-8" />
 
+  <script
+    is:inline
+    define:vars={{ sessionStorageName: config.sessionStorageName }}
+  >
+    // run early so no page flashes
+    (function () {
+      function getPreferTheme() {
+        const savedTheme = sessionStorage.getItem(sessionStorageName);
+        if (savedTheme) return savedTheme;
+
+        const isSystemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        return isSystemDark ? "dark" : "light";
+      }
+
+      function getThemeColor(theme) {
+        return theme === "dark" ? "#1d2224" : "#e7eef4";
+      }
+
+      const themeValue = getPreferTheme();
+      const themeColor = getThemeColor(themeValue);
+
+      function reflectPreference() {
+        const htmlEl = document.documentElement;
+        const metaThemeColor = document.querySelector("meta[name=theme-color]");
+
+        htmlEl.setAttribute("data-theme", themeValue);
+        htmlEl.setAttribute("data-theme-color", themeColor);
+        metaThemeColor?.setAttribute("content", themeColor);
+      }
+
+      reflectPreference();
+    })();
+  </script>
+
+  <script src="@/components/ThemeSwitch/theme-switch.ts"></script>
+
   <title>{titleFinal}</title>
 
   <link rel="canonical" href={canonicalUrl} />
@@ -100,8 +139,6 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
   <SchemaOrg {...schema} />
 
   <link rel="sitemap" href="/sitemap-index.xml" />
-
-  <script src="@/components/ThemeSwitch/theme.ts"></script>
 
   {
     typekitId && (

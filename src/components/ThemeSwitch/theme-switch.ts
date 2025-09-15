@@ -8,27 +8,28 @@
 // - Script is imported into the <head> of the site for earliest possible load.
 //
 
-export const sessionStorageName = '@kremalicious/theme'
+import config from '@/config/blog.config'
+
 const themeToggle = document.querySelector(
   '#theme-toggle'
 ) as HTMLElement | null
 
-function getPreferTheme() {
-  const savedTheme = sessionStorage.getItem(sessionStorageName)
+export function getPreferTheme() {
+  const savedTheme = sessionStorage.getItem(config.sessionStorageName)
   if (savedTheme) return savedTheme
 
   const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   return isSystemDark ? 'dark' : 'light'
 }
 
-function getThemeColor(theme: string) {
+export function getThemeColor(theme: string) {
   return theme === 'dark' ? '#1d2224' : '#e7eef4'
 }
 
 let themeValue = getPreferTheme()
 let themeColor = getThemeColor(themeValue)
 
-function reflectPreference() {
+export function reflectPreference() {
   const htmlEl = document.documentElement
   const metaThemeColor = document.querySelector('meta[name=theme-color]')
 
@@ -41,6 +42,7 @@ function reflectPreference() {
 
   const lightSwitch = themeToggle.querySelector('#sun') as HTMLElement
   const darkSwitch = themeToggle.querySelector('#moon') as HTMLElement
+
   themeToggle?.setAttribute('checked', `${themeValue === 'dark'}`)
 
   if (themeValue === 'dark') {
@@ -52,19 +54,12 @@ function reflectPreference() {
   }
 }
 
-function setPreference() {
-  sessionStorage.setItem(sessionStorageName, themeValue)
+export function setPreference() {
+  sessionStorage.setItem(config.sessionStorageName, themeValue)
   reflectPreference()
 }
 
-// set early so no page flashes / CSS is made aware
-reflectPreference()
-
 window.onload = () => {
-  // set on load again so screen readers
-  // can get the latest value on the button
-  reflectPreference()
-
   // sync with system changes
   window
     .matchMedia('(prefers-color-scheme: dark)')
