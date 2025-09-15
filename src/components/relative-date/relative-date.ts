@@ -19,8 +19,6 @@ class RelativeDate extends HTMLElement {
   #timeEl!: HTMLTimeElement
   #timer: number | null = null
   #rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' })
-  readonly #onVis = () =>
-    document.visibilityState === 'visible' ? this.#tick() : this.#stop()
 
   connectedCallback() {
     if (!this.shadowRoot)
@@ -50,6 +48,9 @@ class RelativeDate extends HTMLElement {
   }
 
   // ---- internal ----
+  readonly #onVis = () =>
+    document.visibilityState === 'visible' ? this.#tick() : this.#stop()
+
   #parseDate(): Date | null {
     const raw = this.getAttribute('datetime')
     if (!raw) return null

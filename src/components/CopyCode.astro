@@ -1,5 +1,5 @@
 ---
-import Copy from '@/components/Copy.astro'
+import { CopyButton } from './CopyButton'
 
 type Props = {
   address: string
@@ -25,5 +25,5 @@ const { address }: Props = Astro.props
 
 <div class="code">
   <code>{address}</code>
-  <Copy text={address} />
+  <CopyButton text={address} />
 </div>
