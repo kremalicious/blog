@@ -1,3 +1,10 @@
+import type {
+  ExifFormatted,
+  ExifrMetadata,
+  GpsFormatted,
+  ImageMetadataFormatted,
+  IptcFormatted
+} from '../../types'
 import {
   formatCameraModel,
   formatDate,
@@ -9,13 +16,6 @@ import {
   formatKeywords,
   formatShutterSpeed
 } from './format-helpers.ts'
-import type {
-  ExifFormatted,
-  ExifrMetadata,
-  GpsFormatted,
-  ImageMetadataFormatted,
-  IptcFormatted
-} from './types.ts'
 
 export function formatImageMetadata(
   metadata: ExifrMetadata | undefined

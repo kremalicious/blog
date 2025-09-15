@@ -1,10 +1,9 @@
 ---
 import Picture from '@/components/Picture/index.astro'
 import { Exif, PhotoNav, PostHeader } from '@/features/posts/components'
-import type { PhotoEntry } from '@/features/posts/types'
+import type { ImageMetadataFormatted, PhotoEntry } from '@/features/posts/types'
 import stylesArticle from '@/layouts/Article/index.module.css'
 import LayoutBase from '@/layouts/Base/index.astro'
-import type { ImageMetadataFormatted } from '@/lib/exif'
 
 type Props = {
   post: PhotoEntry

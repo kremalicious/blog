@@ -10,7 +10,7 @@ import {
   test,
   vi
 } from 'vitest'
-import type { ImageMetadataFormatted } from '@/lib/exif'
+import type { ImageMetadataFormatted } from '@/features/posts/types'
 import { createArticlePost } from './createArticlePost'
 import { createPhotoPost } from './createPhotoPost'
 
@@ -26,7 +26,7 @@ const mockExifFormatted: ImageMetadataFormatted = {
   }
 }
 
-vi.mock('../../src/lib/exif/readImageMetadata.js', () => ({
+vi.mock('../../src/features/posts/lib/exif/readImageMetadata.js', () => ({
   readImageMetadata: vi.fn().mockImplementation(() => mockExifFormatted)
 }))
 

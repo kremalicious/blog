@@ -1,6 +1,6 @@
 import { Marker, Map as PigeonMap } from 'pigeon-maps'
 import { type ReactElement, useEffect, useState } from 'react'
-import type { GpsFormatted } from '@/lib/exif'
+import type { GpsFormatted } from '@/features/posts/types'
 
 const mapbox =
   (mapboxId: string) =>

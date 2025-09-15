@@ -1,4 +1,4 @@
-import type { ExifrGps, GpsFormatted } from './types'
+import type { ExifrGps, GpsFormatted } from '../../types'
 
 export function formatFocalLength(
   focalLength: number | undefined

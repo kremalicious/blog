@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
+import type { ExifrGps } from '../../types'
 import { formatDate, formatExposure, formatGps } from './format-helpers'
-import type { ExifrGps } from './types'
 
 describe('formatDate', () => {
   const dateIsoString = '2020-12-31T23:59:59.000Z'

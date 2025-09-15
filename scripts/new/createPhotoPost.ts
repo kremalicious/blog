@@ -3,7 +3,7 @@ import { existsSync, promises as fs, mkdirSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Ora } from 'ora'
-import { readImageMetadata } from '../../src/lib/exif/readImageMetadata.js'
+import { readImageMetadata } from '../../src/features/posts/lib/exif/readImageMetadata.js'
 import { slugify } from '../../src/lib/slugify/slugify.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

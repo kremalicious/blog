@@ -1,6 +1,6 @@
 import exifr from 'exifr'
+import type { ImageMetadataFormatted } from '../../types'
 import { formatImageMetadata } from './format'
-import type { ImageMetadataFormatted } from './types'
 
 export async function readImageMetadata(
   filePath: string

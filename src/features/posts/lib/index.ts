@@ -1,3 +1,4 @@
+export * from './exif'
 export * from './getAllPosts'
 export * from './getAllTags'
 export * from './getPostsByTag'

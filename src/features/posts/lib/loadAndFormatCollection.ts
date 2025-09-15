@@ -1,8 +1,8 @@
 import { getCollection } from 'astro:content'
 import path from 'node:path'
 import config from '@/config/blog.config'
+import { readImageMetadata } from '@/features/posts/lib'
 import type { BlogCollection, BlogEntry } from '@/features/posts/types'
-import { readImageMetadata } from '@/lib/exif'
 import { getSlug } from './getSlug'
 import { sortPosts } from './sortPosts'
 

@@ -1,10 +1,10 @@
 ---
-import type React from 'react'
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js'
 
 type Props = {
   title: string
   value: string
-  icon: React.FunctionComponent
+  icon: AstroComponentFactory
 }
 
 const { title, value, icon } = Astro.props
