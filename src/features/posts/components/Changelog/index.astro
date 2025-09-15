@@ -1,6 +1,6 @@
 ---
-import { getRepo } from '@/lib/github'
-import { markdownToHtml } from '@/lib/markdown'
+import { getGithubRepo } from '@/features/posts/api/get-github-repo'
+import { markdownToHtml } from '@/features/posts/lib/markdown'
 import styles from './index.module.css'
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 }
 
 const { repo } = Astro.props as Props
-const repoInfo = await getRepo(repo)
+const repoInfo = await getGithubRepo(repo)
 if (!repoInfo) {
   console.info(`Repo ${repo} not found`)
   return
@@ -25,7 +25,7 @@ const changelogHtml = await markdownToHtml(
       <h2>Changelog</h2>
       <div class={styles.changelog} id="changelog">
         <p class={styles.source}>
-          sourced from{' '}
+          sourced from{" "}
           <a href={`${url}/tree/main/CHANGELOG.md`}>
             <code>{`${repo}:CHANGELOG.md`}</code>
           </a>
@@ -40,11 +40,11 @@ const changelogHtml = await markdownToHtml(
 }
 
 <script>
-  const changelog = document.querySelector('#changelog')
-  const button = document.querySelector('#changelog-all')
+  const changelog = document.querySelector("#changelog");
+  const button = document.querySelector("#changelog-all");
 
-  button?.addEventListener('click', () => {
-    changelog?.classList.add('all')
-    button?.remove()
-  })
+  button?.addEventListener("click", () => {
+    changelog?.classList.add("all");
+    button?.remove();
+  });
 </script>

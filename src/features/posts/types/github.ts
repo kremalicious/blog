@@ -1,4 +1,4 @@
-export declare type Repo = {
+export declare type GithubRepo = {
   name: string
   description: string
   forkCount: number
