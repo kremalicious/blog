@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content'
 import config from '@/config/blog.config'
+import type { BlogEntry } from '@/features/posts/types'
 import { slugify } from '@/lib/slugify'
 import { PostDate, Tag } from '../../components'
 import styles from './index.module.css'
 
 type Props = {
-  post: CollectionEntry<'articles' | 'links' | 'photos'>
+  post: BlogEntry
 }
 
-const { data } = Astro.props.post
-const { date, updated, author, tags } = data
+const { post } = Astro.props
+const { date, updated, author, tags } = post.data
 ---
 
 <footer class={styles.entryMeta}>

@@ -6,18 +6,14 @@ import {
   PhotoTeaser,
   PostTeaser
 } from '@/features/posts/components'
-import type {
-  ArticleEntry,
-  LinkEntry,
-  PhotoEntry
-} from '@/features/posts/types'
+import type { BlogEntry } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './Archive.module.css'
 
 type Props = {
-  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
+  page: Page<BlogEntry>
   title: string
-  pageTitle: string
+  pageTitle?: string
 }
 
 const { page, title, pageTitle } = Astro.props

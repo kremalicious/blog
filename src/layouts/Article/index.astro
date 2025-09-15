@@ -1,10 +1,11 @@
 ---
+import type { MarkdownHeading } from 'astro'
 import Picture from '@/components/Picture/index.astro'
 import {
   Changelog,
   PostActions,
+  PostHeader,
   PostMeta,
-  PostTitle,
   RelatedPosts,
   Toc
 } from '@/features/posts/components'
@@ -12,21 +13,24 @@ import type { ArticleEntry } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './index.module.css'
 
-// Allow for both directly passing an ArticleEntry or setting all props separately
-type Props = ArticleEntry
+type Props = {
+  post: ArticleEntry
+  headings: MarkdownHeading[]
+  lead: string
+  leadRaw: string
+}
 
-const post: Props = Astro.props
-const { data, tableOfContents } = post
-const { title, date, updated, image, toc, githubLink, changelog } = data
+const { post, headings, lead, leadRaw } = Astro.props
+const { title, date, updated, image, toc, githubLink, changelog } = post.data
 ---
 
-<LayoutBase {...data} description={post.leadRaw}>
+<LayoutBase post={post} description={leadRaw}>
   <article class={styles.entry}>
     <header>
-      <PostTitle title={title} date={date} updated={updated} />
+      <PostHeader title={title} date={date} updated={updated} />
     </header>
 
-    <div class={styles.lead} set:html={post.lead} />
+    <div class={styles.lead} set:html={lead} />
 
     {
       image && (
@@ -43,7 +47,7 @@ const { title, date, updated, image, toc, githubLink, changelog } = data
       )
     }
 
-    {toc && tableOfContents && <Toc tableOfContents={tableOfContents} />}
+    {toc && headings && <Toc headings={headings} />}
 
     <slot />
 
@@ -51,7 +55,7 @@ const { title, date, updated, image, toc, githubLink, changelog } = data
 
     <PostMeta post={post} />
 
-    <PostActions githubLink={githubLink as string} />
+    <PostActions githubLink={githubLink} />
 
     <RelatedPosts post={post} />
   </article>

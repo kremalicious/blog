@@ -1,22 +1,21 @@
 ---
 import { render } from 'astro:content'
-import { LinkActions, PostTitle } from '@/features/posts/components'
-import type { BlogEntry } from '@/features/posts/types'
+import { LinkActions, PostHeader } from '@/features/posts/components'
+import type { LinkEntry } from '@/features/posts/types'
 import styles from './index.module.css'
 
 type Props = {
-  post: BlogEntry & { data: { linkurl: string } }
+  post: LinkEntry
   hideDate?: boolean
 }
 
 const { post, hideDate } = Astro.props
-const { slug } = post
-const { title, date, updated, linkurl } = post.data
+const { title, date, updated, linkurl, slug } = post.data
 const { Content } = await render(post)
 ---
 
 <article class={styles.post}>
-  <PostTitle
+  <PostHeader
     title={title}
     date={hideDate ? undefined : date}
     updated={updated}

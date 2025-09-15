@@ -1,6 +1,6 @@
 import exifr from 'exifr'
-import { formatImageMetadata } from './format.ts'
-import type { ImageMetadataFormatted } from './types.ts'
+import { formatImageMetadata } from './format'
+import type { ImageMetadataFormatted } from './types'
 
 export async function readImageMetadata(
   filePath: string

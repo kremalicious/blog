@@ -1,18 +1,20 @@
 ---
 import ExternalLink from 'feather-icons/dist/icons/external-link.svg'
 import { PostDate } from '../../components'
+import type { BlogEntry, LinkEntry } from '../../types'
 import styles from './index.module.css'
 
 type Props = {
-  linkurl?: string
-  title: string
-  date?: Date
-  updated?: Date
+  title: BlogEntry['data']['title']
+  date: BlogEntry['data']['date']
+  updated?: BlogEntry['data']['updated']
+  linkurl?: LinkEntry['data']['linkurl']
   className?: string
   as?: string
 }
 
-const { linkurl, title, date, updated, className, as } = Astro.props
+const { linkurl, title, date, updated, className, as } = Astro.props as Props
+
 const linkHostname = linkurl ? new URL(linkurl).hostname : null
 const Element = as || 'h1'
 ---
@@ -21,7 +23,7 @@ const Element = as || 'h1'
   linkurl ? (
     <>
       <Element
-        class={`${styles.title} ${styles.titleLink} ${className && className}`}
+        class:list={[styles.title, styles.titleLink, className && className]}
       >
         <a href={linkurl} title={`Go to source: ${linkurl}`}>
           {title} <ExternalLink />
@@ -31,7 +33,7 @@ const Element = as || 'h1'
     </>
   ) : (
     <>
-      <Element class={`${styles.title} ${className && className}`}>
+      <Element class:list={[styles.title, className && className]}>
         {title}
       </Element>
       {date && <PostDate date={date} updated={updated} />}

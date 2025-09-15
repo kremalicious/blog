@@ -1,12 +1,7 @@
 import { getCollection } from 'astro:content'
 import path from 'node:path'
 import config from '@/config/blog.config'
-import type {
-  ArticleEntry,
-  BlogEntry,
-  LinkEntry,
-  PhotoEntry
-} from '@/features/posts/types'
+import type { BlogCollection, BlogEntry } from '@/features/posts/types'
 import { readImageMetadata } from '@/lib/exif'
 import { getSlug } from './getSlug'
 import { sortPosts } from './sortPosts'
@@ -18,18 +13,9 @@ import { sortPosts } from './sortPosts'
 // from components, but this helper method instead.
 //
 export async function loadAndFormatCollection(
-  name: 'articles'
-): Promise<ArticleEntry[]>
-export async function loadAndFormatCollection(
-  name: 'links'
-): Promise<LinkEntry[]>
-export async function loadAndFormatCollection(
-  name: 'photos'
-): Promise<PhotoEntry[]>
-export async function loadAndFormatCollection(
-  name: 'articles' | 'links' | 'photos'
-): Promise<ArticleEntry[] | LinkEntry[] | PhotoEntry[]> {
-  let postsCollection = (await getCollection(name)) as BlogEntry[]
+  name: BlogCollection
+): Promise<BlogEntry[]> {
+  let postsCollection = await getCollection(name)
 
   // filter out drafts, but only in production
   if (import.meta.env.PROD) {
@@ -48,7 +34,7 @@ export async function loadAndFormatCollection(
     // construct slug from folder or file name
     //
     const slug = getSlug(`${post.collection}/${post.id}`)
-    post.slug = slug
+    post.data.slug = slug
 
     const githubLink = `${config.repoContentPath}/${post.collection}/${post.id}`
     post.data.githubLink = githubLink
@@ -81,9 +67,6 @@ export async function loadAndFormatCollection(
     }
   }
 
-  const sortedPosts = sortPosts(postsCollection as unknown as BlogEntry[])
-
-  if (name === 'articles') return sortedPosts as ArticleEntry[]
-  if (name === 'photos') return sortedPosts as PhotoEntry[]
-  return sortedPosts as LinkEntry[]
+  const sortedPosts = sortPosts(postsCollection)
+  return sortedPosts
 }

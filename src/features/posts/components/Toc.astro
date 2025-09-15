@@ -1,9 +1,13 @@
 ---
+import type { MarkdownHeading } from 'astro'
+
 type Props = {
-  tableOfContents: string
+  headings: MarkdownHeading[]
 }
 
-const { tableOfContents } = Astro.props
+const { headings } = Astro.props
+
+const filteredHeadings = headings.filter((heading) => heading.depth <= 2)
 ---
 
 <style>
@@ -26,4 +30,14 @@ const { tableOfContents } = Astro.props
   }
 </style>
 
-<nav aria-label="Table of Contents" class="toc" set:html={tableOfContents} />
+<nav aria-label="Table of Contents" class="toc">
+  <ul>
+    {
+      filteredHeadings.map((heading) => (
+        <li>
+          <a href={`#${heading.slug}`}>{heading.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

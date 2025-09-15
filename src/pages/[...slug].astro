@@ -8,32 +8,27 @@ import LayoutPhoto from '@/layouts/Photo/index.astro'
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()
 
-  return allPosts.map((entry) => {
-    if (!entry?.slug) throw new Error('Missing `slug` field in entry')
-
-    return {
-      params: { slug: entry.slug },
-      props: { entry }
-    }
-  })
+  return allPosts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post }
+  }))
 }
 
-const { entry } = Astro.props
-const { Content, remarkPluginFrontmatter } = await render(entry)
+const { post } = Astro.props
+const { Content, headings, remarkPluginFrontmatter } = await render(post)
 
 // Add the remark plugin frontmatter data
 const lead = remarkPluginFrontmatter.lead || undefined
 const leadRaw = remarkPluginFrontmatter.leadRaw || undefined
-const tableOfContents = remarkPluginFrontmatter.tableOfContents || undefined
 ---
 
 {
-  entry.collection === "articles" && (
+  post.collection === "articles" && (
     <LayoutArticle
-      {...entry}
+      post={post}
+      headings={headings}
       lead={lead}
       leadRaw={leadRaw}
-      tableOfContents={tableOfContents}
     >
       <Content />
     </LayoutArticle>
@@ -41,16 +36,16 @@ const tableOfContents = remarkPluginFrontmatter.tableOfContents || undefined
 }
 
 {
-  entry.collection === "links" && (
-    <LayoutLink {...entry} lead={lead} leadRaw={leadRaw}>
+  post.collection === "links" && (
+    <LayoutLink post={post} leadRaw={leadRaw}>
       <Content />
     </LayoutLink>
   )
 }
 
 {
-  entry.collection === "photos" && (
-    <LayoutPhoto {...entry} lead={lead} leadRaw={leadRaw}>
+  post.collection === "photos" && (
+    <LayoutPhoto post={post} leadRaw={leadRaw}>
       <Content />
     </LayoutPhoto>
   )

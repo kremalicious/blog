@@ -16,8 +16,8 @@ function SearchResultsPure({
       {results && results.length > 0 ? (
         <ul className={styles.results}>
           {results.map((post) => (
-            <li key={post.slug}>
-              <a className={styles.post} href={`/${post.slug}/`}>
+            <li key={post.data.slug}>
+              <a className={styles.post} href={`/${post.data.slug}/`}>
                 {/* {post.data.image && (
                   <img src={post.data.image.src} alt={post.data.title} />
                 )} */}

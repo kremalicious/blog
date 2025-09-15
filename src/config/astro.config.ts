@@ -6,7 +6,6 @@ import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
 import { getSlug } from '../features/posts/lib/getSlug'
 import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
-import { remarkToc } from '../lib/remark-toc/remark-toc'
 import config from './blog.config'
 
 const isProd = import.meta.env.PROD
@@ -18,7 +17,7 @@ export default defineConfig({
   cacheDir: '.astro',
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkLeadParagraph, remarkToc] as unknown as RemarkPlugins,
+    remarkPlugins: [remarkLeadParagraph] as unknown as RemarkPlugins,
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
       theme: 'nord',

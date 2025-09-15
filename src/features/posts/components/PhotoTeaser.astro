@@ -6,8 +6,7 @@ type Props = {
   post: PhotoEntry
 }
 
-const { slug, data } = Astro.props.post
-const { title, image } = data
+const { title, image, slug } = Astro.props.post.data
 ---
 
 <style>

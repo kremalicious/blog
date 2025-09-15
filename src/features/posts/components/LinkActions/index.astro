@@ -1,11 +1,12 @@
 ---
 import ExternalLink from 'feather-icons/dist/icons/external-link.svg'
 import Link from 'feather-icons/dist/icons/link.svg'
+import type { LinkEntry } from '../../types'
 import styles from './index.module.css'
 
 type Props = {
-  linkurl?: string
-  slug: string
+  linkurl?: LinkEntry['data']['linkurl']
+  slug: LinkEntry['data']['slug']
 }
 
 const { slug, linkurl } = Astro.props

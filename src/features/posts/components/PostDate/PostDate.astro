@@ -1,9 +1,10 @@
 ---
+import type { BlogEntry } from '../../types'
 import Time from './Time.astro'
 
 type Props = {
-  date: Date | undefined
-  updated?: Date
+  date: BlogEntry['data']['date']
+  updated?: BlogEntry['data']['updated']
 }
 
 const { date, updated } = Astro.props

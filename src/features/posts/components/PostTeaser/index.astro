@@ -1,7 +1,7 @@
 ---
 import Picture from '@/components/Picture/index.astro'
 import type { SearchResultItem } from '@/features/search/types'
-import { PostTitle } from '../../components'
+import { PostHeader } from '../../components'
 import type { BlogEntry } from '../../types'
 import styles from './index.module.css'
 
@@ -11,8 +11,7 @@ type Props = {
 }
 
 const { post, hideDate } = Astro.props
-const { slug } = post
-const { title, date, updated } = post.data
+const { title, date, updated, slug } = post.data
 const image = 'image' in post.data ? post.data.image : undefined
 ---
 
@@ -30,7 +29,7 @@ const image = 'image' in post.data ? post.data.image : undefined
     ) : null
   }
 
-  <PostTitle
+  <PostHeader
     title={title}
     date={hideDate ? undefined : date}
     updated={updated}

@@ -6,26 +6,31 @@ import Footer from '@/components/Footer/index.astro'
 import Header from '@/components/Header/index.astro'
 import type {
   ArticleEntry,
-  LinkEntry,
+  BlogEntry,
   PhotoEntry
 } from '@/features/posts/types'
 import Head from './Head.astro'
 import styles from './index.module.css'
 
-export type Props = (
-  | ArticleEntry['data']
-  | LinkEntry['data']
-  | PhotoEntry['data']
-) & {
-  pageTitle?: string
+export type Props = {
+  post?: BlogEntry
+  title?: string
   description?: string
+  pageTitle?: string
 }
 
-const { pageTitle } = Astro.props
+const { post, title, description, pageTitle } = Astro.props
 ---
 
 <html lang="en">
-  <Head {...Astro.props} />
+  <Head
+    title={title}
+    description={description}
+    date={post?.data.date}
+    updated={post?.data.updated}
+    image={(post?.data as ArticleEntry["data"] | PhotoEntry["data"])?.image}
+    style={post?.data.style}
+  />
   <body>
     <Header />
 

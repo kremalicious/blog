@@ -1,10 +1,13 @@
 ---
-import type { GetStaticPathsOptions, InferGetStaticPropsType } from 'astro'
+import type { GetStaticPathsOptions, Page } from 'astro'
 import config from '@/config/blog.config'
 import { loadAndFormatCollection } from '@/features/posts/lib'
+import type { PhotoEntry } from '@/features/posts/types'
 import LayoutArchive from '@/layouts/Archive.astro'
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = {
+  page: Page<PhotoEntry>
+}
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const photos = await loadAndFormatCollection('photos')

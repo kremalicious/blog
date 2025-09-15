@@ -2,24 +2,26 @@
 import {
   LinkActions,
   PostActions,
-  PostMeta,
-  PostTitle
+  PostHeader,
+  PostMeta
 } from '@/features/posts/components'
 import type { LinkEntry } from '@/features/posts/types'
 import stylesArticle from '@/layouts/Article/index.module.css'
 import LayoutBase from '@/layouts/Base/index.astro'
 
-type Props = LinkEntry
+type Props = {
+  post: LinkEntry
+  leadRaw: string
+}
 
-const post: Props = Astro.props
-const { data, slug, leadRaw } = post
-const { title, date, updated, githubLink, linkurl } = data
+const { post, leadRaw } = Astro.props
+const { title, date, updated, githubLink, linkurl, slug } = post.data
 ---
 
-<LayoutBase {...data} description={leadRaw}>
+<LayoutBase post={post} description={leadRaw}>
   <article class={stylesArticle.entry}>
     <header>
-      <PostTitle
+      <PostHeader
         linkurl={linkurl}
         title={title}
         date={date}

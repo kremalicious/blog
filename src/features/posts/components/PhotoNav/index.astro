@@ -9,10 +9,10 @@ type Props = {
 }
 
 const { currentPhoto } = Astro.props
-const currentSlug = currentPhoto.slug
+const { slug, title, image } = currentPhoto.data
 
-const allPhotos = await loadAndFormatCollection('photos')
-const currentIndex = allPhotos.findIndex((photo) => photo.slug === currentSlug)
+const allPhotos = (await loadAndFormatCollection('photos')) as PhotoEntry[]
+const currentIndex = allPhotos.findIndex((photo) => photo.data.slug === slug)
 
 // Get up to 4 photos before and 4 photos after the current photo
 const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 5)
@@ -24,7 +24,7 @@ const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex)
     {
       nextPhotos.map((photo) => (
         <a
-          href={`/${photo.slug}/`}
+          href={`/${photo.data.slug}/`}
           class={styles.photoLink}
           title={photo.data.title}
         >
@@ -40,24 +40,18 @@ const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex)
     }
 
     <a
-      href={`/${currentPhoto.slug}/`}
+      href={`/${slug}/`}
       class={`${styles.photoLink} ${styles.currentPhoto}`}
-      title={currentPhoto.data.title}
+      title={title}
       id="current-photo"
     >
-      <Picture
-        width={100}
-        height={100}
-        src={currentPhoto.data.image}
-        alt={currentPhoto.data.title}
-        objectFit
-      />
+      <Picture width={100} height={100} src={image} alt={title} objectFit />
     </a>
 
     {
       prevPhotos.map((photo) => (
         <a
-          href={`/${photo.slug}/`}
+          href={`/${photo.data.slug}/`}
           class={styles.photoLink}
           title={photo.data.title}
         >

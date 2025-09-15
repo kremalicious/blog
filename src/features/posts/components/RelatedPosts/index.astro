@@ -11,7 +11,9 @@ type Props = {
 
 const { post } = Astro.props as Props
 const allPosts = await getAllPostsForSearch()
-const allPostsWithoutCurrent = allPosts?.filter((p) => p.slug !== post.slug)
+const allPostsWithoutCurrent = allPosts?.filter(
+  (p) => p.data.slug !== post.data.slug
+)
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html

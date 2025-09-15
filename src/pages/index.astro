@@ -2,11 +2,16 @@
 import More from '@/components/More.astro'
 import { PhotoTeaser, PostTeaser } from '@/features/posts/components'
 import { loadAndFormatCollection } from '@/features/posts/lib'
+import type { ArticleEntry, PhotoEntry } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 
-const articles = (await loadAndFormatCollection('articles')).slice(0, 2)
+const articles = (
+  (await loadAndFormatCollection('articles')) as ArticleEntry[]
+).slice(0, 2)
 // const links = await loadAndFormatCollection('links')
-const photos = (await loadAndFormatCollection('photos')).slice(0, 12)
+const photos = (
+  (await loadAndFormatCollection('photos')) as PhotoEntry[]
+).slice(0, 12)
 ---
 
 <style>
@@ -32,7 +37,7 @@ const photos = (await loadAndFormatCollection('photos')).slice(0, 12)
   }
 </style>
 
-<LayoutBase title={""}>
+<LayoutBase>
   <section class="section">
     <h2 class="sectionTitle">Articles</h2>
     <div class="articles">
