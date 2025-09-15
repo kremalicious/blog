@@ -1,6 +1,6 @@
 ---
 date: 2023-09-18T00:47:30.000Z
-updated: 2025-09-14T13:00:03.153Z
+updated: 2025-09-15T02:16:03.000Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -25,9 +25,9 @@ You might wonder why there's a need for a dynamic approach when these images cou
 
 If you're fine with never changing your favicon assets, the most simple approach would be to generate all files manually into the `public/` folder, including the `manifest.webmanifest`. And then reference them with their absolute path in your `head` as described further down, skipping the dynamic image generation and manifest creation.
 
-One significant advantage of generating favicons dynamically is cache busting. When you update your favicon, browsers might still serve the old one from cache. By generating favicons dynamically, you can ensure that the latest version is served, as, if they have changed, each build will create new, uniquely named files that bypass the cache.
+The main advantage is maintenance considerations, as you only need to maintain one or at most two images as source files and keep updating only those. All other required sizes will be generated automatically into their respective places.
 
-Another advantage are maintenance considerations, as you only need to maintain one or at most two images as source files and keep updating only those. All other required sizes will be generated automatically into their respective places.
+This goes hand in hand with the other advantage of generating favicons dynamically, which is cache busting so you can update your favicon without having to manually update the cache. When you update your favicon, browsers might still serve the old one from cache. By generating favicons dynamically, you can ensure that the latest version is served, as, if they have changed, each build will create new, uniquely named files that bypass the cache.
 
 ## Project Structure
 
@@ -47,7 +47,7 @@ my-astro-project/
 ```
 
 - `src/images/`\
-  Housing the original favicon images. `favicon.png` is a large-sized image (512px) that will be resized dynamically, whereas `favicon.svg` can be a SVG file that adapts to the user's light or dark mode settings.
+  Housing the original favicon images. `favicon.png` is a large-sized image (512px) that will be resized dynamically, whereas `favicon.svg` can be a SVG file that adapts to the user's light or dark mode settings by using media queries inside the SVG.
 
 - `src/layouts/index.astro`\
   This can be any layout template or page that contains your HTML `head` content, as we will add the links to the favicons and the manifest file in there.
@@ -274,7 +274,7 @@ import type { APIRoute } from 'astro'
 import faviconSvgRaw from '../images/favicon.svg?raw'
 
 export const GET: APIRoute = async () => {
-  // just a passthrough for cache busting
+  // just a passthrough
   const body = new TextEncoder().encode(faviconSvgRaw)
 
   return new Response(body, {
