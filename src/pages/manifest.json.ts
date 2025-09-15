@@ -1,6 +1,6 @@
 import { getImage } from 'astro:assets'
-import config from '@config/blog.config'
 import type { APIRoute } from 'astro'
+import config from '@/config/blog.config'
 import favicon from '@/images/favicon.png'
 
 const faviconPngSizes = [192, 512]

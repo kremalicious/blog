@@ -1,7 +1,7 @@
-import siteConfig from '@config/blog.config'
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
+import siteConfig from '@/config/blog.config'
 import {
   $amount,
   $isInitSend,

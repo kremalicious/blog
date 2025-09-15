@@ -4,9 +4,9 @@ import type { RemarkPlugins } from 'astro'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
-import { getSlug } from '../src/lib/astro/getSlug'
-import { remarkLeadParagraph } from '../src/lib/remark-lead-paragraph/remark-lead-paragraph'
-import { remarkToc } from '../src/lib/remark-toc/remark-toc'
+import { getSlug } from '../features/posts/lib/getSlug'
+import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
+import { remarkToc } from '../lib/remark-toc/remark-toc'
 import config from './blog.config'
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -28,7 +28,7 @@ export default defineConfig({
   },
   image: {
     service: {
-      entrypoint: 'src/lib/astro/imageService.ts'
+      entrypoint: 'src/features/posts/lib/imageService.ts'
     }
   },
   server: { host: true },

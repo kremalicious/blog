@@ -1,5 +1,5 @@
-import siteConfig from '@config/blog.config'
 import { expect, test } from '@playwright/test'
+import siteConfig from '@/config/blog.config'
 
 const postSlug = 'gatsby-redirect-from'
 const canonical = `${siteConfig.siteUrl}/${postSlug}/`

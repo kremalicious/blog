@@ -9,10 +9,10 @@
 // ```
 
 import { resolve } from 'node:path'
-import blogConfig from '@config/blog.config'
 import { exiftool, type WriteTags } from 'exiftool-vendored'
 import { globby } from 'globby'
 import { oraPromise } from 'ora'
+import blogConfig from '@/config/blog.config'
 
 const IPTC_METADATA: WriteTags = {
   Copyright: blogConfig.photos.copyrightNotice,

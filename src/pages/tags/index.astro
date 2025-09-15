@@ -1,9 +1,9 @@
 ---
-import Tag from '@/components/Tag.astro'
-import LayoutBase from '@/layouts/Base/index.astro'
-import { getAllTags } from '@/lib/astro'
+import { Tag } from "@/features/posts/components";
+import { getAllTags } from "@/features/posts/lib";
+import LayoutBase from "@/layouts/Base/index.astro";
 
-const allTags = await getAllTags()
+const allTags = await getAllTags();
 ---
 
 <style>
@@ -36,7 +36,7 @@ const allTags = await getAllTags()
         .map((tag) => (
           <li>
             <Tag
-              name={tag.name || ''}
+              name={tag.name || ""}
               url={`/tags/${tag.name}/`}
               count={tag.count}
               style={{ fontSize: `${100 + tag.count * 3}%` }}

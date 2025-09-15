@@ -1,6 +1,6 @@
-import type { BlogEntry } from '@config/content.schema'
 import type { ImageMetadata } from 'astro'
-import { getAllPosts } from '@/lib/astro/getAllPosts'
+import { getAllPosts } from '@/features/posts/lib'
+import type { BlogEntry } from '@/features/posts/types'
 import type { SearchResultItem } from '../types'
 
 // helps to reduce DOM size

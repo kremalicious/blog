@@ -1,9 +1,8 @@
 ---
 import More from '@/components/More.astro'
-import PhotoTeaser from '@/components/PhotoTeaser.astro'
-import PostTeaser from '@/components/PostTeaser/index.astro'
+import { PhotoTeaser, PostTeaser } from '@/features/posts/components'
+import { loadAndFormatCollection } from '@/features/posts/lib'
 import LayoutBase from '@/layouts/Base/index.astro'
-import { loadAndFormatCollection } from '@/lib/astro'
 
 const articles = (await loadAndFormatCollection('articles')).slice(0, 2)
 // const links = await loadAndFormatCollection('links')

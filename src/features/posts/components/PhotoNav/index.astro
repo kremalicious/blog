@@ -1,7 +1,7 @@
 ---
-import type { PhotoEntry } from '@config/content.schema'
 import Picture from '@/components/Picture/index.astro'
-import { loadAndFormatCollection } from '@/lib/astro'
+import type { PhotoEntry } from '@/features/posts/types'
+import { loadAndFormatCollection } from '../../lib'
 import styles from './index.module.css'
 
 type Props = {

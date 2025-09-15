@@ -1,12 +1,12 @@
 import { getCollection } from 'astro:content'
 import path from 'node:path'
-import config from '@config/blog.config'
+import config from '@/config/blog.config'
 import type {
   ArticleEntry,
   BlogEntry,
   LinkEntry,
   PhotoEntry
-} from '@config/content.schema'
+} from '@/features/posts/types'
 import { readImageMetadata } from '@/lib/exif'
 import { getSlug } from './getSlug'
 import { sortPosts } from './sortPosts'

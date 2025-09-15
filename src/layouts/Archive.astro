@@ -1,14 +1,16 @@
 ---
+import type { Page } from 'astro'
+import Pagination from '@/components/Pagination/index.astro'
+import {
+  LinkTeaser,
+  PhotoTeaser,
+  PostTeaser
+} from '@/features/posts/components'
 import type {
   ArticleEntry,
   LinkEntry,
   PhotoEntry
-} from '@config/content.schema'
-import type { Page } from 'astro'
-import LinkTeaser from '@/components/LinkTeaser/index.astro'
-import Pagination from '@/components/Pagination/index.astro'
-import PhotoTeaser from '@/components/PhotoTeaser.astro'
-import PostTeaser from '@/components/PostTeaser/index.astro'
+} from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './Archive.module.css'
 
@@ -33,7 +35,7 @@ const classes = `${styles.posts} ${isPhotos ? styles.photos : ''}`
           <LinkTeaser post={post} />
         ) : (
           <PostTeaser post={post} />
-        ),
+        )
       )
     }
   </div>

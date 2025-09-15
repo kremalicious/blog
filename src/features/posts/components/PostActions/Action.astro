@@ -1,16 +1,22 @@
 ---
-import type React from 'react'
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js'
 
 type Props = {
   title: string
   text: string
-  icon: React.FunctionComponent
+  icon: AstroComponentFactory
   url?: string
 }
 
 const { title, text, url, icon } = Astro.props
 const Icon = icon
 ---
+
+<a class="action" href={url}>
+  <Icon />
+  <h1 class="actionTitle">{title}</h1>
+  <p class="actionText">{text}</p>
+</a>
 
 <style>
   .actionTitle {
@@ -52,9 +58,3 @@ const Icon = icon
     stroke: var(--text-color-light);
   }
 </style>
-
-<a class="action" href={url}>
-  <Icon />
-  <h1 class="actionTitle">{title}</h1>
-  <p class="actionText">{text}</p>
-</a>

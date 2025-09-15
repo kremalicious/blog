@@ -1,5 +1,5 @@
 import type { CollectionEntry } from 'astro:content'
-import { slugifyAll } from '../slugify'
+import { slugifyAll } from '@/lib/slugify'
 import { getAllPosts } from './index'
 
 export async function getPostsByTag(

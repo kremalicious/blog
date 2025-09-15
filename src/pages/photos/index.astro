@@ -1,8 +1,8 @@
 ---
-import config from '@config/blog.config'
 import InfiniteScroll from '@/components/InfiniteScroll/index.astro'
+import config from '@/config/blog.config'
+import { loadAndFormatCollection } from '@/features/posts/lib'
 import LayoutArchive from '@/layouts/Archive.astro'
-import { loadAndFormatCollection } from '@/lib/astro'
 
 // Load photos for the first page
 const photos = await loadAndFormatCollection('photos')

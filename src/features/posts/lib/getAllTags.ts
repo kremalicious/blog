@@ -1,4 +1,4 @@
-import { slugifyAll } from '../slugify'
+import { slugifyAll } from '@/lib/slugify'
 import { getAllPosts } from './index'
 
 export type AllTags = {

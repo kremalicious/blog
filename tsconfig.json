@@ -5,21 +5,16 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@config/*": ["config/*"],
-      "@content/*": ["content/*"],
-      "@test/*": ["test/*"]
+      "@/*": ["src/*"]
     },
     "types": ["astro/client", "@types/bun"]
   },
-  "include": [
-    "src/**/*",
-    "content/**/*",
-    "public/**/*",
-    "scripts/**/*",
-    "test/**/*",
-    "config/**/*",
-    ".astro/types.d.ts"
-  ],
-  "exclude": ["src/images/components/**/*"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/images/components/**/*",
+    "coverage",
+    "test-results"
+  ]
 }

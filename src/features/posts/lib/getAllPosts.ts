@@ -1,4 +1,4 @@
-import type { BlogEntry } from '@config/content.schema'
+import type { BlogEntry } from '@/features/posts/types'
 import { loadAndFormatCollection } from './loadAndFormatCollection'
 import { sortPosts } from './sortPosts'
 

@@ -1,12 +1,14 @@
 ---
-import type { ArticleEntry } from '@config/content.schema'
-import Changelog from '@/components/Changelog/index.astro'
 import Picture from '@/components/Picture/index.astro'
-import PostActions from '@/components/PostActions/index.astro'
-import PostMeta from '@/components/PostMeta/index.astro'
-import RelatedPosts from '@/components/RelatedPosts/index.astro'
-import Title from '@/components/Title/index.astro'
-import Toc from '@/components/Toc.astro'
+import {
+  Changelog,
+  PostActions,
+  PostMeta,
+  PostTitle,
+  RelatedPosts,
+  Toc
+} from '@/features/posts/components'
+import type { ArticleEntry } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './index.module.css'
 
@@ -21,7 +23,7 @@ const { title, date, updated, image, toc, githubLink, changelog } = data
 <LayoutBase {...data} description={post.leadRaw}>
   <article class={styles.entry}>
     <header>
-      <Title title={title} date={date} updated={updated} />
+      <PostTitle title={title} date={date} updated={updated} />
     </header>
 
     <div class={styles.lead} set:html={post.lead} />

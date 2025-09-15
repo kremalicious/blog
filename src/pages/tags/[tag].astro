@@ -1,12 +1,12 @@
 ---
+import type { InferGetStaticParamsType, Page } from 'astro'
+import { getAllTags, getPostsByTag } from '@/features/posts/lib'
 import type {
   ArticleEntry,
   LinkEntry,
   PhotoEntry
-} from '@config/content.schema'
-import type { InferGetStaticParamsType, Page } from 'astro'
+} from '@/features/posts/types'
 import LayoutArchive from '@/layouts/Archive.astro'
-import { getAllTags, getPostsByTag } from '@/lib/astro'
 
 type Props = {
   page: Page<ArticleEntry | LinkEntry | PhotoEntry>

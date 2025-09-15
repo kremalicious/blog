@@ -1,4 +1,4 @@
-import type { BlogEntry } from '@config/content.schema'
+import type { BlogEntry } from '@/features/posts/types'
 //
 // Sort posts by date, newest first
 //

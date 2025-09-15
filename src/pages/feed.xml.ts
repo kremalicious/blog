@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss'
-import config from '@config/blog.config'
 import type { AstroConfig } from 'astro'
-import { getAllPosts } from '@/lib/astro'
+import config from '@/config/blog.config'
+import { getAllPosts } from '@/features/posts/lib'
 import { getFeedContent } from '@/lib/feed'
 
 const { siteTitle, siteDescription } = config

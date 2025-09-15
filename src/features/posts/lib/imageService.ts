@@ -4,14 +4,14 @@
 // Forked from Astro's sharp image service, overwriting the transform method
 // https://github.com/withastro/astro/blob/99af0d135b04304c1138fb57bb1809657184f7ce/packages/astro/src/assets/services/sharp.ts
 
+import sharpService from 'astro/assets/services/sharp'
 import sharp, { type FitEnum, type FormatEnum } from 'sharp'
-import type { LocalImageService } from '../../../node_modules/astro/dist/assets/services/service'
-import sharpService from '../../../node_modules/astro/dist/assets/services/sharp'
+import type { LocalImageService } from '../../../../node_modules/astro/dist/assets/services/service'
 import type {
   ImageFit,
   ImageOutputFormat,
   ImageQualityPreset
-} from '../../../node_modules/astro/dist/assets/types'
+} from '../../../../node_modules/astro/dist/assets/types'
 
 const qualityTable: Record<ImageQualityPreset, number> = {
   low: 25,

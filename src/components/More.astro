@@ -8,8 +8,13 @@ type Props = {
 const { href } = Astro.props
 ---
 
+<a class="more" href={href}>
+  <slot />
+  <ChevronRight />
+</a>
+
 <style>
-  .postMore {
+  .more {
     display: inline-block;
     font-family: var(--font-family-headings);
     font-weight: var(--font-weight-headings);
@@ -19,7 +24,7 @@ const { href } = Astro.props
     margin-top: var(--spacer);
   }
 
-  .postMore svg {
+  .more svg {
     display: inline-block;
     margin: 0;
     top: 0.25rem;
@@ -30,13 +35,8 @@ const { href } = Astro.props
     height: 20px;
   }
 
-  .postMore:hover svg,
-  .postMore:focus svg {
+  .more:hover svg,
+  .more:focus svg {
     transform: translate3d(0.2rem, 0, 0);
   }
 </style>
-
-<a class="postMore" href={href}>
-  <slot />
-  <ChevronRight />
-</a>

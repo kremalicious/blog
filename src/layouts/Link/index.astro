@@ -1,9 +1,11 @@
 ---
-import type { LinkEntry } from '@config/content.schema'
-import LinkActions from '@/components/LinkActions/index.astro'
-import PostActions from '@/components/PostActions/index.astro'
-import PostMeta from '@/components/PostMeta/index.astro'
-import Title from '@/components/Title/index.astro'
+import {
+  LinkActions,
+  PostActions,
+  PostMeta,
+  PostTitle
+} from '@/features/posts/components'
+import type { LinkEntry } from '@/features/posts/types'
 import stylesArticle from '@/layouts/Article/index.module.css'
 import LayoutBase from '@/layouts/Base/index.astro'
 
@@ -17,7 +19,12 @@ const { title, date, updated, githubLink, linkurl } = data
 <LayoutBase {...data} description={leadRaw}>
   <article class={stylesArticle.entry}>
     <header>
-      <Title linkurl={linkurl} title={title} date={date} updated={updated} />
+      <PostTitle
+        linkurl={linkurl}
+        title={title}
+        date={date}
+        updated={updated}
+      />
     </header>
 
     <slot />
