@@ -1,10 +1,16 @@
 /// <reference types="vitest" />
 
+import path from 'node:path'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  resolve: {
+    alias: {
+      'astro:content': path.resolve(__dirname, './__mocks__/astro-content.ts')
+    }
+  },
   test: {
     globals: true,
     environment: 'jsdom',
