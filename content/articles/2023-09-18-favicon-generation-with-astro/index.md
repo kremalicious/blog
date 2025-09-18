@@ -1,6 +1,6 @@
 ---
 date: 2023-09-18T00:47:30.000Z
-updated: 2025-09-18T19:55:03.000Z
+updated: 2025-09-18T23:05:03.000Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -103,8 +103,8 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    
-    // optional for old iOS versions (before iOS 15.4)
+
+    <!-- optional for old iOS versions (before iOS 15.4) -->
     <link rel="apple-touch-icon" href={appleTouchIcon.src} />
     {'...'}
   </head>
@@ -163,9 +163,7 @@ export const GET: APIRoute = async () => {
     }),
     {
       status: 200,
-      headers: {
-        'Content-Type': 'application/manifest+json'
-      }
+      headers: { 'Content-Type': 'application/manifest+json' }
     }
   )
 }
@@ -261,8 +259,8 @@ Then adapt the strategy where your `head` references the absolute paths without 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    
-    // optional for old iOS versions (before iOS 15.4)
+
+    <!-- optional for old iOS versions (before iOS 15.4) -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {'...'}
   </head>
@@ -284,9 +282,7 @@ export const GET: APIRoute = async () => {
 
   return new Response(body, {
     status: 200,
-    headers: {
-      'Content-Type': 'image/svg+xml'
-    }
+    headers: { 'Content-Type': 'image/svg+xml' }
   })
 }
 ```
@@ -311,9 +307,7 @@ export const GET: APIRoute = async () => {
 
   return new Response(bytes, {
     status: 200,
-    headers: {
-      'Content-Type': 'image/png'
-    }
+    headers: { 'Content-Type': 'image/png' }
   })
 }
 ```
