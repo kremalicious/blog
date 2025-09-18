@@ -1,6 +1,6 @@
 ---
 date: 2023-09-18T00:47:30.000Z
-updated: 2025-09-15T02:16:03.000Z
+updated: 2025-09-18T19:55:03.000Z
 
 title: Favicon Generation with Astro
 image: ./favicon-generation-with-astro-teaser.png
@@ -53,7 +53,7 @@ my-astro-project/
   This can be any layout template or page that contains your HTML `head` content, as we will add the links to the favicons and the manifest file in there.
 
 - `src/pages/manifest.webmanifest.ts`\
-  This is an Astro Static File Endpoint that dynamically generates the `/manifest.webmanifest` file, referencing the generated favicons. This file uses Astro's `getImage()` function to create various sizes of PNG icons from a single source image, and then includes these in the generated manifest.
+  This is an Astro Static File Endpoint that dynamically generates the `/manifest.webmanifest` file, referencing the generated favicons. This file uses Astro's `getImage()` function to create various sizes of PNG icons from a single source image, and then includes these in the generated manifest. iOS after 15.4 will also pick icons referenced from it when no `apple-touch-icon.png` is present.
 
 ### Final Generated Files
 
@@ -87,6 +87,7 @@ import { getImage } from 'astro:assets'
 import faviconPngSrc from '../images/favicon.png'
 import faviconSvgSrc from '../images/favicon.svg'
 
+// optional for old iOS versions (before iOS 15.4)
 const appleTouchIcon = await getImage({
   src: faviconPngSrc,
   width: 180,
@@ -101,8 +102,10 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
     {'...'}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href={faviconSvg.src} type="image/svg+xml" />
-    <link rel="apple-touch-icon" href={appleTouchIcon.src} />
     <link rel="manifest" href="/manifest.webmanifest" />
+    
+    // optional for old iOS versions (before iOS 15.4)
+    <link rel="apple-touch-icon" href={appleTouchIcon.src} />
     {'...'}
   </head>
   <body>
@@ -111,7 +114,7 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
 </html>
 ```
 
-Astro's `getImage()` function is used to generate an Apple Touch Icon (180x180 PNG) on build time for static builds, or during server-side rendering. Astro will then reference those generated images in the respective `head` tags added above.
+Astro's `getImage()` function is used to generate an Apple Touch Icon for older iOS versions on build time for static builds, or during server-side rendering. Astro will then reference those generated images in the respective `head` tags added above.
 
 The SVG favicon is not generated anew but is essentially passed through the `getImage()` function to benefit from cache busting.
 
@@ -126,7 +129,7 @@ import type { APIRoute } from 'astro'
 import { getImage } from 'astro:assets'
 import favicon from '../images/favicon.png'
 
-const faviconPngSizes = [192, 512]
+const faviconPngSizes = [180, 192, 512]
 
 async function getIcons() {
   return Promise.all(
@@ -152,8 +155,8 @@ export const GET: APIRoute = async () => {
 
   return new Response(
     JSON.stringify({
-      name: 'Nummus Alatus',
-      short_name: 'Nummus',
+      name: 'Your App Name',
+      short_name: 'App Name',
       start_url: '/',
       display: 'standalone',
       icons
@@ -257,8 +260,10 @@ Then adapt the strategy where your `head` references the absolute paths without 
     {'...'}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    
+    // optional for old iOS versions (before iOS 15.4)
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     {'...'}
   </head>
   <body>
@@ -286,7 +291,7 @@ export const GET: APIRoute = async () => {
 }
 ```
 
-As Astro's `getImage()` does not return any buffer, we're going to use sharp directly for the `apple-touch-icon.png`:
+As Astro's `getImage()` does not return any buffer, we're going to use sharp directly for the `apple-touch-icon.png`. And as a reminder, this is not strictly needed for iOS versions after 15.4 so you could skip this:
 
 ```typescript title="src/pages/apple-touch-icon.png.ts"
 import path from 'node:path'
