@@ -19,24 +19,26 @@ const linkHostname = linkurl ? new URL(linkurl).hostname : null
 const Element = as || 'h1'
 ---
 
-{
-  linkurl ? (
-    <>
-      <Element
-        class:list={[styles.title, styles.titleLink, className && className]}
-      >
-        <a href={linkurl} title={`Go to source: ${linkurl}`}>
-          {title} <ExternalLink />
-        </a>
-      </Element>
-      <div class={styles.linkurl}>{linkHostname}</div>
-    </>
-  ) : (
-    <>
-      <Element class:list={[styles.title, className && className]}>
-        {title}
-      </Element>
-      {date && <PostDate date={date} updated={updated} />}
-    </>
-  )
-}
+<header class={styles.header}>
+  {
+    linkurl ? (
+      <>
+        <Element
+          class:list={[styles.title, styles.titleLink, className && className]}
+        >
+          <a href={linkurl} title={`Go to source: ${linkurl}`}>
+            {title} <ExternalLink />
+          </a>
+        </Element>
+        <div class={styles.linkurl}>{linkHostname}</div>
+      </>
+    ) : (
+      <>
+        <Element class:list={[styles.title, className && className]}>
+          {title}
+        </Element>
+        {date && <PostDate date={date} updated={updated} />}
+      </>
+    )
+  }
+</header>

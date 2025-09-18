@@ -1,5 +1,5 @@
 .posts:not(.photos) > * {
-  margin-bottom: calc(var(--spacer) * 3);
+  margin-bottom: calc(var(--spacer) * 2);
 }
 
 .photos {

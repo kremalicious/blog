@@ -1,6 +1,9 @@
+.header {
+  margin-bottom: calc(var(--spacer) / 2);
+}
+
 .title {
-  margin-top: 0;
-  margin-bottom: calc(var(--spacer) / 8);
+  margin: 0;
 }
 
 .titleLink {

@@ -26,9 +26,7 @@ const { title, date, updated, image, toc, githubLink, changelog } = post.data
 
 <LayoutBase post={post} description={leadRaw}>
   <article class={styles.entry}>
-    <header>
-      <PostHeader title={title} date={date} updated={updated} />
-    </header>
+    <PostHeader title={title} date={date} updated={updated} />
 
     <div class={styles.lead} set:html={lead} />
 
