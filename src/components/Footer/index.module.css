@@ -17,8 +17,8 @@
 }
 
 .copyright {
-  margin-top: calc(var(--spacer) / var(--line-height));
-  font-size: var(--font-size-mini);
+  margin-top: var(--spacer);
+  font-size: var(--fs--2);
   color: var(--text-color-light);
 }
 
@@ -40,8 +40,8 @@
 }
 
 .copyright svg {
-  width: var(--font-size-small);
-  height: var(--font-size-small);
+  width: var(--fs--1);
+  height: var(--fs--1);
   margin-right: calc(var(--spacer) / 8);
   margin-bottom: -0.15rem;
   display: inline-block;

@@ -1,5 +1,5 @@
 .title {
-  font-size: var(--font-size-h3);
+  font-size: var(--fs-3);
   margin-bottom: var(--spacer);
   color: var(--text-color-light);
   text-decoration: none;
@@ -32,7 +32,7 @@
   display: none;
 }
 
-.relatedPosts a {
+.relatedPosts li a {
   text-decoration: none;
 }
 
@@ -40,6 +40,7 @@
   margin-bottom: 0;
 }
 
-.relatedPosts a h1 {
-  font-size: var(--font-size-h5);
+.relatedPosts h3 {
+  font-size: var(--fs-1);
+  line-height: var(--fs-2);
 }

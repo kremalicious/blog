@@ -4,16 +4,12 @@ import '@/styles/imports.css'
 
 import Footer from '@/components/Footer/index.astro'
 import Header from '@/components/Header/index.astro'
-import type {
-  ArticleEntry,
-  BlogEntry,
-  PhotoEntry
-} from '@/features/posts/types'
+import type { ArticlePost, BlogPost, PhotoPost } from '@/features/posts/types'
 import Head from './Head.astro'
 import styles from './index.module.css'
 
 export type Props = {
-  post?: BlogEntry
+  post?: BlogPost
   title?: string
   description?: string
   pageTitle?: string
@@ -28,7 +24,7 @@ const { post, title, description, pageTitle } = Astro.props
     description={description}
     date={post?.data.date}
     updated={post?.data.updated}
-    image={(post?.data as ArticleEntry["data"] | PhotoEntry["data"])?.image}
+    image={(post?.data as ArticlePost["data"] | PhotoPost["data"])?.image}
     style={post?.data.style}
   />
   <body>

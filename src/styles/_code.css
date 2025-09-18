@@ -5,7 +5,7 @@ samp {
   font-family: var(--font-family-monospace);
 
   /* unifying font sizes and x-height between body & monospace, considering their inherited size */
-  font-size: calc(1em * 0.9);
+  font-size: 0.9em;
 }
 
 code,
@@ -38,27 +38,27 @@ h4 code,
 h4 kbd,
 h5 code,
 h5 kbd {
-  font-size: calc(1em * 0.7);
+  font-size: 0.8em;
 }
 
-pre {
+pre,
+div.expressive-code pre {
   position: relative;
   display: block;
   padding: 0;
   margin-bottom: var(--spacer);
-  line-height: var(--line-height);
   color: var(--code-color);
   background-color: var(--box-background-color);
   border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
 
   /* make 'em scrollable */
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  max-height: 800px;
+  max-height: 70vh;
 }
 
-pre code {
-  padding: calc(var(--spacer) / 2);
+pre > code {
   white-space: pre;
   display: block;
   color: inherit;
@@ -66,6 +66,12 @@ pre code {
   word-wrap: normal;
   word-break: normal;
   background: none;
+}
+
+pre > code,
+div.expressive-code pre > code {
+  font-size: var(--fs--1);
+  padding: calc(var(--spacer) / 2) 0;
 }
 
 pre::-webkit-scrollbar {
@@ -86,6 +92,10 @@ pre::-webkit-scrollbar-track {
 
 .expressive-code {
   margin: var(--spacer) 0;
+}
+
+div.expressive-code .ec-line .code {
+  padding: 0 calc(var(--spacer) / 2);
 }
 
 div.expressive-code .frame .copy {
@@ -112,4 +122,5 @@ div.expressive-code .frame.has-title:not(.is-terminal) .header .title {
   border-top-right-radius: 0;
   border-bottom-right-radius: var(--border-radius);
   padding: 0.3rem 1rem;
+  font-size: var(--fs--2);
 }

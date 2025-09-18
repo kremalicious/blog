@@ -9,12 +9,12 @@ import {
   RelatedPosts,
   Toc
 } from '@/features/posts/components'
-import type { ArticleEntry } from '@/features/posts/types'
+import type { ArticlePost } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './index.module.css'
 
 type Props = {
-  post: ArticleEntry
+  post: ArticlePost
   headings: MarkdownHeading[]
   lead: string
   leadRaw: string

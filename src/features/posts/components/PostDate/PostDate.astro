@@ -1,10 +1,10 @@
 ---
-import type { BlogEntry } from '../../types'
+import type { BlogPost } from '../../types'
 import Time from './Time.astro'
 
 type Props = {
-  date: BlogEntry['data']['date']
-  updated?: BlogEntry['data']['updated']
+  date: BlogPost['data']['date']
+  updated?: BlogPost['data']['updated']
 }
 
 const { date, updated } = Astro.props
@@ -13,7 +13,7 @@ const { date, updated } = Astro.props
 <style>
   .date {
     font-style: italic;
-    font-size: var(--font-size-small);
+    font-size: var(--fs--1);
     color: var(--text-color-light);
     margin-top: calc(var(--spacer) / 4);
     margin-bottom: calc(var(--spacer) / 3);

@@ -1,8 +1,8 @@
-import type { BlogEntry } from '@/features/posts/types'
+import type { BlogPost } from '@/features/posts/types'
 //
 // Sort posts by date, newest first
 //
-export function sortPosts(posts: BlogEntry[]): BlogEntry[] {
+export function sortPosts(posts: BlogPost[]): BlogPost[] {
   return posts.sort(
     (a, b) =>
       Math.floor(new Date(b.data.date as Date)?.getTime() / 1000) -

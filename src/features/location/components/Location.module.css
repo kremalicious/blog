@@ -1,5 +1,5 @@
 .location {
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   min-height: 36px;
 }
 

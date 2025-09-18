@@ -14,20 +14,22 @@ const Icon = icon
 
 <a class="action" href={url}>
   <Icon />
-  <h1 class="actionTitle">{title}</h1>
+  <h4 class="actionTitle">{title}</h4>
   <p class="actionText">{text}</p>
 </a>
 
 <style>
   .actionTitle {
-    font-size: var(--font-size-base);
+    font-size: var(--fs-0);
+    line-height: var(--fs-1);
     color: var(--text-color);
     margin: 0;
     transition: 0.2s ease-out;
   }
 
   .actionText {
-    font-size: var(--font-size-small);
+    font-size: var(--fs--1);
+    line-height: var(--fs-1);
     color: var(--text-color-light);
     margin-bottom: 0;
     transition: color 0.2s ease-out;
@@ -36,8 +38,7 @@ const Icon = icon
   .action {
     display: block;
     margin: 0;
-    padding: var(--spacer) calc(var(--spacer) / 2) var(--spacer)
-      calc(var(--spacer) * 1.5);
+    padding-left: calc(var(--spacer) * 1.5);
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -54,7 +55,7 @@ const Icon = icon
     height: 20px;
     position: absolute;
     left: calc(var(--spacer) / 1.5);
-    top: calc(var(--spacer) / 1.05);
+    top: 0;
     stroke: var(--text-color-light);
   }
 </style>

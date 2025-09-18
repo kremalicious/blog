@@ -38,7 +38,7 @@ export default defineConfig({
       styleOverrides: {
         borderRadius: 'var(--border-radius)',
         uiFontFamily: 'var(--font-family-monospace)',
-        uiFontSize: 'var(--font-size-mini)',
+        uiFontSize: 'var(--fs--2)',
         codeFontFamily: 'var(--font-family-monospace)',
         codeFontSize: '0.8rem',
         frames: {

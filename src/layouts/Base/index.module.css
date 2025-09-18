@@ -1,20 +1,11 @@
-.content {
-  padding: 0 calc(var(--spacer) / 1.5);
-  width: 100%;
-  max-width: var(--maxWidthContent);
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* topbar and footer as fixed
    site background
 ///////////////////////////////////// */
 
 .document {
   width: 100%;
-  padding-top: var(--spacer);
+  padding: var(--spacer) calc(var(--spacer) / 1.5) calc(var(--spacer) * 2);
   background-color: var(--body-background-color);
-  padding-bottom: calc(var(--spacer) * 2);
   border-top: 1px solid rgba(255 255 255 / 85%);
   box-shadow:
     0 1px 10px rgba(1 85 101 / 10%),
@@ -49,8 +40,12 @@
   }
 }
 
-.wide {
-  max-width: none;
+.content {
+  padding: 0;
+  width: 100%;
+  max-width: var(--maxWidthContent);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .breakout {
@@ -58,7 +53,7 @@
   margin-right: calc(-50vw + 50%);
 }
 
-@media (min-width: 60rem) {
+@media (min-width: 1024px) {
   .breakout {
     margin-left: -10rem;
     margin-right: -10rem;
@@ -66,7 +61,7 @@
 }
 
 .pagetitle {
-  font-size: var(--font-size-h3);
+  font-size: var(--fs-3);
   color: var(--text-color-light);
   margin-top: 0;
   margin-bottom: var(--spacer);

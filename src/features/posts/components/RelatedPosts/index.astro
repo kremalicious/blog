@@ -2,11 +2,11 @@
 import Fuse from 'fuse.js'
 import { getAllPostsForSearch } from '@/features/search/lib/get-all-posts'
 import { PostTeaser } from '../../components'
-import type { BlogEntry } from '../../types'
+import type { BlogPost } from '../../types'
 import styles from './index.module.css'
 
 type Props = {
-  post: BlogEntry
+  post: BlogPost
 }
 
 const { post } = Astro.props as Props
@@ -23,7 +23,7 @@ const fuse = new Fuse(allPostsWithoutCurrent, {
   threshold: 0.6
 })
 
-// Get lead text from leadRaw property, checking first if lead exists (only on ArticleEntry)
+// Get lead text from leadRaw property, checking first if lead exists (only on ArticlePost)
 const leadText = ('leadRaw' in post ? post.leadRaw : undefined) || ''
 
 const relatedPosts = fuse
@@ -36,7 +36,7 @@ const relatedPosts = fuse
 ---
 
 <section class={styles.relatedPosts}>
-  <h1 class={styles.title}>Related</h1>
+  <h3 class={styles.title}>Related</h3>
   <ul>
     {
       relatedPosts?.map((post) => (

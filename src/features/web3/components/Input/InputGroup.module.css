@@ -50,7 +50,7 @@
 .inputInput {
   text-align: center;
   border: 0;
-  font-size: var(--font-size-large);
+  font-size: var(--fs-1);
   padding: 0;
   padding-left: var(--tokenWidth);
   border-bottom-left-radius: 0;
@@ -102,7 +102,7 @@
 
 .errorOutput {
   color: red;
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   margin-left: var(--tokenWidth);
   position: absolute;
   right: calc(var(--spacer) / 3);

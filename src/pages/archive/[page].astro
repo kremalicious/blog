@@ -2,15 +2,11 @@
 import type { GetStaticPathsOptions, Page } from 'astro'
 import { metadata } from '@/config'
 import { getCollectionEnhanced, sortPosts } from '@/features/posts/lib'
-import type {
-  ArticleEntry,
-  LinkEntry,
-  PhotoEntry
-} from '@/features/posts/types'
+import type { ArticlePost, LinkPost, PhotoPost } from '@/features/posts/types'
 import { ArchiveLayout } from '@/layouts'
 
 type Props = {
-  page: Page<ArticleEntry | LinkEntry | PhotoEntry>
+  page: Page<ArticlePost | LinkPost | PhotoPost>
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {

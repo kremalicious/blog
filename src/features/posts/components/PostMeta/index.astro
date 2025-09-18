@@ -1,12 +1,12 @@
 ---
 import { metadata } from '@/config'
-import type { BlogEntry } from '@/features/posts/types'
+import type { BlogPost } from '@/features/posts/types'
 import { slugify } from '@/lib/slugify'
 import { PostDate, Tag } from '../../components'
 import styles from './index.module.css'
 
 type Props = {
-  post: BlogEntry
+  post: BlogPost
 }
 
 const { post } = Astro.props

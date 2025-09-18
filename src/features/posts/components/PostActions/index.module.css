@@ -3,14 +3,10 @@
   margin-top: calc(var(--spacer) * 2);
   margin-bottom: calc(var(--spacer) * 2);
   background: var(--box-background-color);
-  padding: var(--spacer);
+  padding: calc(var(--spacer) * 2) var(--spacer);
   border-radius: var(--border-radius);
   border: var(--border-width) solid var(--border-color);
   display: grid;
-}
-
-@media (min-width: 40rem) {
-  .actions {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--spacer);
 }

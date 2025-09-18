@@ -1,5 +1,5 @@
 .Token {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   line-height: 1;
   color: var(--text-color);
   display: flex;
@@ -29,7 +29,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   position: relative;
 }
 
@@ -55,16 +55,16 @@
 }
 
 .TokenName {
-  font-size: var(--font-size-base);
+  font-size: var(--fs-0);
   transition: none;
 }
 
 .TokenBalance {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
 }
 
 .TokenValue {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   display: inline-flex;
   align-self: flex-start;
   margin-left: auto;

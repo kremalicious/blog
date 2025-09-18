@@ -2,11 +2,11 @@
 import type { GetStaticPathsOptions, Page } from 'astro'
 import { metadata } from '@/config'
 import { getCollectionEnhanced } from '@/features/posts/lib'
-import type { PhotoEntry } from '@/features/posts/types'
+import type { PhotoPost } from '@/features/posts/types'
 import { ArchiveLayout } from '@/layouts'
 
 type Props = {
-  page: Page<PhotoEntry>
+  page: Page<PhotoPost>
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {

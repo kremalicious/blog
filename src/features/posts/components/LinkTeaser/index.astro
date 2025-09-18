@@ -1,11 +1,11 @@
 ---
 import { render } from 'astro:content'
 import { LinkActions, PostHeader } from '@/features/posts/components'
-import type { LinkEntry } from '@/features/posts/types'
+import type { LinkPost } from '@/features/posts/types'
 import styles from './index.module.css'
 
 type Props = {
-  post: LinkEntry
+  post: LinkPost
   hideDate?: boolean
 }
 

@@ -1,11 +1,11 @@
 ---
 import type { InferGetStaticParamsType, Page } from 'astro'
 import { getAllTags, getPostsByTag } from '@/features/posts/lib'
-import type { BlogEntry } from '@/features/posts/types'
+import type { BlogPost } from '@/features/posts/types'
 import { ArchiveLayout } from '@/layouts'
 
 type Props = {
-  page: Page<BlogEntry>
+  page: Page<BlogPost>
 }
 type Params = InferGetStaticParamsType<typeof getStaticPaths>
 

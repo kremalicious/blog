@@ -3,7 +3,7 @@
   padding: var(--padding-base-vertical) var(--padding-base-horizontal);
   font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
-  line-height: var(--line-height);
+  line-height: 1;
   color: var(--input-color);
   background-color: var(--input-bg);
   background-image: none;

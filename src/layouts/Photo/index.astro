@@ -1,12 +1,12 @@
 ---
 import Picture from '@/components/Picture/index.astro'
 import { Exif, PhotoNav, PostHeader } from '@/features/posts/components'
-import type { ImageMetadataFormatted, PhotoEntry } from '@/features/posts/types'
+import type { ImageMetadataFormatted, PhotoPost } from '@/features/posts/types'
 import stylesArticle from '@/layouts/Article/index.module.css'
 import LayoutBase from '@/layouts/Base/index.astro'
 
 type Props = {
-  post: PhotoEntry
+  post: PhotoPost
   leadRaw: string
 }
 

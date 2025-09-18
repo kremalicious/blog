@@ -2,7 +2,7 @@ import { getCollection } from 'astro:content'
 import path from 'node:path'
 import { metadata } from '@/config'
 import { readImageMetadata } from '@/features/posts/lib'
-import type { BlogCollection, BlogEntry } from '@/features/posts/types'
+import type { BlogCollection, BlogPost } from '@/features/posts/types'
 import { getSlug } from './get-slug'
 import { sortPosts } from './sort-posts'
 
@@ -14,7 +14,7 @@ import { sortPosts } from './sort-posts'
 //
 export async function getCollectionEnhanced(
   name: BlogCollection
-): Promise<BlogEntry[]> {
+): Promise<BlogPost[]> {
   let postsCollection = await getCollection(name)
 
   // filter out drafts, but only in production

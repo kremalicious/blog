@@ -13,15 +13,14 @@ body {
 }
 
 html {
-  font-size: var(--font-size-root);
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height);
+  font-size: var(--fs-0);
+  line-height: var(--fs-2);
   color: var(--text-color);
   text-rendering: optimizelegibility;
   font-feature-settings: 'liga', 'kern';
@@ -39,7 +38,7 @@ body {
 p,
 ul,
 ol {
-  margin: 0 0 calc(var(--spacer) / var(--line-height));
+  margin: 0 0 var(--spacer);
 }
 
 /* Reset fonts for relevant elements
@@ -90,37 +89,36 @@ a:focus {
 ///////////////////////////////////// */
 
 h1 {
-  font-size: var(--font-size-h1);
+  font-size: var(--fs-4);
+  line-height: var(--fs-5);
 }
 
 h2 {
-  font-size: var(--font-size-h2);
+  font-size: var(--fs-3);
+  line-height: var(--fs-4);
 }
 
 h3 {
-  font-size: var(--font-size-h3);
+  font-size: var(--fs-2);
+  line-height: var(--fs-3);
 }
 
 h4 {
-  font-size: var(--font-size-h4);
+  font-size: var(--fs-1);
+  line-height: var(--fs-3);
 }
 
 h5 {
-  font-size: var(--font-size-h5);
-}
-
-h6 {
-  font-size: var(--font-size-h6);
+  font-size: var(--fs-0);
+  line-height: var(--fs-2);
 }
 
 h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
   font-family: var(--font-family-headings);
-  line-height: var(--line-height-headings);
   color: var(--color-headings);
   font-weight: var(--font-weight-headings);
   letter-spacing: -0.01em;
@@ -131,6 +129,7 @@ h1,
 h2,
 h3 {
   margin: var(--spacer) 0;
+  text-wrap: balance;
 }
 
 h4,
@@ -146,7 +145,7 @@ h4 .anchor.before,
 h5 .anchor.before,
 h6 .anchor.before {
   opacity: 0;
-  font-size: var(--font-size-h4);
+  font-size: var(--fs-2);
   bottom: 0;
   top: 0.3em;
 }
@@ -182,7 +181,7 @@ img {
 }
 
 figcaption {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   color: var(--text-color-light);
   font-style: italic;
   text-align: center;
@@ -305,8 +304,8 @@ blockquote::before {
   font-size: 300%;
   color: var(--text-color-light);
   position: absolute;
-  left: -10px;
-  top: -20px;
+  left: 0;
+  top: 0;
 }
 
 table {
@@ -338,7 +337,6 @@ tr:last-child td {
 /* Selection
 ///////////////////////////////////// */
 
-/* stylelint-disable selector-no-vendor-prefix */
 ::-moz-selection {
   background: #2e4f5c;
   color: #fff;
@@ -348,4 +346,3 @@ tr:last-child td {
   background: #2e4f5c;
   color: #fff;
 }
-/* stylelint-enable selector-no-vendor-prefix */

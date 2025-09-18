@@ -6,12 +6,12 @@ import {
   PhotoTeaser,
   PostTeaser
 } from '@/features/posts/components'
-import type { BlogEntry } from '@/features/posts/types'
+import type { BlogPost } from '@/features/posts/types'
 import LayoutBase from '@/layouts/Base/index.astro'
 import styles from './Archive.module.css'
 
 type Props = {
-  page: Page<BlogEntry>
+  page: Page<BlogPost>
   title: string
   pageTitle?: string
 }

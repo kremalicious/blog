@@ -3,7 +3,7 @@
 }
 
 .data {
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   color: var(--text-color-light);
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +29,7 @@
 
 @media (min-width: 40rem) {
   .data {
-    font-size: var(--font-size-small);
+    font-size: var(--fs--1);
   }
 
   .data span {

@@ -5,12 +5,12 @@ import {
   PostHeader,
   PostMeta
 } from '@/features/posts/components'
-import type { LinkEntry } from '@/features/posts/types'
+import type { LinkPost } from '@/features/posts/types'
 import stylesArticle from '@/layouts/Article/index.module.css'
 import LayoutBase from '@/layouts/Base/index.astro'
 
 type Props = {
-  post: LinkEntry
+  post: LinkPost
   leadRaw: string
 }
 

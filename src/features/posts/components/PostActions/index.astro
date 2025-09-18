@@ -3,12 +3,12 @@ import Github from 'feather-icons/dist/icons/github.svg'
 import { metadata } from '@/config'
 import Bitcoin from '@/images/bitcoin.svg'
 import Mastodon from '@/images/mastodon.svg'
-import type { BlogEntry } from '../../types'
+import type { BlogPost } from '../../types'
 import Action from './Action.astro'
 import styles from './index.module.css'
 
 type Props = {
-  githubLink: BlogEntry['data']['githubLink']
+  githubLink: BlogPost['data']['githubLink']
 }
 
 const { githubLink } = Astro.props

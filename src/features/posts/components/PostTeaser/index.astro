@@ -2,11 +2,11 @@
 import Picture from '@/components/Picture/index.astro'
 import type { SearchResultItem } from '@/features/search/types'
 import { PostHeader } from '../../components'
-import type { BlogEntry } from '../../types'
+import type { ArticlePost, LinkPost } from '../../types'
 import styles from './index.module.css'
 
 type Props = {
-  post: BlogEntry | SearchResultItem
+  post: ArticlePost | LinkPost | SearchResultItem
   hideDate?: boolean
 }
 

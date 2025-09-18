@@ -1,5 +1,5 @@
 .entryMeta {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   margin-top: calc(var(--spacer) * 2);
   color: var(--text-color-light);
   text-align: center;
@@ -23,7 +23,7 @@
 }
 
 .type a {
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   text-align: center;
   color: var(--text-color);
   line-height: 1;

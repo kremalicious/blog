@@ -16,6 +16,6 @@
 }
 
 .alert {
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   display: inline-block;
 }

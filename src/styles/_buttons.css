@@ -10,7 +10,7 @@ a.btn {
   user-select: none;
   transition: 0.2s ease-in-out;
   padding: var(--padding-base-vertical) var(--padding-base-horizontal);
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   border-radius: var(--border-radius);
   background-color: rgba(255 255 255 / 10%);
   border: 1px solid var(--border-color);
@@ -46,7 +46,7 @@ button:disabled,
 }
 
 .btn span {
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   color: var(--text-color-light);
   margin-left: 0.3em;
 }
@@ -146,7 +146,7 @@ article a.btn-primary:focus {
 }
 
 .content-download .btn span {
-  font-size: var(--font-size-mini);
+  font-size: var(--fs--2);
   color: var(--brand-grey);
 }
 

@@ -6,7 +6,7 @@
   /* display: flex;
    flex-direction: row-reverse;
   justify-content: space-between; */
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
 }
 
 .rainbowkit [aria-label='Chain Selector'],
@@ -38,7 +38,7 @@
   color: var(--link-color);
   background: none;
   border: none;
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   padding: 0;
 }
 

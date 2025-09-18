@@ -1,9 +1,9 @@
 ---
 import Picture from '@/components/Picture/index.astro'
-import type { PhotoEntry } from '../types'
+import type { PhotoPost } from '../types'
 
 type Props = {
-  post: PhotoEntry
+  post: PhotoPost
 }
 
 const { title, image, slug } = Astro.props.post.data

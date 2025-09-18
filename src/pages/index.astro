@@ -2,14 +2,14 @@
 import More from '@/components/More.astro'
 import { PhotoTeaser, PostTeaser } from '@/features/posts/components'
 import { getCollectionEnhanced } from '@/features/posts/lib'
-import type { ArticleEntry, PhotoEntry } from '@/features/posts/types'
+import type { ArticlePost, PhotoPost } from '@/features/posts/types'
 import { BaseLayout } from '@/layouts'
 
 const articles = (
-  (await getCollectionEnhanced('articles')) as ArticleEntry[]
+  (await getCollectionEnhanced('articles')) as ArticlePost[]
 ).slice(0, 2)
 // const links = await getCollectionEnhanced('links')
-const photos = ((await getCollectionEnhanced('photos')) as PhotoEntry[]).slice(
+const photos = ((await getCollectionEnhanced('photos')) as PhotoPost[]).slice(
   0,
   12
 )

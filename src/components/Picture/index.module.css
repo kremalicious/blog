@@ -31,9 +31,9 @@ a:focus .frame {
 }
 
 .imageTitle {
-  font-size: var(--font-size-base);
+  font-size: var(--fs-0);
+  line-height: var(--fs-1);
   font-family: var(--font-family-headings);
-  line-height: var(--line-height-headings);
   font-weight: var(--font-weight-headings);
   font-style: normal;
   text-align: left;

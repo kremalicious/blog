@@ -1,14 +1,14 @@
 ---
 import ExternalLink from 'feather-icons/dist/icons/external-link.svg'
 import { PostDate } from '../../components'
-import type { BlogEntry, LinkEntry } from '../../types'
+import type { BlogPost, LinkPost } from '../../types'
 import styles from './index.module.css'
 
 type Props = {
-  title: BlogEntry['data']['title']
-  date: BlogEntry['data']['date']
-  updated?: BlogEntry['data']['updated']
-  linkurl?: LinkEntry['data']['linkurl']
+  title: BlogPost['data']['title']
+  date: BlogPost['data']['date']
+  updated?: BlogPost['data']['updated']
+  linkurl?: LinkPost['data']['linkurl']
   className?: string
   as?: string
 }

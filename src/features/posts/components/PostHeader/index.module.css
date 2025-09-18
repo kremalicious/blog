@@ -6,14 +6,20 @@
   margin: 0;
 }
 
+@media (min-width: 40rem) {
+  h1.title {
+    font-size: var(--fs-5);
+  }
+}
+
 .titleLink {
-  font-size: var(--font-size-h3);
+  font-size: var(--fs-2);
   margin-bottom: 0;
 }
 
 .titleLink svg {
-  width: var(--font-size-base);
-  height: var(--font-size-base);
+  width: var(--fs-0);
+  height: var(--fs-0);
   display: inline-block;
   stroke: var(--text-color-light);
   margin-bottom: -0.1rem;
@@ -26,7 +32,7 @@
   white-space: nowrap;
   width: 100%;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-small);
+  font-size: var(--fs--1);
   color: var(--text-color-light);
   margin-bottom: calc(var(--spacer) / 2);
 }

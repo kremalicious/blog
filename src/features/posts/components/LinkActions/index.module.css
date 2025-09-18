@@ -18,7 +18,7 @@
 }
 
 .postLinkActions a:last-child svg {
-  width: var(--font-size-base);
-  height: var(--font-size-base);
+  width: var(--fs-0);
+  height: var(--fs-0);
   stroke: var(--brand-cyan);
 }
