@@ -86,11 +86,17 @@ export interface ExifrIfd0 {
   YCbCrPositioning?: number
 }
 
+export interface ExifrDc {
+  title?: { value?: string; lang?: 'x-default' }
+  description?: { value?: string; lang?: 'x-default' }
+}
+
 export interface ExifrMetadata {
   ifd0?: ExifrIfd0
   iptc?: ExifrIptc
   exif?: ExifrExif
   gps?: ExifrGps
+  dc?: ExifrDc
 }
 
 export type GpsFormatted = {

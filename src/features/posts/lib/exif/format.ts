@@ -36,9 +36,15 @@ export function formatImageMetadata(
     exposure: formatExposure(metadata.exif?.ExposureCompensation)
   }
 
+  // Try IPTC first, then fall back to XMP dc:title/description
+  const iptcTitle = metadata.iptc?.ObjectName
+  const iptcCaption = metadata.iptc?.Caption
+  const dcTitle = metadata.dc?.title?.value
+  const dcDescription = metadata.dc?.description?.value
+
   const iptc: IptcFormatted = {
-    title: metadata.iptc?.ObjectName ? metadata.iptc.ObjectName : undefined,
-    caption: metadata.iptc?.Caption ? metadata.iptc.Caption : undefined,
+    title: iptcTitle || dcTitle || undefined,
+    caption: iptcCaption || dcDescription || undefined,
     keywords: formatKeywords(metadata.iptc?.Keywords)
   }
 

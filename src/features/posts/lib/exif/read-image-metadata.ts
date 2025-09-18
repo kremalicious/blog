@@ -11,6 +11,7 @@ export async function readImageMetadata(
     const exifRaw = await exifr.parse(filePath, {
       exif: true,
       iptc: true,
+      xmp: true,
       icc: false,
       gps: true,
       mergeOutput: false
