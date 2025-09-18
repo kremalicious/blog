@@ -1,7 +1,8 @@
 import path from 'node:path'
 import ora from 'ora'
-import { createArticlePost } from './createArticlePost.js'
-import { createPhotoPost } from './createPhotoPost.js'
+import { createArticlePost } from './create-article.js'
+import { createPhotoPost } from './create-photo.js'
+import { parsePhotoArgs } from './parse-photo-args.js'
 
 const postsPath = path.join('.', 'content', 'articles')
 const photosPath = path.join('.', 'content', 'photos')
@@ -18,10 +19,7 @@ const isPhoto = process.argv[2] === 'photo'
 if (isPhoto) {
   // Get all arguments after 'photo'
   const args = process.argv.slice(3)
-
-  // The last argument is the title if provided, everything else is photo paths
-  const photoTitle = args.length > 1 ? args[args.length - 1] : undefined
-  const photos = photoTitle ? args.slice(0, -1) : args
+  const { photos, photoTitle } = parsePhotoArgs(args)
 
   if (photos.length === 0) {
     spinner.fail(

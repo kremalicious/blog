@@ -11,8 +11,9 @@ import {
   vi
 } from 'vitest'
 import type { ImageMetadataFormatted } from '@/features/posts/types'
-import { createArticlePost } from './createArticlePost'
-import { createPhotoPost } from './createPhotoPost'
+import { createArticlePost } from './create-article'
+import { createPhotoPost } from './create-photo'
+import { parsePhotoArgs } from './parse-photo-args'
 
 // Mock the readImageMetadata function
 const mockExifFormatted: ImageMetadataFormatted = {
@@ -162,5 +163,33 @@ describe('bun run new', () => {
         normalizeContent(fixtureContent)
       )
     }
+  })
+
+  test('parsePhotoArgs treats last arg as title when not a file', async () => {
+    const photo1 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    )
+    const photo2 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    )
+    const { photos, photoTitle } = parsePhotoArgs([photo1, photo2, 'My Title'])
+    expect(photos).toEqual([photo1, photo2])
+    expect(photoTitle).toBe('My Title')
+  })
+
+  test('parsePhotoArgs treats last arg as file when it exists', async () => {
+    const photo1 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    )
+    const photo2 = path.resolve(
+      process.cwd(),
+      'test/__fixtures__/image-with-metadata.jpg'
+    )
+    const { photos, photoTitle } = parsePhotoArgs([photo1, photo2])
+    expect(photos).toEqual([photo1, photo2])
+    expect(photoTitle).toBeUndefined()
   })
 })
