@@ -8,7 +8,7 @@
 }
 
 .actions button:first-child {
-  margin-right: var(--spacer);
+  margin-right: var(--space-m);
   width: 115px;
   height: 45px;
   padding-top: 0;

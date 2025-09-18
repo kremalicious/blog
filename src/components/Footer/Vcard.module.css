@@ -1,8 +1,10 @@
 .avatar {
   composes: frame from '@/components/Picture/index.module.css';
-  border: 2px solid transparent;
+}
+
+.vcard .avatar {
   border-radius: 50%;
-  margin-bottom: calc(var(--spacer) / 3);
+  margin-bottom: var(--space-2xs);
   width: 80px;
   height: 80px;
 }

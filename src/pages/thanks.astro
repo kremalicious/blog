@@ -11,7 +11,7 @@ import { BaseLayout } from '@/layouts'
 <style>
   .grid {
     display: grid;
-    gap: var(--spacer);
+    gap: var(--space-m);
   }
 
   @media (min-width: 40rem) {
@@ -27,24 +27,24 @@ import { BaseLayout } from '@/layouts'
     background-color: var(--body-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    margin-bottom: var(--spacer);
+    margin-bottom: var(--space-m);
   }
 
   .subTitle {
     font-size: var(--fs-3);
     border-bottom: 1px solid var(--border-color);
     margin: 0;
-    padding: calc(var(--spacer) / 2) 0;
+    padding: var(--space-s) 0;
   }
 
   .box .subTitle {
-    padding: calc(var(--spacer) / 2);
+    padding: var(--space-s);
   }
 
   .titleCoin {
     font-size: var(--fs-1);
     margin-top: 0;
-    margin-bottom: calc(var(--spacer) / 4);
+    margin-bottom: var(--space-2xs);
     display: flex;
     align-items: center;
     gap: 0.25em;
@@ -59,11 +59,11 @@ import { BaseLayout } from '@/layouts'
   }
 
   .section {
-    padding: calc(var(--spacer) / 1.5) 0;
+    padding: var(--space-s) 0;
   }
 
   .box .section {
-    padding: calc(var(--spacer) / 1.5);
+    padding: var(--space-s);
   }
 
   .section.highlight {
@@ -75,7 +75,7 @@ import { BaseLayout } from '@/layouts'
   .metaText {
     display: block;
     font-size: var(--fs--2);
-    margin: calc(var(--spacer) / 6) 0;
+    margin: var(--space-3xs) 0;
   }
 </style>
 

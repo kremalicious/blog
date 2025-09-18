@@ -1,7 +1,7 @@
 .table {
   width: 100%;
   display: table;
-  margin-bottom: calc(var(--spacer) / 1.5);
+  margin-bottom: var(--space-s);
 }
 
 table[aria-disabled='true'] {
@@ -10,7 +10,7 @@ table[aria-disabled='true'] {
 }
 
 .table td {
-  padding: calc(var(--spacer) / 4) calc(var(--spacer) / 3);
+  padding: var(--space-2xs) var(--space-2xs);
 }
 
 .to,

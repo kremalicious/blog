@@ -1,9 +1,9 @@
 .footer {
   text-align: center;
-  padding: var(--spacer);
-  padding-top: calc(var(--spacer) * 2);
+  padding: var(--space-m);
+  padding-top: var(--space-2xl);
   color: var(--text-color-light);
-  line-height: var(--spacer);
+  line-height: var(--space-m);
 }
 
 @media (min-width: 40rem) and (min-height: 500px) {
@@ -17,7 +17,7 @@
 }
 
 .copyright {
-  margin-top: var(--spacer);
+  margin-top: var(--space-m);
   font-size: var(--fs--2);
   color: var(--text-color-light);
 }
@@ -28,7 +28,7 @@
 
 .copyright a {
   color: var(--text-color-light);
-  margin-left: var(--spacer);
+  margin-left: var(--space-m);
 }
 
 .copyright a:hover {
@@ -42,7 +42,7 @@
 .copyright svg {
   width: var(--fs--1);
   height: var(--fs--1);
-  margin-right: calc(var(--spacer) / 8);
+  margin-right: var(--space-3xs);
   margin-bottom: -0.15rem;
   display: inline-block;
   stroke: var(--text-color-light);

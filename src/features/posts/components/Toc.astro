@@ -13,10 +13,10 @@ const filteredHeadings = headings.filter((heading) => heading.depth <= 2)
 <style>
   .toc {
     background: var(--box-background-color);
-    padding: var(--spacer);
+    padding: var(--space-m);
     border-radius: var(--border-radius);
     border: var(--border-width) solid var(--border-color);
-    margin-bottom: var(--spacer);
+    margin-bottom: var(--space-l);
   }
 
   .toc :global(ul),
@@ -25,8 +25,8 @@ const filteredHeadings = headings.filter((heading) => heading.depth <= 2)
   }
 
   .toc :global(li) {
-    margin-top: calc(var(--spacer) / 6);
-    margin-bottom: calc(var(--spacer) / 6);
+    margin-top: var(--space-3xs);
+    margin-bottom: var(--space-3xs);
   }
 </style>
 

@@ -1,23 +1,17 @@
 .networks {
-  margin-top: calc(var(--spacer) / 2);
+  margin-top: var(--space-s);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-m);
 }
 
 .link {
   text-align: center;
-  width: 2rem;
-  padding: calc(var(--spacer) / 4);
-  margin-left: calc(var(--spacer) / 4);
-  margin-right: calc(var(--spacer) / 4);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   color: var(--text-color-light);
-}
-
-.link:first-child {
-  margin-left: 0;
-}
-
-.link:last-child {
-  margin-right: 0;
 }
 
 .link svg {

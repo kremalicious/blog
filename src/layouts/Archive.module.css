@@ -1,10 +1,10 @@
 .posts:not(.photos) > * {
-  margin-bottom: calc(var(--spacer) * 2);
+  margin-bottom: var(--space-2xl);
 }
 
 .photos {
   display: grid;
-  gap: var(--spacer);
+  gap: var(--space-m);
   grid-template-columns: repeat(2, 1fr);
 }
 

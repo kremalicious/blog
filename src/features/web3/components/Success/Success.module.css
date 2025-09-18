@@ -1,6 +1,6 @@
 .success {
   text-align: center;
-  margin-top: var(--spacer);
+  margin-top: var(--space-m);
 }
 
 .title {

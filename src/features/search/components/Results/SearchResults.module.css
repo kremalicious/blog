@@ -11,7 +11,7 @@
 
 .results {
   composes: content from '@/layouts/Base/index.module.css';
-  padding: var(--spacer) calc(var(--spacer) / 2);
+  padding: var(--space-m) 0;
   margin-bottom: 0;
   display: flex;
   flex-wrap: wrap;
@@ -19,17 +19,19 @@
 }
 
 .post {
-  composes: post from '@/features/posts/components/PostTeaser/index.module.css';
+  display: block;
 }
 
 .title {
-  composes: title from '@/features/posts/components/PostTeaser/index.module.css';
+  font-size: var(--fs-1);
+  line-height: var(--fs-2);
+  margin: 0;
 }
 
 .results li {
   display: block;
   flex: 0 0 48%;
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-m);
 }
 
 @media (min-width: 40rem) {

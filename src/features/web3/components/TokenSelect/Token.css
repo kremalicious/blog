@@ -4,8 +4,7 @@
   color: var(--text-color);
   display: flex;
   align-items: center;
-  padding: calc(var(--spacer) / 3) calc(var(--spacer) / 2)
-    calc(var(--spacer) / 3) 25px;
+  padding: var(--space-2xs) var(--space-s) var(--space-2xs) 25px;
   position: relative;
   user-select: none;
 }
@@ -24,7 +23,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  margin-right: calc(var(--spacer) / 4);
+  margin-right: var(--space-2xs);
   border: 1px solid var(--border-color);
   display: inline-flex;
   align-items: center;
@@ -68,7 +67,7 @@
   display: inline-flex;
   align-self: flex-start;
   margin-left: auto;
-  padding-left: calc(var(--spacer) * 2);
+  padding-left: var(--space-2xl);
 }
 
 .SelectItemIndicator {

@@ -11,20 +11,22 @@ const { mastodon, github, name, url } = author
 const links = [mastodon, github, rss, jsonfeed]
 ---
 
-<Image
-  class={styles.avatar}
-  src={avatar}
-  width="160"
-  height="160"
-  alt="avatar"
-/>
+<div class={styles.vcard}>
+  <Image
+    class={styles.avatar}
+    src={avatar}
+    width="160"
+    height="160"
+    alt="avatar"
+  />
 
-<p class={styles.description}>
-  {metadata.siteDescription.replace(name, "")}<br />
-  <a class="fn" rel="author" href={url}>
-    {name}
-  </a>
-</p>
+  <p class={styles.description}>
+    {metadata.siteDescription.replace(name, "")}<br />
+    <a class="fn" rel="author" href={url}>
+      {name}
+    </a>
+  </p>
+</div>
 
 <Location client:visible />
 

@@ -9,7 +9,7 @@ a.btn {
   white-space: nowrap;
   user-select: none;
   transition: 0.2s ease-in-out;
-  padding: var(--padding-base-vertical) var(--padding-base-horizontal);
+  padding: var(--space-2xs) var(--space-s);
   font-size: var(--fs--1);
   border-radius: var(--border-radius);
   background-color: rgba(255 255 255 / 10%);
@@ -121,8 +121,8 @@ article a.btn-primary:focus {
 .content-download {
   text-align: center;
   display: block;
-  margin-top: calc(var(--spacer) * 2);
-  margin-bottom: calc(var(--spacer) * 2);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
 }
 
 @media (min-width: 30rem) {
@@ -132,7 +132,7 @@ article a.btn-primary:focus {
 }
 
 .content-download .btn {
-  margin-bottom: calc(var(--spacer) / 2);
+  margin-bottom: var(--space-s);
   text-decoration: none;
 }
 
@@ -153,7 +153,7 @@ article a.btn-primary:focus {
 @media (min-width: 30rem) {
   .content-download .btn {
     flex: 1;
-    margin-left: calc(var(--spacer) / 2);
+    margin-left: var(--space-s);
     margin-bottom: 0;
   }
 }

@@ -74,9 +74,16 @@
   /* Spacing
   ///////////////////////////////////// */
 
-  --spacer: 2rem;
-  --padding-base-vertical: 0.75rem;
-  --padding-base-horizontal: 1.25rem;
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.25,720,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5125rem + 0.25vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.025rem + 0.5vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.5375rem + 0.75vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.05rem + 1vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.075rem + 1.5vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.1rem + 2vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.15rem + 3vw, 7.5rem);
 
   /* Border
   ///////////////////////////////////// */

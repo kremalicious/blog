@@ -1,6 +1,6 @@
 .input {
   display: block;
-  padding: var(--padding-base-vertical) var(--padding-base-horizontal);
+  padding: var(--space-2xs) var(--space-s);
   font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   line-height: 1;

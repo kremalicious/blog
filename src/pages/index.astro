@@ -17,7 +17,7 @@ const photos = ((await getCollectionEnhanced('photos')) as PhotoPost[]).slice(
 
 <style>
   .section:not(:first-of-type) {
-    margin-top: calc(var(--spacer) * 1.5);
+    margin-top: var(--space-xl);
   }
 
   .sectionTitle {
@@ -27,7 +27,7 @@ const photos = ((await getCollectionEnhanced('photos')) as PhotoPost[]).slice(
 
   .photos {
     display: grid;
-    gap: var(--spacer);
+    gap: var(--space-m);
     grid-template-columns: repeat(2, 1fr);
   }
 

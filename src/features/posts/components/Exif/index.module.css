@@ -1,5 +1,5 @@
 .exif {
-  margin-bottom: calc(var(--spacer) * 2);
+  margin-bottom: var(--space-2xl);
 }
 
 .data {
@@ -17,13 +17,13 @@
   align-items: center;
   flex-direction: column;
   white-space: nowrap;
-  padding: var(--spacer) calc(var(--spacer) / 1.5);
+  padding: var(--space-m) var(--space-s);
   border-bottom: 1px dashed var(--border-color);
 }
 
 .data span svg {
   display: block;
-  margin-bottom: calc(var(--spacer) / 8);
+  margin-bottom: var(--space-3xs);
   opacity: 0.65;
 }
 

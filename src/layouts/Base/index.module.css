@@ -4,7 +4,7 @@
 
 .document {
   width: 100%;
-  padding: var(--spacer) calc(var(--spacer) / 1.5) calc(var(--spacer) * 2);
+  padding: var(--space-m) var(--space-s) var(--space-2xl);
   background-color: var(--body-background-color);
   border-top: 1px solid rgba(255 255 255 / 85%);
   box-shadow:
@@ -18,7 +18,7 @@
 }
 
 :global(.has-menu-open) .document {
-  transform: translate3d(0, calc(var(--spacer) * 2), 0);
+  transform: translate3d(0, var(--space-2xl), 0);
 }
 
 [data-theme='dark'] .document {
@@ -30,10 +30,11 @@
 
 @media (min-width: 40rem) and (min-height: 500px) {
   .document {
-    margin-top: calc(var(--spacer) * 2.5);
+    /* height of header */
+    margin-top: 94px;
 
     /* height of footer */
-    margin-bottom: calc(var(--spacer) * 12);
+    margin-bottom: 380px;
     position: relative;
     z-index: 2;
     min-height: 45rem;
@@ -64,7 +65,7 @@
   font-size: var(--fs-3);
   color: var(--text-color-light);
   margin-top: 0;
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-m);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

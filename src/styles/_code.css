@@ -46,7 +46,7 @@ div.expressive-code pre {
   position: relative;
   display: block;
   padding: 0;
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-m);
   color: var(--code-color);
   background-color: var(--box-background-color);
   border-radius: var(--border-radius);
@@ -71,7 +71,7 @@ pre > code {
 
 pre > code,
 div.expressive-code pre > code {
-  padding: calc(var(--spacer) / 2) 0;
+  padding: var(--space-xs) 0;
 }
 
 pre::-webkit-scrollbar {
@@ -91,11 +91,11 @@ pre::-webkit-scrollbar-track {
 }
 
 .expressive-code {
-  margin: var(--spacer) 0;
+  margin: var(--space-m) 0;
 }
 
 div.expressive-code .ec-line .code {
-  padding: 0 calc(var(--spacer) / 2);
+  padding: 0 var(--space-xs);
 }
 
 div.expressive-code .frame .copy {
@@ -121,5 +121,5 @@ div.expressive-code .frame.has-title:not(.is-terminal) .header .title {
   border: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: var(--border-radius);
-  padding: 0.3rem 1rem;
+  padding: var(--space-3xs) var(--space-xs);
 }

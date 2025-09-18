@@ -19,42 +19,40 @@ const Icon = icon
 </a>
 
 <style>
-  .actionTitle {
-    font-size: var(--fs-0);
-    line-height: var(--fs-1);
-    color: var(--text-color);
-    margin: 0;
-    transition: 0.2s ease-out;
-  }
-
-  .actionText {
-    font-size: var(--fs--1);
-    line-height: var(--fs-1);
-    color: var(--text-color-light);
-    margin-bottom: 0;
-    transition: color 0.2s ease-out;
-  }
-
   .action {
+    color: var(--text-color-light);
     display: block;
     margin: 0;
-    padding-left: calc(var(--spacer) * 1.5);
+    padding-left: 50px;
     position: relative;
     text-align: left;
     text-decoration: none;
   }
 
+  .actionTitle {
+    font-size: var(--fs-0);
+    line-height: var(--fs-1);
+    color: var(--text-color);
+    margin: 0;
+    transition: color 0.2s ease-out;
+  }
+
   .action:hover .actionTitle,
   .action:focus .actionTitle {
     color: var(--link-color-hover);
-    text-decoration: underline;
+  }
+
+  .actionText {
+    font-size: var(--fs--1);
+    line-height: var(--fs-1);
+    margin-bottom: 0;
   }
 
   .action svg {
     width: 20px;
     height: 20px;
     position: absolute;
-    left: calc(var(--spacer) / 1.5);
+    left: var(--space-s);
     top: 0;
     stroke: var(--text-color-light);
   }

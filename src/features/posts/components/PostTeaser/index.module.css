@@ -1,7 +1,7 @@
 .title {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
-  margin-top: calc(var(--spacer) / 3);
+  margin-top: var(--space-xs);
   margin-bottom: 0;
   transition: color 0.2s ease-out;
 }
@@ -16,7 +16,7 @@
 }
 
 .post + .post {
-  margin-top: calc(var(--spacer) * 2);
+  margin-top: var(--space-2xl);
 }
 
 .post:hover {

@@ -1,9 +1,9 @@
 .post {
   display: block;
-  margin-top: var(--spacer);
-  margin-bottom: var(--spacer);
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-m);
 }
 
 .post + .post {
-  margin-top: var(--spacer);
+  margin-top: var(--space-m);
 }

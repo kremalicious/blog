@@ -1,5 +1,5 @@
 .header {
-  margin-bottom: calc(var(--spacer) / 2);
+  margin-bottom: var(--space-s);
 }
 
 .title {
@@ -34,5 +34,5 @@
   font-family: var(--font-family-base);
   font-size: var(--fs--1);
   color: var(--text-color-light);
-  margin-bottom: calc(var(--spacer) / 2);
+  margin-bottom: var(--space-s);
 }

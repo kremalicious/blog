@@ -1,6 +1,6 @@
 .entryMeta {
   font-size: var(--fs--1);
-  margin-top: calc(var(--spacer) * 2);
+  margin-top: var(--space-2xl);
   color: var(--text-color-light);
   text-align: center;
 }
@@ -53,5 +53,5 @@
 }
 
 .tags {
-  margin-top: calc(var(--spacer) / 2);
+  margin-top: var(--space-s);
 }

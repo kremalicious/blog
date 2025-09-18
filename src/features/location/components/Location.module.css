@@ -12,17 +12,17 @@
   font-size: 1em;
   line-height: 1em;
   vertical-align: 'middle';
-  margin-right: calc(var(--spacer) / 6);
+  margin-right: var(--space-3xs);
 }
 
 .next {
   display: inline-block;
-  margin-left: calc(var(--spacer) / 3);
+  margin-left: var(--space-2xs);
 }
 
 .loading {
   display: inline-block;
-  margin-left: calc(var(--spacer) / 3);
+  margin-left: var(--space-2xs);
   animation: flicker 0.3s linear infinite;
 }
 

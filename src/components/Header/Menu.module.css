@@ -1,5 +1,5 @@
 .menu {
-  margin-top: 0;
+  margin-top: var(--space-xs);
   position: absolute;
   top: 100%;
   left: 0;
@@ -22,6 +22,7 @@
 .menu li {
   list-style: none;
   display: inline-block;
+  margin: 0;
 }
 
 .menu li::before {
@@ -32,11 +33,17 @@
   color: var(--text-color);
   line-height: 1;
   text-transform: uppercase;
-  margin: 0 calc(var(--spacer) / 4);
+  margin: 0 var(--space-2xs);
   font-size: var(--fs--1);
-  padding: var(--padding-base-horizontal);
+  padding: var(--space-s);
   display: block;
   text-align: center;
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: var(--link-color);
+  text-decoration: none;
 }
 
 .menu::-webkit-scrollbar,

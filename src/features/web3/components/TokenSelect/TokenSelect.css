@@ -22,7 +22,7 @@
 }
 
 .SelectTrigger .TokenLogo {
-  margin-right: calc(var(--spacer) / 12);
+  margin-right: var(--space-3xs);
 }
 
 .SelectContent {
@@ -39,7 +39,7 @@
 }
 
 .SelectLabel {
-  padding: calc(var(--spacer) / 4);
+  padding: var(--space-2xs);
   font-size: var(--fs--1);
   color: var(--text-color);
   text-transform: capitalize;

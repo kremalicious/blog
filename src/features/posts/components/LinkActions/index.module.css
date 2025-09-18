@@ -12,7 +12,7 @@
   height: 1em;
   display: inline-block;
   stroke: var(--text-color-light);
-  margin-left: calc(var(--spacer) / 8);
+  margin-left: var(--space-3xs);
   position: relative;
   top: 0.1rem;
 }

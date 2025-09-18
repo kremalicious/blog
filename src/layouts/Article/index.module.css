@@ -1,5 +1,5 @@
 .entry {
-  padding-bottom: var(--spacer);
+  padding-bottom: var(--space-m);
 }
 
 .entry a {
@@ -17,8 +17,8 @@
 .entry hr {
   position: relative;
   border-bottom: 1px dashed var(--border-color);
-  margin-top: var(--spacer);
-  margin-bottom: var(--spacer);
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-m);
 }
 
 .entry hr::before {
@@ -57,8 +57,8 @@
 .lead {
   font-size: var(--fs-1);
   line-height: var(--fs-3);
-  margin-bottom: var(--spacer);
-  margin-top: calc(var(--spacer) / 2);
+  margin-bottom: var(--space-l);
+  margin-top: var(--space-s);
 }
 
 .lead code {
@@ -67,5 +67,5 @@
 
 /* only Articles have a lead */
 .lead + .imageWrapper {
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-xl);
 }

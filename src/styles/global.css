@@ -38,7 +38,7 @@ body {
 p,
 ul,
 ol {
-  margin: 0 0 var(--spacer);
+  margin: 0 0 var(--space-m);
 }
 
 /* Reset fonts for relevant elements
@@ -128,14 +128,14 @@ h5 {
 h1,
 h2,
 h3 {
-  margin: var(--spacer) 0;
+  margin: var(--space-m) 0;
   text-wrap: balance;
 }
 
 h4,
 h5,
 h6 {
-  margin: calc(var(--spacer) / 2) 0;
+  margin: var(--space-s) 0;
 }
 
 h1 .anchor.before,
@@ -185,7 +185,7 @@ figcaption {
   color: var(--text-color-light);
   font-style: italic;
   text-align: center;
-  margin-top: calc(var(--spacer) / 4);
+  margin-top: var(--space-2xs);
 }
 
 /* Lists
@@ -194,18 +194,14 @@ figcaption {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: var(--spacer);
-  padding-left: var(--spacer);
+  margin-bottom: var(--space-m);
+  padding-left: var(--space-m);
   list-style: none;
 }
 
 li {
   position: relative;
-  margin-bottom: calc(var(--spacer) / 2);
-}
-
-ul ul li {
-  margin-bottom: calc(var(--spacer) / 8);
+  margin-bottom: var(--space-3xs);
 }
 
 li::before {
@@ -217,7 +213,7 @@ li::before {
 }
 
 li p {
-  margin-bottom: calc(var(--spacer) / 4);
+  margin-bottom: var(--space-2xs);
 }
 
 ul li::before {
@@ -293,9 +289,9 @@ blockquote > p {
 }
 
 blockquote {
-  margin: 0 0 var(--spacer);
+  margin: 0 0 var(--space-m);
   position: relative;
-  padding-left: calc(var(--spacer) * 1.25);
+  padding-left: var(--space-l);
 }
 
 /* quotation marks */
@@ -311,19 +307,20 @@ blockquote::before {
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  display: block;
   width: 100%;
   overflow: auto;
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-m);
 }
 
 th {
   text-align: left;
+  font-weight: var(--font-weight-headings);
+  color: var(--color-headings);
 }
 
 th,
 td {
-  padding: calc(var(--spacer) / 2);
+  padding: var(--space-xs);
   word-wrap: normal;
   word-break: normal;
   overflow-wrap: normal;

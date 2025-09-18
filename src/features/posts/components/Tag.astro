@@ -12,9 +12,9 @@ const { name, url, count, style } = Astro.props
 <style>
   .tag {
     color: var(--text-color-light);
-    margin-left: calc(var(--spacer) / 2);
-    margin-right: calc(var(--spacer) / 2);
-    margin-bottom: calc(var(--spacer) / 2);
+    margin-left: var(--space-s);
+    margin-right: var(--space-s);
+    margin-bottom: var(--space-s);
     white-space: nowrap;
     display: inline-block;
     text-decoration: none !important;
@@ -28,7 +28,7 @@ const { name, url, count, style } = Astro.props
 
   .count {
     font-size: var(--fs--1);
-    margin-left: calc(var(--spacer) / 6);
+    margin-left: var(--space-3xs);
     opacity: 0.65;
   }
 </style>

@@ -1,13 +1,13 @@
 .title {
   font-size: var(--fs-3);
-  margin-bottom: var(--spacer);
+  margin-bottom: var(--space-m);
   color: var(--text-color-light);
   text-decoration: none;
 }
 
 .relatedPosts ul {
   display: grid;
-  gap: calc(var(--spacer) / 2);
+  gap: var(--space-s);
   grid-template-columns: repeat(2, 1fr);
   padding: 0;
   margin: 0;
@@ -15,7 +15,7 @@
 
 @media (min-width: 40rem) {
   .relatedPosts ul {
-    gap: var(--spacer);
+    gap: var(--space-m);
   }
 
   .relatedPosts.photos ul {

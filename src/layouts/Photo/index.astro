@@ -11,7 +11,7 @@ type Props = {
 }
 
 const { post, leadRaw } = Astro.props
-const { title, date, updated, image, imageMetadata } = post.data
+const { title, date, image, imageMetadata } = post.data
 ---
 
 <LayoutBase post={post} description={leadRaw}>

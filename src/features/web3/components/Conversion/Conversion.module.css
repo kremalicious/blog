@@ -4,5 +4,5 @@
 }
 
 .conversion span {
-  margin-left: calc(var(--spacer) / 3);
+  margin-left: var(--space-2xs);
 }

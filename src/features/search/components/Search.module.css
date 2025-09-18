@@ -1,7 +1,7 @@
 .search {
   position: absolute;
-  left: calc(var(--spacer) / 2);
-  right: calc(var(--spacer) / 2);
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
@@ -15,8 +15,8 @@
 
 .searchInputClose {
   position: absolute;
-  right: calc(var(--spacer) / 2);
-  top: calc(var(--spacer) / 2);
+  right: var(--space-xs);
+  top: var(--space-xs);
 }
 
 .searchInputClose svg {

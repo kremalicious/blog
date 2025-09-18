@@ -2,6 +2,7 @@ import type { ReactElement } from 'react'
 import { createPortal } from 'react-dom'
 import type { SearchResultItem } from '../../types'
 import { SearchResultsEmpty } from './Empty'
+import { SearchResult } from './SearchResult'
 import styles from './SearchResults.module.css'
 
 function SearchResultsPure({
@@ -16,14 +17,7 @@ function SearchResultsPure({
       {results && results.length > 0 ? (
         <ul className={styles.results}>
           {results.map((post) => (
-            <li key={post.data.slug}>
-              <a className={styles.post} href={`/${post.data.slug}/`}>
-                {/* {post.data.image && (
-                  <img src={post.data.image.src} alt={post.data.title} />
-                )} */}
-                <h3 className={styles.title}>{post.data.title}</h3>
-              </a>
-            </li>
+            <SearchResult key={post.data.slug} post={post} />
           ))}
         </ul>
       ) : (

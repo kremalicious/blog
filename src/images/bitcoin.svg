@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none" stroke="currentColor"
-  stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-  <path
+<svg viewBox="0 0 25 24">
+  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
     d="M8.69943729,12.5 C10.6866373,12.5 12.2994373,14.068 12.2994373,16 C12.2994373,17.9343333 10.6866373,19.5 8.69943729,19.5 L0.299437295,19.5 L0.299437295,12.5 L8.69943729,12.5 Z M8.69943729,5.5 C10.6866373,5.5 12.2994373,7.068 12.2994373,9 C12.2994373,10.9343333 10.6866373,12.5 8.69943729,12.5 L0.299437295,12.5 L0.299437295,5.5 L8.69943729,5.5 Z M2.29943729,1.00830078 L2.29943729,5.5 M7.29943729,1.00830078 L7.29943729,5.5 M2.29943729,19.5 L2.29943729,24.067627 M7.29943729,19.5 L7.29943729,24.067627"
     transform="translate(5.7 -.5)" />
 </svg>

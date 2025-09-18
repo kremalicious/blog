@@ -4,7 +4,7 @@
   --tokenWidth: 75px;
 
   margin: auto;
-  margin-top: calc(var(--spacer) / 3);
+  margin-top: var(--space-2xs);
   min-height: var(--height);
   border-radius: var(--border-radius);
   border: var(--border);
@@ -89,7 +89,7 @@
 @media (min-width: 25rem) {
   .submit {
     width: fit-content;
-    padding: 0 calc(var(--spacer) / 1.5);
+    padding: 0 var(--space-s);
     border-radius: 0;
   }
 }
@@ -105,7 +105,7 @@
   font-size: var(--fs--2);
   margin-left: var(--tokenWidth);
   position: absolute;
-  right: calc(var(--spacer) / 3);
+  right: var(--space-2xs);
   bottom: -3px;
   width: 100%;
   text-align: right;
@@ -113,7 +113,7 @@
 
 .conversion {
   text-align: center;
-  margin-top: calc(var(--spacer) / 6);
+  margin-top: var(--space-3xs);
   animation: fadeIn 0.5s 0.8s ease-out backwards;
 }
 
@@ -121,6 +121,6 @@
   .conversion {
     text-align: left;
     margin-top: 0;
-    margin-left: calc(var(--spacer) * 3);
+    margin-left: var(--space-3xl);
   }
 }
