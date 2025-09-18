@@ -38,9 +38,9 @@ export default defineConfig({
       styleOverrides: {
         borderRadius: 'var(--border-radius)',
         uiFontFamily: 'var(--font-family-monospace)',
-        uiFontSize: 'var(--fs--2)',
+        uiFontSize: 'var(--fs--1)',
         codeFontFamily: 'var(--font-family-monospace)',
-        codeFontSize: '0.8rem',
+        codeFontSize: 'var(--fs--1)',
         frames: {
           frameBoxShadowCssValue: 'var(--box-shadow)'
         }

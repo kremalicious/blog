@@ -59,6 +59,7 @@ div.expressive-code pre {
 }
 
 pre > code {
+  font-size: var(--fs--1);
   white-space: pre;
   display: block;
   color: inherit;
@@ -70,7 +71,6 @@ pre > code {
 
 pre > code,
 div.expressive-code pre > code {
-  font-size: var(--fs--1);
   padding: calc(var(--spacer) / 2) 0;
 }
 
@@ -122,5 +122,4 @@ div.expressive-code .frame.has-title:not(.is-terminal) .header .title {
   border-top-right-radius: 0;
   border-bottom-right-radius: var(--border-radius);
   padding: 0.3rem 1rem;
-  font-size: var(--fs--2);
 }
