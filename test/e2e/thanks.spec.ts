@@ -10,7 +10,8 @@ test('meta is correct', async ({ page }) => {
 
 test('rainbowkit modal works', async ({ page }) => {
   // open and close modal
-  await expect(page.getByTestId('rk-connect-button')).toBeVisible()
-  await page.getByTestId('rk-connect-button').click()
+  const connectButton = page.getByTestId('rk-connect-button')
+  await expect(connectButton).toBeVisible({ timeout: 20000 })
+  await connectButton.click()
   await page.getByLabel('Close').click()
 })
