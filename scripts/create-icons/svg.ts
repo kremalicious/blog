@@ -40,7 +40,7 @@ export const toInnerSvg = (input: string) =>
       'removeDesc',
       'removeDimensions',
       'removeStyleElement',
-      'removeScriptElement'
+      'removeScripts'
     ]
   })
     .data.replace(/^<svg[^>]*>|<\/svg>$/g, '')
