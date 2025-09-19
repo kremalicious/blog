@@ -9,6 +9,7 @@
 @media (min-width: 40rem) {
   h1.title {
     font-size: var(--fs-5);
+    line-height: calc(var(--fs-5) * 1.1);
   }
 }
 

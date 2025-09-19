@@ -3,7 +3,6 @@
   padding: var(--space-m);
   padding-top: var(--space-2xl);
   color: var(--text-color-light);
-  line-height: var(--space-m);
 }
 
 @media (min-width: 40rem) and (min-height: 500px) {

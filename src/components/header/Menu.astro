@@ -1,5 +1,5 @@
 ---
-import { menu } from '@/config'
+import { menu } from '@/config/menu'
 import Hamburger from './Hamburger.astro'
 import styles from './Menu.module.css'
 ---
@@ -11,7 +11,10 @@ import styles from './Menu.module.css'
     {
       menu.map((item) => (
         <li>
-          <a href={item.link}>{item.title}</a>
+          <a href={item.link} class={styles.link}>
+            <item.icon class={styles.icon} width="1.3em" height="1.3em" />
+            {item.title}
+          </a>
         </li>
       ))
     }

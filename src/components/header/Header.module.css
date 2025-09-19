@@ -30,17 +30,16 @@
 
 .title {
   display: block;
-  /* biome-ignore lint/a11y/useGenericFontNames: hack */
+  /* biome-ignore lint/a11y/useGenericFontNames: hack to hide actual text */
   font: 0 / 0 a;
-  color: transparent;
   width: 60px;
   overflow: hidden;
+  color: var(--text-color-light);
 }
 
 @media (min-width: 40rem) {
   .title {
     width: 212px;
-    color: var(--text-color-light);
   }
 }
 
@@ -50,6 +49,7 @@
 }
 
 .logo {
+  max-width: unset;
   width: 191px;
   height: 36px;
   margin: 0;

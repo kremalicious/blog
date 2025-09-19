@@ -6,18 +6,15 @@ import styles from './Footer.module.css'
 import Vcard from './Vcard.astro'
 
 const year = new Date().getFullYear()
-const { name, url, github } = metadata.author
+const { name, github } = metadata.author
 ---
 
 <footer role="contentinfo" class={styles.footer} id="footer">
   <Vcard />
   <section class={styles.copyright}>
     <p>
-      &copy; 2005&ndash;
-      {year + " "}
-      <a href={url} rel="me">
-        {name}
-      </a>
+      &copy; 2005&ndash;<span id="currentYear">{year}</span>
+      {name}
       <a href={`${github}/blog`}>
         <GithubIcon />View source
       </a>
@@ -27,3 +24,30 @@ const { name, url, github } = metadata.author
     </p>
   </section>
 </footer>
+
+<script is:inline>
+  (function () {
+    const el = document.getElementById("currentYear");
+    if (!el) return;
+
+    const actualYear = new Date().getFullYear();
+    if (Number(el.textContent) === actualYear) return;
+
+    const update = () => {
+      el.textContent = String(actualYear);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      setTimeout(update, 0);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry], obs) => {
+      if (!entry || !entry.isIntersecting) return;
+      update();
+      obs.disconnect();
+    });
+
+    observer.observe(el);
+  })();
+</script>

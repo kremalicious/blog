@@ -1,5 +1,5 @@
 .menu {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-m);
   position: absolute;
   top: 100%;
   left: 0;
@@ -17,33 +17,38 @@
   overflow: auto hidden;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
 }
 
-.menu li {
-  list-style: none;
-  display: inline-block;
-  margin: 0;
-}
-
-.menu li::before {
-  display: none;
-}
-
-.menu a {
+.link {
   color: var(--text-color);
   line-height: 1;
   text-transform: uppercase;
-  margin: 0 var(--space-2xs);
   font-size: var(--fs--1);
-  padding: var(--space-s);
-  display: block;
-  text-align: center;
+  padding: var(--space-2xs) var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  border-radius: var(--border-radius);
 }
 
-.menu a:hover,
-.menu a:focus {
+.link:hover,
+.link:focus {
   color: var(--link-color);
   text-decoration: none;
+  background-color: var(--box-background-color);
+}
+
+.icon {
+  color: var(--text-color-light);
+}
+
+.menu ul li:nth-child(3) .icon,
+.menu ul li:nth-child(4) .icon {
+  /* flip icons for consistency with other icons*/
+  transform: scaleX(-1);
 }
 
 .menu::-webkit-scrollbar,
