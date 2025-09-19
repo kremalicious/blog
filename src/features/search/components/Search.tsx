@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import Input from '@/components/ui/Input'
-import { X } from '@/images/components/react'
+import { Icon as X } from '@/images/components/react/X'
 import { getAllPostsForSearch } from '../api/get-search-posts'
 import { getFuseInstance } from '../lib/get-fuse-instance'
 import { isSearchOpen } from '../stores'

@@ -44,10 +44,15 @@ describe('getAllPostsForSearch (lib)', () => {
           slug: 'a',
           title: 'Test',
           tags: ['x'],
-          lead: 'Lorem ipsum dolor sit amet sit amet'.substring(0, 200),
           date: new Date('2020-01-01'),
           updated: new Date('2020-01-02'),
-          image: '/img/a.jpg'
+          image: '/img/a.jpg',
+          imageMetadata: undefined,
+          leadRaw: ''
+        },
+        thumbImage: {
+          src: '/img/a.jpg',
+          options: { width: 686, height: 200 }
         }
       },
       {
@@ -56,11 +61,13 @@ describe('getAllPostsForSearch (lib)', () => {
           slug: 'b',
           title: 'Test2',
           tags: ['y'],
-          lead: 'Dolor sit amet'.substring(0, 200),
           date: new Date('2020-02-01'),
           updated: new Date('2020-02-02'),
-          image: undefined
-        }
+          image: undefined,
+          imageMetadata: undefined,
+          leadRaw: ''
+        },
+        thumbImage: undefined
       }
     ])
   })

@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   resolve: {
     alias: {
-      'astro:content': path.resolve(__dirname, './__mocks__/astro-content.ts')
+      'astro:content': path.resolve(__dirname, './__mocks__/astro-content.ts'),
+      'astro:assets': path.resolve(__dirname, './__mocks__/astro-assets.ts')
     }
   },
   test: {
@@ -20,11 +21,7 @@ export default defineConfig({
       './scripts/**/*.test.?(c|m)[jt]s?(x)'
     ],
     deps: {
-      moduleDirectories: [
-        'node_modules',
-        './test/__mocks__',
-        './src/images/components/react'
-      ]
+      moduleDirectories: ['node_modules', './test/__mocks__']
     },
     coverage: {
       reporter: ['text', 'json', 'html', 'lcov'],
