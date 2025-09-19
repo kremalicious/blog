@@ -16,7 +16,7 @@
   }
 
   /* Lists
-///////////////////////////////////// */
+  ///////////////////////////////////// */
 
   ul,
   ol {
@@ -57,6 +57,9 @@
     counter-increment: ol-counter;
   }
 
+  /* Blockquotes
+  ///////////////////////////////////// */
+
   blockquote,
   blockquote > p {
     font-style: italic;
@@ -66,17 +69,18 @@
   blockquote {
     margin: var(--space-l) 0;
     position: relative;
-    padding-left: var(--space-2xl);
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
   }
 
   /* quotation mark */
   blockquote::before {
     content: '“';
-    font-size: 300%;
+    font-size: 450%;
     color: var(--text-color-light);
     position: absolute;
-    left: var(--space-l);
-    top: 0;
+    left: 0;
+    top: var(--space-2xs);
   }
 
   hr {
