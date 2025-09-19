@@ -16,7 +16,7 @@
 }
 
 .post + .post {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl);
 }
 
 .post:hover {

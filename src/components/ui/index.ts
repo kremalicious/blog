@@ -1,7 +1,6 @@
 export { default as BackButton } from './BackButton.astro'
 export { default as CopyButton } from './CopyButton/CopyButton.astro'
-export { default as Footer } from './Footer/Footer.astro'
-export { default as Header } from './Header/Header.astro'
 export { default as MoreButton } from './MoreButton.astro'
 export { default as PageTitle } from './PageTitle.astro'
 export { default as Pagination } from './Pagination/index.astro'
+export { default as Picture } from './Picture/index.astro'

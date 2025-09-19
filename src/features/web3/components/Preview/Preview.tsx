@@ -1,5 +1,5 @@
 import { useEnsAddress, useEnsName } from 'wagmi'
-import { Loader } from '@/components/ui/Loader'
+import { Loader } from '@/components/ui/Loader/Loader'
 import { metadata } from '@/config'
 import { useSend } from '@/features/web3/hooks/useSend'
 import { $isInitSend } from '@/features/web3/stores'

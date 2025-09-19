@@ -34,4 +34,9 @@ const { src, alt, width, height, loading, isPhoto } = Astro.props
   .photoImage {
     margin-bottom: 0;
   }
+
+  .photoImage :global(img) {
+    max-height: 100vh;
+    width: auto;
+  }
 </style>

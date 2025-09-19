@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useState } from 'react'
-import Input from '@/components/ui/Input'
+import { Input } from '@/components/ui/Input'
 import {
   $amount,
   $isInitSend,

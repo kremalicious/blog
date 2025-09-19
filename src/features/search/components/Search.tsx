@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import { XIcon } from 'lucide-react'
 import { type ReactElement, useEffect, useState } from 'react'
-import Input from '@/components/ui/Input'
+import { Input } from '@/components/ui/Input'
 import { getAllPostsForSearch } from '../api/get-search-posts'
 import { getFuseInstance } from '../lib/get-fuse-instance'
 import { isSearchOpen } from '../stores'
