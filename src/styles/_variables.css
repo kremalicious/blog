@@ -1,4 +1,6 @@
 :root {
+  --maxWidthContent: 700px;
+
   /* Colors
   ///////////////////////////////////// */
 
@@ -119,12 +121,6 @@
 
   --input-border: var(--border-color);
   --input-border-focus: var(--link-color);
-
-  /* Misc.
-  ///////////////////////////////////// */
-
-  --maxWidthContent: 700px;
-  --easing: cubic-bezier(0.75, 0, 0.08, 100%);
 }
 
 [data-theme='dark'] {

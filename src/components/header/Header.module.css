@@ -33,9 +33,6 @@
   /* biome-ignore lint/a11y/useGenericFontNames: hack */
   font: 0 / 0 a;
   color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
   width: 60px;
   overflow: hidden;
 }
@@ -43,26 +40,29 @@
 @media (min-width: 40rem) {
   .title {
     width: 212px;
+    color: var(--text-color-light);
   }
 }
 
-.title:hover svg,
-.title:focus svg {
-  fill: var(--link-color);
+.title:hover,
+.title:focus {
+  color: var(--link-color);
 }
 
 .logo {
   width: 191px;
   height: 36px;
-  max-width: unset;
-  fill: var(--text-color-light);
   margin: 0;
-  transition: 0.2s var(--easing);
+  transition: 0.2s ease-out;
 }
 
 .nav {
   display: flex;
   align-items: center;
+}
+
+.nav svg {
+  transition: 0.2s ease-out;
 }
 
 .nav > div,

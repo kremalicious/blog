@@ -26,7 +26,7 @@ body {
   font-feature-settings: 'liga', 'kern';
   min-height: 100vh;
   background: var(--body-background-color);
-  transition: 0.4s var(--easing);
+  transition: 0.4s ease-out;
   position: relative;
 
   /* handling long text, like URLs */

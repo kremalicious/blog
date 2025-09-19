@@ -2,6 +2,14 @@
 const { props } = Astro
 ---
 
+<button type="button" title="Menu" class="button" {...props}>
+  <span class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </span>
+</button>
+
 <style>
   .hamburger {
     width: 24px;
@@ -21,7 +29,7 @@ const { props } = Astro
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: 0.2s var(--easing);
+    transition: 0.2s ease-out;
   }
 
   .line:nth-child(1) {
@@ -69,11 +77,3 @@ const { props } = Astro
     border-color: var(--link-color);
   }
 </style>
-
-<button type="button" title="Menu" class="button" {...props}>
-  <span class="hamburger">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-  </span>
-</button>

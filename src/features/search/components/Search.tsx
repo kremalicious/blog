@@ -43,7 +43,7 @@ export function Search(): ReactElement | null {
 
   return $isSearchOpen ? (
     <>
-      <form className={styles.search}>
+      <form className={styles.searchForm}>
         <Input
           className={styles.searchInput}
           type="search"
