@@ -282,27 +282,8 @@ cite {
   text-transform: uppercase;
 }
 
-blockquote,
-blockquote > p {
-  font-style: italic;
-  color: var(--text-color);
-}
-
-blockquote {
-  margin: 0 0 var(--space-m);
-  position: relative;
-  padding-left: var(--space-l);
-}
-
-/* quotation marks */
-blockquote::before {
-  content: '“';
-  font-size: 300%;
-  color: var(--text-color-light);
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+/* Tables
+///////////////////////////////////// */
 
 table {
   border-spacing: 0;

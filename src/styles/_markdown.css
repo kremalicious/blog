@@ -15,6 +15,28 @@
     border-radius: var(--border-radius);
   }
 
+  blockquote,
+  blockquote > p {
+    font-style: italic;
+    color: var(--text-color);
+  }
+
+  blockquote {
+    margin: var(--space-l) 0;
+    position: relative;
+    padding-left: var(--space-2xl);
+  }
+
+  /* quotation mark */
+  blockquote::before {
+    content: '“';
+    font-size: 300%;
+    color: var(--text-color-light);
+    position: absolute;
+    left: var(--space-l);
+    top: 0;
+  }
+
   hr {
     position: relative;
     border-bottom: var(--border-width) dashed var(--border-color);

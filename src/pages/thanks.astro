@@ -80,18 +80,19 @@ import Wallet from '@/images/wallet.svg'
   }
 
   .subTitle {
-    font-size: var(--fs-3);
+    font-size: var(--fs-1);
     border-bottom: 1px solid var(--border-color);
     margin: 0;
-    padding: var(--space-s) 0;
+    padding: var(--space-2xs) 0;
   }
 
   .box .subTitle {
-    padding: var(--space-s);
+    padding: var(--space-2xs) var(--space-s);
   }
 
   .titleCoin {
-    font-size: var(--fs-1);
+    font-size: var(--fs-0);
+    line-height: var(--fs-1);
     margin-top: 0;
     margin-bottom: var(--space-2xs);
     display: flex;
@@ -108,17 +109,18 @@ import Wallet from '@/images/wallet.svg'
   }
 
   .section {
-    padding: var(--space-s) 0;
+    padding: var(--space-xs) 0;
   }
 
   .box .section {
     padding: var(--space-s);
   }
 
-  .section.highlight {
+  .box .section.highlight {
     background-color: var(--box-background-color);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0;
   }
 
   .metaText {

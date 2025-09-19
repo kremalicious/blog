@@ -48,6 +48,7 @@ export function InputGroup({
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
           className={styles.inputInput}
+          disabled={isDisabled}
         />
         <button
           type="button"
