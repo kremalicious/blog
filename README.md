@@ -59,8 +59,8 @@ Teaser images are all defined in a post's frontmatter `image` key, which is then
 
 If you want to know how this works, have a look at the respective files:
 
-- [`src/components/Picture/index.astro`](src/components/Picture/index.astro)
-- [`src/components/Picture/index.module.css`](src/components/Picture/index.module.css)
+- [`src/components/ui/Picture/index.astro`](src/components/ui/Picture/index.astro)
+- [`src/components/ui/Picture/index.module.css`](src/components/ui/Picture/index.module.css)
 - [`src/features/posts/lib/image-service.ts`](src/features/posts/lib/image-service.ts)
 
 ### 🎆 EXIF extraction
@@ -210,9 +210,9 @@ bun run build && bun run preview
 
 # mapping `playwright` command
 bun run test:e2e
-bun run test:e2e -- --ui
-bun run test:e2e -- path/to/file.spec.ts.
-bun run test:e2e -- --update-snapshots
+bun run test:e2e --ui
+bun run test:e2e path/to/file.spec.ts.
+bun run test:e2e --update-snapshots
 ```
 
 ## 🎈 Content creation helpers
@@ -242,11 +242,11 @@ bun run new photo /path/to/photo1.jpg /path/to/photo2.jpg "Shared Title For Phot
 
 ## 🚚 Deployment
 
-Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration. A link to a preview deployment will appear under each Pull Request. Vercel is not used for the production deployment.
+Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration for testing. A link to a preview deployment will appear under each Pull Request. Vercel is NOT used for the production deployment.
 
 ### S3 Deployment
 
-The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command simply calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3:
+The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3:
 
 ```bash
 bun run deploy:s3
@@ -268,6 +268,6 @@ All post content under `./content/articles` & `./content/links` is licensed unde
 
 All photos & image assets are plain ol' copyright.
 
-Copyright (c) 2008–2023 Matthias Kretschmann
+Copyright (c) 2008–2025 Matthias Kretschmann
 
 Don't care if you fork & play with it, but you're not allowed to publish anything from it as a whole without my written permission. Also please be aware, the combination of typography, colors & layout makes up my brand identity. So please don't just clone everything, but rather do a remix!
