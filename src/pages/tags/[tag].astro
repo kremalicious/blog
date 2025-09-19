@@ -1,8 +1,8 @@
 ---
 import type { InferGetStaticParamsType, Page } from 'astro'
+import { ArchiveLayout } from '@/components/layouts'
 import { getAllTags, getPostsByTag } from '@/features/posts/lib'
 import type { BlogPost } from '@/features/posts/types'
-import { ArchiveLayout } from '@/layouts'
 
 type Props = {
   page: Page<BlogPost>

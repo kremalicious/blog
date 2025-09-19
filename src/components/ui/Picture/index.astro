@@ -63,9 +63,11 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
 ---
 
 <figure
-  class={`picture ${styles.image} ${className ? className : ""} ${
-    objectFit ? styles["objectFit"] : ""
-  }`}
+  class:list={[
+    styles.image,
+    className ? className : "",
+    objectFit ? styles["objectFit"] : "",
+  ]}
 >
   {
     objectFit ? (

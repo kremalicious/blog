@@ -43,9 +43,7 @@
 }
 
 .map {
-  composes: breakout from '@/layouts/Base/index.module.css';
-  /* biome-ignore lint/suspicious/noDuplicateProperties: this actually works as intended */
-  composes: frame from '@/components/Picture/index.module.css';
+  composes: frame from '@/components/ui/Picture/index.module.css';
   height: 220px;
 }
 

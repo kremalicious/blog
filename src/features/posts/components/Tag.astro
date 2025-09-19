@@ -9,6 +9,11 @@ type Props = {
 const { name, url, count, style } = Astro.props
 ---
 
+<a class="tag" href={url} style={style}>
+  {name}
+  {count && <span class="count">{count}</span>}
+</a>
+
 <style>
   .tag {
     color: var(--text-color-light);
@@ -17,23 +22,22 @@ const { name, url, count, style } = Astro.props
     margin-bottom: var(--space-s);
     white-space: nowrap;
     display: inline-block;
-    text-decoration: none !important;
+    text-decoration: none;
+  }
+
+  .tag:hover {
+    color: var(--link-color);
+    text-decoration: none;
   }
 
   .tag::before {
     content: "#";
-    margin-right: 1px;
-    opacity: 0.65;
+    opacity: 0.5;
   }
 
   .count {
     font-size: var(--fs--1);
     margin-left: var(--space-3xs);
-    opacity: 0.65;
+    opacity: 0.5;
   }
 </style>
-
-<a class="tag" href={url} style={style}>
-  {name}
-  {count && <span class="count">{count}</span>}
-</a>

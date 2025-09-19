@@ -1,7 +1,7 @@
 import { useStore } from '@nanostores/react'
 import Fuse from 'fuse.js'
 import { type ReactElement, useEffect, useState } from 'react'
-import Input from '@/components/Input'
+import Input from '@/components/ui/Input'
 import { getAllPostsForSearch } from '../api/get-all-posts'
 import { isSearchOpen } from '../stores'
 import type { SearchResultItem } from '../types'

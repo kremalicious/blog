@@ -1,5 +1,5 @@
 ---
-import Picture from '@/components/Picture/index.astro'
+import Picture from '@/components/ui/Picture/index.astro'
 import type { PhotoPost } from '@/features/posts/types'
 import { getCollectionEnhanced } from '../../lib'
 import styles from './index.module.css'
@@ -14,12 +14,12 @@ const { slug, title, image } = currentPhoto.data
 const allPhotos = (await getCollectionEnhanced('photos')) as PhotoPost[]
 const currentIndex = allPhotos.findIndex((photo) => photo.data.slug === slug)
 
-// Get up to 4 photos before and 4 photos after the current photo
-const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 5)
-const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 4), currentIndex)
+// Get up to 6 photos before and 6 photos after the current photo
+const prevPhotos = allPhotos.slice(currentIndex + 1, currentIndex + 7)
+const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 6), currentIndex)
 ---
 
-<div class={styles.photoNavContainer}>
+<div class:list={[styles.photoNavContainer, "breakout"]}>
   <div class={styles.photoNav} id="photo-nav">
     {
       nextPhotos.map((photo) => (

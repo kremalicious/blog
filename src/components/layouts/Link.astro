@@ -6,8 +6,7 @@ import {
   PostMeta
 } from '@/features/posts/components'
 import type { LinkPost } from '@/features/posts/types'
-import stylesArticle from '@/layouts/Article/index.module.css'
-import LayoutBase from '@/layouts/Base/index.astro'
+import LayoutBase from './Base/index.astro'
 
 type Props = {
   post: LinkPost
@@ -19,10 +18,12 @@ const { title, date, updated, githubLink, linkurl, slug } = post.data
 ---
 
 <LayoutBase post={post} description={leadRaw}>
-  <article class={stylesArticle.entry}>
+  <article>
     <PostHeader linkurl={linkurl} title={title} date={date} updated={updated} />
 
-    <slot />
+    <div class="markdown">
+      <slot />
+    </div>
 
     <LinkActions slug={slug} linkurl={linkurl} />
 

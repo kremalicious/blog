@@ -18,36 +18,6 @@
   display: block;
 }
 
-.type {
-  text-align: center;
-}
-
-.type a {
-  font-size: var(--fs--2);
-  text-align: center;
-  color: var(--text-color);
-  line-height: 1;
-  text-transform: uppercase;
-  border: 1px solid var(--text-color-light);
-  border-radius: var(--border-radius);
-  padding: 4px 8px;
-  margin: 0;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.type a:hover,
-.type a:focus {
-  color: var(--link-color);
-  border-color: var(--link-color);
-}
-
-.type a:active {
-  background: var(--link-color);
-  top: 0;
-  color: #fff;
-}
-
 .entryMeta a:hover {
   text-decoration: underline;
 }

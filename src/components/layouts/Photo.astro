@@ -1,0 +1,41 @@
+---
+import {
+  Exif,
+  PhotoNav,
+  PostHeader,
+  PostImage
+} from '@/features/posts/components'
+import type { ImageMetadataFormatted, PhotoPost } from '@/features/posts/types'
+import LayoutBase from './Base/index.astro'
+
+type Props = {
+  post: PhotoPost
+  leadRaw: string
+}
+
+const { post, leadRaw } = Astro.props
+const { title, date, image, imageMetadata } = post.data
+---
+
+<LayoutBase post={post} description={leadRaw}>
+  <article>
+    <PostHeader title={title} date={date} />
+
+    <div class="markdown">
+      <slot />
+    </div>
+
+    <PostImage
+      width={1028}
+      height={460}
+      src={image}
+      alt={title}
+      loading="eager"
+      isPhoto
+    />
+
+    <Exif imageMetadata={imageMetadata as ImageMetadataFormatted} />
+
+    <PhotoNav currentPhoto={post} />
+  </article>
+</LayoutBase>

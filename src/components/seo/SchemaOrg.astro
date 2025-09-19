@@ -13,8 +13,9 @@ export type Props = {
 const { title, url, image, description, datePublished, dateModified } =
   Astro.props
 const { siteUrl, siteTitle, author } = metadata
+const isBlogPost = Boolean(datePublished)
 
-const schema = datePublished
+const schema = isBlogPost
   ? {
       '@context': 'http://schema.org',
       '@type': 'BlogPosting',

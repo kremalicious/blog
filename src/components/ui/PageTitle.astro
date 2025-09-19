@@ -1,0 +1,22 @@
+---
+type Props = {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<h1 class="pageTitle">{title}</h1>
+
+<style>
+  .pageTitle {
+    font-size: var(--fs-3);
+    line-height: var(--fs-4);
+    color: var(--text-color-light);
+    margin-top: 0;
+    margin-bottom: var(--space-m);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+</style>

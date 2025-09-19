@@ -14,7 +14,9 @@ describe('getAllPostsForSearch (api)', () => {
 
     const posts = await getAllPostsForSearch()
 
-    expect(mockFetch).toHaveBeenCalledWith('/api/posts-search/')
+    expect(mockFetch).toHaveBeenCalledWith('/api/posts-search/', {
+      headers: { 'Content-Type': 'application/json' }
+    })
     expect(posts).toEqual([
       { data: { title: 'Test' } },
       { data: { title: 'Test2' } }

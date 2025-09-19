@@ -1,14 +1,13 @@
 ---
 import type { Page } from 'astro'
-import Pagination from '@/components/Pagination/index.astro'
+import { Pagination } from '@/components/ui'
 import {
   LinkTeaser,
   PhotoTeaser,
   PostTeaser
 } from '@/features/posts/components'
 import type { BlogPost } from '@/features/posts/types'
-import LayoutBase from '@/layouts/Base/index.astro'
-import styles from './Archive.module.css'
+import LayoutBase from './Base/index.astro'
 
 type Props = {
   page: Page<BlogPost>
@@ -18,11 +17,10 @@ type Props = {
 
 const { page, title, pageTitle } = Astro.props
 const isPhotos = title && title !== '' && title.toLowerCase().includes('photos')
-const classes = `${styles.posts} ${isPhotos ? styles.photos : ''}`
 ---
 
 <LayoutBase title={title} pageTitle={pageTitle}>
-  <div id="posts" class={classes}>
+  <div id="posts" class:list={["posts", isPhotos ? "photos" : ""]}>
     {
       page?.data?.map((post) =>
         post.collection === "photos" ? (
@@ -48,3 +46,21 @@ const classes = `${styles.posts} ${isPhotos ? styles.photos : ''}`
 
   <slot />
 </LayoutBase>
+
+<style>
+  .posts:not(.photos) > * {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .photos {
+    display: grid;
+    gap: var(--space-m);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 40rem) {
+    .photos {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+</style>

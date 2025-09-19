@@ -10,7 +10,7 @@
 }
 
 .results {
-  composes: content from '@/layouts/Base/index.module.css';
+  composes: content from '@/components/layouts/Base/index.module.css';
   padding: var(--space-m) 0;
   margin-bottom: 0;
   display: flex;

@@ -1,12 +1,61 @@
 ---
-import CodeCopy from '@/components/CopyCode.astro'
+// import BackButton from '@/components/BackButton.astro'
+import { BaseLayout } from '@/components/layouts'
 import { metadata } from '@/config'
-import { Web3 } from '@/features/web3/components'
+import { CopyAddress, Web3 } from '@/features/web3/components'
 import Bitcoin from '@/images/bitcoin.svg'
 import Wallet from '@/images/wallet.svg'
-// import BackButton from '@/components/BackButton.astro'
-import { BaseLayout } from '@/layouts'
 ---
+
+<BaseLayout title="Say Thanks" pageTitle="Say Thanks">
+  <!-- <BackButton /> -->
+  <div class="grid">
+    <div class="box">
+      <h3 class="subTitle">Magic Internet Money</h3>
+
+      <section class="section">
+        If you like what I do and want to support me in a decentralized way, you
+        can send me some Ether, ERC-20 token, or Bitcoin.
+      </section>
+
+      <section class="section highlight" id="web3">
+        <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
+        <Web3 client:only="react" />
+      </section>
+
+      <section class="section">
+        <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
+        <CopyAddress address={metadata.author.bitcoin} />
+      </section>
+    </div>
+
+    <div>
+      <h3 class="subTitle">Sponsor</h3>
+      <section class="section">
+        <p>You can also sponsor me on GitHub.</p>
+        <a href="https://github.com/sponsors/kremalicious/">
+          <img
+            src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
+            alt="GitHub Sponsors Badge"
+          />
+        </a>
+      </section>
+
+      <h3 class="subTitle">Hire Me</h3>
+      <section class="section">
+        <p>
+          Available for contract work to solve your design, front-end, and web3
+          problems.
+        </p>
+        <p>
+          Get in touch on <a href="https://matthiaskretschmann.com"
+            >my portfolio</a
+          >.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
 
 <style>
   .grid {
@@ -107,53 +156,3 @@ import { BaseLayout } from '@/layouts'
       : html?.classList.remove("isInitSend");
   });
 </script>
-
-<BaseLayout title="Say Thanks" pageTitle="Say Thanks">
-  <!-- <BackButton /> -->
-  <div class="grid">
-    <div class="box">
-      <h3 class="subTitle">Magic Internet Money</h3>
-
-      <section class="section">
-        If you like what I do and want to support me in a decentralized way, you
-        can send me some Ether, ERC-20 token, or Bitcoin.
-      </section>
-
-      <section class="section highlight" id="web3">
-        <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
-        <Web3 client:only="react" />
-      </section>
-
-      <section class="section">
-        <h4 class="titleCoin"><Bitcoin /> Bitcoin</h4>
-        <CodeCopy address={metadata.author.bitcoin} />
-      </section>
-    </div>
-
-    <div>
-      <h3 class="subTitle">Sponsor</h3>
-      <section class="section">
-        <p>You can also sponsor me on GitHub.</p>
-        <a href="https://github.com/sponsors/kremalicious/">
-          <img
-            src="https://img.shields.io/static/v1?label=Sponsor%20On%20GitHub&labelColor=%2343a699&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86&style=for-the-badge"
-            alt="GitHub Sponsors Badge"
-          />
-        </a>
-      </section>
-
-      <h3 class="subTitle">Hire Me</h3>
-      <section class="section">
-        <p>
-          Available for contract work to solve your design, front-end, and web3
-          problems.
-        </p>
-        <p>
-          Get in touch on <a href="https://matthiaskretschmann.com"
-            >my portfolio</a
-          >.
-        </p>
-      </section>
-    </div>
-  </div>
-</BaseLayout>

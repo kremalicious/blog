@@ -1,0 +1,11 @@
+.breakout {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+@media (min-width: 1024px) {
+  .breakout {
+    margin-left: -10rem;
+    margin-right: -10rem;
+  }
+}

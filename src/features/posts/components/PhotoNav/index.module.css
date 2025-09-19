@@ -1,5 +1,4 @@
 .photoNavContainer {
-  composes: breakout from '@/layouts/Base/index.module.css';
   margin-top: 2rem;
   margin-bottom: 2rem;
   position: relative;

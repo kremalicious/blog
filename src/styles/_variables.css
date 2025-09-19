@@ -88,7 +88,7 @@
   /* Border
   ///////////////////////////////////// */
 
-  --border-radius: 0.25rem;
+  --border-radius: var(--space-2xs);
   --border-width: 0.125rem;
 
   /* Code

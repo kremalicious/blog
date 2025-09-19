@@ -1,5 +1,5 @@
 ---
-import Picture from '@/components/Picture/index.astro'
+import Picture from '@/components/ui/Picture/index.astro'
 import type { PhotoPost } from '../types'
 
 type Props = {
@@ -19,8 +19,8 @@ const { title, image, slug } = Astro.props.post.data
   image ? (
     <a class="photo" href={`/${slug}/`}>
       <Picture
-        width={202}
-        height={202}
+        width={216}
+        height={216}
         src={image}
         alt={`Photo for ${title}`}
         title={title}

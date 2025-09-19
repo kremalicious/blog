@@ -1,17 +1,17 @@
 ---
 import type { MarkdownHeading } from 'astro'
-import Picture from '@/components/Picture/index.astro'
 import {
   Changelog,
   PostActions,
   PostHeader,
+  PostImage,
+  PostLead,
   PostMeta,
   RelatedPosts,
   Toc
 } from '@/features/posts/components'
 import type { ArticlePost } from '@/features/posts/types'
-import LayoutBase from '@/layouts/Base/index.astro'
-import styles from './index.module.css'
+import LayoutBase from './Base/index.astro'
 
 type Props = {
   post: ArticlePost
@@ -25,29 +25,27 @@ const { title, date, updated, image, toc, githubLink, changelog } = post.data
 ---
 
 <LayoutBase post={post} description={leadRaw}>
-  <article class={styles.entry}>
+  <article>
     <PostHeader title={title} date={date} updated={updated} />
-
-    <div class={styles.lead} set:html={lead} />
+    <PostLead lead={lead} />
 
     {
       image && (
-        <div class={styles.imageWrapper}>
-          <Picture
-            class={styles.image}
-            width={1028}
-            height={460}
-            src={image}
-            alt={title}
-            loading="eager"
-          />
-        </div>
+        <PostImage
+          width={1032}
+          height={460}
+          src={image}
+          alt={title}
+          loading="eager"
+        />
       )
     }
 
     {toc && headings && <Toc headings={headings} />}
 
-    <slot />
+    <div class="markdown">
+      <slot />
+    </div>
 
     {changelog && <Changelog repo={changelog} />}
 

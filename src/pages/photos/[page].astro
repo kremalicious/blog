@@ -1,9 +1,9 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro'
+import { ArchiveLayout } from '@/components/layouts'
 import { metadata } from '@/config'
 import { getCollectionEnhanced } from '@/features/posts/lib'
 import type { PhotoPost } from '@/features/posts/types'
-import { ArchiveLayout } from '@/layouts'
 
 type Props = {
   page: Page<PhotoPost>

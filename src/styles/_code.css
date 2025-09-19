@@ -5,7 +5,7 @@ samp {
   font-family: var(--font-family-monospace);
 
   /* unifying font sizes and x-height between body & monospace, considering their inherited size */
-  font-size: 0.9em;
+  font-size: 0.87em;
 }
 
 code,
@@ -41,8 +41,7 @@ h5 kbd {
   font-size: 0.8em;
 }
 
-pre,
-div.expressive-code pre {
+pre {
   position: relative;
   display: block;
   padding: 0;
@@ -51,7 +50,10 @@ div.expressive-code pre {
   background-color: var(--box-background-color);
   border-radius: var(--border-radius);
   border: var(--border-width) solid var(--border-color);
+}
 
+pre,
+div.expressive-code pre {
   /* make 'em scrollable */
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -75,8 +77,8 @@ div.expressive-code pre > code {
 }
 
 pre::-webkit-scrollbar {
-  width: 0.35rem;
-  height: 0.35rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 pre::-webkit-scrollbar-thumb {
@@ -98,23 +100,54 @@ div.expressive-code .ec-line .code {
   padding: 0 var(--space-xs);
 }
 
+div.expressive-code .frame {
+  border: var(--border-width) solid var(--border-color);
+  overflow: hidden;
+  background-color: var(--box-background-color);
+}
+
+div.expressive-code .frame .header {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  position: fixed;
+}
+
+div.expressive-code .frame.has-title .header + pre {
+  padding-top: 36px;
+}
+
 div.expressive-code .frame .copy {
-  top: 0.1rem;
-  right: 0.3rem;
+  top: 0;
+  right: 0;
 }
 
 div.expressive-code .frame .copy button {
-  width: 1.7rem;
-  height: 1.7rem;
-  border: none;
   border-radius: var(--border-radius);
-  opacity: 0.6;
-  background: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  background: var(--ec-frm-edActTabBg);
+  height: 36px;
+  width: 3rem;
 }
 
-/* hide the border */
+div.expressive-code .frame .copy button,
+div.expressive-code .frame:hover .copy button:not(:hover) {
+  opacity: 1;
+}
+
 div.expressive-code .frame .copy button::before {
-  display: none;
+  border: none;
+}
+
+div.expressive-code .frame .copy button::after {
+  mask-position: center;
+  margin: 0.65rem;
+  opacity: 0.7;
+}
+
+div.expressive-code .copy:hover button::after {
+  opacity: 1;
 }
 
 div.expressive-code .frame.has-title:not(.is-terminal) .header .title {

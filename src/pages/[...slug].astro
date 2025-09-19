@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content'
+import { ArticleLayout, LinkLayout, PhotoLayout } from '@/components/layouts'
 import { getAllPosts } from '@/features/posts/lib'
-import { ArticleLayout, LinkLayout, PhotoLayout } from '@/layouts'
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()

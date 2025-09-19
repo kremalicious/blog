@@ -1,0 +1,17 @@
+---
+type Props = {
+  lead: string
+}
+
+const { lead } = Astro.props
+---
+
+<div class="lead" set:html={lead} />
+
+<style>
+  .lead {
+    font-size: var(--fs-1);
+    line-height: var(--fs-3);
+    margin-bottom: var(--space-l);
+  }
+</style>

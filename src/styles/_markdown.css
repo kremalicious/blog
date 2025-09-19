@@ -1,0 +1,39 @@
+.markdown {
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    text-decoration-color: var(--link-underline-color);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--link-color-hover);
+    text-decoration-color: var(--link-color-hover);
+  }
+
+  img {
+    border-radius: var(--border-radius);
+  }
+
+  hr {
+    position: relative;
+    border-bottom: var(--border-width) dashed var(--border-color);
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-l);
+    overflow: visible;
+  }
+
+  hr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: var(--border-width);
+    top: var(--border-width);
+    width: 100%;
+    border-bottom: var(--border-width) dashed #f7f7f7;
+  }
+
+  [data-theme='dark'] & hr::before {
+    border-bottom-color: var(--brand-grey);
+  }
+}

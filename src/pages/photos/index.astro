@@ -1,8 +1,8 @@
 ---
-import InfiniteScroll from '@/components/InfiniteScroll/index.astro'
+import { InfiniteScroll } from '@/components/infinite-scroll'
+import { ArchiveLayout } from '@/components/layouts'
 import { metadata } from '@/config'
 import { getCollectionEnhanced } from '@/features/posts/lib'
-import { ArchiveLayout } from '@/layouts'
 
 // Load photos for the first page
 const photos = await getCollectionEnhanced('photos')
@@ -28,7 +28,7 @@ const page = {
 }
 ---
 
-<ArchiveLayout title="Photos" page={page}>
+<ArchiveLayout title="Photos" pageTitle="Photos" page={page}>
   <InfiniteScroll
     currentPage={page.currentPage}
     lastPage={page.lastPage}

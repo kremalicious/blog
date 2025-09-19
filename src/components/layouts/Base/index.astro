@@ -2,9 +2,9 @@
 import '@/styles/global.css'
 import '@/styles/imports.css'
 
-import { Footer, Header } from '@/components'
+import Head from '@/components/seo/Head.astro'
+import { Footer, Header, PageTitle } from '@/components/ui'
 import type { ArticlePost, BlogPost, PhotoPost } from '@/features/posts/types'
-import Head from './Head.astro'
 import styles from './index.module.css'
 
 export type Props = {
@@ -31,7 +31,7 @@ const { post, title, description, pageTitle } = Astro.props
 
     <main class={styles.document} id="document">
       <div class={styles.content}>
-        {pageTitle && <h1 class={styles.pagetitle}>{pageTitle}</h1>}
+        {pageTitle && <PageTitle title={pageTitle} />}
         <slot />
       </div>
     </main>

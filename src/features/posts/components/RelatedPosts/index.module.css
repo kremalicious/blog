@@ -7,20 +7,10 @@
 
 .relatedPosts ul {
   display: grid;
-  gap: var(--space-s);
-  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   padding: 0;
   margin: 0;
-}
-
-@media (min-width: 40rem) {
-  .relatedPosts ul {
-    gap: var(--space-m);
-  }
-
-  .relatedPosts.photos ul {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .relatedPosts li {

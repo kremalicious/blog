@@ -1,5 +1,5 @@
 .avatar {
-  composes: frame from '@/components/Picture/index.module.css';
+  composes: frame from '@/components/ui/Picture/index.module.css';
 }
 
 .vcard .avatar {

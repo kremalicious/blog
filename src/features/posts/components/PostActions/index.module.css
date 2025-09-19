@@ -1,12 +1,11 @@
 .actions {
-  composes: breakout from '@/layouts/Base/index.module.css';
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-2xl);
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-xl);
   background: var(--box-background-color);
-  padding: var(--space-2xl) var(--space-m);
+  padding: var(--space-l) var(--space-m);
   border-radius: var(--border-radius);
   border: var(--border-width) solid var(--border-color);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: var(--space-m);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--space-xs);
 }

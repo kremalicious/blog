@@ -1,5 +1,5 @@
 .header {
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-xs);
 }
 
 .title {
@@ -10,6 +10,10 @@
   h1.title {
     font-size: var(--fs-5);
   }
+}
+
+h1.title + div {
+  margin-top: var(--space-xs);
 }
 
 .titleLink {

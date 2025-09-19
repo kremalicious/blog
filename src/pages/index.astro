@@ -1,9 +1,9 @@
 ---
-import More from '@/components/More.astro'
+import { BaseLayout } from '@/components/layouts'
+import { MoreButton } from '@/components/ui'
 import { PhotoTeaser, PostTeaser } from '@/features/posts/components'
 import { getCollectionEnhanced } from '@/features/posts/lib'
 import type { ArticlePost, PhotoPost } from '@/features/posts/types'
-import { BaseLayout } from '@/layouts'
 
 const articles = (
   (await getCollectionEnhanced('articles')) as ArticlePost[]
@@ -44,7 +44,7 @@ const photos = ((await getCollectionEnhanced('photos')) as PhotoPost[]).slice(
     <div class="articles">
       {articles.map((article) => <PostTeaser post={article} hideDate />)}
     </div>
-    <More href="/archive/1/">All Articles & Links</More>
+    <MoreButton href="/archive/1/">All Articles & Links</MoreButton>
   </section>
 
   <section class="section">
@@ -53,6 +53,6 @@ const photos = ((await getCollectionEnhanced('photos')) as PhotoPost[]).slice(
       {photos.map((photo) => <PhotoTeaser post={photo} />)}
     </div>
 
-    <More href="/photos/">All Photos</More>
+    <MoreButton href="/photos/">All Photos</MoreButton>
   </section>
 </BaseLayout>

@@ -38,7 +38,7 @@ const { model, focalLength, fstop, shutterspeed, exposure, iso } = exif
   </div>
   {
     gps?.latitude && (
-      <div class={styles.map}>
+      <div class:list={[styles.map, "breakout"]}>
         <ExifMap gps={gps} client:only="react" />
       </div>
     )
