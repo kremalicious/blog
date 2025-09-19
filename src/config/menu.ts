@@ -9,7 +9,7 @@ import {
 export const menu = [
   {
     title: 'Articles',
-    link: '/archive/',
+    link: '/archive/1/',
     icon: FeatherIcon
   },
   {
