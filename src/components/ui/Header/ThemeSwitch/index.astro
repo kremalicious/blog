@@ -1,6 +1,5 @@
 ---
-import Moon from 'feather-icons/dist/icons/moon.svg'
-import Sun from 'feather-icons/dist/icons/sun.svg'
+import { MoonIcon, SunIcon } from '@lucide/astro'
 import styles from './index.module.css'
 ---
 
@@ -14,8 +13,8 @@ import styles from './index.module.css'
       aria-describedby="theme-toggle"
     />
     <div aria-live="assertive">
-      <Sun id="sun" />
-      <Moon id="moon" style="display: none;" />
+      <SunIcon id="sun" />
+      <MoonIcon id="moon" style="display: none;" />
     </div>
   </label>
 </div>

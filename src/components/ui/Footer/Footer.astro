@@ -1,7 +1,7 @@
 ---
-import Github from 'feather-icons/dist/icons/github.svg'
+import { GithubIcon } from '@lucide/astro'
 import { metadata } from '@/config'
-import Bitcoin from '@/images/bitcoin.svg'
+import BitcoinIcon from '@/images/bitcoin.svg'
 import styles from './Footer.module.css'
 import Vcard from './Vcard.astro'
 
@@ -19,10 +19,10 @@ const { name, url, github } = metadata.author
         {name}
       </a>
       <a href={`${github}/blog`}>
-        <Github />View source
+        <GithubIcon />View source
       </a>
       <a href="/thanks/">
-        <Bitcoin />Say Thanks
+        <BitcoinIcon />Say Thanks
       </a>
     </p>
   </section>

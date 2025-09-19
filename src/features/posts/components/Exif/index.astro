@@ -1,10 +1,12 @@
 ---
-import Aperture from 'feather-icons/dist/icons/aperture.svg'
-import Camera from 'feather-icons/dist/icons/camera.svg'
-import Crosshair from 'feather-icons/dist/icons/crosshair.svg'
-import Maximize from 'feather-icons/dist/icons/maximize.svg'
-import Sun from 'feather-icons/dist/icons/sun.svg'
-import Stopwatch from '@/images/stopwatch.svg'
+import {
+  ApertureIcon,
+  CameraIcon,
+  CrosshairIcon,
+  MaximizeIcon,
+  SunIcon,
+  WatchIcon
+} from '@lucide/astro'
 import type { ImageMetadataFormatted } from '../../types'
 import ExifData from './ExifData.astro'
 import ExifMap from './ExifMap.tsx'
@@ -21,20 +23,24 @@ const { model, focalLength, fstop, shutterspeed, exposure, iso } = exif
 
 <aside class={styles.exif}>
   <div class={styles.data}>
-    {model && <ExifData title="Camera model" value={model} icon={Camera} />}
+    {model && <ExifData title="Camera model" value={model} icon={CameraIcon} />}
     {
       focalLength && (
-        <ExifData title="Focal length" value={focalLength} icon={Crosshair} />
+        <ExifData
+          title="Focal length"
+          value={focalLength}
+          icon={CrosshairIcon}
+        />
       )
     }
-    {fstop && <ExifData title="Aperture" value={fstop} icon={Aperture} />}
+    {fstop && <ExifData title="Aperture" value={fstop} icon={ApertureIcon} />}
     {
       shutterspeed && (
-        <ExifData title="Shutter speed" value={shutterspeed} icon={Stopwatch} />
+        <ExifData title="Shutter speed" value={shutterspeed} icon={WatchIcon} />
       )
     }
-    {exposure && <ExifData title="Exposure" value={exposure} icon={Sun} />}
-    {iso && <ExifData title="ISO" value={iso} icon={Maximize} />}
+    {exposure && <ExifData title="Exposure" value={exposure} icon={SunIcon} />}
+    {iso && <ExifData title="ISO" value={iso} icon={MaximizeIcon} />}
   </div>
   {
     gps?.latitude && (

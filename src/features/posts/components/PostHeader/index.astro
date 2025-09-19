@@ -1,5 +1,5 @@
 ---
-import ExternalLink from 'feather-icons/dist/icons/external-link.svg'
+import { ExternalLinkIcon } from '@lucide/astro'
 import { PostDate } from '../../components'
 import type { BlogPost, LinkPost } from '../../types'
 import styles from './index.module.css'
@@ -27,7 +27,7 @@ const Element = as || 'h1'
           class:list={[styles.title, styles.titleLink, className && className]}
         >
           <a href={linkurl} title={`Go to source: ${linkurl}`}>
-            {title} <ExternalLink />
+            {title} <ExternalLinkIcon />
           </a>
         </Element>
         <div class={styles.linkurl}>{linkHostname}</div>

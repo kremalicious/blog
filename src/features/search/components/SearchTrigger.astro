@@ -1,5 +1,5 @@
 ---
-import SearchIcon from 'feather-icons/dist/icons/search.svg'
+import { SearchIcon } from '@lucide/astro'
 import { Search } from './Search'
 ---
 
@@ -14,11 +14,11 @@ import { Search } from './Search'
   const button = document.querySelector("#search-button");
 
   isSearchOpen.subscribe((value) =>
-    document.body.classList.toggle("hasSearchOpen", value),
+    document.body.classList.toggle("hasSearchOpen", value)
   );
 
   button?.addEventListener("click", () =>
-    isSearchOpen.set(!isSearchOpen.get()),
+    isSearchOpen.set(!isSearchOpen.get())
   );
 </script>
 

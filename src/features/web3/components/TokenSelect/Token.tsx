@@ -2,8 +2,8 @@ import { formatCurrency } from '@coingecko/cryptoformat'
 import * as Select from '@radix-ui/react-select'
 import { forwardRef, type HTMLAttributes } from 'react'
 import './Token.css'
+import { CheckIcon } from 'lucide-react'
 import type { GetToken } from '@/features/web3/hooks/useFetchTokens'
-import { Icon as Check } from '@/images/components/react/Check'
 
 interface SelectItemProps extends HTMLAttributes<HTMLDivElement> {
   token: GetToken | undefined
@@ -69,7 +69,7 @@ export const Token = forwardRef<HTMLDivElement, SelectItemProps>(
         ) : null}
 
         <Select.ItemIndicator className="SelectItemIndicator">
-          <Check />
+          <CheckIcon />
         </Select.ItemIndicator>
       </Select.Item>
     ) : null

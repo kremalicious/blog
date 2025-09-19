@@ -1,5 +1,5 @@
 ---
-import ChevronRight from 'feather-icons/dist/icons/chevron-right.svg'
+import { ChevronRightIcon } from '@lucide/astro'
 
 type Props = {
   href: string
@@ -10,7 +10,7 @@ const { href } = Astro.props
 
 <a class="more" href={href}>
   <slot />
-  <ChevronRight />
+  <ChevronRightIcon />
 </a>
 
 <style>

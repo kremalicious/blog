@@ -34,7 +34,6 @@ export default defineConfig({
         '**/test/**/*',
         '**/*.astro',
         '**/config',
-        'src/images/components',
         'src/pages',
         '**/content',
         'public',

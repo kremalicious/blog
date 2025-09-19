@@ -1,8 +1,8 @@
 ---
-import Github from 'feather-icons/dist/icons/github.svg'
+import { GithubIcon } from '@lucide/astro'
 import { metadata } from '@/config'
-import Bitcoin from '@/images/bitcoin.svg'
-import Mastodon from '@/images/mastodon.svg'
+import BitcoinIcon from '@/images/bitcoin.svg'
+import MastodonIcon from '@/images/mastodon.svg'
 import type { BlogPost } from '../../types'
 import Action from './Action.astro'
 import styles from './index.module.css'
@@ -18,19 +18,19 @@ const actions = [
     title: 'Have a comment?',
     text: 'Hit me up @krema@mas.to',
     url: metadata.author.mastodon,
-    icon: Mastodon
+    icon: MastodonIcon
   },
   {
     title: 'Found something useful?',
     text: 'Say thanks with BTC or ETH',
     url: '/thanks/',
-    icon: Bitcoin
+    icon: BitcoinIcon
   },
   {
     title: 'Edit on GitHub',
     text: 'Contribute to this post',
     url: githubLink,
-    icon: Github
+    icon: GithubIcon
   }
 ]
 ---

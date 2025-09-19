@@ -1,6 +1,5 @@
 ---
-import Github from 'feather-icons/dist/icons/github.svg'
-import Rss from 'feather-icons/dist/icons/rss.svg'
+import { GithubIcon, RssIcon } from '@lucide/astro'
 import Jsonfeed from '@/images/jsonfeed.svg'
 import Mastodon from '@/images/mastodon.svg'
 import styles from './Networks.module.css'
@@ -19,9 +18,9 @@ const { links } = Astro.props
         {link.includes("mas.to") ? (
           <Mastodon />
         ) : link.includes("github") ? (
-          <Github />
+          <GithubIcon />
         ) : link.includes("feed.xml") ? (
-          <Rss />
+          <RssIcon />
         ) : link.includes("feed.json") ? (
           <Jsonfeed />
         ) : null}

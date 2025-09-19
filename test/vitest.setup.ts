@@ -18,11 +18,7 @@ vi.mock('@/features/Web3/hooks/useFetchTokens', () => ({
   useFetchTokens: () => ({ isLoading: false, data: balanceMock })
 }))
 
-// Mock icon components to avoid deep path resolution issues in tests
-vi.mock('@/images/components/react/X', () => ({ Icon: () => null }))
-vi.mock('@/images/components/react/Loader', () => ({ Icon: () => null }))
-
-// vi.mock('@/features/Web3/stores', () => ({
+// vi.mock('@/features/web3/stores', () => ({
 //   $selectedToken: balanceMock[0],
 //   $amount: '1'
 // }))

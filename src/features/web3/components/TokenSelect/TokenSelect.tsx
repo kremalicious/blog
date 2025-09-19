@@ -1,14 +1,12 @@
 import * as Select from '@radix-ui/react-select'
 import './TokenSelect.css'
 import { useStore } from '@nanostores/react'
+import { ChevronDownIcon, ChevronsDownIcon, ChevronsUpIcon } from 'lucide-react'
 import { useEffect } from 'react'
 import { useAccount } from 'wagmi'
 import { Loader } from '@/components/ui/Loader'
 import { useFetchTokens } from '@/features/web3/hooks/useFetchTokens'
 import { $selectedToken } from '@/features/web3/stores'
-import { Icon as ChevronDown } from '@/images/components/react/ChevronDown'
-import { Icon as ChevronsDown } from '@/images/components/react/ChevronsDown'
-import { Icon as ChevronsUp } from '@/images/components/react/ChevronsUp'
 import { Token } from './Token'
 
 export function TokenSelect() {
@@ -50,13 +48,13 @@ export function TokenSelect() {
       >
         <Select.Value placeholder="..." />
         <Select.Icon>
-          <ChevronDown />
+          <ChevronDownIcon />
         </Select.Icon>
       </Select.Trigger>
 
       <Select.Content className="SelectContent">
         <Select.ScrollUpButton className="SelectScrollButton">
-          <ChevronsUp />
+          <ChevronsUpIcon />
         </Select.ScrollUpButton>
         <Select.Viewport className="SelectViewport">
           <Select.Group>
@@ -65,7 +63,7 @@ export function TokenSelect() {
           </Select.Group>
         </Select.Viewport>
         <Select.ScrollDownButton className="SelectScrollButton">
-          <ChevronsDown />
+          <ChevronsDownIcon />
         </Select.ScrollDownButton>
       </Select.Content>
     </Select.Root>

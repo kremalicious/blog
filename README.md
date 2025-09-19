@@ -23,8 +23,7 @@
   - [🕸 Related Posts](#-related-posts)
   - [📝 GitHub Changelog Rendering](#-github-changelog-rendering)
   - [🌗 Theme Switcher](#-theme-switcher)
-  - [💎 SVG assets as components](#-svg-assets-as-components)
-  - [astro-redirect-from](#astro-redirect-from)
+  - [🎯 astro-redirect-from](#-astro-redirect-from)
   - [RSS \& JSON feeds](#rss--json-feeds)
 - [✨ Development](#-development)
   - [🔮 Linting](#-linting)
@@ -139,17 +138,7 @@ If you want to know how, have a look at the respective components:
 
 - [`src/components/ThemeSwitch/`](src/components/ThemeSwitch/)
 
-### 💎 SVG assets as components
-
-Within all Astro files, SVGs can be imported as components with Astro's [native support for SVG components](https://docs.astro.build/en/components/images/#importing-svgs).
-
-All SVG assets under `src/images/` and from select iconset dependencies are converted to React components before building the site. Compiled components are placed under `src/images/components/` and all include the cleaned SVGs as inline HTML. All SVGs can then be imported from `@/images/components` in all React components.
-
-If you want to know how this works, have a look at the script:
-
-- [`scripts/create-icons/`](scripts/create-icons/)
-
-### astro-redirect-from
+### 🎯 astro-redirect-from
 
 Still a remnant of the old [Jekyll](https://jekyllrb.com) days, which survived in [gatsby-redirect-from](https://kremalicious.com/gatsby-redirect-from/) and now works in Astro with [astro-redirect-from](https://kremalicious.com/astro-redirect-from/).
 
