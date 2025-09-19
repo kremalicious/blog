@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro'
-import { getAllPostsForSearch } from '@/features/search/lib/get-all-posts'
+import { getAllPostsForSearch } from '@/features/search/lib/get-search-posts'
 
 export const GET: APIRoute = async () => {
   const allPosts = await getAllPostsForSearch()

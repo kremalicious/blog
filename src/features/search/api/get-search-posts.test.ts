@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { getAllPostsForSearch } from './get-all-posts'
+import { getAllPostsForSearch } from './get-search-posts'
 
 describe('getAllPostsForSearch (api)', () => {
   it('should fetch and return all posts for search', async () => {

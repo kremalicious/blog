@@ -3,49 +3,29 @@
   inset: 0;
   z-index: 10;
   background: var(--body-background-color);
-  animation: fadein 0.3s;
+  animation: fadein 0.3s ease-out;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   height: 91vh;
+  padding: var(--space-s) var(--space-s) var(--space-m) var(--space-s);
 }
 
 .results {
   composes: content from '@/components/layouts/Base/index.module.css';
-  padding: var(--space-m) 0;
   margin-bottom: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.post {
-  display: block;
-}
-
-.title {
-  font-size: var(--fs-1);
-  line-height: var(--fs-2);
-  margin: 0;
-}
-
-.results li {
-  display: block;
-  flex: 0 0 48%;
-  margin-bottom: var(--space-m);
-}
-
-@media (min-width: 40rem) {
-  .results li {
-    flex-basis: 31%;
-  }
-}
-
-.results li::before {
-  display: none;
-}
-
-.results img {
-  margin-bottom: 0;
+  display: grid;
+  --grid-gap: var(--space-m);
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(
+      auto-fit,
+      minmax(
+        min(
+          calc((100% - var(--grid-gap)) / 2),
+          calc((var(--maxWidthContent) - (2 * var(--grid-gap))) / 3)
+        ),
+        1fr
+      )
+    );
 }
 
 @keyframes fadein {

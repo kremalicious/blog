@@ -1,21 +1,13 @@
 import { useStore } from '@nanostores/react'
-import Fuse from 'fuse.js'
 import { type ReactElement, useEffect, useState } from 'react'
 import Input from '@/components/ui/Input'
-import { getAllPostsForSearch } from '../api/get-all-posts'
+import { X } from '@/images/components/react'
+import { getAllPostsForSearch } from '../api/get-search-posts'
+import { getFuseInstance } from '../lib/get-fuse-instance'
 import { isSearchOpen } from '../stores'
 import type { SearchResultItem } from '../types'
 import { SearchResults } from './Results/SearchResults'
 import styles from './Search.module.css'
-
-// Configure fuse.js
-// https://fusejs.io/api/options.html
-const fuseOptions = {
-  keys: ['data.title', 'data.lead', 'slug'],
-  includeMatches: true,
-  minMatchCharLength: 2,
-  threshold: 0.5
-}
 
 export function Search(): ReactElement | null {
   const $isSearchOpen = useStore(isSearchOpen)
@@ -32,7 +24,7 @@ export function Search(): ReactElement | null {
   }, [$isSearchOpen])
 
   // Handle search and set results
-  const fuse = allPosts ? new Fuse(allPosts, fuseOptions) : null
+  const fuse = allPosts ? getFuseInstance(allPosts) : null
 
   useEffect(() => {
     if (!query || query === '' || !fuse) {
@@ -40,11 +32,7 @@ export function Search(): ReactElement | null {
       return
     }
 
-    const results = fuse
-      .search(query)
-      .map((result) => result.item)
-      .slice(0, 6)
-
+    const results = fuse.search(query).map((result) => result.item)
     setResults(results)
   }, [query])
 
@@ -70,20 +58,7 @@ export function Search(): ReactElement | null {
           onClick={toggleSearch}
           title="Close search"
         >
-          {/* biome-ignore lint/a11y/noSvgWithoutTitle: the button has title already */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
+          <X />
         </button>
       </form>
 

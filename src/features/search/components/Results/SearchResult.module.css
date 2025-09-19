@@ -1,0 +1,45 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+a.post:hover {
+  text-decoration: none;
+}
+
+.title {
+  font-size: var(--fs-0);
+  line-height: var(--fs-1);
+  color: var(--text-color);
+  margin: 0;
+}
+
+a.post:hover .title {
+  color: var(--link-color);
+}
+
+.image {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--border-color);
+  flex: 0 0 80px;
+  transition: border-color 0.2s ease-out;
+}
+
+.image img {
+  width: 343px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.image.empty {
+  display: none;
+}
+
+a.post:hover .image {
+  border-color: var(--link-color);
+}

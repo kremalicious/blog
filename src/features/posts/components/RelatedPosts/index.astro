@@ -1,6 +1,6 @@
 ---
 import Fuse from 'fuse.js'
-import { getAllPostsForSearch } from '@/features/search/lib/get-all-posts'
+import { getAllPostsForSearch } from '@/features/search/lib/get-search-posts'
 import { PostTeaser } from '../../components'
 import type { BlogPost } from '../../types'
 import styles from './index.module.css'
@@ -10,27 +10,22 @@ type Props = {
 }
 
 const { post } = Astro.props as Props
-const allPosts = await getAllPostsForSearch()
-const allPostsWithoutCurrent = allPosts?.filter(
+const allSearchPosts = await getAllPostsForSearch()
+const allSearchPostsWithoutCurrent = allSearchPosts?.filter(
   (p) => p.data.slug !== post.data.slug
 )
 
 // Configure fuse.js
 // https://fusejs.io/api/options.html
-const fuse = new Fuse(allPostsWithoutCurrent, {
-  keys: ['data.tags', 'data.title', 'data.lead'],
+const fuse = new Fuse(allSearchPostsWithoutCurrent, {
+  keys: ['data.tags', 'data.title', 'data.leadRaw'],
   useExtendedSearch: true,
   threshold: 0.6
 })
 
-// Get lead text from leadRaw property, checking first if lead exists (only on ArticlePost)
-const leadText = ('leadRaw' in post ? post.leadRaw : undefined) || ''
-
 const relatedPosts = fuse
   // https://www.fusejs.io/examples.html#extended-search
-  .search(
-    `${post?.data?.tags?.join(' | ')} | "${leadText}" | "${post?.data?.title}"`
-  )
+  .search(`${post?.data?.tags?.join(' | ')} | "${post?.data?.title}"`)
   .map((result) => result.item)
   .slice(0, 6)
 ---

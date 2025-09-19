@@ -15,6 +15,52 @@
     border-radius: var(--border-radius);
   }
 
+  /* Lists
+///////////////////////////////////// */
+
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: var(--space-m);
+    padding-left: var(--space-m);
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    margin-bottom: var(--space-3xs);
+  }
+
+  li::before {
+    position: absolute;
+    left: -2rem;
+    top: -1px;
+    color: var(--text-color-light);
+    user-select: none;
+  }
+
+  li p {
+    margin-bottom: var(--space-2xs);
+  }
+
+  ul li::before {
+    /* horizontal bar: ― &#8213; */
+    content: ' \2015';
+  }
+
+  ol {
+    counter-reset: ol-counter;
+  }
+
+  ol li::before {
+    content: counter(ol-counter) '.';
+    counter-increment: ol-counter;
+  }
+
+  ol ul li::before {
+    display: none;
+  }
+
   blockquote,
   blockquote > p {
     font-style: italic;

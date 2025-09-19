@@ -32,7 +32,7 @@ vi.mock('@/features/posts/lib', () => ({
   ])
 }))
 
-import { getAllPostsForSearch } from './get-all-posts'
+import { getAllPostsForSearch } from './get-search-posts'
 
 describe('getAllPostsForSearch (lib)', () => {
   it('should map and trim posts, keeping image for articles/photos only', async () => {
