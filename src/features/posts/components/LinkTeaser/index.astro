@@ -23,6 +23,10 @@ const { Content } = await render(post)
     className={styles.title}
     as="h3"
   />
-  <Content />
+
+  <div class="markdown">
+    <Content />
+  </div>
+
   <LinkActions slug={slug} linkurl={linkurl} />
 </article>

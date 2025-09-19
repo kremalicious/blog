@@ -20,7 +20,8 @@
 
 .number:hover,
 .number:focus {
-  background: rgba(255 255 255 / 10%);
+  background: var(--box-background-color);
+  text-decoration: none;
 }
 
 .number:first-child {

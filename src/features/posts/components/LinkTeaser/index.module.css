@@ -1,9 +1,13 @@
 .post {
   display: block;
   margin-top: var(--space-m);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-xl);
 }
 
-.post + .post {
-  margin-top: var(--space-m);
+.post blockquote:last-of-type {
+  margin-bottom: 0;
+}
+
+.post blockquote:last-of-type > p:last-of-type {
+  margin-bottom: var(--space-s);
 }
