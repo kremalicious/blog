@@ -27,14 +27,16 @@ export function Search(): ReactElement | null {
   const fuse = allPosts ? getFuseInstance(allPosts) : null
 
   useEffect(() => {
-    if (!query || query === '' || !fuse) {
+    if (!query || query === '') {
       setResults([])
       return
     }
 
-    const results = fuse.search(query).map((result) => result.item)
-    setResults(results)
-  }, [query])
+    if (!fuse) return
+
+    const nextResults = fuse.search(query).map((result) => result.item)
+    setResults(nextResults)
+  }, [query, fuse])
 
   // animate closing of search
   async function toggleSearch(): Promise<void> {
