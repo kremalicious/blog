@@ -28,7 +28,7 @@
 
   li {
     position: relative;
-    margin-bottom: var(--space-3xs);
+    margin-bottom: var(--space-2xs);
   }
 
   li::before {
@@ -37,10 +37,6 @@
     top: -1px;
     color: var(--text-color-light);
     user-select: none;
-  }
-
-  li p {
-    margin-bottom: var(--space-2xs);
   }
 
   ul li::before {

@@ -6,9 +6,80 @@ type Props = {
 }
 
 const { headings } = Astro.props
+// Only include h2 and h3 for the TOC
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth >= 2 && heading.depth <= 3
+)
 
-const filteredHeadings = headings.filter((heading) => heading.depth <= 2)
+interface TocSection {
+  parent: MarkdownHeading // depth 2
+  children: MarkdownHeading[] // depth 3 under the parent
+}
+
+function buildTocSections(input: MarkdownHeading[]): {
+  sections: TocSection[]
+  orphans: MarkdownHeading[]
+} {
+  if (!input || input.length === 0) return { sections: [], orphans: [] }
+
+  const sections: TocSection[] = []
+  const orphans: MarkdownHeading[] = []
+
+  for (const h of input) {
+    if (h.depth === 2) {
+      sections.push({ parent: h, children: [] })
+      continue
+    }
+
+    if (h.depth === 3) {
+      const last = sections[sections.length - 1]
+      if (!last) {
+        // No preceding h2 – treat as orphan and render at top level
+        orphans.push(h)
+        continue
+      }
+      const updatedChildren: MarkdownHeading[] = [...last.children, h]
+      sections[sections.length - 1] = {
+        parent: last.parent,
+        children: updatedChildren
+      }
+    }
+  }
+
+  return { sections, orphans }
+}
+
+const { sections, orphans } = buildTocSections(filteredHeadings)
 ---
+
+<nav aria-label="Table of Contents" class="toc markdown">
+  <ul>
+    {
+      orphans.map((h) => (
+        <li>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))
+    }
+
+    {
+      sections.map((section) => (
+        <li>
+          <a href={`#${section.parent.slug}`}>{section.parent.text}</a>
+          {section.children.length > 0 && (
+            <ul>
+              {section.children.map((child) => (
+                <li>
+                  <a href={`#${child.slug}`}>{child.text}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
 
 <style>
   .toc {
@@ -19,25 +90,16 @@ const filteredHeadings = headings.filter((heading) => heading.depth <= 2)
     margin-bottom: var(--space-l);
   }
 
-  .toc :global(ul),
-  .toc :global(p) {
-    margin: 0;
-  }
-
   .toc :global(li) {
     margin-top: var(--space-3xs);
     margin-bottom: var(--space-3xs);
   }
-</style>
 
-<nav aria-label="Table of Contents" class="toc">
-  <ul>
-    {
-      filteredHeadings.map((heading) => (
-        <li>
-          <a href={`#${heading.slug}`}>{heading.text}</a>
-        </li>
-      ))
-    }
-  </ul>
-</nav>
+  .toc :global(ul ul li) {
+    margin-left: var(--space-2xs);
+  }
+
+  .toc :global(ul) {
+    margin-bottom: 0;
+  }
+</style>

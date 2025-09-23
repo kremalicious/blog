@@ -86,13 +86,6 @@ you are a senior programmer with expert-level experience in typescript, bun, bio
   - Declare necessary types for input arguments and output.
 - Use a single level of abstraction.
 
-### Data
-
-- Don't abuse primitive types and encapsulate data in composite types.
-- Prefer immutability for data.
-  - Use readonly for data that doesn't change.
-  - Use as const for literals that don't change.
-
 ### Testing
 
 - Follow the Arrange-Act-Assert convention for tests.
