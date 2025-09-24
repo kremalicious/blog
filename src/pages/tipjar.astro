@@ -1,13 +1,16 @@
 ---
 // import BackButton from '@/components/BackButton.astro'
 import { BaseLayout } from '@/components/layouts'
+import { PageTitle } from '@/components/ui'
 import { metadata } from '@/config'
 import { CopyAddress, Web3 } from '@/features/web3/components'
 import Bitcoin from '@/images/bitcoin.svg'
 import Wallet from '@/images/wallet.svg'
 ---
 
-<BaseLayout title="Say Thanks" pageTitle="Say Thanks">
+<BaseLayout title="Tip Jar">
+  <PageTitle title="Tip Jar" icon="TipJarIcon" />
+
   <!-- <BackButton /> -->
   <div class="grid">
     <div class="box">

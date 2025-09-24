@@ -5,7 +5,6 @@ import '@/styles/imports.css'
 import Footer from '@/components/footer/Footer.astro'
 import Header from '@/components/header/Header.astro'
 import Head from '@/components/seo/Head.astro'
-import { PageTitle } from '@/components/ui'
 import type { ArticlePost, BlogPost, PhotoPost } from '@/features/posts/types'
 import styles from './index.module.css'
 
@@ -13,10 +12,9 @@ export type Props = {
   post?: BlogPost
   title?: string
   description?: string
-  pageTitle?: string
 }
 
-const { post, title, description, pageTitle } = Astro.props
+const { post, title, description } = Astro.props
 ---
 
 <html lang="en">
@@ -33,7 +31,6 @@ const { post, title, description, pageTitle } = Astro.props
 
     <main class={styles.document} id="document">
       <div class={styles.content}>
-        {pageTitle && <PageTitle title={pageTitle} />}
         <slot />
       </div>
     </main>

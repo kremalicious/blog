@@ -1,22 +1,53 @@
 ---
+import TipJarIcon from '@/images/tipjar.svg'
+
 type Props = {
   title: string
+  icon?: 'TipJarIcon'
 }
 
-const { title } = Astro.props
+const { title, icon } = Astro.props
+const isTag = title.startsWith('#')
+
+const Icon = icon === 'TipJarIcon' ? TipJarIcon : null
 ---
 
-<h1 class="pageTitle">{title}</h1>
+<h1 class="pageTitle">
+  {Icon && <Icon class="icon" />}
+  {
+    isTag ? (
+      <>
+        <span class="hash">#</span>
+        {title.slice(1)}
+      </>
+    ) : (
+      title
+    )
+  }
+</h1>
 
 <style>
   .pageTitle {
     font-size: var(--fs-3);
     line-height: var(--fs-4);
-    color: var(--text-color-light);
+    color: var(--text-color);
     margin-top: 0;
     margin-bottom: var(--space-l);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .hash {
+    color: var(--text-color-dimmed);
+    font-size: var(--fs-2);
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-base);
+  }
+
+  .icon {
+    width: 0.8em;
+    height: 0.8em;
+    color: var(--text-color-light);
   }
 </style>

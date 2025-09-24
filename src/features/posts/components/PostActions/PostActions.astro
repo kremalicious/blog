@@ -1,11 +1,10 @@
 ---
 import { GithubIcon } from '@lucide/astro'
 import { metadata } from '@/config'
-import BitcoinIcon from '@/images/bitcoin.svg'
 import MastodonIcon from '@/images/mastodon.svg'
+import TipJarIcon from '@/images/tipjar.svg'
 import type { BlogPost } from '../../types'
 import Action from './Action.astro'
-import styles from './index.module.css'
 
 type Props = {
   githubLink: BlogPost['data']['githubLink']
@@ -22,9 +21,9 @@ const actions = [
   },
   {
     title: 'Found something useful?',
-    text: 'Say thanks with BTC or ETH',
-    url: '/thanks/',
-    icon: BitcoinIcon
+    text: 'Send some tips',
+    url: '/tipjar/',
+    icon: TipJarIcon
   },
   {
     title: 'Edit on GitHub',
@@ -35,7 +34,7 @@ const actions = [
 ]
 ---
 
-<section class:list={[styles.actions, "breakout"]}>
+<section class:list={["actions", "breakout"]}>
   {
     actions.map((action) => (
       <Action
@@ -47,3 +46,17 @@ const actions = [
     ))
   }
 </section>
+
+<style>
+  .actions {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-2xl);
+    background: var(--box-background-color);
+    padding: var(--space-l) var(--space-m);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: var(--space-xs);
+  }
+</style>

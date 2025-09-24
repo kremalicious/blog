@@ -31,4 +31,8 @@ const { page } = Astro.props as Props
 const { tag } = Astro.params as Params
 ---
 
-<ArchiveLayout title={`#${tag}`} pageTitle={`#${tag}`} page={page} />
+<ArchiveLayout
+  title={`Posts tagged with #${tag}`}
+  pageTitle={`#${tag}`}
+  page={page}
+/>

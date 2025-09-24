@@ -1,6 +1,6 @@
 ---
 import type { Page } from 'astro'
-import { Pagination } from '@/components/ui'
+import { PageTitle, Pagination } from '@/components/ui'
 import {
   LinkTeaser,
   PhotoTeaser,
@@ -19,7 +19,9 @@ const { page, title, pageTitle } = Astro.props
 const isPhotos = title && title !== '' && title.toLowerCase().includes('photos')
 ---
 
-<LayoutBase title={title} pageTitle={pageTitle}>
+<LayoutBase title={title}>
+  {pageTitle && <PageTitle title={pageTitle} />}
+
   <div id="posts" class:list={["posts", isPhotos ? "photos" : ""]}>
     {
       page?.data?.map((post) =>
