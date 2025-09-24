@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
+import remarkBreaks from 'remark-breaks'
 import { getSlug } from '../features/posts/lib/get-slug'
 import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
 import { metadata } from './metadata'
@@ -16,7 +17,7 @@ export default defineConfig({
   cacheDir: '.astro',
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkLeadParagraph],
+    remarkPlugins: [remarkLeadParagraph, remarkBreaks],
     shikiConfig: {
       // https://github.com/shikijs/shiki/blob/main/docs/themes.md
       theme: 'nord',

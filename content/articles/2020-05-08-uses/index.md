@@ -32,9 +32,9 @@ My office is where my MacBook is, all these devices go wherever I travel to:
   _Black Titanium, 256GB_
 
 - **[AirPods Pro](https://www.apple.com/airpods-pro/)**
--
+
 - **[Powerbeats Pro 2](https://www.beatsbydre.com/earbuds/powerbeats-pro-2)**
--
+
 - **[iPad Pro (12.9-inch) 2021](https://www.apple.com/ipad-pro/)**
   _Space Gray, 512GB, WiFi + Cellular_
 

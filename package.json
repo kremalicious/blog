@@ -55,6 +55,7 @@
     "pigeon-maps": "0.22.1",
     "react": "19.1.1",
     "react-dom": "19.1.1",
+    "remark-breaks": "4.0.0",
     "slugify": "1.6.6",
     "swr": "2.3.6",
     "viem": "2.37.6",
