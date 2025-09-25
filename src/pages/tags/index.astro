@@ -1,5 +1,6 @@
 ---
 import { BaseLayout } from '@/components/layouts'
+import { PageTitle } from '@/components/ui'
 import { Tag } from '@/features/posts/components'
 import { getAllTags } from '@/features/posts/lib'
 
@@ -24,11 +25,9 @@ const allTags = await getAllTags()
   }
 </style>
 
-<BaseLayout
-  title="Tags"
-  pageTitle="All Tags"
-  description="All tags used on this site"
->
+<BaseLayout title="Tags" description="All tags used on this site">
+  <PageTitle title="All Tags" />
+
   <ul class="tags">
     {
       allTags
