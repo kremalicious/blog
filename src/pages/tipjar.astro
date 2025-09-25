@@ -21,9 +21,9 @@ import Wallet from '@/images/wallet.svg'
         can send me some Ether, ERC-20 token, or Bitcoin.
       </section>
 
-      <section class="section highlight" id="web3">
+      <section class="section highlight section-web3" id="web3">
         <h4 class="titleCoin"><Wallet /> Web3 Wallet</h4>
-        <Web3 client:only="react" />
+        <Web3 client:load />
       </section>
 
       <section class="section">
@@ -86,11 +86,11 @@ import Wallet from '@/images/wallet.svg'
     font-size: var(--fs-1);
     border-bottom: 1px solid var(--border-color);
     margin: 0;
-    padding: var(--space-2xs) 0;
+    padding: var(--space-xs) 0;
   }
 
   .box .subTitle {
-    padding: var(--space-2xs) var(--space-s);
+    padding: var(--space-xs) var(--space-s);
   }
 
   .titleCoin {
@@ -112,18 +112,21 @@ import Wallet from '@/images/wallet.svg'
   }
 
   .section {
-    padding: var(--space-xs) 0;
+    padding: var(--space-m) 0;
   }
 
   .box .section {
-    padding: var(--space-s);
+    padding: var(--space-m);
   }
 
   .box .section.highlight {
     background-color: var(--box-background-color);
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0;
+  }
+
+  .section-web3 {
+    min-height: 288px;
   }
 
   .metaText {

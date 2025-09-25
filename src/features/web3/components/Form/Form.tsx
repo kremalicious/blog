@@ -22,6 +22,16 @@ export function Web3Form(): ReactElement {
   const isDisabled = !account
 
   const [error, setError] = useState<string>()
+  const [isLoading, setLoading] = useState(true)
+
+  let isMounted = false
+
+  // switch loading state after everything is mounted
+  useEffect(() => {
+    if (isMounted) return
+    isMounted = true
+    setLoading(false)
+  }, [])
 
   // Error Validation
   useEffect(() => {
@@ -43,6 +53,14 @@ export function Web3Form(): ReactElement {
     $setAmount('')
   }, [selectedToken])
 
+  if (isLoading) {
+    return (
+      <div className={styles.web3}>
+        <span className={styles.loading}>Loading...</span>
+      </div>
+    )
+  }
+
   return (
     <div className={styles.web3}>
       {isInitSend ? (
@@ -59,7 +77,7 @@ export function Web3Form(): ReactElement {
           <RainbowKit />
           <InputGroup isDisabled={isDisabled} error={error} />
           <div className={styles.disclaimer}>
-            Sends tokens to{' '}
+            Sends selected tokens to{' '}
             <a
               target="_blank"
               rel="noreferrer noopener"

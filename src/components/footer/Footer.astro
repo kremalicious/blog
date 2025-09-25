@@ -1,7 +1,7 @@
 ---
 import { GithubIcon } from '@lucide/astro'
 import { metadata } from '@/config'
-import BitcoinIcon from '@/images/bitcoin.svg'
+import TipJarIcon from '@/images/tipjar.svg'
 import styles from './Footer.module.css'
 import Vcard from './Vcard.astro'
 
@@ -18,8 +18,8 @@ const { name, github } = metadata.author
       <a href={`${github}/blog`}>
         <GithubIcon />View source
       </a>
-      <a href="/thanks/">
-        <BitcoinIcon />Say Thanks
+      <a href="/tipjar/">
+        <TipJarIcon />Tip Jar
       </a>
     </p>
   </section>

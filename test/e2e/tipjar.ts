@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/thanks/')
+  await page.goto('/tipjar/')
 })
 
 test('meta is correct', async ({ page }) => {
-  await expect(page).toHaveTitle(/Thanks/)
+  await expect(page).toHaveTitle(/Tip Jar/)
 })
 
 test('rainbowkit modal works', async ({ page }) => {
