@@ -59,7 +59,14 @@ export function Web3Form(): ReactElement {
           <RainbowKit />
           <InputGroup isDisabled={isDisabled} error={error} />
           <div className={styles.disclaimer}>
-            Sends tokens to my account <code>{metadata.author.ether.ens}</code>
+            Sends tokens to{' '}
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              href={`https://app.ens.domains/${metadata.author.ether.ens}`}
+            >
+              {metadata.author.ether.ens}
+            </a>
           </div>
         </form>
       )}
