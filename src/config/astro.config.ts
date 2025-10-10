@@ -1,14 +1,18 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import { defineConfig } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config'
 import expressiveCode from 'astro-expressive-code'
 import redirectFrom from 'astro-redirect-from'
 import remarkBreaks from 'remark-breaks'
+import { loadEnv } from 'vite'
 import { getSlug } from '../features/posts/lib/get-slug'
 import { remarkLeadParagraph } from '../lib/remark-lead-paragraph/remark-lead-paragraph'
 import { metadata } from './metadata'
 
 const isProd = import.meta.env.PROD
+
+const env = loadEnv(process.env.NODE_ENV ?? '', process.cwd(), '')
+const adobeId = env.ADOBE_ID
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +33,26 @@ export default defineConfig({
     service: {
       entrypoint: 'src/features/posts/lib/image-service.ts'
     }
+  },
+  experimental: {
+    fonts: [
+      {
+        name: 'Brandon Grotesque',
+        cssVariable: '--font-brandon-grotesque',
+        provider: fontProviders.adobe({ id: adobeId }),
+        weights: [700],
+        styles: ['normal'],
+        featureSettings: 'liga'
+      },
+      {
+        name: 'FF Tisa Sans Pro',
+        cssVariable: '--font-ff-tisa-sans-pro',
+        provider: fontProviders.adobe({ id: adobeId }),
+        weights: [400, 600],
+        styles: ['normal', 'italic'],
+        featureSettings: 'liga'
+      }
+    ]
   },
   server: { host: true },
   integrations: [
