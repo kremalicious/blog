@@ -1,4 +1,4 @@
-name: 'CI'
+name: "CI"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - '**'
+      - "**"
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -20,97 +20,78 @@ env:
 
 jobs:
   lint:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun ci
       - run: bun run lint
 
   typecheck:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun ci
       - run: bun run prebuild
       - run: bun run typecheck
 
   test-unit:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun ci
       - run: bun run test:unit
       - uses: qltysh/qlty-action/coverage@v1
         with:
-            token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-            files: coverage/lcov.info
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/lcov.info
 
   test-e2e:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun ci
       - run: bunx playwright install --with-deps
       - run: bun run test:e2e
 
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - run: bun ci
       - name: Cache Astro build output
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/.astro
-          key: ${{ matrix.os }}-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
-          restore-keys: ${{ matrix.os }}-astro-build-
+          key: ubuntu-latest-astro-build-${{ hashFiles('content/**/*.jpg', 'content/**/*.png') }}
+          restore-keys: ubuntu-latest-astro-build-
       - run: bun run build
       - name: Zip artifact for deployment
-        if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest'
+        if: github.ref == 'refs/heads/main'
         run: zip dist.zip ./dist -r
       - uses: actions/upload-artifact@v4
-        if: github.ref == 'refs/heads/main' && matrix.os == 'macos-latest'
+        if: github.ref == 'refs/heads/main'
         with:
-          name: dist-${{ matrix.os }}
+          name: dist-ubuntu-latest
           path: dist.zip
+          retention-days: 1
 
   deploy:
     needs: [lint, typecheck, test-unit, test-e2e, build]
     if: success() && github.ref == 'refs/heads/main'
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: oven-sh/setup-bun@v2
       - uses: actions/download-artifact@v4
         with:
-          name: dist-macos-latest
+          name: dist-ubuntu-latest
       - name: Tune AWS CLI concurrency
         run: |
           # Fixed tuning for 2-core GitHub Actions runners (fast enough without thrash)
