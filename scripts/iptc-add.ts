@@ -9,7 +9,7 @@
 // ```
 
 import { resolve } from 'node:path'
-import { exiftool, type WriteTags } from 'exiftool-vendored'
+import { ExifTool, type WriteTags } from 'exiftool-vendored'
 import { globby } from 'globby'
 import { oraPromise } from 'ora'
 import { metadata } from '@/config'
@@ -23,6 +23,8 @@ const IPTC_METADATA: WriteTags = {
 }
 
 const SUPPORTED_EXTENSIONS = ['.jpg', '.jpeg', '.tiff', '.tif', '.png']
+
+const exiftool = new ExifTool({ useMWG: false })
 
 async function main() {
   const args = process.argv.slice(2)

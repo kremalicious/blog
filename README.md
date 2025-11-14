@@ -8,7 +8,7 @@
   <a href="https://kremalicious.com">kremalicious.com</a>
 </p>
 <p align="center">
-  <a href="https://github.com/kremalicious/blog/actions"><img src="https://github.com/kremalicious/blog/workflows/CI/badge.svg" alt="CI workflow badge" /></a>
+  <a href="https://github.com/kremalicious/blog/actions"><img src="https://github.com/kremalicious/blog/workflows/CI/badge.svg?branch=main" alt="CI workflow badge" /></a>
   <a href="https://qlty.sh/gh/kremalicious/projects/blog"><img src="https://qlty.sh/gh/kremalicious/projects/blog/maintainability.svg" alt="Maintainability" /></a>
   <a href="https://qlty.sh/gh/kremalicious/projects/blog"><img src="https://qlty.sh/gh/kremalicious/projects/blog/coverage.svg" alt="Code Coverage" /></a>
 </p>

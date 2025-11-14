@@ -24,8 +24,7 @@ export default defineConfig({
       moduleDirectories: ['node_modules', './test/__mocks__']
     },
     coverage: {
-      reporter: ['text', 'json', 'html', 'lcov'],
-      all: true,
+      reporter: ['text', 'lcov'],
       exclude: [
         '**/*.d.ts',
         '**/types.ts',
@@ -42,7 +41,8 @@ export default defineConfig({
         '**/schemas/**/*',
         '**/types/**/*',
         '**/index.ts', // assuming they are barrel files,
-        'src/content.config.ts'
+        'src/content.config.ts',
+        '**/*.css'
       ]
     }
   }
