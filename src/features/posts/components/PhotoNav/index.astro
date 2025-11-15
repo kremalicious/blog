@@ -45,7 +45,7 @@ const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 6), currentIndex)
       title={title}
       id="current-photo"
     >
-      <Picture width={100} height={100} src={image} alt={title} objectFit />
+      <Picture width={100} height={100} src={image} alt={title} objectFit/>
     </a>
 
     {
@@ -69,29 +69,29 @@ const nextPhotos = allPhotos.slice(Math.max(0, currentIndex - 6), currentIndex)
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const photoNav = document.getElementById("photo-nav");
-    const currentPhoto = document.getElementById("current-photo");
+  document.addEventListener('DOMContentLoaded', () => {
+    const photoNav = document.getElementById('photo-nav')
+    const currentPhoto = document.getElementById('current-photo')
 
-    if (!photoNav || !currentPhoto) return;
+    if (!photoNav || !currentPhoto) return
 
     // Center the current photo in the view
     function centerCurrentPhoto() {
-      if (!photoNav || !currentPhoto) return;
+      if (!photoNav || !currentPhoto) return
 
-      const photoRect = currentPhoto.getBoundingClientRect();
-      const containerRect = photoNav.getBoundingClientRect();
+      const photoRect = currentPhoto.getBoundingClientRect()
+      const containerRect = photoNav.getBoundingClientRect()
 
       const scrollPosition =
         photoNav.scrollLeft +
         (photoRect.left - containerRect.left) -
         containerRect.width / 2 +
-        photoRect.width / 2;
+        photoRect.width / 2
 
-      photoNav.scrollLeft = scrollPosition;
+      photoNav.scrollLeft = scrollPosition
     }
 
-    window.addEventListener("load", centerCurrentPhoto);
-    window.addEventListener("resize", centerCurrentPhoto);
-  });
+    window.addEventListener('load', centerCurrentPhoto)
+    window.addEventListener('resize', centerCurrentPhoto)
+  })
 </script>

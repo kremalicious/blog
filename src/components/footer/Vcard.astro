@@ -21,13 +21,12 @@ const links = [mastodon, github, rss, jsonfeed]
   />
 
   <p class={styles.description}>
-    {metadata.siteDescription.replace(name, "")}<br />
-    <a class="fn" rel="author me" href={url}>
-      {name}
-    </a>
+    {metadata.siteDescription.replace(name, "")}
+    <br>
+    <a class="fn" rel="author me" href={url}> {name}</a>
   </p>
 </div>
 
-<Location client:visible />
+<Location client:visible/>
 
-<Networks links={links} />
+<Networks links={links}/>

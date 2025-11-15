@@ -26,8 +26,8 @@ const { title, date, updated, image, toc, githubLink, changelog } = post.data
 
 <LayoutBase post={post} description={leadRaw}>
   <article>
-    <PostHeader title={title} date={date} updated={updated} />
-    <PostLead lead={lead} />
+    <PostHeader title={title} date={date} updated={updated}/>
+    <PostLead lead={lead}/>
 
     {
       image && (
@@ -44,15 +44,15 @@ const { title, date, updated, image, toc, githubLink, changelog } = post.data
     {toc && headings && <Toc headings={headings} />}
 
     <div class="markdown">
-      <slot />
+      <slot/>
     </div>
 
     {changelog && <Changelog repo={changelog} />}
 
-    <PostMeta post={post} />
+    <PostMeta post={post}/>
 
-    <PostActions githubLink={githubLink} />
+    <PostActions githubLink={githubLink}/>
 
-    <RelatedPosts post={post} />
+    <RelatedPosts post={post}/>
   </article>
 </LayoutBase>

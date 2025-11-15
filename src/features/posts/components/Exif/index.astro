@@ -17,7 +17,6 @@ type Props = {
 }
 
 const { exif, gps } = Astro.props.imageMetadata
-if (!exif) return null
 const { model, focalLength, fstop, shutterspeed, exposure, iso } = exif
 ---
 

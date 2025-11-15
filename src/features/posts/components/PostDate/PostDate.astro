@@ -19,7 +19,7 @@ const { date, updated } = Astro.props
 </style>
 
 <div class="date">
-  <Time date={date} />
+  <Time date={date}/>
   {updated && " • updated "}
   {updated && <Time date={updated} />}
 </div>

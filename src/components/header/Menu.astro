@@ -4,7 +4,7 @@ import Hamburger from './Hamburger.astro'
 import styles from './Menu.module.css'
 ---
 
-<Hamburger id="menu-button" />
+<Hamburger id="menu-button"/>
 
 <nav aria-label="Pages" class={styles.menu} aria-hidden>
   <ul>
@@ -22,19 +22,19 @@ import styles from './Menu.module.css'
 </nav>
 
 <script>
-  let menuOpen = false;
-  const hamburger = document.querySelector("#menu-button");
-  const menu = document.querySelector('[aria-label="Pages"]');
+  let menuOpen = false
+  const hamburger = document.querySelector('#menu-button')
+  const menu = document.querySelector('[aria-label="Pages"]')
 
-  hamburger?.addEventListener("click", () => {
-    menuOpen = !menuOpen;
+  hamburger?.addEventListener('click', () => {
+    menuOpen = !menuOpen
 
     if (menuOpen) {
-      document.body.classList.add("has-menu-open");
-      menu?.removeAttribute("aria-hidden");
+      document.body.classList.add('has-menu-open')
+      menu?.removeAttribute('aria-hidden')
     } else {
-      document.body.classList.remove("has-menu-open");
-      menu?.setAttribute("aria-hidden", "true");
+      document.body.classList.remove('has-menu-open')
+      menu?.setAttribute('aria-hidden', 'true')
     }
-  });
+  })
 </script>

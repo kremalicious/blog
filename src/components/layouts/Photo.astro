@@ -19,10 +19,10 @@ const { title, date, image, imageMetadata } = post.data
 
 <LayoutBase post={post} description={leadRaw}>
   <article>
-    <PostHeader title={title} date={date} />
+    <PostHeader title={title} date={date}/>
 
     <div class="markdown">
-      <slot />
+      <slot/>
     </div>
 
     <PostImage
@@ -34,8 +34,8 @@ const { title, date, image, imageMetadata } = post.data
       isPhoto
     />
 
-    <Exif imageMetadata={imageMetadata as ImageMetadataFormatted} />
+    {imageMetadata?.exif && <Exif imageMetadata={imageMetadata as ImageMetadataFormatted}/>}
 
-    <PhotoNav currentPhoto={post} />
+    <PhotoNav currentPhoto={post}/>
   </article>
 </LayoutBase>

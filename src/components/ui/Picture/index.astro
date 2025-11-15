@@ -102,7 +102,7 @@ const srcSetStrings = formats.reduce((acc: Record<string, string>, format) => {
       src={srcFallback.src}
       srcset={srcSetStrings["jpg"]}
       alt={alt}
-    />
+    >
   </picture>
 
   {title && <figcaption class={styles.imageTitle}>{title}</figcaption>}

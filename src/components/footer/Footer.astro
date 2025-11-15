@@ -10,44 +10,46 @@ const { name, github } = metadata.author
 ---
 
 <footer role="contentinfo" class={styles.footer} id="footer">
-  <Vcard />
+  <Vcard/>
   <section class={styles.copyright}>
     <p>
       &copy; 2005&ndash;<span id="currentYear">{year}</span>
       {name}
       <a href={`${github}/blog`}>
-        <GithubIcon />View source
+        <GithubIcon/>
+        View source
       </a>
       <a href="/tipjar/">
-        <TipJarIcon />Tip Jar
+        <TipJarIcon/>
+        Tip Jar
       </a>
     </p>
   </section>
 </footer>
 
 <script is:inline>
-  (function () {
-    const el = document.getElementById("currentYear");
-    if (!el) return;
+  ;(() => {
+    const el = document.getElementById('currentYear')
+    if (!el) return
 
-    const actualYear = new Date().getFullYear();
-    if (Number(el.textContent) === actualYear) return;
+    const actualYear = new Date().getFullYear()
+    if (Number(el.textContent) === actualYear) return
 
     const update = () => {
-      el.textContent = String(actualYear);
-    };
+      el.textContent = String(actualYear)
+    }
 
-    if (!("IntersectionObserver" in window)) {
-      setTimeout(update, 0);
-      return;
+    if (!('IntersectionObserver' in window)) {
+      setTimeout(update, 0)
+      return
     }
 
     const observer = new IntersectionObserver(([entry], obs) => {
-      if (!entry || !entry.isIntersecting) return;
-      update();
-      obs.disconnect();
-    });
+      if (!entry || !entry.isIntersecting) return
+      update()
+      obs.disconnect()
+    })
 
-    observer.observe(el);
-  })();
+    observer.observe(el)
+  })()
 </script>

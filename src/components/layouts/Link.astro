@@ -19,16 +19,16 @@ const { title, date, updated, githubLink, linkurl, slug } = post.data
 
 <LayoutBase post={post} description={leadRaw}>
   <article>
-    <PostHeader linkurl={linkurl} title={title} date={date} updated={updated} />
+    <PostHeader linkurl={linkurl} title={title} date={date} updated={updated}/>
 
     <div class="markdown">
-      <slot />
+      <slot/>
     </div>
 
-    <LinkActions slug={slug} linkurl={linkurl} />
+    <LinkActions slug={slug} linkurl={linkurl}/>
 
-    <PostMeta post={post} />
+    <PostMeta post={post}/>
 
-    <PostActions githubLink={githubLink as string} />
+    <PostActions githubLink={githubLink as string}/>
   </article>
 </LayoutBase>

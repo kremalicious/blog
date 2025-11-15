@@ -15,10 +15,11 @@ import { ChevronLeftIcon } from '@lucide/astro'
 </style>
 
 <button class={`link buttonBack`}>
-  <ChevronLeftIcon /> Go Back
+  <ChevronLeftIcon/>
+  Go Back
 </button>
 
 <script>
-  const buttonBack = document.querySelector(".buttonBack");
-  buttonBack?.addEventListener("click", () => window.history.back());
+  const buttonBack = document.querySelector('.buttonBack')
+  buttonBack?.addEventListener('click', () => window.history.back())
 </script>

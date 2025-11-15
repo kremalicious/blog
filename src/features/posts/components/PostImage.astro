@@ -15,13 +15,7 @@ const { src, alt, width, height, loading, isPhoto } = Astro.props
 ---
 
 <div class:list={["postImage", isPhoto ? "photoImage" : "", "breakout"]}>
-  <Picture
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    loading={loading}
-  />
+  <Picture src={src} alt={alt} width={width} height={height} loading={loading}/>
 </div>
 
 <style>

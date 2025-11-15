@@ -4,22 +4,21 @@ import { Search } from './Search'
 ---
 
 <button id="search-button" type="button" title="Search" class="searchButton">
-  <SearchIcon />
+  <SearchIcon/>
 </button>
 
-<Search client:only="react" />
+<Search client:only="react"/>
 
 <script>
-  import { isSearchOpen } from "../stores";
-  const button = document.querySelector("#search-button");
+  import { isSearchOpen } from '../stores'
+
+  const button = document.querySelector('#search-button')
 
   isSearchOpen.subscribe((value) =>
-    document.body.classList.toggle("hasSearchOpen", value)
-  );
+    document.body.classList.toggle('hasSearchOpen', value)
+  )
 
-  button?.addEventListener("click", () =>
-    isSearchOpen.set(!isSearchOpen.get())
-  );
+  button?.addEventListener('click', () => isSearchOpen.set(!isSearchOpen.get()))
 </script>
 
 <style>

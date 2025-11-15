@@ -38,23 +38,23 @@ const showInfiniteScroll = lastPage > 1
 }
 
 <script>
-  import { loadNextPage, handleIntersection } from "./script";
+  import { handleIntersection, loadNextPage } from './script'
 
-  const sentinel = document.getElementById("infinite-scroll-sentinel");
+  const sentinel = document.getElementById('infinite-scroll-sentinel')
   const button = document.getElementById(
-    "load-more-button",
-  ) as HTMLButtonElement;
+    'load-more-button'
+  ) as HTMLButtonElement
 
   if (sentinel && button) {
     const observer = new IntersectionObserver(
       (entries) => handleIntersection(entries, sentinel, button, observer),
-      { rootMargin: "200px" },
-    );
+      { rootMargin: '200px' }
+    )
 
-    observer.observe(sentinel);
+    observer.observe(sentinel)
 
-    button.addEventListener("click", () => {
-      loadNextPage(sentinel, button, observer);
-    });
+    button.addEventListener('click', () => {
+      loadNextPage(sentinel, button, observer)
+    })
   }
 </script>

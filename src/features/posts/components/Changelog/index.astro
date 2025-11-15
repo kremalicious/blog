@@ -9,8 +9,7 @@ type Props = {
 const { repo } = Astro.props
 const repoInfo = await getGitHubRepo(repo)
 if (!repoInfo) {
-  console.info(`Repo ${repo} not found`)
-  return
+  console.error(`Repo ${repo} not found`)
 }
 const { url, object } = repoInfo
 const changelogHtml = await markdownToHtml(
@@ -39,11 +38,11 @@ const changelogHtml = await markdownToHtml(
 }
 
 <script>
-  const changelog = document.querySelector("#changelog");
-  const button = document.querySelector("#changelog-all");
+  const changelog = document.querySelector('#changelog')
+  const button = document.querySelector('#changelog-all')
 
-  button?.addEventListener("click", () => {
-    changelog?.classList.add("all");
-    button?.remove();
-  });
+  button?.addEventListener('click', () => {
+    changelog?.classList.add('all')
+    button?.remove()
+  })
 </script>

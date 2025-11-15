@@ -27,14 +27,14 @@ const { post, title, description } = Astro.props
     style={post?.data.style}
   />
   <body>
-    <Header />
+    <Header/>
 
     <main class={styles.document} id="document">
       <div class={styles.content}>
-        <slot />
+        <slot/>
       </div>
     </main>
 
-    <Footer />
+    <Footer/>
   </body>
 </html>

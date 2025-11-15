@@ -6,7 +6,12 @@ import {
   PhotoTeaser,
   PostTeaser
 } from '@/features/posts/components'
-import type { BlogPost } from '@/features/posts/types'
+import type {
+  ArticlePost,
+  BlogPost,
+  LinkPost,
+  PhotoPost
+} from '@/features/posts/types'
 import LayoutBase from './Base/index.astro'
 
 type Props = {
@@ -26,11 +31,11 @@ const isPhotos = title && title !== '' && title.toLowerCase().includes('photos')
     {
       page?.data?.map((post) =>
         post.collection === "photos" ? (
-          <PhotoTeaser post={post} />
+          <PhotoTeaser post={post as PhotoPost} />
         ) : post.collection === "links" ? (
-          <LinkTeaser post={post} />
+          <LinkTeaser post={post as LinkPost} />
         ) : (
-          <PostTeaser post={post} />
+          <PostTeaser post={post as ArticlePost} />
         )
       )
     }
@@ -46,7 +51,7 @@ const isPhotos = title && title !== '' && title.toLowerCase().includes('photos')
     )
   }
 
-  <slot />
+  <slot/>
 </LayoutBase>
 
 <style>

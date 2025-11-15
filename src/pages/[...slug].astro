@@ -2,6 +2,7 @@
 import { render } from 'astro:content'
 import { ArticleLayout, LinkLayout, PhotoLayout } from '@/components/layouts'
 import { getAllPosts } from '@/features/posts/lib'
+import type { PhotoPost } from '@/features/posts/types'
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts()
@@ -43,7 +44,7 @@ const leadRaw = remarkPluginFrontmatter.leadRaw || undefined
 
 {
   post.collection === "photos" && (
-    <PhotoLayout post={post} leadRaw={leadRaw}>
+    <PhotoLayout post={post as PhotoPost} leadRaw={leadRaw}>
       <Content />
     </PhotoLayout>
   )
