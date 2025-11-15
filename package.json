@@ -7,10 +7,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "bun run prebuild && astro dev --config 'src/config/astro.config.ts'",
-    "build": "astro build --config 'src/config/astro.config.ts'",
-    "preview": "astro preview",
-    "typecheck:astro": "astro check",
+    "dev": "bun run prebuild && bun run --bun astro dev --config 'src/config/astro.config.ts'",
+    "build": "bun run --bun astro build --config 'src/config/astro.config.ts'",
+    "preview": "bun run --bun astro preview",
+    "typecheck:astro": "bun run --bun astro check",
     "typecheck:tsc": "tsc --noEmit --pretty",
     "typecheck": "bun run typecheck:astro && bun run typecheck:tsc",
     "prebuild": "run-p --silent --continue-on-error create:symlinks move:downloads",
@@ -25,7 +25,6 @@
     "format": "run-p --silent format:biome format:md",
     "deploy:s3": "./scripts/deploy-s3.sh",
     "new": "bun run scripts/new/index.ts",
-    "create:redirects": "bun run scripts/redirect-from.ts",
     "create:symlinks": "./scripts/create-symlinks.sh",
     "move:downloads": "bun run scripts/move-downloads.ts",
     "iptc:add": "bun run scripts/iptc-add.ts"

@@ -30,12 +30,6 @@ you are a senior programmer with expert-level experience in typescript, bun, bio
 - If you do not know or are not sure about the answer, say so, instead of guessing.
 - If you're unsure, ask me for help or more input.
 
-## Dependencies and libraries
-
-- when adding new dependencies always use the latest version for each dependency
-- prefer using least amount of dependencies for features suggested
-- prioritize small, minimal, focused, and well-maintained libraries when introducing new dependencies
-
 ## Error Handling and Validation
 
 - Prioritize error handling and edge cases:
@@ -85,14 +79,3 @@ you are a senior programmer with expert-level experience in typescript, bun, bio
   - Use an object to return results.
   - Declare necessary types for input arguments and output.
 - Use a single level of abstraction.
-
-### Testing
-
-- Follow the Arrange-Act-Assert convention for tests.
-- Name test variables clearly.
-  - Follow the convention: inputX, mockX, actualX, expectedX, etc.
-- Write unit tests for each public function.
-  - Use test doubles to simulate dependencies.
-    - Except for third-party dependencies that are not expensive to execute.
-- Write acceptance tests for each module.
-  - Follow the Given-When-Then convention.
