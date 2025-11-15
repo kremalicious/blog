@@ -8,13 +8,12 @@ type Props = {
 
 const { repo } = Astro.props
 const repoInfo = await getGitHubRepo(repo)
-if (!repoInfo) {
-  console.error(`Repo ${repo} not found`)
-}
-const { url, object } = repoInfo
-const changelogHtml = await markdownToHtml(
-  object.text.replace('### Changelog', '')
-)
+if (!repoInfo) console.error(`Repo ${repo} not found`)
+
+const changelogHtml =
+  repoInfo?.object != null
+    ? await markdownToHtml(repoInfo.object.text.replace('### Changelog', ''))
+    : null
 ---
 
 {
@@ -24,7 +23,7 @@ const changelogHtml = await markdownToHtml(
       <div class={styles.changelog} id="changelog">
         <p class={styles.source}>
           sourced from{" "}
-          <a href={`${url}/tree/main/CHANGELOG.md`}>
+          <a href={`${repoInfo.url}/tree/main/CHANGELOG.md`}>
             <code>{`${repo}:CHANGELOG.md`}</code>
           </a>
         </p>
