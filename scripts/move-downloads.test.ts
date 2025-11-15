@@ -1,13 +1,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import chalk from 'chalk'
-import { glob } from 'glob'
 import type { Ora } from 'ora'
 import { expect, test, vi } from 'vitest'
 import { copyZipFiles } from './move-downloads'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+vi.mock('globby', () => ({
+  globby: vi.fn().mockResolvedValue(['file1.zip', 'file2.zip'])
+}))
 
 test('copyZipFiles should copy zip files', async () => {
   // Create temporary directories and files
@@ -17,9 +17,6 @@ test('copyZipFiles should copy zip files', async () => {
   await fs.mkdir(destDir, { recursive: true })
   await fs.writeFile(path.join(sourceDir, 'file1.zip'), 'content1')
   await fs.writeFile(path.join(sourceDir, 'file2.zip'), 'content2')
-
-  const globMock = vi.spyOn(glob, 'sync')
-  globMock.mockReturnValue(['file1.zip', 'file2.zip'])
 
   const mockOra = {
     text: '',
