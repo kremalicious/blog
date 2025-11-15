@@ -291,3 +291,12 @@ tr:last-child td {
   background: #2e4f5c;
   color: #fff;
 }
+
+.screenreader-only {
+  clip-path: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

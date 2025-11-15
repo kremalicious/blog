@@ -66,14 +66,9 @@
 }
 
 .nav > div,
-.nav > button {
-  padding: var(--space-s);
-}
-
-.nav > div,
 .nav > button,
-.nav > div > label,
-.nav > div > label > div {
+.nav theme-switch {
+  padding: var(--space-s);
   display: inline-flex;
   align-items: center;
 }

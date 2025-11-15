@@ -69,40 +69,30 @@ const faviconSvg = await getImage({ src: faviconSvgSrc, format: 'svg' })
     is:inline
     define:vars={{ sessionStorageName: metadata.sessionStorageName }}
   >
-    // run early so no page flashes
-    ;(() => {
-      function getPreferTheme() {
-        const savedTheme = sessionStorage.getItem(sessionStorageName)
-        if (savedTheme) return savedTheme
+    function setInitialTheme() {
+      const colors = { dark: '#1d2224', light: '#e7eef4' }
+      const preferredTheme = sessionStorage.getItem(sessionStorageName)
+      const systemPrefersDark = window?.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches
+      let theme = 'light'
 
-        const isSystemDark = window.matchMedia(
-          '(prefers-color-scheme: dark)'
-        ).matches
-
-        return isSystemDark ? 'dark' : 'light'
+      if (preferredTheme === 'dark' || preferredTheme === 'light') {
+        theme = preferredTheme
+      } else if (systemPrefersDark) {
+        theme = 'dark'
       }
 
-      function getThemeColor(theme) {
-        return theme === 'dark' ? '#1d2224' : '#e7eef4'
-      }
+      const root = document.documentElement
+      const meta = document.querySelector('meta[name="theme-color"]')
+      const color = colors[theme]
 
-      const themeValue = getPreferTheme()
-      const themeColor = getThemeColor(themeValue)
-
-      function reflectPreference() {
-        const htmlEl = document.documentElement
-        const metaThemeColor = document.querySelector('meta[name=theme-color]')
-
-        htmlEl.setAttribute('data-theme', themeValue)
-        htmlEl.setAttribute('data-theme-color', themeColor)
-        metaThemeColor?.setAttribute('content', themeColor)
-      }
-
-      reflectPreference()
-    })()
+      root.setAttribute('data-theme', theme)
+      root.setAttribute('data-theme-color', color)
+      meta?.setAttribute('content', color)
+    }
+    setInitialTheme()
   </script>
-
-  <script src="@/components/header/ThemeSwitch/theme-switch.ts"></script>
 
   <title>{titleFinal}</title>
 

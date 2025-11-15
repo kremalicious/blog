@@ -32,7 +32,6 @@
 - [🎈 Content creation helpers](#-content-creation-helpers)
   - [Add a new post](#add-a-new-post)
 - [🚚 Deployment](#-deployment)
-  - [S3 Deployment](#s3-deployment)
 - [🏛 Licenses](#-licenses)
   - [Posts](#posts)
   - [Photos \& images](#photos--images)
@@ -41,13 +40,23 @@
 
 ## 🎉 Features
 
-The whole [blog](https://kremalicious.com) is a statically exported site built with [Astro](https://astro.build) and TypeScript. Almost all components are Astro or native Web Components, with some React components loaded client-side.
+The whole [blog](https://kremalicious.com) is a statically exported site built with [Astro](https://astro.build) and TypeScript. Almost all components are Astro or native Web Components, with some React components.
 
 Styling happens through a combination of basic global styles and on components level either through CSS modules or CSS in `<style>` tags within Astro components.
 
+The high-level tech stack in a convenient buzzword list:
+
+- [Astro](https://astro.build)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) + [CSS Modules](https://github.com/css-modules/css-modules)
+- [TypeScript](https://www.typescriptlang.org)
+- [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+- [React](https://react.dev)
+- [Biome](https://biomejs.dev)
+- [Bun](https://bun.com)
+
 Content lives under `content/` and Astro creates a content collection for each subfolder, which are then queried in components. Every post is a folder with a markdown file and all respective post assets co-located inside.
 
-Retrieving content collections will enrich every post's frontmatter metadata, like extracting date and slug from the post folder name, or exif extraction for photos.
+Retrieving content collections enriches every post's frontmatter metadata, like extracting date and slug from the post folder name, or exif extraction for photos.
 
 ### 🌅 Image handling
 
@@ -132,11 +141,16 @@ If you want to know how this works, have a look at the respective component unde
 
 ### 🌗 Theme Switcher
 
-Includes a theme switcher which allows user to toggle between a light and a dark theme. Switching between them also happens automatically based on user's system preferences.
+Includes a theme switcher which allows to toggle between a light and a dark theme. Done without any dependencies:
 
-If you want to know how, have a look at the respective components:
+- before document renders, the theme is set based on system preference or session storage user preference in the `<head>`
+- the theme switch web component then listens/dispatches a custom event to sync its UI
 
-- [`src/components/ThemeSwitch/`](src/components/ThemeSwitch/)
+If you want to know how this works in detail, have a look at the respective files:
+
+- [`theme.ts`](src/features/theme-switch/lib/theme.ts)
+- [`theme-switch-element.ts`](src/features/theme-switch/components/theme-switch-element.ts)
+- [`ThemeSwitch.astro`](src/features/theme-switch/components/ThemeSwitch.astro)
 
 ### 🎯 astro-redirect-from
 
@@ -242,11 +256,7 @@ bun run new photo /path/to/photo1.jpg /path/to/photo2.jpg "Shared Title For Phot
 
 ## 🚚 Deployment
 
-Every branch or Pull Request is automatically deployed by [Vercel](https://vercel.com) with their GitHub integration for testing. A link to a preview deployment will appear under each Pull Request. Vercel is NOT used for the production deployment.
-
-### S3 Deployment
-
-The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3:
+The latest deployment of the `main` branch is automatically deployed to S3 from the GitHub Action as the production deployment, aliased to `kremalicious.com`. The deploy command calls the [`scripts/deploy-s3.sh`](scripts/deploy-s3.sh) script, syncing the contents of the `dist/` folder to S3 with proper caching headers applied:
 
 ```bash
 bun run deploy:s3
