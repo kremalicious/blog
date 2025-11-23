@@ -3,14 +3,14 @@ import './TokenSelect.css'
 import { useStore } from '@nanostores/react'
 import { ChevronDownIcon, ChevronsDownIcon, ChevronsUpIcon } from 'lucide-react'
 import { useEffect } from 'react'
-import { useAccount } from 'wagmi'
+import { useConnection } from 'wagmi'
 import { Loader } from '@/components/ui/Loader/Loader'
 import { useFetchTokens } from '@/features/web3/hooks/useFetchTokens'
 import { $selectedToken } from '@/features/web3/stores'
 import { Token } from './Token'
 
 export function TokenSelect() {
-  const { address } = useAccount()
+  const { address } = useConnection()
   const { data: tokens, isLoading } = useFetchTokens()
   const selectedToken = useStore($selectedToken)
 

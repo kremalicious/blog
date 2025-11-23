@@ -45,7 +45,7 @@ export function useSwitchChain() {
   }
 }
 
-export function useAccount() {
+export function useConnection() {
   return {
     address: '0x0000000000000000000000000000000000000000',
     chain: mainnet

@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { type ReactElement, useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
+import { useConnection } from 'wagmi'
 import { metadata } from '@/config'
 import {
   $amount,
@@ -14,7 +14,7 @@ import { Send } from '../Send'
 import styles from './Form.module.css'
 
 export function Web3Form(): ReactElement {
-  const { address: account } = useAccount()
+  const { address: account } = useConnection()
   const selectedToken = useStore($selectedToken)
   const isInitSend = useStore($isInitSend)
   const amount = useStore($amount)

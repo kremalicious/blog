@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import useSwr, { type SWRResponse } from 'swr'
-import { useAccount, useChains } from 'wagmi'
+import { useChains, useConnection } from 'wagmi'
 import type { GetToken } from './types'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -10,7 +10,7 @@ const apiUrl = import.meta.env.PUBLIC_WEB3_API_URL
 // Wrapper for fetching user tokens with swr.
 //
 export function useFetchTokens(): SWRResponse<GetToken[] | undefined, Error> {
-  const { address } = useAccount()
+  const { address } = useConnection()
   const chains = useChains()
   const [url, setUrl] = useState<string | undefined>()
   const fetchResults = useSwr<GetToken[] | undefined>(url, fetcher)

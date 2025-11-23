@@ -1,5 +1,5 @@
 import { useStore } from '@nanostores/react'
-import { useAccount, useChains, useEnsName } from 'wagmi'
+import { useChains, useConnection, useEnsName } from 'wagmi'
 import { truncateAddress } from '@/features/web3/lib/truncateAddress'
 import { $amount, $selectedToken } from '@/features/web3/stores'
 import styles from './Data.module.css'
@@ -14,7 +14,7 @@ export function Data({
   isDisabled: boolean
 }) {
   const chains = useChains()
-  const { address: from } = useAccount()
+  const { address: from } = useConnection()
   const { data: ensFrom } = useEnsName({ address: from, chainId: 1 })
 
   const selectedToken = useStore($selectedToken)

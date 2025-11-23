@@ -1,4 +1,4 @@
-import { useAccount } from 'wagmi'
+import { useConnection } from 'wagmi'
 import { $isInitSend } from '@/features/web3/stores'
 import { ExplorerLink } from './ExplorerLink'
 import styles from './Success.module.css'
@@ -8,7 +8,7 @@ const description =
   'Your transaction is on its way. You can check the status on'
 
 export function Success() {
-  const account = useAccount()
+  const account = useConnection()
 
   const explorerName = account?.chain?.blockExplorers?.default.name
   const explorerUrl = account?.chain?.blockExplorers?.default.url
