@@ -137,3 +137,7 @@ Always [check](https://check.torproject.org) your Tor connection with whatever a
 
 - _SOCKS proxy server_: `localhost`
 - _Port_: `9050`
+
+## Complementing Software
+
+Instead of the script you might want to check out [ControlPlane](https://github.com/dustinrue/ControlPlane) (Fork of [Marco Polo](https://www.symonds.id.au/marcopolo/)), as it supports automatic location switching based on connected/available WiFi networks and much more. – Even thought it is no longer maintained it still works, when it's allowed full-disk-access on macOS, and there's even an (Apple Silicon fork)[https://github.com/crash0verride11/ControlPlane/releases/tag/Monterey_v0.2_Universal].
